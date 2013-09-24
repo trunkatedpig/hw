@@ -3,8 +3,7 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Greeter g,g2;
-	String result;
+	/*
 	g = new Greeter();
 	g.setGreeting("Hello");
 	g2 = new Greeter();
@@ -17,8 +16,11 @@ public class Driver {
 	g.setGreeting("Sup");
 	System.out.println(g.greet("Adam"));
 	System.out.println(g2.greet("Alice"));
+	*/
+	Greeter g,g2;
 
-
-
+	String result;
+	g = new Greeter("Howdy");
+	System.out.println(g.greet("Tom"));
     }
 }
