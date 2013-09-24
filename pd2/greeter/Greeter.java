@@ -3,15 +3,20 @@ import java.util.*;
 
 public class Greeter {
 
-    public String greeting; 
-    /* 2. change public to private,
-       test, then change back 
-    */
+    // static makes the variable 
+    // shared by all instances
+    //static private String greeting; 
+    
+    /* You can initialize instance variables
+       when you declare them, like this */
+    //private String greeting="Hello"; 
 
+    private String greeting;
 
-    /* 3. change public to private,
-       test, then change back 
-    */
+    public Greeter(String g) {
+	greeting=g;
+    }
+
     public void setGreeting(String greet) {
 	greeting = greet;
     }
