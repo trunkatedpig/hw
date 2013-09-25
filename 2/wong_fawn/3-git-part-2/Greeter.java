@@ -7,10 +7,13 @@ public class Greeter {
 		setHappy("Hi, how are you");
 		setSad("Leave me alone");
 	}
+	/*
+	just in case Greeter is only given one argument
 	public Greeter(String greeter) {
 		setHappy(greeter); 
 		setSad("Leave me alone"); 
 	}
+	*/
 	public Greeter(String happy, String sad) {
 		setHappy(happy); 
 		setSad(sad); 

@@ -10,8 +10,11 @@ public class Driver {
 		g = new Greeter("Hi", "Go away"); 
 		System.out.println(g.happyGreet("James"));
 		System.out.println(g.sadGreet("Sarah"));
+		/*	
+		deals with the case that Greeter is only given one argument	
 		g = new Greeter("Hello");
 		System.out.println(g.happyGreet("Kevin"));
 		System.out.println(g.sadGreet("Jennie"));
+		*/
 	}
 }	
