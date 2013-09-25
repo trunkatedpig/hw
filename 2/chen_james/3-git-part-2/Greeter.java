@@ -3,52 +3,38 @@ import java.util.*;
 
 public class Greeter {
 
-    // static makes the variable 
-    // shared by all instances
-    //static private String greeting; 
+    public String happygreeting;
+    public String sadgreeting;
+    //an instance variable for happygreeting and sadgreeting
     
-    /* You can initialize instance variables
-       when you declare them, like this */
-    //private String greeting="Hello"; 
-
-    private String greeting;
-    
-    public Greeter(String g) {
-	setGreeting(g);
-    }
-
     public Greeter() {
-	setGreeting("Hello");
+	setHappy("happy");
+	setSad("sad");
+	   
+	// a constructor with no parameters that gives both reasonable values
+    }
+    public Greeter (String greet, String greet2){
+	setHappy(greet);
+	setSad(greet2);
+	// a constructor that takes two strings, one for each greeting
     }
 
-    // examples of method overloading
-    public void f() {
-    }
-    public void f(String s) {
-    }
-    public void f(String s,String s2) {
-    }
-    public void f(String s,int s2) {
-    }
-    public void f(int s,String s2) {
-    }
-    /*
-      but this one doesn't work becasue
-      we've already used String,String -
-      it's about the types, not the names
-
-    public void f(String s2,String s1) {
-    }
-    */
+    public void setHappy (String mood1) { //new method that will set the respective Strings to their parameter values
+	happygreeting = mood1;
+   }
     
-
-    public void setGreeting(String greet) {
-	greeting = greet;
+    public void setSad (String mood2) { //new method that will set the respective Strings to their parameter values
+	sadgreeting = mood2;
     }
-
-    public String greet(String name) {
+     
+    public String greet (String name, String name2) {
 	String message;
-	message = greeting + " " + name;
+        message = name + " is " + happygreeting + "\n" + name2 + " is " + sadgreeting;
+	//created new line
 	return message;
+	//a happyGreet and sadGreet method that works like greet except returns the happy or sad greeting 
+        
     }
+
+    
 }
