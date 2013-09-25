@@ -20,9 +20,10 @@ public class Driver {
 	System.out.println(g2.greet("Sue"));
 	*/
 
-	g = new Greeter("Get lost");
+	g = new Greeter("so excited", "so sad");
 	g2 = new Greeter();
-	System.out.println(g.greet("Tom"));
-	System.out.println(g2.greet("Sarah"));
+	System.out.println(g2.greet("Tom", "Sarah"));
+	// Have to change each time
+
     }
 }
