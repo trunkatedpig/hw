@@ -3,15 +3,16 @@ import java.util.*;
 
 public class Greeter {
 
-    public String greeting; 
-    /* 2. change public to private,
-       test, then change back 
-    */
+    // We can initialize instance variables
+    // when we declare them
+    //private String greeting="default"; 
 
+    private String greeting;
+    
+    public Greeter(String g) {
+	greeting = g;
+    }
 
-    /* 3. change public to private,
-       test, then change back 
-    */
     public void setGreeting(String greet) {
 	greeting = greet;
     }
@@ -22,7 +23,3 @@ public class Greeter {
 	return message;
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 79ed514835dec4ae2ffb2675beeb5d15099eb915
