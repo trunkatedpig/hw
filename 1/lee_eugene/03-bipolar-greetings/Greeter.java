@@ -33,11 +33,18 @@ public class Greeter {
 	
 	
 	public void setSad(String greet) {
-		sad greeting = greet;
+		sadgreeting = greet;
 	}
 	
 	public String happyGreet(String name) {
-		String message
+		String message;
 		message = happygreeting + " " + name;
 		return message;
 	}
+	
+	public String sadGreet(String name) {
+		String message;
+		message = sadgreeting + " " + name;
+		return message;
+	}
+}
