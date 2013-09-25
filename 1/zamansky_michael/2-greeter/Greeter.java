@@ -22,4 +22,7 @@ public class Greeter {
 	return message;
     }
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 79ed514835dec4ae2ffb2675beeb5d15099eb915
