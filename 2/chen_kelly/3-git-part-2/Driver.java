@@ -4,8 +4,8 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args) {
 	Greeter g,g2;
-	String result;
-	/*
+	/*String result;
+        
 	g = new Greeter();
 	g.setGreeting("Hello");
 	g2 = new Greeter();
@@ -20,10 +20,11 @@ public class Driver {
 	System.out.println(g2.greet("Sue"));
 	*/
 
-	g = new Greeter("so excited", "so sad");
+	g = new Greeter("Hello there", "You are sad");
 	g2 = new Greeter();
-	System.out.println(g2.greet("Tom", "Sarah"));
-	// Have to change each time
-
+	System.out.println(g.happyGreet("Tom"));
+	System.out.println(g.sadGreet("Tom"));
+	System.out.println(g2.sadGreet("Sarah"));
+	System.out.println(g2.happyGreet("Sarah"));
     }
 }
