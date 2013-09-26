@@ -8,8 +8,8 @@ public class Greeter {
     public String sadgreeting;
 
     public Greeter (){
-	greeting = "I'm so happy to see you";
-	greeting2 = "Slap yourself";
+         setHappy( "You look fantastic");
+	 setSad( "Slap yourself");
     }
 
     public Greeter (String sad, String happy){
@@ -39,3 +39,9 @@ public class Greeter {
 	    return message;
     }
 }
+
+
+
+/* Partners of Deanna and Thomas */
+
+/* Eugene helped fix the stylistic errors from copying over from Google Docs */
