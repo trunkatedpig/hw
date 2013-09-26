@@ -29,8 +29,13 @@ public class Greeter {
 
     
     public Greeter(String g, String h) {
+<<<<<<< HEAD
+	sadgreeting(g);
+	happygreeting (h);
+=======
 	sadgreeting(h);
 	happygreeting (g);
+>>>>>>> 6a7f15dece621c0221fe28450a5133fd59a68790
     }
 
     public void sadgreeting(String greet) {
