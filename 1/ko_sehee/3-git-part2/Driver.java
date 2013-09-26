@@ -7,7 +7,7 @@ public class Driver {
 	g = new Greeter("HI!", "I want to cry :(" );
 
 	g2 = new Greeter();
-	System.out.println(g.greet("Lucy","Max"))
-	    System.out.println(g2.greet("Apple"))
+	System.out.println(g.greet("Lucy","Max"));
+	System.out.println(g2.greet("Apple"));
     }
 }
