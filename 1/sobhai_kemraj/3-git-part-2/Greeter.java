@@ -29,8 +29,8 @@ public class Greeter {
 
     
     public Greeter(String g, String h) {
-	sadgreeting(g);
-	happygreeting (h);
+	sadgreeting(h);
+	happygreeting (g);
     }
 
     public void sadgreeting(String greet) {
