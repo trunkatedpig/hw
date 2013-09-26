@@ -13,7 +13,11 @@ public class Greeter {
 
     /* public greeter(String... (sad); } coded with help from Isaac Gluck's code */
 
+<<<<<<< HEAD
+    public void greeter() {
+=======
     public S greeter() {
+>>>>>>> 309ab5c2f16217c0ea3bc8915db39b6c580ba128
 	setHappy("I love your tie");
 	setSad("you're ugly");
     }
