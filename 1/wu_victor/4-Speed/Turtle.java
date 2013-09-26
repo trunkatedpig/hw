@@ -8,7 +8,9 @@ Public class Turtle {
     Private int speed;
 
     Public Turtle () {
-	age = 2
+	age = 2;
+	speed = 5;
+	Turtle = "Bob"
     }
 
     Public Turtle (String name) {
@@ -18,7 +20,20 @@ Public class Turtle {
     Public Turtle (String name, int age, int speed ) {
 
     }
+    
+    Public void speedUp (int n) {
 
+    }
+
+    Public void slowDown (int n) {
+
+    }
+
+    Public void getOlder () {
+
+    }
+
+    Public void setName (
 
 }
  
