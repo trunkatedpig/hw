@@ -16,13 +16,13 @@ public class Greeter {
 	happyG = "Hello friend";
 	sadG= "Ewwwww you nasty";
 	    }
-    /*public Greeter(String h, String s) {
-	happyG = happyGreeting(h);
-	sadG= sadGreeting(s);
+    public Greeter(String h, String s) {
+	happyGreeting(h);
+	sadGreeting(s);
 	    }
-    */
+    
     public void happyGreeting(String hgreet) {
-	happyG = hgreet;
+	happyG  = hgreet;
     }
     
     public void sadGreeting(String sgreet) {
