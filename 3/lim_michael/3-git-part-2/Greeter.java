@@ -2,25 +2,27 @@ import java.io.*;
 import java.util.*;
 
 public class Greeter {
-    public String happygreeting,sadgreeting;
+
+    private String happygreeting, sadgreeting;
+    
     public Greeter() {
-	setHappy ("Hello, today is a good day,");
-	setSad ("Hey, today is a bad day,");
+	setHappy("Nice to meet you");
+	setSad("Go away");
     }
 
-    public Greeter (String h, String s){
+    public Greeter(String h, String s) {
 	setHappy(h);
 	setSad(s);
     }
 
-    public void setHappy(String h) {
-	happygreeting = h;
+    public void setHappy(String happy1) {
+	happygreeting = happy1;
     }
 
-    public void setSad(String s) {
-	sadgreeting = s;
+    public void setSad(String sad1){
+	sadgreeting = sad1;
     }
-    
+
     public String happyGreet(String name){
 	String message;
 	message = happygreeting + " " + name;
