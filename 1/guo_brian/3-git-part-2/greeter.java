@@ -6,15 +6,15 @@ public class Greeter {
     public String happygreeting, sadgreeting;
     
     public Greeter() {
-	setHappy("I love you");
-	setSad("You're my least favorite person");
+	setHappy("Nice to meet you!");
+	setSad("It is a rather solemn occasion");
     }
     
-    public void setHappy(String happygreeter){
+    public setHappy(String happygreeter){
 	happygreeting = happygreeter;
     }
 
-    public void setSad (String sadgreeter){
+    public setSad (String sadgreeter){
 	sadgreeting = sadgreeter;
     }
 
@@ -35,6 +35,3 @@ public class Greeter {
 	return message;
     }
 }
-
-
-/* Thank you to Brian Guo for helping us understand how to code this */
