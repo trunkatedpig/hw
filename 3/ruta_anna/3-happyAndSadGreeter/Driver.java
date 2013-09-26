@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Greeter g,g2,g3;
+	/*Greeter g,g2;
 	String result;
-	/*
+
 	g = new Greeter();
 	g.setGreeting("Hello");
 	result = g.greet("Tom");
@@ -16,19 +16,22 @@ public class Driver {
 	System.out.println(result);
 	result = g2.greet("Sarah");
 	System.out.println(result);
-	
+
 	g.setGreeting("sup");
 	System.out.println(g.greet("Alan"));
 	System.out.println(g2.greet("Sue"));
-	*/
-	g = new Greeter("Hello");
-	System.out.println(g.greet("Tom"));
+
 	g2 = new Greeter();
-	System.out.println(g2.happyGreet("Robert"));
-	System.out.println(g2.sadGreet("Robert"));
-	g3 = new Greeter("What's up, ", "Shouldn't you bother someone else, ");
-	System.out.println(g3.happyGreet("Bob"));
-	System.out.println(g3.sadGreet("Bob"));
+	g = new Greeter("Howdy");
+	System.out.println(g.greet("Tom"));
+	System.out.println(g2.greet("Sue"));*/
+
+	Greeter g3;
+	String result;
+
+	g3 = new Greeter();
+	System.out.println(g3.happyGreet("Steven"));
+	System.out.println(g3.sadGreet("George"));
 
     }
 }

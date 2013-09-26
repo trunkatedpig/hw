@@ -3,11 +3,11 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	String result;
-	Greeter g;
-	g = new Greeter();
-	result = g.greet();
-	System.out.println(result);
-    }
 
+	Greeter g;
+	String result;
+
+	g = new Greeter("such a lovely day,", "go away");
+	System.out.println(g.greet("Ishmam"));
+    }
 }
