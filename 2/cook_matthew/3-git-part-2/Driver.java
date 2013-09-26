@@ -3,15 +3,12 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Greeter g,g2;
+	Greeter g;
 	String result;
-	g = new Greeter();
-	g.setGreeting("Hello");
-	g2 = new Greeter();
-	g2.setGreeting("How are you doing");
-	result = g.greet("Tom");
+	g = new Greeter("I love You", "I hate you");
+	result = g.happyGreet("Tom");
 	System.out.println(result);
-	result = g2.greet("Sarah");
+	result = g.sadGreet("Sarah");
 	System.out.println(result);
 
 	/* 1. Try:
