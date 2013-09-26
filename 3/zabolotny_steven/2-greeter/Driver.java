@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Greeter g,g2;
+	Greeter g,g2,g3;
 	String result;
 	/*
 	g = new Greeter();
@@ -23,6 +23,12 @@ public class Driver {
 	*/
 	g = new Greeter("Hello");
 	System.out.println(g.greet("Tom"));
-	
+	g2 = new Greeter();
+	System.out.println(g2.happyGreet("Robert"));
+	System.out.println(g2.sadGreet("Robert"));
+	g3 = new Greeter("What's up, ", "Shouldn't you bother someone else, ");
+	System.out.println(g3.happyGreet("Bob"));
+	System.out.println(g3.sadGreet("Bob"));
+
     }
 }
