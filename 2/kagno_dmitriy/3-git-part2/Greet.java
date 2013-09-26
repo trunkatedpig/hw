@@ -3,23 +3,34 @@ import java.util.*;
 
 public class Greet {
 
-    public String greet;
+    public String Sgreet,Hgreet;
 
-    public Greet(String g) {
-	setGreet(g);
+    public Greet(String g,String h) {
+	setSgreet(g,h);
     }
 
     public Greet(){
-	setGreet("Good Mornin'");
+	setSgreet("Go away","Good Mornin'");
     }
 
-    public void setGreet(String gree){
-	greet = gree;
+    public void setSgreet(String Sad,String Happy){
+	Sgreet = Sad;
+	Hgreet = Happy;
     }
-    
-    public String gree(String name){
+
+    /* public void setHgreet(String Happy){
+	Hgreet = Happy;
+    }
+    */
+    public String Sgree(String name){
 	String message;
-	message = greet + " " + name;
+	message = Sgreet + " " + name;
+	return message;	
+    }
+
+    public String Hgree(String name){
+	String message;
+	message = Hgreet + " " + name;
 	return message;
     }
 }

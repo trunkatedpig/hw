@@ -15,10 +15,10 @@ public class Driver {
 	System.out.println(result);
 
 	/* 1. Try:
-	      g.setGreeting("Howdy");
-	         g.greet("Tom");
-		    g.setGreeting("sup");
-		       g.greet("Fred");
+	         g.setGreeting("Howdy");
+		          g.greet("Tom");
+			      g.setGreeting("sup");
+			             g.greet("Fred");
 	*/
 
 
