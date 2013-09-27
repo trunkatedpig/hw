@@ -14,6 +14,12 @@ public class Person {
 	turt = t;
     }
 
+    public String getName () {
+	String n;
+	n = name;
+	return n;
+    }
+    
     public String getPet () {
 	String name;
 	name = turt.gName();
