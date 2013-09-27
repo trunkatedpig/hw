@@ -1,40 +1,43 @@
 import java.io.*;
 import java.util.*;
 
-Public class Turtle {
+public class Turtle {
     
-    Private String Turtle;
-    Private int age;
-    Private int speed;
+    private String name;
+    private int age;
+    private int speed;
 
-    Public Turtle () {
-	age = 2;
-	speed = 5;
-	Turtle = "Bob"
+
+    private void setVar (String n, int a, int s) {
+	name = n;
+	age = a;
+	speed = s;
+    }
+    public Turtle () {
+	setVar ("Bob", 1, 3);
+    }
+    public Turtle (String name) {
+	setVar (name, 1, 3);
+    }
+    public Turtle (String name, int a, int s) {
+	setVar (name, a, s);
     }
 
-    Public Turtle (String name) {
-
+    public String gName () {
+	String rn;
+	rn = name + " ";
+	return rn;
     }
-
-    Public Turtle (String name, int age, int speed ) {
-
+    public int gSpeed () {
+	int rs;
+	rs = speed;
+	return rs;
     }
-    
-    Public void speedUp (int n) {
-
+    public int gAge () {
+	int ra;
+	ra = age;
+	return ra;
     }
-
-    Public void slowDown (int n) {
-
-    }
-
-    Public void getOlder () {
-
-    }
-
-    Public void setName (
-
 }
  
 
