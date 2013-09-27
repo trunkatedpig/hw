@@ -38,6 +38,18 @@ public class Turtle {
 	ra = age;
 	return ra;
     }
+
+
+    public void speedUp (int n) {
+	speed = speed + n;
+    }
+    public void slowDown (int n) {
+	speed = speed - n;
+    }
+    public void getOlder () {
+	age = age + 1;
+    }
+
 }
  
 
