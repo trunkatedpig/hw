@@ -11,12 +11,12 @@ public class Driver {
 	int result3;
 
 	t = new Turtle();
-	result = t.getname();
-	result2 =t.getage();
-	result3= t.getspeed();
+	result = t.getName();
+	result2 =t.getAge();
+	result3= t.getSpeed();
 	    System.out.println (result);
 	    System.out.println (result2);
-	     System.out.println (result3);
+            System.out.println (result3);
 
     }
 }

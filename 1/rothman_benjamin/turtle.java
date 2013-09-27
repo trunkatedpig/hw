@@ -25,39 +25,39 @@ public class Turtle {
     }
 
     public void speedUp(int n) {
-	setSpeed (speed + n);
+	setSpeed(speed + n);
     }
 
     public void slowDown (int n) {
-	setSpeed (speed - n);
+	setSpeed(speed - n);
     }
 
     public void getOlder() {
 	setAge (age + 1);
     }
 
-    public String getname () {
+    public String getName () {
 	return name;
     }
 
-    public int getspeed () {
+    public int getSpeed () {
 	return speed;
     }
 
-    public int getage () {
+    public int getAge () {
 	return age;
     }
 
     public void setAge (int a) {
-	a=age;
+	age=a;
 	    }
 
     public void setSpeed (int s) {
-	s=speed;
+	speed=s;
 	    }
 
     public void setName (String n) {
-	n=name;
+	name=n;
 
 	}
 
