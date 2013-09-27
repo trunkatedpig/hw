@@ -12,16 +12,14 @@ public class Turtle {
 	speed = 0;
     }
     public void SpeedUp(int n){
-	speed = speed + n;
+	setspeed(speed + n);
     }
     public void SlowDown(int n){
-	speed = speed - n;
+	setspeed(speed - n);
     }
     public void GetOlder(){
-	age = age + 1
-
-
-}
+	setage(age + 1) 
+    }
 
 
  }
