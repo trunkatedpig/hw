@@ -6,10 +6,19 @@ public class Turtle {
     private int age,speed;
 
     public Turtle () {
-    
+	name = "Mike";
+	age = 10;
+	speed = 50;
     }
    
-    public Turtle (String name) {
+    public Turtle (String z, int i, int b) {
+	name = z;
+	age = i;
+	speed = b;
+    }
+
+    public Turtle (String z) {
+	name = z;
 	age = 10;
 	speed = 20;
     }
@@ -26,4 +35,16 @@ public class Turtle {
 	age = age + 1;
     }
 
-    public static 
+    public int getspeed () {
+	return speed;
+    }
+    
+    public String getname () {
+	return name;
+    }
+
+    public int getage () {
+	return age;
+    }
+}
+	

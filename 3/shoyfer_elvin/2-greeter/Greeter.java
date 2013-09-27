@@ -3,18 +3,15 @@ import java.util.*;
 
 public class Greeter {
 
-    /* We can initialize an instance variable
-       when we declare it like this:
+    public String greeting; 
+    /* 2. change public to private,
+       test, then change back 
     */
-    //private String greeting="Go away"; 
 
 
-    private String greeting; 
-
-    public Greeter(String g) {
-	greeting = g;
-    }
-
+    /* 3. change public to private,
+       test, then change back 
+    */
     public void setGreeting(String greet) {
 	greeting = greet;
     }

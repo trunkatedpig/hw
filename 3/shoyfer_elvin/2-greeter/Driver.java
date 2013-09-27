@@ -5,23 +5,22 @@ public class Driver {
     public static void main(String[] args) {
 	Greeter g,g2;
 	String result;
-	/*
 	g = new Greeter();
-	g.setGreeting("Hello");
+	g.setGreeting("Howdy");
 	g2 = new Greeter();
+	g2.setGreeting("Sup");
 	result = g.greet("Tom");
-	g2.setGreeting("How are you doing");
 	System.out.println(result);
 	result = g2.greet("Sarah");
 	System.out.println(result);
 
-	g.setGreeting("sup");
-	System.out.println(g.greet("Harry"));
-	System.out.println(g2.greet("Sue"));
+	/* 1. Try:
+	   g.setGreeting("Howdy");
+	   g.greet("Tom");
+	   g.setGreeting("sup");
+	   g.greet("Fred");
 	*/
 
-	g = new Greeter("Get lost");
 
-	System.out.println(g.greet("Tom"));
     }
 }
