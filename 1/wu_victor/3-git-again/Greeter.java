@@ -3,46 +3,36 @@ import java.util.*;
 
 public class Greeter {
 
-    // We can initialize instance variables
-    // when we declare them
-    //private String greeting="default"; 
-
-    private String greeting;
-
-    /* 
-       Examples of overloading 
-       
-       public void f() {
-       }
-       public void f(String name){
-       }
-       public void f(String name, String name2) {
-       }
-       public void f(int name) {
-       }
-       
-       This one won't work -- String String is
-       already used
-       public void f(String name2, String name1) {
-       }
-    */
-
+    private String sadGreeting;
+    private String happyGreeting;
+ 
     
-    public Greeter(String g) {
-	setGreeting(g);
+    public Greeter(String hg, String sg) {
+	setSad(sg);
+        setHappy(hg);
     }
-
+   
     public Greeter() {
-	setGreeting("hello");
+	setSad("Go away");
+        setHappy("Welcome");
+    }
+    
+    public void setSad(String sad) {
+	sadGreeting = sad;
+    }
+    public void setHappy(String happy) {
+        happyGreeting = happy;
     }
 
-    public void setGreeting(String greet) {
-	greeting = greet;
+    public String sadGreet(String name) {
+	String smessage;
+	smessage = sadGreeting + " " + name;
+	return smessage;
+    }
+    public String happyGreet(String name) {
+	String hmessage;
+	hmessage = happyGreeting + " " + name;
+	return hmessage;
     }
 
-    public String greet(String name) {
-	String message;
-	message = greeting + " " + name;
-	return message;
-    }
 }
