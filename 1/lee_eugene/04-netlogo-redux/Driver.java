@@ -9,6 +9,7 @@ public class Driver {
 		System.out.println("This turtle is named "+kevin.getName()+".");
 		System.out.println(kevin.getName()+" is "+kevin.getAge()+" years old.");
 		System.out.println(kevin.getName()+" is going at "+kevin.getSpeed()+" MPH.");
+		
 		// Testing name-only constructor that we method overloaded.
 		System.out.println("We will generate a turtle that is a still 15-y.o. Fresh Man which I chose.");
 		Turtle freshman = new Turtle("Fresh Man");
@@ -20,5 +21,11 @@ public class Driver {
 		System.out.println("This turtle is named "+zamansky.getName()+".");
 		System.out.println(zamansky.getName()+" is "+zamansky.getAge()+" years old.");
 		System.out.println(zamansky.getName()+" is going at "+zamansky.getSpeed()+" MPH.");	
+		
+		// Testing Person.java
+		Person eugene = new Person("Eugene Lee");
+		eugene.setTurtle(kevin);
+		System.out.println("The next line should be 0.");
+		System.out.println(eugene.getTurtleSpeed());
 	}
 }
