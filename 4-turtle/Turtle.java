@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Turtle(){
+public class Turtle{
 	private String name;
 	private int age;
 	private int speed;
@@ -30,6 +30,18 @@ public class Turtle(){
 
 	public void setSpeed(int s){
 		speed = s;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public int getAge(){
+		return age;
+	}
+
+	public int getSpeed(){
+		return speed;
 	}
 }
 
