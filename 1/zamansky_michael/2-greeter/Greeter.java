@@ -2,16 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Greeter {
-
-    public String greeting; 
-    /* 2. change public to private,
-       test, then change back 
-    */
-
-
-    /* 3. change public to private,
-       test, then change back 
-    */
+    
+    public String greeting;
     public void setGreeting(String greet) {
 	greeting = greet;
     }
@@ -22,7 +14,3 @@ public class Greeter {
 	return message;
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 79ed514835dec4ae2ffb2675beeb5d15099eb915
