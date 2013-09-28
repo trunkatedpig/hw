@@ -1,3 +1,5 @@
+// Worked with Jane Chen
+
 import java.io.*;
 import java.util.*;
 
@@ -20,9 +22,10 @@ public class Driver {
         Person p;
         p = new Person("Ms.P");
         p.setTurtle(t);
-        System.out.println("Person's pet Turtle: " + p.getPet());
-        System.out.println("Person's pet Turtle speed: " + p.getTurtleSpeed());
-        System.out.println("Person's pet Turtle name: " + p.getTurtleName());
+
+        System.out.println(p.getPersonName() + " pet Turtle: " + p.getPet());
+        System.out.println(p.getPersonName() + " pet Turtle's speed: " + p.getTurtleSpeed());
+        System.out.println(p.getPersonName() + " pet Turtle's name: " + p.getTurtleName());
     }
 }
 

@@ -1,3 +1,5 @@
+// Worked with Jane Chen
+
 import java.io.*;
 import java.util.*;
 
@@ -12,6 +14,10 @@ public class Person {
 
     public void setTurtle(Turtle t) {
         pet = t;
+    }
+
+    public String getPersonName() { 
+        return name;
     }
 
     public Turtle getPet() {
