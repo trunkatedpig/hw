@@ -18,6 +18,7 @@ public class Driver {
 	System.out.println(t2.getAge());
 	System.out.println(t3.getAge());
 	p1= new Person("Vincenzo");
+	p1.setTurtle(t3);
 	System.out.println(p1.getPet());
 	System.out.println(p1.getTurtleSpeed());
     }

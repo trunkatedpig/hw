@@ -8,7 +8,8 @@ public class Person {
 	name=namen;
     }
     public void setTurtle(Turtle t) {
-	turtle = t;
+	turtle=t;
+	
     }
     public Turtle getPet() {
 	return turtle;
