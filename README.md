@@ -1,4 +1,4 @@
-# Homework
+﻿# Homework
 
 ---
 
@@ -20,4 +20,3 @@ Please *do not* delete everyone's folder.
 Before you commit, do `git status` to see the changes you made locally.
 
 Check out and contribute useful information in the [the wiki](https://github.com/stuycs-apcs-z/hw/wiki/_pages).
-
