@@ -1,6 +1,6 @@
 public class Person {
     public String name;
-    public String turtle;
+    public Turtle turtle;
     
     public Person(String n){
 	name = n;
@@ -10,8 +10,8 @@ public class Person {
 	turtle = t;
     }
     
-    public Turtle getPet() {
-	return turtle;
+    public String getPet() {
+	return turtle.getName();
     }
 
     public int getTurtleSpeed() {
