@@ -39,7 +39,7 @@ public class Turtle {
     }
     //just so we can print all the info at once
     public String getInfo(){
-	return "***\n" + getName() + "\nSpeed: " + Integer.toString(getSpeed()) + "\nAge: " + Integer.toString(getAge());
+	return "\n" + getName() + "\nSpeed: " + Integer.toString(getSpeed()) + "\nAge: " + Integer.toString(getAge());
     }
     
 }
