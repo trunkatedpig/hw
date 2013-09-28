@@ -1,3 +1,5 @@
+import java.iu.*;
+import java.util.*;
 public class Turtle {
     private String turtle;
     private int speed,age;
@@ -12,16 +14,26 @@ public class Turtle {
 	speed = 0;
     }
     public void SpeedUp(int n){
-	speed = speed + n;
+	setspeed(speed + n)
     }
     public void SlowDown(int n){
-	speed = speed - n;
+	setspeed(speed - n);
     }
     public void GetOlder(){
-	age = age + 1
+	setage(age + 1)
 
-
+	    }
+    public void setage(int n) {
+	age = n;
+		}
+    public void setspeed(int n){
+	speed = n;
+    }
+    public void setturtle(Turtle t){
+	
+	
+	
+}
 }
 
-
- }
+ 
