@@ -24,6 +24,10 @@ public class Person {
 
 /* Set basic get methods */
 
+	public String getName() {
+		return name;
+	}
+
 	public Turtle getPet() {
 		return turtle;
 	}

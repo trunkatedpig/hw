@@ -62,13 +62,14 @@ public class Driver {
 		Turtle pet;
 		pet = p1.getPet();
 
-		System.out.println("Info about the person's pet turtle:");
+		System.out.println("Name of Person set to Frank");
+		System.out.println("Info about " + p1.getName() + "'s pet turtle:");
 		System.out.println("  name: " + pet.getName());
 		System.out.println("   age: " + pet.getAge());
 		System.out.println(" speed: " + pet.getSpeed());
 		System.out.println();
 
-		System.out.println("Speed of the person's pet turtle using method from the class Person:");
+		System.out.println("Speed of " + p1.getName() + "'s pet turtle using method from the class Person:");
 		System.out.println(" speed: " + p1.getTurtleSpeed());
 		System.out.println();
 	}
