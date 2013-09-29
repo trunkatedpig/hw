@@ -1,30 +1,26 @@
-// Worked with Jane Chen
-
 import java.io.*;
 import java.util.*;
 
 public class Person {
     
     private String name;
-    private Turtle pet;
+    private Turtle turtle;
 
     public Person(String n) {
-        name = n;
+	name=n;
     }
-
+    
     public void setTurtle(Turtle t) {
-        pet = t;
-    }
-
-    public String getPersonName() { 
-        return name;
+	turtle = t;
     }
 
     public Turtle getPet() {
-        return pet;
+	return turtle;
     }
 
     public int getTurtleSpeed() {
-        return pet.getSpeed();
+	Turtle t = getPet();
+	return t.turtleSpeed();
     }
 }
+	

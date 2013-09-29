@@ -1,30 +1,34 @@
-// Worked with Jane Chen
+// Worked Danny Qiu
 
 import java.io.*;
 import java.util.*;
 
 public class Person {
-    
+
     private String name;
     private Turtle pet;
 
     public Person(String n) {
-        name = n;
+	name = n;
     }
 
     public void setTurtle(Turtle t) {
-        pet = t;
+	pet = t;
     }
 
-    public String getPersonName() { 
-        return name;
+    public String getPersonName() {
+	return name;
     }
 
     public Turtle getPet() {
-        return pet;
+	return pet;
     }
 
     public int getTurtleSpeed() {
-        return pet.getSpeed();
+	return pet.getSpeed();
+    }
+    public String getTurtleName() {
+	return pet.getName();
+
     }
 }

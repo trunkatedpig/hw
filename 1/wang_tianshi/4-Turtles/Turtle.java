@@ -3,20 +3,24 @@ import java.util.*;
 
 public class Turtle {
 
-    public String name;
-    public int age;
-    public int speed;
+    private String name;
+    private int age;
+    private int speed;
 
     public Turtle() {
-	setName("Shelldon");
-	setAge(5);
-	setSpeed(4);
+	setName("Brian Guo");
+	setAge(16);
+	setSpeed(7);
     }
 
     public Turtle(String name) {
-	setAge(28);
-	setSpeed(6);
+	setSpeed(1000);
+	setAge(18);
 	setName(name);
+    }
+    
+    public void setSpeed(int s){
+	speed = s;
     }
     
     public void setAge (int a){
@@ -25,10 +29,6 @@ public class Turtle {
     
     public void setName (String n){
 	name = n;
-    }
-    
-    public void setSpeed (int s){
-	speed = s;
     }
 
     public Turtle (String n, int a, int s){
@@ -45,15 +45,20 @@ public class Turtle {
 	setSpeed(speed - n);
     }
 
-    public void getolder(){
+    public void getOlder(){
 	setAge(age + 1);
     }
-    public void turtlerevealer(){
-	System.out.println(speed);
-	System.out.println(age);
-	System.out.println(name);
+
+    public String turtleName(){
+	return name;
     }
-    public int returnspeed(){
+
+     public int turtleAge(){
+	return age;
+    }
+
+     public int turtleSpeed(){
 	return speed;
     }
+
 }
