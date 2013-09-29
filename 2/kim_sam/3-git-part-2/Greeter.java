@@ -28,6 +28,7 @@ public class Greeter {
 	setsad (greet2);
     }
 }
+//referened james chen's homework for the last part
 /*  private String greeting;
     public Greeter(String g) {
 	greeting=g; }
