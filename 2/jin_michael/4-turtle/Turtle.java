@@ -42,4 +42,8 @@ public class Turtle{
 	message = "Age: " + age;
 	return message;
     }
+
+    public void setName(String n){
+	name=n;
+    }
 }
