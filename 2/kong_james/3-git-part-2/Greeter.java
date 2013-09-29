@@ -1,22 +1,35 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Greeter {
-    public String greet() {
-	String greeting;
-	String s1,s2; /* You can declare more than one
-			 variable on a line, just 
-			 separate with commas 
-		      */
+    public String happygreeting,sadgreeting;
+    public Greeter() {
+	setHappy ("Hello, today is a good day,");
+	setSad ("Hey, today is a bad day,");
+    }
 
-	s1 = new String("Hello");
-	s2 = "World!"; /* This is kindof a shorthand
-			  for new String("World!")
-			  it's mostly the same and 
-			  can usually be used but there
-			  are some subtle differences
-		       */
-	greeting = s1 + " " + s2;
-	return greeting;
+    public Greeter (String h, String s){
+	setHappy(h);
+	setSad(s);
+    }
+
+    public void setHappy(String h) {
+	happygreeting = h;
+    }
+
+    public void setSad(String s) {
+	sadgreeting = s;
+    }
+    
+    public String happyGreet(String name){
+	String message;
+	message = happygreeting + " " + name;
+	return message;
+    }
+
+    public String sadGreet(String name) {
+	String message;
+	message = sadgreeting + " " + name;
+	return message;
     }
 }
