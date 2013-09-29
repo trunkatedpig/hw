@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+//Worked with Eric Wong
+
 public class Turtle{
     public String name;
     public int age,speed;
@@ -39,5 +41,9 @@ public class Turtle{
     }
     public String getName(){
 	return name;
+    }
+    public String getInfo(){
+	return "The Turtle's name is " + name +"\n"+ "Its speed is " + speed + "\n" + "Its age is " + age + "\n";
+
     }
 }
