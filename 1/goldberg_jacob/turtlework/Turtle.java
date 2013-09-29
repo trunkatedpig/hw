@@ -1,6 +1,6 @@
 public class Turtle {
     private String turtle;
-    private int speed,age;
+    public int speed,age;
 
     public void setturtle(String n){
 	turtle = n;
@@ -22,15 +22,15 @@ public class Turtle {
 	setage(7);
 	setspeed(11);
     }
-    /*public void SpeedUp(int n){
+    public void SpeedUp(int n){
 	setspeed(speed + n);
     }
     public void SlowDown(int n){
 	setspeed(speed - n);
     }
     public void GetOlder(){
-	setage(age + 1) 
-    }*/
+	setage(age + 1); 
+    }
 
     public String tellname(){
 	return turtle;
