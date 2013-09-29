@@ -15,13 +15,13 @@ public class Greeter {
     */
 
     public Greeter (String g, String g2) {
-	setHappy(g);
-	setSad(g2);
+	happygreeting = g;
+	sadgreeting = g2;
     }
     
     public Greeter() {
-	setHappy("Hi");
-	setSad("I don't want to talk");
+	happygreeting = "Hi";
+	sadgreeting = "I don't want to talk";
     }	
 
     public void setHappy(String greet) {
