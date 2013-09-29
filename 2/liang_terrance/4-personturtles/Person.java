@@ -3,11 +3,11 @@ import java.util.*;
 
 //Worked with Eric Wong
 
-public class Human {
+public class Person {
     public String name;
     public Turtle pet;
 
-    public Human(String n) {
+    public Person(String n) {
 	name = n;
     }
 

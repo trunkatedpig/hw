@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Driver {
     public static void main(String args[]) {
-	Human h,h2;
-        Turtle t,t1,t2,tp,tf;
+	Person p;
+        Turtle t,t1,t2,tp;
 
 	t = new Turtle();
 	System.out.println(t.getName()+"\n");
@@ -22,10 +22,10 @@ public class Driver {
 	System.out.println(t2.getInfo());
 	
 	tp= new Turtle("George");
-	h=new Human("The Man in the Yellow Hat");
-        h.setTurtle(tp);
-	System.out.println(h.getPet());
-	System.out.println(h.getTurtleSpeed());
+	p=new Person("The Man in the Yellow Hat");
+        p.setTurtle(tp);
+	System.out.println(p.getPet());
+	System.out.println(p.getTurtleSpeed());
 
     }
 }
