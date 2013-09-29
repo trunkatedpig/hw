@@ -1,6 +1,13 @@
 
 public class DriverTurtle{
     public static void main (String[] args){
+	Person j;
+	Turtle m;
+	m = new Turtle();
+	j = new Person("Frank");
+	j.setTurtle(m);
+	j.getPet();
+	System.out.println(j.getTurtleSpeed());
 	Turtle g,g2;	
 	g = new Turtle();
 	g2 = new Turtle("Hello");
@@ -15,6 +22,7 @@ public class DriverTurtle{
 	System.out.println(g2.tellspeed());
 	System.out.println(g.tellname());
 	System.out.println(g.tellage());
-	System.out.println(g.tellspeed());
+	System.out.println(g.tellspeed()); 
 	}
 }
+//worked with Coby//
