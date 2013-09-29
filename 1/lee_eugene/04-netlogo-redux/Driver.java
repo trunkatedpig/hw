@@ -27,5 +27,7 @@ public class Driver {
 		eugene.setTurtle(kevin);
 		System.out.println("The next line should be 0.");
 		System.out.println(eugene.getTurtleSpeed());
+		System.out.println("The next line should give me Kevin Li's name.");
+		System.out.println(eugene.getPet().getName());
 	}
 }
