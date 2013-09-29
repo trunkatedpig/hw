@@ -1,6 +1,6 @@
 public class Person {
     public String name;
-    public String turtle;
+    public Turtle turtle;
     
     public Person(String n){
 	name = n;
