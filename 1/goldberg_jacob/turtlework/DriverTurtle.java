@@ -18,6 +18,7 @@ public class DriverTurtle{
 	System.out.println(g.tellname());
 	System.out.println(g.tellage());
 	System.out.println(g.tellspeed());
+	/* And now part 2 */
 	Person j;
 	Turtle m;
 	m = new Turtle();
