@@ -3,25 +3,33 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Greeter g,g2;
-	String result;
-	g = new Greeter();
-	g.setGreeting("Hello");
-	g2 = new Greeter();
-	g2.setGreeting("How are you doing");
-	result = g.greet("Tom");
-	System.out.println(result);
-	result = g2.greet("Sarah");
-	System.out.println(result);
+	
+	//Part 1
+	Turtle t1,t2,t3;
 
-	/* 1. Try:
-	   g.setGreeting("Howdy");
-	   g.greet("Tom");
-	   g.setGreeting("sup");
-	   g.greet("Fred");
-	*/
+	t1 = new Turtle();
+	t2 = new Turtle("Larry");
+	t3 = new Turtle ("kevin",100,500);
+ 
+	System.out.println("Turtle 1 is called" + " " + t1.getname());
+	System.out.println("Turtle 1 is" + " " + t1.getage() + " " + "years old");
+	System.out.println("Turtle 1 is going at" + " " + t1.getspeed() + " " + "mph");
 
+	System.out.println("Turtle 2 is called" + " " + t2.getname());
+        System.out.println("Turtle 2 is" + " " + t2.getage() + " " + "years old");
+	System.out.println("Turtle 2 is going at" + " " + t2.getspeed() + " " + "mph");
 
+	System.out.println ("--------------------------");
+
+	//Part 2
+	Person p1;
+	
+	p1 = new Person("Vincent");
+
+	p1.setTurtle(t1);
+	
+	System.out.println("This is my pet's speed:" + " " + p1.getTurtleSpeed());
+	System.out.println("This is my pet's name:" + " " + p1.getPet());
     }
 }
 
