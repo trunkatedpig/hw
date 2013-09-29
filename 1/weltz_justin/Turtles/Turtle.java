@@ -1,6 +1,6 @@
 public class Turtle {
     private String turtle;
-    public int speed,age;
+    private int speed,age;
 
     public void setturtle(String n){
 	turtle = n;
@@ -22,12 +22,6 @@ public class Turtle {
 	setage(7);
 	setspeed(11);
     }
-    public Turtle(String nme, int sped, int ag) {
-	setturtle(nme);
-	setage(ag);
-	setspeed(sped);
-    }
-	
     public void SpeedUp(int n){
 	setspeed(speed + n);
     }
@@ -48,3 +42,4 @@ public class Turtle {
 	return speed;
     }
 }
+//worked with Coby//
