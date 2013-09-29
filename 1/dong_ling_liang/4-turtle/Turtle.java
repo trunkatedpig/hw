@@ -12,7 +12,6 @@ public class Turtle {
     }
     public Turtle(String name){
 	setname(name);
-
 	setage(100);
 	setspeed(60);
     }
@@ -21,14 +20,14 @@ public class Turtle {
 	setage(age);
 	setspeed(speed);
     }
-    public void setname(String message){
-	name=message;
+    public void setname(String n){
+	name=n;
     }
-    public void setage(int message){
-	age=message;
+    public void setage(int a){
+	age=a;
     }
-    public void setspeed(int message){
-	speed=message;
+    public void setspeed(int s){
+	speed=s;
     }
     public void speedup(int n){
 	speed= speed + n;
