@@ -31,4 +31,10 @@ public class Turtle {
     public int getAge() {return age;}
 
     public int getSpeed() {return speed;}
+
+    public void printAllInformation() {
+	System.out.println(getName());
+	System.out.println(getAge());
+	System.out.println(getSpeed());
+    }
 }
