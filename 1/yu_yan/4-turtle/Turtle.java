@@ -9,8 +9,57 @@ public class Turtle {
     private int age;
     private String name; 
 
+    ///////////////////
+
     public Turtle() {
+	name = "Dude";
+	age = 5;
+	speed = 20;
     }
-    public Turtle(String name){ 
+    public Turtle(String n) {
+	name = n;
+	age = 5;
+	speed = 20;
     }
+    public Turtle(String n,int a,int s){
+	name = n;
+	age = a;
+	speed = s;
+    }
+
+    //////////////////
+    
+    public void speedUp(int n) {
+	speed = speed + n;
+    }
+    public void slowDown(int n) {
+	speed = speed - n;
+    }
+    public void getOlder(){
+	age = age + 1;
+    }
+    
+    /////////////////
+    public int getAge(){
+	return age;
+    }
+    public int getSpeed(){
+	return speed;
+    }
+    public String getName(){
+	return name;
+    }
+    ////////////
+    /*
+    public void getInfo(t){
+	System.out.print("Name: ");
+	System.out.println(t.getName());
+
+	System.out.print("Speed: ");
+	System.out.println(t.getSpeed());
+	
+	System.out.print("Age: ");
+	System.out.println(t.getAge());
+    }
+    Supposed to print everything*/
 }
