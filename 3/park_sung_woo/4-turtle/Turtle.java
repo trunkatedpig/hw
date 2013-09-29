@@ -7,27 +7,31 @@ public class Turtle{
 	private int speed = 2;
 
 	public Turtle(){
-	    setName("Freddie");
-	}
+            name = "Freddie";
+         }
 	
-	public Turtle(String name){
-	    setName(name);
-	}
+	public Turtle(String n){
+	    name = n;
+        }
 
-	public Turtle(String name, int age, int speed){
-	    setName(name);
-	    setAge(age);
-	    setSpeed(speed);
-	}
+	public Turtle(String n, int a, int s){
+            name = n;
+            age = a;
+            speed = s;
+        }
 
-    public void speedUp(int n){
-	setSpeed(speed + n);
-    }
+        public void speedUp(int n){
+            speed = speed + n; 
+        }
 
-    public void slowDown(int n){
-	setSpeed(speed - n);
-    }
+         public void slowDown(int n){
+            speed = speed - n; 
+         }
 
+         public void getOlder(){
+             age = age + 1;
+            
+         }
 	public void setName(String n){
 		name = n;		
 	}
