@@ -25,7 +25,7 @@ public class Driver {
 
         System.out.println(p.getPersonName() + " pet Turtle: " + p.getPet());
         System.out.println(p.getPersonName() + " pet Turtle's speed: " + p.getTurtleSpeed());
-        System.out.println(p.getPersonName() + " pet Turtle's name: " + p.getTurtleName());
+        System.out.println(p.getPersonName() + " pet Turtle's name: " + p.getPet().getName());
     }
 }
 
