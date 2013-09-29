@@ -16,11 +16,11 @@ public class Person{
 		}
 
 	public Turtle getPet(){
-		return t;
+		return turtle1;
 		}
 	
 	public int getTurtleSpeed(){
-		
+		return turtle1.getspeed();
 		}
 	
 
