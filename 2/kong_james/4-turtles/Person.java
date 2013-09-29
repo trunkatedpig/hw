@@ -1,4 +1,4 @@
-/*Worked with James Kong*/
+/*Worked with Victor Gaitour*/
 import java.io.*;
 import java.util.*;
 

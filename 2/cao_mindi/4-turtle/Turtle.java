@@ -1,37 +1,32 @@
-//Kelly Chen and Tina Lee
-
 import java.io.*;
 import java.util.*;
 
-public class Turtle {
-    //INSTANCE VARIABLES:
+public class Turtle{
+
+    private int speed;
     private String name;
     private int age;
-    private int speed;
 
-    //CONSTRUCTORS:
-    //if there no imputs
+
     public Turtle(){
-	name = "Sheldon";
 	age = 7;
 	speed = 5;
-    }	
+	name = "Bob";
+    }
 
-    //accepts name only
     public Turtle(String n){
+	age = 7;
+	speed = 5;
 	name = n;
-	age = 8;
-	speed = 10;
     }
 
-    //accepts name, age, speed
-    public Turtle (String n1, int a, int s){
-	name = n1;
+    public Turtle(String n, int a, int s){
 	age = a;
-	speed = s;
+	name = n;
+        speed = s;
     }
- 
-    //METHODS:
+
+
     public void speedUp(int n){
 	speed = speed + n;
     }
@@ -41,22 +36,18 @@ public class Turtle {
     }
 
     public void getOlder(){
-	age = age +1;
-    }
-
-    //GET METHODS:
-    public String getName(){
-	return name;
+	age = age + 1;
     }
 
     public int getAge(){
 	return age;
     }
 
+    public String getName(){
+	return "my name is " + name;
+    }
+
     public int getSpeed(){
 	return speed;
     }
-
 }
-
-
