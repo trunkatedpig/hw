@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Person {
     public String name;
-    public Turtle;
+    public Turtle turtle;
  
     public Person(String n){
 	name = n;
