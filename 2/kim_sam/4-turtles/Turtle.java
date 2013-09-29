@@ -1,4 +1,4 @@
-//Worked with Sam Kim
+//Worked with Andrew Fischer
 
  import java.io.*;
  import java.util.*;
