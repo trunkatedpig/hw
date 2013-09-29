@@ -28,8 +28,8 @@ public class Driver {
 
 	p1.setTurtle(t1);
 	
-	System.out.println("This is my pet's speed:" + " " + p1.getTurtleSpeed());
-	System.out.println("This is my pet's name:" + " " + p1.getPet());
+	System.out.println(p1.getPersonName() + "'s turtle's speed is" + " " + p1.getTurtleSpeed());
+	System.out.println(p1.getPersonName() + "'s turtle's name is" + " " + p1.getPet());
     }
 }
 
