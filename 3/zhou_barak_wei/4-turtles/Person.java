@@ -10,8 +10,8 @@ public class Person {
 	turtle = t;
     }
     
-    public String getPet() {
-	return turtle.getName();
+    public Turtle getPet() {
+	return turtle;
     }
 
     public int getTurtleSpeed() {
