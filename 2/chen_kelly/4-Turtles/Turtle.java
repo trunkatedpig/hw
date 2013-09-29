@@ -1,3 +1,5 @@
+//Kelly Chen and Tina Lee
+
 import java.io.*;
 import java.util.*;
 
@@ -10,7 +12,7 @@ public class Turtle {
     //CONSTRUCTORS:
     //if there no imputs
     public Turtle(){
-	name = " Sheldon";
+	name = "Sheldon";
 	age = 7;
 	speed = 5;
     }	
