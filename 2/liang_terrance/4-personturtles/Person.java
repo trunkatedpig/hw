@@ -14,7 +14,11 @@ public class Person {
     public void setTurtle (Turtle t){
 	pet = t;
     }
-    
+
+    public String getName (){
+	return name;
+    }
+
     public Turtle getPet(){
 	return pet;
     }
