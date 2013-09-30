@@ -48,4 +48,12 @@ public class Turtle {
     public void getolder(){
 	setAge(age + 1);
     }
+    public void turtlerevealer(){
+	System.out.println(speed);
+	System.out.println(age);
+	System.out.println(name);
+    }
+    public int returnspeed(){
+	return speed;
+    }
 }

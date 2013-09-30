@@ -32,17 +32,17 @@ public class Turtle {
     }
 
     public void speedUp(int n){
-	setspeed(speed + n);
+	speed = speed + n;
     }
     public void slowDown(int n){
-	setspeed(speed - n);
+	speed = speed - n;
     }
     public void getOlder(){
-	setage(age-1);
+	age = age - 1;
     }
 
     public String tellname(){
-	return name;
+	return "Name: " + name;
     }
     public int tellage(){
 	return age;
