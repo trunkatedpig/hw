@@ -9,6 +9,7 @@ public class Driver {
 	String result;
 	int result2;
 	int result3;
+	Person p;
 
 	t = new Turtle();
 	result = t.getName();
@@ -34,5 +35,14 @@ public class Driver {
 	System.out.println (result2);
         System.out.println (result3);
 
+	p = new Person("Beannas Rayluda", new Turtle("Billy", 5, 10));
+	result = p.getName();
+	System.out.println (result);
+        result2 = p.getPet();
+	System.out.println (result2);
+
     }
+
+    /* Person Beannas = new Person("Beannas Rayluda");
+    //I don't know what I should call to test this... */
 }
