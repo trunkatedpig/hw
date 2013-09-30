@@ -1,7 +1,7 @@
 public class Turtle {
-    public String name;
-    public int age;
-    public int speed;
+    private String name;
+    private int age;
+    private int speed;
     
     public Turtle() {
 	name = "Basic Turtle";
