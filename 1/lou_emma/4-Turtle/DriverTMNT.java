@@ -5,8 +5,8 @@ public class DriverTMNT{
 
     public static void main (String [] args){
 	Turtle t, t2, t3;
-	String name;
 
+	String name;
 	int speed, age;
 
 	t = new Turtle();
