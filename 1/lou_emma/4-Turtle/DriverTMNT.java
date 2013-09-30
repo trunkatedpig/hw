@@ -5,6 +5,7 @@ public class DriverTMNT{
 
     public static void main (String [] args){
 	Turtle t, t2, t3;
+	Person p;
 
 	String name;
 	int speed, age;
@@ -24,6 +25,11 @@ public class DriverTMNT{
 	System.out.println(t3.nameme());
 	System.out.println(t3.speedme());
 	System.out.println(t3.ageme());
+
+	p=new Person("OMNOM MONSTER");
+	p.setTurtle(t2);
+	System.out.println(p.getPet());
+	System.out.println(p.getTurtleSpeed());
 
     }
 }
