@@ -38,7 +38,7 @@ public class Turtle {
     }
 
     public void getOlder(){
-	Age = Age - 1;
+	Age = Age + 1;
     } 
 
     public String getName(){
