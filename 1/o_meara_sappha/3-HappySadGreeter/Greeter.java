@@ -6,8 +6,8 @@ public class Greeter {
     public String SadGreeting;
     
     public Greeter(){
-	setHappy("Happy");
-        setSad("Sad");
+	setHappy("Hey what's up?");
+        setSad("Get out of here");
         }
         
     public void setHappy(String H) {
