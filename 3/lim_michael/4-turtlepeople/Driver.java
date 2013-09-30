@@ -8,10 +8,25 @@ public class Driver {
 	Turtle t = new Turtle();
 	Turtle t2 = new Turtle("Tommy");
 	Turtle t3 = new Turtle("Spongebob", 1, 2);
-	
-	System.out.println(t.getName() t.getAge() t.getSpeed());
-	System.out.println(t2.getName() t2.getAge() t2.getSpeed());
-	System.out.println(t3.getName() t3.getAge() t3.getSpeed());
+	Person p = new Person("Sammy");
+
+        t.getInfo();
+	t2.getInfo();
+	t3.getInfo();
+
+	t.speedUp(1);
+	t2.speedUp(2);
+	t3.slowDown(1);
+	t.getOlder();
+
+	t.getInfo();
+	t2.getInfo();
+	t3.getInfo();
+
+	p.setTurtle(t3);
+	System.out.println(p.getPet().getName());
+	System.out.println(p.getTurtleSpeed());
+
     }
 
 }

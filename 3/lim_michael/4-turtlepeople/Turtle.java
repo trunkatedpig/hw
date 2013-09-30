@@ -48,4 +48,10 @@ public class Turtle {
     public void getOlder() {
 	age = age + 1;
     }
+
+    public void getInfo() {
+	System.out.println("The turtle's name is " + name);
+	System.out.println(name + "'s age is " + age);
+        System.out.println(name + "'s speed is " + speed);
+    }
 }
