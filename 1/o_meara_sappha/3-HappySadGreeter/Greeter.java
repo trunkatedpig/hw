@@ -10,6 +10,11 @@ public class Greeter {
         setSad("Get out of here");
         }
         
+    public Greeter(String happy, String sad){
+    	setHappy(happy);
+    	setSad(sad);
+    }
+    
     public void setHappy(String H) {
 	HappyGreeting=H;
     }
