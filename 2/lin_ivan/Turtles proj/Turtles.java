@@ -4,24 +4,25 @@ import java.util.*;
 public class Turtles {
     //Instance Variables;
     private String name;
-    private int age,speed;
+    private int age;
+    private int speed;
 
     //Constructor with no parameters;
-    public void Turtle (){
-	name = "Udyr";
+    public Turtles(){
+	name = "Udyr"; 
 	age = 20;
 	speed = 10;
     }
     
     //Constructor with name parameter;
-    public void Turtle (String n){
+    public Turtles(String n){
 	name = n;
 	age = 25;
 	speed = 30;
     }
     
     //Constructor with all three accepted parameters
-    public void Turtle (String n, int a, int s){
+    public Turtles(String n, int a, int s){
 	name = n;
 	speed = s;
 	age = a;
@@ -36,12 +37,12 @@ public class Turtles {
 	speed = speed - n;
     }
 
-    //getmethods;
     public void getOlder(){
 	age = age + 1;
     }
 
-    public String getname(){
+    //getmethods;
+    public String getName(){
         return name;
     }
 
