@@ -6,7 +6,7 @@ public class Person{
 	private String name;
 
 	//Constructor
-	public void Name(String namer){
+	public void Person (String namer){
 		name=namer;
 		}
 
