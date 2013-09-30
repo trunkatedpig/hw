@@ -2,22 +2,28 @@ import java.io.*;
 import java.util.*;
 
 public class Person {
-    public String name;
-    public Turtle pet;
+    String name;
+    Turtle turtle;
 
     public Person(String n) {
-	name = n;
+        setName(n);
+    }
+
+    public void setName(String n) {
+        name = n;
     }
 
     public void setTurtle(Turtle t) {
-	pet = t;
+        turtle = t;
     }
 
     public Turtle getPet() {
-	return pet;
+        return turtle;
     }
 
     public int getTurtleSpeed() {
-	return pet.speed;
+        return turtle.getSpeed();
     }
+
 }
+
