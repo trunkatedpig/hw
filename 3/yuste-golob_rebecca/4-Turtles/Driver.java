@@ -5,6 +5,7 @@ public class Driver{
     public static void main(String[] args) {
 	Turtle t;
 	t = new Turtle();
+<<<<<<< HEAD
 	System.out.println(t.tellname());
 	System.out.println(t.tellage());
 	System.out.println(t.tellspeed());
@@ -26,5 +27,10 @@ public class Driver{
 	p.setTurtle(t);
 	System.out.println(p.getPet());
 	System.out.println(p.getTurtleSpeed());
+=======
+		System.out.println(t.tellname());
+		System.out.println(t.tellage());
+		System.out.println(t.tellspeed());
+>>>>>>> ba86698f11a53b7e579edc9c6632866387409e38
     }
 }

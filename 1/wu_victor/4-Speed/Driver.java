@@ -11,8 +11,8 @@ public class Driver {
 	p.setTurtle(t);
 	System.out.println(p.getPet());
 	System.out.println(p.getTurtleSpeed());
-	
-	/*
+
+	System.out.println("=======");	
 	Turtle t2, t3;
 	t2 = new Turtle("David");
 	t3 = new Turtle("Vic", 5, 10);
@@ -24,11 +24,16 @@ public class Driver {
 	System.out.println(t.gSpeed());
 
 	System.out.println("=======");
-
 	System.out.println(t.gAge());
 	t.getOlder();
 	System.out.println(t.gAge());
-	*/
+
+	System.out.println("=======");
+	System.out.println(t3.gName());
+	System.out.println(t2.gName());
+
+	System.out.println("=======");
+	System.out.println(p.getName());
 	
    }
 }
