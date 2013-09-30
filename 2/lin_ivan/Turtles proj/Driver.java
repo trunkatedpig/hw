@@ -4,6 +4,7 @@ import java.util.*;
 public class Driver{
     public static void main (String[] args){
 	Turtles t1,t2,t3;
+	Person p;
 
 	t1 = new Turtles();
 	t1.speedUp(42);
@@ -26,6 +27,12 @@ public class Driver{
 	System.out.println(t3.getSpeed());
 	System.out.println(t3.getAge());
 
+	p = new Person("Summoner");
+	p.setTurtle(t1);
+	System.out.println("My movement speed is " +  p.getTurtleSpeed());
+	System.out.println("My turtle is " + p.getPet());
+
+	
     }
 }
     
