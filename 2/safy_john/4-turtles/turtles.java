@@ -6,19 +6,20 @@ public class turtles {
     public int age;
     public int speed;
     
-    public void f () {
-    name = "John";
-    age = 56;
-    speed = 2;
+    public turtles () {
+	name = "John";
+	age = 56;
+	speed = 2;
     }
 
-    public void g (String name1) {
+    public turtles (String name1) {
     name = name1;
     age = 15;
     speed = 3;
+    // return "Name:" + name + "\nAge:" + age + "\nSpeed:" + speed;
     }
 
-    public void h (int age1, int speed1, String name1) {
+    public turtles (int age1, int speed1, String name1) {
     age = age1;
     speed = speed1;
     name = name1;
@@ -36,16 +37,18 @@ public class turtles {
 	age = age + 1;
     }
 
-    public int getSpeed (int speed1) {
-	return  speed1;
+    public int getSpeed () {
+	return speed;
     }
 
     public int getAge (int age1) {
-        return age1;
+        return age;
     }
 
     public String getName (String name1) {
-	return name1;
+	return name;
     }
-
+    public String ret() {
+	return "Name:" + name + "\nAge:" + age + "\nSpeed:" + speed;
+    }
 }
