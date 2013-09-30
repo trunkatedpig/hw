@@ -50,16 +50,4 @@ public class Turtle {
 	return name;
     }
     ////////////
-    /*
-    public void getInfo(t){
-	System.out.print("Name: ");
-	System.out.println(t.getName());
-
-	System.out.print("Speed: ");
-	System.out.println(t.getSpeed());
-	
-	System.out.print("Age: ");
-	System.out.println(t.getAge());
-    }
-    Supposed to print everything*/
 }

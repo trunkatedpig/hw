@@ -22,6 +22,12 @@ public class Turtle {
 	setage(7);
 	setspeed(11);
     }
+    public Turtle(String nme, int sped, int ag) {
+	setturtle(nme);
+	setage(ag);
+	setspeed(sped);
+    }
+	
     public void SpeedUp(int n){
 	setspeed(speed + n);
     }
