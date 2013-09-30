@@ -43,7 +43,7 @@ public class Turtle{
 	return name;
     }
     public String getInfo(){
-	return name +"\n"+  speed + "\n" +  age + "\n";
+	return "The Turtle's name is " + name +"\n"+ "Its speed is " + speed + "\n" + "Its age is " + age + "\n";
 
     }
 }
