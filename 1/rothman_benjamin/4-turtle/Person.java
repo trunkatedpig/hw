@@ -7,8 +7,7 @@ public class Person {
 
     public Person(String name) {
 	setName(name);
-	setTurtle(turtle);
-	getPet();
+	setTurtle(t);
     }
 
     public void setName (String n){
