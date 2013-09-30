@@ -35,4 +35,7 @@ public class Driver {
         System.out.println (result3);
 
     }
+
+    Person Beannas = new Person("Beannas Rayluda");
+    //I don't know what I should call to test this...
 }
