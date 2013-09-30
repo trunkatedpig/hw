@@ -3,12 +3,9 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	String result;
-	Greeter g;
+	Coin c;
 
-	g = new Greeter();
-	result = g.greet();
-	System.out.println(result);
+	c = new Coin();
+	System.out.println(c.getFace());
     }
-
 }

@@ -5,7 +5,7 @@ public class Person {
     private String name;
     private Turtle turtle;
 
-    public Person(String name, Turtle t) {
+    public Person(String name) {
 	setName(name);
 	setTurtle(t);
     }
@@ -18,9 +18,10 @@ public class Person {
 	return name;
     }
 
-    public void setTurtle(Turtle t) {
-	turtle=t;
+    public void setTurtle(String t) {
+        new Turtle() =t;
     }
+
     public Turtle getPet() {
 	return turtle;
     }
