@@ -32,6 +32,10 @@ public class Driver {
 	//Person testing
 	Person bob;
 	bob = new Person ("Robert");
+	bob.setTurtle (two);
+	bob.getPet();
+	System.out.println (bob.getTurtleSpeed());
+
 	
     }
 }	
