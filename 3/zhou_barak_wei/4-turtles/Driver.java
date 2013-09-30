@@ -34,7 +34,7 @@ public class Driver {
 	System.out.println("Create the person Ted");
 	Person p = new Person("Ted");
 	p.setTurtle(t);
-	System.out.println("Pet: " + p.getPet());
+	System.out.println("Pet: " + p.getPet().getName());
 	System.out.println("Speed of pet: " + p.getTurtleSpeed());
     }
 }
