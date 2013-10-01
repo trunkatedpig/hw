@@ -17,9 +17,7 @@ public class Greeter {
     public void setsad(String sadgreet){
 	sadgreeting = sadgreet;
     }
-    public Greeter(String happy, String sad){
-	happygreeting = happy
-	sadgreeting = sad
+    
 
     public String greet(String name1, String name2) {
 	String message;
