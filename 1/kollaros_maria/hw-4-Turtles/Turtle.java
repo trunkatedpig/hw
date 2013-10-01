@@ -13,12 +13,11 @@ public class Turtle {
 	age = 10;
 	speed = 50;
     }
-    
-    public Turtle(String name, int age, int speed){
 
+    public Turtle (String name, int age, int speed){
     }
 
-    public void speedUp(int n) {
+    public void speedUp(int n){
 	speed = speed + n;
     }
 
@@ -30,10 +29,9 @@ public class Turtle {
 	age = age + 1;
     }
 
-    public String greet(String name) {
+    public String greet (String name) {
 	String message;
 	message = "Hi my name is " + name;
 	return message;
     }
-
 }
