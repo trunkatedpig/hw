@@ -35,7 +35,7 @@ public class Driver {
 	System.out.println (result2);
         System.out.println (result3);
 
-	p = new Person("Beannas Rayluda", new Turtle("Billy", 5, 10));
+	p = new Person("Beannas Rayluda",Turtle("Billy", 5, 10));
 	result = p.getName();
 	System.out.println (result);
         result2 = p.getPet();
