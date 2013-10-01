@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Person {
-    String name;
-    Turtle turtle;
+    private String name;
+    private Turtle turtle;
     public Person(String n) {
 	name = n;
 	turtle = new Turtle();
