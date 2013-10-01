@@ -13,6 +13,7 @@ public class Coin{
 	tails = 0;
     }
 
-    public string face(String a) {
-	face = a;
+    public void face(String a) {
+	Face = a;
     }
+}
