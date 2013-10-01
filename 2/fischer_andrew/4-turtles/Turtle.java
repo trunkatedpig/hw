@@ -1,3 +1,5 @@
+//Worked with Sam Kim
+
  import java.io.*;
  import java.util.*;
 
@@ -5,36 +7,28 @@
      
 
      /* INSTANCE VARIABLES BELOW*/
-     public String name(){
-	 String name;
-	 name = new String("Name_placeholder");
-	 return name;
-     }
-     
-     public int age(){
-	 int age;
-	 age = -1; //-1 acts as the age placeholder
-	 return age;
-     }
-     
-     public int speed(){
-	 int speed;
-	 speed =  -1; //-1 acts as a placeholder
-	 return speed;
-     }
+    private String name;
+    private int age;
+    private int speed; 
      /*END INSTANCE VARIABLES*/
      
      /*CONSTRUCTORS BELOW*/
-     public noParam(){
-	 //What goes here!?
-     }
 
-     public turtle (){
-	 setName("Name_placeholder");
-	 setAge(4);
-	 setSpeed(50);
-     }
 
+     public Turtle() {
+	 }
+	 
+	 public Turtle(String input_name) {
+		 name = input_name;
+		 age = (int)(4);
+		 speed = (int)(7);
+	 }
+	 
+	 public Turtle(String input_name, int input_age, int input_speed) {
+		 name = input_name;
+		 age = input_age;
+		 speed = input_speed;
+	 }
      /*END CONSTRUCTORS*/
 
      /*METHODS BELOW*/
@@ -49,18 +43,19 @@
      public void getOlder(){
 	 age = (age + 1);
      }
+	 /*END METHODS*/
      
      //get methods
-     public void getName(){
-	 return name;
+     public String getName(){
+		 return name;
      }
 
-     public void getSpeed(){
-	 return speed;
+     public int getSpeed(){
+		 return speed;
      }
 	 
-     public void getAge(){
-	 return age;
+     public int getAge(){
+		 return age;
      }
 
      /*END METHODS*/
