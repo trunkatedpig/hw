@@ -56,7 +56,7 @@ public class Turtle {
 	return age;
     }
 
-    public int tellspeed(){
+    public int getSpeed(){
 	return speed;
     }
 }
