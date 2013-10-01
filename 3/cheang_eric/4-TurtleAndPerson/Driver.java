@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Driver {
 
+    /*
     public void printAge(Turtle turtleVariable){
 	    
      System.out.println(turtleVariable.getAge());
@@ -20,10 +21,12 @@ public class Driver {
      System.out.println(turtleVariable.getSpeed());
 
     } 
+    */ 
 
     public static  void main(String[] args) {
 
 	Turtle Tom,Cameel,MrShell;
+	Person MrMan;
     
 
     
@@ -43,10 +46,20 @@ public class Driver {
 	System.out.println(Cameel.getSpeed());
 
 	MrShell = new Turtle("MrShell");
-	printAge(MrShell);
-	printName(MrShell);
-        printSpeed(MrShell);
+	System.out.println(MrShell.getName());
+	System.out.println(MrShell.getAge());
+	System.out.println(MrShell.getSpeed());
+	MrShell.getOlder();
+	System.out.println(MrShell.getAge());
+        MrShell.slowDown(4);
+	System.out.println(MrShell.getSpeed());
+	MrShell.speedUp(123);
+	System.out.println(MrShell.getSpeed());
+	
+			   
+	MrMan = new Person("MrMan", MrShell);
 
+	
 
     }}
 	

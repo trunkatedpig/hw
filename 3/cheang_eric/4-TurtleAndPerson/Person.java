@@ -7,20 +7,24 @@ public class Person{
     private Turtle OwnedTurtle;
 
 
-    public Person(String givenName){
-	
-	Name = givenName;
-	
-    }
-
-	
-
     public void getPet(Turtle turtleName){
 	
 	OwnedTurtle = turtleName;
     }
 
-    public int getTurtleSpeed(){
+
+    public Person(String givenName, Turtle turtleName){
+	
+	Name = givenName;
+        getPet(turtleName);
+	
+	
+    }
+
+	
+
+
+    public int getTurtleSpeed(Person personName){
 	
 	return OwnedTurtle.getSpeed();
 	    }}  
