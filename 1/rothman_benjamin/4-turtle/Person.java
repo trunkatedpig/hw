@@ -3,12 +3,11 @@ import java.util.*;
 
 public class Person {
     private String name;
-    private Turtle turtle;
+    private Turtle pet;
 
-    public Person(String name, Turtle t) {
+    public Person(String name) {
 	setName(name);
-	setTurtle(turtle);
-	getPet();
+	setTurtle();
     }
 
     public void setName (String n){
@@ -20,8 +19,9 @@ public class Person {
     }
 
     public void setTurtle(Turtle t) {
-	turtle=t;
+        pet = t;
     }
+
     public Turtle getPet() {
 	return turtle;
     }
