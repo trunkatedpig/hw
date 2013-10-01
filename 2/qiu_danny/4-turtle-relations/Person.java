@@ -27,8 +27,4 @@ public class Person {
     public int getTurtleSpeed() {
         return pet.getSpeed();
     }
-
-    public String getTurtleName() {
-        return pet.getName();
-    }
 }

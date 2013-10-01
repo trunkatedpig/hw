@@ -3,12 +3,17 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Turtle t1,t2,t3;
+	Turtle t1,t2,t3,t4;
+	Person p;
 	t1 = new Turtle();
 	t1.speedUp(5);
-	System.out.println(t1.getName());
+        p = new Person("RuKu");
+	p.setTurtle(t1);
+	t4 = p.getPet();
+	System.out.println(t4);
+        System.out.println(t1.getName());
 	System.out.println(t1.getAge());
-	System.out.println(t1.getSpeed());
+	System.out.println(p.getTurtleSpeed());
         t2 = new Turtle("David");
 	t2.getOlder();
 	System.out.println(t2.getName());
