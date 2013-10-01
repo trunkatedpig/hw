@@ -1,15 +1,17 @@
 public class Person {
 
     private String pName;
-    private String turtle;
+    private Turtle turtle;
     public Person(String name){
-	name = pName
-	    }
+	pName = name;
+    }
     public void setTurtle(Turtle t){
-	t=Turtle()
+	turtle=t;
     }
     public Turtle getPet(){
+	return turtle;
     }
     public int getTurtleSpeed(){
+	return turtle.getSpeed();
     }
 }
