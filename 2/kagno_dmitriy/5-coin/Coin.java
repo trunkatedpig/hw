@@ -4,7 +4,6 @@ public class Coin {
    
    private String face;
    private int head,tail,tosses;
-   private double prob = 0.5;
 
     public void setup(String f){
 	head = 0;
