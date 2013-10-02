@@ -3,11 +3,28 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Coin coin = new Coin();
-	System.out.println("This flip has returned " + coin.getSide());
-	/*if*/
-	coin.side = "heads"
-	System.out.println("The heads count is now" + coin.heads)
-	/*if*/
-	coin.reset();
-	System.out.println("There have been no flips thus far")
+	Coin g = new Coin();
+	g.Flip();
+	System.out.println(g.getHeads());
+	System.out.println(g.getTails());
+	System.out.println(g.getFlips());
+	System.out.println(g.getFairness());
+	g.Flip();
+	g.Flip();
+	g.Flip();
+	g.Flip();
+	g.Flip();
+	g.Flip();
+	System.out.println(g.getHeads());
+	System.out.println(g.getTails());
+	System.out.println(g.getFlips());
+	System.out.println(g.getFairness());
+	g.Flip();
+	g.Flip();
+	g.Flip();
+	g.Flip();
+	System.out.println(g.getHeads());
+	System.out.println(g.getTails());
+	System.out.println(g.getFlips());
+	System.out.println(g.getFairness());
+}}
