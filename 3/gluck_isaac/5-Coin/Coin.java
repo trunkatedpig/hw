@@ -3,44 +3,56 @@ import java.io.*;
 
 public class Coin {
     public String face;
-    public int count;
-    public int flips;
-    public int prob;
-
+    public int tosses;
+    public int heads;
+    public double prob;
     
+    public void initCoin(String f, double p) {
+	setFace(f);
+	tosses = 0;
+	heads = 0;
+	setProb(p);
+    }
+    public void setFace(String f) {
+	face = f;
+    }
+
+    public void setProb(double p) {
+	prob = p;
+    }
+
     public Coin() {
-	setCount(0);
-	setFlips(0);
-	prob = 0.5;
+        initCoin("Heads", 0.5);
     }
-    
-
-    public void setCount(int n) {
-	count = n;
-    }
-
-    public void setFlips(int n) {
-	count = n;
-    }
-
 
     public void resetCount() {
-	setCount(0);
+	tosses = 0;
     }
 
     public String getFace() {
 	return face;
     }
+    
+    public boolean equals(Coin other) {
+	return face.equals(other.getFace());
+    }
 
     public String flip() {
 	Random r = new Random();
-	int a = r.nextint(2);
-	if (a == 1)
-	    setCount(count +1);
-	////////////
-	    return "Head";
-	else
-	    return "Tail";
-	
+	int a = r.nextInt(2);
+	if (a == 1) {
+	    tosses = tosses + 1;
+	    heads = heads + 1;
+	    setFace("Heads");
+	    double newProb = ((double) heads) / tosses;
+	    setProb(newProb);
+	    return face;
+	} else {
+	    tosses = tosses + 1;
+	    setFace("Tails");
+	    double newProb = ((double) heads) / tosses;
+	    setProb(newProb);
+	    return face;
+	}
     }
 }
