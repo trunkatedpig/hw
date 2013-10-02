@@ -27,5 +27,8 @@ public class Driver {
         System.out.println("Total Flips: " + cheater.getFlips());
         System.out.println("Total Heads: " + cheater.getHeads());
         System.out.println("Total Tails: " + cheater.getTails());
+        
+        cheater.reset();
+        System.out.println("Reset totals: " + cheater.getFlips() + ", " + cheater.getHeads() + ", " + cheater.getTails());
     }
 }
