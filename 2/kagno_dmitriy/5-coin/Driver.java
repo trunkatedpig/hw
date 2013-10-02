@@ -10,8 +10,8 @@ public class Driver {
 	c2 = new Coin("Heads");
 
 	System.out.println(c.getFace()+" "+c1.getFace()+" "+c2.getFace());
-
-	
+	System.out.println()
+       
 
 	
 	
