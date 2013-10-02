@@ -9,7 +9,13 @@ public class Driver {
 	coin.flip();
 	coin.flip();
 	coin.reset();
-	System.out.println(coin.getFlips());
 	System.out.println(coin.flip());
+	System.out.println(coin.flip());
+	System.out.println(coin.flip());
+	System.out.println(coin.flip());
+	System.out.println(coin.flip());
+	System.out.println(coin.getHeads());
+	System.out.println(coin.getTails());
+	System.out.println(coin.getFlips());
     }
 }
