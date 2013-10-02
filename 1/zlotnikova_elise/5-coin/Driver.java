@@ -6,6 +6,9 @@ public class Driver {
 	Coin Penny;
 	Penny = new Coin();
 	Penny.reset();
-        System.out.print("Face: "+Penny.getFace()); /*Should be null*/
+	Penny.Flip();
+        System.out.print("Face: "+Penny.getFace()); 
+	System.out.print("Flips: ");
+	System.out.println(Penny.flips);
     }
 }
