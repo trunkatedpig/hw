@@ -6,11 +6,6 @@ public class Coin {
     public int tosses;
     public int heads;
     public double prob;
-
-    
-    public Coin() {
-        initCoin("Heads", 0.5);
-    }
     
     public void initCoin(String f, double p) {
 	setFace(f);
@@ -26,6 +21,9 @@ public class Coin {
 	prob = p;
     }
 
+    public Coin() {
+        initCoin("Heads", 0.5);
+    }
 
     public void resetCount() {
 	tosses = 0;
@@ -34,16 +32,27 @@ public class Coin {
     public String getFace() {
 	return face;
     }
-    /*
+    
+    public boolean equals(Coin other) {
+	return face.equals(other.getFace());
+    }
+
     public String flip() {
 	Random r = new Random();
-	int a = r.nextint(2);
-	if (a == 1)
-	    setTosses(tosses +1);
-	////////////
-	    return "Head";
-	else
-	    return "Tail";
-	    }
-    */
+	int a = r.nextInt(2);
+	if (a == 1) {
+	    tosses = tosses + 1;
+	    heads = heads + 1;
+	    setFace("Heads");
+	    double newProb = ((double) heads) / tosses;
+	    setProb(newProb);
+	    return face;
+	} else {
+	    tosses = tosses + 1;
+	    setFace("Tails");
+	    double newProb = ((double) heads) / tosses;
+	    setProb(newProb);
+	    return face;
+	}
+    }
 }
