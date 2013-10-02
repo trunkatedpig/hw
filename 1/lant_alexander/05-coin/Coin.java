@@ -6,13 +6,17 @@ import java.io.*;
 
 	    Random r = new Random();
 	    int r1 = r.nextInt(2);
+	    int heads; //do I need "= 0"?
+	    
 	
 	       if (r1 == 1) {
 		System.out.println("heads");
+		//heads = heads + 1;
 	    } 
 	     else {
 	    	System.out.println("tails"); }
-		 
+
+	       System.out.println(heads);
 	}
     }
     
