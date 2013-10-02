@@ -2,21 +2,6 @@ public class Coin {
     // I'm not so sure what we're trying to get at this,
     // so I did my best to just set up Coin.java to the best of my
     // abilities based on the assignment.
-<<<<<<< HEAD
-    private String name;
-    private int flips;
-    private int heads;
-    private int tails;
-    private int fairness;
-    
-    public reset() {
-	flips = 0;
-	heads = 0;
-	tails = 0;
-	fairness = 0;
-    }
-    
-=======
     private boolean side; // I will have true be head, false tails
     private int flips, heads, tails;
     private double fairness;
@@ -58,5 +43,4 @@ public class Coin {
     public int getFlips() {
 	return flips;
     }
->>>>>>> 72ef3c4b1f1e1095d28ea3debe7e1ab0ae7c5563
 }
