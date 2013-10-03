@@ -6,15 +6,13 @@ public class Coin {
     private String faceValue;
     private int heads, tails, flips;
     private double probhead = 0.5;
+    Random r = new Random();
     
     public void resetCount(){
 	flips = 0;
 	heads = 0;
 	tails = 0;
     }
-
-    Random r;
-    r = new Random();
 
     public void setFace(){
 	if ((r.nextDouble()) <= probhead)
