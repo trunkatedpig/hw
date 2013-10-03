@@ -1,37 +1,51 @@
-import java.io.*;
-import java.util.*;
-
-public class Coin{
+public class Coin {
     private String face;
-    private int flips;
+    private int tosses;
     private int heads;
-    private int tails;
+    private double prob = 0.5; // another way to initialize
 
-    public void setFlips(int f){
-	flips = f;
+    public void initCoin(String f, Double p) {
+	face = f;
+	tosses=0;
+	heads=0;
+	prob=p;
     }
 
-    public void setHeads(int h){
-	heads = h;
+
+    public Coin() {
+	initCoin("Heads",0.5);
     }
 
-    public void setTails(int t){
-	tails = t;
-    }
-	
-    public void resetFlips(){
-	setFlips(0);
+
+    public Coin(String f) {
+	initCoin(f,0.5);
     }
 
-    public void resetHeads(){
-	setHeads(0);
+    public void reset(){
+	tosses = 0;
     }
 
-    public void resetTails(){
-	setTails(0);
+    public String toss(){
+	if (Math.random() > prob){
+	    face = "Heads";
+	} 
+	else{
+	    face = "Tails";
+	}
+	tosses = tosses + 1;
+	getFace();
     }
 
-    public String getFace(){
+    public void setRandProb(){
+	prob = Math.random();
+    }
+
+    public String getFace() {
 	return face;
     }
+
+    public boolean equals(Coin other) {
+	return face.equals(other.getFace());
+    }
+    
 }

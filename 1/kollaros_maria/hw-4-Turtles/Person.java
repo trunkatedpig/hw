@@ -1,20 +1,24 @@
 import java.io.*;
 import java.util.*;
 
-public class Person {
+public class Person{
     private String name;
-    private class Turtle;
-
-    public void setName(String n){
-	name = n;
-    }
+    private Turtle sweyn;
 
     public Person(String n){
-        setName(n);
+	name = n;
+    }
+    
+    public void setTurtle(Turtle t){
+	sweyn = t;
     }
 
-    public void setTurtle(Turtle t){
-	
-}
+    public Turtle getPet(){
+	return sweyn;
+    }
 
-    //Not completed. Will continue trying to figure it out
+    public int getTurtleSpeed(){
+	return sweyn.getSpeed();
+    }
+
+}
