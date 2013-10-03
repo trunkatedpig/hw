@@ -5,8 +5,22 @@ public class Coin {
 
 	private String side;
 	private int flips, heads, tails;
-	private float fairness;
+	private double fairness;
 	private Random r = new Random();
+	
+	public Coin(double p){
+		setFairness(p);
+		setHeads(0);
+		setTails(0);
+		setFlips(0);
+	}
+
+	public Coin(){
+		setFairness(.5);
+		setHeads(0);
+		setTails(0);
+		setFlips(0);
+	}
 
 	public void setHeads(int h){
 		heads = h;
@@ -20,19 +34,17 @@ public class Coin {
 		flips = f;
 	}
 
-	public void setFairness(int p){
+	public void setFairness(double p){
 		fairness = p;
 	}
 	
 	public void Flip(){
-		if (r.nextInt(2) == 1)
+		if ((Math.round(Math.random()-.5+fairness))==1)
 			{setHeads(heads + 1);
 			setFlips(flips + 1);
-			setFairness((heads/flips)*100);
 			}
 		else 	{setTails(tails + 1);
 			setFlips(flips + 1);
-			setFairness((heads/flips)*100);
 			}
 	}
 
@@ -42,7 +54,7 @@ public class Coin {
 		setTails(0);
 		setFairness(0);}
 
-	public float getFairness(){
+	public double getFairness(){
 		return fairness;
 	}
 
@@ -57,5 +69,8 @@ public class Coin {
 	public int getHeads(){
 		return heads;
 	}
+
+
+		
 
 } 
