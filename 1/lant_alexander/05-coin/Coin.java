@@ -12,10 +12,6 @@ public class Coin {
     private int flips;
     private double fairness;
 
-    // public void coin() {
-	          
-    //	}
-	
     public int coin() {	
 	result = r.nextInt(2);
 	return result;
