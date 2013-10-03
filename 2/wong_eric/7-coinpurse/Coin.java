@@ -6,13 +6,25 @@ public class Coin {
     private String face;
     private int head, tail;
     private double prob;
+    private int value;
+    private String name;
 
     public Coin() {
 	face = "head";
 	head = 0;
 	tail = 0;
 	prob = 50.0;
-    }	
+	value = 25;
+	name = "quarter";
+    }
+    public Coin(String n, int v) {
+	face = "head";
+	head = 0;
+	tail = 0;
+	prob = 50.0;
+	value = v;
+	name = n;
+    }
 
     public void reset() {
 	head = 0;
@@ -27,6 +39,9 @@ public class Coin {
     }
     public String getTail() {
 	return "The coin has landed tail up " + tail + " times";
+    }
+    public int getValue() {
+	return value;
     }
 
     public void flip() {
