@@ -13,11 +13,11 @@ public class Person{
 	sweyn = t;
     }
 
-    public Turtle getPet(){
+    public Turtle getPet() {
 	return sweyn;
     }
 
-    public int getTurtleSpeed(){
+    public int getTurtleSpeed() {
 	return sweyn.getSpeed();
     }
 
