@@ -49,7 +49,7 @@ public class Turtle {
     }
 
     public String getName(){
-	return name;
+	return "My name is " +  name;
     }
 
     public int getAge(){

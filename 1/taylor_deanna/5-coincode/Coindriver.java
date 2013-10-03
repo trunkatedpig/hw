@@ -4,24 +4,24 @@ import java.util.*;
 public class Coindriver {
     public static void main (String [] args) {
 
-	Coin c;
-
-	c = new Coin ();
+	Coin c = new Coin();
+	for (int i = 0; i < 100; i++) {
 	c.setCount();
+	}
 
-	System.out.println(c.getTotalFlips());
-	System.out.println(c.getHeads());
-	System.out.println(c.getTails());
-	System.out.println(c.getHeadPercent());
+	System.out.println("Total flips: " + c.getTotalFlips());
+	System.out.println("Heads: " + c.getHeads());
+	System.out.println("Tails: " + c.getTails());
+	System.out.println("Percent: " + c.getHeads()/c.getTotalFlips());
 	
 	System.out.println("----------------------------");
 
-	c.resetCount();
+	/*	c.resetCount();
 
 	System.out.println(c.getTotalFlips());
 	System.out.println(c.getHeads());
 	System.out.println(c.getTails());
-	System.out.println(c.getHeadPercent());
+	System.out.println(c.getHeadPercent()); */
     }
 }
 
