@@ -4,25 +4,31 @@ public class Coin {
    
    private String face;
    private int head,tail,tosses;
-
-    public void setup(String f){
+    private double prob = 0.5;
+    public void setup(){
 	head = 0;
 	tail = 0;
 	tosses = 0;
 	    }
-
-    public void flip(String f){
-	face= f;
+    public Coin(){
+	setup();
+	    }
+    public void flip(){
+	Random r = new Random();
+        if (r > prob)
+	    head = head + 1;
+	else
+	    tail = tail + 1;
         tosses = tosses + 1;
 	    }
     
-    public Coin() {
-	flip("Tails");
+    
+    public String getHead(){
+	return Head;
     }
-    public Coin(String h){
-	flip(h);
+    public String getTail(){
+	return Tail;
     }
-
     public String getFace(){
 	return face;
     }
