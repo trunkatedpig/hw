@@ -1,17 +1,12 @@
 public class Coin {
-    private String face;
-    private int flips, heads;
-    private double probability;
+    private String face = "Unflipped";
+    private int flips = 0;
+    private int heads = 0;
+    private double probability = 0.5;
 
-    public Coin() {
-	face = "Unflipped";
-	flips = heads = 0;
-	probability = 0.5;
-    }
+    public Coin() {}
 
     public Coin(double probability) {
-	face = "Unflipped";
-	flips = heads = 0;
 	this.probability = probability;
     }
 
@@ -22,7 +17,8 @@ public class Coin {
     public void flip() {
 	if (Math.random() < probability) {
 	    face = "Heads";
-	    heads += 1;}
+	    heads += 1;
+	}
 	else {face = "Tails";}
     }
 }
