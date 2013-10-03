@@ -1,10 +1,25 @@
 import java.io.*;
 import java.util.*;
 
-public class Coin () {
+public class Coin {
     
-    private int faceValue;
-    private int heads;
-    private int tails;
+    private String faceValue;
+    private int heads, tails, flips;
+    private double probhead = 0.5;
     
-    //still trying to figure out how approach this and Turtle assignment
+    public void resetCount(){
+	flips = 0;
+	heads = 0;
+	tails = 0;
+    }
+
+    Random r;
+    r = new Random();
+
+    public void setFace(){
+	if ((r.nextDouble()) <= probhead)
+	    faceValue ="Heads";
+	else
+	    faceValue ="Heads";
+    }
+}
