@@ -1,13 +1,40 @@
+//Andrew Fischer & John Safy
+
 import java.io.*;
-import java.lang.System;
 import java.util.*;
 
 public class Driver {
     public static void main (String[] args) {
 
-        Coin c;
+        Coin c, c2;
         c = new Coin();
+	c2 = new Coin();
 
-        System.out.println("If you're seeing this, then your code executed successfully.");
+	c.flip();
+	c2.flip();
+	
+	if (c.getFace() == "heads") 
+	    {
+		System.out.println("Coin 1: Heads");
+	    }
+	
+	else
+	    {
+		System.out.println("Coin 1: Tails");
+	    }
+
+	if (c2.getFace() == "heads") 
+	    {
+		System.out.println("Coin 2: Heads");
+	    }
+	
+	else
+	    {
+		System.out.println("Coin 2: Tails");
+	    }
+
+	return (c.getFace.equals(c2.getFace()));
+       	
+	    
     }
 }
