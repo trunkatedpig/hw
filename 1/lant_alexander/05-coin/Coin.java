@@ -1,23 +1,59 @@
 import java.util.*;
 import java.io.*;
 
-    public class Coin {
-	public static void main(String[] args) {
 
-	    Random r = new Random();
-	    int r1 = r.nextInt(2);
-	    int heads; //do I need "= 0"?
-	    
+public class Coin {
+       
+    private String face;
+    private Random r = new Random();
+    private int result;
+    private int heads;
+    private int tails;
+    private int flips;
+    private double fairness;
+
+    // public void coin() {
+	          
+    //	}
 	
-	       if (r1 == 1) {
-		System.out.println("heads");
-		//heads = heads + 1;
-	    } 
-	     else {
-	    	System.out.println("tails"); }
-
-	       System.out.println(heads);
+    public int coin() {	
+	result = r.nextInt(2);
+	return result;
+ }
+	
+    public String getFace() {
+	if (result == 0) {
+	    face = "heads";
+	    heads = heads + 1;
 	}
+	else {
+	    face = "tails";
+	    tails = tails + 1;
+		}
+
+	flips = flips + 1;
+	return face;
     }
+	
+		    
+    public double getFairness() {
+	fairness = heads/(heads + tails);
+	return fairness;    
+    }
+
+    public int getHeads() {
+	return heads;
+    }
+
+    public int getTails() {
+	return tails;
+    }
+
+    public int getFlips() {
+	return flips;
+    }
+   
+	
+ }
     
 
