@@ -60,6 +60,25 @@ public class Coin {
 		value = v;
 	}
 
+	public Coin(String n) {
+		flips = 0;
+		heads = 0;
+		tails = 0;
+		fairness = 0.5;
+		name = n;
+		if (name == "penny") {
+			value = 0.01;}
+		else if (name == "nickel") {
+			value = 0.05;}
+		else if (name == "dime") {
+			value = 0.1;}
+		else if (name == "dollar") {
+			value = 1.0;}
+		else {
+			value = .25;}
+	}
+
+
 
 	public void resetFlips() {
 		flips = 0;
@@ -83,7 +102,7 @@ public class Coin {
 
 	public double getValue() {
 		return value;
-	{
+	}
 
 }
 
