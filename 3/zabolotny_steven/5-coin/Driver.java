@@ -5,7 +5,14 @@ public class Driver {
     public static void main(String[] args) {
 	Coin c;
 	c = new Coin();
-	System.out.println(c.getFace());
-	c.reset();
+	c.reset("Heads",0.5);
+	while (c.getFlips() < 10) {
+	    c.flip();
+	    System.out.println("Flipped: " + c.getFace());
+	    System.out.println("Heads: " + Integer.toString(c.getHeads()));
+	    System.out.println("Flips: " + Integer.toString(c.getFlips()));
+	    System.out.println("Fairness: " + Double.toString(c.getFair()));
+	    System.out.println("\n");
+	}
     }
 }
