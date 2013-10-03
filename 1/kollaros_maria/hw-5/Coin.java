@@ -33,7 +33,7 @@ public class Coin {
 	    face = "Tails";
 	}
 	tosses = tosses + 1;
-	getFace();
+	return getFace();
     }
 
     public void setRandProb(){
