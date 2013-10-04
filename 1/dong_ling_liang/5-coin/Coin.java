@@ -8,11 +8,25 @@ public class Coin{
     private double fairness;
     private Random r = new Random();
     private double amount;
+    private String type;
 
     public Coin() {
 	fairness=0.5;
 	face="heads";
 	amount=0.01;
+	type= "penny"
+    }
+    public Coin(String t, double a){
+    	face="heads";
+    	fairness=0.5;
+    	type=t;
+    	amount=a;
+    }
+    public Coin(String t){
+    	face="heads";
+    	fairness=0.5;
+    	type=t;
+    	amount=convert(t);
     }
 
     public void reset(){
@@ -22,6 +36,18 @@ public class Coin{
 	fairness=0.5;
 	face="heads";
 	    }
+    public double convert(String t){
+    	if (!(t.equals("penny"))){
+	    if (!(t.equals("nickel"))){
+	    	if (!(t.equals("dime"))){
+	    		return 0.25;
+	    	else
+	    		return 0.10;}
+	    else 
+	    	return 0.05;}
+	 else return 0.01;}
+    	}
+    }
 
     public String currentFace(){
 	return face;
