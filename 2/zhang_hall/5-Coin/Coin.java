@@ -29,6 +29,19 @@ public class Coin {
     public int getFlips(){
 	return flips;
     }
+
+    public void FlipCoin(){
+	if (Math.random() >= .5){
+	    face = "heads";
+	    heads = heads + 1;
+	}
+	else {
+	    face = "tails";
+	    heads = tails + 1;
+	}
+	flips = flips + 1;
+	    }
 }
+
 
     

@@ -18,7 +18,7 @@ public class Coin {
 	head = 0;
 	tail = 0;
     }
-	
+
     public String getFace() {
 	return "The coin is " + face + " up";
     }
