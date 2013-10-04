@@ -27,19 +27,19 @@ public class Coin{
     	fairness=0.5;
     	type=t;
     	if (t.equals("dime")) {
-	    value = 0.1;
+	    amount = 0.1;
 	}
 	else if (t.equals("penny")) {
-	    value = 0.01;
+	    amount = 0.01;
 	}
 	else if (t.equals("quarter")) {
-	    value = .25;
+	    amount = .25;
 	}
 	else if (t.equals("dollar")){
-	    value = 1;
+	    amount = 1;
 	}
 	else if (t.equals("nickel")) {
-	    value = 0.05;
+	    amount = 0.05;
     	}
     }
 
