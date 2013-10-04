@@ -1,18 +1,34 @@
 public class Coin{
-    //0=heads 1=tails
-    //hh=# heads tt=# tails
+    //ht=heads or tail of the flip hh=# heads tt=# tails
     private String ht;
     private int hh;
     private int tt;
     private double percentage;
-    //1-5
-    //6-10
+    private int penny=1;
+    private int nickel=5;
+    private int dime=10;
+    private int quarter=25;
+    public int value;
+
     public Coin(){
 	ht="heads";
 	hh=0;
 	tt=0;
 	percentage=.5;
+	//percentage is the chance of getting heads!
     }
+
+    public Coin(String coinType){
+	if (coinType=="penny"){
+	    value=penny;}
+	else if(coinType=="nickle"){
+	    value=nickel;}
+	else if(coinType=="dime"){
+	    value=dime;}
+	else if(coinType=="quarter"){
+	    value=quarter;}
+    }
+
     public void resetCount(){
 	hh=0;
 	tt=0;
