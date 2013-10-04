@@ -5,6 +5,10 @@ public class coinpurse{
 
     private double amount;
     
+    public coinpurse(){
+    	amount = 0
+    }
+    
     public void addTo (Coin c) {
 	amount = amount + c.getAmount;
     }
