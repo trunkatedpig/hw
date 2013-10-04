@@ -45,7 +45,7 @@ public class Driver{
 	c.flip();
 	c.flip();
 	c.addTo(c);
-	System.out.println(c.purseValue();
+	System.out.println(c.purseValue());
 	
     }
 }
