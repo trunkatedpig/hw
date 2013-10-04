@@ -49,6 +49,7 @@ public class Coin{
 	tails=0;
 	fairness=0.5;
 	face="heads";
+	amount=0.01;
 	    }
 
     public String currentFace(){
