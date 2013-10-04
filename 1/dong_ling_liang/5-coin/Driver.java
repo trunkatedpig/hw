@@ -37,5 +37,15 @@ public class Driver{
 	System.out.println(c.getTails());
 	System.out.println(c.getHeads());
 	System.out.println(c.getAmount());
+	
+	System.out.println("New Testsssssssssssssss");
+	c.reset();
+	c.addTo(c);
+	System.out.println(c.purseValue());
+	c.flip();
+	c.flip();
+	c.addTo(c);
+	System.out.println(c.purseValue();
+	
     }
 }
