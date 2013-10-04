@@ -2,22 +2,26 @@ import java.io.*;
 import java.util.*;
 
 public class Coin{
-    private String face;
-    private int heads,tails,flips,percent; //percent = probability of heads
+    private String face,name;
+    private int percent; //percent = probability of heads
+    private double amount,heads,tails,flips;
     private Random r = new Random();
     
     public void setCoin(){
 	face = "Heads";
+	name = "Quarter";
+	amount = 0.25;
 	resetCount();
 	percent = 50;
 	    }
-    public void setCoin(String face,int percent){
+    public void setCoin(String face,int percent,String name,double amount){
 	face = face;
+	name = name;
+	amount = amount;
 	percent = percent;
 	resetCount();
     }
     
-
     public void coinFlip(){
 	flips = flips + 1;
 	if (r.nextInt(100) < percent)
@@ -40,10 +44,17 @@ public class Coin{
     public String getFace(){
 	return face;
     }
-    public int getHeads(){
+    public double getHeads(){
 	return heads;
     }
-    public int getTails(){
+    public double getTails(){
 	return tails;
     }
+    public double getFairness(){
+	return heads/flips;
+    }
+    public double getAmount(){
+	return amount;
+    }
+    
 }

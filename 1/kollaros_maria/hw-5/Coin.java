@@ -1,38 +1,45 @@
 public class Coin {
     private String face;
+    private String name;
+    private double amount;
     private int tosses;
     private int heads;
     private double prob = 0.5; // another way to initialize
 
-    public void initCoin(String f, Double p) {
+    public void initCoin(String f, double p, String n, double a) {
 	face = f;
 	tosses=0;
 	heads=0;
 	prob=p;
+	name=n;
+	amount=a;
     }
 
 
-    public Coin() {
-	initCoin("Heads",0.5);
+    public Coin(String n, double a) {
+	initCoin("Heads",0.5,n,a);
     }
 
 
-    public Coin(String f) {
-	initCoin(f,0.5);
+    public Coin(String f,String n,double a) {
+	initCoin(f,0.5,n,a);
     }
 
     public void reset(){
 	tosses = 0;
+	heads = 0;
     }
 
     public String toss(){
 	if (Math.random() > prob){
 	    face = "Heads";
+	    heads = heads + 1;
 	} 
 	else{
 	    face = "Tails";
 	}
 	tosses = tosses + 1;
+	System.out.println(getAmount());
 	return getFace();
     }
 
@@ -42,6 +49,10 @@ public class Coin {
 
     public String getFace() {
 	return face;
+    }
+
+    public double getAmount(){
+	return amount;
     }
 
     public boolean equals(Coin other) {

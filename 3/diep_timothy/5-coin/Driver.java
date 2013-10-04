@@ -4,11 +4,15 @@ import java.util.*;
 public class Driver {
 
     public static void main(String[] args) {
-	Coin coin;
-	coin = new Coin();
-	coin.Reset();
-	System.out.println("Number of Flips:" + coin.getFlips());
-	System.out.println("Number of Heads:" + coin.getHeads());
-	System.out.println("Number of Tails:" + coin.getTails());
+	Coin c1,c2;
+	CoinPurse cp;
+	c1 = new Coin("Quarter", 25);
+	c2 = new Coin(10);
+	cp = new CoinPurse();
+	cp.addTo(c1);
+	cp.removeFrom(c2);
+	System.out.println(c1.getValue());
+	System.out.println(c1.getName());
+	System.out.println(cp.getAmount());
     }
 }	

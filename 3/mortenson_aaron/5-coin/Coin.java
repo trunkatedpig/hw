@@ -4,16 +4,17 @@ import java.io.*;
 public class Coin {
 
 	private boolean face;
-	private int head, tail, fair;
+	private int head, tail
+	private double fair;
 
 	public Coin() {
-		fair = 50;
+		fair = .5;
 		head = 0;
 		tail = 0;
 		face = true;
 	}
 
-	public Coin(int i) {
+	public Coin(double i) {
 		fair = i;
 		head = 0;
 		tail = 0;
@@ -21,8 +22,7 @@ public class Coin {
 	}
 
 	public void flip() {
-		Random r = new Random();
-		if (fair > r.nextInt(100)) {
+		if (fair > Math.random()) {
 			face = true;
 			head = head + 1;
 		}
