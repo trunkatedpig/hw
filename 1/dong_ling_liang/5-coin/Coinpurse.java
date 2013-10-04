@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-public class coinpurse{
+public class Coinpurse{
 
     private double amount;
     
-    public coinpurse(){
+    public Coinpurse(){
     	amount = 0
     }
     
