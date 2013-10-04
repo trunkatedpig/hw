@@ -14,7 +14,7 @@ public class Coin{
 	fairness=0.5;
 	face="heads";
 	amount=0.01;
-	type= "penny"
+	type= "penny";
     }
     public Coin(String t, double a){
     	face="heads";
