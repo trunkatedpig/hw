@@ -31,17 +31,28 @@ public class Coin {
     }
 
     public void FlipCoin(){
-	if (Math.random() >= .5){
+	if (Math.random() >= fairness){
 	    face = "heads";
 	    heads = heads + 1;
 	}
 	else {
 	    face = "tails";
-	    heads = tails + 1;
+	    tails = tails + 1;
 	}
 	flips = flips + 1;
 	    }
-}
 
+    public void RiggCoin(double n){
+        if (Math.random() >= n){
+	    face = "heads";
+	    heads = heads + 1;
+	}
+	else {
+	    face = "tails";
+	    tails = tails + 1;
+	}
+	flips = flips + 1;
+    }
+}
 
     
