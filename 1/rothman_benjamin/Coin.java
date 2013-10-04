@@ -7,6 +7,7 @@ public class Coin {
     private int tosses;
     private int heads;
     private double prob = 0.5; // another way to initialize
+    private int random; 
 
     public void initCoin(String f, Double p) {
 	face = f;
@@ -18,6 +19,7 @@ public class Coin {
 
     public Coin() {
 	initCoin("Heads",0.5);
+	    random = new nextInt (2);
     }
 
 
@@ -29,17 +31,22 @@ public class Coin {
 	return face;
     }
 
-    public String Flip {
 
-	Random r = new Random.nextInt (1);
 
-	if (r == 1)
+    public String Flip () {
+
+	
+
+	if (random == 1) {
 	    face = "Heads";
-
-	    else
+	}
+	
+	else {
 		face = "Tails";
 
     }
+    }
+
 		   
 
     public boolean sameFace(Coin other) {

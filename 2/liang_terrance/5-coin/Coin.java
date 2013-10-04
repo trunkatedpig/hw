@@ -4,7 +4,7 @@ import java.util.*;
 public class Coin {
     private String face;
     private int headsflip, tailsflip;
-    private float chance;
+    private double chance=0.5;
    
     public void reset(){
 	headsflip = 0;
@@ -15,20 +15,27 @@ public class Coin {
 	return face;
     }    
     
-    // This is to test the code above
+    public void faceFlip(){
+	if (Math.random() <= chance){
+	    face = "Heads";
+	    headsflip = headsflip + 1;
+		}
+	else {
+	    face = "Tails";
+	    tailsflip = tailsflip + 1;
+		}
+    }
+
+
     public void setFace(String f){
 	face = f;
     }
 
-    public void flipHeads(){
-	headsflip = headsflip + 1;
+    public int getHeads(){
+	return headsflip;
     }
-
-    public void flipTails(){
-	tailsflip = tailsflip + 1;
-    }
-
-    public String getFlips(){
-	return "Heads flipped " + headsflip + " times. \n Tails flipped " + tailsflip + " times.";
+    
+    public int getTails(){
+	return tailsflip;
     }
 }
