@@ -8,7 +8,9 @@ public class Driver {
 	c1 = new Coin();
 	System.out.println(c1.getFace());
 	System.out.println(c1.getFlips());
-	c1.resetFlips();
+	c1.FlipCoin();
 	System.out.println(c1.getFlips());
+	System.out.println(c1.getFace());
+
     }
 }
