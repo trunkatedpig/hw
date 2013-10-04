@@ -39,13 +39,14 @@ public class Driver{
 	System.out.println(c.getAmount());
 	
 	System.out.println("New Testsssssssssssssss");
+	Coinpurse cp= new Coinpurse();
 	c.reset();
-	c.addTo(c);
-	System.out.println(c.purseValue());
+	cp.addTo(c);
+	System.out.println(cp.purseValue());
 	c.flip();
 	c.flip();
-	c.addTo(c);
-	System.out.println(c.purseValue());
+	cp.addTo(c);
+	System.out.println(cp.purseValue());
 	
     }
 }
