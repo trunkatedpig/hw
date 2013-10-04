@@ -3,12 +3,16 @@ import java.util.*;
 
 public class coinpurse{
 
-    private double money;
+    private double amount;
     
     public void addTo (Coin c) {
-	money += c.getAmount;
+	amount = amount + c.getAmount;
     }
     
     public void removeFrom (Coin c) {
-	money -= c.getAmount;
+	amount = amount - c.getAmount;
+    }
+    public double purseValue(){
+    	return amount;
+    }
 }
