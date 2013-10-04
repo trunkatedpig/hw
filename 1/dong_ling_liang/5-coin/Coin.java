@@ -37,17 +37,20 @@ public class Coin{
 	face="heads";
 	    }
     public double convert(String t){
-    	if (!(t.equals("penny"))){
-	    if (!(t.equals("nickel"))){
-	    	if (!(t.equals("dime"))){
-	    		return 0.25;
-	    	else
-	    		return 0.10;}
-	    else 
-	    	return 0.05;}
-	 else return 0.01;}
+    	if (!(t.equals("penny")))
+    	{
+	    if (!(t.equals("nickel")))
+	    {
+	    	if (!(t.equals("dime")))
+	    	{
+	    		return 0.25;}
+	    	else{
+	    		return 0.10;}}
+	    else {
+	    	return 0.05;}}
+	 else {
+	 	return 0.01;}
     	}
-    }
 
     public String currentFace(){
 	return face;
