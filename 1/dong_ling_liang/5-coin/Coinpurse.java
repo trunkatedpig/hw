@@ -10,11 +10,11 @@ public class Coinpurse{
     }
     
     public void addTo (Coin c) {
-	amount = amount + c.getAmount;
+	amount = Double.valueOf((amount.doubleValue()) + ((c.getAmount).doubleValue()))
     }
     
     public void removeFrom (Coin c) {
-	amount = amount - c.getAmount;
+	amount = Double.valueOf((amount.doubleValue()) - ((c.getAmount).doubleValue()))
     }
     public double purseValue(){
     	return amount;
