@@ -13,7 +13,7 @@ public class StringTests {
 	System.out.println(s1==s5); //false
 	System.out.println(s1==s6); //false
 	System.out.println(s2==s3); //false
-	System.out.println(s2==s4); //true
+	System.out.println(s2==s4); //true --> this is because it points to the same literal
 	System.out.println(s2==s5); //false
 	System.out.println(s2==s6); //false
 	System.out.println(s3==s4); //false
