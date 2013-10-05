@@ -1,15 +1,35 @@
+//Andrew Fischer & John Safy
+
 import java.io.*;
-import java.lang.String;
 import java.util.*;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+
 
 public class Coin {
 
     //Instance Vars
-    private String face;
+    private String f, face;
     private int flips, heads, tails;
-    private int percentHeads;
+    private double r, prob;
+    private int coinVal;
+    private String coinName;
+
+    //Constructors
+
+    public Coin() {
+	if(coinVal == 25)
+	    {
+		coinName = "Quarter";
+	    }
+	if(coinVal == 5)
+	    {
+		coinName = "Nickel";
+	    }
+	if(coinVal == 10)
+	    {
+		coinName = "Dime";
+	    }
+	
+    }
 
     //Methods
 
@@ -17,6 +37,23 @@ public class Coin {
         flips = 0;
         heads = 0;
         tails = 0;
+	face = f;
+	prob = 0.5;
+    }
+
+    public void flip(){
+	r = Math.random();
+	
+        if (r > prob) {
+	    face = "heads";
+	    heads = heads + 1;
+	    flips = flips + 1;
+		}
+	else {
+	    face = "tails";
+	    tails = tails + 1;
+	    flips = flips + 1;
+		}
     }
 
     ///Get Methods
@@ -24,4 +61,6 @@ public class Coin {
     public String getFace(){
         return face;
     }
+
+
 }
