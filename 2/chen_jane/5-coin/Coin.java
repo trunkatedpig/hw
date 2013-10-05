@@ -13,7 +13,6 @@ public class Coin {
 	tails = 0;
     }
 
-    //input n is integer less than 10
     public void setFairness(double n) {
 	fairness = n;
     }
