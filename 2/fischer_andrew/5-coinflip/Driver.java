@@ -33,7 +33,7 @@ public class Driver {
 		System.out.println("Coin 2: Tails");
 	    }
 
-	return (c1.getface.equals(c2.getFace()));
+	System.out.println((c.getFace().equals(c2.getFace())));
        	
 	    
     }
