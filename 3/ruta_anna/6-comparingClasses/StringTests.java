@@ -1,5 +1,7 @@
 public class StringTests {
+
   public static void main(String[] args) {
+
     String s1,s2,s3,s4,s5,s6;
     s1=new String("Hello");
     s2="Hello";
@@ -52,5 +54,6 @@ public class StringTests {
 
     System.out.println(s5==s6);
    		/* Should print out false */
+
     }
 }
