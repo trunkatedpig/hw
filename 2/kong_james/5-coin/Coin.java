@@ -1,29 +1,47 @@
 import java.io.*;
 import java.util.*;
-//import Math.random.*;
 
 public class Coin {
+    private String name;
     private String face;
     private int hcount;
     private int tcount;
-    private double fairness = 0.5;
-    private int coin;
-    private int Random;
-    private int quarter = 25;
-    private int dime = 10;
-    private int nickel = 5;
-    private int penny = 1;
+    private int flipcount;
+    private double chance;
+    private double fairness;
+    private double h;
+    private double r;
+    private int value;
 
-    
-    public Coin(String f) {
-	face = f;
+    public Coin(String n, int v){
+	n = name;
+	v = value;
 	hcount = 0;
 	tcount = 0;
-	fairness = 0.5;
+	flipcount = 0;
     }
 
-    public void perctHead(){
-	Random = nextDouble();
+   
+    public void flip(){
+	r = Math.random();
+	h = .50;
+	
+	if (r > h)
+	    {
+		face = "heads";
+		hcount = hcount + 1;
+		flipcount = flipcount + 1;
+	    }
+	else
+	    { 
+		face = "tails";
+		tcount = tcount + 1;
+		flipcount = flipcount +1;
+	    }
+    }    
+    public double perctHead(){
+	fairness = (hcount) / (flipcount);
+	return fairness;
     }
   
     public void reset(){
@@ -34,10 +52,4 @@ public class Coin {
     public String getFace(){
 	return face;
     }
-    public Boolean flip(){
-	if ( Random > fairness){
-	    face = "head";}
-	else {face = "tails";}
-    }
-
 }
