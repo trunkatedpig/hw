@@ -5,6 +5,13 @@ public class Coin {
     private String face;
     private int headsflip, tailsflip;
     private double chance=0.5;
+    private int value;
+    private String name;
+
+    public Coin(String n, int v){
+	name = n;
+	value = v;
+    }
    
     public void reset(){
 	headsflip = 0;
@@ -37,5 +44,13 @@ public class Coin {
     
     public int getTails(){
 	return tailsflip;
+    }
+
+    public String getName(){
+	return name;
+    }
+
+    public int getValue(){
+	return value;
     }
 }
