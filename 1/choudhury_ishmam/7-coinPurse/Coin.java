@@ -14,14 +14,14 @@ public class Coin {
     // The number of heads and tails, respectively
     // the fairness of the coin (how often tails vs. heads)
 
-    public Coin (){
+    public Coin (double v, String n){
     face = "Heads";
     flips = 5;
     heads = 3;
     tails = 2;
     prob  = .5;
-    value = 0.25
-    name = "Quarter"
+    value = v;
+    name = n;
     }
 
     //Methods
@@ -59,6 +59,14 @@ public class Coin {
 
     public String getFace(){
 	return face;
+    }
+
+    public double getValue(){
+	return value;
+    }
+
+    public String getName(){
+	return name;
     }
      
 

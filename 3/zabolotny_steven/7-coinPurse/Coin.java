@@ -7,6 +7,9 @@ public class Coin {
     private int heads;
     private double fair;
 
+    private double value;
+    private String name;
+
     public void reset(String f,Double Fair) {
 	face = f;
 	flips = 0;
@@ -29,9 +32,10 @@ public class Coin {
     public Coin() {
 	reset("Heads",0.5);
 	    }
-    public Coin(String f,Double Fair) {
-	reset(f,Fair);
-	    }
+    public Coin(String n,Double v) {
+	name = n;
+	value = v;
+    }
 
     public String getFace() {
 	return face;
@@ -44,5 +48,11 @@ public class Coin {
     }
     public double getFair() {
 	return fair;
+    }
+    public String getName() {
+	return name;
+    }
+    public double getValue() {
+	return value;
     }
 }
