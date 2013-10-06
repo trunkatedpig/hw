@@ -6,12 +6,12 @@ public class CoinPurse{
 	amount=amt;
 	
 	public void addTo(Coin c){
-	coin=c
+	coin=c;
 		amount+=coin.getValue();
 	}
 	
 	public void removeFrom(Coin c){
-	coin=c
+	coin=c;
 		amount-=coin.getValue();
 	}
 	

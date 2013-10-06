@@ -36,14 +36,14 @@ public class Driver {
 	head2.flip();
 	
 	System.out.println(head1.getFace()+" "+tail.getFace()+" "+head2.getFace()+" "+head1.getTosses()+" "+head1.getHeads());*/
-  Coin c1 = new Coin();
-	Coin c2= new Coin();
+    Coin c1 = new Coin("penny");
+	Coin c2= new Coin(00.25);
 
 
 
-	c1.Coin("nickel");
+	//c1.Coin("nickel");
 	System.out.println("Coin c1: "+ c1.getValue());
-	c2.Coin(00.01);
+	//c2.Coin(00.01);
 	System.out.println("Coin c2:" +c2.getName());
 	
 	
