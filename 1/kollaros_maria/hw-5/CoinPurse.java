@@ -27,11 +27,11 @@ public class CoinPurse{
 	amount -= c.getAmount();
     }
 
-    public init getAmount(){
+    public double getAmount(){
 	return amount;
     }
 
-    public init getNum(){
-	return numOfCoins;
+    public int getNum(){
+	return numberOfCoins;
     }
 }
