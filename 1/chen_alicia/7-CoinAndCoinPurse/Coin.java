@@ -35,15 +35,7 @@ public class Coin {
 	return face.equals(other.getFace());
     }
 
-    public void flip() {
-	double random=Math.random()+.1;
-	tosses +=1;
-	if (random >= prob){
-	    face= "heads";
-	    heads += 1;
-	}
-	else {
-	    face="tails";
-	}
-    }
+    public String flip(Coin c) {
+	return " ";
+}
 }
