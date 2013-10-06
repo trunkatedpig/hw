@@ -3,7 +3,7 @@ public class CoinPurse{
     private int numberOfCoins;
 
     public CoinPurse(){
-	amount = 0.0;
+	amount = 0.00;
 	numberOfCoins = 0;
     }
 
@@ -17,8 +17,21 @@ public class CoinPurse{
 	numberOfCoins = 1;
     }
 
-    public void addTo(Coin t){
+    public void addTo(Coin c){
 	numberOfCoins += 1;
-	amount += t.getAmount();
+	amount += c.getAmount();
+    }
+
+    public void removeFrom(Coin c){
+	numberOfCoins -= 1;
+	amount -= c.getAmount();
+    }
+
+    public init getAmount(){
+	return amount;
+    }
+
+    public init getNum(){
+	return numOfCoins;
     }
 }
