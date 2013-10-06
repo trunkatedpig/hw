@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
-    private String face; //"heads" or "tails"
-    private int tosses, heads;
-    private double prob = 0.5; //percent of heads
+    private String face,name; //face = "heads" or "tails"
+    private int heads, tails,  tosses;
+    private double coinvalue,  prob = 0.5; //percent of heads
 
     public void initcoin (String f, double p){
 	face = f;
@@ -17,13 +17,52 @@ public class Coin {
 	initcoin("Heads",0.5);
     }
 
-
-    public Coin(String f) {
-	initcoin(f,0.5);
+    public Coin(String n){
+	name =n;
+	if (n == "penny") {
+	    coinvalue = 0.01;
+		}
+	if (n == "nickel"){
+	    coinvalue = 0.05;
+	}
+	if (n== "dime"){
+	    coinvalue = 0.1;
+	}
+	if (n=="quarter"){
+	    coinvalue = 0.25;
+	}
     }
+
+ public Coin(double v){
+	coinvalue = v;
+	if (v == .01){
+	    name = "penny";
+	}
+	else if (v == .05){
+	    name = "nickel";
+	}
+	else if (v == .1){
+	    name = "dime";
+	}
+	else{
+	    name = "quarter";
+	}
+ }
+
+    public void reset(){
+	face ="heads";
+	name = "penny";
+	tosses = 0;
+	tails = 0;
+	heads = 0;
+	coinvalue = 0.01;
+	prob = 0.5;
+    }
+	
 
     public void resetCounts(){
 	tosses = 0;
+	tails = 0;
 	heads = 0;
     }
 
@@ -31,11 +70,27 @@ public class Coin {
 	return face;
     }
 
+    public double getValue() {
+	return coinvalue;
+    }
+    public String getName() {
+	return name;
+    }
+
     public boolean equals(Coin other) {
 	return face.equals(other.getFace());
     }
 
-    public String flip(Coin c) {
-	return " ";
-}
+    public void flip() {
+	double random=Math.random()+.1;
+	tosses +=1;
+	if (random >= prob){
+	    face= "heads";
+	    heads += 1;
+	}
+	else {
+	    face="tails";
+	    tails += 1;
+	}
+    }
 }
