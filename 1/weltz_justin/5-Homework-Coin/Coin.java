@@ -1,53 +1,60 @@
 import java.io.*;
 import java.util.*;
-public class Coin {
-    private String face;
-    private double  flips, heads, fairness;
+//worked with Venessa
+public class Coin{
+    private String face,name;
+    private int percent; //percent = probability of heads
+    private double amount,heads,tails,flips;
     private Random r = new Random();
-    public Coin() {
-	setFace("heads");
-	setFlips(0);
-	setHeads(0);
+    
+    public void setCoin(){
+	face = "Heads";
+	name = "Quarter";
+	amount = 0.25;
+	resetCount();
+	percent = 50;
 	    }
-    public void setFlips(double n){
-	flips = n;
+    public void setCoin(String face,int percent,String name,double amount){
+	face = face;
+	name = name;
+	amount = amount;
+	percent = percent;
+	resetCount();
     }
-    public void Flip(){
-	if (r.nextInt(2) == 0)
-		 {setHeads(heads + 1);
-		  setFlips(flips + 1);
-		 }
-	else {
-	    setFlips(flips + 1);
-	}
+    
+    public void coinFlip(){
+	flips = flips + 1;
+	if (r.nextInt(100) < percent)
+	    {heads = heads + 1;
+		face = "Heads";
+		    }
+	else {tails = tails + 1;
+	    face = "Tails";
+		}
     }
-    public void setFairness(double n, double p, double q){
-	fairness = (n / p)*q ;
+    
+    public void resetCount(){
+	heads = 0;
+	tails = 0;
+	flips = 0;
     }
-    public void Fairness(){
-	setFairness(heads , flips , 100);
-    }
-    public double  getFairness(){
-	return fairness;
-    }
-    public void setHeads(double n){
-	heads = n;
-    }
-    public void setFace (String s){
-	face = s;
-    }
-    public void ResetCounts(){
-	setFlips(0);
-	setHeads(0);
-    }
-    public double getFlips(){
-	return flips;
+    
+    ////////////
+
+    public String getFace(){
+	return face;
     }
     public double getHeads(){
 	return heads;
     }
-    public String getFace(){
-	return face;
+    public double getTails(){
+	return tails;
     }
-
+    public double getFairness(){
+	return heads/flips;
+    }
+    public double getAmount(){
+	return amount;
+    }
+    
 }

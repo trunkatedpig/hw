@@ -1,7 +1,7 @@
 public class Coin {
     
-    private boolean side;
-    private int flips, heads, tails;
+    private String side;
+    private int flips, heads;
     private double probability;
 
     public Coin() {
@@ -15,31 +15,25 @@ public class Coin {
     }
 
     public void reset() {
-        flips = heads = tails = 0;
+        flips = heads = 0;
     }
 
     public void flip() {
         double x;
         x = Math.random();
         if (x < probability) {
-            side = true;
+            side = "Heads";
             flips++;
             heads++;
         } 
         else {
-            side = false;
+            side = "Tails";
             flips++;
-            tails++;
         }
     }
 
-    public String getFace() {
-        if (side) {
-            return "Heads";
-        }
-        else {
-            return "Tails";
-        }
+    public String getSide() {
+        return side;
     }
 
     public int getFlips() {
@@ -51,6 +45,10 @@ public class Coin {
     }
 
     public int getTails() {
-        return tails;
+        return flips - heads;
+    }
+
+    public boolean sameSide(Coin other) {
+        return side == other.getSide();
     }
 }

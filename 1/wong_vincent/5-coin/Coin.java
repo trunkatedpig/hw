@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
+
+    private double currentnumber;
     private String face;
     private int heads, tails;
     private int fairness;
@@ -10,6 +12,19 @@ public class Coin {
 	setFace ("You didn't flip yet");
 	setHeads (0);
 	setTails (0);
+    }
+
+    public void flip() {
+	currentnumber = Math.random();
+
+	if (currentnumber < 0.5) {
+	    setFace("Heads");
+	    heads = heads + 1;
+	}
+	else {
+	    setFace("Tails");
+	    tails = tails + 1;
+	}
     }
 
     public void setFace (String a) {
@@ -26,6 +41,14 @@ public class Coin {
 
     public String getFace() {
 	return face;
+    }
+    
+    public int getHeads() {
+	return heads;
+    }
+
+    public int getTails() {
+	return tails;
     }
 }
 	
