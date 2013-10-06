@@ -5,10 +5,10 @@ public class Coin {
 
     // Different instance  variables of the class 
 
-    private String face;
+    private String face, name;
     //Which face the coin flips on to
-
-    private int flips, heads, tails, fairness;
+    private double prob, value;
+    private int flips, heads, tails;
     // variables, in order
     // The total number of flips
     // The number of heads and tails, respectively
@@ -19,16 +19,39 @@ public class Coin {
     flips = 5;
     heads = 3;
     tails = 2;
-    fairness = 50;
+    prob  = .5;
+    value = 0.25
+    name = "Quarter"
     }
 
     //Methods
     
-    public void resetCount(){
+    public void resetFlips(){
 	flips = 0;
 	    }
+    
+    public void setFaceTails(){
+	face = "Tails";
+	flips += 1;
+	tails += 1;
+	    }
+    
+    public void setFaceHeads(){
+	face = "Heads";
+        flips += 1;
+        heads += 1;
+	    }
 
-    //get Method 
+    public void flip(){
+	if (Math.random() <= 0.5) {
+	    setFaceHeads();
+		}
+	else {
+	    setFaceTails();
+	}
+    }
+    
+    //get Methods 
     
     public int getFlips(){
 	return flips;
@@ -37,4 +60,6 @@ public class Coin {
     public String getFace(){
 	return face;
     }
+     
+
 }

@@ -6,7 +6,7 @@ public class Driver{
 	public static void main (String args[]) {
 		Coin c0, c1;
 		c0 = new Coin();
-		c1 = new Coin(80);
+		c1 = new Coin(.8);
 		System.out.println(c0.getFace());
 		System.out.println(c1.getFace());
 		System.out.println("----");
