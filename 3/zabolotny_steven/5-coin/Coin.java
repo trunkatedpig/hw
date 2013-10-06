@@ -16,15 +16,14 @@ public class Coin {
 
     public void flip() {
 	Random r = new Random();
-	int i = r.nextInt(100);
-	if (i < 50) {
+	int d = r.nextInt(100);
+	if (d < 50) {
 	    face = "Heads";
-	    heads = heads + 1;
-	}
+	    heads = heads + 1; }
 	else
-	    face = "Tails"; 
+	    face = "Tails";
 	flips = flips + 1;
-	fair = (double)(heads) / (double)(flips);
+	fair = (double)(heads)/(double)(flips);
     }
 
     public Coin() {
