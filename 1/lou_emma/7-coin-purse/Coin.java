@@ -34,8 +34,14 @@ public class Coin {
 	return face.equals(other.getFace());
     }
 
-    public String flip(Coin c){
-
+    public void flip (){
+	double random=Math.random()+.1;
+	if (random >=prob)
+	     face="Heads";
+		 
+	else 
+	     face="Tails";
+		 
     }
     
 }
