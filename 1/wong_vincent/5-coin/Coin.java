@@ -7,6 +7,27 @@ public class Coin {
     private String face;
     private int heads, tails;
     private int fairness;
+    private int value;
+    private String name;
+
+    public Coin (int a) {
+	if (a == 1) {
+	    value = 1;
+	    name = "Penny";
+	}
+	if (a == 5) {
+	    value = 5;
+	    name = "Nickel";
+	}
+	if (a == 10) {
+	    value = 10;
+	    name = "Dime";
+	}
+	if (a == 25) {
+	    value = 25;
+	    name = "Quater";
+	}
+    }
 
     public void reset () {
 	setFace ("You didn't flip yet");
@@ -49,6 +70,19 @@ public class Coin {
 
     public int getTails() {
 	return tails;
+    }
+
+    public int getFairness() {
+	fairness =  heads/(heads + tails);
+	return fairness;
+    }
+
+    public int getValue() {
+	return value;
+    }
+    
+    public String getName() {
+	return name;
     }
 }
 	
