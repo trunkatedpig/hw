@@ -3,14 +3,14 @@ import java.util.*;
 
 public class Coin {
 
-    private int value;
+    private double value;
     private String name;
 
-    public Coin (int worth, String type){
+    public Coin (double worth, String type){
 	value = worth;
 	name = type;
     }
-    public int getValue(){
+    public double getValue(){
 	return value;
     }
 }

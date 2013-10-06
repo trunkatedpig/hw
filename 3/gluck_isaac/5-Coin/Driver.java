@@ -1,28 +1,27 @@
+import java.util.*;
+import java.io.*;
+
 public class Driver {
 
     public static void main(String[] args) {
-	Coin coin = new Coin();
-	System.out.println(coin.face);
-	System.out.println(coin.tosses);
-	System.out.println(coin.heads);
-	System.out.println(coin.prob);
+	Coin coin = new Coin("Quarter", .25);
+	Coin coin2 = new Coin("Dime", .10);
+	Coin coin3 = new Coin("Nickel", .05);
+	Coin coin4 = new Coin("Penny", .01);
+	Coin coin5 = new Coin("test", .50);
 
-	System.out.println();
+	CoinPurse purse = new CoinPurse();
+	purse.addTo(coin);
+	System.out.println(purse.getAmount());
 
-	System.out.println(coin.flip());
-	System.out.println(coin.flip());
-	System.out.println(coin.flip());
-	System.out.println(coin.flip());
-	System.out.println(coin.flip());
+	purse.addTo(coin2);
+	System.out.println(purse.getAmount());
 
-	System.out.println();
+	purse.removeFrom(coin5);
+	System.out.println(purse.getAmount());
 
-	System.out.println(coin.face);
-	System.out.println(coin.tosses);
-	System.out.println(coin.heads);
-	System.out.println(coin.prob); 
-
-	coin.resetCount();
+	purse.removeFrom(coin4);
+	System.out.println(purse.getAmount());
     }
 
 }

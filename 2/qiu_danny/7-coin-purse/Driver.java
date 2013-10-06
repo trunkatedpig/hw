@@ -26,5 +26,12 @@ public class Driver {
         System.out.println(coinObjects);
         System.out.println(p.getCoinTypes());
         System.out.println(p.getCoinValues());
+        System.out.println(p.getTotalValue());
+
+        p.removeCoin(c1);
+        p.removeCoin(c1);
+        System.out.println(p.getCoinTypes());
+        System.out.println(p.getCoinValues());
+        System.out.println(p.getTotalValue());
     }
 }
