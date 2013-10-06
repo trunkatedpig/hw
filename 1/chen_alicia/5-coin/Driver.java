@@ -9,9 +9,18 @@ public class Driver {
 	s = new String ("Heads");
 	Coin head2 = new Coin (s);
 
-
+	System.out.println("Before flip");
 	System.out.println(head1.getFace()+" "+tail1.getFace()+" "+head2.getFace());
 
+	head1.flip();
+	tail1.flip();
+	head2.flip();
+	
+
+	System.out.println("After flip");
+	System.out.println(head1.getFace()+" "+tail1.getFace()+" "+head2.getFace());
+
+/* //equals. and compareTo. tests
 	System.out.println(head1.equals(tail1));
 	System.out.println(head1.equals(head2));
 	System.out.println(tail1.equals(head2));
@@ -29,10 +38,8 @@ public class Driver {
 	System.out.println("a".compareTo("b"));
 	System.out.println("b".compareTo("a"));
 	System.out.println("A".compareTo("a"));
-
+	*/
     }
-    double r
-	r=new Random (10);
-	System.out.println (r);
+
 
 }
