@@ -7,15 +7,19 @@ public class Driver {
 	c = new Coin();
 	c.setFace("Heads");
 	System.out.println("The current face is: " + c.getFace());
-	c.flipHeads();
-	c.flipHeads();
-	c.flipHeads();
-	c.flipTails();
-	c.flipTails();
-	System.out.println(c.getFlips());
-	c.reset();
-	System.out.println(c.getFlips());
-    
+	c.faceFlip();
+	System.out.println("The current face is: " + c.getFace());
+	c.faceFlip();
+	System.out.println("The current face is: " + c.getFace());
+	c.faceFlip();
+	System.out.println("The current face is: " + c.getFace());
+	c.faceFlip();
+	System.out.println("The current face is: " + c.getFace());
+	c.faceFlip();
+	System.out.println("The current face is: " + c.getFace());
+	System.out.println("Heads have been flipped " + c.getHeads() + " times.");
+	System.out.println("Tails have been flipped " + c.getTails() + " times.");
+	
     }
 
 }
