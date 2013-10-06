@@ -2,11 +2,22 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
-    private String face;
+    private String face,name;
     private int heads,tails,flips;
-    private double fairness;
+    private double fairness,value;
 
     public Coin(){
+	face="heads";
+        flips=0;
+        heads=0;
+        tails=0;
+	fairness= 50.0;
+	name="quarter";
+	value=0.25;
+    }
+    public Coin(String n,double v){
+	name=n;
+	value=v;
 	face="heads";
         flips=0;
         heads=0;
@@ -20,6 +31,10 @@ public class Coin {
         tails = 0;
         fairness = 50.0;
 
+    }
+    
+    public double getValue(){
+	return value;
     }
 
     public String getFace() {
@@ -48,3 +63,4 @@ public class Coin {
     }
 
 }
+/*Sofia M. and I were partners and worked on some of this together*/

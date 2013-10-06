@@ -6,6 +6,8 @@ public class Coin {
     private int heads;
     private double prob = 0.5; // another way to initialize
 
+    //took the beginng from Mr. Z but added to it and switched some things up
+
     public void initCoin(String f, double p, String n, double a) {
 	face = f;
 	tosses=0;
