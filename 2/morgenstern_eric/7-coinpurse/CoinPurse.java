@@ -1,54 +1,40 @@
 import java.io.*;
 import java.util.*;
 
-public class Coin {
-    private String face;
-    private int flips;
-    private int heads;
-    private int tails;
-    private double fairness;
-    public Coin() {
-	face = "Heads";
-	flips = 10;
-	heads = 3;
-	tails = 7;
-	fairness = .5;
+public class CoinPurse {
+    public double amount;
+    private int accountnumber;
+    public CoinPurse(int acctnum, double amt){
+	amount = amt;
+	accountnumber = acctnum;
     }
-    public String getFace() {
-	return face;
-    }
-    public int getFlips() {
-	return flips;
-    }
-    public int getHeads() {
-	return heads;
-    }
-    public int getTails() {
-	return tails;
-    }
-    public double getProb() {
-	return fairness;
-    }
-    public void flip(){
-	if( Math.random() < .5){
-	    face = "Heads";
-	    flips = flips + 1;
-	    heads = heads + 1; 
-	}
-	else {
-	    face = "Tails";
-	    flips = flips + 1;
-	    tails = tails + 1;
+    public void addTo(Coin c){
+	if ((c.name == "quarter") || (c.name == "Quarter")){
+		amount = amount + .25;
+	    }
+	else if ((c.name == "dime") || (c.name == "Dime")){
+		amount = amount + .10;
+	    }
+	else if ((c.name == "nickel") || (c.name == "Nickel")){
+		amount = amount + .05;
+	    }
+	else{
+	    amount = amount + .01;
 	}
     }
-    public void changeProb(double x) {
-	fairness = x;
-    }
-    public void reset(){
-	flips = 0;
-	heads = 0;
-	tails = 0;
-	face = "The coin has not yet been flipped";
+
+     public void removeFrom(Coin c){
+	 if ((c.name == "quarter") || (c.name == "Quarter")){
+		amount = amount - .25;
+	 }
+	 else if ((c.name == "dime") || (c.name == "Dime")){
+		amount = amount - .10;
+	 }
+	 else if ((c.name == "nickel") || (c.name == "Nickel")){
+		amount = amount - .05;
+	 }
+	 else{
+	    amount = amount - .01;
+	 }
     }
 }
-
