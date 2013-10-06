@@ -1,3 +1,5 @@
+//worked with Anish
+
 import java.io.*;
 import java.util.*;
 
@@ -9,15 +11,33 @@ public class Coin {
     private int numheads;
     private int numtails;
     private int fairness;
+    private double value;
+    private String name;
 
     public Coin(){
 	face = "tails";
+    }
+
+    public Coin(String n){
+	name = n;
+	if (n == "quarter")
+	    value = 0.25;
+	else if (n == "dime")
+	    value = 0.10;
+	else if (n == "nickel")
+	    value = 0.05;
+	else if (n == "penny")
+	    value = 0.01;
     }
     
     public void resetCount(){
 	numflips = 0;
 	numheads = 0;
 	numtails = 0;
+    }
+
+    public double val(){
+	return value;
     }
 
     public String getFace(){

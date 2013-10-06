@@ -2,10 +2,9 @@ import java.util.*;
 import java.io.*;
 
 public class Coin {
-    public String face;
-    public int tosses;
-    public int heads;
-    public double prob;
+    private String face, name;
+    private int tosses, heads;
+    private double prob, value;
     
     public void initCoin(String f, double p) {
 	setFace(f);
@@ -16,13 +15,24 @@ public class Coin {
     public void setFace(String f) {
 	face = f;
     }
-
     public void setProb(double p) {
 	prob = p;
     }
-
     public Coin() {
         initCoin("Heads", 0.5);
+    }
+
+    public void setName(String n) {
+	name = n;
+    }
+    public void setValue(double v) {
+	value = v;
+    }
+    public Coin(String name, double value) {
+	initCoin("Heads", 0.5);
+	setName(name);
+	setValue(value);
+	
     }
 
     public void resetCount() {
@@ -31,6 +41,10 @@ public class Coin {
 
     public String getFace() {
 	return face;
+    }
+
+    public double getValue() {
+	return value;
     }
     
     public boolean equals(Coin other) {
