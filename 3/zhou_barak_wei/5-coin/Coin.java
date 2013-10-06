@@ -21,8 +21,12 @@ public class Coin {
 	public int getTailCount() {
 		return TailCount;
 	}
+	
+	public double getValue() {
+		return Value;
+	}
 
-	public getFace(){
+	/* public getFace(){
 	String Face;
 	if (Heads == true) {
 	Face = "Heads";
@@ -32,5 +36,6 @@ public class Coin {
 	}
 	return Face;
 	}
+	*/
 
 }
