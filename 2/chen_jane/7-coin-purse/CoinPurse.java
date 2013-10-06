@@ -49,11 +49,10 @@ public class CoinPurse {
 	return "Total amount in purse: " +  amount;
     }
     public String getCoins() {
-return "Number of coins: " + coins + "\n"
-+ "Number of pennies: " + pennies + "\n"
-+ "Number of nickels: " + nickels + "\n"
-+ "Number of dimes: " + dimes + "\n"
-    + "Number of quarters: " + quarters + "\n";
+	return "Number of coins: " + coins + "\n"
+	    + "Number of pennies: " + pennies + "\n"
+	    + "Number of nickels: " + nickels + "\n"
+	    + "Number of dimes: " + dimes + "\n"
+	    + "Number of quarters: " + quarters + "\n";
     }
-
 }
