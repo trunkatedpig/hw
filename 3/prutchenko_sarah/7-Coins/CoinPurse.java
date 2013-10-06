@@ -12,4 +12,8 @@ public class CoinPurse{
     public void removeFrom(Coin c){
 	amount = amount + c.getValue();
     }
+    public int getAmount(){
+	return amount;
+    }
+	
 }
