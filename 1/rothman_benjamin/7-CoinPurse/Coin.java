@@ -40,18 +40,27 @@ public class Coin {
 
     public void setFaceHeads() {
 	face = "Heads";
-	flips = flips + 1;
-	heads = tailsheads + 1;
+	flips += 1;
+	heads += 1;
+	setProb();
 
     }
 
     public void setFaceTails () {
 	face = "Tails";
-	flips = flips + 1;
-	tails = tails + 1;
+	flips += 1;
+	tails += 1;
+
+	setProb();
 
 
     }
+
+    public void setProb () {
+
+	prob = (heads / (heads + tails) );
+    }
+
 
     public void flip () {
 
@@ -64,12 +73,11 @@ public class Coin {
 
 	}
 
-	else (
+	else {
 	      setFaceTails();
 
 	      }
     }
-
 
 	
 
@@ -104,7 +112,15 @@ public class Coin {
 	return name;
     }
 
+    public double getProb () {
+
+	return prob;
+
+    }
+
 }
+
+
 
 
 
