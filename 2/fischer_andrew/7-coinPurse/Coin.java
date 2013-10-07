@@ -16,9 +16,9 @@ public class Coin {
 
     //Constructors
 
-    public Coin(string coinName) {
+    public int Coin(String coinName) {
 	if (coinName == "penny"){
-	    Coinval = .01;
+	    coinval = .01;
 	}
 	else if (coinName == "nickel"){
 	    coinval = .05;
@@ -83,7 +83,7 @@ public class Coin {
         return face;
     }
 
-    public double getVal(string coinName){
+    public double getVal(String coinName){
 	return coinName.Coin();
     }
 
