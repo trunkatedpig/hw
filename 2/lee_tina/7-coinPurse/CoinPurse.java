@@ -1,4 +1,4 @@
-//Worked with Anish
+//Anish Malhotra and Tina Lee
 public class CoinPurse {
 	private double total;
 	
