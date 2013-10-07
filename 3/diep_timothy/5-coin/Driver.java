@@ -2,17 +2,26 @@ import java.io.*;
 import java.util.*;
 
 public class Driver {
-
     public static void main(String[] args) {
-	Coin c1,c2;
-	CoinPurse cp;
-	c1 = new Coin("Quarter", 25);
-	c2 = new Coin(10);
-	cp = new CoinPurse();
-	cp.addTo(c1);
-	cp.removeFrom(c2);
-	System.out.println(c1.getValue());
-	System.out.println(c1.getName());
-	System.out.println(cp.getAmount());
+	Coin c1;
+	c1 = new Coin();
+	System.out.println("Number of Flips: " + c1.getFlips());
+	System.out.println("Number of Heads: " + c1.getHeads());
+	System.out.println("Number of Tails: " + c1.getTails());
+	System.out.println();
+	System.out.println("Here's the Flip: " + c1.getFace());
+	System.out.println("Here's the Flip: " + c1.getFace());	
+	System.out.println("Here's the Flip: " + c1.getFace());
+	System.out.println();
+	System.out.println("Number of Flips: " + c1.getFlips());
+	System.out.println("Number of Heads: " + c1.getHeads());
+	System.out.println("Number of Tails: " + c1.getTails());
+	System.out.println();
+	c1.Reset();
+	System.out.println("Reset!");
+	System.out.println();
+	System.out.println("Number of Flips: " + c1.getFlips());
+	System.out.println("Number of Heads: " + c1.getHeads());
+	System.out.println("Number of Tails: " + c1.getTails());
     }
-}	
+}
