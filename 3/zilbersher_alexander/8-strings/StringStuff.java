@@ -31,11 +31,4 @@ public class StringStuff{
 	return b + " " + a + " " + b;
     }
 
-    public static void main(String[] args) { 
-
-	StringStuff s1 = new StringStuff();
-
-	System.out.println(s1.capitalize("alex zilbersher"));
-	System.out.println(s1.bondify("alex zilbersher"));
-    }
 }
