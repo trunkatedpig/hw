@@ -11,5 +11,7 @@ public class Driver {
 	System.out.println("The head count is" + " " + coin.heads);
 	coin.reset();
 	System.out.println("The head count is" + " " + coin.heads);
+    coin.flip();
+    System.out.println(coin.getSide());
     }
 }
