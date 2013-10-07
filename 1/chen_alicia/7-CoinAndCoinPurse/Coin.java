@@ -22,13 +22,13 @@ public class Coin {
 	if (n == "penny") {
 	    coinvalue = 0.01;
 		}
-	if (n == "nickel"){
+	else if (n == "nickel"){
 	    coinvalue = 0.05;
 	}
-	if (n== "dime"){
+	else if (n== "dime"){
 	    coinvalue = 0.1;
 	}
-	if (n=="quarter"){
+	else if (n=="quarter"){
 	    coinvalue = 0.25;
 	}
     }
