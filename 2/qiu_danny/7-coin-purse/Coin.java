@@ -22,10 +22,10 @@ public class Coin {
     public Coin(String s) {
         s = s.toLowerCase();
         type = s;
-        int i = 0; // For current index of string in the types array
+        int i = 0; // Used for current index when going through the types array
         for (int x = 0; x < types.length; x++) {
             if (types[x].equals(s)) {
-                i = x;
+                i = x; // When argument string is matched in array, position in array is stored for later
                 break;
             }
             else {
