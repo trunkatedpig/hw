@@ -10,6 +10,26 @@ public class Coin {
     private String f, face;
     private int flips, heads, tails;
     private double r, prob;
+    private int coinVal;
+    private String coinName;
+
+    //Constructors
+
+    public Coin() {
+	if(coinVal == 25)
+	    {
+		coinName = "Quarter";
+	    }
+	if(coinVal == 5)
+	    {
+		coinName = "Nickel";
+	    }
+	if(coinVal == 10)
+	    {
+		coinName = "Dime";
+	    }
+	
+    }
 
     //Methods
 

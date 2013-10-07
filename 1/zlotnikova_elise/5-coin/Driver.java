@@ -4,11 +4,15 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args){ 
 	Coin Penny;
-	Penny = new Coin();
-	Penny.reset();
-	Penny.Flip();
-        System.out.print("Face: "+Penny.getFace()); 
-	System.out.print("Flips: ");
-	System.out.println(Penny.flips);
+	face = "heads"
+	flips = 6;
+	heads = 3;
+	tails = 3;
+	fairness = .50
+	Penny = new Coin(); 
+	
+	System.out.print("Face: "+face);
+
+
     }
 }
