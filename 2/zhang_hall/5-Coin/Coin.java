@@ -29,6 +29,30 @@ public class Coin {
     public int getFlips(){
 	return flips;
     }
+
+    public void FlipCoin(){
+	if (Math.random() >= fairness){
+	    face = "heads";
+	    heads = heads + 1;
+	}
+	else {
+	    face = "tails";
+	    tails = tails + 1;
+	}
+	flips = flips + 1;
+	    }
+
+    public void RiggCoin(double n){
+        if (Math.random() >= n){
+	    face = "heads";
+	    heads = heads + 1;
+	}
+	else {
+	    face = "tails";
+	    tails = tails + 1;
+	}
+	flips = flips + 1;
+    }
 }
 
     

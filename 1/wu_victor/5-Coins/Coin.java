@@ -2,24 +2,97 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
-    
+
+    // Instance Variables
+
     private String face;
-    private int count;
+    private String name;
+    private double prob;
+    private int flips;
     private int heads;
-    private int tails;
-    private int probHeads;
+    private int value;
 
-    public void resetCount () {
-	setCount(0);
+    // Constructors
+
+    public void setCoin (String f, Double p) {
+	face = f;
+	prob = p;
+	name = "Random";
+	value = 1;
     }
 
-    public void setCount (int a) {
-	count = a;
+    public Coin () {
+	setCoin ("Heads", 0.5);
     }
+    public Coin (String f) {
+	setCoin (f, 0.5);
+    }
+    public Coin (int v) {
+	if (v == 1) {
+	    name = "Penny";
+	    value = v;
+	}
+	else if (v == 5) {
+	    name = "Nickel";
+	    value = v;
+	}
+	else if (v == 10) {
+	    name = "Dime";
+	    value = v;
+	}
+	else {
+	    name = "Quarter";
+	    value = 25;
+	}
+      
+    }
+
+    // Flip
+
+    public void flip () {
+	Random r = new Random();
+	prob = r.nextDouble();
+
+       	if ( prob > 0.5 ) {
+	    setFace("Heads");
+	    flips = flips + 1;
+	    heads = heads + 1;
+	}
+	else {
+	    setFace("Tails");
+	    flips = flips + 1;
+	}
+    }
+
+    // Helper Functions
+
+    public void setFace (String f) {
+	face = f;
+    }
+    public void resetFlips () {
+	flips = 0;
+    }
+
+    // Return Methods
 
     public String getFace () {
-	String f;
-	f = face + " ";
-	return f;
+	return face;
+    }
+    public String getName () {
+	return name;
+    }
+    public String getValue () {
+	String n;
+	n = value + " " + "Cents";
+	return n;
+    }
+    public int getV () {
+	return value;
+    }
+    public int getFlips () {
+	return flips;
+    }
+    public int getHeads () {
+	return heads;
     }
 }
