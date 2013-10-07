@@ -14,7 +14,10 @@ public class CoinPurse {
     }
 
     public void removeFrom(Coin c) {
-	amount = amount - c.getValue();
+	if (c.getValue() < amount)
+	    amount = amount - c.getValue();
+	else
+	    amount = 0.0;
     }
 
     public double getAmount() {
