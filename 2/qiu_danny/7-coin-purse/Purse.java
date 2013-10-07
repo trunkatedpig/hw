@@ -1,6 +1,6 @@
 public class Purse {
     
-    private Coin[] contents = new Coin[1024];
+    private Coin[] contents = new Coin[1024]; // Were we supposed to use arrays to hold the coin objects?
     private int i = 0;
 
     public void addCoin(Coin add) {
@@ -21,7 +21,11 @@ public class Purse {
                 return;
             }
         }
-        System.out.println("The coin you want to remove does not exist in the purse!");
+        System.out.println("You wanted to remove " + remove + "(" + remove.getType() + "), but it does not exist in the purse!");
+    }
+
+    public void lose() {
+        contents = new Coin[1024];
     }
 
     public Coin[] getCoins() {
