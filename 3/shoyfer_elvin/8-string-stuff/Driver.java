@@ -7,6 +7,6 @@ public class Driver {
     	s = new StringStuff();
 
     	System.out.println(s.capitalize("walter white"));
-		System.out.println(s.bondify("michael corleone"));
+	System.out.println(s.bondify("michael corleone"));
 	}
 }
