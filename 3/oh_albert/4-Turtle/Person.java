@@ -1,23 +1,29 @@
 import java.io.*;
 import java.util.*;
 
-public class Person{
-   private String name;
-   private Turtle t1;
+public class Person {
 
-  public Person(String n){
-    name = n;
-  } 
+    private String name2;
+    private Turtle Turtle;
 
-  public void setTurtle(Turtle t){
-    t1 = t;
-  }
+    public void setTurtle (Turtle t) {
+	Turtle = t;
+    }
 
-  public Turtle getPet(){
-    return t1;
-  }
+    public Turtle getPet() {
+	return Turtle;
+    }
 
-  public int getTurtleSpeed(){
-    return t1.getSpeed();
-  }
+    public String getTurtleName() {
+	return Turtle.getName();
+    }
+
+    public int getTurtleSpeed() {
+	return Turtle.getSpeed();
+    }
+
+    public int getTurtleAge() {
+	return Turtle.getAge();
+    }
+
 }

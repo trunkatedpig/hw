@@ -8,6 +8,7 @@ public class Driver{
 
         System.out.println(c1.getFace());
         c1.reset();
+
         System.out.println(c1.getNum_flips());
     }
 }
