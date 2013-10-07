@@ -9,11 +9,11 @@ public class CoinPurse {
     }
 
     public void addTo(Coin c){
-	amount = amount + c.getValue;
+	amount = amount + c.getValue();
     }
 
     public void removeFrom (Coin c){
-	amount = amount - c.getValue;
+	amount = amount - c.getValue();
     }
 
     public double getAmount(){
