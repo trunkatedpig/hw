@@ -6,14 +6,16 @@ public class Driver {
 	 
 	 Coin c;
 	 c = new Coin ();
-	 
-	 c.flip ();
-	 
-	 if (c.getFace() == "heads") {
-	     System.out.println("Coin is Heads"); }
+	
+	 c.setProb(.5);
+	 c.flip();
+	 c.flip();
+	 c.flip();
+	 c.flip();
+	 c.flip();
+	 System.out.println(c.getFlips());
+	 System.out.println(c.getCurrentFace());
 
-	 else {
-	     System.out.println("Coin is Tails"); }
      }
 }
 
