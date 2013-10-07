@@ -26,7 +26,21 @@ public class Coin{
     	face="heads";
     	fairness=0.5;
     	type=t;
-    	amount=convert(t);
+    	if (t.equals("dime")) {
+	    amount = 0.1;
+	}
+	else if (t.equals("penny")) {
+	    amount = 0.01;
+	}
+	else if (t.equals("quarter")) {
+	    amount = .25;
+	}
+	else if (t.equals("dollar")){
+	    amount = 1;
+	}
+	else if (t.equals("nickel")) {
+	    amount = 0.05;
+    	}
     }
 
     public void reset(){
@@ -35,22 +49,8 @@ public class Coin{
 	tails=0;
 	fairness=0.5;
 	face="heads";
+	amount=0.01;
 	    }
-    public double convert(String t){
-    	if (!(t.equals("penny")))
-    	{
-	    if (!(t.equals("nickel")))
-	    {
-	    	if (!(t.equals("dime")))
-	    	{
-	    		return 0.25;}
-	    	else{
-	    		return 0.10;}}
-	    else {
-	    	return 0.05;}}
-	 else {
-	 	return 0.01;}
-    	}
 
     public String currentFace(){
 	return face;
