@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+
 public class Coin {
 
 	private String face;
@@ -8,9 +9,20 @@ public class Coin {
 	private int tails;
 	private int numFlips;
 	private double probability;
+	public double coin;
 	
-	public Coin (double setProbability) {
+
+	public Coin (double setProbability, String coinValue) {
 		probability = setProbability;
+		if (coinValue.equals("quarter")) {
+		coin = 0.25; }
+		else if (coinValue.equals("dime")) {
+		coin = 0.10; }
+		else if (coinValue.equals("nickel")) {
+		coin = 0.05; }
+		else if (coinValue.equals("penny")) {
+		coin = 0.01; }
+		
 	}
 	
 	public void flip() {
@@ -44,6 +56,10 @@ public class Coin {
 	public int getTails () {
 		return tails;
 	}
+	public double getValue() {
+	return coin;
+	}
+
 	
 
 

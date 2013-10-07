@@ -1,7 +1,9 @@
 public class Driver {
     public static void main(String[] args) {
-	Coin x = new Coin(0.5); //probability of 0.5
-	
+	Coin x = new Coin(0.5, "quarter"); //probability of 0.5 and value.
+	Coin y = new Coin(0.5, "nickel"); //probability of 0.5 and value
+	CoinPurse p = new CoinPurse();
+	/*
 	//loops it 10x
 	int loopVal;
 	int stop = 10;
@@ -15,5 +17,10 @@ public class Driver {
 	System.out.println("Num of tails: " + x.getTails());
 	System.out.println("<--------------------------------------------->");
 		}
+		*/
+	p.addTo(x);
+	System.out.println(p.total());	
+	p.removeFrom(y);
+	System.out.println(p.total());
     }
 }

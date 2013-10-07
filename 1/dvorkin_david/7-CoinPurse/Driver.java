@@ -11,7 +11,19 @@ public class Driver {
 	System.out.println("The head count is" + " " + coin.heads);
 	coin.reset();
 	System.out.println("The head count is" + " " + coin.heads);
+
     coin.flip();
     System.out.println(coin.getSide());
+
+    coin = new Coin(1);
+    System.out.println (coin.getName());
+
+    CoinPurse purse = new CoinPurse(50);
+    purse.addTo(coin);
+    System.out.println ("================");
+    System.out.println (purse.getAmount());
+    purse.removeFrom(coin);
+    System.out.println ("================");
+    System.out.println (purse.getAmount());
     }
 }
