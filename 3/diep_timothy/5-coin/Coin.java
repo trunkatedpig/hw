@@ -48,7 +48,6 @@ public class Coin {
 	    return face;
        	}
     }
-
-
+    //Coin and CoinPurse are in Hw#7
 }
     
