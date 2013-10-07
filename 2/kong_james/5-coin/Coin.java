@@ -2,26 +2,16 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
-    private String name;
     private String face;
-    private int hcount;
-    private int tcount;
-    private int flipcount;
-    private double chance;
-    private double fairness;
-    private double h;
-    private double r;
-    private int value;
+    private int hcount,tcount,flipcount;
+    private double fairness,h,r;
 
-    public Coin(String n, int v){
-	n = name;
-	v = value;
+    public Coin(){
+	fairness = 0;
 	hcount = 0;
 	tcount = 0;
 	flipcount = 0;
     }
-
-   
     public void flip(){
 	r = Math.random();
 	h = .50;
@@ -38,10 +28,6 @@ public class Coin {
 		tcount = tcount + 1;
 		flipcount = flipcount +1;
 	    }
-    }    
-    public double perctHead(){
-	fairness = (hcount) / (flipcount);
-	return fairness;
     }
   
     public void reset(){
@@ -51,5 +37,8 @@ public class Coin {
     }
     public String getFace(){
 	return face;
+    }
+    public int getFlipcount(){
+	return flipcount;
     }
 }
