@@ -1,4 +1,4 @@
-//Worked with Tina
+//Worked with Anish
 public class CoinPurse {
 	private double total;
 	
