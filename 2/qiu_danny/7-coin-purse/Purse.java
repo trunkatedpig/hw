@@ -1,6 +1,6 @@
 public class Purse {
     
-    private Coin[] contents = new Coin[1024];
+    private Coin[] contents = new Coin[1024]; // Were we supposed to use arrays to hold the coin objects?
     private int i = 0;
 
     public void addCoin(Coin add) {
