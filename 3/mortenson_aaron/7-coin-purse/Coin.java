@@ -71,6 +71,10 @@ public class Coin {
 		return tail;
 	}
 
+	public int getValue() {
+		return value;
+	}
+
 	public int getFlips() {
 		return head + tail;
 	}
