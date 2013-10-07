@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
-    private String face; //will be "heads" or "tails"
+    private String face;
     private int flips, heads, tails;
     private int fairness;
 

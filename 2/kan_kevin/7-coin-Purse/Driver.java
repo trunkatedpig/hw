@@ -3,12 +3,26 @@ import java.util.*;
 
 public class Driver {
     public static void main (String args[]) {
-	Coin x = new Coin();
-	System.out.println(x.getFace());
-	System.out.println(x.getFlips());
+	Coin c = new Coin("quarter");
+	Coin c2 = new Coin("dime");
+	Coin c3 = new Coin("nickel");
+	Coin c4 = new Coin("penny");
+	System.out.println(c.getAll());
+	c.flip();
+	c.flip();
+	c.flip();
+	System.out.println(c.getAll());
+	c.resetCount();
+	System.out.println(c.getAll());
 
-	x.resetCount();
-	System.out.println(x.getFlips());
+	CoinPurse x = new CoinPurse();
+	System.out.println(x.getInfo());
 
+	x.addCoin(c2);
+	x.addCoin(c3);
+	System.out.println(x.getInfo());
+
+	x.removeCoin(c4);
+	System.out.println(x.getInfo());
     }
 }

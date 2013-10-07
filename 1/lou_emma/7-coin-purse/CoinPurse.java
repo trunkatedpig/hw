@@ -2,8 +2,14 @@ public class CoinPurse{
 	private double amount;
 	private Coin coin;
 	
-	public CoinPurse(int amt);
-	amount=amt;
+	public void initValue(double amt){
+		amount=amt;
+	}
+	
+	public CoinPurse(){
+		initValue(0.00);
+	}
+	
 	
 	public void addTo(Coin c){
 	coin=c;

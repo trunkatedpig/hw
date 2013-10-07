@@ -22,5 +22,4 @@ public class Coin{
     public String getName(){
 	return name;
     }
-   
-}
+ }
