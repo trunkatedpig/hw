@@ -4,29 +4,38 @@ import java.util.*;
 public class Coin {
     
     //Instance Variables
-    private String f, face;
+    private String face;
     private int flips, heads, tails;
-    private double r, prob;
+    private double prob;
 
     //Methods
     public void reset () {
 	flips = 0;
 	heads = 0;
 	tails = 0;
-	face = f;
-	prob = 0.5;
+    }
+
+    public void setProb(double r) {
+	prob = r;
+    }
+
+    public String getFlips() {
+	return "There are " + flips + " flips. " + "There are " + heads + " heads. " + "There are " + tails + " tails.";
+    }
+
+    public String getCurrentFace() {
+	return "The face is " + face;
     }
 
     public void flip () {
-	r = Math.random ();
 	
-	if (r > prob) {
+	if (Math.random() > prob) {
 	    face = "heads";
 	    heads = heads + 1;
 	    flips = flips +1;
 	}
 	
-	if (r < prob) {
+	else {
 	    face = "tails";
 	    tails = tails + 1;
 	    flips = flips + 1;
