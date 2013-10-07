@@ -23,10 +23,10 @@ public class Coin {
 	initCoin("Heads",0.5);
     }
 
-    public Coin(String f) {
+ /*   public Coin(String f) {
 	initCoin(f,0.5);
     }
-	
+	*/
 	public Coin (String n){
 		name=n;
 		if (n == "penny") {

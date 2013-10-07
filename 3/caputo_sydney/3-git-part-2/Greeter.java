@@ -1,52 +1,47 @@
 import java.io.*;
 import java.util.*;
 
-public class Greeter {
-
-    /* We can initialize an instance variable
-       when we declare it like this:
-    */
-    //private String greeting="Go away"; 
+public class Greeter { 
+    private String sad;
+    private String happy;
 
 
-    private String greeting;
-    private String sadGreeting;
-    private String happyGreeting;
-
-
-    public Greeter(String sad, String happy) {
-	setSad(sad);
-	setHappy(happy);
-
-    }
-
-    public Greeter() {
-	setSad("Get away from me");
-	setHappy("Heyoooo");
-    }
-    
-
-    public void setSad(String greet) {
-	sadGreeting = greet;
-    }
-
-    public void setHappy (String greet){
-	happyGreeting = greet;
+    public void initGreeter (String h, String s){
+	setHappy(h);
+	setSad(s);
 
 }
 
-    public String sadgreet(String name) {
-	String message;
-	message = sadGreeting + " " + name;
-	return message;
-    }
-
-    public String happygreet(String name) {
-	String message;
-	message= happyGreeting + " " + name;
-	return message;}
+    public Greeter(){
+	initGreeter("Heyo", "Leave me alone");
 }
 
+    public Greeter(String h, String s){
+	initGreeter(h,s);
+
+}
    
 
+    public void setHappy(String message){
+	happy=message;
+}
 
+    public String greetHappy(String name){
+	return happy+ " " + name;
+
+
+}
+
+
+
+    public void setSad(String message){
+	sad=message;
+
+}
+
+    public String greetSad(String name){
+	return sad+ " "+name;
+
+}
+
+}
