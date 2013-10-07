@@ -1,0 +1,7 @@
+public class CoinPurse {
+    private double amount;
+    
+    public void addTo(Coin c) {
+	amount += c.value;
+    }
+}

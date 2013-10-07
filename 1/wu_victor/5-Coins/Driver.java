@@ -1,37 +1,58 @@
+import java.io.*;
+import java.util.*;
 
 public class Driver {
-    public static void main(String[] args) {
-	Coin rand = new Coin();
-	System.out.println(rand.getFace());
+    public static void main(String[] args) {	
+	Coin t = new Coin();
 
-	/*
-	Coin head1 = new Coin();
-	String s = new String("Tails");
-	Coin tail = new Coin(s);
-	s = new String("Heads");
-	Coin head2 = new Coin(s);
+	// Trials of Flips
+	t.flip();
+	System.out.println(t.getFace());
+	t.flip();
+	System.out.println(t.getFace());
+	t.flip();
+	System.out.println(t.getFace());
+	t.flip();
+	System.out.println(t.getFace());
+	t.flip();
+	System.out.println(t.getFace());
 
-	System.out.println(head1.getFace()+" "+tail.getFace()+" "+head2.getFace());
-
-	System.out.println(head1.equals(tail));
-	System.out.println(head1.equals(head2));
-	System.out.println(tail.equals(head2));
-	System.out.println(head2.equals(head1));
-	
+	// Seperator
 	System.out.println();
-	
-	String s1 = "abcde";
-	String s2 = "defghi";
-	
-	System.out.println(s1.compareTo(s2));
-	System.out.println(s2.compareTo(s1));
-	System.out.println(s1.compareTo(s1));
-	
-	System.out.println("a".compareTo("b"));
-	System.out.println("b".compareTo("a"));
-	System.out.println("A".compareTo("a"));
-	*/
+	System.out.println("-----------");
+	System.out.println();
 
+	// Getting Names + Values
+	Coin a = new Coin(1);
+	System.out.println(a.getName());
+	System.out.println(a.getValue());
 
+	Coin b = new Coin(5);
+	System.out.println(b.getName());
+	System.out.println(b.getValue());
+
+	Coin c = new Coin(10);
+	System.out.println(c.getName());
+	System.out.println(c.getValue());
+
+	Coin d = new Coin(25);
+	System.out.println(d.getName());
+	System.out.println(d.getValue());
+	
+	// Seperator
+	System.out.println();
+	System.out.println("-----------");
+	System.out.println();
+
+	// With the Purse
+
+	CoinPurse cPurse =  new CoinPurse();
+	cPurse.addTo(a);
+	cPurse.addTo(b);
+	cPurse.addTo(b);
+	cPurse.addTo(c);
+	cPurse.addTo(d);
+	System.out.println(cPurse.getAmount());
+	
     }
 }
