@@ -6,16 +6,25 @@ import java.util.*;
 
 public class Person { //person class
     
+    /*like this*/
+    //Instance Vars
     private String name;  //name string variable
     private Turtle pet;   //pet turtle variable
 
+
+   
+    //constructor
     public Person(String n) { 
 		name = n;
     }
 
-    public void setTurtle(Turtle t) {   //method
+
+    //Methods
+    public void setTurtle(Turtle t) {   
         pet = t;
     }
+
+
 
     public String getOwnerName() { //meethod returns the name of the turtle
         return name;
