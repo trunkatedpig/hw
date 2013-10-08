@@ -34,4 +34,44 @@ public class StringStuff{
 		secondmid = name.substring(name.indexOf(" ") + 2)
 		return (""+sansspace+secondmid+", "+fixedbeg+firstmid+fixedend+secondmid)
 	}
+	public String pigLatinify(String name){
+		String firstLet = name.substring(0,1);
+		int len = name.length();
+		String wordEnd = name.substring(1,len);
+		String word2End = name.substring(2,len);
+		String first2 = name.substring(0,2);
+		String vows = "a e i o u";
+		String result;
+
+		if(firstLet == "a"){
+		    result = name + "yay";
+		}
+		if(firstLet == "e"){
+		    result = name + "yay";
+		}
+		if(firstLet == "i"){
+		    result = name + "yay";
+		}
+		if(firstLet == "o"){
+		    result = name + "yay";
+		}
+		if(firstLet == "u"){
+		    result = name + "yay";
+		}
+		else if(first2 == "ch"){
+		    result = word2End + "chay";
+		}
+		else if(first2 == "th"){
+		    result = word2End + "thay";
+		}
+		else if(first2 == "sh"){
+		    result = word2End + "shay";
+		}
+		else{
+		    result = wordEnd + firstLet + "ay";
+		}
+
+	return result;
+	}
+
 }

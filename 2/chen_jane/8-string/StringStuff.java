@@ -37,4 +37,28 @@ public class StringStuff {
 	result = lastName + ", " + firstName + " " +  lastName;
 	return result;
     }
+
+    public String PigLatinify(String name) {
+	String currentWord,result;
+	int i; // i holds index of space
+	i = name.indexOf(" ");
+	currentWord = name.substring(0,i);
+	String a;
+	a = name.substring(0,1).toLowerCase();
+	if (name == "") {
+	    return result;
+	}
+	// add else for if name is not empty string
+
+	if (a == "a" || a == "e" || a == "i" || a == "o" || a == "u") {
+	    currentWord = currentWord + "ay";
+	}
+	else {
+	    currentWord = currentWord.substring(1) + a + "ay";
+	}
+	// add currentWord to result
+	name = name.substring(i+1);
+	PigLatinify(name);
+
+    }
 }
