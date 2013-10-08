@@ -6,5 +6,6 @@ public class Driver {
 	StringStuff one = new StringStuff();
 	System.out.println(one.capitalize("charlie chaplin"));
 	System.out.println(one.bondify("david draiman"));
+	System.out.println(one.PigLatinize("shoe"));
     }
 }
