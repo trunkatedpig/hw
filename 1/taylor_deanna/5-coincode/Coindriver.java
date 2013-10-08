@@ -12,7 +12,7 @@ public class Coindriver {
 	System.out.println("Total flips: " + c.getTotalFlips());
 	System.out.println("Heads: " + c.getHeads());
 	System.out.println("Tails: " + c.getTails());
-	System.out.println("Percent: " + c.getHeads()/c.getTotalFlips());
+	System.out.println("Percent: " + (double) c.getHeads()/c.getTotalFlips() * 100);
 	
 	System.out.println("----------------------------");
 

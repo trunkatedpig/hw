@@ -20,7 +20,7 @@ public class Coin {
     private int heads;
     private int tails;
     private double percent;
-    private double fairness;
+    private double fairness, amount;
 
     public Coin() {
 	resetCount();
@@ -29,6 +29,7 @@ public class Coin {
     public void resetCount() {
 	heads = tails = totalflips = 0;
 	fairness = .5;
+	amount = 50;
     }
 
     public void setCount() {
