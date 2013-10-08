@@ -12,6 +12,18 @@ public class StringStuff {
 	int x = name.indexOf(" ");
 	String n = capitalize(name);
 	return n.substring(x + 1) + ", " + n;
-    }	
+    }
+
+    public boolean isVowel(String letter) {
+	return (letter.equals("a") || letter.equals("e") || letter.equals("i") || letter.equals("o") || letter.equals("u"));
+    }
+
+    public String piglatinify(String word) {
+	if (isVowel(word.substring(0,1))) {
+	    return word + "ay";
+	} else {
+	    return word.substring(1) + word.substring(0,1) + "ay";
+	}
+    }
 
 }
