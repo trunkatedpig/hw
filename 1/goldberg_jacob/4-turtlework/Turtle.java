@@ -9,29 +9,35 @@ public class Turtle(){
 		speed = 10;
 	}
 
+	public Turtle(String n){
+		name = n;
+		age = 3;
+		speed = 10;
+	}
+
 	public Turtle(String n, int a, int s){
 		name = n;
 		age = a;
 		speed = s;
 	}
 
-	public void speedUp(int u){
+	public void SpeedUp(int u){
 		speed = speed + u;
 	}
 
-	public void ageUp(){
+	public void GetOlder(){
 		age = age ++;
 	}
 
-	public String getName(){
+	public String tellname(){
 		return name;
 	}
 	
-	public int getSpeed(){
+	public int tellspeed(){
 		return speed;
 	}
 
-	public int getAge(){
+	public int tellage(){
 		return age;
 	}
 }

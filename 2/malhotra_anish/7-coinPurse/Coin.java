@@ -1,4 +1,4 @@
-//worked with Anish
+//Tina Lee and Anish Malhotra
 
 import java.io.*;
 import java.util.*;
