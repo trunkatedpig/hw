@@ -19,6 +19,7 @@
 	System.out.println(B.getName() + "'s age: " + B.getAge());
 	
 	///////////////////
+	System.out.println("_____________________")
 	
 	Person p1, p2;
 	
