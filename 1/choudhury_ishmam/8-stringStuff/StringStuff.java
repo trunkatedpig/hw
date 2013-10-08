@@ -26,4 +26,9 @@ public class StringStuff {
 	String fin = sh + ", " + fh  + " " + sh + ".";
 	return fin;
     }
+
+    public String PigLatinize(String word){
+	if (word.substring(0,1) == "sh") || (word.substring(0,1) ==  "wr") 
+	    System.out.println("works");
+}
 }
