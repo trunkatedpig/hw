@@ -8,11 +8,39 @@ public class Coin{
     private double fairness;
     private Random r = new Random();
     private double amount;
+    private String type;
 
     public Coin() {
 	fairness=0.5;
 	face="heads";
 	amount=0.01;
+	type= "penny";
+    }
+    public Coin(String t, double a){
+    	face="heads";
+    	fairness=0.5;
+    	type=t;
+    	amount=a;
+    }
+    public Coin(String t){
+    	face="heads";
+    	fairness=0.5;
+    	type=t;
+    	if (t.equals("dime")) {
+	    amount = 0.1;
+	}
+	else if (t.equals("penny")) {
+	    amount = 0.01;
+	}
+	else if (t.equals("quarter")) {
+	    amount = .25;
+	}
+	else if (t.equals("dollar")){
+	    amount = 1;
+	}
+	else if (t.equals("nickel")) {
+	    amount = 0.05;
+    	}
     }
 
     public void reset(){
@@ -21,6 +49,7 @@ public class Coin{
 	tails=0;
 	fairness=0.5;
 	face="heads";
+	amount=0.01;
 	    }
 
     public String currentFace(){

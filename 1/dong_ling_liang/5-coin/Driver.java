@@ -37,5 +37,16 @@ public class Driver{
 	System.out.println(c.getTails());
 	System.out.println(c.getHeads());
 	System.out.println(c.getAmount());
+	
+	System.out.println("New Testsssssssssssssss");
+	Coinpurse cp= new Coinpurse();
+	c.reset();
+	cp.addTo(c);
+	System.out.println(cp.purseValue());
+	c.flip();
+	c.flip();
+	cp.addTo(c);
+	System.out.println(cp.purseValue());
+	
     }
 }
