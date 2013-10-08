@@ -39,7 +39,6 @@ public class Coin {
 	    face = "Tails";
 	}
 	tosses = tosses + 1;
-	System.out.println(getAmount());
 	return getFace();
     }
 
