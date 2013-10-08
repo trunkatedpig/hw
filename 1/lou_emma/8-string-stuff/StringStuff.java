@@ -28,4 +28,15 @@ public class StringStuff{
 		return properCapitalization;
 		
 	}
+	
+	public String bondify (String name){
+		int len=name.length();
+		String newName=capitalize(name);
+		//String firstName=newName.substring(0,holder); NOT NEEDED
+		String lastName=newName.substring(holder+1,len);
+		
+		String bonding=lastName+", "+newName;
+		
+		return bonding;
+	}
 }

@@ -8,5 +8,9 @@ public class Driver {
 	System.out.println(test.capitalize("brian sapozhnikov"));
 	System.out.println(test.bondify("James Bond"));
 	System.out.println(test.bondify("Brian Sapozhnikov"));
+	System.out.println(test.pigLatinify("word"));
+	System.out.println(test.pigLatinify("office"));
+	System.out.println(test.pigLatinify("channing"));
+
     }
 }
