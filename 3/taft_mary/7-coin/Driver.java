@@ -65,22 +65,30 @@ public class Driver {
 
 	CoinPurse p;
 	p = new CoinPurse();
-	Coin d, n;
+	Coin d, n, q;
 	d = new Coin(0.10);
 	n = new Coin("Nickel");
+	q = new Coin("Quarter", 0.25);
 
-	System.out.println("Amount in purse: " + p.getAmount());
+	System.out.println("Initiated purse.");
+	System.out.println("Amount in purse: $" + p.getAmount());
 
 	System.out.println();
 	p.addTo(d);
 
 	System.out.println("Added 10 cents.");
-	System.out.println("Amount in purse: " + p.getAmount());
+	System.out.println("Amount in purse: $" + p.getAmount());
 
 	System.out.println();
 	p.removeFrom(n);
 
 	System.out.println("Removed 5 cents.");
-	System.out.println("Amoung in purse: " + p.getAmount());
+	System.out.println("Amount in purse: $" + p.getAmount());
+
+	System.out.println();
+	p.removeFrom(q);
+
+	System.out.println("Tried to remove 25 cents.");
+	System.out.println("Amount in purse: $" + p.getAmount());
      }
 }

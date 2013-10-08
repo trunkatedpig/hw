@@ -1,27 +1,24 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class CoinPurse {
-    
-    private double amount;
-
-    public CoinPurse() {
-	amount = 0.0;
-    }
+    private double amount = 0;
 
     public void addTo(Coin c) {
 	amount = amount + c.getValue();
     }
 
     public void removeFrom(Coin c) {
-	if (c.getValue() < amount)
-	    amount = amount - c.getValue();
+	if (c.getValue() > amount)
+	    System.out.println("You do not have that kind of money fool");
 	else
-	    amount = 0.0;
+	    amount = amount - c.getValue();
     }
 
     public double getAmount() {
 	return amount;
     }
+    
+
 
 }
