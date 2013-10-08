@@ -3,7 +3,7 @@ import java.util.*;
 
 public class CoinPurse {
 
-    private int amount=0;
+    private double amount = 0;
 
     public void addTo(Coin c) {
 	amount = amount + c.getValue();
@@ -13,7 +13,7 @@ public class CoinPurse {
 	amount = amount - c.getValue();
     }
 
-    public int getAmount() {
+    public double getAmount() {
 	return amount;
     }
 
