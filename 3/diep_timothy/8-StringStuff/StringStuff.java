@@ -13,15 +13,17 @@ public class StringStuff {
 	lastname = name.substring(name.indexOf(" ") + 1);
 	n1 = firstname.substring(0,1);
 	n2 = lastname.substring(0,1);
-	firstname = firstname.replaceFirst(n1, n1.toUpperCase());
-	lastname = lastname.replaceFirst(n2, n2.toUpperCase());
     }
     
     public String capitalize() {
-	return firstname + " " + lastname;
+	String first = firstname.replaceFirst(n1, n1.toUpperCase());
+	String last = lastname.replaceFirst(n2, n2.toUpperCase());
+	return first + " " + last;
     }
 	
     public String bondify() {
-	return lastname + ", " + firstname + " " + lastname;
+	String first = firstname.replaceFirst(n1, n1.toUpperCase());
+	String last = lastname.replaceFirst(n2, n2.toUpperCase());
+	return last + ", " + first + " " + last;
     }
  }
