@@ -28,4 +28,18 @@ public class StringStuff {
 	y = n.substring (i, l) + ", " + n;
 	return y; 
     }
+
+    public static String pigLatinify (String word) {
+	String vowels = "aeiou"; 
+	String first = word.substring (0,1); 
+	String value; 
+	if (vowels.contains (first)) {
+	    value =  word + "yay"; 
+	}
+	else {
+	    value = word.substring(1,word.length()) + first + "ay"; 
+	}
+	return value; 
+    }
+
 }
