@@ -11,6 +11,9 @@ public class Driver {
 	StringStuff m = new StringStuff();
 	System.out.println(m.capitalize(n));
 	System.out.println(m.bondify(n));
+
+	System.out.println(m.piglatinify("fish"));
+	System.out.println(m.piglatinify("everything"));
     }
     
 }
