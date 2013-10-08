@@ -8,7 +8,7 @@ public class Driver {
 
     	System.out.println(s.capitalize("walter white"));
 	System.out.println(s.bondify("michael corleone"));
-		System.out.println(s.pigLatinify("swag"));
-		System.out.println(s.pigLatinify("awesome"));
+	System.out.println(s.pigLatinify("swag"));
+	System.out.println(s.pigLatinify("awesome"));
 	}
 }
