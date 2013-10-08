@@ -16,9 +16,12 @@ public class Driver {
 
 	String temp = "out";
 	String temp1 = "plot";
+	String temp2 = "pot";
 
 	System.out.println(s1.piglatinify(temp));
 	System.out.println(s1.piglatinify(temp1));
+	System.out.println(s1.piglatinify(temp2));
+
 
 
     }

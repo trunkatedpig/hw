@@ -22,7 +22,7 @@ public class StringStuff {
 	if (isVowel(word.substring(0,1))) {
 	    return word + "ay";
 	} else {
-	    return word.substring(1) + word.substring(0,1) + "ay";
+	    return piglatinify(word.substring(1) + word.substring(0,1));
 	}
     }
 
