@@ -1,4 +1,5 @@
 public class PigLatin {
+	//worked with Alicia
     public String piglatinify (String word){
 	String firstLetter = word.substring(0,1);
 	String firstTwoLetters = word.substring(0,2);
