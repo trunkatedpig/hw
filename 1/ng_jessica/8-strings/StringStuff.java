@@ -3,27 +3,27 @@ import java.util.*;
 
 public class StringStuff {
     
-    public String capitalize (String name) {
+    public static String capitalize (String name) {
 	int i; 
 	i = name.indexOf (" "); 
 	int x;
 	x = i + 1; 
 	String n; 
-	n = (name.charAt(0));.toUpperCase(); 
-	n = n + name.substring (0, x);
-	n = n + (name.charAt(x)).toUpperCase();
-	n = n + name.substring (x + 1, (name.length()-1));
+	n = (name.substring(0,1)).toUpperCase(); 
+	n = n + name.substring (1, x);
+	n = n + (name.substring(x, x + 1)).toUpperCase();
+	n = n + name.substring (x + 1, name.length());
 	return n; 
     }
 
-    public String bondify (String name) {
+    public static String bondify (String name) {
 	String n; 
 	n = capitalize (name); 
 	int i; 
 	i = name.indexOf (" "); 
 	i = i + 1; 
 	int l; 
-	l = name.length() - 1;
+	l = name.length();
 	String y; 
 	y = n.substring (i, l) + ", " + n;
 	return y; 

@@ -11,17 +11,19 @@ public class Driver {
 	k = "kit rodriguez";
 
 	String i; 
-	i = capitalize (n); 
+	i = StringStuff.capitalize (n); 
 	String j; 
-	j = capitalize (k); 
+	j = StringStuff.capitalize (k); 
 
 	System.out.println (i); 
 	System.out.println (j); 
 
 	String x; 
-	x = bondify (n); 
+	x = i; 
+	x = StringStuff.bondify (x); 
 	String y; 
-	y = bondify (y); 
+	y = j; 
+	y = StringStuff.bondify (y); 
 
 	System.out.println (x); 
 	System.out.println(y); 
