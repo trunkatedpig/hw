@@ -8,5 +8,7 @@ public class Driver{
 	n = new stringStuff();
 	System.out.println(n.capitalize("mike zamansky"));
 	System.out.println(n.bondify("mike zamansky"));
+	System.out.println(n.pigLatinify("Position"));
+	System.out.println(n.pigLatinify("Apple"));
     }
 }
