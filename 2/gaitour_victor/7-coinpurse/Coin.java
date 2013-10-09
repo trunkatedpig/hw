@@ -2,13 +2,12 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
-    private String face, name;
-    private int counts, heads, tails, value;
+    private String face;
+    private int flips, heads, tails, value;
     private double probability;
 
-    public Coin(String n) {
+    public Coin() {
 	face = "heads";
-	name = n;
 	counts = 0;
 	heads = 0;
 	tails = 0;
@@ -27,7 +26,7 @@ public class Coin {
 	}
     }
     public void resetCounts(){
-	counts = 0;
+	flips = 0;
     }
     public void flip() {
 	Random r = new Random();
@@ -45,7 +44,7 @@ public class Coin {
 	return face;
     }
     public int getCount(){
-	return counts;
+	return flips;
     }
     public int getValue(){
 	return value;
