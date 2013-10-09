@@ -11,5 +11,7 @@ public class Driver {
 	System.out.println(s.PigLatinify("dong"));
 	System.out.println(s.PigLatinify("elephant"));
 	System.out.println(s.PigLatinify("choir"));
+	System.out.println(s.PigLatinify("stairs"));
+
     }
 }
