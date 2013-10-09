@@ -7,5 +7,7 @@ public class Driver {
 	s = new StringStuff();
 	System.out.println(s.capitalize("rebecca yuste"));
 	System.out.println(s.bondify("rebecca yuste"));
+	System.out.println(s.piglatinify("apple"));
+	System.out.println(s.piglatinify("car"));
     }
 }
