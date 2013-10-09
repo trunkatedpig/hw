@@ -19,20 +19,13 @@ public class StringStuff{
 //Currently does not work, I don't know why!!!
 	public String PigLatinify(String word){
 		//This only works for one word, with no spaces or hyphenations.
-		String firstLetter, restOfWord, output, lower;
+		String firstLetter, restOfWord, output, lower, x;
 		lower = word.toLowerCase();
-		if (lower.substring(0,1) == "a")
-			output = word + "way";
-		else if (lower.substring(0,1) == "e")
-			output = word + "way";
-		else if (lower.substring(0,1) == "i")
-			output = word + "way";
-		else if (lower.substring(0,1) == "o")
-			output = word + "way";
-		else if (lower.substring(0,1) == "u")
+		firstLetter = lower.substring(0,1);
+		x= firstLetter;
+		if (x.equals("a") || x.equals("e") || x.equals("i") || x.equals("o") || x.equals("u"))
 			output = word + "way";
 		else{
-			firstLetter = lower.substring(0,1);
 			restOfWord = lower.substring(1);
 			output = restOfWord + firstLetter + "ay";
 		}
