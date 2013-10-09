@@ -8,9 +8,7 @@ import java.util.*;
 
 	public String consonant(String word){
 	    String s,s1;
-	    s = word.substring(0,1);
-	    s2 = word.substring(0,3);
-	    if ((s2.contains("a"))//Trying to make consonant clusters better	   
+	    s = word.substring(0,1); 
 	    word = word.substring(1);
 	    word = word + s + "ay";
 	    return word;
