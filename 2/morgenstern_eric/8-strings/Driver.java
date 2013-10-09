@@ -14,6 +14,11 @@ public class Driver {
 	System.out.println(e.capitalize(b));
 	System.out.println(e.bondify(c));
 	System.out.println(e.bondify(d));
+	System.out.println("NOW TO TEST PIGLATINIFY");
+	System.out.println(e.PigLatinify(a));
+	System.out.println(e.PigLatinify(b));
+	System.out.println(e.PigLatinify(c));
+	System.out.println(e.PigLatinify(d));
     }
 }		
 	
