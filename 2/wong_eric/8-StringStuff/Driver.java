@@ -23,6 +23,9 @@ public class Driver {
 		System.out.println(word1.PigLatinify("ate"));
 		System.out.println(word2.PigLatinify("hello"));
 		System.out.println(word3.PigLatinify("thanks"));
+		System.out.println(word1.PigLatinify("ATE"));
+		System.out.println(word2.PigLatinify("HELLO"));
+		System.out.println(word3.PigLatinify("THANKS"));
 
 	}
 }
