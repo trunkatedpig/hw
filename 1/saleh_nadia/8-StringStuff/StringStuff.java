@@ -26,4 +26,31 @@ public class StringStuff {
 	String bonded = c + "," + b + " " + c + ".";
         return bonded;
     }
+
+    public String pigLatinify (String word) {
+	String first = word.substring(0,1);
+	String firstTwo = word.substring (0,2);
+	if (
+	    first.equals ("a") ||
+	    first.equals ("e") ||
+	    first.equals ("i") ||
+	    first.equals ("o") ||
+	    first.equals ("u")
+	    )
+	    {
+		return (word + "ay");
+	    }
+	else if (
+		 firstTwo.equals ("ch") ||
+		 firstTwo.equals ("sh") ||
+		 firstTwo.equals ("th") ||
+		 firstTwo.equals ("tr")
+		 )
+	    {
+		return (word.substring (2) + firstTwo + "ay");
+	    }
+	else {
+	    return (word.substring (1) + first + "ay");
+	}
+    }
 }

@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class StringStuff {
 
 	public static String capitalize(String name) {
@@ -20,5 +23,23 @@ public class StringStuff {
 		newName = newName + names[1] + ", " + names[0] + " " + names[1];
 		
 		return newName;
+	}
+	
+	public static String PigLatinify (String word) {
+		String newWord = "";
+		String[] vowels = {"a", "e", "i", "o", "u"};
+		String[] consonants = {"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"};
+		if (word.length() < 2) {
+			newWord = word;
+		}
+		else {
+			if (Arrays.asList(vowels).contains(word.substring(0,1))) {
+				newWord = newWord + word + "way";
+			}
+			if (Arrays.asList(consonants).contains(word.substring(0, 1))) {
+				newWord = newWord + word.substring(1) + word.substring(0, 1) + "ay";
+			}
+		}
+		return newWord;
 	}
 }
