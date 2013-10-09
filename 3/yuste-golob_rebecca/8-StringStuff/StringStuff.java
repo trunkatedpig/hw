@@ -28,6 +28,24 @@ public class StringStuff {
 	String LastName = name.substring(i+1, l);
 	
 	return LastName + ", " + FirstName + " " + LastName;
+    }
 
+    public String piglatinify(String word){
+	String n = word.substring(0,1);
+	String nrest = word.substring(1);
+	String result;
+      	if (n.compareTo("a") = 0) {
+	    result = word + "yay";
+	} else if (n.compareTo("e") = 0) { 
+	    result = word + "yay";
+	} else if (n.compareTo("i") = 0) {
+	    result = word + "yay";
+	} else if (n.compareTo("o") = 0) {
+	    result = word + "yay";
+	} else if (n.compareTo("u") = 0) {
+	    result = word + "yay";
+	} else { result = nrest + n + "yay";
+	}
+	return result;
     }
 }

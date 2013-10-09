@@ -12,4 +12,9 @@ public class StringStuff{
 	String lastname = cName.substring(pos+2);
 	return first + firstname + last + lastname;
     }
+
+    public String pigLatinify( String word){
+	String fletter = word.substring(0, 1);
+	if fletter== "a" or fletter== "e" or fletter
+    }
 }
