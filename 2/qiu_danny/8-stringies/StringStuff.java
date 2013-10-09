@@ -18,4 +18,25 @@ public class StringStuff {
         bond = caps.substring(i+1) + ", " + caps;
         return bond;
     }
+
+    public String pigLatinfy(String sentence) {
+        String first, second, third, fourth;
+        first = sentence.substring(0,1);
+        second = sentence.substring(1,2);
+        third = sentence.substring(2,3);
+        fourth = sentence.substring(3,4);
+        if (first.equals("a") || first.equals("e") || first.equals("i") || first.equals("o") || first.equals("u") || first.equals("y")) {
+            sentence = sentence + "way";
+        }
+        else if (second.equals("a") || second.equals("e") || second.equals("i") || second.equals("o") || second.equals("u")) {
+            sentence = sentence.substring(1) + sentence.substring(0,1) + "ay";
+        }
+        else if (third.equals("a") || third.equals("e") || third.equals("i") || third.equals("o") || third.equals("u")) {
+            sentence = sentence.substring(2) + sentence.substring(0,2) + "ay";
+        }
+        else if (fourth.equals("a") || fourth.equals("e") || fourth.equals("i") || fourth.equals("o") || fourth.equals("u")) {
+            sentence = sentence.substring(3) + sentence.substring(0,3) + "ay";
+        }
+        return sentence;
+    }
 }
