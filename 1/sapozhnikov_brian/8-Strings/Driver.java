@@ -11,6 +11,7 @@ public class Driver {
 	System.out.println(test.pigLatinify("word"));
 	System.out.println(test.pigLatinify("office"));
 	System.out.println(test.pigLatinify("channing"));
+	System.out.println(test.pigLatinify("Shoot"));
 
     }
 }

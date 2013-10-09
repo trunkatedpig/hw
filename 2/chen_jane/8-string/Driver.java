@@ -10,6 +10,13 @@ public class Driver {
 	System.out.println(s.bondify("james bond"));
 	System.out.println(s.bondify("jane chen"));
 
+	System.out.println("------");
+
+	System.out.println(s.PigLatinify("compare"));
+	System.out.println(s.PigLatinify("you"));
+	System.out.println(s.PigLatinify("octavia"));
+	System.out.println(s.PigLatinify("another"));
+
     }
 
 }
