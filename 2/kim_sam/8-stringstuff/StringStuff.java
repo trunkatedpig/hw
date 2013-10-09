@@ -20,4 +20,25 @@ public class StringStuff {
 	String last = name.substring(sp + 1, length);
 	return last + "," + " " + first + " " + last;
     }
+    
+    public String pigLatinify(String word){
+	int length = word.length();
+	if ((word.substring(0,1).equals("a")) 
+	    ||
+	    (word.substring(0,1).equals("e"))
+	    ||
+	    (word.substring(0,1).equals("i"))
+       	    ||
+	    (word.substring(0,1).equals("o"))
+	    ||
+	    (word.substring(0,1).equals("u"))) {
+	    return word + "ay"; }
+	else if ((word.substring(0,2).equals("ch"))
+		 ||
+		 (word.substring(0,2).equals("th"))
+		 ||
+		 (word.substring(0,2).equals("sh"))) {
+	    return word.substring(2,length) + word.substring(0,2) + "ay"; }
+	else return word.substring(1,length) + word.substring(0,1) + "ay";
+    }
 }
