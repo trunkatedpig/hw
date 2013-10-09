@@ -1,5 +1,5 @@
 import java.util.*;
-    import java.io.*;
+import java.io.*;
 
 /*
 OOZE >> OOZEYAY
@@ -9,17 +9,33 @@ COMPOUND LETTERS:
 TR, TH, SH, CH, 
 
 
- */
+*/
 
- public class Piglatin {
-     public String piglatin (String word) {
-	 if (word.substring (0,2).equals ("tr", "th", "sh", "ch") {
-		 return word.substring (2) + word.substring (0,2) + "ay";
-	     }
-	     else {if (word.substring (0,1).equals ("a", "e", "i", "o", "u") {
-			 return word + "yay";
-		     }
-		    else {
-		 return word.substring (1) + word.substring (0,1) + "ay";
-		    }
+
+
+public class Piglatin {
+
+    public String Piglatin (String word) {
+	
+	String a = (word.substring(0,2));
+	String b = (word.substring(0,1));
+	
+	if 
+	    (a.equals("tr") || a.equals("th") || a.equals("sh") || a.equals("ch")) 
+		  {
+		      return word.substring(2) + word.substring (0,2) + "ay";
+		  }
+	
+	else {
+	    if
+		(b.equals("a") || b.equals("e") || b.equals("i") || b.equals("o") || b.equals("u"))
+		      {
+			  return word + "yay";
+		      }
+	    else {
+		return word.substring (1) + word.substring (0,1) + "ay";
+	    }
+	}
+    }
+   
 }
