@@ -13,10 +13,16 @@ public class stringStuff {
     }
 
     public String pigLatinify(String word){
-	char c = word.cbarAt(0);
+	char a = word.charAt(word.length()-1);
+	char c = word.charAt(0);
 	String d = word.substring(0,2);
-	if (c=="a"|c=="e"|c=="i"|c=="o"|c=="u"|c=="A"|c=="E"|c=="I"|c=="O"|c=="U") { 
-	    word = word + "ay";
+	if (c=='a'|c=='e'|c=='i'|c=='o'|c=='u'|c=='A'|c=='E'|c=='I'|c=='O'|c=='U') { 
+	    if ((a=='a'|a=='e'|a=='i'|a=='o'|a=='u')){
+		word = word + "yay";
+	    }
+	    else {
+		word = word + "ay";
+	    }
 	}
 	else if (d.equals("th")|d.equals("ch")|d.equals("sh")|d.equals("Th")|d.equals("Ch")|d.equals("Sh")){
 	    word = word.substring(2) + d + "ay";
@@ -24,5 +30,6 @@ public class stringStuff {
 	else {
        	    word = word.substring(1) + c + "ay";
 	}
+	return word;
     }
 }
