@@ -18,5 +18,10 @@ public class Driver {
 
         System.out.println("CAPS: " + s.capitalize(input));
         System.out.println("BOND: " + s.bondify(input));
+
+        System.out.println("PIGLATIN: apple " + s.pigLatinfy("apple"));
+        System.out.println("PIGLATIN: potato " + s.pigLatinfy("potato"));
+        System.out.println("PIGLATIN: troll " + s.pigLatinfy("troll"));
+        System.out.println("PIGLATIN: three " + s.pigLatinfy("three"));
     }
 }
