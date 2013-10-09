@@ -1,5 +1,3 @@
-//Danny Qiu and Tina Lee
-
 import java.io.*;
 import java.util.*;
 
