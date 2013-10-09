@@ -8,5 +8,11 @@ public class Driver{
 	String a = s.capitalize(s.string);
 	System.out.println(a);
 	System.out.println(s.bondify(a));
+	Piglatin p = new Piglatin();
+	String vtest = new String("apple");
+	String ctest = new String("hello");
+	System.out.println(p.Piglatinify(vtest));
+	System.out.println(p.Piglatinify(ctest));
+	
     }
 }
