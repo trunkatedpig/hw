@@ -3,7 +3,7 @@ import java.util.*;
 
 public class PigLatin {
 
-    private String part1, part2, piglatin;
+    private String part1, part2,last, piglatin;
     private int index;
 
     public String PigLatinify(String word) {
@@ -25,7 +25,8 @@ public class PigLatin {
 		index = word.indexOf("u");
 	    }
 	if (index == 0){
-	    if ((word.substring(word.length()-1).equals("a")) || (word.substring(word.length()-1).equals("e"))|| (word.substring(word.length()-1).equals("i"))|| (word.substring(word.length()-1).equals("o"))||(word.substring(word.length()-1).equals("u"))){
+	    last = word.substring(word.length()-1);
+	    if ((last.equals("a")) || (last.equals("e"))|| (last.equals("i"))|| (last.equals("o"))||(last.equals("u"))){
 		    piglatin = word + "yay";
 		}
 	   else {
