@@ -16,6 +16,22 @@ public class Driver{
 	System.out.println(names.bondify(n1));
 	System.out.println(names.bondify(names.capitalize(n3)));
 
+
+
+	PigLatin words;
+	String w1,w2,w3,w4;
+	words = new PigLatin();
+	w1 = "ate";
+	w2 = "computer";
+	w3 = "astronaut";
+	w4 = "choice";
+	
+	System.out.println(words.PigLatinify(w1));
+	System.out.println(words.PigLatinify(w2));
+	System.out.println(words.PigLatinify(w3));
+	System.out.println(words.PigLatinify(w4));
+
+
     }
 
 
