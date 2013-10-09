@@ -35,4 +35,28 @@ public class StringStuff {
 	return bond;
 
     }
+
+    public String pigLatinify(String word) {
+	String firstletter = word.substring(0,1);
+	String rest = word.substring(1);
+	String result;
+	String v1 = "a";
+	String v2 = "e";
+	String v3 = "i";
+	String v4 = "o";
+	String v5 = "u";
+	int n1 = firstletter.compareTo(v1);
+	int n2 = firstletter.compareTo(v2);
+	int n3 = firstletter.compareTo(v3);
+	int n4 = firstletter.compareTo(v4);
+	int n5 = firstletter.compareTo(v5);
+  
+
+	if (n1 == 0 || n2 == 0 || n3 == 0 || n4 == 0 || n5 == 0) {
+	    result = word + "yay";
+	} else {
+	    result = rest + firstletter + "ay";
+		}
+	return result;
+    }
 }
