@@ -11,7 +11,7 @@ public class Loops {
 	}
     }
 
-    public int factr(int n) {
+    public int fact2(int n) {
 	int ans = 1;
 	while (n > 0) {
 	    ans = ans * n;
