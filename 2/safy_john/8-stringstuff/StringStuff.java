@@ -13,11 +13,19 @@ public class StringStuff{
     public String bondify(String name){
 	return last + ", " + first + " "  + last;
     }
-    public String PigLatinify(String word){
-	if (word.substring == a, e, i, o, u) {
-	    return word + "yay";}
-	 else {
-	    return word.substring(1) + word.substring(0,1) + "ay";
-	    //whatdoidosomanyerrors:(
-	}}
+    //John Safy and Sam Kim
+    public String pigLatinify(String word){
+	int length = word.length();
+	if ((word.substring(0,1).equals("a")) 
+	    ||
+	    (word.substring(0,1).equals("e"))
+	    ||
+	    (word.substring(0,1).equals("i"))
+       	    ||
+	    (word.substring(0,1).equals("o"))
+	    ||
+	    (word.substring(0,1).equals("u"))) {
+	    return word + "ay"; }
+	else return word.substring(1,length) + word.substring(0,1) + "ay";
+    }
 }
