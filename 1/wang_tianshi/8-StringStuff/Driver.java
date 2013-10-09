@@ -15,6 +15,10 @@ public class Driver {
 	StringStuff s1 = new StringStuff();
 	System.out.println(s1.capitalize("elise spider-queen"));
 	System.out.println(s1.bondify("Tianshi Wang Jr."));
+	
+	//pig latin testing
+	pigLatin p = new pigLatin();
+	System.out.println(p.runPigLatin("apple"));
 			   
     }
 }
