@@ -3,16 +3,18 @@ import java.util.*;
 
 public class Coin {
 
-	private String side;
+	private String side, name;
 	private int flips, heads, tails;
-	private double fairness;
+	private double fairness, worth;
 	private Random r = new Random();
 	
-	public Coin(double p){
+	public Coin(double p, double ammount, String n){
 		setFairness(p);
 		setHeads(0);
 		setTails(0);
 		setFlips(0);
+		setWorth(ammount);
+		setName(n);
 	}
 
 	public Coin(){
@@ -20,10 +22,20 @@ public class Coin {
 		setHeads(0);
 		setTails(0);
 		setFlips(0);
+		setWorth(.25);
+		setName("Quarter");
+	}
+
+	public void setName(String n){
+		name = n;
 	}
 
 	public void setHeads(int h){
 		heads = h;
+	}
+
+	public void setWorth(double ammount){
+		worth = ammount;
 	}
 
 	public void setTails(int t){
@@ -70,7 +82,12 @@ public class Coin {
 		return heads;
 	}
 
+	public String getName(){
+		return name;
+	}
 
-		
+	public double getAmmount(){
+		return worth;
+	}	
 
 } 
