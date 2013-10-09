@@ -26,9 +26,6 @@ public class StringStuff{
 	bond = last + ", " + name;
 	return bond;
     }
-    public String piglatinfy(String word){
-    }
-
 }
 
 
