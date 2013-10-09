@@ -34,6 +34,8 @@ public class StringStuff {
 	temp = last +  ", " + first + last;
 	return temp;
     }
+
+//Danny Qiu and Tina Lee
     public String pigLatinfy(String sentence) {
         String first, second, third, fourth;
         first = sentence.substring(0,1);
