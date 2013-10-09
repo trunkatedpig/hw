@@ -13,4 +13,15 @@ public class StringStuff {
 	String second = theName.substring(theName.indexOf(" ")+1);
 	return second + ", " + theName;
     }
+
+    public String pigLatinify(String word){
+	String first = word.substring(0,1);
+	String last = word.substring(word.length());
+	if ("aeiou".contains(first)){
+	    return word+"yay";}
+	else return word.substring(1)+first+"ay";
+	    
+	
+    }
+
 }
