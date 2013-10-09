@@ -50,12 +50,18 @@ public class StringStuff {
 	int n3 = firstletter.compareTo(v3);
 	int n4 = firstletter.compareTo(v4);
 	int n5 = firstletter.compareTo(v5);
-  
+	int n11 = firstletter.compareTo(v1.toUpperCase());
+	int n21 = firstletter.compareTo(v2.toUpperCase());
+	int n31 = firstletter.compareTo(v3.toUpperCase());
+	int n41 = firstletter.compareTo(v4.toUpperCase());
+	int n51 = firstletter.compareTo(v5.toUpperCase());
 
-	if (n1 == 0 || n2 == 0 || n3 == 0 || n4 == 0 || n5 == 0) {
+	if (n1 == 0 || n2 == 0 || n3 == 0 || n4 == 0 || n5 == 0 || n11 == 0 || n21 == 0 || n31 == 0 || n41 == 0 || n51 == 0) {
 	    result = word + "yay";
-	} else {
+	} else if (firstletter.compareTo(firstletter.toLowerCase()) == 0){ 
 	    result = rest + firstletter + "ay";
+	} else {
+	    result = rest.substring(0,1).toUpperCase() + rest.substring(1) + firstletter.toLowerCase() + "ay";
 		}
 	return result;
     }
