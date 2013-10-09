@@ -41,8 +41,11 @@ public class Coin {
     public Coin(String f, int v) {
 	initCoin(f,0.5,v);
     }
+    
 
-
+    public int getValue(){
+	return value;
+    }
     public String getFace() {
 	return face;
     }

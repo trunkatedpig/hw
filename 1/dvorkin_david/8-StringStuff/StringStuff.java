@@ -5,6 +5,8 @@ public class StringStuff {
 
     private String name;
 
+    private String word;
+
     public StringStuff(){}
 
     public StringStuff (String name){
@@ -26,5 +28,23 @@ public class StringStuff {
 
 	result2=name.substring(name.indexOf(" ")+1, name.indexOf(" ")+2).toUpperCase()+name.substring(name.indexOf(" ") + 2);
 	return result2+", "+bond;
+    }
+
+    public String PigLatinify(String word){
+	String s1 = "";
+	if (word.substring(0,1) != "a","e","i","o","u"){
+	    if (word.substring(0,2) == "ch", "th", "sh"){
+		first =  word.substring(0,2);
+		second = word.substring(2);
+		return second + first;}
+	    if (word.substring(0,2) != "ch", "sh", "th"){
+		first = word.substring(0,1);
+		second = word.substring(1);
+		return second + first;}
+	}
+	if (word.substring(0,1) == "a","e","i","o","u"){
+	    first = word.substring(0,1);
+	    second = word.substring(1);
+	    return second + first;}
     }
 }
