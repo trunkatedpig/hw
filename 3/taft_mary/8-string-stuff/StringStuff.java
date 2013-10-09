@@ -5,7 +5,9 @@ public class StringStuff {
 
     public String capitalize(String name) {
 	int x = name.indexOf(" ");
-	return name.substring(0,1).toUpperCase() + name.substring(1, x + 1) /* or, instead of adding 1 to the index, just add a space */ + name.substring(x + 1, x + 2).toUpperCase() + name.substring(x + 2);
+	String firstname = name.substring(0,1).toUpperCase() + name.substring(1, x);
+	String lastname = name.substring(x + 1, x + 2).toUpperCase() + name.substring(x + 2);
+	return firstname + " " + lastname;
     }
 
     public String bondify(String name) {
@@ -15,7 +17,7 @@ public class StringStuff {
     }
 
     public boolean isVowel(String letter) {
-	return (letter.equals("a") || letter.equals("e") || letter.equals("i") || letter.equals("o") || letter.equals("u"));
+	return ("aeiou".contains(letter));
     }
 
     public String piglatinify(String word) {

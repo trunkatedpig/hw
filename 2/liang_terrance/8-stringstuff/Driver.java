@@ -18,9 +18,9 @@ public class Driver{
 
 
 
-	PigLatin words;
+	StringStuff words;
 	String w1,w2,w3,w4;
-	words = new PigLatin();
+	words = new StringStuff();
 	w1 = "ate";
 	w2 = "computer";
 	w3 = "astronaut";
