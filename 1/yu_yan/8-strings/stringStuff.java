@@ -34,4 +34,27 @@ public class stringStuff{
 	l = capLast(name);
 	return l + ", " + c;
     }
+
+    //consonants - move first letter to end, add "ay"
+    //sounds that travel as a unit (th, ch, sh etc) move to end
+    //vowels - add "ay" to end
+    
+    private boolean vowelCheck(String word){
+	String s = "aeiou";
+	return s.contains(word.substring(0,1));
+    }
+    private String vowelLatin(String word){
+	return word + "ay";
+    }
+    private String consonantLatin(String word){
+	return word.substring(1) + word.substring(0,1) + "ay";
+    }
+    public String pigLatinify(String word){
+	if (vowelCheck(word)){
+	    return vowelLatin(word);
+	}
+	else{
+	    return consonantLatin(word);
+	}
+    }
 }
