@@ -9,6 +9,14 @@ public class Driver {
 	System.out.println(s1.capitalize("James Chen"));
 	System.out.println(s1.bondify("James Chen"));
 	
+
+	System.out.println(capitalize("bames jond"));
+	System.out.println(bondify(capitalize("bames jond")));
+	System.out.println(pigLatinify("apple"));
+	System.out.println(pigLatinify("banana"));
+	
+	
+	
 	
 	
 	
