@@ -8,5 +8,9 @@ public class Driver {
 	String name = "elise zlotnikova";
         System.out.println(Stuff.capitalize(name));
 	System.out.println(Stuff.bondify(name));
+	System.out.println(Stuff.PigLatinify("apple"));
+	System.out.println(Stuff.PigLatinify("turtle"));
+	System.out.println(Stuff.PigLatinify("charmander"));
+	System.out.println(Stuff.PigLatinify("sharpie"));
     }
 }

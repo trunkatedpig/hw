@@ -17,5 +17,7 @@ public class Driver{
 		System.out.println(pl1.pigLatin("cookies"));
 		System.out.println(pl1.pigLatin("emus"));
 		System.out.println(pl1.pigLatin("apples"));
+		System.out.println(pl1.pigLatin("tree"));
+		System.out.println(pl1.pigLatin("knife"));
 	}
 }
