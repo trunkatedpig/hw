@@ -4,30 +4,39 @@ import java.io.*;
 public class Coin {
 
 	private boolean face;
-	private int head, tail, fair;
+	private int head, tail
+	private double fair;
 
 	public Coin() {
-		fair = 50;
+		fair = .5;
 		head = 0;
 		tail = 0;
+		face = true;
 	}
 
-	public Coin(int i) {
+	public Coin(double i) {
 		fair = i;
 		head = 0;
 		tail = 0;
+		face = true;
 	}
 
-	public String flip() {
-		Random r = new Random();
-		if (fair > r.nextInt(100)) {
+	public void flip() {
+		if (fair > Math.random()) {
+			face = true;
 			head = head + 1;
-			return "Heads";
 		}
 		else {
+			face = false;
 			tail = tail + 1;
-			return "Tails";
 		}
+	}
+
+	public String getFace() {
+		if (face == true) 
+			return "Heads";
+		else
+			return "Tails";
 	}
 	
 	public int getHeads() {
