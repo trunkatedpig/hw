@@ -19,33 +19,34 @@ public class StringStuff {
     }
 
     public String bondify(String name){
+	name = capitalize(name);
+
 	int i = name.indexOf(" ");
 	int l = name.length();
-
-	// I was going to try to capitalize the name here, but I wasn't 100% sure on how to
 
 	String FirstName = name.substring(0,i);
 	String LastName = name.substring(i+1, l);
 	
 	return LastName + ", " + FirstName + " " + LastName;
-    }
 
+    }
+    
     public String piglatinify(String word){
-	String n = word.substring(0,1);
-	String nrest = word.substring(1);
-	String result;
-      	if (n.compareTo("a") = 0) {
-	    result = word + "yay";
-	} else if (n.compareTo("e") = 0) { 
-	    result = word + "yay";
-	} else if (n.compareTo("i") = 0) {
-	    result = word + "yay";
-	} else if (n.compareTo("o") = 0) {
-	    result = word + "yay";
-	} else if (n.compareTo("u") = 0) {
-	    result = word + "yay";
-	} else { result = nrest + n + "yay";
+        String n = word.substring(0,1);
+        String nrest = word.substring(1);
+        String result;
+	if (n.equals("a")) {
+            result = word + "yay";
+        } else if (n.equals("e")) {
+            result = word + "yay";
+        } else if (n.equals("i")) {
+            result = word + "yay";
+        } else if (n.equals("o")) {
+            result = word + "yay";
+        } else if (n.equals("u")) {
+            result = word + "yay";
+	} else { result = nrest + n + "ay";
 	}
-	return result;
+        return result;
     }
 }
