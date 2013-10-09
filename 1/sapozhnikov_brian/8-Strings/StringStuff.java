@@ -21,4 +21,22 @@ public class StringStuff {
 	result = last + ", " + name;
 	return result;
     }
+    
+    public String pigLatinify (String word) {
+	String vowels = "aeiouAEIOU";
+	String s = word.substring(0,1);
+	String s1 = word.substring(0,2);
+	String result;
+
+	if (s1.equalsIgnoreCase("th")||s1.equalsIgnoreCase("ch")||s1.equalsIgnoreCase("sh")){
+	    result = word.substring(2) + s1 + "ay";
+	}
+	else if ( vowels.contains(s)){
+	    result = word + "yay";
+	}
+	else {
+	    result = word.substring(1) + s + "ay";
+	}
+	return result;	
+    }
 }
