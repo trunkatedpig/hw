@@ -15,7 +15,7 @@ public class StringStuff{
 	int space = name.indexOf(" ");
 	String L = name.substring(space+1,space+2);
 	L = L.toUpperCase();
-	String result =  L + name.substring(space+2)+ ", " + F + name.substring(1,space);
+	String result =  L + name.substring(space+2)+ ", " + F + name.substring(1,space)+ " " +  L + name.substring(space+2);
 	return result;
     }
 }
