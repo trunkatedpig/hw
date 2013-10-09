@@ -23,22 +23,24 @@ public class StringStuff {
     
     public String pigLatinify(String word){
 	int length = word.length();
-	if ((word.substring(0,1).equals("a")) 
+	String oneLet = word.substring(0,1);
+	String twoLet = word.substring(0,2);
+	if ((oneLet.equals("a")) 
 	    ||
-	    (word.substring(0,1).equals("e"))
+	    (oneLet.equals("e"))
 	    ||
-	    (word.substring(0,1).equals("i"))
+	    (oneLet.equals("i"))
        	    ||
-	    (word.substring(0,1).equals("o"))
+	    (oneLet.equals("o"))
 	    ||
-	    (word.substring(0,1).equals("u"))) {
+	    (oneLet.equals("u"))) {
 	    return word + "ay"; }
-	else if ((word.substring(0,2).equals("ch"))
+	else if ((twoLet.equals("ch"))
 		 ||
-		 (word.substring(0,2).equals("th"))
+		 (twoLet.equals("th"))
 		 ||
-		 (word.substring(0,2).equals("sh"))) {
-	    return word.substring(2,length) + word.substring(0,2) + "ay"; }
-	else return word.substring(1,length) + word.substring(0,1) + "ay";
+		 (twoLet.equals("sh"))) {
+	    return word.substring(2,length) + twoLet + "ay"; }
+	else return word.substring(1,length) + oneLet + "ay";
     }
 }
