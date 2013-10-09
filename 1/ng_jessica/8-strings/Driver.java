@@ -27,6 +27,16 @@ public class Driver {
 
 	System.out.println (x); 
 	System.out.println(y); 
+
+
+	String a;
+	String b; 
+	a = "defenestrate"; 
+	b = "ubiquitous"; 
+	a = StringStuff.pigLatinify (a); 
+	b = StringStuff.pigLatinify (b); 
 	
+	System.out.println (a); 
+	System.out.println (b); 
     }
 }

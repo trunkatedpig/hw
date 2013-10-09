@@ -1,37 +1,41 @@
 import java.io.*;
 import java.util.*;
 
-public class PigLatin {
-    private String a;
-    private int i;
-    public String Piglatinify(String word) {
-	a = word.substring(0,1);
-	if (a.equals("a")){
-	    word = word + "yay";
+public class Piglatinify {
+	int index, firstVowel;
+	String ending;
+	public String PigLatin(String word){
+		index = 0;
+		if (word.substring(0,1).equals(word.substring(0,1).toUpperCase())){
+			word = word.toLowerCase();
+			findFirstVowel(word);
+			return word.substring(firstVowel, firstVowel + 1).toUpperCase() + word.substring(firstVowel + 1) + word.substring(0,firstVowel) + chooseEnding();
 		}
-	if (a.equals("e")){
-	    word + "yay";
-		}
-	if (a.equals("i")){
-	    word + "yay";
-		}
-	if (a.equals("o")){
-	    word + "yay";
-		}
-	if (a.equals("u")){
-	    word + "yay";
-		}
-	if 
-    }
-    public int findFirstVowel(String word) {
-	int i, indexOfVowel;
-	letter = word.substring(i,i+1);
-	if (letter.equals("a") || letter.equals("e") || letter.equals("i") || letter.equals("o") || letter.equals("u")) {
-	    indexOfVowel = i;
+		else {
+			findFirstVowel(word);
+			return word.substring(firstVowel) + word.substring(0,firstVowel) + chooseEnding();
+		}	
 	}
-	else {
-	    i = i + 1;
-	    findFirstVowel(word);
+	public void findFirstVowel(String word){
+		String letter = word.substring(index, index + 1);
+		if (letter.equals("a")||
+			letter.equals("e")||
+			letter.equals("i")||
+			letter.equals("o")||
+			letter.equals("u")){
+			firstVowel = index;
+		}
+		else {
+			index = index + 1;
+			findFirstVowel(word);
+		}
 	}
-    }
+	public String chooseEnding(){
+		if (index == 0) {
+			return "yay";
+		}
+		else {
+			return "ay";
+		}
+	}
 }

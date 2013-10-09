@@ -34,27 +34,42 @@ public class stringStuff{
 	l = capLast(name);
 	return l + ", " + c;
     }
-
-    //consonants - move first letter to end, add "ay"
-    //sounds that travel as a unit (th, ch, sh etc) move to end
-    //vowels - add "ay" to end
     
     private boolean vowelCheck(String word){
 	String s = "aeiou";
-	return s.contains(word.substring(0,1));
+	return s.contains(word.substring(0,1).toLowerCase());
     }
+    private boolean unitCheck(String word){
+	String a = "th";
+	String b = "ch";
+	String c = "sh";
+	String s = word.substring(0,2).toLowerCase();
+	return (a.contains(s)) || (b.contains(s)) || (c.contains(s));
+    }
+
     private String vowelLatin(String word){
 	return word + "ay";
     }
+
     private String consonantLatin(String word){
 	return word.substring(1) + word.substring(0,1) + "ay";
     }
+
+    private String unitLatin(String word){
+	return word.substring(2) + word.substring(0,2) + "ay";
+    }
+
     public String pigLatinify(String word){
 	if (vowelCheck(word)){
 	    return vowelLatin(word);
 	}
 	else{
-	    return consonantLatin(word);
+	    if (unitCheck(word)) {
+		return unitLatin(word);
+	    }
+	    else {
+		return consonantLatin(word);
+	    }
 	}
-    }
+    } 
 }
