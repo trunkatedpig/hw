@@ -3,23 +3,10 @@ import java.util.*;
 
 public class Greeter {
 	private String happygreeting,sadgreeting;
-	
-	// As usual I can't read properly. Disregard the block commented code.
-	/*
-	public happyGreeter() {
-		setHappy("My what a beautiful day it is");
-	}
-	public happyGreeter(String g) {
-		setHappy(g);
-	}
-	public sadGreeter() {
-		setSad("if you don't stop running me, I swear to god");
-	}
-	*/
 
 	public Greeter() {
-		setHappy("I love you");
-		setSad("I hate you");
+		setHappy(("My what a beautiful day it is");
+		setSad("if you don't stop running me, I swear to god");
 	}
 	
 	public Greeter(String h, String s) {
