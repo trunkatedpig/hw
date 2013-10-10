@@ -62,7 +62,7 @@ public class StringStuff {
     }
     public String PigLatinify(String name) {
 	int firstvowel = firstVowel(name,0);
-	if (firstvowel == name.length() - 1) {
+	if (firstvowel == name.length() - 1 || firstvowel == 0) {
 	    name = name + "yay";
 	} else {
 	    String firstgroup = name.substring(0,firstvowel);

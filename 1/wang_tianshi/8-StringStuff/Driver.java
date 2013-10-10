@@ -17,8 +17,17 @@ public class Driver {
 	System.out.println(s1.bondify("Tianshi Wang Jr."));
 	
 	//pig latin testing
+	System.out.println(".............................");
+	System.out.println("TESTING PIG LATIN");
 	pigLatin p = new pigLatin();
 	System.out.println(p.runPigLatin("apple"));
+	System.out.println(p.runPigLatin("Elephant"));
+	System.out.println(p.runPigLatin("Chimera"));
+	System.out.println(p.runPigLatin("shriek"));
+	System.out.println(p.runPigLatin("monster"));
+	System.out.println(p.runPigLatin("Lullaby"));
+	System.out.println(p.runPigLatin("Mr. Wang"));
+	System.out.println(p.runPigLatin("forget-me-not"));
 			   
     }
 }
