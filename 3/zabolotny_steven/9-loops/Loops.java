@@ -38,4 +38,38 @@ public class Loops {
 	    r1 = oldr2;}
 	return r1;
     }
+    public boolean isPrime(int n) {
+	int r = 2;
+	while (r < n) {
+	    if (n % r == 0) {
+		return false;}
+	    r = r + 1;}
+	return true;
+    }
+
+
+    public int gcdcount(int a,int b) {
+	int c = Math. min(a,b);
+	int count = 0;
+	while (c > 0) {
+		if (a % c == 0 && b % c == 0) {
+		    return count;}
+		c = c - 1;
+	        count = count + 1;}
+	return count;
+    }
+    public int gcd2count(int a,int b) {
+	if (b == 0)
+	    return 1;
+	int count = 0;
+	int r1 = b;
+	int r2 = a % b;
+	int oldr2 = r2;
+	while (r2 != 0) {
+	    oldr2 = r2;
+	    r2 = r1 % r2;
+	    r1 = oldr2;
+	    count = count + 1;}
+	return count;
+    }
 }
