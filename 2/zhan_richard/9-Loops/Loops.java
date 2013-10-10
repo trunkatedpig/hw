@@ -15,4 +15,32 @@ public class Loops{
 	}
 	return result;
     }
+    public int GCD(int a, int b){
+	int result = 0;
+	boolean inWhile=true;
+	if (a>b){
+	    result = b;
+	}
+	else {
+	    result = a;
+	}
+	while (inWhile){
+	    if ((a % result == 0) && (b % result == 0)){
+		inWhile=false;
+	    }
+	    else {
+		result = result - 1;
+	    }
+	}
+	return result;
+    }
+    /*
+    public int GCD2(int a, int b){
+	int result = 1;
+	if (b == 0){
+	    result = a;
+	}
+	else{
+	    while 
+    */
 }
