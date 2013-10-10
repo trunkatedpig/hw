@@ -16,4 +16,30 @@ public class Loops{
         }
         return ans;
     }
+
+    public int gcd(int a, int b){
+	int counter;
+	if (a >= b){
+	    counter = a;
+	}else{
+	    counter = b;
+	}
+	boolean div = false;
+	while (div == false){
+	    if (a % counter == 0 && b % counter == 0){
+		div = true;
+	    }else{
+	    	counter --;
+	    }
+	}
+	return counter;
+	
+   }
+   public int gcd2(int a, int b){
+	if (b == 0){
+	    return a;
+	}else{
+	    return gcd(b,a%b);
+	}
+   }
 }
