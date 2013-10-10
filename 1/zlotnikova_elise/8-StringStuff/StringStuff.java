@@ -23,4 +23,27 @@ public class StringStuff {
 	return result;
     }
 
-}
+    public String PigLatinify(String word) {
+	word = word.toLowerCase();
+	int length = word.length();
+	String vowels = "aeiou";
+	String s1 = word.substring(0,1);
+	String s2 = word.substring(1,length);
+	String s3 = word.substring(0,2);
+	String result = "";
+	
+	if (vowels.indexOf(s1) != -1) { 
+	    result = word + "ay";
+	}
+	else {
+	    if (s3.equals("ch") || s3.equals("sh")) {
+		result = word.substring(2,length) + s3 + "ay";
+	    }
+	    else { 
+		result = s2 + s1 + "ay";
+	    }
+	}
+	return result; 
+    }
+}	 
+   

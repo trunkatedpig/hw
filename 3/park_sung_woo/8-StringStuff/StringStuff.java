@@ -12,4 +12,15 @@ public class StringStuff{
         String last = name.substring(indexSpace+1);
         return last + ", " + name; 
     }
+
+    public String pigLatinify(String name){
+        String firstLetter = name.substring(0,1);
+        String result = "";
+        if (firstLetter.equals("a") || firstLetter.equals("e") || firstLetter.equals("i") || firstLetter.equals("o") || firstLetter.equals("u")){
+            result = name + "ay";
+         }else{
+            result = name.substring(1) + firstLetter + "ay";
+         }
+        return result;
+    }
 }
