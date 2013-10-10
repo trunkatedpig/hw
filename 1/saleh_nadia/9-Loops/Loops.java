@@ -51,6 +51,18 @@ public class Loops {
     }
 
     public boolean isPrime (int n) {
-	int x = n;
-	while 
+	boolean result = true;
+	int x = n - 1;
+	while (x > 1) {
+	    if (n % x == 0) {
+		result = false;
+		x = 0;
+	    }
+	    else {
+		x = x - 1;
+	    }
+	}
+	return result;
+    }
+
 }
