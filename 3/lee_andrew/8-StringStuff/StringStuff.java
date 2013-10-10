@@ -23,4 +23,16 @@ public class StringStuff {
 	newname = last + ", " + first + last;
 	return newname;
 	    }
+
+    public String pigLatinify(String word) {
+	String firstl = word.substring(0,1).toUpperCase();
+	String others = word.substring(1);
+	if (firstl.equals("A") || firstl.equals("E") || firstl.equals("I") || firstl.equals("O") || firstl.equals("U"))
+	    {return word + "yay";
+	    }
+	else {
+	    String first2 = firstl.toLowerCase() + "ay";
+	    return others + first2;
+	}
+    }
 }
