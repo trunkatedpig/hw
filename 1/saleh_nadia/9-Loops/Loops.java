@@ -20,4 +20,37 @@ public class Loops {
 	}
 	return ans;
     }
+
+    public int GCD (int A, int B) {
+	int x = 1;
+	int result = 1;
+	if (A > B) {
+	    x = B;
+	}
+	else {
+	    x = A;
+	}
+	while (x > 0) {
+	    if ((A % x == 0) && (B % x == 0)) {
+		result = x;
+		x = 0;
+	    }
+	    x = x - 1;
+	}
+	return result;
+    }
+
+    public int GCD2 (int A, int B)  {
+	int a=1;
+	while (B != 0) {
+	    a = A;
+	    A = B;
+	    B = a % B;
+	}
+	return A;
+    }
+
+    public boolean isPrime (int n) {
+	int x = n;
+	while 
 }

@@ -6,5 +6,7 @@ public class Driver {
 	Loops a = new Loops ();
 	System.out.println (a.fact(5));
 	System.out.println (a.fact2(5));
+	System.out.println (a.GCD(225,39));
+	System.out.println (a.GCD2(225,39));
     }
 }
