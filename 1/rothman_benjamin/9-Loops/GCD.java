@@ -106,19 +106,10 @@ public class GCD {
 
 	}
 
-	if (prime == 1) {
-	    return true;
-}
-
-	else {
-	    return false;
-
-	}
-
+	return (prime == 1) 
 	    }
 
-	}
-
+    }
 
 
 }
