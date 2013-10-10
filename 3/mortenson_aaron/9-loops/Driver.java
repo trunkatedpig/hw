@@ -9,6 +9,8 @@ public class Driver {
 		System.out.println(l.fact(7));
 		System.out.println(l.fact2(5));
 		System.out.println(l.fact2(7));
+		System.out.println(l.gcd(36, 90));
+		System.out.println(l.gcd2(36, 90));
 	}
 
 }
