@@ -7,5 +7,8 @@ public class Driver {
 
 	System.out.println(s.capitalize("isaac gluck"));
 	System.out.println(s.bondify("isaac gluck"));
+	System.out.println(s.piglatinify("thanks"));
+	System.out.println(s.piglatinify("hello"));
+	System.out.println(s.piglatinify("about"));
     }
 }
