@@ -8,6 +8,8 @@ public class Driver {
 		
 		System.out.println(StringStuff.PigLatinify("happy"));
 		System.out.println(StringStuff.PigLatinify("egg"));
+		System.out.println(StringStuff.PigLatinify("Happy"));
+		System.out.println(StringStuff.PigLatinify("Egg"));
 		System.out.println(StringStuff.PigLatinify(""));
 	}
 }
