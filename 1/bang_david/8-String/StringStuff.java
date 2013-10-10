@@ -16,5 +16,21 @@ public class StringStuff {
 	String s2 = s.substring (n2 + 1);
 	return s2 + ", " + s;
 	    }
+
+    public String PigLatinify (String word) {
+	String s = word.substring (0,1).toUpperCase ();
+	String s1 = word.substring (0,2).toUpperCase ();
+
+	if (s1.equals ("TH") || s1.equals ("CH") || s1.equals ("SH")) {
+	    return word.substring (2) + "ay" + word.substring (0,2);
+	}
+	else if (s.equals ("A") || s.equals ("E") || s.equals ("I") || s.equals ("O") || s.equals ("U")) {
+	    return word + "yay";
+	}
+	else {
+	    return word.substring (1) + "ay" + word.substring (0,1);
+							       }
+	}
 }
+
 	    
