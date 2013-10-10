@@ -27,4 +27,19 @@ public class StringStuff {
 
 	return last + ", " + first + " " + last;
     }
+
+    public String pigLatinify(String word) {
+	String vowels = "aeiou";
+	String seconds = "rhl";
+
+	if (vowels.contains(word.substring(0,1)))
+	    return word + "way";
+	else {
+	    if (seconds.contains(word.substring(1, 2)))
+		return word.substring(2) + word.substring(0,2) + "ay";
+	    else {
+		return word.substring(1) + word.substring(0,1) + "ay";
+	    }
+	}
+    }
 }
