@@ -10,15 +10,28 @@ public class Driver {
 
 		StringStuff s1;
 		s1 = new StringStuff();
+
 		System.out.println("Capitalize the name: anna ruta");
 		System.out.println(s1.capitalize("anna ruta"));
 		System.out.println();
 
-
-		StringStuff s2;
-		s2 = new StringStuff();
 		System.out.println("Bondify the name: Paulina Ruta");
-		System.out.println(s2.bondify("Paulina Ruta"));
+		System.out.println(s1.bondify("Paulina Ruta"));
+		System.out.println();
 
+		System.out.println("PigLatinify the word: urchin");
+		System.out.println(s1.pigLatinify("urchin"));
+		System.out.println();
+
+		System.out.println("PigLatinify the word: hello");
+		System.out.println(s1.pigLatinify("hello"));
+		System.out.println();
+
+		System.out.println("PigLatinify the word: truck");
+		System.out.println(s1.pigLatinify("truck"));
+		System.out.println();
+
+		System.out.println("PigLatinify the word: that");
+		System.out.println(s1.pigLatinify("that"));
 	}
 }
