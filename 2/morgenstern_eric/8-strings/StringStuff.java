@@ -24,4 +24,20 @@ public class StringStuff {
 	d = b + c + a +" "+ b;
 	return d;
     }
+      public String PigLatinify(String name) {
+	String currentWord,result;
+	int i;
+	i = name.indexOf(" ");
+	currentWord = name.substring(0,i);
+	String a,vowels;
+	vowels = "aeiouAEIOU";
+	a = name.substring(0,1);
+	if (vowels.indexOf(a) != -1) {
+	    currentWord = currentWord + "ay";
+	    }
+        else {
+	    currentWord = currentWord.substring(1) + a + "ay";
+	    }
+	return currentWord;
+    }
 }
