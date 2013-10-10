@@ -15,4 +15,25 @@ public class StringStuff {
 	String l=name.substring(name.indexOf(" ")+1);
 	return capFirst(l)+", "+capFirst(f)+" "+capFirst(l);
     }
+    public boolean isVowel(String l){
+	return (l.equals("A")||l.equals("a")||
+		l.equals("E")||l.equals("e")||
+		l.equals("I")||l.equals("i")||
+		l.equals("O")||l.equals("o")||
+		l.equals("U")||l.equals("u")||
+		l.equals("Y")||l.equals("y"));
+    }
+    public String piglatinify(String word) {
+	//piglatinifies a single word
+	if (word.indexOf(" ")==-1) {
+	    if (isVowel(word.substring(0,1))) {
+		return word+"ay";
+	    } else {
+		return piglatinify(word.substring(1)+word.substring(0,1));
+	    }
+	} else {
+	    return (piglatinify(word.substring(0,word.indexOf(" ")))+" "+
+		    piglatinify(word.substring(word.indexOf(" ")+1)));
+	}
+    }
 }

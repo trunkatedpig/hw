@@ -37,4 +37,16 @@ public class StringStuff {
 	result = lastName + ", " + firstName + " " +  lastName;
 	return result;
     }
+
+    public String PigLatinify(String name) {
+	String a,result;
+	a = name.substring(0,1).toLowerCase();
+	if (a.equals("a") || a.equals("e") || a.equals("i") || a.equals("o") || a.equals("u")) {
+	    result = name + "ay";
+	}
+	else {
+	    result = name.substring(1) + a + "ay";
+	}
+	return result;
+    }
 }
