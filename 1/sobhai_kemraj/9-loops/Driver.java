@@ -8,26 +8,16 @@ public class Driver{
 		System.out.println(loop.fact(3));
 		System.out.println(loop.fact(0));
 		System.out.println(loop.fact(1));
+		System.out.println(loop.GCD(6,3));
+		System.out.println(loop.GCD(6,2));
+		System.out.println(loop.GCD(1,1));
+		System.out.println(loop.GCD(0,0));
+		System.out.println(loop.GCD(100,10));
+		System.out.println(loop.GCD(7,5));
+
+		System.out.println(loop.GCD(100,100));
 	}
-//Move shit to correct file i.e. loops
-	public int GCD (int a, int b){
-		private int divisor, dividend,other;
-		if (a<b)
-			divisor=a;
-			dividend=b;
-			other=a;
-		else 
-			dividend=a;
-			divisor=b;
-			other=b;
-		while (divisor > 0){
-			if (dividend % divisor == 0) {
-				if (other %  divisor == 0) {
-					return divisor;
-					}
-			else 
-		}
-	}
+
 
 
 }
