@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Coin{
 	private int heads, tails, flips;
-	private double odds;
-	private String face;
+	private double odds amount;
+	private String face, type;
 	
 
 	public Coin(){
@@ -12,13 +12,19 @@ public class Coin{
 		heads = 0;
 		tails = 0;
 		flips = 0;
+		amount = 0.25;
+		type = "Quarter";
 	}
 
-	public Coin(int stats){
+	public Coin(int stats, double value){
 		odds = stats;
 		heads = 0;
 		tails = 0;
 		flips = 0;
+		amount = value;
+		/*if (amount == 0.25)
+			type = "Quarter";
+		else if (amount == */
 	}
 
 //Methods
@@ -27,7 +33,7 @@ public class Coin{
 		heads = 0;
 		tails = 0;
 		flips = 0;
-		
+		amount = 0.25;
 	}
 
 	public void resetStats(int stats){
@@ -35,7 +41,7 @@ public class Coin{
 		heads = 0;
 		tails = 0;
 		flips = 0;
-		
+		amount = 0.25;
 	}
 
 	public String getFace(){
