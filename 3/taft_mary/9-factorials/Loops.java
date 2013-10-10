@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Factorial {
+public class Loops {
 
     public int fact(int n) {
 	if (n == 0)

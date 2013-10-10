@@ -4,8 +4,8 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args) {
 
-	Factorial f;
-	f = new Factorial();
+	Loops f;
+	f = new Loops();
 
 	int i, j, k, l, m, n;
 	i = 0;
