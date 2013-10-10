@@ -34,31 +34,31 @@ public class StringStuff {
     
     public boolean isVowel(int n) {
 	if (n == 0) {
-	    if (s.substring(0,1) == "a") {
+	    if (s.substring(0,1).equals("a")) {
 		return true;
-	    } else if (s.substring(0,1) == "e") { 
+	    } else if (s.substring(0,1).equals("e")) { 
 		return true;
-	    } else if (s.substring(0,1) == "i") {
+	    } else if (s.substring(0,1).equals("i")) {
 		return true;
-	    } else if (s.substring(0,1) == "o") {
+	    } else if (s.substring(0,1).equals("o")) {
 		return true;
-	    } else if (s.substring(0,1) == "u") {
+	    } else if (s.substring(0,1).equals("u")) {
 		return true;
 	    } else {
 		return false;
 	    }
 	} else {
-	    if (s.substring(n,n+1) == "a") {
+	    if (s.substring(n,n+1).equals("a")) {
 		return true;
-	    } else if (s.substring(n,n+1) == "e") { 
+	    } else if (s.substring(n,n+1).equals("e")) { 
 		return true;
-	    } else if (s.substring(n,n+1) == "i") {
+	    } else if (s.substring(n,n+1).equals("i")) {
 		return true;
-	    } else if (s.substring(n,n+1) == "o") {
+	    } else if (s.substring(n,n+1).equals("o")) {
 		return true;
-	    } else if (s.substring(n,n+1) == "u") {
+	    } else if (s.substring(n,n+1).equals("u")) {
 		return true;
-	    } else if (s.substring(n,n+1) == "y") {
+	    } else if (s.substring(n,n+1).equals("y")) {
 		return true;
 	    } else {
 		return false;
