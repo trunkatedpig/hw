@@ -24,6 +24,21 @@ public class PigLatin {
 	if ((word.indexOf("u") >= 0) && (word.indexOf("u") < index)) {
 		index = word.indexOf("u");
 	    }
+	if ((word.indexOf("A") >= 0) && (word.indexOf("A") < index)) {
+		index = word.indexOf("A");
+	    }
+	if ((word.indexOf("E") >= 0) && (word.indexOf("E") < index)) {
+		index = word.indexOf("E");
+	    }
+	if ((word.indexOf("I") >= 0) && (word.indexOf("I") < index)) {
+		index = word.indexOf("I");
+	    }
+	if ((word.indexOf("O") >= 0) && (word.indexOf("O") < index)) {
+		index = word.indexOf("O");
+	    }
+	if ((word.indexOf("U") >= 0) && (word.indexOf("U") < index)) {
+		index = word.indexOf("U");
+	    }
     }
     
     public String PigLatinify(String word) {

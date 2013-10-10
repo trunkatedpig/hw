@@ -19,6 +19,18 @@ public class Piglatin {
 	
 	String a = (word.substring(0,2));
 	String b = (word.substring(0,1));
+	//ANOTHER WAY TO DO THIS:
+	/*
+	String vowels = "aeiou";
+	String consonents = "tr|th|sh|ch"
+	
+	
+	if (vowels.Indexof(b)
+	
+		{
+			[COMMANDS]			
+		}
+*/
 	
 	if 
 	    (a.equals("tr") || a.equals("th") || a.equals("sh") || a.equals("ch")) 
@@ -37,5 +49,5 @@ public class Piglatin {
 	    }
 	}
     }
-   
+    
 }

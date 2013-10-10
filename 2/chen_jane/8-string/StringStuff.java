@@ -39,26 +39,14 @@ public class StringStuff {
     }
 
     public String PigLatinify(String name) {
-	String currentWord,result;
-	int i; // i holds index of space
-	i = name.indexOf(" ");
-	currentWord = name.substring(0,i);
-	String a;
+	String a,result;
 	a = name.substring(0,1).toLowerCase();
-	if (name == "") {
-	    return result;
-	}
-	// add else for if name is not empty string
-
-	if (a == "a" || a == "e" || a == "i" || a == "o" || a == "u") {
-	    currentWord = currentWord + "ay";
+	if (a.equals("a") || a.equals("e") || a.equals("i") || a.equals("o") || a.equals("u")) {
+	    result = name + "ay";
 	}
 	else {
-	    currentWord = currentWord.substring(1) + a + "ay";
+	    result = name.substring(1) + a + "ay";
 	}
-	// add currentWord to result
-	name = name.substring(i+1);
-	PigLatinify(name);
-
+	return result;
     }
 }
