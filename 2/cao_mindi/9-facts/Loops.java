@@ -3,6 +3,8 @@ import java.util.*;
 
 public class Loops{
     private int a;
+    public Loops(){
+    }
     
 public int fact(int n){
     if (n > 0){
@@ -18,10 +20,13 @@ public int fact(int n){
 
     public int fact2(int n){
 	a = n;
-	while (n > 0){
+	while (n > 2){
 	    n = n-1;
-	    a = a*(n - 1);
+	    a = a*n;
 	}
 	return a;
 }
+
+
 }
+
