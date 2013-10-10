@@ -10,5 +10,8 @@ public class Driver {
 
 	System.out.println(s.bondify("james bond"));
 	System.out.println(s.bondify("miss fortune"));
+
+	System.out.println(s.PigLatinify("swag"));
+	System.out.println(s.PigLatinify("linglingling"));
     }
 }

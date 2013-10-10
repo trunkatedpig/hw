@@ -14,14 +14,19 @@ public class Driver {
 	System.out.println("Capitalize: " + s1.capitalize(n));
 	System.out.println("Bondify: " + s1.bondify(n));
 
-	String temp = "out";
-	String temp1 = "plot";
-	String temp2 = "pot";
+	System.out.println();
 
-	System.out.println(s1.piglatinify(temp));
-	System.out.println(s1.piglatinify(temp1));
-	System.out.println(s1.piglatinify(temp2));
+	String temp, temp1, temp2, temp3;
+	temp = "out";
+	temp1 = "rug";
+	temp2 = "plot";
+	temp3 = "schlepp";
 
+	System.out.println("Pig Latin:");
+	System.out.println(temp + "-->" + s1.piglatinify(temp));
+	System.out.println(temp1 + "-->" + s1.piglatinify(temp1));
+	System.out.println(temp2 + "-->" + s1.piglatinify(temp2));
+	System.out.println(temp3 + "-->" + s1.piglatinify(temp3));
 
 
     }
