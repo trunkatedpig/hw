@@ -21,5 +21,19 @@ public class Loops {
 	    n = n - 1;
 	}
 	return outcome;
-    }	
+    }
+
+    public int GCD(int a, int b) {
+
+	private int c, count = b;
+
+	if (a < b){
+	    c = b;
+	    a = b;
+	    c = a;
+	}
+	
+	while (a%count != 0 && b%count != 0) {
+	    count = count - 1;
+	    count
 }
