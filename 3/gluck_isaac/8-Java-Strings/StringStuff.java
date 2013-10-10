@@ -19,4 +19,31 @@ public class StringStuff {
 	String result = lastName + ", " + firstName + " " + lastName;
 	return result;
     }
+
+    public boolean isVowel(String letter) {
+	String vowels = "aeiouAEIOU";
+	if (vowels.contains(letter))
+	    return true;
+	else
+	    return false;
+    }
+    public boolean isDigraph(String seq) {
+	String doublechar = "ch|Ch|th|Th|wh|Wh|sh|Sh";
+	if (doublechar.contains(seq))
+	    return true;
+	else
+	    return false;
+    }
+    
+    public String piglatinify(String word) {
+	String first = word.substring(0,1);
+	String ftwo = word.substring(0,2);
+	if (isVowel(first))
+	    return word + "yay";
+	else if (isDigraph(ftwo))
+	    return word.substring(2) + ftwo + "ay";
+	else
+	    return word.substring(1) + first + "ay";
+    }
+    
 }
