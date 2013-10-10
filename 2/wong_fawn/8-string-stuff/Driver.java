@@ -10,7 +10,8 @@ public class Driver {
     	System.out.println(stuff.capitalize(name));
     	System.out.println(stuff.bondify(name));
     	System.out.println(pig.PigLatin("hello"));
-    	System.out.println(pig.PigLatin("fawn"));
+    	System.out.println(pig.PigLatin("Fawn"));
     	System.out.println(pig.PigLatin("eight"));
+        System.out.println(pig.PigLatin("Ate"));
     }
 }
