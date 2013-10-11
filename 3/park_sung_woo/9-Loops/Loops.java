@@ -42,4 +42,16 @@ public class Loops{
 	    return gcd(b,a%b);
 	}
    }
+
+   public boolean isPrime(int n){
+        double upperBound = n/2;
+        int counter = 2;
+        while (counter <= upperBound){
+            if (n % counter == 0){
+                return false;
+            }
+            counter ++;
+        }
+        return true;
+   }
 }
