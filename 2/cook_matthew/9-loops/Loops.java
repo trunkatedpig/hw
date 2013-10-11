@@ -5,19 +5,20 @@ public class Loops {
     private int p=1;
     private int q,r,s;
     public int fact(int n){
-	if (n > 1) {
-        p= p*n;
-	n=(n-1);
-        fact(n);
+	if (n ==0) {
+	    return 1;
 	}
-	return p;
+	else {
+	    return n* fact(n-1);
+	}      
     }
     public int fact2(int n){
-	q=1;
-	while (n>1) {
-	    q=q*n;
+	int count = n;
+	int result = 1;
+	while (n!=0) {
+	    result = result*n;
 	    n=n-1;
 	}
-	return q;
+	return result;
     }
 }

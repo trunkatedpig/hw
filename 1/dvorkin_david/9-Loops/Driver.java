@@ -7,7 +7,11 @@ public class Driver {
 	System.out.println (f.fact(5));
 	System.out.println ("==========");
 	System.out.println (f.fact2(5));
-        
-
+	System.out.println ("==========");
+	System.out.println (f.GCD(10, 8));
+	System.out.println ("==========");
+	System.out.println (f.GCD2 (70 , 14));
+        System.out.println ("==========");
+	System.out.println (f.isPrime (8));
     }
 }
