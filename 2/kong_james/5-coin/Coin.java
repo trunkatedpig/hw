@@ -3,12 +3,31 @@ import java.util.*;
 
 public class Coin {
     private String face;
-    private int hcount;
-    private int tcount;
-    private int fairness;
+    private int hcount,tcount,flipcount;
+    private double fairness,h,r;
 
-    public void perctHead(){
-	fairness = hcount / (hcount + tcount);
+    public Coin(){
+	fairness = 0;
+	hcount = 0;
+	tcount = 0;
+	flipcount = 0;
+    }
+    public void flip(){
+	r = Math.random();
+	h = .50;
+	
+	if (r > h)
+	    {
+		face = "heads";
+		hcount = hcount + 1;
+		flipcount = flipcount + 1;
+	    }
+	else
+	    { 
+		face = "tails";
+		tcount = tcount + 1;
+		flipcount = flipcount +1;
+	    }
     }
   
     public void reset(){
@@ -18,5 +37,8 @@ public class Coin {
     }
     public String getFace(){
 	return face;
+    }
+    public int getFlipcount(){
+	return flipcount;
     }
 }

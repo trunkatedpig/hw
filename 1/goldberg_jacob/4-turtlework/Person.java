@@ -12,7 +12,7 @@ public class Person{
 	return turtle;
     }
     public int getTurtleSpeed() {
-	return turtle.speed;
+	return turtle.tellspeed();
     }
     
     }
