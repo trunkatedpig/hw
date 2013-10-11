@@ -27,6 +27,8 @@ public class Loops {
 	}
 	
 	public boolean isPrime(int n) {
+		if (n == 1) {return false;}
+		
 		int i = 2;
 		int max = (int) Math.sqrt(n); //casting to int takes the floor
 		while (i <= max) {
