@@ -17,7 +17,9 @@ import java.util.*;
 	System.out.println (loop.gcd2 (6, 8));
 	System.out.println (loop.gcd2 (24, 9));
 	System.out.println (loop.gcd2 (127, 10));
-
+	System.out.println(loop.gcd(86028121, 10));
+	System.out.println(loop.gcd2(86028121, 10));
+	System.out.println(loop.isPrime(86028121));
 	}
     }
 
