@@ -18,8 +18,16 @@ public class Driver{
 		System.out.println(loop.GCD(100,10));
 		System.out.println(loop.GCD(7,5));
 
-		System.out.println(loop.GCD(100,100));
+		System.out.println(loop.GCD2(100,100));
+		System.out.println(loop.GCD2(6,3));
+		System.out.println(loop.GCD2(6,2));
+		System.out.println(loop.GCD2(1,1));
+		System.out.println(loop.GCD2(0,0));
+		System.out.println(loop.GCD2(100,10));
+		System.out.println(loop.GCD2(7,5));
 
+		System.out.println(loop.GCD2(100,100));
+		
 		System.out.println(loop.isPrime(1));
 		System.out.println(loop.isPrime(2));
 		System.out.println(loop.isPrime(3));
@@ -33,6 +41,7 @@ public class Driver{
 		System.out.println(loop.isPrime(14));
 		System.out.println(loop.isPrime(17));
 		System.out.println(loop.isPrime(19));
+	
 	}
 
 

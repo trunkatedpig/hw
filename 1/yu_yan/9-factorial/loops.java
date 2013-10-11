@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class loops{
+    //change int to long
     public int fact(int n){
 	int x;
 	if (n == 0)
@@ -48,14 +49,25 @@ public class loops{
 	    l = A;
 	    s = B;
 	}
-	int x;
-	if (s == 0)
-	    return l;
-	else {
-	    int r = l%s;
-	    x = GCD2(s,r);
+	//if smaller int = 0, return larger
+	//if remainder of larger/smaller = 0, return smaller
+	//call gcd2 on remainder of larger/smaller, repeat
+	while (l%s > 0){
+	    int x = l%s;
+	    l = s;
+	    s = x;
 	}
-	return x;
+	return s;
+	/*
+	  int x;
+	  if (s == 0)
+	  return l;
+	  else {
+	  int r = l%s;
+	    x = GCD2(s,r);
+	    }
+	    return x
+	*/
     }
     
     public boolean isPrime(int a){
