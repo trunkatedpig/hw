@@ -9,6 +9,7 @@ public class Loops{
 	return (n * fact((n-1)));
     }
     }
+
     public int fact2(int n){
 	int result = n;
 	while (n > 1){
@@ -16,5 +17,50 @@ public class Loops{
 	    n--;
 	}
 	return result;
+    }
+
+    public int gcd (int a, int b){
+	int L,G,X;
+	int result = 0; 	
+
+	if (a > b){
+	    X = b;
+	    L = b;
+	    G = a;
+	}else { 
+	    X = a;
+	    L = a;
+	    G = b;
+	}
+
+	if (G%L == 0)
+	    return L;
+
+	while ((G%L != 0)||(X%L != 0)){
+	    result = L - 1;
+	    L = L - 1; 
+	}
+	return result;
+    }
+
+    public int gcd2(int a, int b){
+	int L,G,R;
+	if (a > b){
+	    L = b;
+	    G = a;
+	}else {
+	    L = a;
+	    G = b;
+	}
+
+	if (G%L == 0)
+	    return L;
+
+	while (G%L != 0){
+	    R = G&L;
+	    G = L;
+	    L = R;
+	}
+	return L;
     }
 }
