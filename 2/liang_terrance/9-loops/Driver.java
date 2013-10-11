@@ -8,6 +8,11 @@ public class Driver {
 	System.out.println(f.fact(5));
 	System.out.println(f.fact2(5));
 
+	Divide g;
+	g = new Divide ();
+	System.out.println(g.GCD(25,15));
+	System.out.println(g.GCD2(25,15));
+	System.out.println(g.isPrime(97));
 
     }
 
