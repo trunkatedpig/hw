@@ -44,7 +44,8 @@ public class Loops{
     }
 
     public int gcd2(int a, int b){
-	int L,G,R;
+	int L,G;
+	int R = 0;
 	if (a > b){
 	    L = b;
 	    G = a;
@@ -57,10 +58,19 @@ public class Loops{
 	    return L;
 
 	while (G%L != 0){
-	    R = G&L;
+	    R = G%L;
 	    G = L;
 	    L = R;
+	    if (L == 0)
+		L = L + 1;
 	}
-	return L;
+	return R;
+    }
+    public boolean isPrime(int n){
+	if (gcd2(n,2) == 1){
+	    return true;
+	} else {
+	    return false;
+	}
     }
 }
