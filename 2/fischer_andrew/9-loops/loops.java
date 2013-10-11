@@ -26,20 +26,45 @@ public class loops {
 
     public int GCD(int a, int b) {
 	
-	private int temp, count = b;
+	int temp, count;
 	if (a < b)
 	    {   
-		b = c;
+		a = temp;
 		a = b;
-		c = a;
+		b = temp;
 	    }
-
-	if (a%count != 0 && b&count != 0) {
-	    count = count-1;
-	}
-	else {
+	count = b;
+	while (a%count != 0 && b&count != 0) {
 	    return count;
 	}
+	count = count - 1;   
     }
-	    	    	
+
+    public int GCD2(int a, int b){
+	if (b == 0){
+	    return a;
+	}
+	else if ( a==0 ){
+	    return b;
+	}
+	else {
+	    while (a != b) {
+		if (a>b) {
+		    a = a%b;
+		}
+		else {
+		    b = b%a;
+		}
+	    }
+	}
+    }
+
+    public boolean isPrime(int n) {
+	int count = 2;
+	while (count < n) {
+	    if (n % count == 0) {return false;}
+	    else {count = count + 1;}
+	}
+	return true;
+    }
 }
