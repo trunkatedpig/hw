@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class StringStuff {
+    
+    private String finalword;
 
     public String capitalize (String name) {
 	int length = name.length();
@@ -30,4 +32,13 @@ public class StringStuff {
 	return bname;
     }
 
+    public String PigLatinify (String word) {
+	String fletter = word.substring(0,1);
+	String pigword = word.substring(1);
+	if (fletter.equals("a") || fletter.equals("e") || fletter.equals("i") || fletter.equals("o") || fletter.equals("u"))
+	    {  finalword = word + "hay";
+	}else{
+	    finalword = pigword + fletter + "ay"; }
+	return finalword;
+    }
 }

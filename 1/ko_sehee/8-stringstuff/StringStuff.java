@@ -19,6 +19,22 @@ public class StringStuff{
 	full= name1.substring(sp + 1) + ", " + name1;
 	return full;
     }
+    public String PigLatinify(String word){
+	word = word.toLowerCase();
+	String l1 = word.substring(0,1);
+	String l2 = word.substring(1,2);
+	if (l1.equals("a") || l1.equals("e") || l1.equals("i") || l1.equals("o") || l1.equals("u")){
+	    full = word+ "ay";
+	}
+	else if (!l1.equals("a") && !l1.equals("e") && !l1.equals("i") && !l1.equals("o") && !l1.equals("u") && 
+	    !l2.equals("a") && !l2.equals("e") && !l2.equals("i") && !l2.equals("o") && !l2.equals("u")){
+	    full = word.substring(2)+word.substring(0,2)+"ay";
+	}
+	else{
+	    full = word.substring(1) + word.substring(0,1) + "ay";
+	}
+	return full;
+	    }
 	 
 }
 
