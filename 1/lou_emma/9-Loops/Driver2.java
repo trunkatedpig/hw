@@ -11,5 +11,10 @@ public class Driver2 {
 	
 	System.out.println(f2.gcd(179424821,179567881)); //Takes about 1.5 seconds
 	System.out.println(f2.gcd2(179424821,179567881)); //Instant (to the human eye)
+	
+	System.out.println(f2.isPrime(18));
+	System.out.println(f2.gcd(18,17));
+	System.out.println(f2.isPrime(179567881));
+	
     }
 }

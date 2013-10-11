@@ -27,4 +27,19 @@ public class Loops2 {
 		}
 		return smaller;
 	}
+	
+	public boolean isPrime(int n){
+		int A=n;
+		int B=n-1;
+		while (gcd (A,B)==1 && B>0){
+			B=B-1;
+		}
+		return false;
+		
+		while (gcd(A,B)!=1 && B>0){
+			B=B-1;
+		}
+		return true;
+	}
+		
 }
