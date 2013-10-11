@@ -10,4 +10,18 @@ public class Loops {
 
 	return answer;
     }
+
+    public int GCD(int a, int b) {
+	if (a == b)
+	    return a;
+	return gcd(a, b%a);
+    }
+
+    public Boolean isPrime(int n) {
+	for (int i=0; i<n; i++) {
+	    if (n%i == 0)
+		return false;
+	}
+	return true;
+    }
 }
