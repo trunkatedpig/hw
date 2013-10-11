@@ -23,7 +23,7 @@ public class StringStuff {
 	int x = name.indexOf(" ");
         String b  =  name.substring (0,x);
 	String c = name.substring (x+1);
-	String bonded = c + "," + b + " " + c + ".";
+	String bonded = c + ", " + b + " " + c + ".";
         return bonded;
     }
 
