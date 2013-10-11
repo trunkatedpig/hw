@@ -21,4 +21,20 @@ public class Loops{
 	}
 	return result;
     }
+
+    public int GCD(int a, int b){
+	if (a >= b){
+	    if (a%b == 0) {
+		return b;
+	    } else {
+		GCD(a, (b-1));
+	    }}
+
+	    else {
+		if (b%a == 0) {
+		return a;
+		} else {GCD((a-1), b);
+		}
+	    }
+	}
 }
