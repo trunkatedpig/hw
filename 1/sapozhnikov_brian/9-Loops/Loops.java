@@ -43,7 +43,16 @@ public class Loops {
 	return x;
     }
 
-    public boolean isPrime(n){
-
+    public boolean isPrime(int n){
+	int t = (int)(Math.sqrt(n));
+	boolean b = true;
+	if (n == 1)
+	    return false;
+	while (t > 1){
+	    if (n%t == 0)
+		b = false;
+	    t = t - 1;
+	}
+	return b;
     }
 }
