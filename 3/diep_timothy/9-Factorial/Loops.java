@@ -25,5 +25,18 @@ public class Loops {
 	}
 	return product;
     }
+
+
+    public int gcd(int a, int b) {
+	int c;
+	if (a > b){ 
+	    c = b;}
+	else {
+	    c = a;}
+	while (a%c!=0 || b%c!=0) {
+	    c = c -1;}
+	return c;
+    }
 }
+
 	    

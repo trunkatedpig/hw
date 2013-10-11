@@ -17,4 +17,23 @@ public class Loops{
 	}
 	return result;
     }
+
+    public int gcd (int a, int b){
+	int l,g;
+	int result = 0; 	
+	if (a > b){
+	    l = b;
+	    g = a;
+	}else { 
+	    l = a;
+	    g = b;
+	}
+	if ((g%l = 0))
+	    return l;
+	while (g%l != 0){
+	    result = l - 1;
+	    l = l -1; 
+	}
+	return result;
+    }
 }

@@ -21,4 +21,26 @@ public class Loops {
 	}
 	return answer;
     }
+    
+     public int GCD(int a, int b) {
+	if (a<b) {
+	    while (a > 0) {
+		if ((b % a) == 0) {
+		    return a;
+		}
+		else
+		    a = a - 1;
+	    }
+	}
+	else
+	    return GCD(b,a);
+    }
+
+    public int GCD2(int a, int b) {
+	if (b == 0) {
+	    return a;
+	}
+	else
+	    return GCD(b, (a % b));
+    }
 }
