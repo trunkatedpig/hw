@@ -53,8 +53,20 @@ public class loops{
 	    return l;
 	else {
 	    int r = l%s;
-	    x = GCD(s,r);
+	    x = GCD2(s,r);
 	}
 	return x;
+    }
+    
+    public boolean isPrime(int a){
+	int x = a-1;
+	boolean y = true;
+	while ((x > 1) && (y == true)){
+		if (a%x == 0)
+		    y = false;
+		else
+		    x = x - 1;
+	    }
+	return y;
     }
 }
