@@ -4,8 +4,8 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args) {
 
-	Factorial f;
-	f = new Factorial();
+	Loops f;
+	f = new Loops();
 
 	int i, j, k, l, m, n;
 	i = 0;
@@ -42,6 +42,35 @@ public class Driver {
 
 	System.out.println(n + "-->" + f.fact(n));
 	System.out.println(n + "-->" + f.fact2(n));
+	System.out.println();
+
+	System.out.println("Greatest common denominator tests");
+	System.out.println();
+
+	System.out.println("Using an inefficient method:");
+	System.out.println("GCD of 8 and 12: " + f.gcd(8, 12));
+	System.out.println("GCD of 13 and 23: " + f.gcd(13, 23));
+	System.out.println("GCD of 1500450271 and 1024243321: " + f.gcd(1500450271, 1024243321));
+	System.out.println();
+
+	System.out.println("Using Euclid's method:");
+	System.out.println("GCD of 8 and 12: " + f.gcd2(8, 12));
+	System.out.println("GCD of 13 and 23: " + f.gcd2(13, 23));
+	System.out.println("GCD of 1500450271 and 1024243321: " + f.gcd(1500450271, 1024243321));
+	System.out.println();
+
+	System.out.println("Prime number tests");
+	System.out.println();
+
+	System.out.println("12: " + f.isPrime(12));
+	System.out.println("23: " + f.isPrime(23));
+	System.out.println("1024243321: " + f.isPrime(1024243321));
+
+	/*I tried doing this:
+	   f.gcd2(2074722246773485207821695222107608587480996474721117292752992589912196684750549658310084416732550077, 7212610147295474909544523785043492409969382148186765460082500085393519556525921455588705423020751421
+	   but Java couldn't handle it.
+	   A shame.
+	*/
 
     }
 
