@@ -18,4 +18,24 @@ public class Loops {
 	    n = n - 1; }
 	return r; }
 
+
+    public int gcd (int a,int b) {
+	int r = 1;
+	while (r > 0) {
+	    if (a >= b) {
+		r = b;
+		if (a%r == 0) {
+		    int ans = r;
+		} else {
+		    r = r - 1;}
+	    } else {
+		r = a;
+		if (b%r == 0) {
+		    int ans = r;
+		} else {
+		    r = r - 1; } }
+	    return r;
+	}
+    }
+  
 }

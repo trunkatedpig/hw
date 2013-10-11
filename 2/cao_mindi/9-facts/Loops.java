@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Loops{
     private int a;
+    private int n;
     public Loops(){
     }
     
@@ -27,6 +28,44 @@ public int fact(int n){
 	return a;
 }
 
+    public int gcd(int x, int y){
+        int a = x;
+	int b = y;
+	if (a > b){
+	    while (x%b != 0){
+		b = b - 1;
+	    }
+	    return b;
+	}
+	else{
+	    while (y%a != 0){
+		a = a - 1;
+	    }
+	    return a;
+	}
+    }
 
+    public int gcd2(int x, int y){
+	int ans = 0;
+	if (x > y){
+	    while (x%y != 0){
+		ans = gcd(x, x-y);
+	    }
+	    return ans;
+	}
+	else{
+	    while (y%x != 0){
+		ans = gcd(y, y-x);
+	    }
+	    return ans;
+	}
+    }
+
+    public Boolean isPrime(int n){
+	int a = n - 1;
+	while (n%a != 0){
+	    a = a-1;
+		}
+	return a == 1;
+    }
 }
-

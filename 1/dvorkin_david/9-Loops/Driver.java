@@ -7,6 +7,8 @@ public class Driver {
 	System.out.println (f.fact(5));
 	System.out.println ("==========");
 	System.out.println (f.fact2(5));
+	System.out.println ("==========");
+	System.out.println (f.GCD(10, 8));
         
 
     }
