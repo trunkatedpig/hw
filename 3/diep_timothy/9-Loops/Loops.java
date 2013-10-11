@@ -4,7 +4,7 @@ import java.util.*;
 public class Loops {
 
     private int answer;
-    private int ld;
+    private int ld = 2;
 
     public int fact(int n) {
 	answer = 1;
@@ -49,24 +49,14 @@ public class Loops {
     }
 
     public boolean IsPrime(int n) {
-        Divisor(n,2);
-	return (ld == n);
-    }
-
-    public int Divisor(int n, int t) {
-	if ((t*t) > n) {
-	    ld = n;
-	} else if (n%t == 0) {
-	    ld = t;
-	} else {
-	    Divisor(n, t+1);
+	while (n > ld) {
+	    if (n%ld == 0)
+		return false;
+	    else 
+		ld = ld + 1;
 	}
-	return ld;
-    }
-	    
-	    
-    
-	       
+	return true;
+    }	       
 }
 
 	    
