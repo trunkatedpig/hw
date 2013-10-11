@@ -17,4 +17,33 @@ public class Loops {
 	}
 	return ans;
     }
+
+    public int GCD(int a, int b){
+	int t = a;
+	if (a > b)
+	    t = b;
+	while (a%t != 0 || b%t != 0){
+	    t = t - 1;
+	}
+	return t;
+    }
+
+    public int GCD2(int a, int b){
+	int x = a;
+	int y = b;
+	if (a <  b){
+	    x = b;
+	    y = a;
+	}
+	while (y != 0){
+	    int t = x;
+	    x = y;
+	    y = t%y;
+	}
+	return x;
+    }
+
+    public boolean isPrime(n){
+
+    }
 }
