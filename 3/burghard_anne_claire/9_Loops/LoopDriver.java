@@ -12,11 +12,6 @@ public class LoopDriver {
 	System.out.println (l.fact2(5));
 	System.out.println (l.fact2(10));
 	System.out.println (l.fact2(33));
-
-	System.out.println (l.gcd(68,16));
-	System.out.println (l.gcd2(68,16));
-
-	System.out.println (l.isPrime(27751));
     }
 }
 

@@ -28,28 +28,8 @@ public class Loops {
 	}
 	return answer;
     }
-
-    public int gcd (int a, int b) {
-	int i = 1;
-	int answer = 1;
-	if (a > b) {
-	    i = b;
-	    while (i > 0) {
-		if (a % i == 0) && (b % i == 0) {
-			answer = i;
-			i = 0;
-		    }
-		else {
-		    i = i - 1;
-		}
-	    }
-	}
-	else { l.gcd(b,a) }
-	return answer;
-    }					
 }
-
-
+	    
 	
 	
 	    
