@@ -20,8 +20,8 @@ public class Loops {
 	return result;
     }
     //Kelly Chen and Tina Lee
-    public int gcd(int a, int b) {
-	int c;
+    public long gcd(long a, long b) {
+	long c;
 	if (a == b) {
 	    return a;
 	}
@@ -34,7 +34,7 @@ public class Loops {
 	}
 	else {
 	    c = a;
-	    while (((a % c) != 0) && ((b % c) != 0)) {
+	    while (((a % c) != 0) || ((b % c) != 0)) {
 		c = c - 1;
 	    }
 	    return c;
