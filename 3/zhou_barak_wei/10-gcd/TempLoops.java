@@ -33,4 +33,13 @@ public class TempLoops {
 	}
     }
 
+    public static boolean isPrime(int n) {
+	int e = n/2;
+	while (n%e != 0) {
+	    e = e - 1;
+	}
+	if (e == 1) return true;
+	else return false;
+    }
+
 }
