@@ -10,6 +10,7 @@ public class Driver {
 	System.out.println(a.fact(8));
 	System.out.println(b.fact2(8));
 	System.out.println(c.gcd(10,2));
+	System.out.println(c.gcd2(75,26));
     }
 }
 	
