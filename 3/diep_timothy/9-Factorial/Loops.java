@@ -3,40 +3,70 @@ import java.util.*;
 
 public class Loops {
 
-    /* I didn't put product as an instance so that I 
-       would be able to use the method fact multiple
-       times in a row */
+    private int answer;
+    private int ld;
 
     public int fact(int n) {
-	int product = 1;
+	answer = 1;
 	if (n == 1) {
-	    return product;
+	    return answer;
 	} else {
-	    product = n * fact(n-1);
+	    answer = n * fact(n-1);
 	}
-	return product;
+	return answer;
     }
     
     public int fact2(int n) {
-	int product = 1;
+	answer = 1;
 	while (n != 1) {
-	    product = product * n;
+	    answer = answer * n;
 	    n = n - 1;
 	}
-	return product;
+	return answer;
     }
 
 
     public int gcd(int a, int b) {
-	int c;
-	if (a > b){ 
-	    c = b;}
-	else {
-	    c = a;}
-	while (a%c!=0 || b%c!=0) {
-	    c = c -1;}
-	return c;
+	if (a > b)  
+	    answer = b;
+	else
+	    answer = a;
+	while (a%answer != 0 || b%answer != 0) {
+	    answer = answer - 1;
+	}
+	return answer;
     }
+    
+    public int gcd2(int a, int b) {
+	int max = Math.max(a,b);
+	int min = Math.min(a,b);
+	if (min == 0) {
+	     answer = max;
+	} else {
+	    gcd2(min, max%min);
+	} 
+	return answer;
+    }
+
+    public boolean IsPrime(int n) {
+        Divisor(n,2);
+	return (ld == n);
+    }
+
+    public int Divisor(int n, int t) {
+	if ((t*t) > n) {
+	    ld = n;
+	} else if (n%t == 0) {
+	    ld = t;
+	} else {
+	    Divisor(n, t+1);
+	}
+	return ld;
+    }
+	    
+	    
+    
+	       
 }
 
 	    

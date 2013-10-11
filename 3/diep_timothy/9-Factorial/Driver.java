@@ -10,14 +10,21 @@ public class Driver {
 	System.out.println("2! = " + f2.fact2(2));
 	System.out.println("3! = " + f1.fact(3));
 	System.out.println("4! = " + f2.fact2(4));
-	System.out.println("5! = " + f1.fact(5));
-	System.out.println("6! = " + f2.fact2(6));
 
 	System.out.println(f1.gcd(12,8));
 	System.out.println(f1.gcd(8,12));
 	System.out.println(f1.gcd(75,25));
 	System.out.println(f1.gcd(13,7));
-	
+
+	System.out.println(f1.gcd2(63,14));
+	System.out.println(f1.gcd2(18,9));
+	System.out.println(f1.gcd2(9,18));
+	System.out.println(f1.gcd2(1213, 1447));
+
+	System.out.println(f1.IsPrime(18));
+	System.out.println(f1.IsPrime(2));
+	System.out.println(f1.IsPrime(79));
+	System.out.println(f1.IsPrime(1213));
 
 	
     }
