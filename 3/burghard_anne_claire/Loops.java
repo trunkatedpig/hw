@@ -35,7 +35,7 @@ public class Loops {
 	if (a > b) {
 	    i = b;
 	    while (i > 0) {
-		if (a % i == 0) && (b % i == 0) {
+		if ((a % i == 0) && (b % i == 0)) {
 			answer = i;
 			i = 0;
 		    }
@@ -44,10 +44,41 @@ public class Loops {
 		}
 	    }
 	}
-	else { l.gcd(b,a) }
+	else { gcd(b,a); }
 	return answer;
-    }					
+    }
+    
+    public int gcd2 (int a, int b) {
+	int r = 1;
+	int gcd = 1;
+	if (b == 0) {
+	    gcd = a;
+	    }
+	else {
+	    r = (a % b);
+	    gcd = gcd2(b,r);
+	}
+	return gcd;
+    }
+
+    public boolean isPrime (int n) {
+	int i = 2;
+        while (i < n) {
+	    if (n % i == 0) {
+		return false;
+	    }
+	    else {
+		i = i + 1;
+	    }
+	}
+	return true;
+    }
+	    
+	    
+		
 }
+
+
 
 
 	
