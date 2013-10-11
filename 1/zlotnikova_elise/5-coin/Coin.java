@@ -13,7 +13,7 @@ public class Coin {
 	fairness = 0.0;
     }
     
-    public String getFace() { 
+    public void getFace() { 
 	return face;
     }
 

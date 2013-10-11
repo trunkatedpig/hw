@@ -3,33 +3,51 @@ import java.util.*;
 
 public class Coin{
 	private int heads, tails, flips;
-	private double odds;
-	private String face;
+	private double odds amount;
+	private String face, type;
 	
-<<<<<<< HEAD
-=======
+
 	public Coin(){
 		odds = 50;
 		heads = 0;
 		tails = 0;
 		flips = 0;
+		amount = 0.25;
+		type = "Quarter";
 	}
->>>>>>> 72ef3c4b1f1e1095d28ea3debe7e1ab0ae7c5563
+
+	public Coin(int stats, double value){
+		odds = stats;
+		heads = 0;
+		tails = 0;
+		flips = 0;
+		amount = value;
+		/*if (amount == 0.25)
+			type = "Quarter";
+		else if (amount == */
+	}
+
 //Methods
 	public void reset(){
 		odds = 50;
 		heads = 0;
 		tails = 0;
 		flips = 0;
-		
+		amount = 0.25;
+	}
+
+	public void resetStats(int stats){
+		odds = stats;
+		heads = 0;
+		tails = 0;
+		flips = 0;
+		amount = 0.25;
 	}
 
 	public String getFace(){
 		return face;
 	}
 
-<<<<<<< HEAD
-=======
 	public void flip(){
 		if (Math.random() * 100<odds){
 			heads += 1;
@@ -42,6 +60,4 @@ public class Coin{
 			face = "tails";
 		}
 	}
-
->>>>>>> 72ef3c4b1f1e1095d28ea3debe7e1ab0ae7c5563
 }
