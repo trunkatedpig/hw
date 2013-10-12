@@ -3,21 +3,15 @@ import java.util.*;
 
 public class Loops {
 
+
 	public int fact (int n) {
 
-		return fact (n, 1);
-	}
-
-	public int fact (int n, int result) {
-
 		if (n > 1) {
-			result = result * n;
-			n = n - 1;
-			return fact (n, result);
+			return n * fact (n-1);
 		}
 
 		else 
-			return result;	
+			return 1;	
 	}
 
 	public int fact2 (int n) {
@@ -42,12 +36,32 @@ public class Loops {
 	}
 
 	public int gcd2 (int a, int b) {
+
 		if (b == 0) 
 			return a;
 		else {
-			int a1 = Math.max (a, b) % Math.min (a, b);
-			int b1 = Math.min (a, b);
-			return gcd2 (a1, b1);
+			return gcd2 (b, a % b);
+		}
+	}
+
+	public boolean isPrime (int n) { //Tests if n is divisible by odd numbers between sqrt(n) and n/2, inclusive.
+
+		int min = (int)(Math.ceil (Math.sqrt (n)));
+		int max = n / 2;
+		if (max == 1)
+			return true;
+		if (n % min == 0 || n % max == 0)
+			return false;
+		else {
+			if (min % 2 == 0) {
+				min += 1;
+				}
+			while (min < max) {
+				if (n % min == 0)
+					return false;
+				min += 2;
+			}
+			return true;
 		}
 	}
 

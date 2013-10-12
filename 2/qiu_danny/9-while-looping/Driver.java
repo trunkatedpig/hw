@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class Driver {
 
     public static void main(String[] args) {
@@ -24,5 +27,13 @@ public class Driver {
                 i = i + 1;
             }
         }
+
+        System.out.println("-----");
+        System.out.println(l.gcd(100,75));
+        System.out.println(l.gcd2(100,75));
+        System.out.println(l.gcd(780291637, 1405695061));
+        System.out.println(l.gcd2(780291637, 1405695061)); // This is much faster
+        System.out.println(l.isPrime(42));
+        System.out.println(l.isPrime(2147483647)); // Test if the biggest possible int is prime
     }
 }

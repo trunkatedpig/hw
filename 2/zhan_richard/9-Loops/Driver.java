@@ -10,5 +10,7 @@ public class Driver{
 	System.out.println(L.isPrime(4096));
 	System.out.println(L.isPrime(37));
 	System.out.println(L.isPrime(100));
+	System.out.println(L.GCD(179460877,179462713));
+	System.out.println(L.GCD2(179460877,179462713));
     }
 }

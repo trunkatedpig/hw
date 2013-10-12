@@ -20,10 +20,19 @@ public class Factorial
 		return result;
 	}
 
+	public static int GCD(int a, int b)
+	{
+		int divisor = a<b?a:b;
+		while(divisor > 1 && !(a % divisor == b % divisor && a % divisor == 0))
+			divisor--;
+		return divisor;
+	}
+
 	public static void main(String[] args)
 	{
 		System.out.println(fact(5));
 		System.out.println(fact2(5));
+		System.out.println(GCD(12,60));
 	}
 }	
 		
