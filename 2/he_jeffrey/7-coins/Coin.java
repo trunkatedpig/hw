@@ -40,6 +40,7 @@ public class Coin{
 
     public void reset() {
 	flipsh = 0;
+	heads = 0;
 
     }
     
