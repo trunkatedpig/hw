@@ -18,5 +18,12 @@ public class Driver{
         System.out.println(loop.fact2(4));
         System.out.println(loop.fact2(5));
         System.out.println(loop.fact2(6));
+
+	System.out.println(loop.gcd(104729,29569));
+	System.out.println(loop.gcd2(104729,29569));
+        System.out.println(loop.isPrime(10));
+        System.out.println(loop.isPrime(7));
+        System.out.println(loop.isPrime(125));
+        System.out.println(loop.isPrime(104729));
     }        
 }

@@ -21,5 +21,49 @@ public class Loops {
 	    n = n - 1;
 	}
 	return outcome;
-    }	
+    }
+    
+    public int gcd(int a, int b) {
+	int greater, lesser, count;
+	
+	if (a > b) {
+	    greater = a;
+	    lesser = b;
+	}
+	else {
+	    greater = b;
+	    lesser = a;
+	}
+
+	count = lesser;
+
+	while (greater%count != 0 || lesser%count !=0) {
+	    count = count - 1;
+	}
+	return count;
+    }
+
+    public int gcd2(int a, int b) {
+	int remainder;
+
+	while (b != 0) {
+	    remainder = a%b;
+	    return gcd2(b, remainder);
+	}
+	return a;
+    }
+
+    public boolean isPrime(int n) {
+	int numBelow = n - 1;
+
+	while (numBelow > 1){
+	    if (n%numBelow == 0) {
+		return false;
+	    }
+	    else {
+		numBelow = numBelow - 1;
+	    }
+	}
+	return true;
+    } 
 }
