@@ -13,8 +13,11 @@ public class Driver2 {
 	System.out.println(f2.gcd2(179424821,179567881)); //Instant (to the human eye)
 	
 	System.out.println(f2.isPrime(18));
-	System.out.println(f2.gcd(18,17));
-	System.out.println(f2.isPrime(179567881));
+	System.out.println(f2.isPrime(2));
+	//System.out.println(f2.isPrime(179567881));
+
+	System.out.println(f2.isPrime(79));
+
 	
     }
 }
