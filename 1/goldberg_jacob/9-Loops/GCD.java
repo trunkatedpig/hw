@@ -12,6 +12,14 @@ public class GCD{
 		return 1;
 	}
 
+	public static int GCD2(int A, int B){
+		/* Doesn't work yet, as close as I got for a Euclidian method. How would it return last time's B */				
+		if (B==0) {
+		    return A;
+		}
+		return GCD2(A, A%B);
+    	}
+
 	public boolean isPrime(int b){
 		n = (b-1);
 		while (n>1) {

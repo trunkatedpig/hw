@@ -21,7 +21,7 @@ public class Loops{
 	    return answ;
 	}
     }
-    public int gcd(int a, int b){
+    public int igcd(int a, int b){
 	if (a == b){
 	    return a;
 	}
@@ -37,7 +37,7 @@ public class Loops{
 	    return gcd(b,a);
 	}
     }
-    public int gcd2(int a, int b){
+    public int igcd2(int a, int b){
 	if (a==b){
 	    return a;
 	}
@@ -53,7 +53,7 @@ public class Loops{
 	    return gcd2(b , a);
 	}
     }
-    public boolean isPrime(int n){
+    public boolean iisPrime(int n){
 	int d = n - 1;
 	while (d > 1){
 	    while (n%d != 0){
@@ -63,7 +63,31 @@ public class Loops{
 	}
 	return d == 1;
     }
+     public int gcd (int a, int b) {	
+	int d = a;
+	if (a > b){
+	    d = b;
+	}
+	while (a%d != 0 || b%d !=0){
+	    d = d - 1;
+	}
+	return d;
+    }
+      public int gcd2 (int a, int b) {
+	int c = a;
+	int d = b;
+	if (a < b) {
+	    c = b;
+	    d = a;
+	}
+	while (d != 0) {
+	    int e = c;
+	    c = d;
+	    d = e%d;
+	}
+	return c;
+    }
+    
 }
 		
- 
 

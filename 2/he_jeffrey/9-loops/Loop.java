@@ -11,7 +11,7 @@ public class Loop {
 	    if (a % tryN == 0 && b % tryN == 0) {
 		return tryN;
 	    } else {
-		tryN -= 1;
+		tryN = tryN - 1;
 	    }
 	}
 	return tryN;
@@ -32,11 +32,11 @@ public class Loop {
 	// I'm not sure whether negatives count as prime. This assumes they don't
 	int tryN;
 	tryN = n - 1;
-	while (tryN > 0) {
+	while (tryN > 1) {
 	    if (n % tryN == 0)
-		return true;
+		return false;
 	    tryN -= 1;
 	}
-	return false;
+	return true;
     }
 }

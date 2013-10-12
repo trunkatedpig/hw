@@ -15,4 +15,32 @@ public class Loops{
 	    return c;
 	}
     }
+    public int gcd2(int a, int b){
+	while (a != 0 ||b != 0){
+		int r = a % b;
+		a = b;
+		b = r;
+	}
+	if (a == 0){
+	    return b;
+	}
+	else {
+	    return a;
+	}
+    }
+    
+    public boolean isPrime (int n){
+	
+        int  other = (int)Math.round(Math.sqrt(n));
+	while (other > 1){
+	    if (gcd(n, other)>1){
+		other = other - 1;
+	    }
+	    else{
+		return false;
+	    }
+	}
+	return true;
+    }
 }
+   
