@@ -41,6 +41,10 @@ public class BankAccount {
 	}
 	
     }
+
+    public String getName() {
+	return name;
+    }
 }
 
 
