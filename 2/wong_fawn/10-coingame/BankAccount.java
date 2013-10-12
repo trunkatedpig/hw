@@ -3,10 +3,11 @@ public class BankAccount {
     private double balance;
     private String name;
     private double interestRate;
+    private int acctnumber;
 
-    public BankAccount(String n, double bal) {
+    public BankAccount(String n, int act) {
 	name=n;
-	balance = bal;
+	acctnumber = act;
     }
 
     public void deposit(double amt) {
@@ -35,7 +36,7 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balance = other.balance + amt;
+	    other.balanace = other.balance + amt;
 	}
 	
     }
