@@ -20,7 +20,7 @@ public class CoinGame {
 	double amt;
 	amt = (int)(Math.random()*100);
 	amt = amt / 100;
-	System.out.println(amt);
+	//System.out.println(amt);
 	if (p1.getBalance() >= amt && p2.getBalance() >= amt){ 
 	    pot.takeMoneyFrom(p1, amt);
 	    pot.takeMoneyFrom(p2, amt);
@@ -41,6 +41,7 @@ public class CoinGame {
 	    p2.takeMoneyFrom(pot, pot.getBalance());
 	}	
     }
+    //sometimes is large floating point?
 
     public double getCurrentBalance1(){
 	return p1.getBalance();
