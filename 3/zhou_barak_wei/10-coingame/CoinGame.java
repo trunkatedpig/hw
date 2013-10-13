@@ -38,6 +38,21 @@ public class CoinGame {
 			p1.withdraw(ante);
 			p2.withdraw(ante);
 		}
+		else {
+			if (p1.getBalance() < p2.getBalance()) {
+			ante = p1.getBalance();
+			pot = pot + (2 * ante);
+			p1.withdraw(ante);
+			p2.withdraw(ante);
+			}
+			if (p1.getBalance() > p2.getBalance()) {
+			ante = p2.getBalance();
+			pot = pot + (2 * ante);
+			p1.withdraw(ante);
+			p2.withdraw(ante);
+			}
+		}
+		
 		System.out.println("Ante: " + ante + " paid by both players.");
 		c1.flip();
 		c2.flip();
@@ -88,9 +103,22 @@ public class CoinGame {
 			break;
 		}
 			turn();
+			
+			//super ante
+		if (p1.getBalance() > p2.getBalance()) {
+			ante = ante + p1.getBalance() * 0.2;
+		}
+		if (p2.getBalance() > p1.getBalance()) {
+			ante = ante + p2.getBalance() * 0.2;
+		}
+		if (p1.getBalance() == p2.getBalance()) {
+			ante = ante * 1.2;
+		}
+			
 			Thread.sleep(1000);
 			n = n - 1;
 		}
 	}
+	
 	
 }
