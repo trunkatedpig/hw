@@ -24,15 +24,15 @@ public class Driver {
 	System.out.println(b.gcd2(12,8));
 	System.out.println(c.gcd2(12,4));
 	*/
-	/*System.out.println(d.gcd2(961748941,982451653));
+        System.out.println(d.gcd2(961748941,982451653));
 	System.out.println(d.gcd(1041653,1041559));
-	*/
-	System.out.println(a.isPrime(1));
+	
+	/*System.out.println(a.isPrime(1));
 	System.out.println(b.isPrime(23));
 	System.out.println(c.isPrime(24));
+	*/
 
-
-	//System.out.println(d.gcd(179424691,198591317));
-	//^too big
+	System.out.println(d.gcd(179424691,198591317));
+	
     }
 }
