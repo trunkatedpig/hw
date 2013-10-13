@@ -44,9 +44,15 @@ public class Coin {
     }
 
     public void flip() {
-	f = Math.random();
+	double f = Math.random();
+	tosses = tosses + 1;
+	System.out.println("A coin has been flipped.");
 	if (f < prob) {
-	    
+	    heads = heads + 1;
+		face = "heads";
+	}
+	else {
+		face = "tails";
 	}
 
 

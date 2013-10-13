@@ -1,3 +1,5 @@
+import java.io.*;
+import java.util.*;
 
 public class BankAccount {
     private double balance;
@@ -6,7 +8,7 @@ public class BankAccount {
     private int acctnumber;
 
     public BankAccount(String n, int act) {
-	name=n;
+	name = n;
 	acctnumber = act;
     }
 
@@ -21,10 +23,6 @@ public class BankAccount {
 	    balance = balance - amt;
 	}
     }
-	
-	public String getName() {
-		return name;
-	}
 
     public double getBalance() {
 	return balance;
@@ -40,10 +38,8 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balance = other.balance + amt; //Mistake!! 
+	    other.balanace = other.balance + amt;
 	}
-	
+
     }
 }
-
-
