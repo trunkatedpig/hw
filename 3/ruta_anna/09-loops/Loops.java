@@ -5,6 +5,7 @@ public class Loops {
 
 	private int factorial;
 	private int divisor;
+	private int remainder;
 
 
 /* A recursive factorial method */
@@ -26,7 +27,7 @@ public class Loops {
 		return factorial;
 	}
 
-/* A loop greatest common divisor method */
+/* A greatest common divisor loop using brute force method */
  	public int gcd(int a, int b) {
 		int c = Math.min(a,b);
 		while (a%c!=0 || b%c!=0) {
@@ -35,16 +36,18 @@ public class Loops {
 		return c;
 	}
 
-/* A recursive greatest common divisor method */
+/* A greatest common divisor loop using euclids algorithm */
 	public int gcd2(int a, int b) {
 		int max = Math.max(a,b);
 		int min = Math.min(a,b);
-		if (min == 0)
-			divisor = max;
-		else
-			gcd2(min, max%min);
-		return divisor;
+		while (min != 0) {
+			remainder = max%min;
+			max = Math.max(remainder, min);
+			min = Math.min(remainder,min);
+			}
+		return max;
 	}
+
 
 /* A loop method to find if an integer is prime */
 	public boolean isPrime(int n) {

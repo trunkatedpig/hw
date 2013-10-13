@@ -23,14 +23,14 @@ public class Driver {
 		System.out.println("Factorial of 1: " + l.fact2(1));
 		System.out.println();
 
-		System.out.println("Using loop greatest common divisor method");
+		System.out.println("Using brute force greatest common divisor loop method");
 		System.out.println("GCD of 12 and 8: " + l.gcd(12,8));
 		System.out.println("GCD of 25 and 75: " + l.gcd(25,75));
 		System.out.println("GCD of 14 and 14: " + l.gcd(14,14));
 		System.out.println("GCD of 3 and 17: " + l.gcd(3,17));
 		System.out.println();
 
-		System.out.println("Using recursive greatest common divisor method");
+		System.out.println("Using euclid's algorithm greatest common divisor loop method");
 		System.out.println("GCD of 100 and 25: " + l.gcd2(100,25));
 		System.out.println("GCD of 6 and 33: " + l.gcd2(6,33));
 		System.out.println("GCD of 12 and 12: " + l.gcd2(12,12));
