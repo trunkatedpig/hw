@@ -3,9 +3,11 @@ import java.util.*;
 
 public class Coin { 
     private String face;
-    private int flips;
-    private int heads;
-    private int tails;
+    private String face1;
+    private String face2;
+    private int numflips;
+    private int numheads;
+    private int numtails;
     private int fairness;
 
     public Coin(){
@@ -13,13 +15,36 @@ public class Coin {
     }
     
     public void resetCount(){
-	flips = 0;
-	heads = 0;
-	tails = 0;
+	numflips = 0;
+	numheads = 0;
+	numtails = 0;
     }
 
     public String getFace(){
 	return face;
     }
+    
+    public String flipCoin(){
+	fairness = (int)(Math.random() * 100);
+	if (fairness < 50){
+	    face = "heads";
+	    numheads++;
+	}
+	else{
+	    face = "tails";
+	    numtails++;
+	}
+
+	numflips++;
+
+	return face;
+    }
+    
+    public boolean coinsEqual(){
+	face1 = flipCoin();
+	face2 = flipCoin();
+	return face1.equals(face2);
+    }
+
 }
     
