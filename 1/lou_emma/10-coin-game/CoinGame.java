@@ -8,6 +8,7 @@ public class CoinGame{
 	private Coin coin1=new Coin();
 	private Coin coin2=new Coin("Tails");
 	private double pot=0.0;
+	private double bet;
 	
 	public void setStuff(){
 		BA1.deposit(1000);
@@ -24,8 +25,8 @@ public class CoinGame{
 			smaller=BA2.getBalance();
 		}
 		
-		double bet=(int )(Math.random()*smaller*100 + 1); //puts down a random amount for the bet that's to the nearest 100th
-		bet=bet/100;
+		bet=(int )(Math.random()*smaller*100 + 1); //puts down a random amount for the bet that's to the nearest 100th
+		this.bet=bet/100;
 		
 		System.out.println("The bet is $"+bet);
 		
@@ -33,8 +34,8 @@ public class CoinGame{
 		
 		System.out.println("The pot is now worth $"+pot);
 		
-		BA1.withdraw(bet);
-		BA2.withdraw(bet);
+		BA1.withdraw(this.bet);
+		BA2.withdraw(this.bet);
 		
 		System.out.println("Player1 now has $"+BA1.getBalance()+" after the bet");
 		System.out.println("Player2 now has $"+BA2.getBalance()+" after the bet");
