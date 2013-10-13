@@ -36,12 +36,24 @@ public class Loops {
 	    return GCD(b,a);
     }
 
-    public int GCD2(int a, int b) {
+     public int GCD2(int a, int b) {
 	if (b == 0) {
 	    return a;
 	}
 	else
-	    return GCD(b, (a % b));
+	    //recursion:
+	    //return GCD2(b, (a % b));
+	    //while loop:
+	    //helped by andrew and spencer for this part
+	    while ((a != 0) && (b != 0)) {
+		if (a < b) {
+		    b = b % a;
+	       	}
+		else
+		    a = a % b;
+	    }
+	return Math.max(a, b);
+		
     }
     
     public boolean isPrime(int n) {

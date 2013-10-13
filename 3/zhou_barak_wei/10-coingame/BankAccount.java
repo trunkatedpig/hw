@@ -21,6 +21,10 @@ public class BankAccount {
 	    balance = balance - amt;
 	}
     }
+	
+	public String getName() {
+		return name;
+	}
 
     public double getBalance() {
 	return balance;
