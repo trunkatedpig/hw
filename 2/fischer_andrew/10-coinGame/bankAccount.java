@@ -4,7 +4,7 @@ public class BankAccount {
     private double interestRate;
     private int acctnumber;
 
-    private bankAccount(String n, int act, double b) {
+    public void bankAccount(String n, int act, double b) {
 	name=n;
 	acctnumber = act;
 	balance = b;
