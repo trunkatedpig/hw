@@ -34,13 +34,33 @@ public class Loops{
 	}
 	return result;
     }
-    /*
     public int GCD2(int a, int b){
-	int result = 1;
-	if (b == 0){
-	    result = a;
+	//not too sure
+	int r;
+	while (b != 0){
+	    r=b;
+	    b = a%b;
+	    a = r;
 	}
-	else{
-	    while 
-    */
+	return a;
+    }
+    public boolean isPrime(int a){
+	int largestRoot=1;
+	int i = 1;
+	boolean result = true;
+	while (largestRoot < a){
+	    largestRoot = i * i;
+            i = i + 1;
+	}
+	while (i > 1){
+	    if (a % i == 0){
+		result = false;
+		i = 0;
+	    }
+	    else{
+		i = i - 1;
+	    }
+	}
+	return result;
+    }
 }
