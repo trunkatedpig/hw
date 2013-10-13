@@ -36,5 +36,9 @@ public class BankAccount {
 	    other.deposit(amt);
 	}
     }
+
+    public String getName() {
+	return name;
+    }
 }
 

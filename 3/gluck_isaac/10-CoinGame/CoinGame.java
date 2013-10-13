@@ -54,13 +54,13 @@ public class CoinGame {
     public void turn() {
 	setPot();
 	flipCoins();
-	System.out.println("Player 1 has: " + getP1Worth());
-	System.out.println("PLayer 2 has: " + getP2Worth());
+	System.out.println(player1.getName() + " has: " + getP1Worth());
+	System.out.println(player2.getName() + " has: " + getP2Worth());
     }
 
     public void play(int n) {
-	System.out.println("The starting worth of player 1 is " + getP1Worth());
-	System.out.println("The starting worth of player 2 is " + getP2Worth());
+	System.out.println("The starting worth of " + player1.getName()  + " is " + getP1Worth());
+	System.out.println("The starting worth of " + player2.getName()  + " is " + getP2Worth());
 	while (n > 0) {
 	    if (getP1Worth() == 0 || getP2Worth() == 0)
 		break;
