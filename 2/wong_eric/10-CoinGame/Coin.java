@@ -1,51 +1,43 @@
+import java.io.*;
+import java.util.*;
 
 public class Coin {
+
     private String face;
-    private int tosses;
-    private int heads;
-    private double prob = 0.5; // another way to initialize
-    private int value;
-
-    public void initCoin(String f, Double p) {
-	face = f;
-	tosses=0;
-	heads=0;
-	prob=p;
-    }
-
-    public Coin(int v) {
-	value = v;
-	initCoin("Heads",0.5);
-    }
+    private int head, tail;
+    private double prob;
 
     public Coin() {
-	initCoin("Heads",0.5);
+	face = "head";
+	head = 0;
+	tail = 0;
+	prob = .5;
+    }	
+
+    public void reset() {
+	head = 0;
+	tail = 0;
     }
-
-
-    public Coin(String f) {
-	initCoin(f,0.5);
-    }
-
+	
     public String getFace() {
 	return face;
     }
-
-    public boolean equals(Coin other) {
-	return face.equals(other.getFace());
+    public String getHead() {
+	return "The coin has landed heads up " + head + " times";
     }
-
-    public int getValue() {
-	return value;
-    }
-
-    public String toString() {
-	return ""+value+" cents";
+    public String getTail() {
+	return "The coin has landed tail up " + tail + " times";
     }
 
     public void flip() {
-	// generate a random number and set face to heads
-	// or tails 
+	if (Math.random() <= prob) {
+	    face = "head";
+	    head = head + 1;
+	}
+	else {
+	    face = "tail";
+	    tail = tail + 1;
+	}
     }
 
 }

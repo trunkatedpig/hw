@@ -2,24 +2,25 @@
 public class BankAccount {
     private double balance;
     private String name;
+    private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n) {
+    public BankAccount(String n, int act) {
 	name=n;
-	acctnumber = ((int)(Math.random() * 100000));
-	balance = 1000.00;
+	acctnumber = act;
     }
 
     public void deposit(double amt) {
 	// if to make sure amt > 0 would be better
-	balance = balance + amt;
+	if (amt > 0)
+	    balance = balance + amt;
     }
 
     public void withdraw(double amt) {
 	// this if is important
-	if (balance >= amt) {
+	//if (balance >= amt) {
 	    balance = balance - amt;
-	}
+	    //	}
     }
 
     public double getBalance() {

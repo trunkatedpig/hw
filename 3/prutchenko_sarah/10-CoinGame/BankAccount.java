@@ -2,12 +2,12 @@
 public class BankAccount {
     private double balance;
     private String name;
+    private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n) {
+    public BankAccount(String n, int act) {
 	name=n;
-	acctnumber = ((int)(Math.random() * 100000));
-	balance = 1000.00;
+	acctnumber = act;
     }
 
     public void deposit(double amt) {

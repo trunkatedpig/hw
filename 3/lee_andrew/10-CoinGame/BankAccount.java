@@ -1,13 +1,19 @@
+import java.io.*;
+import java.util.*;
 
 public class BankAccount {
     private double balance;
     private String name;
+    private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n) {
-	name=n;
-	acctnumber = ((int)(Math.random() * 100000));
+    public BankAccount() {
 	balance = 1000.00;
+    }
+
+    public BankAccount(String n, int act) {
+	name=n;
+	acctnumber = act;
     }
 
     public void deposit(double amt) {
