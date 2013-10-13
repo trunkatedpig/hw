@@ -18,6 +18,11 @@ public class Coinpurse{
 	amount = amount - c.getAmount();
     }
 
+    public void addAmt(int a){
+    }
+    public void removeAmt(int a){
+    }
+
     public double getPAmount(){
 	return amount;
     }

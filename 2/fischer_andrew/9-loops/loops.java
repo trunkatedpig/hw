@@ -7,7 +7,7 @@ public class loops {
     private int result;
     
 
-    public int fact(int n) {
+    public int fact(int n) {   //Recursive
 	if(n == 0){
 	    return 1;
 	}
@@ -16,7 +16,7 @@ public class loops {
 	}
     }
 
-    public int fact2(int n) {
+    public int fact2(int n) { //Iterative
 	int result = 1;
 	while (n != 0){
 	    result = result * n;
@@ -24,7 +24,7 @@ public class loops {
 	}
     }
 
-    public int GCD(int a, int b) {
+    public int GCD(int a, int b) { //Recursive
 	
 	int temp, count;
 	if (a < b)
@@ -40,7 +40,7 @@ public class loops {
 	count = count - 1;   
     }
 
-    public int GCD2(int a, int b){
+    public int GCD2(int a, int b){  //Iterative
 	if (b == 0){
 	    return a;
 	}
