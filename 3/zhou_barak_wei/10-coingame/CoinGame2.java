@@ -12,7 +12,7 @@ public class CoinGame2 {
 	CoinGame game = new CoinGame(0, 1, player1, player2, c1, c2);
 	Scanner input = new Scanner(System.in);
 	System.out.println("Opponent's credit: " + player2.getBalance());
-	System.out.println("Insert credit: ");
+	System.out.println("Insert credit (int): ");
 	
 	player1.deposit(input.nextInt());
 	
