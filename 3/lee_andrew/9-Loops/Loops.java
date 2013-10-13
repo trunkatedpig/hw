@@ -36,21 +36,22 @@ public class Loops {
     public int gcd2(int a, int b) {
         int c = Math.min(a,b);
 	int d = Math.max(a,b);
-	int ans = 0;
-	if (c == 0) {
-	    ans = ans + d;
-	    return ans;
-	}
-	else {
-	    return gcd2(c, d%c);
-	}
-    }
+	while (c != 0) {
+	    return gcd2(c,d%c);
+		}
+	return d;
+	    }
 
     public boolean isPrime(int n) {
         int f = n - 1;
-	if (gcd(n,f) == 1){
-	    return true;}
-	else {
-	    return false;}
-    }
+	while (f > 1) {
+	    if (n%f == 0) {
+		return false;
+	    }
+	    else {
+		f = f - 1;
+		    }
+	}
+	return true;
+	    }
 }
