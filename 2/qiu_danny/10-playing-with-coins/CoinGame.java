@@ -25,8 +25,22 @@ public class CoinGame {
     }
 
     public void turn() {
+        if (p1.getMoney() <= 0) {
+            System.out.println("Player 1 does not have any money left to play!");
+            return;
+        }
+        else if (p2.getMoney() <= 0) {
+            System.out.println("Player 2 does not have any money left to play!");
+            return;
+        }
+
         int bet;
         bet = r.nextInt(100);
+
+        if (bet > p1.getMoney() || bet > p2.getMoney()) {
+            bet = Math.min(p1.getMoney(), p2.getMoney());
+        }
+
         p1.withdraw(bet);
         p2.withdraw(bet);
         pot = pot + (bet * 2);
@@ -35,20 +49,28 @@ public class CoinGame {
         c2.flip();
         if (c1.getSide().equals(c2.getSide()) && c1.getSide().equals("Heads")) {
             p1.deposit(pot);
-            System.out.println("Player 1 gets $" + pot + "!");
             pot = 0;
         }
         else if (c1.getSide().equals(c2.getSide()) && c1.getSide().equals("Tails")) {
             p2.deposit(pot);
-            System.out.println("Player 2 gets $" + pot + "!");
             pot = 0;
         }
     }
 
     public void play(int n) {
         while (n > 0) {
-            turn();
-            n = n - 1;
+            if (p1.getMoney() <= 0) {
+                System.out.println("Player 1 does not have any money left to play!");
+                break;
+            }
+            else if (p2.getMoney() <= 0) {
+                System.out.println("Player 2 does not have any money left to play!");
+                break;
+            }
+            else {
+                turn();
+                n = n - 1;
+            }
         }
     }
 
