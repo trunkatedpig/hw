@@ -10,33 +10,29 @@ public class BankAccount {
 	acctnumber = 0;
     }
 
-    public void deposit(int amt) {
-	double damt = (double)(amt);
-	balance = balance + damt;
+    public void deposit(double amt) {
+	balance = balance + amt;
     }
 
-    public void withdraw(int amt) {
-	double damt = (double)(amt);
-	if (damt < balance)
-	    balance = balance - damt;
+    public void withdraw(double amt) {
+	if (amt < balance)
+	    balance = balance - amt;
     }
 
     public double getBalance() {
 	return balance;
     }
 
-    public void takeMoneyFrom(BankAccount other, int amt) {
-	double damt = (double)(amt);
-	if (damt < other.balance) {
+    public void takeMoneyFrom(BankAccount other, double amt) {
+	if (amt < other.balance) {
 	    other.withdraw(amt);
-	    balance = balance + damt;
+	    balance = balance + amt;
 	}
     }
 
-    public void giveMoneyTo(BankAccount other, int amt) {
-	double damt = (double)(amt);
+    public void giveMoneyTo(BankAccount other, double amt) {
 	if (amt < balance) {
-	    balance = balance - damt;
+	    balance = balance - amt;
 	    other.deposit(amt);
 	}
     }

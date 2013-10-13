@@ -19,7 +19,7 @@ public class Coin {
 	prob = p;
     }
     public Coin() {
-        initCoin("Heads", 0.5);
+        initCoin("Heads", 0.25);
     }
 
     public void setName(String n) {
