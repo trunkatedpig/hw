@@ -46,6 +46,27 @@ public class Coin {
     public void flip() {
 	// generate a random number and set face to heads
 	// or tails 
+
+	tosses = tosses + 1;
+
+	/*only allows for 50% fairness
+	int r = (int)(Math.random()*2);
+	if (r == 0){
+	    face = "tails";
+	}
+	else {
+	    face = "heads";
+	*/
+       
+	//uses fairness variable
+	double r = Math.random();
+	if (r <= prob){
+	    face = "Tails";
+	}
+	else {
+	    heads = heads + 1;
+	    face = "Heads";
+	}
     }
 
 }
