@@ -10,10 +10,10 @@ public class Driver {
 	System.out.println(q.fact2(5));
 
 	v = new Loop();
-	System.out.println(v.gcd(50,15));
-	System.out.println(v.gcd2(50,15));
+	System.out.println(v.gcd(314606891,104395303));
+	System.out.println(v.gcd2(314606891,104395303));
 
-	System.out.println(v.isPrime(2));
-	System.out.println(v.isPrime(13));
+	System.out.println(v.isPrime(4));
+	System.out.println(v.isPrime(314606891));
     }
 }

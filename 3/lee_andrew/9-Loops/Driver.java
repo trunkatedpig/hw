@@ -12,5 +12,6 @@ public class Driver {
 	System.out.println(l.gcd(7919,7907));
 	System.out.println(l.gcd2(7919,7907));
 	System.out.println(l.isPrime(7919));
+	System.out.println(l.isPrime(24));
     }
 }
