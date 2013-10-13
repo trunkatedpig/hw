@@ -14,6 +14,7 @@ public class CoinGame {
         double bal1 = Player1.getBalance();
 	double bal2 = Player2.getBalance();
 	Random r = new Random();
+	//Note this line below is crucial in that it ensures that the random amount the pot takes is no more than the smaller of the two balances. This means no one can go negative from this game.
 	double p = r.nextInt(Math.min((int)(bal1 - Pot/2),(int)(bal2 - Pot/2)));
 	Pot = Pot + p;
 	Player1.withdraw(p/2);
