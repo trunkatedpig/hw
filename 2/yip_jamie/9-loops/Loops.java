@@ -7,7 +7,8 @@ public class Loops{
     public int fact(int n){
 	if (n == 1){
 	    return 1;
-	} else
+	} 
+	else
 	    { 
 		return n * fact(n-1);
 	    }
@@ -22,19 +23,68 @@ public class Loops{
 	return result;
     }
 
-    public int GCD(int a, int b){
-	if (a >= b){
-	    if (a%b == 0) {
-		return b;
-	    } else {
-		GCD(a, (b-1));
-	    }}
-
-	    else {
-		if (b%a == 0) {
-		return a;
-		} else {GCD((a-1), b);
-		}
-	    }
+    public int GCD (int a, int b) {
+	int smallernum, biggernum, count,GCD;
+	if (a > b) {
+	    smallernum = b;
+	    biggernum = a;
 	}
+	else 
+	    {
+		smallernum = a;
+		biggernum = b;
+	    }
+	count = smallernum;
+	GCD = 1;
+	while (count != GCD){
+	    if (a % count == 0 && b % count ==0){
+		GCD = count;
+	    }
+	    else count = count -1;
+	}
+	return GCD;
+    }
+    
+
+	/*
+	    if (biggernum % smallernum == 0) {
+	    return smallernum;
+	}
+	else 
+	    {
+		return  GCD(biggernum, (smallernum - 1));
+	    }
+    }*/
+
+    public int GCD2 (int a, int b) {
+	int r, smallernum, biggernum;
+	if (a > b) {
+	    smallernum = b;
+	    biggernum = a;
+	}
+	else 
+	    {
+		smallernum = a;
+		biggernum = b;
+	    }
+	
+	r = biggernum % smallernum;
+	while (r != 0) {
+	    biggernum = smallernum;
+	    smallernum = r;
+	}
+	return smallernum;
+    }
+
+    public boolean isPrime (int n){
+	int r = 2;
+	if (n == 1) {
+	    return false;}
+	while ((n/2) > r){
+	    if (n%r ==(0)){
+		return false;}
+	r = r + 1;
+	}
+	return true; 
+    }
 }
