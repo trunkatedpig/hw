@@ -40,4 +40,43 @@ public class Loops {
 		}
 	}
 
+	public int gcd(int a, int b) {
+		int c = 1;
+		if (a > b) {
+			c = b;
+		} else {
+		    c = a;
+		}
+		while (c > 0) {
+			if ((a % c == 0) && (b % c == 0)) {
+				return c;
+			} else {
+				c = c - 1;
+			}
+		}
+		return c;
+	}
+
+
+	public int gcd2(int a, int b) {
+		if (b == 0) {
+			return a;
+		} else {
+			int r = a % b;
+			return gcd2(b, r);
+		}
+	}
+
+	public boolean isPrime(int n) {
+		int i = 2;
+		while (i < n) {
+			if (n % i == 0) {
+				return false;
+			} else {
+				i = i + 1;
+			}
+		}
+		return true;
+
+	}
 }

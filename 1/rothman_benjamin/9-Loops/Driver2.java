@@ -27,7 +27,7 @@ public class Driver2 {
 
 	System.out.println (g2.returnGCD2 (373587883, 40000000));
 
-	Now I'm not entirely sure because Java won't let me pick numbers much larger then this, but I think I was already starting to get lag with the returnGCD function, but not with the returnGCD2. */
+	Now I'm not entirely sure because Java won't let me pick numbers much larger then this, but I think I was already starting to get lag with the returnGCD function, but not with the returnGCD2. (Used the int primitive rather than the long primitive. */
 
 
 	System.out.println (g3.isPrime (2));

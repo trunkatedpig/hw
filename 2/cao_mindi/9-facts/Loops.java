@@ -29,21 +29,13 @@ public int fact(int n){
 }
 
     public int gcd(int x, int y){
-        int a = x;
 	int b = y;
-	if (a > b){
-	    while (x%b != 0){
+	while (x%b != 0 || y%b != 0){
 		b = b - 1;
 	    }
 	    return b;
 	}
-	else{
-	    while (y%a != 0){
-		a = a - 1;
-	    }
-	    return a;
-	}
-    }
+	    
 
     public int gcd2(int x, int y){
 	int ans = 0;
