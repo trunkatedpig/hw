@@ -36,16 +36,14 @@ public class CoinGame {
 	    p2.giveMoneyTo(pot,bet2);
 	}
 
-	if (c1.getFace().equals(c2.getFace()) && 
-	    c1.getFace().equals("Heads")) {
+	if (c1.getFace().equals(c2.getFace()) && c1.getFace().equals("Heads")) {
 	    pot.giveMoneyTo(p1,pot.balance);
 	    if (p2.balance == 0.0) {
 		endgame(p1,p2);
 	    } else {
 		result(p1,p2);
 	    }
-	} else if (c1.getFace().equals(c2.getFace()) && 
-		   c1.getFace().equals("Tails")) {
+	} else if (c1.getFace().equals(c2.getFace()) && c1.getFace().equals("Tails")) {
 	    pot.giveMoneyTo(p2,pot.balance);
 	    if (p1.balance == 0.0) {
 		endgame(p2,p1);
