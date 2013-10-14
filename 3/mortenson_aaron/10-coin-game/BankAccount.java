@@ -3,15 +3,20 @@ public class BankAccount {
     private String name;
     private double interestRate;
     private int acctnumber;
-    
+
+    public String toString() {
+	return "" + balance;
+    }
+
     public BankAccount(String n, int act) {
 	name=n;
 	acctnumber = act;
     }
     
     public void deposit(double amt) {
-	// if to make sure amt > 0 would be better
-	balance = balance + amt;
+	if (amt >= 0) {
+	    balance = balance + amt;
+	}
     }
     
     public void withdraw(double amt) {
@@ -23,6 +28,10 @@ public class BankAccount {
     
     public double getBalance() {
 	return balance;
+    }
+
+    public String getName() {
+	return name;
     }
     
     public void takeMoneyFrom(BankAccount other, double amt) {
