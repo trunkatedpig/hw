@@ -12,6 +12,9 @@ public class CoinGame {
 	double Balance1 = b1.getBalance();
 	double Balance2 = b2.getBalance();
 	int x;
+	/* I really had trouble here. For some reason, when I tried to make 
+	   x into a double by multiplying it by 100, converting it into an Int, 
+	   and then dividing by 100 again, I would get a long trail of 9's or 0's.*/
 	if (Balance1 > Balance2) {
 	    x = (int)(Math.random() * Balance2);
 	}
