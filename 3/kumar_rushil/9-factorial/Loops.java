@@ -9,6 +9,7 @@ public class Loops{
 	return (n * fact((n-1)));
     }
     }
+
     public int fact2(int n){
 	int result = n;
 	while (n > 1){
@@ -18,22 +19,58 @@ public class Loops{
 	return result;
     }
 
-    public int gcd (int a, int b){
-	int l,g;
-	int result = 0; 	
+    public long gcd (long a, long b){
+	long L,G,X;
+	long result = 0; 	
+
 	if (a > b){
-	    l = b;
-	    g = a;
+	    X = b;
+	    L = b;
+	    G = a;
 	}else { 
-	    l = a;
-	    g = b;
+	    X = a;
+	    L = a;
+	    G = b;
 	}
-	if ((g%l = 0))
-	    return l;
-	while (g%l != 0){
-	    result = l - 1;
-	    l = l -1; 
+
+	if (G%L == 0)
+	    return L;
+
+	while ((G%L != 0)||(X%L != 0)){
+	    result = L - 1;
+	    L = L - 1; 
 	}
 	return result;
+    }
+
+    public long gcd2(long a, long b){
+	long L,G;
+	long R = 0;
+	if (a > b){
+	    L = b;
+	    G = a;
+	}else {
+	    L = a;
+	    G = b;
+	}
+
+	if (G%L == 0)
+	    return L;
+
+	while (G%L != 0){
+	    R = G%L;
+	    G = L;
+	    L = R;
+	    if (L == 0)
+		L = L + 1;
+	}
+	return R;
+    }
+    public boolean isPrime(long n){
+	if (gcd2(n,2) == 1){
+	    return true;
+	} else {
+	    return false;
+	}
     }
 }

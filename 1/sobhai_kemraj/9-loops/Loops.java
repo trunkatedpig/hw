@@ -20,7 +20,7 @@ public class Loops{
 		}
 		return number;
 	}
-
+	
 	public int GCD (int a, int b){
 		int divisor, dividend,other;
 		if (a<b){
@@ -54,6 +54,27 @@ public class Loops{
 			return n + " is a Prime number";
 		return n + " is a Composite number";
 	}
+
+	public int GCD2(int a, int b) {
+		int r;
+		while (b != 0) { 
+			r = a%b;
+		  	a = b;
+			b = r;
+		}
+		return a;
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

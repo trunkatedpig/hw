@@ -91,7 +91,8 @@ public class GCD {
 
     public boolean isPrime (int n) {
 
-	if (n == 1 || n == 0) {
+	if
+ (n == 1 || n == 0) {
 	    return true;
 
 	}
@@ -106,7 +107,7 @@ public class GCD {
 
 	}
 
-	return (prime == 1) 
+	return (prime == 1); 
 	    }
 
     }
