@@ -19,9 +19,9 @@ public class Loops{
 	return result;
     }
 
-    public int gcd (int a, int b){
-	int L,G,X;
-	int result = 0; 	
+    public long gcd (long a, long b){
+	long L,G,X;
+	long result = 0; 	
 
 	if (a > b){
 	    X = b;
@@ -43,9 +43,9 @@ public class Loops{
 	return result;
     }
 
-    public int gcd2(int a, int b){
-	int L,G;
-	int R = 0;
+    public long gcd2(long a, long b){
+	long L,G;
+	long R = 0;
 	if (a > b){
 	    L = b;
 	    G = a;
@@ -66,7 +66,7 @@ public class Loops{
 	}
 	return R;
     }
-    public boolean isPrime(int n){
+    public boolean isPrime(long n){
 	if (gcd2(n,2) == 1){
 	    return true;
 	} else {
