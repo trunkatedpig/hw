@@ -43,4 +43,22 @@ public class Loops {
 
 	return 1;
     }
+
+    public int GCD2(int a, int b) {
+        while (b != 0) {
+            int g = b;
+            b = a % b;
+            a = g;
+        }
+        return a;
+    }
+    public String isPrime(int n){
+	x = n-1;
+	while (x > 1){
+	    if (n%x == 0){
+		return "false";}
+		x = x - 1;
+	}
+        return "true";
+    }
 }
