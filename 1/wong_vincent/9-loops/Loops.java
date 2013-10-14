@@ -45,27 +45,32 @@ public class Loops {
     //second way to do GCD
     public int gcd2(int a, int b) {
 	int n = 0;
-	int r = (a%b);
-	if ((a%b) == 0) {
-	    n = r;
+	int A = a;
+	int B = b;
+
+	while (a%b != 0) {
+	    b = (a%b);
+	    a = B;
 	}
-	else 
-	    gcd2(b,(a%b));
-	return n;    
-}
+	if (a%b == 0) {
+	    n = b;
+	}
+	
+	return n;
+    }
 
     //checking for prime numbers
     public boolean isPrime(int n) {
 	int j = 2;
-	while (j < n) {
-	    if (n % j == 0) {
-		return false;
-	    }
-	    else {
-		j = j + 1;
-	    }
-	}
-	return true;
+    	while (j < n) {
+    	    if (n % j == 0) {
+   		return false;
+    	    }
+    	    else {
+    		j = j + 1;
+    	    }
+    	}
+    	return true;
     }
 }
 
