@@ -7,7 +7,6 @@ public class Coin {
     private int heads;
     private double prob = 0.5; // another way to initialize
     private int value;
-    private Random r = new Random();
 
     public void initCoin(String f, Double p) {
 	face = f;
@@ -46,16 +45,21 @@ public class Coin {
 	return ""+value+" cents";
     }
 
-    public void flip() {
-	// generate a random number and set face to heads
-	// or tails
-        double a = r.nextDouble();
-        if (a <= 0.5) {
-            face = "heads";
+    public void flip(){
+	if (Math.random() > prob){
+	    face = "Heads";
+            heads = heads + 1;
         }
-        else {
-            face = "tails";
+	else{
+	    face = "Tails";
         }
+	tosses = tosses + 1;
+
+    
+    }
+
+    public void setRandProb(){
+	prob = Math.random();
     }
 
 }

@@ -1,5 +1,3 @@
-import java.io.*;
-import java.util.*;
 
 public class Coin {
     private String face;
@@ -7,7 +5,6 @@ public class Coin {
     private int heads;
     private double prob = 0.5; // another way to initialize
     private int value;
-    private Random r = new Random();
 
     public void initCoin(String f, Double p) {
 	face = f;
@@ -48,14 +45,7 @@ public class Coin {
 
     public void flip() {
 	// generate a random number and set face to heads
-	// or tails
-        double a = r.nextDouble();
-        if (a <= 0.5) {
-            face = "heads";
-        }
-        else {
-            face = "tails";
-        }
+	// or tails 
     }
 
 }

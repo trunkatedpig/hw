@@ -1,24 +1,32 @@
-import java.io.*;
-import java.util.*;
-
 public class BankAccount {
-    public double balance = 0.00;
-    public String name;
+    private double balance;
+    private String name;
+    private double interestRate;
+    private int acctnumber;
+
+    public void bankAccount(String n, int act, double b) {
+	name=n;
+	acctnumber = act;
+	balance = b;
+
+    }
 
     public void deposit(double amt) {
+	// if to make sure amt > 0 would be better
 	balance = balance + amt;
     }
 
     public void withdraw(double amt) {
+	// this if is important
 	if (balance >= amt) {
 	    balance = balance - amt;
 	}
     }
-
+    
     public double getBalance() {
-	return Math.round(balance * 100.0) / 100.0;
+	return balance;
     }
-
+    
     public void takeMoneyFrom(BankAccount other, double amt) {
 	if (other.balance >= amt) {
 	    other.withdraw(amt);
@@ -29,7 +37,8 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balance = other.balance + amt;
+	    other.balanace = other.balance + amt;
 	}
+
     }
 }
