@@ -5,6 +5,7 @@ public class CoinGame {
 
     private Coin c1,c2;
     private BankAccount b1 = new BankAccount("John",1),b2 = new BankAccount("Mary",2);
+    private Random rand = new Random();
     private double pot=0,with=rand.nextDouble();
     private String result1,greeting,greeting2,greeting3,greeting4,out1,out2,out3,round,finale1,finale2,finale3;
     

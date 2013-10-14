@@ -7,6 +7,7 @@ public class Coin {
     private int heads;
     private double prob = 0.5; // another way to initialize
     private int value;
+    private Random rand = new Random();
 
     public void initCoin(String f, Double p) {
 	face = f;
