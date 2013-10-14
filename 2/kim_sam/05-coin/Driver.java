@@ -9,13 +9,16 @@ public class Driver {
 	
 	 c.setProb(.5);
 	 c.flip();
-	 c.flip();
-	 c.flip();
-	 c.flip();
-	 c.flip();
-	 System.out.println(c.getFlips());
 	 System.out.println(c.getCurrentFace());
-
+	 c.flip();
+	 System.out.println(c.getCurrentFace());
+	 c.flip();
+	 System.out.println(c.getCurrentFace());
+	 c.flip();
+	 System.out.println(c.getCurrentFace());
+	 c.flip();
+	 System.out.println(c.getCurrentFace());
+	 System.out.println(c.getFlips());
      }
 }
 

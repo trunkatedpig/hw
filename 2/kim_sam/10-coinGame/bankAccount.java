@@ -1,15 +1,15 @@
-
-public class BankAccount {
+public class bankAccount {
     private double balance;
     private String name;
     private double interestRate;
     private int acctnumber;
+    private double pot, q;
 
-    public BankAccount(String n, int act, double b) {
+    public void bankAccount(String n, int act, double b) {
 	name=n;
 	acctnumber = act;
 	balance = b;
-	
+
     }
 
     public void deposit(double amt) {
@@ -23,25 +23,24 @@ public class BankAccount {
 	    balance = balance - amt;
 	}
     }
-
+    
     public double getBalance() {
 	return balance;
     }
-
-    public void takeMoneyFrom(BankAccount other, double amt) {
+    
+    public void takeMoneyFrom(bankAccount other, double amt) {
 	if (other.balance >= amt) {
 	    other.withdraw(amt);
 	    this.deposit(amt);
 	}
     }
 
-    public void giveMoneyTo(BankAccount other, double amt) {
+    public void giveMoneyTo(bankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
 	    other.balance = other.balance + amt;
 	}
-	
+
     }
 }
-
 

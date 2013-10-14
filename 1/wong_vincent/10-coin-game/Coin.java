@@ -44,12 +44,14 @@ public class Coin {
     }
 
     public void flip() {
-	if (Math.random() <= 0.5) {
-	    face = "Heads";
+        double r = Math.random();
+	
+	if (r < .5) {
+	    face = "heads";
 	}
 	else {
-	    face = "Tails";
+	    face = "tails";
 	}
     }
-    
+
 }
