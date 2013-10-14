@@ -8,7 +8,7 @@ public class Driver {
 	b = new CoinGame();
 	a.play(10);
 	b.play(100);
-	System.out.println(a.returnWinner());
-	System.out.println(b.returnWinner());
+	System.out.println("Game 1: " + a.returnWinner());
+	System.out.println("Game 2: " + b.returnWinner());
      }
 }
