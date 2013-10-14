@@ -5,14 +5,15 @@ public class Coin {
     private String face;
     private int tosses;
     private int heads;
+	private int tails;
     private double prob = 0.5; // another way to initialize
     private int value;
-    private Random r = new Random();
 
     public void initCoin(String f, Double p) {
 	face = f;
 	tosses=0;
 	heads=0;
+	tails = 0;
 	prob=p;
     }
 
@@ -47,15 +48,17 @@ public class Coin {
     }
 
     public void flip() {
-	// generate a random number and set face to heads
-	// or tails
-        double a = r.nextDouble();
-        if (a <= 0.5) {
-            face = "heads";
-        }
-        else {
-            face = "tails";
-        }
+		tosses += 1;
+		Random r = new Random();
+		if (r.nextDouble() >= prob) {
+			heads += 1;
+			face = "Heads";
+		}
+		else { 
+			tails += 1;
+			face = "Tails";
+		}	
+	} 
     }
 
-}
+
