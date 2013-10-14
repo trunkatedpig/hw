@@ -45,10 +45,10 @@ public class Coin {
 
     public void flip() {
 	if (Math.random() <= 0.5) {
-	    setFaceHeads();
-		}
+	    face = "Heads";
+	}
 	else {
-	    setFaceTails();
+	    face = "Tails";
 	}
     }
     
