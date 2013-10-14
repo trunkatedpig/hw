@@ -1,3 +1,4 @@
+//Tina Lee and Kelly Chen
 import java.io.*;
 import java.util.*;
 
@@ -49,6 +50,10 @@ public class CoinGame {
 
     public double getCurrentBalance2(){
 	return p2.getBalance();
+    }
+
+    public double getPot(){
+	return pot.getBalance();
     }
 
     public void play(int n){
