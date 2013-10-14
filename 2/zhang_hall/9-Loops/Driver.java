@@ -12,9 +12,9 @@ public class Driver{
 	System.out.println(G.GCD(30,20));
 	System.out.println(G.GCD(99,6));
 	System.out.println(G.GCD2(120,40));
-	System.out.println(G.GCD2(7,5));
-	System.out.println(G.GCD2(99,6));
 	System.out.println(G.GCD2(30,20));
+	System.out.println(G.GCD2(99,6));
+	System.out.println(G.GCD2(7,5));
 
 	System.out.println(G.isPrime(59));
 	System.out.println(G.isPrime(57));

@@ -33,15 +33,24 @@ public class Loops {
 	return small;
     }
 
-    
     public int gcd2(int a, int b) {
-	if (b==0) {
-	    return a;
+	int remainder, sml, big;
+	if (b>=a) {
+	    remainder = b%a;
+	    sml = a;
+	    big = b;
 	}
 	else {
-	    return gcd2(b, a%b);
+	    remainder = a%b;
+	    sml = b;
+	    big = a;
 	}
+	while (remainder != 0) {
+	    remainder = sml % remainder;
+	}
+	return sml;
     }
+
 
     public boolean isPrime(int n) {
 	int var = 2;
