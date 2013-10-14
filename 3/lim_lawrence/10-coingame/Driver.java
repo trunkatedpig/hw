@@ -7,6 +7,6 @@ public class Driver {
 
 	CoinGame cg = new CoinGame(p1,p2);
 	cg.printStatus();
-	cg.game(10);
+	cg.play(10);
     }
 }

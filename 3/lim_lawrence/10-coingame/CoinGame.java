@@ -45,7 +45,7 @@ public class CoinGame {
 	}
     }
 
-    public void game(int turns) {
+    public void play(int turns) {
 	boolean ok=true;
 	while (turns>0 && ok) {
 	    if (turn()==1) {ok=false;}
