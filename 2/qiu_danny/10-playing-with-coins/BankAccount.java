@@ -1,12 +1,15 @@
 public class BankAccount {
 
+    private String name;
     private int money;
 
-    public BankAccount() {
+    public BankAccount(String name) {
+        this.name = name;
         money = 0;
     }
 
-    public BankAccount(int money) {
+    public BankAccount(String name, int money) {
+        this.name = name;
         this.money = money;
     }
 
@@ -15,18 +18,31 @@ public class BankAccount {
     }
 
     public void withdraw(int amt) {
-        money = money - amt;
+        if (money >= amt) {
+            money = money - amt;
+        }
+        else {
+            System.out.println(name + " does not have enough money to withdraw!");
+        }
     }
 
     public void giveMoney(BankAccount other, int amt) {
-        other.deposit(amt);
-        this.withdraw(amt);
+        if (money >= amt) {
+            other.deposit(amt);
+            this.withdraw(amt);
+        }
+        else {
+            System.out.println(name + " does not have enough money to give away!");
+        }
     }
 
     public void takeMoney(BankAccount other, int amt) {
         other.giveMoney(this, amt);
     }
 
+    public String getName() {   
+        return name;
+    }
     public int getMoney() {
         return money;
     }
