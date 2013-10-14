@@ -75,10 +75,14 @@ public class CoinGame {
 
     public void displayWinner() {
         if (p1Account.getBalance() > p2Account.getBalance()) {
+            p1Account.deposit(pot);
             winner = "Player 1";
+            pot = 0;
         }
         else if (p1Account.getBalance() < p2Account.getBalance()){
+            p2Account.deposit(pot);
             winner = "Player 2";
+            pot = 0;
         }
         else {
             winner = "Neither player";

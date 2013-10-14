@@ -1,4 +1,3 @@
-
 public class BankAccount {
     private double balance;
     private String name;
@@ -41,8 +40,6 @@ public class BankAccount {
 	    balance = balance - amt;
 	    other.balance = other.balance + amt;
 	}
-	
+
     }
 }
-
-
