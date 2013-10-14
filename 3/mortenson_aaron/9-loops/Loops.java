@@ -22,26 +22,28 @@ public class Loops {
 			n = n - 1;
 		}
 
-
 		return result;	
 	}
 
 	public int gcd (int a, int b) {
 
 	int c = Math.min (a, b);
-	if (a % c == 0 && b % c == 0) 
-		return c;
-	else
-		return gcd (a, c-1);
+	while (!(a % c == 0 && b % c == 0))
+		c = c - 1;
+
+	return c;
 	}
 
 	public int gcd2 (int a, int b) {
 
-		if (b == 0) 
-			return a;
-		else {
-			return gcd2 (b, a % b);
+		int c;
+		while  (b > 0) {
+			c = b;
+			b = a % b;
+			a = c;
 		}
+
+		return a;
 	}
 
 	public boolean isPrime (int n) { //Tests if n is divisible by odd numbers between sqrt(n) and n/2, inclusive.

@@ -9,6 +9,10 @@ public class Driver {
 	loop = new loops();
 
 	System.out.println(loop.fact(5));
+	System.out.println(loop.fact2(12));
+	System.out.println(loop.GCD(21983, 21382));
+	System.out.println(loop.GCD2(12132, 21382));
+	System.out.isPrime(loop.fact2(7919));
 
     }
 }
