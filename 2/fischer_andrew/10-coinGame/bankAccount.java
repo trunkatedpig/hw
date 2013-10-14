@@ -4,9 +4,11 @@ public class BankAccount {
     private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n, int act) {
+    public void bankAccount(String n, int act, double b) {
 	name=n;
 	acctnumber = act;
+	balance = b;
+
     }
 
     public void deposit(double amt) {
@@ -19,15 +21,12 @@ public class BankAccount {
 	if (balance >= amt) {
 	    balance = balance - amt;
 	}
-	else {
-		balance = 0;
-	}
     }
-
+    
     public double getBalance() {
 	return balance;
     }
-
+    
     public void takeMoneyFrom(BankAccount other, double amt) {
 	if (other.balance >= amt) {
 	    other.withdraw(amt);
@@ -38,7 +37,7 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balance = other.balance + amt;
+	    other.balanace = other.balance + amt;
 	}
 
     }

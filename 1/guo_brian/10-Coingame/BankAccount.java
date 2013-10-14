@@ -1,3 +1,4 @@
+
 public class BankAccount {
     private double balance;
     private String name;
@@ -19,9 +20,6 @@ public class BankAccount {
 	if (balance >= amt) {
 	    balance = balance - amt;
 	}
-	else {
-		balance = 0;
-	}
     }
 
     public double getBalance() {
@@ -38,8 +36,10 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balance = other.balance + amt;
+	    other.balanace = other.balance + amt;
 	}
-
+	
     }
 }
+
+

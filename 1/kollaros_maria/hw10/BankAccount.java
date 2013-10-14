@@ -1,16 +1,20 @@
+import java.io.*;
+import java.util.*;
+
 public class BankAccount {
     private double balance;
     private String name;
     private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n, int act) {
+    public BankAccount(String n, int act, int b) {
 	name=n;
 	acctnumber = act;
+	balance = b;
     }
 
     public void deposit(double amt) {
-	// if to make sure amt > 0 would be better
+	if (amt > 0)
 	balance = balance + amt;
     }
 
@@ -18,9 +22,6 @@ public class BankAccount {
 	// this if is important
 	if (balance >= amt) {
 	    balance = balance - amt;
-	}
-	else {
-		balance = 0;
 	}
     }
 

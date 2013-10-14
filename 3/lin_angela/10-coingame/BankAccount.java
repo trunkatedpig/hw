@@ -1,34 +1,29 @@
 public class BankAccount {
-    private double balance;
+    private int balance;
     private String name;
-    private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n, int act) {
-	name=n;
-	acctnumber = act;
+    public BankAccount(int balance) {
+	this.balance = balance;
     }
+    
 
-    public void deposit(double amt) {
-	// if to make sure amt > 0 would be better
+    public void deposit(int amt) {
 	balance = balance + amt;
     }
 
-    public void withdraw(double amt) {
+    public void withdraw(int amt) {
 	// this if is important
 	if (balance >= amt) {
 	    balance = balance - amt;
 	}
-	else {
-		balance = 0;
-	}
     }
 
-    public double getBalance() {
+    public int getBalance() {
 	return balance;
     }
 
-    public void takeMoneyFrom(BankAccount other, double amt) {
+    /* public void takeMoneyFrom(BankAccount other, double amt) {
 	if (other.balance >= amt) {
 	    other.withdraw(amt);
 	    this.deposit(amt);
@@ -42,4 +37,5 @@ public class BankAccount {
 	}
 
     }
+    */
 }
