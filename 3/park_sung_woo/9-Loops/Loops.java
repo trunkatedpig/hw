@@ -36,12 +36,7 @@ public class Loops{
 	
    }
    public int gcd2(int a, int b){
-/*	if (b == 0){
-	    return a;
-	}else{
-	    return gcd(b,a%b);
-	}
-*/	int aparam = a;
+	int aparam = a;
 	int bparam = b;
 	boolean is0 = false;
 	while (is0 == false){
