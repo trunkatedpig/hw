@@ -18,6 +18,46 @@ public class Loops {
 	}
 	return result;
     }
+    public int gcd (int a, int b) {	
+	int d = a;
+	if (a > b){
+	    d = b;
+	}
+	while (a%d != 0 || b%d !=0){
+	    d = d - 1;
+	}
+	return d;
+    }
+    
+    public int gcd2 (int a, int b) {
+	int c = a;
+	int d = b;
+	if (a < b) {
+	    c = b;
+	    d = a;
+	}
+	while (d != 0) {
+	    int e = c;
+	    c = d;
+	    d = e%d;
+	}
+	return c;
+    }
+    public boolean isPrime(int n) {
+	if (n <= 1)
+	    return false;
+	else {
+	    int d = n-1 ;
+	    boolean r = true;
+	    while ( d > 1) {
+		if (n%d == 0){ 
+		    r = false;}
+		d = d -1;
+	    }
+	    return r;
+	}
+    }	    
+	    
 }
 	    
 	    

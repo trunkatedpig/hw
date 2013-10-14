@@ -21,21 +21,35 @@ public class Loops {
 
     public int gcd (int a,int b) {
 	int r = 1;
-	while (r > 0) {
-	    if (a >= b) {
+	int ans;
+	if (a >= b) {
 		r = b;
-		if (a%r == 0) {
-		    int ans = r;
-		} else {
-		    r = r - 1;}
 	    } else {
-		r = a;
-		if (b%r == 0) {
-		    int ans = r;
-		} else {
-		    r = r - 1; } }
-	    return r;
-	}
+		r = a; }
+	while (r > 0) {
+	    if (a%r == 0 && b%r == 0) {
+		ans = r;
+		return ans;
+	    } else {
+		r = r - 1; } }
+	return r; }
+
+    public int gcd2 (int a,int b) {
+	if (a == 0) {
+	    return a;
+	} else if (b == 0) {
+	    return b;
+	} else {
+	    return gcd2(a,a%b); }
     }
-  
+
+    public boolean isPrime(int n) {
+	double upperBound = n/2;
+	int counter = 2;
+	while (counter <= upperBound) {
+	    if (n%counter == 0) {
+		return false; }
+	    counter ++; }
+	return true;
+    }
 }

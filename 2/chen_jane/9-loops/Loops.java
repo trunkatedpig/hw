@@ -23,15 +23,18 @@ public class Loops {
 
     public int gcd(int a, int b) {
 	int divisor;
+	// if either number is 0, return the other number
 	if (a==0) {
 	    return b;
 	}
 	else if (b==0) {
 	    return a;
 	}
+	// if both numbers are equal, return the number
 	else if (a == b) {
 	    return a;
 	}
+	// initialize the divisor
 	else if (a > b) {
 	    divisor = b;
 	}
@@ -39,7 +42,7 @@ public class Loops {
 	    divisor = a;
 	}
 
-	while (divisor >= 1) {
+	while (divisor > 1) {
 	    if (a%divisor == 0 && b%divisor == 0) {
 		return divisor;
 	    }
@@ -58,9 +61,27 @@ public class Loops {
 		return b;
 	    }
 	else {
-	    int r;
-	    r = a%b;
- 	    return gcd(a,r);
+	    int big,small;
+	    if (a > b) {
+		big = a;
+		small = b;
+	    }
+	    else {
+		big = b;
+		small = a;
+	    }
+	    while (small > 1) {
+		if (big % small != 0) {
+		    int r;
+		    r = big % small;
+		    big = small;
+		    small = r;
+		}
+		else {
+		    return small;
+		}
+	    }
+	    return small;
 	}
     }
 
