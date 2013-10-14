@@ -22,9 +22,9 @@ public class Loops{
 	}
 	return result;
 	    }
-    public int gcd(int a, int b){
-	int i = b;
-	int result = 0;
+    public long gcd(long a, long b){
+	long i = b;
+	long result = 0;
 	if (b > a){
 	    i = a;
 	    a = b;
@@ -39,8 +39,8 @@ public class Loops{
 	}
 	return result;
 	}
-    public int gcd2(int a, int b){
-	int i = 0;
+    public long gcd2(long a, long b){
+	long i = 0;
 	if (b > a){
 	    i = a;
 	    a = b;
