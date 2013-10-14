@@ -5,11 +5,18 @@ public class BankAccount {
     private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n, int act, double b) {
+    public BankAccount(){
+	balance = 100.0;
+	name = "Player";
+	interestRate = 0;
+	acctnumber = 0;
+    }
+
+    public BankAccount(String n, int act) {
+	balance = 100.0;
 	name=n;
 	acctnumber = act;
-	balance = b;
-	
+	interestRate = 0;
     }
 
     public void deposit(double amt) {

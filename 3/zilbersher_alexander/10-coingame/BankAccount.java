@@ -1,3 +1,5 @@
+import java.io.*;
+import java.util.*;
 
 public class BankAccount {
     private double balance;
@@ -5,11 +7,10 @@ public class BankAccount {
     private double interestRate;
     private int acctnumber;
 
-    public BankAccount(String n, int act, double b) {
+    public BankAccount(String n, int act) {
 	name=n;
 	acctnumber = act;
-	balance = b;
-	
+	balance = 100;
     }
 
     public void deposit(double amt) {
@@ -40,8 +41,7 @@ public class BankAccount {
 	    balance = balance - amt;
 	    other.balance = other.balance + amt;
 	}
-	
+
     }
 }
-
 
