@@ -22,8 +22,14 @@ public class Loops {
 	}
 	
 	public int GCD2(int a, int b) {
-		if (b == 0) {return a;}
-		else {return GCD2(b, a % b);}
+		int x;
+		while (b != 0) {
+			x = b;
+			b = a % x;
+			a = x;
+		}
+		
+		return a;
 	}
 	
 	public boolean isPrime(int n) {
