@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class Coin {
     private String face;
     private int tosses;
@@ -45,12 +48,10 @@ public class Coin {
 
     public void flip() {
 	r = Math.random();
-
 	if (r <= 0.5) {
-	    face = "heads";
+	    face = "heads"; 
 	}
-	else {
-		face = "tails";
-	    }
-    }
+       	else {face = "tails";
+	}	
+    } 
 }

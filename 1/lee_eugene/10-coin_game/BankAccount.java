@@ -10,13 +10,11 @@ public class BankAccount {
 	acctnumber = act;
     }
 
-    public String getName() {
-	return name;
-    }
     public void deposit(double amt) {
 	// if to make sure amt > 0 would be better
 	balance = balance + amt;
     }
+
     public void withdraw(double amt) {
 	// this if is important
 	if (balance >= amt) {
@@ -38,8 +36,10 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balance = other.balance + amt;
+	    other.balanace = other.balance + amt;
 	}
-
+	
     }
 }
+
+

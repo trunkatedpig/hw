@@ -1,10 +1,10 @@
+
 public class Coin {
     private String face;
     private int tosses;
     private int heads;
     private double prob = 0.5; // another way to initialize
     private int value;
-    private double r;
 
     public void initCoin(String f, Double p) {
 	face = f;
@@ -44,13 +44,8 @@ public class Coin {
     }
 
     public void flip() {
-	r = Math.random();
-
-	if (r <= 0.5) {
-	    face = "heads";
-	}
-	else {
-		face = "tails";
-	    }
+	// generate a random number and set face to heads
+	// or tails 
     }
+
 }
