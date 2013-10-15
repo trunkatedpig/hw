@@ -21,6 +21,8 @@ public class Driver {
 	System.out.println(l.gcd2(0,13));
 	System.out.println(l.gcd(96,64));
 	System.out.println(l.gcd2(96,64));
+	System.out.println(l.gcd(122,78));
+	System.out.println(l.gcd2(122,78));
 	// time test with huge primes
 	System.out.println(l.gcd(104729,104723));
 	System.out.println(l.gcd2(104729,104723));
