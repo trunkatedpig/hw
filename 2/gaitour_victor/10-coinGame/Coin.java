@@ -1,14 +1,16 @@
 public class Coin {
     private String face;
     private int tosses;
-    private int heads;
-    private double prob = 0.5; // another way to initialize
+    private int Heads;
+    private int Tails;
+    private int percent = 50; // another way to initialize
     private int value;
 
     public void initCoin(String f, Double p) {
 	face = f;
 	tosses=0;
-	heads=0;
+	Heads=0;
+	Tails=0;
 	prob=p;
     }
     
@@ -43,8 +45,16 @@ public class Coin {
     }
 
     public void flip() {
-	// generate a random number and set face to heads
-	// or tails
+	if (prob.nextInt(100) < percent) {
+	    side = "heads";
+	    Heads+=1;
+	}
+	else
+	    {
+		side="tails";
+		Tails+=1;
+	    }
     }
+    
     
 }
