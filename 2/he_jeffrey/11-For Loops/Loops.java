@@ -30,8 +30,16 @@ public class Loops {
 
     public String table(int n, int m) {
 	String result = "";
+	for (int j = 1; j <= n; j++) {
+	    result += Integer.toString(j) + " ";
+	}
+	result += "\n";
 	for (int i = 1; i <= m; i++) {
-	    for (int j = 1; j <= n; j++) {
+	    for (int j = 0; j <= n; j++) {
+		if (j == 0) {
+		    result += Integer.toString(i) + " ";
+		    continue;
+		}
 		result += Integer.toString(i * j) + " ";
 	    } 
 	    result += "\n";
