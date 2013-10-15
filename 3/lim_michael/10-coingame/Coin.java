@@ -1,16 +1,20 @@
+import java.io.*;
+import java.util.*;
 
 public class Coin {
     private String face;
     private int tosses;
-    private int heads;
+    private int heads, facen;
     private double prob = 0.5; // another way to initialize
     private int value;
+    private Random rdm = new Random();
 
     public void initCoin(String f, Double p) {
 	face = f;
 	tosses=0;
 	heads=0;
 	prob=p;
+	facen = 0;
     }
 
     public Coin(int v) {
@@ -27,8 +31,8 @@ public class Coin {
 	initCoin(f,0.5);
     }
 
-    public String getFace() {
-	return face;
+    public int getFace() {
+	return facen;
     }
 
     public boolean equals(Coin other) {
@@ -44,20 +48,9 @@ public class Coin {
     }
 
     public void flip() {
-	// generate a random number and set face to heads
-	// or tails 
-	Random r;
-	int n;
-	r = new Random();
-	n = r.nextInt();
-	flips = flips + 1;
-	if (n > fair) {
-	    setFace("Heads");
-	    nheads = nheads + 1;
-	} else {
-	    setFace("Tails");
-	    ntails = ntails + 1;
-	}
+	if (rdm.nextDouble() < prob)
+	    facen = 0;
+	else facen = 1;
     
     }
 
