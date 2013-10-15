@@ -95,14 +95,16 @@ public class Coin {
 	}
     }
 
-    public void flip() {
+    public String flip() {
 	if (r.nextBoolean()) {
 	    heads = "Heads";
 	    countH += 1;
+	    return "Heads";
 	}
 	else {
 	    heads = "Tails";
 	    countT += 1;
+	    return "Tails";
 	}
     }
 
