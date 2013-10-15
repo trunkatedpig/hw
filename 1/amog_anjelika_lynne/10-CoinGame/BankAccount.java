@@ -25,13 +25,13 @@ public class BankAccount{
 	return balance;
     }
     public void takeMoneyFrom(BankAccount other, double amt){
-	if (amt > other.balance()){
+	if (amt > other.balance){
 	    other.withdraw(amt);
 	    balance = balance + amt;
 	}
     }
     public void giveMoneyTo(BankAccount other, double amt){
-	if (amt > this.balance()){
+	if (amt > balance){
 	    balance = balance - amt;
 	    other.deposit(amt);
 	}
