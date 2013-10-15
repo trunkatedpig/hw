@@ -5,17 +5,34 @@ public class CoinGame{
     private int pot;
     private BankAccount p1,p2;
     private Coin a,b;
-    public CoinGame(){
-	p1.deposit(100);
-	p2.deposit(100);}
-    
-    private void turn(){
-        pot = (p1.withdraw(math.random()*100)+p2.withdraw(math.random()*100));
-	a.flip();
-	b.flip();
-	if ((a.getFace()=="heads" && b.getFace())=="heads"){
+    private int withdrawamount;
+    public CoinGame(BankAccount bankAccount1, BankAccount bankAccount2) {
+        this.p1 = bankAccount1;
+        this.p2 = bankAccount2;
+        this.a=new Coin();
+        this.b=new Coin();
+    }
+    public String status(){
+	return "p1 balance is " + ""+p1.getBalance()+"p2 balance is" + "" + p2.getBalance();}
+    public void makepot(){
+	withdrawamount=prob.nextInt(100);
+        pot = (p1.withdraw(withdrawamount)+p2.withdraw(withdrawamount));
+}
+    public void turn(){
+	a1=a.flip();
+	b1=b.flip();
+	if ((a1.equals("heads")) && (b1.equals("heads")){
 	    p1.deposit(pot);
 	    pot=0;}
-	if ((
+	if ((a1.equals("tails")) && (b1.equals("tails")){
+	    p1.deposit(pot);
+	    pot=0;}
+}
+    public void play(int n){
+	while (n>0){
+	   turn();
+	   n=n-1;
+	
+	}
     }
 }
