@@ -39,6 +39,17 @@ public class Loops{
 	}
 	return result;
 	}
+    public int gcdf(int a, int b){
+	int temp = a;
+	if (b > a){
+	    temp = a;
+	    a = b;
+	    b = temp;
+	}
+	for (;a%temp !=0 || b%temp !=0; temp--);
+	return temp;
+    }
+	    
     public long gcd2(long a, long b){
 	long i = 0;
 	if (b > a){
