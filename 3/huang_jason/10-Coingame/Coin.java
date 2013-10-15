@@ -22,7 +22,6 @@ public class Coin {
 	initCoin("Heads",0.5);
     }
 
-
     public Coin(String f) {
 	initCoin(f,0.5);
     }
@@ -44,12 +43,12 @@ public class Coin {
     }
 
     public void flip() {
-	if (Math.random() <= 0.5) {
-	    face = "heads";
-		}
-	else {
-	    face = "tails";
-	}
-    }
 
+	tosses = tosses + 1;
+
+	if (Math.random() < prob)
+	    face = "Heads";
+	else 
+	    face = "Tails";
+    }
 }

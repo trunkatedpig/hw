@@ -5,25 +5,29 @@ public class BankAccount {
     private double interestRate;
     private int acctnumber;
 
+    public BankAccount(){
+	balance = 100.0;
+	name = "Player";
+	interestRate = 0;
+	acctnumber = 0;
+    }
+
     public BankAccount(String n, int act) {
+	balance = 100.0;
 	name=n;
 	acctnumber = act;
+	interestRate = 0;
     }
 
     public void deposit(double amt) {
 	// if to make sure amt > 0 would be better
-	if (amt > 0){
-	    balance = balance + amt;
-	}    
+	balance = balance + amt;
     }
 
     public void withdraw(double amt) {
 	// this if is important
 	if (balance >= amt) {
 	    balance = balance - amt;
-	}
-	else{
-	    balance = 0;
 	}
     }
 
