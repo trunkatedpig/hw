@@ -48,17 +48,14 @@ public class Loops {
 	    l = A;
 	    s = B;
 	}
-	int x;
-	if (s == 0){
-	    return l;
+	while (l%s > 0){
+	    int x = l%s;
+	    l = s;
+	    s = x;
 	}
-	else {
-	    int r = l%s;
-	    x = GCD2(s,r);
-	}
-	return x;
+	return s;
     }
-    
+
     public boolean isPrime(int n) {
 	int x = 1;
 	boolean b = false;

@@ -8,8 +8,6 @@ public class Coin {
 
     public void initCoin(String f, Double p) {
 	face = f;
-	tosses=0;
-	heads=0;
 	prob=p;
     }
 
@@ -44,8 +42,12 @@ public class Coin {
     }
 
     public void flip() {
-	// generate a random number and set face to heads
-	// or tails 
+	double n = Math.random();
+	if (n >= 0.5){
+	    face = "heads";
+	}
+	else {
+	    face = "tails"
     }
 
 }
