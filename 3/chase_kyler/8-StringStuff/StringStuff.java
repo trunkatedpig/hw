@@ -30,5 +30,11 @@ public class StringStuff {
 
 	}
 
+	public String reverse(String s) {
+		l = s.lengthOf();
+		
+
 }
+
+
 

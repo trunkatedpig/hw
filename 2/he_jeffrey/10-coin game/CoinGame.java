@@ -17,7 +17,7 @@ public class CoinGame {
 	
     }
 
-    private void turn() {
+    public void turn() {
 	int least, amount;
 	Random r = new Random();
 	amount = r.nextInt(10);
