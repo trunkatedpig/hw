@@ -5,10 +5,6 @@ public class Turtle{
     private int speed;
     private String name;
     private int age;
-
-    public void setTurtle(){
-	
-    }
    
     public Turtle(){
 	speed = 5;
@@ -27,7 +23,7 @@ public class Turtle{
 	age=ag;
     }
 
-    public void speedUP(int n){
+    public void speedUp(int n){
 	speed=speed+n;   
     }
 
@@ -39,15 +35,15 @@ public class Turtle{
 	age=age+1;
     }
 
-    public int speedme (){
+    public int getSpeed (){
 	return speed;
     }
 
-    public int ageme (){
+    public int getAge (){
 	return age;
     }
 
-    public String nameme (){
+    public String getName (){
 	return name;
     }  
 

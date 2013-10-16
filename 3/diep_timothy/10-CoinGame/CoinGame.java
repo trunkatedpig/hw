@@ -21,19 +21,18 @@ public class CoinGame {
 	
     public void turn() {
 	Random r = new Random();
-	double bet1 = r.nextInt(1000) / 100.0;
-	double bet2 = r.nextInt(1000) / 100.0;
+	double bet = r.nextInt(1000) / 100.0;
 
-	if (bet1 > p1.balance) {
+	if (bet > p1.balance) {
 	    p1.giveMoneyTo(pot,p1.balance);
 	} else {
-	    p1.giveMoneyTo(pot,bet1);
+	    p1.giveMoneyTo(pot,bet);
 	}
 
-	if (bet2 > p2.balance) {
+	if (bet > p2.balance) {
 	    p2.giveMoneyTo(pot,p2.balance);
 	} else {
-	    p2.giveMoneyTo(pot,bet2);
+	    p2.giveMoneyTo(pot,bet);
 	}
 
 	if (c1.getFace().equals(c2.getFace()) && c1.getFace().equals("Heads")) {
