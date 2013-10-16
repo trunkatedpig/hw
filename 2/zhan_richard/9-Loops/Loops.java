@@ -17,16 +17,15 @@ public class Loops{
     }
     public int GCD(int a, int b){
 	int result = 0;
-	boolean inWhile=true;
 	if (a>b){
 	    result = b;
 	}
 	else {
 	    result = a;
 	}
-	while (inWhile){
+	while (result > 1){
 	    if ((a % result == 0) && (b % result == 0)){
-		inWhile=false;
+		return result;
 	    }
 	    else {
 		result = result - 1;
@@ -35,7 +34,6 @@ public class Loops{
 	return result;
     }
     public int GCD2(int a, int b){
-	//not too sure
 	int r;
 	while (b != 0){
 	    r=b;
@@ -52,7 +50,7 @@ public class Loops{
 	    largestRoot = i * i;
             i = i + 1;
 	}
-	while (i > 1){
+	while (i > 1 && result == true){
 	    if (a % i == 0){
 		result = false;
 		i = 0;

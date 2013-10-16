@@ -2,7 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class BankAccount {
-    private double balance;
+    public double balance = 0.00;
+    public String name;
 
     public void deposit(double amt) {
 	balance = balance + amt;
@@ -15,7 +16,7 @@ public class BankAccount {
     }
 
     public double getBalance() {
-	return balance;
+	return Math.round(balance * 100.0) / 100.0;
     }
 
     public void takeMoneyFrom(BankAccount other, double amt) {
@@ -28,7 +29,7 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balanace = other.balance + amt;
+	    other.balance = other.balance + amt;
 	}
     }
 }

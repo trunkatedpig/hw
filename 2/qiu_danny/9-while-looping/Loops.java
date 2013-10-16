@@ -48,15 +48,19 @@ public class Loops {
         return b;
     }
 
-    public boolean isPrime(int n) {
-        int sqrt;
-        sqrt = (int) Math.sqrt(n);
-        while (sqrt > 1) {
-            if (n % sqrt == 0) {
+    public boolean isPrime(long n) {
+        if (n <= 1 || n % 2 == 0) {
+            return false;
+        }
+        long div, end;
+        div = 3;
+        end = (long) Math.sqrt(n);
+        while (div < end) {
+            if (n % div == 0) {
                 return false;
             }
             else {
-                sqrt = sqrt - 1;
+                div = div + 2;
             }
         }
         return true;
