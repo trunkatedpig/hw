@@ -35,13 +35,26 @@ public class Loops{
 	return counter;
 	
    }
+
+   public int gcdFor(int a, int b){
+        int counter;
+        int gcd = 1;
+        int smaller;
+        if (a <= b){
+            smaller = a;
+        }else{
+            smaller = b;
+        }
+        for (counter = 2;counter <= smaller; counter ++){
+            if (a % counter == 0 && b % counter == 0){
+                gcd = counter;
+            }
+        }
+        return gcd;
+   }
+
    public int gcd2(int a, int b){
-/*	if (b == 0){
-	    return a;
-	}else{
-	    return gcd(b,a%b);
-	}
-*/	int aparam = a;
+	int aparam = a;
 	int bparam = b;
 	boolean is0 = false;
 	while (is0 == false){

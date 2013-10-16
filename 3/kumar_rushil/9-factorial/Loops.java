@@ -19,6 +19,14 @@ public class Loops{
 	return result;
     }
 
+    public int fact3(int n){
+	int result;
+	for (result = n; result > 1;result --){
+	    n = n * (result-1);
+	}
+	return n;
+    }
+
     public long gcd (long a, long b){
 	long L,G,X;
 	long result = 0; 	
@@ -42,6 +50,7 @@ public class Loops{
 	}
 	return result;
     }
+
 
     public long gcd2(long a, long b){
 	long L,G;
