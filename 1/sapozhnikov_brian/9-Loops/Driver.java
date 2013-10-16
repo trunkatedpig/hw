@@ -13,5 +13,17 @@ public class Driver {
 	System.out.println(L.isPrime(1));
 	System.out.println(L.isPrime(24));
 	System.out.println(L.isPrime(29));
+
+	//tests
+	/*doesn't work
+	for (int i = 0;i<10;i++){
+
+	}
+	System.out.println(i);
+	*/
+	/*doesn't: i is already defined
+	  L.test();
+	*/
+	System.out.println(L.backwards("Hello"));
     }
 }

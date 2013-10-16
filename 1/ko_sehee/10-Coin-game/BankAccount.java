@@ -38,7 +38,7 @@ public class BankAccount {
     public void giveMoneyTo(BankAccount other, double amt) {
 	if (balance >= amt) {
 	    balance = balance - amt;
-	    other.balanace = other.balance + amt;
+	    other.balance = other.balance + amt;
 	}
 	
     }
