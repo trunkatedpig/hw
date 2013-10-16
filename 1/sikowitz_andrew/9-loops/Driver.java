@@ -70,7 +70,14 @@ public class Driver {
 
 	//isPrime Tests
 
+	System.out.println();
 	System.out.println(l.isPrime(17));
 	System.out.println(l.isPrime(91));
+	System.out.println(l.isPrimeL(17));
+	System.out.println(l.isPrimeL(91));
+	System.out.println(l.isPrimeL(1));
+	System.out.println(l.isPrimeL(2));
+	System.out.println("---------------------------");
+	l.backwards("Hi my name is");
     }
 }
