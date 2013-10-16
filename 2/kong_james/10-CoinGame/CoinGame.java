@@ -26,11 +26,12 @@ public class CoinGame{
 	b.withdraw(b2);
 	if ((c.getFace() == "heads") && (d.getFace()== "heads")){
 		a.deposit(pot);
+		pot = 0.0;
 	}
 	else if ((c.getFace() == "tails") && (d.getFace()== "tails")){
 		b.deposit(pot);
+		pot = 0.0;
 	}
-	pot = 0.0;
     }
     public void play(int n){
 	while (n >0){
