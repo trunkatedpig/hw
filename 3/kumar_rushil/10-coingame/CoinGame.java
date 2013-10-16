@@ -8,10 +8,11 @@ public class CoinGame{
     BankAccount pot = new BankAccount();
     Random r = new Random();
     private double initial, PutIn,test;
-    private int rounds = 0;
-    private int timesplayed = 0;
+    private int timesplayed;
 
-    public void startGame(){
+
+    public void startGame(){//sets up the game and initializes variables
+	timesplayed = 0;
 	test = 0.0;
 	PutIn = 0.0;
 	initial = r.nextDouble();
@@ -22,10 +23,11 @@ public class CoinGame{
 	pot.setBalance(initial);
     }
     public void play(int n){
+	int rounds = 0;
 	while ((bap1.getBalance() > PutIn) && (bap2.getBalance() > PutIn) && (n > rounds)){
 	    rounds = rounds + 1;
 	    timesplayed = timesplayed + 1;
-		double d = r.nextDouble();
+	    double d = r.nextDouble();//gets a random coin value that both players put into the pot
 		if (d <= 0.25){
 		    PutIn = 0.01;
 		} else {
@@ -39,13 +41,13 @@ public class CoinGame{
 			}
 		    }
 		}
-		bap1.withdraw (PutIn);
+		bap1.withdraw (PutIn);//withdraws the amount from both players and flips coin
 		bap2.withdraw (PutIn);
 		cp1.setNameValue(PutIn);
 		cp1.Flip();
 		cp2.setNameValue(PutIn);
 		cp2.Flip();
-		if ((cp1.getFace() == "Heads")&&(cp2.getFace() == "Heads")){
+		if ((cp1.getFace() == "Heads")&&(cp2.getFace() == "Heads")){//result of coin flip
 		    bap1.deposit((PutIn + PutIn));
 		    cp1.resetCoin();
 		    cp2.resetCoin();
@@ -62,11 +64,11 @@ public class CoinGame{
 		}
 	}
     }
-    public void turn(){
+    public void turn(){//plays one turn
 	play (1);
     }
 
-    public String getWinner(){
+    public String getWinner(){//returns the winner or returns if its a tie
 	if (bap1.getBalance() > bap2.getBalance()){
 	    return "Player 1";
 	} else {
@@ -78,14 +80,14 @@ public class CoinGame{
 	}
     }
 
-    public double getWinnerBalance(){
+    public double getWinnerBalance(){//returns the amount of money the winner has
 	if (bap1.getBalance() > bap2.getBalance()){
 	    return (bap1.getBalance());
 	} else {
 	    return (bap2.getBalance());
 	}
     }
-    public void preciseDoubles(){
+    public void preciseDoubles(){//makes doubles precise to the hundreths place
 	int p1,p2,p3,r1,r2,r3;	
 	double d1,d2,d3;
 

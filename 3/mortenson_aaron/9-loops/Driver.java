@@ -10,7 +10,10 @@ public class Driver {
 		System.out.println(l.fact2(5));
 		System.out.println(l.fact2(7));
 		System.out.println(l.gcd(36, 90));
+		System.out.println(l.gcd(90, 36));
 		System.out.println(l.gcd2(36, 90));
+		System.out.println(l.gcd(527737963, 53781811));
+		System.out.println(l.gcd2(527737963, 53781811));
 		System.out.println(l.isPrime(1));
 		System.out.println(l.isPrime(2));
 		System.out.println(l.isPrime(3));
