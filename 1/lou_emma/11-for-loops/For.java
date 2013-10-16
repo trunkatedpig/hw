@@ -23,11 +23,18 @@ public class For{
 	
 //part three
 	public String table(int n, int m){
-		String complete=" ";
-		for (int init=n; init>0; init = init - 1){
-			complete=complete + init;
+	    String complete=" ";
+	    for (int init=1; init<=n; init = init + 1){
+		complete=complete + init;
+		  
+	    }
+	    for (int ial=1; ial<=m; ial = ial + 1){
+		complete = complete + "\n" + ial;
+		for (int i = 1; i <= n; i = i + 1){
+		    complete 
 		}
-		return "";
+	    }
+	    return complete;
 		
 		
 	}

@@ -6,6 +6,8 @@ public class Driver{
 		
 		System.out.println(test.reverse("Hello"));
 		System.out.println(test.reverse("RaCeCaR"));
+
+		System.out.println(test.table(5,3));
 		
 	}
 }
