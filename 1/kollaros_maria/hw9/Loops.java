@@ -32,7 +32,6 @@ public class Loops{
     //worked with Justin Weltz on this part
     public int GCD3(int a, int b){
 	int g = 0;
-	int i = 0;
 	if (a < b)
 	    g = a;
 	else 
