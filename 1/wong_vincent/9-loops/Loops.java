@@ -42,6 +42,21 @@ public class Loops {
 	return n;
 }
 
+	//GCD using for loop
+	public int gcdloop(int a, int b) {
+	if (a < b) {
+	   gcdloop (b,a);
+	}	
+	else {
+	   for (int n=b; (a % b) != 0; b = b - 1) {
+		n = 4;
+		}
+	}
+	return b;
+}
+
+
+
     //second way to do GCD
     public int gcd2(int a, int b) {
 	int n = 0;
