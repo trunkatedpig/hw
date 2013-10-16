@@ -4,7 +4,7 @@ import java.util.*;
 public class For {
     private String s;
     private int length;
-    private String s1, s2, result, array;
+    private String s1, s2, result, ar;
 
     public boolean isPrime(int n) {
 	for (int count = n-1; count>1; count--) {
@@ -26,17 +26,17 @@ public class For {
     }
 
     public String table(int n, int m) {
-	array = "";
+	ar = "";
 	for (int i=1; i <=  m; i++) {
 	    if (i == 1) 
-		array = "  " + array;
+		ar = "  " + ar;
 	    else
-		array = array + "\n" + i + " ";
+		ar = ar + "\n" + i + " ";
 	    for (int j=1; j <= n; j++) {
-		array = array + i*j + " ";
+		ar = ar + i*j + " ";
 	    }	    
 	}
-	return array;
+	return ar;
     }
 
 
@@ -45,9 +45,9 @@ public class For {
     public static void main(String[] args) {
 	String s = "Quick brown fox jumped over the lazy dog";
 	For f = new For();
-	System.out.println(f.isPrime(83));
+	System.out.println("83 is prime? " + f.isPrime(83));
 	System.out.println(f.reverse(s));
-	System.out.println(f.table(13,24));
+	System.out.println(f.table(7,8));
     }
 
 
