@@ -12,5 +12,9 @@ public class Driver{
     System.out.println(l2.GCD(3571,3559));
     System.out.println(l2.GCD2(3571,3559));
     System.out.println(l2.isPrime(13));
+<<<<<<< HEAD
+    System.out.println(l2.GCDi(30,15));
+=======
+>>>>>>> 2c243d1a02df60da84ca681443777a361c914081
 }
 }
