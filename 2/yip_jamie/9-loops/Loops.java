@@ -24,7 +24,7 @@ public class Loops{
     }
 
     public int GCD (int a, int b) {
-	int smallernum, biggernum;
+	int smallernum, biggernum, count,GCD;
 	if (a > b) {
 	    smallernum = b;
 	    biggernum = a;
@@ -34,15 +34,27 @@ public class Loops{
 		smallernum = a;
 		biggernum = b;
 	    }
-	
-	if (biggernum % smallernum == 0) {
+	count = smallernum;
+	GCD = 1;
+	while (count != GCD){
+	    if (a % count == 0 && b % count ==0){
+		GCD = count;
+	    }
+	    else count = count -1;
+	}
+	return GCD;
+    }
+    
+
+	/*
+	    if (biggernum % smallernum == 0) {
 	    return smallernum;
 	}
 	else 
 	    {
 		return  GCD(biggernum, (smallernum - 1));
 	    }
-    }
+    }*/
 
     public int GCD2 (int a, int b) {
 	int r, smallernum, biggernum;

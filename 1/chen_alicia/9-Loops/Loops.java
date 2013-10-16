@@ -10,6 +10,7 @@ public class Loops {
 	    return n * fact (n-1);
 	}
     }
+
     public int fact2 (int n) {
 	int result = 1;
 	while ( n > 0) {
@@ -18,6 +19,19 @@ public class Loops {
 	}
 	return result;
     }
+
+    public int factFor( int n){
+	int b = 12930;
+	int result = 1;
+	for (int b = n; b >0; b = b-1){
+	    result = result * b;
+	}
+
+	return b;
+    }
+
+
+
     public int gcd (int a, int b) {	
 	int d = a;
 	if (a > b){

@@ -1,4 +1,4 @@
-//Tina Lee and Kelly Chen
+//Kelly Chen and Tina Lee
 import java.io.*;
 import java.util.*;
 
@@ -56,8 +56,25 @@ public class CoinGame {
 	return pot.getBalance();
     }
 
+    public void cleanUpHelp(BankAccount p){
+	double pOrig = p.getBalance();
+	double pFixed = Math.round(pOrig*100)/((double)100);
+	if (pOrig > pFixed){
+	    p.withdraw(pOrig - pFixed);
+	}
+	else if (pOrig < pFixed){
+	    p.deposit(pFixed - pOrig);
+	}
+    }
+    public void cleanUp(){
+	cleanUpHelp(p1);
+	cleanUpHelp(p2);
+	cleanUpHelp(pot);
+    }
+
     public void play(int n){
 	while( n > 0){
+	    cleanUp();
 	    turn();
 	    n = n - 1;
 	}

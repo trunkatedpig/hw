@@ -13,7 +13,7 @@ public class Coin {
     }
     
     public Coin(int v) {
-	value = v;
+	value = v; 
 	initCoin("Heads",0.5);
     }
     

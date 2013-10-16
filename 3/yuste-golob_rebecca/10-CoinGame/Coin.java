@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class Coin {
     private String face;
     private int tosses;
@@ -6,50 +9,51 @@ public class Coin {
     private int value;
 
     public void initCoin(String f, Double p) {
-face = f;
-tosses=0;
-heads=0;
-prob=p;
+	face = f;
+	tosses=0;
+	heads=0;
+	prob=p;
     }
 
     public Coin(int v) {
-value = v;
-initCoin("Heads",0.5);
+	value = v;
+	initCoin("Heads",0.5);
     }
 
     public Coin() {
-initCoin("Heads",0.5);
+	initCoin("Heads",0.5);
     }
 
 
     public Coin(String f) {
-initCoin(f,0.5);
+	initCoin(f,0.5);
     }
 
     public String getFace() {
-return face;
+	return face;
     }
 
     public boolean equals(Coin other) {
-return face.equals(other.getFace());
+	return face.equals(other.getFace());
     }
 
     public int getValue() {
-return value;
+	return value;
     }
 
     public String toString() {
-return ""+value+" cents";
+	return ""+value+" cents";
     }
 
-    public void flip() {
-	tosses = tosses + 1;
+    public String  flip() {
 	if (prob > Math.random()){
 	    face = "heads";
 	    heads = heads + 1;
 	} else{
 	    face = "tails";
 	}
+	tosses = tosses + 1;
+	return face;
     }
 
 }
