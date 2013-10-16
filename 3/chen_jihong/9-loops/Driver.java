@@ -18,6 +18,7 @@ public class Driver{
 	System.out.println(n.gcd(12,8));
 	System.out.println(n.gcd(50,60));
 	System.out.println(n.gcd(9949, 9767));
+	System.out.println(n.gcdf(12,8));
 	//it takes too long to find the gcd of large number with brute force method
 	System.out.println("GCD 2");
 	System.out.println(n.gcd2(12,8));
