@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-
+//worked with Brian
 public class CoinGame {
     private double pot = 0.0;
     private Coin c1 = new Coin();
