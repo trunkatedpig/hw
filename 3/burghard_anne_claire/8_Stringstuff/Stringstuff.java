@@ -38,4 +38,46 @@ public class Stringstuff {
 	bondname = last + ", " + first + " " + last;
 	return bondname;
     }
+
+    public String piglatinify (String word) {
+	String firstletter;
+	String lastletter;
+	String ending;
+	String wordroot;
+	String endword;
+	String vowels = "aeiou";
+	int length;
+	length = word.length();
+	firstletter = word.substring(0,1);
+	lastletter = word.substring(length-1);
+	if (vowels.contains(firstletter)) {
+	    wordroot = word;
+	    if (vowels.contains(lastletter)) {
+		    ending = "yay";
+		}
+	    else {
+		    ending = "ay";
+		}
+	}
+	else {
+	    wordroot = word.substring(1);
+	    ending = firstletter + "ay";
+	}
+	endword = wordroot + ending;
+	return endword;
+    }
 }
+	    
+
+
+
+
+		 
+
+	    
+		 
+
+		    
+	
+
+

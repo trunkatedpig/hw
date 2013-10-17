@@ -25,4 +25,24 @@ public class StringStuff{
 	return answer;
         }
 
+ public String vowelit(String word){
+	String answer;
+	answer=word + "ay";
+	return answer;
+    }
+
+    public String consonantit(String word){
+	String answer;
+	answer=word.substring(1)+word.substring(0,1)+"ay";
+        return answer;
+    }
+
+    public String PigLatinit(String word){
+	String vowels="aeiouAEIOU";
+	String firstL=word.substring(0,1);
+
+	if (vowels.contains(firstL))
+	    return vowelit(word);
+	else {return consonantit(word);}
+	}
 }
