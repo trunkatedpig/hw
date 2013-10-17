@@ -6,5 +6,6 @@ public class Driver{
 	For x = new For();
 	System.out.println(x.fact(5));
 	System.out.println(x.reverse("Asdf"));
+	System.out.println(x.table(5,8));
     }
 }
