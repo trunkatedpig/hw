@@ -12,7 +12,7 @@ public class Driver {
 	System.out.println(c.gcd(10,2));
 	System.out.println(c.gcd2(3,10));
 	System.out.println(c.isPrime(17));
-	System.out.println(c.gcdloop(10,3));
+	System.out.print(c.gcdloop(10,3));
     }
 }
 	
