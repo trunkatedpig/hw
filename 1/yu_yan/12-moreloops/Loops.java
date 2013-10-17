@@ -32,8 +32,26 @@ public class Loops{
 	    s = "Height/width too low";
 	}
 	else {
-	    
+	    for (int x=1; x <= h; x++){
+		if ((x == 1) || (x == h)){
+		    for (int y=1; y<=w; y++){
+			if ((y == 1) || (y == w))
+			    s = s + "+";
+			else
+			    s = s + "-";
+		    }
+		}
+		else {
+		    for (int y = 1; y<=w; y++){
+			if ((y == 1) || (y == w))
+			    s = s + "|";
+			else
+			    s = s + " ";
+		    }
+		}
+		s = s + "\n";
+	    }
 	}
 	return s;
-    }	    
+    }
 }
