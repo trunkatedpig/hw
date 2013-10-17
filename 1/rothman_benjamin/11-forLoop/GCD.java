@@ -7,7 +7,7 @@ public class GCD {
 
     public int myGCD (int A, int B) {
 
-	for (g = B; ((A % g) != 0 || (B % g) != 0); g = g-1) {
+	for ( g = B; ((A % g) != 0 || (B % g) != 0); g = g-1) {
 
 	    
 
