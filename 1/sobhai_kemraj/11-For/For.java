@@ -7,6 +7,7 @@ public class For {
 	//rewriting of the GCD method in a for loop
 	public int GCD (int a, int b){
 		int r;
+		//Since b is already initialized, it is set to itself
 		for (b=b; b!= 0; b=r){
 			r= a%b;
 			a=b;
@@ -17,6 +18,7 @@ public class For {
 
 	//Question 2, Reverse a string
 	public String Reverse (String s){
+		//This is based on the way we did it in Python
 		String sub,reversed;
 		int place, length;
 
