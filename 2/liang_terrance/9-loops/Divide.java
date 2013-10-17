@@ -11,21 +11,18 @@ public class Divide {
 	    small = b;
 	}
 	else {
-	    big = a;
-	    small = b;
+	    big = b;
+	    small = a;
 	}
     }
    
     public int GCD(int a, int b) {
 	smallBig(a, b);
 
-	if ( big % small == 0){
-	    return small;
-
+	while (big % small != 0) {
+	    small = small - 1;
 	}
-	else {
-	    return GCD(big, small - 1);
-	}
+	return small;
     }
 
     public int GCD2(int a, int b) {
@@ -39,15 +36,18 @@ public class Divide {
 	} 
 	return big;
     }
-
+    
     public boolean isPrime(int n) {
-	if (n <= 1) {
-	    return false;
+	int num = n-1;
+	while (n % num != 0) {
+	    num = num-1;
+	}
+	if (n > 1) {
+	    return (num == 1);
 	}
 	else {
-	    return  (GCD(n, n-1) == 1);
+	    return false;
 	}
-
     }
 
 }

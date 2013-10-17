@@ -17,16 +17,19 @@ public class GCDenominator{
     }
     
     public int GCD2(int a, int b){
+	int r = b;
 	if (a <= b){
 	    return GCD2(b,a);
 	}
-	if (a % b == 0){
-	    return b;
-	}
-	else{
-	    return GCD2(a, (a % b));
+	while (true){
+	    if (a % r == 0){
+		return r;
+	    }
+	    r = (a % r);
 	}
     }
+	   
+
 
     public boolean isPrime(int n){
 	if (n == 2){
