@@ -1,8 +1,4 @@
-public class Lol {
-	public String multiply_String(String s, int x) {
-		return null;
-	}
-	
+public class For {
 	public String diag(int n) {
 		String result = "";
 		for (int i = 1; i <= n; i++) {
@@ -26,16 +22,20 @@ public class Lol {
 	public String fence(int h, int w) {
 		String result = "";
 		for (int i = 1; i <= h; i++) {
+			//first and last row
 			if ((i == 1) || (i == h)) {
 				result += "+";
 				for (int j = 1; j <= w; j++) {result += "-";}
 				result += "+\n";
 			}
+			//the intermediate rows
 			else {
-				result += "-";
+				result += "|";
 				for (int j = 1; j <= w; j++) {result += " ";}
-				result += "-\n";
+				result += "|\n";
 			}
 		}
+		
+		return result;
 	}
 }
