@@ -58,4 +58,7 @@ public class Divide {
 	return small;
     }
 
+    public string reverse(String s) {
+	for (int index = s.length() - 1; index >= 0; 
+    }
 }
