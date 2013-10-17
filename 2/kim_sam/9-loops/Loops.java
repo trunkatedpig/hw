@@ -22,18 +22,41 @@ public class Loops {
 	}
 	return outcome;
     }
-
-    public int GCD(int a, int b) {
-
-	private int c, count = b;
-
-	if (a < b){
-	    c = b;
-	    a = b;
-	    c = a;
-	}
+    
+    public int gcd(int a, int b) {
+	int greater, lesser, count;
 	
-	while (a%count != 0 && b%count != 0) {
-	    count = count - 1;
-	    count
+	if (a > b) {
+	    greater = a;
+	    lesser = b;
+	}
+	else {
+	    greater = b;
+	    lesser = a;
+	    }
+
+    public int gcd2(int a, int b) {
+	int remainder;
+
+	while (b != 0) {
+	    remainder = a%b;
+	    return gcd2(b, remainder);
+	}
+	return a;
+    }
+
+    public boolean isPrime(int n) {
+	int numBelow = n - 1;
+
+	while (numBelow > 1){
+	    if (n%numBelow == 0) {
+		return false;
+	    }
+	    else {
+		numBelow = numBelow - 1;
+	    }
+	}
+	return true;
+    }
+    }
 }

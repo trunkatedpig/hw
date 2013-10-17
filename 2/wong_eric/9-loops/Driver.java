@@ -19,6 +19,15 @@ public class Driver {
 	System.out.println(f2.fact2(10));
 	System.out.println(f2.fact2(8));
 	System.out.println(f2.fact2(5));
+
+	Divide g;
+	g = new Divide();
+
+	System.out.println(g.GCD(25, 15));
+	System.out.println(g.GCD2(25, 15));
+	System.out.println(g.isPrime(97));
+	System.out.println(g.isPrime(91));
+
     }
 
 }

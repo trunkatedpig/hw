@@ -10,6 +10,32 @@ public class Loops {
 			product *= n;
 			n--;
 		}
+		
 		return product;
+	}
+
+	public int GCD(int a, int b) {
+		int gcd = Math.min(a, b);
+		while (!((a % gcd == 0) && (b % gcd == 0))) {gcd--;}
+		
+		return gcd;
+	}
+	
+	public int GCD2(int a, int b) {
+		if (b == 0) {return a;}
+		else {return GCD2(b, a % b);}
+	}
+	
+	public boolean isPrime(int n) {
+		if (n == 1) {return false;}
+		
+		int i = 2;
+		int max = (int) Math.sqrt(n); //casting to int takes the floor
+		while (i <= max) {
+			if (n % i == 0) {return false;}
+			i++;
+		}
+		
+		return true;
 	}
 }
