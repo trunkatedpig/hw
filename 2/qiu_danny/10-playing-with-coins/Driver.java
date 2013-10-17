@@ -5,8 +5,8 @@ public class Driver {
 
     public static void main(String[] args) {
         BankAccount p1, p2;
-        p1 = new BankAccount(1000);
-        p2 = new BankAccount(1000);
+        p1 = new BankAccount("Player 1", 1000);
+        p2 = new BankAccount("Player 2", 1000);
 
         Coin c1, c2;
         c1 = new Coin();
@@ -22,8 +22,8 @@ public class Driver {
             game.play(100);
         }
 
-        System.out.println("Player 1 Money: " + p1.getMoney());
-        System.out.println("Player 2 Money: " + p2.getMoney());
+        System.out.println(p1.getName() + " has $" + p1.getMoney());
+        System.out.println(p2.getName() + " has $" + p2.getMoney());
         System.out.println("Money left in pot: " + game.getPot());
     }
 }

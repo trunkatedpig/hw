@@ -35,9 +35,9 @@ public class Loops {
     public int GCD2L(int a, int b) {
 	while (a != 0 && b != 0)
 	    if (a < b)
-		b = b%a;
+		b = b%a;   //b is bigger
 	    else
-		a = a%b;
+		a = a%b;   //a is bigger
 	
 	return Math.max(a, b);
     }
@@ -45,16 +45,21 @@ public class Loops {
   //Worked with Spencer Weiss on isPrime
 
     public Boolean isPrime(int n) {
+	if (n <= 1)
+	    return false;
+
 	for (int i=2; i<n; i++) {
 	    if (n%i == 0)
 		return false;
 	}
 	return true;
     }
-}
 
-/* While loop version for:
-   public Boolean isPrime(int n) {
+//While loop version for:
+   public Boolean isPrimeL(int n) {
+       if (n <= 1)
+	   return false;
+
        int i = 2;
        while (i < n) {
            if (n%i == 0)
@@ -65,4 +70,15 @@ public class Loops {
       
       return true;
   }
-*/
+
+    public void backwards(String s) {
+	String ans = "";
+
+	for (int i=s.length()-1; i>=0; i--) {
+	    ans = ans + s.substring(i, i+1);
+	}
+
+	System.out.println(ans);
+	//System.out.println(i);  -Does not work, can't find symbol error
+    }
+}
