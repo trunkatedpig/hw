@@ -4,14 +4,16 @@ import java.util.*;
 public class GCD {
     
     public int gcd(int a, int b){
-	int n,d,c;
+	int n,d,c,var;
 	if (b>a){
 	    n = b;
-	    d = a; }
+	    d = a;
+	    var = a;}
 	else {
 	    n = a;
-	    d = b; }
-	while (n%d!=0) {
+	    d = b; 
+	    var = b;}
+	while ((n%d!=0)|| (var%d!=0)) {
 	    d = d - 1;
 	}
 	c = d;

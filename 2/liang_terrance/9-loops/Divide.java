@@ -11,8 +11,8 @@ public class Divide {
 	    small = b;
 	}
 	else {
-	    big = a;
-	    small = b;
+	    big = b;
+	    small = a;
 	}
     }
    

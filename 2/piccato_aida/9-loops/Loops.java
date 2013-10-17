@@ -10,6 +10,15 @@ public class Loops {
 	}
 	return currentNum;
     }
+    
+    public int factFor (int n) {
+	int result = 1;
+	int num;
+	for (num = n; num > 0; num = num - 1) {
+	    result = result * num;
+	}
+	return result;
+    }
 
     public int fact (int n) {
 	if (n == 1 || n == 0) {
@@ -44,6 +53,19 @@ public class Loops {
 	}
 	return a;
     }
+    public int gcdFor (int a, int b) {
+	int lilNum;
+	int bigNum;
+	if (a > b) {
+	    lilNum = b;
+	    bigNum = a;
+	}
+	else {
+	    lilNum = a;
+	    bigNum = b;
+	}
+	int i = lilNum;
+	for (
     public boolean isPrime(int n) {
 	int i = n - 1;
 	while (i > 1) {
