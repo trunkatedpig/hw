@@ -8,5 +8,10 @@ public class Driver{
 	System.out.println(x.fence(50,50));
 	System.out.println(x.fence(1,1));
 	System.out.println(x.fence(3,3));
+	int q = 0;
+	for(q = q; q<10; q++){
+	    System.out.println("la");
+	}
+	System.out.println(q);
     }
 }
