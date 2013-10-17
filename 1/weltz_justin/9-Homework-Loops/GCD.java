@@ -2,7 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class GCD{
-    
+    //worked with Deanna 
+    //helped by Brian
     public int GCD(int a, int b){
         int answer = a;
 	
