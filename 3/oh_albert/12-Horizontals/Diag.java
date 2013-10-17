@@ -18,7 +18,12 @@ public class Diag {
     public String diagWord(String w) {
 	String start="";
 	int counter;
-	String begin;
-	for (s.length(begin)=0
+	String begin="";
+        int b = s.length(begin);
+	for (b=0;b<=s.length(w)-1;b++) {
+	    for (counter=0;counter <= b;counter++) {
+		
+	    }
+	}
     }
 }
