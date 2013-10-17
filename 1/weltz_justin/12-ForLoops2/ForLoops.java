@@ -25,7 +25,7 @@ public class ForLoops{
     }
     public String fence( int h, int w){
 	if ( w < 3 || h < 3)  
-	    return "these dimensions can not be used";
+	    return "these dimensions cannot be used";
 	String answer = "";
 	answer = answer + "*"+ multiplystring("-", w - 2) + "*\n";
 	for(int i = h - 2; i > 0; i--){
