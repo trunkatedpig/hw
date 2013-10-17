@@ -27,6 +27,8 @@ public class Pictures{
     }
 
      public String fence(int b, int h) {
+	 if (b<2||h<2)
+	     return "Invalid input.\n";
 	 String topbottom = "+", middle = "|", ans;
 	 int base = b, height;
 	 while (base > 2) {
