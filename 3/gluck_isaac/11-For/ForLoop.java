@@ -21,44 +21,22 @@ public class ForLoop {
     }
 
     public String table(int n, int m) {
-	String r = "";
+	String result = "";
 
 	for(int i=1; i<=n; i++) {
-	    r = r+i+" ";
+	    result = result + i+ " ";
 	}
 
-	r = r+"\n";
+	result = result + "\n";
 
 	for (int k=1; k<=m; k++) {
-	    r = r + k + " ";
+	    result = result + k + " ";
 
-	    for (int j=1;j<=n;j=j++) {
-		r = r+(j*k)+" ";
+	    for (int j=1;j<=n;j++) {
+		result = result + (j*k) + " ";
 	    }
-	    r = r+"\n";
+	    result = result + "\n";
 	}
-	return r;
-    }
-
-
-    /*public String table(int n, int m) {
-        String r="  ";
-        
-        //first row
-        for (int j=1; j<=n; j++) {
-            r=r+j+" ";
-        }   
-        r=r+"\n";
-        
-        //all the other rows
-        for (int i=1; i<=m; i++) {
-            r=r+i+" ";
-            for (int j=1; j<=n; j++) {
-                r=r+(i*j)+" ";
-            }
-            r=r+"\n";
-	}
-
-        return r;
-	}*/
+	return result;
+	} 
 }
