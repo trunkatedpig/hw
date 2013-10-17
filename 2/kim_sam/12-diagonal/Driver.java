@@ -7,5 +7,6 @@ public class Driver {
 	diagonal d = new diagonal();
 	System.out.println(d.diag(5));
 	System.out.println(d.diagWord("Supercalifragilisticexpialadocious"));
+	System.out.println(d.fence(10, 12));
     }
 }

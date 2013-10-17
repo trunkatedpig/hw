@@ -36,31 +36,29 @@ public class diagonal {
 	int i;
 	String result = "";
 	
-	result = result + "+" //Initial fence post
+	result = result + "+"; //Initial fence post
 	
-	for (i = 0; i != w; i++){
+	    for (i = 0; i != w; i++){
 		result = result + "=";
-	}
+	    }
 	
-	result = result + "+\n"
+	result = result + "+\n";
 	
-	for (i=0; i != h; i++) { //adding rows of fence
-		result = result + "|" +
+	    for (i=0; i != h; i++) { //adding rows of fence
+		result = result + "|";
 		for (i = 0; i != w; i++){ //add correct number of spaces
-			result = result + " ";
+		    result = result + " ";
 		}
 		result = result + "|/n";
-	}
-	
-	
+	    }
+   	
 	for (i = 0; i != w; i++){ //bottompart
-		result = result + "=";
+	    result = result + "=";
 	}
 	
-	result = result + "+\n"
-	
-	}
-	}
-	
-	
+	result = result + "+";
+	return result;
+	    }
 }
+
+       
