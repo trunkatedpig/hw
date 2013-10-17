@@ -30,9 +30,37 @@ public class diagonal {
 	}
 	return result;
     }
+    
     //for loop
     public String fence(int h, int w) {
 	int i;
 	String result = "";
+	
+	result = result + "+" //Initial fence post
+	
+	for (i = 0; i != w; i++){
+		result = result + "=";
+	}
+	
+	result = result + "+\n"
+	
+	for (i=0; i != h; i++) { //adding rows of fence
+		result = result + "|" +
+		for (i = 0; i != w; i++){ //add correct number of spaces
+			result = result + " ";
+		}
+		result = result + "|/n";
+	}
+	
+	
+	for (i = 0; i != w; i++){ //bottompart
+		result = result + "=";
+	}
+	
+	result = result + "+\n"
+	
+	}
+	}
+	
 	
 }
