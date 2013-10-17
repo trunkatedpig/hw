@@ -27,17 +27,20 @@ public class Pictures{
     }
 
      public String fence(int b, int h) {
-	 String ans = "", firstlast = "+", temp = "", middle = "";
-	 int base = b;
-	 while(base>2) {
-	     temp = temp + "-";
-	     base--;
+	 String topbottom = "+", middle = "|", ans;
+	 int base = b, height;
+	 while (base > 2) {
+	     topbottom = topbottom + "-";
+	     middle = middle + " ";
+	     base = base - 1;
 	 }
-	 firstlast = firstlast + temp + firstlast + "\n";
-	 temp = "|" + addSpaces(b-2) + temp + "\n";
-	 for(h;h>2;h--)
-	     middle = middle + temp;
-	 return firstlast + middle + firstlast;
+	 topbottom = topbottom + "+\n";
+	 middle = middle + "|\n";
+	 ans = topbottom;
+	 for(height = h; height > 2; height--)
+	     ans = ans + middle;
+	 ans = ans + topbottom;
+	 return ans;
      }
 
 }
