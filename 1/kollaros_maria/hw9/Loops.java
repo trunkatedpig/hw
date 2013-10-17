@@ -18,28 +18,65 @@ public class Loops{
 	return answer;
     }
 
-    //worked with Sappha for the rest here
     public int GCD(int a, int b) {
-	if (a<b) {
-	    while (a > 0) {
-		if ((b % a) == 0) {
-		    return a;
-		}
-		else
-		    a = a - 1;
-	    }
-	}
+	int g = 0;
+	if (a < b)
+	    g = a;
 	else
-	    return GCD(b,a);
+	    g = b;
+	while ((b % g) != 0 || (a % g) != 0)
+		g = g - 1;
+	return g;
     }
 
-    public int GCD2(int a, int b) {
+    //worked with Justin Weltz on this part
+    public int GCD3(int a, int b){
+	int g = 0;
+	if (a < b)
+	    g = a;
+	else 
+	    g = b;
+	for (g = g;(b % g) != 0 || (a % g) != 0; g =g -1){
+	}
+	return g;
+    }
+		
+    //worked with Sapphea for this part
+     public int GCD2(int a, int b) {
 	if (b == 0) {
 	    return a;
 	}
 	else
-	    return GCD(b, (a % b));
+	    return GCD2(b, (a % b));
+     }
+
+    //got help from Andrew and Spencer for this part
+    public int GCD2L(int a, int b){
+	while (a != 0 && b!= 0)
+	    if (a < b)
+		b = b % a;
+	    else 
+		a = a % b;
+	return Math.max(a,b);
     }
+
+    //worked with Sapphea on this part- mostly Sapphea
+    public boolean isPrime(int n){
+	if (n == 1)
+	    return false;
+	else{
+	    double a = 2;
+	    boolean b = true;
+	    while (a < Math.sqrt(n)) {
+		if ((n % a) == 0) {
+		    b = false;
+		    a = Math.sqrt(n);
+		}
+		else 
+		    a = a + 1;
+	    }
+	    return b;
+	}
+    }
+
 }
-		
-		

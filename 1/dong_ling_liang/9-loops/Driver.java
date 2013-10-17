@@ -16,7 +16,7 @@ public class Driver{
 	GCD b = new GCD();
 	System.out.println("GCD TESTING BELOW");
 	System.out.println(b.gcd(5, 5) + " should be 5");
-	System.out.println(b.gcd(100, 80) + " 20");
+	System.out.println(b.gcd(80, 100) + " 20");
 	System.out.println(b.gcd(373, 727) + " 1");
 	System.out.println(b.gcd2(5, 5) + " should be 5");
         System.out.println(b.gcd2(100, 80) + " 20");

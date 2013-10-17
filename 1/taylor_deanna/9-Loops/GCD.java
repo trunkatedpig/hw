@@ -4,26 +4,35 @@ import java.util.*;
 public class GCD{
     
     public int GCD(int a, int b){
-        int answer;
-        while  (a > 0){
-	    if (b%a == 0){
-		a = a;
+        int answer = a;
+	
+	while  (answer > 0){
+	    if (b%answer == 0 && a%answer == 0 ){
+		//answer = a;
+		return answer;
 	    }
 	    else {
-		a = a-1;
+		answer = answer-1;
 	    }
 	}
-    return a;
+	return answer;
+	
+	
+    
     }
 
     public int  GCD2(int a, int b){
+	//int answer = a;
 	while (a > 0){
 	    if (b == 0){
-		a = a;
+		
+		return a;
 	    }
 	    else {
+		int t= a; 
 		a = b;
-		b = a%b;
+		b = t%b;
+		//answer = answer - 1;
 	    }
 	}
 	return a;
