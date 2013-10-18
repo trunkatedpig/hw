@@ -31,27 +31,26 @@ public class For {
 	String result = "";
 	int acount, bcount;
 
-	for (bcount = 0; bcount < b; bcount ++) {
-	    for (acount = 0; acount < a; acount ++) {
-		if ((bcount == 0) || (bcount == b - 1)) {
-		    if ((acount == 0) || (acount == a - 1)) {
+	for (bcount = 1; bcount <= b; bcount ++) {
+	    for (acount = 1; acount <= a; acount ++) {
+		if ((bcount == 1) || (bcount == b)) {
+		    if ((acount == 1) || (acount == a)) {
 			result = result + "+";
 		    }
 		    else {
 			result = result + "-";
 		    }
-		    result = result + "\n";
 		}
 		else {
-		    if ((acount == 0) || (acount == a - 1)) {
+		    if ((acount == 1) || (acount == a)) {
 			result = result + "|";
 		    }
 		    else {
 			result = result + " ";
 		    }
-		    result = result + "\n";
 		}
 	    }
+	    result = result + "\n";
 	}
 	return result;
     }
