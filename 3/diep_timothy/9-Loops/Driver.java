@@ -26,6 +26,10 @@ public class Driver {
 	System.out.println(f1.IsPrime(79));
 	System.out.println(f1.IsPrime(1213));
 
+	System.out.println(f1.IsPrime(18));
+	System.out.println(f1.IsPrime(2));
+	System.out.println(f1.IsPrime(79));
+	System.out.println(f1.IsPrime(1213));
 	
     }
 }
