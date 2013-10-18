@@ -24,10 +24,10 @@ public class Driver {
 	//System.out.println(b.gcd2(2500,500));
 	//System.out.println(b.gcd2(2500,500));
 	//System.out.println(c.gcd2(7919,5413));
-	//System.out.println(b.gcd(7919,5413));
-	//System.out.println(c.gcd2(7919,5413));
-	System.out.println(a.isPrime(5413));
-	System.out.println(b.isPrime(54));
+	System.out.println(b.gcd(7919,5413));
+	System.out.println(c.gcd2(7919,5413));
+	//System.out.println(a.isPrime(5413));
+	//System.out.println(b.isPrime(54));
 	System.out.println("<--------------------------------------------->");
 	
 	
