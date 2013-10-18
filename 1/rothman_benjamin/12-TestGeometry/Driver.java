@@ -7,7 +7,9 @@ public class Driver {
 
 	Geometry g = new Geometry ();
 
+	System.out.println (g.diag (0) );
 	System.out.println (g.diag (5) );
+	System.out.println (g.diag (7) );
 
     }
 
