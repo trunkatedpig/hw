@@ -27,6 +27,8 @@ public class Moreloops{
 	return fin;
     }
 
+
+    // Why is this code not working? It thinks & thinks forever!
     public String Fence(int h, int w){
 
 	String spaces = "";		
