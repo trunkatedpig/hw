@@ -33,15 +33,7 @@ public class Loops {
 	else {
 	    greater = b;
 	    lesser = a;
-	}
-
-	count = lesser;
-
-	while (greater%count != 0 || lesser%count !=0) {
-	    count = count - 1;
-	}
-	return count;
-    }
+	    }
 
     public int gcd2(int a, int b) {
 	int remainder;
@@ -65,5 +57,6 @@ public class Loops {
 	    }
 	}
 	return true;
-    } 
+    }
+    }
 }
