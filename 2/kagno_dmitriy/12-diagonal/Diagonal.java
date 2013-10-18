@@ -23,7 +23,6 @@ public class Diagonal{
     }
     
     public String fence(int h,int w){
-	String middle = "|";
 	String top = "+";
 	String result = "";
 	for (int p = 1; p < w-1; p++){
@@ -38,5 +37,8 @@ public class Diagonal{
 	    }
 	    result += "|\n";
 	}
-    }	
+    	result += top;
+	return result;
+    }
+
 }
