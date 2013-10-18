@@ -16,14 +16,19 @@ public class Diag {
     }
 
     public String diagWord(String w) {
-	String start="";
-	int counter;
-	String begin="";
-        int b = s.length(begin);
-	for (b=0;b<=s.length(w)-1;b++) {
+	int counter,b;
+        String begin = "";
+	for (b=0;b <= w.length()-1;b++) {
 	    for (counter=0;counter <= b;counter++) {
-		
+		begin = begin + " ";
 	    }
+	    begin = begin + w.substring(b,b+1) + "\n";
 	}
+	return begin;
     }
+
+    public String fence(int h,int w) {
+	
+    }
+	
 }
