@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class pants{
+public class For{
 
     public String diag(int i){
         int n;
