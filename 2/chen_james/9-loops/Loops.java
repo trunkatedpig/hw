@@ -57,13 +57,13 @@ public class Loops {
 		return greater;
 	}
 	
-	public boolean isPrime (int n) {
+    /*	public boolean isPrime (int n) {
 		
 		 if (n <= 1)
 		 return false;
 		 if (n ==2) 
 		 return true;
-		// int counter = n;
+		
 		 int num = n;
 		 while (n > 1) {
 		 if (gcd2(num,n)!=0)
@@ -71,14 +71,13 @@ public class Loops {
 		 else {
 		 return false;
 		 }
-		 
+    */	 
 		
 			
 		 
 			
 		
 		
-	}
-	
+       	
 }
 
