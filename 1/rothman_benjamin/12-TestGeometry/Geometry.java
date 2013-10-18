@@ -4,26 +4,32 @@ import java.io.*;
 public class Geometry {
 
     private String diagonal;
+<<<<<<< HEAD
+=======
     private String asterisk;
     private String fencer;
 
 
+>>>>>>> 48a102705269d532ee436cc0bb1b839206d21d23
 
     public String diag (int n) {
 
-	diagonal = "";
-	asterisk = "*";
-
 	for (int i = 1; i <= n; i++) {
 
+<<<<<<< HEAD
+	    diagonal = "*" + "\n";
+
+	    /*	    for (int e = 0; e <= i; e++ ) {
+=======
 
 	    for (int e = 1; e < i; e ++ ) {
+>>>>>>> 48a102705269d532ee436cc0bb1b839206d21d23
 
 		diagonal = diagonal + " ";
 
 		 
 
-	}
+		}*/
 
 	    diagonal = diagonal + asterisk + "\n";
 
