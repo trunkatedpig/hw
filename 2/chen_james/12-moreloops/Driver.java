@@ -6,6 +6,6 @@ public class Driver{
 	Moreloops m = new Moreloops();
 	//System.out.println(m.makeEndRow(5,8));
 	//System.out.println(m.makeMidRow(5,8));
-	System.out.println(m.fence(5,8));
+	System.out.println(m.fence(2,8));
     }
 }

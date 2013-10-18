@@ -60,6 +60,9 @@ public class Moreloops {
 	
 	
 	public String fence(int h, int w) {
+		if (h <=2 || w<=2) {
+			return "cannot do this";
+		}
 		this.makeMidRow(h,w);
 		this.makeEndRow(h,w);
 		String result=end;
