@@ -40,12 +40,12 @@ public class Loops {
     public int gcd2(int a, int b) {
 	int max = Math.max(a,b);
 	int min = Math.min(a,b);
-	if (min == 0) {
-	     answer = max;
-	} else {
-	    gcd2(min, max%min);
-	} 
-	return answer;
+	while (min != 0) {
+	     answer = max%min;
+	     max = Math.max(answer, min);
+	     min = Math.min(answer, min);
+	}     
+	return max;
     }
 
     public boolean IsPrime(int n) {
@@ -57,6 +57,13 @@ public class Loops {
 	}
 	return true;
     }	       
+    
+    public boolean IsPrimef(int n) {
+	for (int l=2;n%l==0;l++) {
+	    return false;
+	}
+	return true;
+    }
 }
 
 	    

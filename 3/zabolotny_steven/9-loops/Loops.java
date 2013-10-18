@@ -72,4 +72,22 @@ public class Loops {
 	    count = count + 1;}
 	return count;
     }
+
+
+    //DAY 3
+    public int gcdfor(int a,int b) {
+	for (int i = Math.min(a,b);i > 1;i = i - 1) {
+	    if (a%i == 0 && b%i == 0) {
+		return i;
+		    }
+	}
+	return 1;
+    }
+    public String reverse(String s) {
+	String r = "";
+	for (int i = s.length();i >= 0;i = i - 1) {
+	    r = r + s.substring(i);
+	}
+	return r;
+    }
 }

@@ -32,6 +32,10 @@ public class Loops {
     }
 
     public int gcd2(int a, int b) {
+	if (a==0) {
+	    a=b;
+	    b=a;
+	}
 	while (b != 0) {
 	    int r = a%b;
 	    return gcd2(b,r);
