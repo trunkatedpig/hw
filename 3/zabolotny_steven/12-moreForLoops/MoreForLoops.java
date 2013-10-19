@@ -25,12 +25,16 @@ public class MoreForLoops {
 	String fence = "";
 	for (int height=0;height<h;height++) {
 		for (int length=0;length<l;length++) {
+		    //Corners
 		    if ((height==h-1 && length==0) || (height==h-1 && length==l-1) || (height==0 && length==l-1) || (height==0 && length==0)) {
 			fence = fence + "+";}
+		    //Columns
 		    else if (length == 0 || length == l-1) {
 			fence = fence + "|";}
+		    //Rows
 		    else if (height==0 || height==h-1) {
                         fence = fence + "-";}
+		    //Inside
 		    else {
 			fence = fence + " ";}
 		}
