@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Rational {
     private int a,b;
-    /*
+
     public Rational(int a, int b) {
 	this.a=a; // a is numerator
 	this.b=b; // b is denominator
@@ -28,28 +28,6 @@ public class Rational {
 	this.reduce();
 	other.reduce();
 	return (this.a == other.a && this.b == other.b);
-    }
-    */
-public Rational(int num, int den) {
-        a = num;
-        b = den;
-        reduce();
-    }
-
-    public int gcd(int a, int b) {
-        if (b == 0)
-            return a;
-        else
-            return gcd(b, a % b);
-    } 
-
-    public void reduce() {
-        a = a / gcd(a, b);
-        b = b / gcd(a, b);
-    }
-
-    public boolean equals(Rational other) {
-        return (this.a == other.a && this.b == other.b);
     }
 
     public int getNum() {
