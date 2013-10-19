@@ -4,15 +4,17 @@ public class GCD {
 	public int gcd1(int a, int b){
 		int greater;
 		int less;
-		if (a > b)
+		if (a > b){
 			greater = a;
 			less = b;
-		else if (b > a)
+		}
+		else if (b > a){
 			greater = b;
 			less = a;
-		else
+		}
+		else{
 			return a;
-
+		}
 		while (greater % less != 0){
 			less = less - 1;
 		}
@@ -37,13 +39,14 @@ public class GCD {
 
 
 
-	public int isPrime(int n){
+	public boolean isPrime(int n){
 		while (n > 1){
 			if (n % (n - 1) == 0){
-				return n;
+				return false;
 			}
 			else
 				n = n - 1;
-		}		
+		}
+		return true;
 	}
 }
