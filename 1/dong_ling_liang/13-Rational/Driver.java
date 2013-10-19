@@ -7,6 +7,6 @@ public class Driver {
 	System.out.println(a.mult(b));
 	System.out.println(a.compareTo(b));
 	
-	System.out.println("Should be false, 60/102, and 1");
+	System.out.println("Should be false, rational representing 60/102, and 1");
     }
 }
