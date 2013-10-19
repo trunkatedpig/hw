@@ -49,12 +49,14 @@ public class Loops {
 	String ans = "";
 	String spaces = help(w - 2, " ");
 	String dashes = help(w - 2, "-");
-	for (int a = 0;a<h;a++){
-	    if (a == 0 || a == h - 1)
-		ans = ans + "+" + dashes + "+";
-	    else
-		ans = ans + "|" + spaces + "|";
-	    ans = ans + "\n";
+	if (h>1 && w>1){
+	    for (int a = 0;a<h;a++){
+		if (a == 0 || a == h - 1)
+		    ans = ans + "+" + dashes + "+";
+		else
+		    ans = ans + "|" + spaces + "|";
+		ans = ans + "\n";
+	    }
 	}
 	return ans;
     }
