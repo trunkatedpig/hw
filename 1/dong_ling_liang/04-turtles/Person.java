@@ -6,15 +6,15 @@ public class Person {
     private Turtle turtle;
 
     public Person(String n){
-	name=n;
+        name=n;
     }
     public void setTurtle(Turtle t){
-	turtle = t;
+        turtle = t;
     }
     public Turtle getPet(){
-	return turtle;
+        return turtle;
     }
     public int getTurtleSpeed(){
-	return turtle.getspeed();
+        return turtle.getspeed();
     }
 }

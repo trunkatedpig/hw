@@ -85,6 +85,7 @@ public class Loops {
 	}
     }
 
+    //isPrime using while loop
     public boolean isPrime(int n) {
 	int divisor;
 	divisor = n-1;
@@ -99,4 +100,14 @@ public class Loops {
 	return (divisor == 1);
     }
 
+    //isPrime using for loop
+    public boolean isPrimeFor(int n) {
+	int divisor;
+	for (divisor = n-1; n%divisor != 0; divisor -= 1) {
+	    return (divisor == 1);
+	}
+	return (divisor == 1);
+    }
+
 }
+
