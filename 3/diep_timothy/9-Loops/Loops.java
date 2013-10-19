@@ -57,6 +57,13 @@ public class Loops {
 	}
 	return true;
     }	       
+    
+    public boolean IsPrimef(int n) {
+	for (int l=2;n%l==0;l++) {
+	    return false;
+	}
+	return true;
+    }
 }
 
 	    

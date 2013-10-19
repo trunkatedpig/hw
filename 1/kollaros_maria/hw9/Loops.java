@@ -28,6 +28,18 @@ public class Loops{
 		g = g - 1;
 	return g;
     }
+
+    //worked with Justin Weltz on this part
+    public int GCD3(int a, int b){
+	int g = 0;
+	if (a < b)
+	    g = a;
+	else 
+	    g = b;
+	for (g = g;(b % g) != 0 || (a % g) != 0; g =g -1){
+	}
+	return g;
+    }
 		
     //worked with Sapphea for this part
      public int GCD2(int a, int b) {
