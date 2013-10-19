@@ -30,9 +30,55 @@ public class diagonal {
 	}
 	return result;
     }
-    //for loop
+    //while loop
     public String fence(int h, int w) {
-	int i;
+	int i = 0;
+	int j = 0;
 	String result = "";
-	
+	while (i == 0) {
+	    if (j == 0) {
+		result = result + "+";
+		j++;
+	    }
+	    else if (j == w) {
+		result = result + "+\n";
+		j = 0;
+		i++;
+	    }
+	    else if (j < w && j != 0) {
+		result = result + "-";
+		j++;
+	    }
+	}
+	while (i < h && i != 0) {
+	    if (j == 0) {
+		result = result + "|";
+		j++;
+	    }
+	    else if (j == w) {
+		result = result + "|\n";
+		j = 0;
+		i++;
+	    }
+	    else if (j < w && j != 0) {
+		result = result + " ";
+		j++;
+	    }
+	}
+	while (i == h) {
+	    if (j == 0) {
+		result = result + "+";
+		j++;
+	    }
+	    else if (j == w) {
+		result = result + "+";
+		i++;
+	    }
+	    else if (j < w && j != 0) {
+		result = result + "-";
+		j++;
+	    }
+	}
+	return result;
+    }
 }
