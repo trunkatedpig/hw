@@ -8,6 +8,8 @@ public class Driver {
 	System.out.println(l.reverse("Hello my name is Rushil"));
 	System.out.println(l.reverse("Good bye"));
 	*/
-	System.out.println(l.table (3,1));
+	System.out.println(l.table (5,3));
+	String s = "Hello" + "\n" + "Bye";
+	System.out.println(s + " Rushil");
     }
 }
