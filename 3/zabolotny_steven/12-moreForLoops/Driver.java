@@ -3,5 +3,6 @@ public class Driver {
 	MoreForLoops m = new MoreForLoops();
 	System.out.println(m.diag(5));
 	System.out.println(m.diag("Hello"));
+	System.out.println(m.fence(5,8));
     }
 }
