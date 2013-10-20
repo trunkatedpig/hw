@@ -9,6 +9,10 @@ public class Rational {
 		a = numerator;
 		b = denominator;
 	}
+	public Rational() {
+		a = 0;
+		b = 1;
+	}
 	
 	public void seta(int numerator) {
 		a = numerator;
@@ -39,12 +43,7 @@ public class Rational {
 	}
 	
 	public boolean equals(Rational other) {
-		if (this.b == 0 || other.b == 0) {
-			return null;
-		}
-		else {
-			return ((this.a/this.b) == (other.geta()/other.getb()));
-		}
+		return ((this.a/this.b) == (other.geta()/other.getb()));
 	}
 	public Rational mult(Rational other) {
 		int newa = this.a * other.geta();
@@ -56,7 +55,7 @@ public class Rational {
 	
 	public int compareTo(Rational other) {
 		if (this.b == 0 || other.b == 0) {
-			return null;
+			throw new IllegalArgumentException("undefined");
 		}
 		else {
 			return ((this.a/this.b) - (other.geta()-other.getb()));
