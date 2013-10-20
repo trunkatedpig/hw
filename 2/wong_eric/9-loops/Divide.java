@@ -50,4 +50,15 @@ public class Divide {
 	}
     }
 
+    //rewriting GCD using for loop
+    public int GCDfor(int a, int b) {
+	smallBig(a, b);
+	for( ; big%small != 0; small --) {
+	}
+	return small;
+    }
+
+    public string reverse(String s) {
+	for (int index = s.length() - 1; index >= 0; 
+    }
 }
