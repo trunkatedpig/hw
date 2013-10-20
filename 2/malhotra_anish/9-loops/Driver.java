@@ -17,6 +17,15 @@ public class Driver {
 	System.out.println(x.fact(5));
 	System.out.println(z.fact2(5));
 	System.out.println("<--------------------------------------------->");
+	GCD a = new GCD();
+	GCD b = new GCD();
+	GCD c = new GCD();
+	//System.out.println(b.gcd2(2500,500));
+	//System.out.println(b.gcd2(2500,500));
+	//System.out.println(c.gcd2(7919,5413));
+	System.out.println(b.gcd1(7919,5413));
+	System.out.println(c.gcd2(7919,5413));
+	System.out.println(b.isPrime(17));
 	
 	
 	
