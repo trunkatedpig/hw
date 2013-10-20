@@ -32,7 +32,7 @@ public class Driver {
 	System.out.println(r6.mult(r1).getNum()+ "/"+
 			   r6.mult(r1).getDen());
 
-	//resting compareTo
+	//testing compareTo
 	System.out.println(r.compareTo(r1));
 	System.out.println(r1.compareTo(r2));
 	System.out.println(r2.compareTo(r3));
