@@ -7,8 +7,9 @@ public class Driver {
 	//System.out.println(l.fact(0));
 	//System.out.println(l.fact(5));
 	//System.out.println(l.fact(10));
-	System.out.println(l.gcd(541,331));
-	System.out.println(l.gcd2(541,331));
-	System.out.println(l.isPrime(6521376));
+	//System.out.println(l.gcd(541,331));
+	//System.out.println(l.gcd2(541,331));
+	//System.out.println(l.isPrime(6521376));
+	System.out.println(l.factFor(4));
     }
 }
