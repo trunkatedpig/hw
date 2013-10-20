@@ -31,8 +31,8 @@ public class For{
 	    else {
 		topandbottom += "-";
 	    }
-	    topandbottom += "\n";
 	}
+	topandbottom += "\n";
 	for (acount = 1; acount <= a; acount++){
 	    if (acount == 1 || acount == a) {
 		sides += "|";
@@ -40,8 +40,8 @@ public class For{
 	    else {
 		sides += " ";
 	    }
-	    sides += "\n";
 	}
+	sides += "\n";
 	for (bcount = 1; bcount <= b; bcount++) {
 	    if (bcount == 1 || bcount == b) {
 		result += topandbottom;

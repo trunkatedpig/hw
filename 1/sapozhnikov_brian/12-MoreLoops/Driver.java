@@ -7,5 +7,7 @@ public class Driver {
 	System.out.println(L.diag(3));
 	System.out.println(L.diag(5));
 	System.out.println(L.diagWord("hello"));
+	System.out.println(L.fence(15,8));
+	System.out.println(L.fence(2,2));
     }
 }
