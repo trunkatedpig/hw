@@ -53,5 +53,19 @@ public class Rational {
 	Rational r = new Rational(newNum, newDen);
 	return r;
     }
-    
+
+    public int compare(Rational other) {
+	this.reduce();
+	other.reduce();
+	
+	if (this.equals(other))
+	    return 0;
+	
+	double t =  this.getNum()/this.getDen();
+	double o = other.getNum()/other.getDen();
+	if (t > 0)
+	    return 1;
+	else
+	    return -1;
+    }
 }
