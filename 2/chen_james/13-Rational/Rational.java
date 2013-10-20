@@ -5,12 +5,12 @@ public class Rational {
 
 private int a;
 private int b;
-private double result;
+//private double result;
 
-public Rational(int x, int z) {
-	a = x;
-	b = z;
-	result = x / z;
+public Rational(int a, int b) {
+	this.a = a;
+	this.b = b;
+	reduce();
 }
 
 public int gcd(int a,int b) {
@@ -21,7 +21,7 @@ public int gcd(int a,int b) {
 	} 
 }
     
-//not sure how to implement this	
+
 public void reduce() {
 	a = a / gcd(a,b);
 	b = b / gcd(a,b);
@@ -31,19 +31,15 @@ public void reduce() {
 
 public boolean equals(Rational other) {
 	
-	 if (result==other.result)
-            return true;
-        else {
-            return false;
-			}
+	 return (other.a == this.a && other.b == this.b);
 }
 /*create and return a new Rational that is the result of multiplying other and this. 
 For example if the two rational numbers were 4/3 and 1/2 the 
 mult routine would create a new Rational number representing 4/6 (or 2/3 when reduced). */
 
  public Rational mult(Rational other){
-        int c = a * other.a;
-        int d = b * other.b;
+        int c = this.a * other.a;
+        int d = this.b * other.b;
         Rational newresult = new Rational(c,d);
         return newresult;
 }
@@ -52,14 +48,9 @@ mult routine would create a new Rational number representing 4/6 (or 2/3 when re
  a positive value if this represents a rational
  number greater than the one represented by other and 
  a negative number is returned otherwise. */
- public int compareTo(Rational other){
-        if (this.equals(other))
-            return 0;
-        else {
-            if (result > other.result)
-                return 1;
-            else {
-                return -1;}}}
+ //public int compareTo(Rational other){
+     //   double one,two;
+		
 }
 
 
