@@ -26,22 +26,29 @@ public class ForLoops{
 	}
     public String Reverse(String s){
 	String n = "";
-        for (int len = s.length()-1; len > 0; len--){
-	    n = n + s.substring((len-1), len);
+        for (int len = s.length(); len > 0; len--){
+	    n = n + s.substring(len-1 , len);
 	    }
 	    return n;
 	}
     public String table(int n, int m){
         String  Final = "";
-	int c = 0;
-	for (int c ; c < (m+1); c++){
-	    for (int j = 1; j < (nm + 1); j+c){
-		Final = Final + "" + j + " ";
+	for (int c = 0; c <= m; c++){
+	    if (c != 0){
+		Final = Final + c + " ";
 	    }
-	    return Final;
-       	}
-	return "\n";
+	    for (int v=1; v <= n; v++){
+		if (c==0){
+		    Final = Final+ v + " ";
+		}
+		else{
+		    Final = Final + c*v + " ";
+		}
 	    }
+	    Final = Final + "\n";
+	}
+	return Final;
+    }
     
 }	
 		  
