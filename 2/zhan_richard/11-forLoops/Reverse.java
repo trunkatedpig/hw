@@ -8,7 +8,41 @@ public class Reverse{
 	return true;
     }
     public String reverse(String s){
-	result = "";
+	String result = "";
 	for (int l=s.length();l>=0;l--){
-	    result += s.substring(l,l+1);
+	    if (l == s.length()){
+		result += s.substring(l);
+	    }
+	    else{
+		result += s.substring(l,l+1);
+	    }
+	}
+	return result;
+    }
+    public String table(int n, int m){
+	//odd table
+	String result="";
+	for (int i = 1 ;i<=n;i++){
+	    result = result + i;
+	    if (i!=n){
+		result = result + " ";
+	    }
+	    else{
+		result = result + "\n";
+	    }
+	}
+       	for (int j = 1;j<=m;j++){
+	    result = result + j + " ";
+	    for (int k = 1;k<=n;k++){
+		result = result + (k*j);
+		if (k!=n){
+		    result = result + " ";
+		}
+		else{
+		    result = result + "\n";
+		}
+	    }
+	}
+	return result;
+    }
 }

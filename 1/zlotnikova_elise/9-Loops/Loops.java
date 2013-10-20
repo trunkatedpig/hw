@@ -35,7 +35,7 @@ public class Loops {
 	int x = s;
 	while (l%x != 0 || s%x != 0)
 	    x = x - 1;
-	return x;
+	return x;x
     }
 
     public int GCD2(int A, int B) {
