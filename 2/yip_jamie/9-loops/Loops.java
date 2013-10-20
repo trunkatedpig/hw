@@ -14,7 +14,8 @@ public class Loops{
 	    }
     }
 
-    public int fact2(int n){
+    /*   While Loop
+	 public int fact2(int n){
 	result = 1;
 	while (n >= 1){
 	    result = result * n;    
@@ -23,6 +24,15 @@ public class Loops{
 	return result;
     }
 
+    */
+
+    //For Loop
+    public int fact2 (int n){
+	for (result = 1;n>=1; n=n-1){
+	    result = n * result;
+	}
+	return result;
+    }
     public int GCD (int a, int b) {
 	int smallernum, biggernum, count,GCD;
 	if (a > b) {
