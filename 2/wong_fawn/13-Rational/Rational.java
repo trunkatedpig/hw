@@ -24,10 +24,7 @@ public class Rational {
 		return this.quotient == other.quotient;
 	}
 	public Rational mult(Rational other) {
-		int x = this.a * other.a;
-		int y = this.b * other.b;
-		Rational r = new Rational(x,y);
-		return r;
+		return r = Rational(this.a * other.a , this.b * other.b);
 	}
 	public int compareTo(Rational other){
 		if (this.quotient > other.quotient){
