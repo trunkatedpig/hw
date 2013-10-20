@@ -39,7 +39,12 @@ public class Rational {
 	}
 	
 	public boolean equals(Rational other) {
-		return ((this.a/this.b) == (other.geta()/other.getb()));
+		if (this.b == 0 || other.b == 0) {
+			return null;
+		}
+		else {
+			return ((this.a/this.b) == (other.geta()/other.getb()));
+		}
 	}
 	public Rational mult(Rational other) {
 		int newa = this.a * other.geta();
@@ -50,7 +55,12 @@ public class Rational {
 	}
 	
 	public int compareTo(Rational other) {
-		//in progress
+		if (this.b == 0 || other.b == 0) {
+			return null;
+		}
+		else {
+			return ((this.a/this.b) - (other.geta()-other.getb()));
+		}
 	}
 	
 	
