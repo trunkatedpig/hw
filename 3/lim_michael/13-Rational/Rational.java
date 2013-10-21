@@ -14,9 +14,10 @@ public class Rational {
 	    n = a;
 	    d = b;
 	} else {
+	    System.out.println("Error: Denominator is set to 0: Input = " + a + "/" + b + "\n Default values will be stored instead.");
 	    n = 1;
 	    d = 1;
-	    System.out.println("Error: Denominator is set to 0.");
+
 	}
     }
 
@@ -41,6 +42,18 @@ public class Rational {
 	return d;
     }
 
+    public void setN(int a) {
+	n = a;
+    }
+
+    public void setD(int b) {
+	if (b != 0) {
+	    d = b;
+	} else {
+	    System.out.println("Error: Denominator is set to 0: Input = " + b + "\n New denominator will not be stored.");
+	} 
+    }
+
     public boolean equals(Rational other) {
 	reduce();
 	other.reduce();
@@ -59,7 +72,7 @@ public class Rational {
 	return r;
     }
 
-    public int compare(Rational other) {
+    public int compareTo(Rational other) {
 	reduce();
 	other.reduce();
 	
