@@ -14,7 +14,7 @@ public class Rational {
 	    n = a;
 	    d = b;
 	} else {
-	    System.out.println("Error: Denominator is set to 0: Input = " + a + "/" + b + "\n Default values will be stored instead.");
+	    System.out.println("Error: Denominator is set to 0: Input = " + a + "/" + b + "\n Values not stored.");
 	    n = 1;
 	    d = 1;
 
