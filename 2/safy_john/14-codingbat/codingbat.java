@@ -16,11 +16,12 @@ public String sameEnds(String string) {
 
     for (int h1 = 0; h1 <= string.length()/2; h1 ++) {
 	for (int h2 = string.length()/2; h2 < string.length(); h2 ++) {
-	    if (string.substring(0,h1).equals(string.substring(h2)))
+	    if (string.substring(0,h1).equals(string.substring(h2))) {
 		result = string.substring(h2);
 	}
     }
     return result;
+    }
 }
 }
     
