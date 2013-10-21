@@ -46,7 +46,7 @@ public class Rational {
 	return r;
     }
     
-    public String printRational(){
+    public String toString(){
 	return ("" + this.n + "/" + this.d);
     }
 

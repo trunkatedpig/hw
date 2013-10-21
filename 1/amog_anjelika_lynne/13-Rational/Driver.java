@@ -9,7 +9,7 @@ public class Driver {
 	Rational q = new Rational(1,2);
 	System.out.println(r.equals(q));
 	Rational s = r.mult(q);
-	System.out.println(s.printRational());
+	System.out.println(s.toString());
 	System.out.println(r.compareTo(t));
 	System.out.println(r.compareTo(q));
 	Rational u = new Rational(5,3);
