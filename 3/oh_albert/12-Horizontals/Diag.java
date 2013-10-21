@@ -28,7 +28,31 @@ public class Diag {
     }
 
     public String fence(int h,int w) {
-	
-    }
-	
+	String fence = "";
+	if (h == 1 && w == 1) {
+	    fence = fence + "+";
+	} else {
+	    for (int top = w;top>0;top--){
+		if (top == w || top == 1) {
+		    fence = fence + "+";
+		}else{
+		    fence = fence + "-"; }
+	    }
+	    for (int middle = h-2;middle>0;middle--) {
+		fence = fence + "\n";
+		for (int sect = w;sect>0;sect--) {
+		    if (sect == w || sect == 1) {
+			fence = fence + "|";
+		    } else {
+			fence = fence + " "; }
+		}
+	    }
+	    fence = fence + "\n";
+	    for (int bottom = w;bottom>0;bottom--) {
+		if (bottom == w || bottom == 1) {
+		    fence = fence + "+";
+		}else{
+		    fence = fence + "-"; }
+	    }}
+	return fence;}	
 }
