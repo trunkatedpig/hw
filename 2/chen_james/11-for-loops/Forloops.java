@@ -11,13 +11,25 @@ public class Forloops {
 		return ans;
 	}
 	
-	public String reverse (String s) {
+	/* public String reverse (String s) {
 		String result="";
 		int length;
 		for (length = s.length(); length > 0; length = length - 1) {
 			result = result + s.substring(length - 1, length);
 		}
 			return result;
+	}
+	*/
+	
+	public String reverse (String s) {
+		String results = "";
+		int length;
+		//int letter;
+		for(length = s.length(); length > 0; length = length - 1) {
+			result = result + s.substring(length - 1, length);
+		}
+		return result;
+		
 	}
 	
 	private String start="",result="";
@@ -46,6 +58,38 @@ public class Forloops {
 	return result;
 			
 			
+	}
+	private String results="";
+	
+	public void startDivTable (double n, double m) {
+		double column;
+		double row;
+		String startDivTableresults = " ";
+		for (column = 1; column < (m + 1); column = column + 1) {
+			startDivTableresults =startDivTableresults + column + " ";
+		}
+		startDivTableresults = startDivTableresults + "\n";
+		results = startDivTableresults;
+		//return results;
+		}
+	
+	
+	
+	
+	public String divtable (double n, double m) {
+		this.startDivTable(n,m);
+		double column;
+		double row;
+		for (row = 1; row < (n + 1); row = row + 1) {
+			result = result + row + " ";
+			for (column = 1; column < (n + 1); column = column + 1) {
+				results = results + column + " " + (column / row);
+			}
+			results = results + "\n";
+		}
+		return results;
+	
+	
 	}
 	
 	}
