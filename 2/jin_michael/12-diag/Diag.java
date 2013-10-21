@@ -24,9 +24,36 @@ public class Diag{
 	return answer;
     }
 
-
-    public String fence(int a,int b){
+    public String diagWord2(String s){
+	String answer="";
+	int n=0;
+	while (n<s.length()){
+	    int w=n;	    
+	    while (w>0){
+		answer=answer+" ";
+		w=w-1;}
+	    answer=answer+s.substring(n,n+1)+"\n";
+	    n=n+1;}
+	return answer;
     }
 
+    public String fence(int a,int b){
+	String answer="+";
+	for (int n=b-2;n>0;n--){
+	    answer=answer+"-";}
+	answer=answer+"+\n";
+	for (int n=a-2;n>0;n--){
+	    answer=answer+"|";
+	    int w=b-2;	    
+	    for (;w>0;){
+		answer=answer+" ";
+		w=w-1;}
+	    answer=answer+"|\n";}
+	answer=answer+"+";
+	for (int n=b-2;n>0;n--){
+	    answer=answer+"-";}
+	answer=answer+"+";
+	return answer;
+    }
 
 }
