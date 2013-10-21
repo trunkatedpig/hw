@@ -25,6 +25,17 @@ public class For {
 	return start;
     }
 
-    public String table(int n,int m) {
-	
+    public String table (int c,int r) {
+	String ans = " ";
+	for (int initc = 1;initc <= c;initc++) {
+	    ans = ans + initc + " ";
+	}
+	for (int row = 1;row <= r;row ++) {
+	    ans = ans + "\n" + row + "|";
+	    for (int initc = 1;initc <= c;initc++) {
+		ans = ans + (row*initc) + " ";
+	    }
+	}
+	return ans;
     }
+}

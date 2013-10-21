@@ -3,6 +3,7 @@ import java.util.*;
     public class Driver{
 	public static void main (String[] args){
 	    Loops loop = new Loops();
+	    /*
 	System.out.println (loop.fact(5));
         System.out.println (loop.fact(4));
         System.out.println (loop.fact(3));
@@ -25,6 +26,9 @@ import java.util.*;
 	System.out.println(loop.fact3(5));
 	System.out.println(loop.fact3(4));
 	System.out.println(loop.fact3(3));
+	    */
+	    System.out.println(loop.gcd(15,6));
+	    System.out.println(loop.gcd2(15,6));
 	}
     }
 
