@@ -19,9 +19,9 @@ public String sameEnds(String string) {
 	    if (string.substring(0,h1).equals(string.substring(h2))) {
 		result = string.substring(h2);
 	}
-    }
+	}}
     return result;
-    }
+    
 }
 }
     
