@@ -24,11 +24,6 @@ public class For {
     }
 
     public String table(int n,int m) {
-	/*
-first line: count up from 1 to n
-first num of other lines: count up from 1 to m
-other nums on other lines: counting up from n times counting up from n
-	 */
 	String table;
 	table = "\t";
 
