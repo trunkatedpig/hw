@@ -16,8 +16,9 @@ public class Rational {
 	}
     }
     public void reduce(){
-	n = n / gcd(n,d);
-	d = d / gcd(n,d);
+	int f = gcd(n, d);
+	n = n / f;
+	d = d / f;
     }
     public boolean equals (Rational other){
 	this.reduce();
@@ -35,5 +36,29 @@ public class Rational {
     }
     public int getDenominator(){
 	return d;
+    }
+
+    public Rational mult(Rational other){
+	int newnum, newden;
+	newnum = this.getNumerator() * other.getNumerator();
+	newden = this.getDenominator() * other.getDenominator();
+	Rational r = new Rational(newnum, newden);
+	return r;
+    }
+    
+    public String toString(){
+	return ("" + this.n + "/" + this.d);
+    }
+
+    public int compareTo (Rational other){
+	double valuethis, valueother;
+	valuethis = this.n/this.d;
+	valueother = other.getNumerator()/other.getDenominator();
+	if (this.equals(other))
+	    return 0;
+	else if (valuethis > valueother)
+	    return 1;
+	else
+	    return -1;
     }
 }
