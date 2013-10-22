@@ -14,7 +14,7 @@ public String sameEnds(String string) {
     String a = "";
     for ( int b = 0; b <= string.length()/2;b ++){//b is the first half
 	for (int c = string.length()/2; c<string.length();c ++){//c is second half
-	    if (string.substring(0,b).equals(string.substring(c))){//compares both, one letter at a time
+	    if (string.substring(0,b).equals(string.substring(c))){//compares both
 		a = string.substring(0,b);//adds common characters into the String a
       }
     }
