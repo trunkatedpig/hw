@@ -17,15 +17,48 @@ public class Diag{
 	return ans;
     }
 
-    public String diag(String s){
-	int coutner;
+    public String diagWord(String s){
+	int counter;
 	String ans = "";
 	for (counter=0;counter<s.length();counter++){
-	    for(letterCounter=0;letterCounter<counter;counter++){
+            int letterCounter;
+	    for(letterCounter=0;letterCounter<counter;letterCounter++){
 		ans = ans + " ";
 	    }
-	    ans = ans + s.substring(counter);
+	    ans = ans + s.substring(counter,counter+1);
+            if (counter != s.length() - 1){
+                ans = ans + "\n";
+            }
 	}
 	return ans;
+    }
+
+    public String fence(int h,int w){
+        String ans = "";
+        int row;
+        int column;
+        for (row = 0;row < h;row++){
+            if (row == 0 || row == h -1){ 
+                for (column = 0;column < w; column++){
+                    if (column == 0 || column == w - 1){
+                        ans = ans + "+";
+                    }else{
+                        ans = ans + "-";
+                    }
+                }
+            }else{
+                for (column = 0;column < w;column++){
+                    if (column == 0 || column == w - 1){
+                        ans = ans + "|";
+                    }else{
+                        ans = ans + " ";
+                    }
+                }
+            }
+            if (row != h-1){
+                ans = ans + "\n";
+            }
+        }
+        return ans;
     }
 }
