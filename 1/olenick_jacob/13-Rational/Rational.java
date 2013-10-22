@@ -35,7 +35,7 @@ public class Rational {
 	return new Rational((other.a)*(this.a), (other.b)*(this.b));
     }
 
-    public int compareTo(Rational other){
-	return Math.ceil(this.v-other.v);
+    public double compareTo(Rational other){
+	return this.v-other.v;
     }    
 }
