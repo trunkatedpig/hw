@@ -1,18 +1,16 @@
-public boolean sameStarChar(String str) {
-  int star;
-  boolean ans = false;
-  star = str.indexOf("*");
-  while (star >= 0){
-    if (str.substring(star-1,star).equals(str.substring(star+1,star+2))){
-      ans = true;
-    }else{
-      ans = false;
+public boolean sameStarChar(String str){
+        int counter;
+        boolean ans = true;
+        for (counter = 0;counter < str.length();counter++){
+            if (str.substring(counter,counter+1).equals("*") && counter != 0 && counter != str.length()-1){
+                if (str.substring(counter-1,counter).equals(str.substring(counter+1,counter+2)))
+                    ans = true;
+                else
+                    return false;
+            }
+        }
+        return ans;
     }
-    str = str.substring(star+1);
-    star = str.indexOf("*");
-  }
-  return ans;
-}
 
 public String sameEnds(String string) {
   String ans ="";
