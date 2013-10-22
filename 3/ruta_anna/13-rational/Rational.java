@@ -103,27 +103,16 @@ public class Rational {
 		int result = 0;
 		this.reduce();
 		other.reduce();
-		if (a == other.a && b == other.b)
+		int partA = ((a * other.b) - (other.a * b));
+		int partB = b * other.b;
+		double n = ((double) partA / (double) partB);
+		if (n < 0)
+			result = -1;
+		else if (n == 0)
 			result = 0;
-		else if (a == other.a) {
-			if (b > other.b)
-				result = -1;
-			else
-				result = 1;
-		}
-		else if (a > other.a){
-			if ( b > other.b)
-				result = -1;
-			else
-				result = 1;
-		}
-		else {
-			if (b < other.b)
-				result = 1;
-			else
-				result = -1;
-		}
+		else
+			result = 1;
 		return result;
-	}
+		}
 
 }

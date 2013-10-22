@@ -4,6 +4,7 @@ import java.util.*;
 public class Driver{
 	public static void main( String[] args) {
 		Practice p = new Practice();
+		/*
 		p.diag(2);
 		System.out.println("\n" + "\n");
 		p.diag(4);
@@ -12,8 +13,8 @@ public class Driver{
 		System.out.println("\n" + "\n");
 		p.diag(5);
 		System.out.println("\n" + "\n");
+		*/
 		
-		/*
 		p.diagWord("Hello");
 		System.out.println("\n" + "\n");
 		p.diagWord("ishmam");
@@ -24,7 +25,7 @@ public class Driver{
 		
 		p.diagWord("Z4ManSkY");
 		System.out.println("\n" + "\n");
-		*/ 
+		 
 		
 		/*
 		p.fence(3, 3);
