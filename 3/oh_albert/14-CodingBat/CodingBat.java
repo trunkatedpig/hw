@@ -14,6 +14,9 @@ public class CodingBat {
 	return false;
     }
 
+    /*This first one is producing wierd errors on codingbat
+      not sure how to fix them*/
+
     public String sameEnds(String string) {
         String first = string.substring(0,string.length()/2);
         String last = string.substring(string.length()/2+string.length()%2);
@@ -24,4 +27,7 @@ public class CodingBat {
         }
         return "";
     }
+
+    /*Second one I had to copy my code got really sloppy
+      and my brain turned to mush*/
 }
