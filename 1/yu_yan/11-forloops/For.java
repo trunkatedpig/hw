@@ -18,4 +18,24 @@ public class For{
 	}
 	return x;
     }
+    
+    public String table(int n, int m){
+	String s = "";
+	s = s + "  | ";
+	for (int x = 1; x<= n; x++){
+	    s = s + x + "  ";
+	}
+	s = s + "\n";
+	for (int x = 1; x <= m; x++){
+	    s = s + x + " | ";
+	    for (int y = 1; y <= n; y++){
+		if ((y*x) >= 10)
+		    s = s + (y*x) + " ";
+		else
+		    s = s + (y*x) + "  ";
+	    }
+	    s = s + "\n";
+	}
+	return s;
+    }
 }

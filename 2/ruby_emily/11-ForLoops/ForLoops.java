@@ -13,13 +13,19 @@ public class ForLoops{
     }
     public String table(int n, int m){
 	String answer=new String();
-	int i;
-	for (i=0;i<n;i=i+1){
+	int i,j,x;
+	for (i=0;i<=n;i=i+1){
 	    answer=(n-i)+ answer;
 	}
-	for (i=0;i<(n*m);i=i+1){
-	    answer=(n-i)*m + answer;
+	answer=answer + "\n";    
+	for (j=0;j<=m;j=j+1){
+	    answer=j+ " ";
+	    for (x=0;x<=n;x=x+1){
+		answer=((n-x)*j)+" "+answer;
+	    }
+	    answer=answer+"\n";
 	}
+	
 	return answer;
     }
 }
