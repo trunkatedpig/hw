@@ -7,6 +7,7 @@ public class Driver{
 	System.out.println(f.factFor(5));
 	System.out.println(f.Reverse("Hello"));
 	System.out.println(f.table(5,3));
+		   
     }
 }
 
