@@ -6,6 +6,7 @@ public class Driver{
 	System.out.println(r.equals(m));
 	System.out.println(m.equals(r));
 	System.out.println(r.mult(m));
+	System.out.println(r.mult1(m));
 	System.out.println(r.compareTo(m));
 	System.out.println(m.compareTo(r));
 	System.out.println(r.compareTo(l));

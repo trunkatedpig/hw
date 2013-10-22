@@ -10,6 +10,13 @@ public class Rational {
 	reduce();
     }
 
+    public int getNum() {
+	return a;
+    }
+    public int getDen() {
+	return b;
+    }
+
     public int gcd(int a, int b) {
 	if (b == 0) {
 	    return a;
@@ -20,8 +27,10 @@ public class Rational {
     }
 
     public void reduce() {
-	a = a / gcd(a,b);
-	b = b / gcd(a,b);
+	int i;
+	i = gcd(a,b);
+	a = a / i;
+	b = b / i;
     }
 
     public boolean equals(Rational other) {
@@ -30,10 +39,31 @@ public class Rational {
 	return (this.a == other.a && this.b == other.b);
     }
 
-    public int getNum() {
-	return a;
+    public Rational mult(Rational other) {
+	int aNew,bNew;
+	Rational r;
+	aNew = this.a * other.a;
+	bNew = this.b * other.b;
+	r = new Rational(aNew,bNew);
+	return r;
     }
-    public int getDen() {
-	return b;
+
+    public int compareTo(Rational other) {
+	if (this.a * other.b == other.a * this.b) {
+	    return 0;
+	}
+	else if (this.a * other.b > other.a * this.b){
+	    return 1;
+	}
+	else {
+	    return -1;
+	}
     }
+
+    public String fraction() {
+	String frac;
+	frac = "" + getNum() + "/" + getDen();
+	return frac;
+    }
+
 }
