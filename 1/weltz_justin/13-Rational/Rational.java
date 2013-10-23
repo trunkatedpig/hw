@@ -3,17 +3,17 @@ public class Rational{
     private int b;
     private double number;
     public int gcd(int a,int b) {
-  if (b==0)
-   return a;
-  else {
-   return gcd(b,a%b);
-    }
+	if (b==0)
+	    return a;
+	else {
+	    return gcd(b,a%b);
+	}
     }
 
-public void reduce() {
-  a = a / gcd(a,b);
-  b = b / gcd(a,b);
-}
+    public void reduce() {
+	a = a / gcd(a,b);
+	b = b / gcd(a,b);
+    }
     public Rational(int x, int y){
 	seta(x);
 	setb(y);
