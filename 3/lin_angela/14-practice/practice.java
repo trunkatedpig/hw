@@ -1,43 +1,46 @@
-public boolean sameStarChar(String str) {
-  int len = str.length();
-  int base = 1;
-  String ans = "";
-  while (base < len-1){
-    if (str.substring(base,base+1).equals("*")){
-      if (str.substring(base - 1,base).equals(str.substring(base + 1,base+2))== false){
-        ans += "f";
+public String sameEnds(String string)
+{
+        String temp;
+        int p = string.length();
+        int i;
+        if(p%2 == 1)
+        {
+                i = p/2;
+                p = i + 1;
+        }
+        else
+        {
+                i = p/2;
+                p = i;
+        }
+        for(; i >= 1; i--, p++)
+        {
+                temp = string.substring(0, i);
+                if(temp.equals(string.substring(p)))
+                        return temp; 
+        }
+        return "";
+}
+
+
+public String sameEnds(String string) {
+  int mid = string.length()/2;
+  int mid2;
+  String beg, end;
+  if (string.length()%2 == 0) 
+    mid2 = mid;
+  else 
+    mid2 = mid +1; 
+  for (; mid >= 0; mid --, mid2 ++){
+    beg = string.substring(0, mid);
+    end = string.substring(mid2);
+    if (beg.equals(end)){
+     return beg;
     }
-  }
-  base ++;
-  }
-
-  if (ans.length() > 0){
-   return false;
-  }
-  else{
-   return true;
-  }
+   
+  } 
+  return ""; //if nothing in common
 }
-
-
-public String sameEnds(String string){
-    int midIndex;
-    int checker;
-    String retS= "";
-    int index=0;
-    if (string.length()%2 == 0)
-	midIndex = (string.length()/2);
-    else 
-	midIndex = string.length()-1/2;
-    while (string.substring(index, index+1).equals(string.substring(midIndex,midIndex+1)) == false && midIndex <= string.length())
-	   midIndex = midIndex +1;
-	   while (string.substring(0,1).equals(string.substring(midIndex,midIndex+1)) == true && midIndex <= string.length() && index <= string.length()/2 ) {
-					       retS = retS + string.substring(index, index+1);
-					       index = index + 1;
-	   }
-	   return retS;
-}
-
 
 
 
