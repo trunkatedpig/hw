@@ -16,6 +16,20 @@ public class StringPractice{
 	return true;
     }
 
+    public String sameEnds(String string){
+
+	String result = "";
+        int l = string.length();
+
+	for (int i = 0; i <= l/2; i = i+1){
+	    for (int j = l/2; j < l; j = j+1){
+		if (string.substring(0,i).equals(string.substring(j))){
+		    result = result + string.substring(j);
+		}
+	    }
+	}
+	return result;
+    }
 }
 
 				

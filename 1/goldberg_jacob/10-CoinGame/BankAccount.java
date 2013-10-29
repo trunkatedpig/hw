@@ -46,7 +46,7 @@ public class BankAccount{
 
 	else {
 	    balance = balance + other.getBalance();
-	    other.withdraw(balance);
+	    other.withdraw(amt);
 	}
     }
 
