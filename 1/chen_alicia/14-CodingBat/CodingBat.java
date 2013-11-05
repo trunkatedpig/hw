@@ -13,20 +13,17 @@ public class CodingBat{
 	return r;
     }
     
-    //needs to be revised
     public String sameEnds(String string) {
 	int halfway = string.length() /2;
 	String f = string.substring(0,halfway);
-	String s = string.substring(halfway + string.length()%2);
-
-  
-	for (int i = 0; i < f.length(); i = i + 1){
-	    if( f.substring (0,f.length() - i) == s.substring(i)){
-		return f.substring(0,f.length()-i);
-	    }
-	}
-	return "";
+	String s = string.substring(halfway + (string.length()%2));
+	for (int i=0; i<f.length(); i = 1 + i) {
+            if (f.substring(0,f.length()-i).equals(s.substring(i))) {
+                return f.substring(0,f.length()-i);
+            }
+        }
+        return "";
     }
-  
+
 
 }
