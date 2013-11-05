@@ -13,5 +13,10 @@ public class Rational{
     }
     public int CompareTo(Rational other){
     }
-    
+    public int getNum(Rational r){
+	return a;
+    }
+    public int getDen(Rational r){
+	return b;
+    }
 }
