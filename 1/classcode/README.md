@@ -1,4 +1,0 @@
-classcode
-=========
-
-Class Code
