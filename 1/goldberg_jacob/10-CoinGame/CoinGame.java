@@ -29,7 +29,7 @@ public class CoinGame{
 	/*creates a random ammount to withdraw from each based on how much they
 	  can give*/
 	Random a = new Random();
-	pot = a.nextInt(max);
+	pot = a.nextInt(max+1);
 	player1.withdraw(pot);
 	player2.withdraw(pot);
 	pot = pot + pot;
@@ -63,7 +63,7 @@ public class CoinGame{
     public void playLimit(int n){
 	int turn = 1;
 	while (n>0){
-	    if ((player1.getBalance()<=0) || (player2.getBalance()<=0)){
+	    if (((int)player1.getBalance()==0) || ((int)player2.getBalance()==0)){
 		break;
 	    }
 	    turn();

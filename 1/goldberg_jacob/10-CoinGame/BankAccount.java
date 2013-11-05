@@ -8,8 +8,7 @@ public class BankAccount{
 	balance = b;
 	name = n;
 	interestRate = Math.random();
-	acctNumber = 0;
-	/*Math.round(1000*(Math.random()))*/
+	acctNumber = (int)Math.round(10000000*(Math.random()));
     }
 
     public void deposit(double amt){
@@ -31,6 +30,10 @@ public class BankAccount{
 	return name;
     }
 
+    public int getAcct(){
+	return acctNumber;
+    }
+
     public void setBalance(double b){
 	balance = b;
     }
@@ -43,7 +46,7 @@ public class BankAccount{
 
 	else {
 	    balance = balance + other.getBalance();
-	    other.withdraw(balance);
+	    other.withdraw(amt);
 	}
     }
 
