@@ -3,6 +3,21 @@ import java.util.*;
 
 public class Array {
 
+    public String showArray(int[] a) {
+	String ans = "{";
+
+	for (int i = 0; i < a.length; i ++) {
+	    if (i != a.length - 1)
+		ans = ans + a[i] + ", ";
+	    else
+		ans = ans + a[i];
+	}
+
+	ans = ans + "}";
+
+	return ans;
+    }
+
     public int[] Revfill(int n) {
 	int[] revfill = new int[n];
 	int a= 0;
@@ -11,6 +26,7 @@ public class Array {
 	    a = a + 1;
 	    n = n - 1;
 	}
+	System.out.println(showArray(revfill));
 	return revfill;
     }
 
@@ -22,6 +38,7 @@ public class Array {
 	    add = r.nextInt(max-min) + min;
 	    random[i] = add;
 	}
+	System.out.println(showArray(random));
 	return random;
     }
 
