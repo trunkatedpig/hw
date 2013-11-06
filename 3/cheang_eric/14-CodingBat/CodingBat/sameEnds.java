@@ -34,4 +34,7 @@ public String sameEnds(String string) {
     
     }
 
+    
+    return "hello";
+
 }
