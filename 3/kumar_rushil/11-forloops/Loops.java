@@ -14,21 +14,26 @@ public class Loops{
 	int x;
 	String s = "";
 	for (x = 1; x < n + 1; x ++){
-	    s = s + "" + x;
+	    s = s + "" + x + " ";
 	}
 	return s;
     }
     public String table (int n, int m){
 	int x;
-	int y = 1;
-	String s = "";
+	int y;
+	String firstrow = firstrow(n);
+	String s = firstrow;
 	String s2 = "";
 	String nl = "\n";
-	String firstrow = firstrow(n);
 
-	for (x = 1; x < n + 1; x ++){
-	    s = firstrow + nl + s;
-	}	
+	for (x = 1; x < m + 1; x ++){
+	    s = s + nl + x + " ";
+	    s2 = "";
+	    for (y = 1; y < n + 1; y ++){
+		s2 = s2 + (y*x) + " ";
+	    }
+	    s = s + s2;
+	}
 	return s;
     }
 }

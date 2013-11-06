@@ -33,11 +33,21 @@ public class Diagonal {
 	else {
 	    String firstrow = "+";
 	    for (int i = w - 2; i > 0; i --){
-		firstrow += "-";
+			firstrow += "-";
 	    }
 	    firstrow += "+";
-	    f = firstrow;
-	    
+	    f = firstrow + "\n";
+		
+
+	    for (int i = h - 2; i > 0; i--){
+			String eachrow = "|";
+			for (int a=w-2; a>0; a--){
+				eachrow += " ";
+			}
+			eachrow += "|"+"\n";
+			f+=eachrow;
+		}
+		f+=firstrow;
 	}
 	return f;
     }
