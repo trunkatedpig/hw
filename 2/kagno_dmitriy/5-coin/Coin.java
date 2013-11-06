@@ -19,13 +19,13 @@ public class Coin {
         if (r2 > prob){
 	    head = head + 1;
 	    face = "heads";
-		}
-	    else{
-		tail = tail + 1;
-		face = "tails";
+       	}
+        else{
+	    tail = tail + 1;
+	    face = "tails";
         tosses = tosses + 1;
-	    }
-	    }
+        }
+     }
     
     
     public int getHead(){
