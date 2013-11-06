@@ -24,6 +24,7 @@ public class Driver {
 	g = new Divide();
 
 	System.out.println(g.GCD(25, 15));
+	System.out.println(g.GCDfor(25, 15));
 	System.out.println(g.GCD2(25, 15));
 	System.out.println(g.isPrime(97));
 	System.out.println(g.isPrime(91));

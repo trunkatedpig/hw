@@ -27,13 +27,21 @@ public class Lupz {
 	return result;
     }
 
-    public String fence (int h, int w) {
+     public String fence (int h, int w) {
 	String result = "";
 	String firstline = "+";
+	String line = "|";
 	for (int i = w; i > 2; i --) {
 	    firstline += "-";
+	    line += " ";
 	}
-	for (i = h; i > 2; i --) {
-	    result += 
-	    
+	firstline += "+";
+	line += "|";
+	result = firstline + "\n";
+	for (int x = h - 2; x > 0; x --) {
+	    result += line + "\n";
+	}
+	result += firstline;
+	return result;
+     }
 }
