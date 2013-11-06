@@ -20,8 +20,9 @@ public class CodingBat {
 	public String sameEnds(String string) {
 		String result = "";
 		int i = 0;
-		int j = string.length();
+		int j = string.length() / 2;
 		string = string + " ";
+		for 
 		while (i<j) {
 			if (string.substring(i,i+1).equals(string.substring(j,j+1))) {
 				result = result + string.substring(i,i+1);
