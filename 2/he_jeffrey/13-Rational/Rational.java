@@ -14,8 +14,10 @@ public class Rational {
     } 
 
     public void reduce() {
-	a = a / gcd(a,b);
-	b = b / gcd(a,b);
+		int n = gcd(a,b);
+		a = a / n;
+		b = b / n;
+
     }
 
     public boolean equals(Rational other) {
@@ -38,12 +40,16 @@ public class Rational {
 	double quotientMe, quotientOther;
 	quotientMe = a / b;
 	quotientOther = other.a / other.b;
-	if (quotientMe == quotientOther) 
+	System.out.println(quotientMe);
+	System.out.println(quotientOther);
+	if (quotientMe == quotientOther) {
 	    return 0;
-	else if(quotientMe > quotientOther) 
+	}
+	else if(quotientMe > quotientOther) {
 	    return 1;
-	else 
+		}
+	else {
 	    return -1;
-	
+	}
     }
 }
