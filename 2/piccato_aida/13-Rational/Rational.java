@@ -25,13 +25,19 @@ public class Rational {
     }
     public boolean equals(Rational other) {
 	// Having trouble with equals through reduce method; 
-	// will reduce numerator, but not denominator
-        this.reduce();
+	// will reduce numerator, but not denominator. 
+        /*this.reduce();
         other.reduce();
 	if ((this.num == other.num) && (this.den == other.den)) {
 		return true;
 	}
-        return false;
+        return false;*/
+	double n = (this.num / this.den);
+	double d = (other.num / other.den);
+	if (n == d) {
+	    return true;
+	} 
+	return false;
     }
     
     public Rational mult(Rational other) {

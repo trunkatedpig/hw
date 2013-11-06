@@ -1,0 +1,7 @@
+public String talk(){
+	Scanner sc;
+	System.out.println("Choices: /n 1. Say something nice /n 2. Say something evil /n 3. Say nothing");
+	sc = new Scanner(System.in);
+	
+	return "Generic talk";
+    }
