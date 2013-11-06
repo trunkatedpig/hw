@@ -8,7 +8,7 @@ public class Driver{
 	
 	CoinGame cg = new CoinGame(p1, p2, c1, c2);
 
-	cg.playLimit(8);
+	cg.playLimit(80);
 	/*cg.playDomination();*/
     }
 }
