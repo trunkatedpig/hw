@@ -1,9 +1,9 @@
-import java.util.*;
+import java.util.Arrays;
 import java.io.*;
 
 public class Driver {
     public static void main(String[] args) {
 	Revfill a = new Revfill();
-	a.makeRandom(5,20,30);
-    }
+	System.out.println(a.RevFill(10));
+}
 }
