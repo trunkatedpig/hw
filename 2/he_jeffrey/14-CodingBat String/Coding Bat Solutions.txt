@@ -1,23 +1,7 @@
-public boolean sameStarChar(String str) {
-  for (int i = 0; i < str.length() - 1; i ++) {
-    if (str.substring(i,i+1).equals("*")) {
-      if (i == 0)
-        continue;
-      if (!str.substring(i-1,i).equals(str.substring(i+1,i+2)))
-        return false;
+public String talk(){
+	Scanner sc;
+	System.out.println("Choices: /n 1. Say something nice /n 2. Say something evil /n 3. Say nothing");
+	sc = new Scanner(System.in);
+	
+	return "Generic talk";
     }
-  }
-  return true;
-}
-
-
-public String sameEnds(String string) {
-  String result = "";
-  for (int i = 0; i <= string.length()/2; i++) {
-    for (int v = string.length()/2; v < string.length(); v++) {
-      if (string.substring(0,i).equals(string.substring(v)))
-        result = string.substring(0,i);
-    }
-  }
-  return result;
-}
