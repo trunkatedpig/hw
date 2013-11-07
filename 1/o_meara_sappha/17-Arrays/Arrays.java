@@ -36,4 +36,6 @@ public class Arrays {
     }
     return true;
   }
+
+//tested all code on CodingBat
 }
