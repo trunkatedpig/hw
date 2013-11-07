@@ -1,25 +1,41 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Arrays{
     
-    public int[] Revfill(int n){
-	int[] ret = new int[n];
-	for(int i = n; i >0 ; i --){
-	    ret[n-i] = i;
-	}
-	return ret;
-    }
+    /* methods:
+     * ModThree
+     * Sum13
+     * MidWay
+     * MakeEnds
+     * FizzArray  
+     * Only14
+     * MakeRandom
+     * RevFill
+     */      
     
-    public int[] MakeRandom(int n, int min, int max){
+    public int[] FizzArray (int n){
 	int[] array = new int[n];
-	Random r = new Random();
-
-	for(int i = 0; i < n ; i++){
-	    array[i] = r.nextInt(max) + min; 
-	}
+	for(int i = 0; i < n; i ++)
+	    array[i] = i;
 	return array;
     }
     
+    public int[] RevFill(int n){
+        int[] ret = new int[n];
+        for(int i = n; i >0 ; i --){
+            ret[n-i] = i;
+        }
+        return ret;
+    }
     
+    public int[] MakeRandom(int n, int min, int max){
+        int[] array = new int[n];
+        Random r = new Random();
+	
+        for(int i = 0; i < n ; i++){
+            array[i] = r.nextInt(max) + min;
+        }
+        return array;
+    }   
 }
