@@ -3,10 +3,10 @@ import java.util.*;
 
 public class Arrays {
     public int[] Revfill(int n) {
-	int[] result = new int[n];
-	for (int i = n; i>< 0; i--) {
-	    result[i] = i;
+	int[] a = new int[n];
+	for (n; n > 0; n--) {
+	    a[n] = n;
 	}
-	return result;
+	return a;
     }
 }
