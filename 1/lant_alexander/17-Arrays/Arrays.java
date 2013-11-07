@@ -11,14 +11,15 @@ public class Arrays{
 	return ret;
     }
     
-    public int[] makeRandom(int n, int min, int max){
+    public int[] MakeRandom(int n, int min, int max){
 	int[] array = new int[n];
 	Random r = new Random();
 
-	for(i = 0; i <n ; i++){
-	    array[n] = r.nextInt(min, max); 
+	for(int i = 0; i < n ; i++){
+	    array[i] = r.nextInt(max) + min; 
 	}
 	return array;
     }
+    
     
 }
