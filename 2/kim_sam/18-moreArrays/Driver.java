@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	Arrays1 ar = new Arrays1();
+	Arrays2 ar = new Arrays2();
 	int[] testsum13 = new int[] {1, 2, 4, 13, 18, 1};
 	int[] testmodthree1 = new int[] {1, 1, 1, 2};
 	int[] testmodthree2 = new int[] {2, 2, 2, 3};

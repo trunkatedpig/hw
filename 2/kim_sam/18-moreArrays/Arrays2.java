@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Arrays1 {
+public class Arrays2 {
 
     public int[] Revfill(int n) {
 	int[] result = new int[n];
