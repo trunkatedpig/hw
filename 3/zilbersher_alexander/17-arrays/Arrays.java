@@ -45,27 +45,4 @@ public class Arrays {
 	}
 	return true;
     }
-
-    public int[] Revfill(int n) {
-	int[]output = new int[n];
-	int i = 0;
-	for(;n>0;n--) {
-	    output[i] = n-1;
-	    i ++;
-	}
-	return output;
-    }
-
-    public int[] makeRandom(int n, int min, int max) {
-	int[]output = new int[n];
-	Random r = new Random();
-	for (;n>0;n--) {
-	    output [n-1] = r.nextInt(max-min-1)+min+1;
-	}
-	return output;
-    }
-
-    public int sum13(int[] a) {
-	int output = 0;
-	for (int n = a.length;n>0;n--) {
 }
