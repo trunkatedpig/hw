@@ -14,11 +14,14 @@ public class Driver{
 
 	System.out.println(array.printArray(array.fizzArray(4)));
 	System.out.println(array.printArray(array.fizzArray(0)));
-	System.out.println(array.printArray(array.fizzArray(0)));
 
 	int[]d = {1, 4, 1, 4};
 	int[]e = {1, 4, 2, 4};
 	System.out.println(array.only14(d));
 	System.out.println(array.only14(e));
+
+	System.out.println(array.printArray(array.Revfill(4)));
+
+	System.out.println(array.printArray(array.makeRandom(5,10,20)));
     }
 }
