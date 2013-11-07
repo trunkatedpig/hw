@@ -24,16 +24,21 @@ public class Arraye {
 
     public int sum13(int[] a) {
 	int x = 0;
+	boolean just13 = false;
 	
 	for (int i=0; i<a.length; i++) {
-	    if (a[i] != 13)
+	    if (a[i] != 13 && !just13)
 		x += a[i];
+	    else if (a[i] == 13)
+		just13 = true;
+	    else
+		just13 = false;
 	}
 
 	return x;
     }
 
-    public boolean modThe(int[] a) {
+    public boolean modThree(int[] a) {
 	int even = 0;
 	int odd = 0;
 	int i=0;
@@ -47,6 +52,7 @@ public class Arraye {
 		odd ++;
 		even = 0;
 	    }
+	    i++;
 
 	    if (odd == 3 || even == 3)
 		return true;
