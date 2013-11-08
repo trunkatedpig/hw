@@ -6,10 +6,11 @@ public class Driver{
 	
 	Arrays a = new Arrays();
 
-	//System.out.println(a.RevFill(9));
-	//System.out.println(a.MakeRandom(2, 10, 15));
-	System.out.println(a.FizzArray(10));
-	
+	for (int i = 0; i < a.FizzArray(10).length; i++) {
+            System.out.println( a.FizzArray(10)[i]); }
+    
+	for (int i = 0; i < a.FizzArray(10).length; i++) {
+	    System.out.println( a.FizzArray(10)[i]); }
 	
     }
 }
