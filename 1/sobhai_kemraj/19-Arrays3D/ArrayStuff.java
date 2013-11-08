@@ -53,6 +53,15 @@ public class ArrayStuff{
 		return (double)sums/nums.length;
 	}
 
+	public double sddev(int[] nums){
+		int mean = mean(nums);
+		int[] eachsq = new int[nums.length];
+		for (int i=0; i<nums.length;i++){
+			int r=nums[i]-mean;
+			eachsq[i]=(r*r);
+		}
+		return Math.sqrt(mean(eachsq));
+	}
 }
 
 
