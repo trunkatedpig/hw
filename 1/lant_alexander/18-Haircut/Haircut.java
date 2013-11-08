@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Haircut{
-    
+
     public int[] RevFill(int n){
 	int[] ret = new int[n];
 	for(int i = n; i > 0 ; i --){
