@@ -16,6 +16,8 @@ public class StringPractice{
 	return true;
     }
 
+<<<<<<< HEAD
+=======
     public String sameEnds(String string){
 
 	String result = "";
@@ -30,6 +32,7 @@ public class StringPractice{
 	}
 	return result;
     }
+>>>>>>> 71e7fcdd3e8c363dd5643a18c89c5cd9c77a961c
 }
 
 				
