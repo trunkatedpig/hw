@@ -35,9 +35,11 @@ public class StringStuff {
 		else {
 			if (Arrays.asList(vowels).contains(word.substring(0,1))) {
 				newWord = newWord + word + "way";
+				newWord = capitalize(newWord);
 			}
 			if (Arrays.asList(consonants).contains(word.substring(0, 1))) {
 				newWord = newWord + word.substring(1) + word.substring(0, 1) + "ay";
+				newWord = capitalize(newWord);
 			}
 		}
 		return newWord;

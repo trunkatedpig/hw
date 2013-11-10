@@ -1,0 +1,38 @@
+public int[] middleWay(int[] a, int[] b) {
+	int[] result;
+	result = new int[2];
+	result[0] = a[1];
+	result[1] = b[1];
+	return result;
+}
+
+public int[] makeEnds(int[] nums) {
+	int[] result;
+	result = new int[2];
+	result[0] = nums[0];
+	result[1] = nums[nums.length-1];
+	return result;
+}
+
+public int[] fizzArray(int n) {
+	int[] result;
+	result = new int[n];
+	int i = 0;
+	while (n > 0){
+		result[i] = i;
+		n = n - 1;
+		i = i + 1;
+	}
+	return result;  
+}
+
+public boolean only14(int[] nums) {
+	int i = 0;
+	while (i < nums.length){
+		if (nums[i] != 1 && nums[i] != 4){
+			return false;
+		}
+	i = i + 1;
+	}
+	return true;
+}
