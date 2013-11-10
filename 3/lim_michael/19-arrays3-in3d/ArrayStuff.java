@@ -38,7 +38,25 @@ public class ArrayStuff {
 	return -1;
     }
 
-    public double mean(int[] a) {
+    public double mean() {
+        int sum = 0;
+        for (int i = 0; i< a.length; i++) {
+            sum = sum + a[i];
+        }
+        return (sum/a.length*1.0);
+    }
+
+    public double stddev() {
+        double ins = 0;
+        double m = mean();
+        for (int i = 0; i<a.length; i++){
+            double del = (m-a[i]);
+            ins = ins + Math.pow(del,2);
+        }
+        return Math.sqrt(ins/a.length);
+    }
+
+    public double meantest(int[] a) {
     	int sum = 0;
     	for (int i = 0; i< a.length; i++) {
     		sum = sum + a[i];
@@ -46,9 +64,9 @@ public class ArrayStuff {
     	return (sum/a.length*1.0);
     }
 
-    public double stddev(int[] a) {
+    public double stddevtest(int[] a) {
     	double ins = 0;
-        double m = mean(a);
+        double m = meantest(a);
     	for (int i = 0; i<a.length; i++){
             double del = (m-a[i]);
     		ins = ins + Math.pow(del,2);
@@ -59,8 +77,8 @@ public class ArrayStuff {
     public static void main(String[] args) {
     	ArrayStuff ar = new ArrayStuff();
     	int[] a = {9,2,5,4,12,7,8,11,9,3,7,4,12,5,4,10,9,6,9,4};
-        System.out.println(ar.mean(a));
-        System.out.println(ar.stddev(a));
+        System.out.println(ar.meantest(a));
+        System.out.println(ar.stddevtest(a));
 
     }
 }
