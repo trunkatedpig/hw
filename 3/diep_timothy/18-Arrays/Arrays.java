@@ -30,4 +30,28 @@ public class Arrays {
 	}
 	return ans;
     }
+
+    public boolean modThree(int[] nums) {
+	int ans = 0; 
+	for (int i=0;i<nums.length;i++) {
+	    if (nums[i]%2 == 0) {
+		if (ans < 0) {
+		    ans = ans-1;
+		    if (ans == -3)
+			return true;
+		}
+		else
+		    ans = -1;
+	    } else {
+		if (ans > 0) {
+		    ans = ans+1;
+		    if (ans == 3)
+			return true;
+		}
+		else
+		    ans = 1; 
+	    }
+	}
+	return false;     
+    }
 }
