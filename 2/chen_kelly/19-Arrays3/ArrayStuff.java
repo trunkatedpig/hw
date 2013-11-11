@@ -43,7 +43,7 @@ public class ArrayStuff {
 	    sum = sum + a[i];
 	}
 	return sum / a.length;
-}
+    }
 
     public double stddev(){
 	double avg = mean();
@@ -53,7 +53,8 @@ public class ArrayStuff {
 	    sum = sum + ((a[i] - avg)*(a[i] - avg));
 	}
 	newAvg = sum / a.length;
-	double ans = sqrt(newAvg);
+	double ans = Math.sqrt(newAvg);
 	return ans;
 
     }
+}
