@@ -34,7 +34,10 @@ public String sameEnds(String string) {
     
     }
 
+<<<<<<< HEAD
+=======
     
     return "hello";
 
+>>>>>>> 71e7fcdd3e8c363dd5643a18c89c5cd9c77a961c
 }
