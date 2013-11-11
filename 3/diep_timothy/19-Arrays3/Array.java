@@ -47,10 +47,18 @@ public class Array {
     }
 
     public double stddev() {
-	int[] b = new int[a.length];
+	double avg = this.mean();
+	double[] b = new double[a.length];   
+	double sum = 0.0;
+
 	for (int i=0; i<a.length;i++) {
-	    b[i] = (a[i]-a.mean())*(a[i]-a.mean());
+	    b[i] = ((double)a[i]-this.mean())*((double)a[i]-this.mean());
 	}
-	return Math.sqrt(b.mean());
+
+	for (int i=0;i<b.length;i++) {
+	    sum = sum + b[i];
+	}
+	avg = sum/b.length;
+	return Math.sqrt(avg);
     }
 }
