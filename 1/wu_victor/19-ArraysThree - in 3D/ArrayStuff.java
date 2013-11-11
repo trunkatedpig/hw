@@ -10,12 +10,9 @@ public class ArrayStuff{
 	    a[i]=r.nextInt(100);
 	}
     }
-
     public String toString() {
 	return Arrays.toString(a);
     }
-
-    // return the index of the max element
     public int findMaxIndex() {
 	if (a==null || a.length==0) 
 	    return -1;
@@ -27,7 +24,6 @@ public class ArrayStuff{
 	}
 	return maxi;
     }
-
     public int get(int n) {
 	if (n>=0 && n < a.length) 
 	    return a[n];
@@ -42,26 +38,51 @@ public class ArrayStuff{
 	return -1;
     }
 
+    // HW Section
+
+    public double mean (int[] t) {
+	int x = 0;
+	double y = 0;
+
+	for(int i = 0; i<t.length; i++) {
+	    x = x + t[i];
+	}
 	
+	y = x / t.length;
 
+	return y;
+    }
 
-	public double mean(int[] nums){
-		int sums = 0;
-		for (int i = 0; i < nums.length; i++){
-			sums += nums[i];
-		}
-		return (double)sums/nums.length;
+    public double meanDouble (double[] d) {
+	double x = 0;
+	double y = 0;
+
+	for(int i = 0; i<d.length; i++) {
+	    x = x + d[i];
+	}
+	
+	y = x / d.length;
+
+	return y;
+    }
+
+    public double stdDev () {
+	double x = mean(a);
+	double[] b = new double[a.length];
+
+	for(int i = 0; i<b.length; i++) {
+	    b[i] = (a[i]-x)*(a[i]-x);
 	}
 
-	public double sddev(int[] nums){
-		int mean = mean(nums);
-		int[] eachsq = new int[nums.length];
-		for (int i=0; i<nums.length;i++){
-			int r=nums[i]-mean;
-			eachsq[i]=(r*r);
-		}
-		return Math.sqrt(mean(eachsq));
-	}
+	double y = Math.sqrt(meanDouble(b));
+
+	return y;
+    }
+
+    public int[] retArray () {
+	return a;
+    }
+
 }
 
 

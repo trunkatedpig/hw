@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class ArrayStuff{
+public class ArrayStuff{ 
     private int[] a;
     private Random r = new Random();
     public ArrayStuff() {
@@ -34,6 +34,7 @@ public class ArrayStuff{
 	else
 	    return -1;
     }
+
     public int find(int n) {
 	for (int i=0;i<a.length;i++) {
 	    if (a[i]==n)
@@ -42,26 +43,23 @@ public class ArrayStuff{
 	return -1;
     }
 
-	
+    // Homework 19 - Arrays 3 - in 3D
 
+    public double mean(){
+	double ans = 0;
+	for (int i=0; i<a.length;i++)
+	    ans+=a[i];
+	return ans/a.length;
+    }
 
-	public double mean(int[] nums){
-		int sums = 0;
-		for (int i = 0; i < nums.length; i++){
-			sums += nums[i];
-		}
-		return (double)sums/nums.length;
+    public double stddev(){
+	double mean = mean();
+	double total = 0;
+	for (int i=0; i<a.length; i++){
+	    total+=Math.pow(mean-a[i],2);
 	}
-
-	public double sddev(int[] nums){
-		int mean = mean(nums);
-		int[] eachsq = new int[nums.length];
-		for (int i=0; i<nums.length;i++){
-			int r=nums[i]-mean;
-			eachsq[i]=(r*r);
-		}
-		return Math.sqrt(mean(eachsq));
-	}
+	return Math.pow(total/a.length,0.5);
+    }
 }
 
 

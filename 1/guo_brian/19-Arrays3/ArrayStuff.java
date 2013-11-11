@@ -42,26 +42,27 @@ public class ArrayStuff{
 	return -1;
     }
 
-	
+    public double mean() {
+    	double r = 0.0;
+    	int sum = 0;
+    	for (int i = 0; i < a.length; i++) {
+    		sum = sum + a[i];
+    	}
+    	r = sum / a.length;
+    	return r;
+    }
 
+    public double stddev() {
+    	double m = mean();
+    	double n = 0.0;
+    	for (int b = 0; b < a.length; b++){
+    		n = n + Math.pow(a[b]-m,2);
+    	}
+    	double x = n / a.length;
+    	double result = Math.sqrt(x);
+    	return result;
+    }
 
-	public double mean(int[] nums){
-		int sums = 0;
-		for (int i = 0; i < nums.length; i++){
-			sums += nums[i];
-		}
-		return (double)sums/nums.length;
-	}
-
-	public double sddev(int[] nums){
-		int mean = mean(nums);
-		int[] eachsq = new int[nums.length];
-		for (int i=0; i<nums.length;i++){
-			int r=nums[i]-mean;
-			eachsq[i]=(r*r);
-		}
-		return Math.sqrt(mean(eachsq));
-	}
 }
 
 

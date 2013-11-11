@@ -5,9 +5,13 @@ public class ArrayStuff{
     private int[] a;
     private Random r = new Random();
     public ArrayStuff() {
+	//just try this to see if it works
+	/*a = new int[5];
+	for (int i = 0; i < a.length ; i++)
+	    a[i] = i + 1;*/
 	a=new int[20];
 	for (int i=0;i<a.length;i++) {
-	    a[i]=r.nextInt(100);
+	a[i]=r.nextInt(100);
 	}
     }
 
@@ -41,27 +45,23 @@ public class ArrayStuff{
 	}
 	return -1;
     }
-
-	
-
-
-	public double mean(int[] nums){
-		int sums = 0;
-		for (int i = 0; i < nums.length; i++){
-			sums += nums[i];
-		}
-		return (double)sums/nums.length;
-	}
-
-	public double sddev(int[] nums){
-		int mean = mean(nums);
-		int[] eachsq = new int[nums.length];
-		for (int i=0; i<nums.length;i++){
-			int r=nums[i]-mean;
-			eachsq[i]=(r*r);
-		}
-		return Math.sqrt(mean(eachsq));
-	}
+    public double mean(){
+	double sum = 0;
+	double answer;
+	for (int i = 0; i<a.length; i++)
+	    sum = sum + a[i];
+	answer = sum / a.length;
+	return answer;
+    }
+    public double stddev(){
+	double mean = mean();
+	double sum = 0;
+	double answer;
+	for (int i = 0; i < a.length; i++)
+	    sum = sum + Math.pow((a[i] - mean), 2);
+	answer = Math.sqrt(sum / a.length);
+	return answer;
+    }
 }
 
 
