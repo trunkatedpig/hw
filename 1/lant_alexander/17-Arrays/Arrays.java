@@ -1,8 +1,8 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
-public class Arrays{
-    
+public class Arrays {
+	
     /* methods:
      * ModThree
      * Sum13
@@ -14,28 +14,44 @@ public class Arrays{
      * RevFill
      */      
     
-    public int[] FizzArray (int n){
-	int[] array = new int[n];
-	for(int i = 0; i < n; i ++)
-	    array[i] = i;
-	return array;
+    public int[] FizzArray (int n){	
+	int[] intArray = new int[n];
+	for(int i = 0; i < n; i ++) {
+	    intArray[i] = i;
+	}
+	return intArray;
     }
     
-    public int[] RevFill(int n){
-        int[] ret = new int[n];
-        for(int i = n; i >0 ; i --){
-            ret[n-i] = i;
-        }
-        return ret;
-    }
-    
-    public int[] MakeRandom(int n, int min, int max){
-        int[] array = new int[n];
-        Random r = new Random();
+    public boolean only14(int[] nums) {
+	for(int i = 0; i < nums.length; i ++){
+	    if (nums[i] != 1 && nums [i] != 4)
+		return false;
+	}
+	return true;
 	
-        for(int i = 0; i < n ; i++){
-            array[i] = r.nextInt(max) + min;
-        }
-        return array;
-    }   
+    }
+    
+    public int[] makeEnds(int[] nums) {
+	int[] ret = new int[2];
+	ret[0] = nums[0];
+	ret[1] = nums[nums.length - 1];
+	return ret;  
+    }
+    
+    public int[] middleWay(int[] a, int[] b) {
+	int ret[] = new int[2];
+	ret[0] = a[1];
+	ret[1] = b[1];
+	return ret;
+}
+    
+    
+   
+
+    
+    //Getarray method?
+    //I keep on getting bizarre outputs...
+    //like this >>>> [I@3343c8b3
+    //WTFWTFWTF!?!?!!?!
+
 }
