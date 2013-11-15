@@ -8,7 +8,7 @@ public class ArrayStuff {
     public ArrayStuff() {
 	r = new Random();
 	a = new int[20];
-	for (int i=0;i<a.length;i++)
+	for (int i=0;i<a.length;i++) 
 	    a[i]=r.nextInt(100);
     }
 
@@ -19,15 +19,14 @@ public class ArrayStuff {
     public int get(int n) {
 	return a[n];
     }
-    
+
     public int findMaxIndex() {
 	int maxi = 0;
-	for (int i=0;i<a.length;i++) {
-	    if (a[i]>a[maxi])
-		maxi=i;
+	for (int i =0 ; i < a.length;i++) {
+	    if (a[i]>a[maxi]) 
+		maxi = i;
 	}
 	return maxi;
-
     }
 
     public int find(int n) {
@@ -39,21 +38,27 @@ public class ArrayStuff {
     }
 
     public double mean(){
-	int sum = 0;
-        for (int i=0;i<a.length;i++){
-	    sum = sum + a[i];
-	}
-	return sum/a.length;
+	int answer=a[0];
+	for (int i=1;i<a.length;i++){
+	    answer=answer+a[i];}
+	double mean=answer/(a.length*1.0);
+	return mean;
+    }
+
+    public double meand(double[] a){
+	double answer=a[0];
+	for (int i=1;i<a.length;i++){
+	    answer=answer+a[i];}
+	double mean=answer/(a.length*1.0);
+	return mean;
     }
 
     public double stddev(){
-        double mean = this.mean();
-        double result = 0;
-        for (int i=0;i<a.length;i++){
-            result = result + ((a[i] - mean)*(a[i] - mean));
-        }
-        result = result / a.length;
-        result = Math.sqrt(result);
-        return result;
+	double[] answer=new double[a.length];
+	for (int i=0;i<a.length;i++){
+	    answer[i]=(a[i]-mean())*(a[i]-mean());
+	}
+	return Math.sqrt(meand(answer));
     }
+
 }
