@@ -2,11 +2,17 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
+<<<<<<< HEAD
+    private int face, flips, fair;
+
+    public int getFace() {
+=======
     private int flips, nheads, ntails, value;
     private String face, name;
     private double fair = 0.5;
 
     public String getFace() {
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 	return face;
     }
 
@@ -14,6 +20,19 @@ public class Coin {
 	return flips;
     }
 
+<<<<<<< HEAD
+    public int getFair() {
+	return fair;
+    }
+
+    public void reset() {
+	setFlips(0);
+    }
+
+    public void setFlips(int n) {
+	flips = n;
+    }
+=======
     public double getFair() {
 	return fair;
     }
@@ -99,4 +118,5 @@ public class Coin {
 	name = s;
     }
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }

@@ -16,6 +16,3 @@ public class Arrays3{
 	int result = sqrt(mean(temp));
 	return result;
     }
-    
-}
-
