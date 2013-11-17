@@ -7,7 +7,7 @@ public class Driver {
 		a = myList.remove(a, 4);
 		System.out.println(Arrays.toString(a));
 		
-		a = myList.insert(a, 4, 5);
+		a = myList.insert(a, 1, 5);
 		System.out.println(Arrays.toString(a));
 		
 	}
