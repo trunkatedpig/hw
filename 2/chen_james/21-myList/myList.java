@@ -11,41 +11,44 @@ public class myList {
     }
 
     public void add(int d) {
-	
 	if (numItems>=data.length) {
 	    System.out.println("Growing from "+data.length+" to "+data.length*1.5);
 	    // "grow" the array by creating a new one and copying over
 	    int[] tmpArray = new int[data.length+data.length/2];
 	    for (int i=0;i<data.length;i++) 
-		tmpArray[i]=data[i];
-	    data = tmpArray;
+			tmpArray[i]=data[i];
+			data = tmpArray;
 	}
         data[numItems]=d;
         numItems = numItems + 1;
     }
     
     public String toString() {
-	String s = Arrays.toString(data)+" : "+numItems;
-	return s;
+		String s = Arrays.toString(data)+" : "+numItems;
+		return s;
     }
-    public void remove(int pos){
-	if (pos<0){
-	    data=data;
-	}
-	else{
-	    int[] temp= new int[data.length-1];
-	    for(int i=0; i<data.length-1; i++){
-		if (i>=pos){
-		    temp[i]=data[i+1];
-		}
-		else{
-		    temp[i]=data[i];
-		}
-	    }
-	    data=temp;
-	    numItems=numItems-1;
-	}
 	
-    }
+	public void insert (int pos, int d) {
+	// inserts data item d at location pos in the data array
+	// remember we have to shift down items to make room and
+	// we might have to grow the array
+	int [] tempArray = new int[data.length + 1];
+	int j = 0;
+	for (int i = 0; i<data.length; i ++) {
+		if(i == pos) {
+			tempArray[i] = d;
+			tempArray[i+1] = data[i];
+			j = j + 1;
+			
+		}
+		else {
+			tempArray[i+j] = data[i];
+			
+		}
+	
+	}
+	data = tempArray;
+	numItems = numItems + 1;
+	}
 	
 }

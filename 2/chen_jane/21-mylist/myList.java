@@ -28,24 +28,18 @@ public class myList {
 	String s = Arrays.toString(data)+" : "+numItems;
 	return s;
     }
-    public void remove(int pos){
-	if (pos<0){
-	    data=data;
+
+    public void insert(int pos, int d) {
+	int[] newList;
+	newList = new int[data.length+1];
+	for (int i=0; i<pos; i++) {
+		newList[i] = data[i];
 	}
-	else{
-	    int[] temp= new int[data.length-1];
-	    for(int i=0; i<data.length-1; i++){
-		if (i>=pos){
-		    temp[i]=data[i+1];
-		}
-		else{
-		    temp[i]=data[i];
-		}
-	    }
-	    data=temp;
-	    numItems=numItems-1;
+	newList[pos] = d;
+	for (int i=pos; i<(data.length); i++) {
+	    newList[i+1] = data[i];
 	}
-	
+	data = newList;
     }
-	
 }
+

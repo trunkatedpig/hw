@@ -9,7 +9,13 @@ public class myList {
 	data = new int[5];
 	numItems=0;
     }
-
+    public void setData(int a,int b,int c,int d,int e){
+	data[0]=a;
+	data[1]=b;
+	data[2]=c;
+	data[3]=d;
+	data[4]=e;
+    }
     public void add(int d) {
 	
 	if (numItems>=data.length) {
@@ -28,24 +34,15 @@ public class myList {
 	String s = Arrays.toString(data)+" : "+numItems;
 	return s;
     }
-    public void remove(int pos){
-	if (pos<0){
-	    data=data;
-	}
-	else{
-	    int[] temp= new int[data.length-1];
-	    for(int i=0; i<data.length-1; i++){
-		if (i>=pos){
-		    temp[i]=data[i+1];
-		}
-		else{
-		    temp[i]=data[i];
-		}
-	    }
-	    data=temp;
-	    numItems=numItems-1;
-	}
-	
+    public void insert(int val,int pos){
+        int[] a = new int[data.length+1];
+        for(int i = 0;i<pos;i++){
+            a[i] = data[i];
+        }
+        a[pos] = val;
+        for(int i = pos+1;i<a.length;i++){
+            a[i] = data[i-1];
+        }
+        data = a;
     }
-	
 }
