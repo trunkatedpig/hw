@@ -4,7 +4,7 @@ import java.util.*;
 public class ArrayStuff {
     private int[] a;
     private Random r;
-
+    
     public ArrayStuff() {
 	r = new Random();
 	a = new int[20];
@@ -38,22 +38,24 @@ public class ArrayStuff {
 	return -1;
     }
 
-    public double mean(){
-	int sum = 0;
-        for (int i=0;i<a.length;i++){
-	    sum = sum + a[i];
+    public int sum() {
+	int r = 0;
+	for (int i=0; i<a.length; i++) {
+	    r=r+a[i];
 	}
-	return sum/a.length;
+	return r;
+    }
+    
+    public double mean() {
+	return sum()/a.length;
     }
 
-    public double stddev(){
-        double mean = this.mean();
-        double result = 0;
-        for (int i=0;i<a.length;i++){
-            result = result + ((a[i] - mean)*(a[i] - mean));
-        }
-        result = result / a.length;
-        result = Math.sqrt(result);
-        return result;
+    public double stddev() {
+	double r = 0;
+	double m = mean();
+	for (int i=0; i<a.length; i++) {
+	    r = r + (a[i]-m)*(a[i]-m);
+	}
+	return Math.sqrt(r/a.length);
     }
 }
