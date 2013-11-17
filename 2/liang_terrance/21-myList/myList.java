@@ -35,10 +35,7 @@ public class myList {
 	    }
 	}
 	newdata[pos]=d;
-	System.out.println("Inserted " + d + " at position " + pos + " to " + Arrays.toString(data)+"\n");
 	data = newdata;
-	System.out.println("Result: " + Arrays.toString(data)+ "\n");
-	
     }
 
     public String toString() {
