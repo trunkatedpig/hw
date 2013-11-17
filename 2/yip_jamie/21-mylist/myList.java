@@ -33,7 +33,15 @@ public class myList {
 	// inserts data item d at location pos in the data array
 	// remember we have to shift down items to make room and
 	// we might have to grow the array
-
+	int[] result = new int [data.length + 1];
+	for (int i = 0; i < data.length; i++){
+	    if (pos > i){
+		result [i] = data[i];}
+	    else{
+		if (pos == i){
+		    result[pos] = d;}
+		else {
+		    result[i + 1] = data[i];}}}
+	data = result;
     }
-
 }

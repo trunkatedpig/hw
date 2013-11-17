@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class Driver {
     public static void main(String[] args) {
         myList L = new myList();
@@ -12,7 +15,11 @@ public class Driver {
             L.add((i+1)*5);
         }
         System.out.println(L);
+
+	System.out.println("----------------------");
+	L.insert(5, 280);
+	System.out.println(L);
+
+
     }        
-
-
 }
