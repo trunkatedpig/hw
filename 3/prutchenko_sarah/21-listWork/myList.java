@@ -29,16 +29,23 @@ public class myList {
 	return s;
     }
     public void remove(int pos){
-	int[] temp= new int[data.length-1];
-	for(int i=0; i<data.length-1; i++){
-	    if (i>=pos){
-		temp[i]=data[i+1];
-	    }
-	    else{
-		temp[i]=data[i];
-	    }
+	if (pos<0){
+	    data=data;
 	}
-	data=temp;
+	else{
+	    int[] temp= new int[data.length-1];
+	    for(int i=0; i<data.length-1; i++){
+		if (i>=pos){
+		    temp[i]=data[i+1];
+		}
+		else{
+		    temp[i]=data[i];
+		}
+	    }
+	    data=temp;
+	    numItems=numItems-1;
+	}
+	
     }
 	
 }
