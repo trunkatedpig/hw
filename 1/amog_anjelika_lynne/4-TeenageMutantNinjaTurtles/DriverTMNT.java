@@ -4,6 +4,25 @@ import java.util.*;
 public class DriverTMNT{
 
     public static void main (String [] args){
+<<<<<<< HEAD
+	Turtle t, t2, t3;
+	String name;
+	int speed, age;
+	t = new Turtle();
+	name = t.nameme();
+	System.out.println(name);
+	t.speedUP(7);
+	System.out.println(t.speedme());
+	t2 = new Turtle("Michelangelo");
+	System.out.println(t2.nameme());
+	t2.getOlder();
+	System.out.println(t2.ageme());
+	t3 = new Turtle("Leonardo", 10, 15);
+	System.out.println(t3.nameme());
+	System.out.println(t3.speedme());
+	System.out.println(t3.ageme());
+	
+=======
 	Turtle t, t2, t3, t4;
 	String name;
 	int speed, age;
@@ -37,5 +56,6 @@ public class DriverTMNT{
 	apprentice = rat.getApprentice();
 	System.out.println(apprentice.getName());
 	System.out.println(rat.getTurtleSpeed());
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 }
