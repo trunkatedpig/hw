@@ -4,6 +4,21 @@ import java.util.*;
 public class Coin {
     private String face;
     private int flips;
+<<<<<<< HEAD
+    private int tails;
+    private int heads;
+    private double chance;
+    public Coin() {
+	flips=12;
+	face="heads";
+	tails=0;
+	heads=0;
+	chance= .5;
+    }
+    public void setCount() {
+	flips=0;
+	tails=0;
+=======
     private int heads;
     private double chance;
     private int val;
@@ -45,6 +60,7 @@ public class Coin {
     
     public void setCount() {
 	flips=0;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 	heads=0;
     }
     public String getFace() {
@@ -53,6 +69,8 @@ public class Coin {
     public int getFlips() {
 	return flips;
     }
+<<<<<<< HEAD
+=======
     public int getVal() {
 	return val;
     }
@@ -72,4 +90,5 @@ public class Coin {
 	flips=flips+1;
 	return face;
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
