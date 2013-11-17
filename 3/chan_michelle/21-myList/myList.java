@@ -25,7 +25,6 @@ public class ArrayStuff {
             a[i]=r.nextInt(max);
     }
 
-
     public String toString() {
         return Arrays.toString(a);
     }
@@ -41,7 +40,6 @@ public class ArrayStuff {
                 maxi=i;
         }
         return maxi;
-
     }
 
     public int find(int n) {
@@ -107,7 +105,7 @@ public class ArrayStuff {
     }
 
     public void insert(int[] a, int pos, int d){
-	int array = new int[a.length +1];
+	int[] array = new int[a.length +1];
 	for (int i=0; i<pos; i++){
 	    array[i] = a[i];
 	}
@@ -117,5 +115,4 @@ public class ArrayStuff {
 	}
 	a = array;
     }
-}
-	
+}	
