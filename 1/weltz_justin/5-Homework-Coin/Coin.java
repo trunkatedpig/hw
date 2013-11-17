@@ -1,5 +1,38 @@
 import java.io.*;
 import java.util.*;
+<<<<<<< HEAD
+public class Coin {
+    private String face;
+    private int flips, heads, fairness;
+    public Coin() {
+	setFace("heads");
+	setFlips(0);
+	setHeads(0);
+	    }
+    public void setFlips(int n){
+	flips = n;
+    }
+    public void setHeads(int n){
+	heads = n;
+    }
+    public void setFace (String s){
+	face = s;
+    }
+    public void ResetCounts(){
+	setFlips(0);
+	setHeads(0);
+    }
+    public int getFlips(){
+	return flips;
+    }
+    public int getHeads(){
+	return heads;
+    }
+    public String getFace(){
+	return face;
+    }
+
+=======
 //worked with Venessa
 public class Coin{
     private String face,name;
@@ -57,4 +90,5 @@ public class Coin{
 	return amount;
     }
     
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
