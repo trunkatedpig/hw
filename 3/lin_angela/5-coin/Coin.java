@@ -8,6 +8,8 @@ public class Coin {
     private int numOfTails;
     private int numOfHeads;
     private double fairness;
+<<<<<<< HEAD
+=======
     private double value;
     private String name;
 
@@ -29,11 +31,19 @@ public class Coin {
     public String getName(){
 	return name;
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 
     public void resetCount(){
 	numOfFlips=0;
 	numOfTails=0;
 	numOfHeads=0;
+<<<<<<< HEAD
+	fairness=0.0;
+    }
+
+    public String currentHead(){
+	return face;
+=======
 	fairness=0.5;
     }
 
@@ -60,6 +70,7 @@ public class Coin {
    public String currentHead() {
        face="Heads";
      return face;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
 

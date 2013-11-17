@@ -3,6 +3,19 @@ import java.util.*;
 
 public class Coin {
     private String face;
+<<<<<<< HEAD
+    private int flips;
+    private int heads;
+    private int tails;
+    private int fairness;
+    
+    public Coin (String x) {
+	face = x;
+    }
+
+    public void resetCounts(){
+	flips = 0;
+=======
     private int flips, heads;
     private double fairness;
     
@@ -31,11 +44,14 @@ public class Coin {
 	    face = "Tails";
 	    flips = flips + 1;
 	}
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
     
     public String getFace() {
 	return face;
     }
+<<<<<<< HEAD
+=======
     
     public int getFlips(){
 	return flips;
@@ -49,6 +65,7 @@ public class Coin {
 	return flips - heads;
     }
     
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
 
     

@@ -2,6 +2,27 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
+<<<<<<< HEAD
+    
+    private String face;
+    private int count;
+    private int heads;
+    private int tails;
+    private int probHeads;
+
+    public void resetCount () {
+	setCount(0);
+    }
+
+    public void setCount (int a) {
+	count = a;
+    }
+
+    public String getFace () {
+	String f;
+	f = face + " ";
+	return f;
+=======
 
     // Instance Variables
 
@@ -94,5 +115,6 @@ public class Coin {
     }
     public int getHeads () {
 	return heads;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 }
