@@ -5,8 +5,8 @@ public class Driver{
     public static void main(String[] args) {
 	Arrays a;
 	a = new Arrays();
-        System.out.println(a.RevFill(9));
-	System.out.println(a.RevFill(0));
-	System.out.println(a.MakeRandom(5, 2, 10));
+        Arrays.toString(a.RevFill(9));
+	System.out.println(Arrays.toString(a.RevFill(0)));
+	System.out.println(Arrays.toString(a.MakeRandom(5, 2, 10)));
     }
 }

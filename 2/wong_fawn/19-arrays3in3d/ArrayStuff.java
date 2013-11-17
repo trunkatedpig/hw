@@ -7,8 +7,8 @@ public class ArrayStuff {
 
     public ArrayStuff() {
 		r = new Random();
-		a = new int[20];
-		for (int i=0;i<a.length;i++) 
+		a = new int[5];
+		for (int i=0;i<a.length;i++)
 		    a[i]=r.nextInt(100);
     }
 

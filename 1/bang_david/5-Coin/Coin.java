@@ -4,14 +4,21 @@ import java.util.*;
 public class Coin {
     private String face;
     private int flips, heads, tails;
+<<<<<<< HEAD
+    private int fairness;
+=======
     private double fairness;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 
     public void resetCount (){
         setFace ("");
 	setHeads (0);
 	setTails (0);
+<<<<<<< HEAD
+=======
 	setFlips (0);
 	setFairness (0.0);
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
     public void setFace (String f) {
@@ -24,6 +31,11 @@ public class Coin {
     public void setTails (int t) {
         tails = t;
     }
+<<<<<<< HEAD
+    public String getFace () {
+	return face;
+    }
+=======
     public void setFlips (int w) {
 	flips = w;
     }
@@ -82,4 +94,5 @@ public class Coin {
 	}
 
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
