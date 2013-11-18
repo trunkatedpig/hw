@@ -13,7 +13,11 @@ public class Coin {
 	fairness = 0.0;
     }
     
+<<<<<<< HEAD
+    public String getFace() { 
+=======
     public void getFace() { 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 	return face;
     }
 

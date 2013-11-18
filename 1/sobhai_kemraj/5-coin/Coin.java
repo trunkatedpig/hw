@@ -3,6 +3,11 @@ import java.util.*;
 
 public class Coin{
 	private int heads, tails, flips;
+<<<<<<< HEAD
+	private double odds;
+	private String face;
+	
+=======
 	private double odds amount;
 	private String face, type;
 	
@@ -27,12 +32,16 @@ public class Coin{
 		else if (amount == */
 	}
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 //Methods
 	public void reset(){
 		odds = 50;
 		heads = 0;
 		tails = 0;
 		flips = 0;
+<<<<<<< HEAD
+		
+=======
 		amount = 0.25;
 	}
 
@@ -42,12 +51,15 @@ public class Coin{
 		tails = 0;
 		flips = 0;
 		amount = 0.25;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 	}
 
 	public String getFace(){
 		return face;
 	}
 
+<<<<<<< HEAD
+=======
 	public void flip(){
 		if (Math.random() * 100<odds){
 			heads += 1;
@@ -60,4 +72,5 @@ public class Coin{
 			face = "tails";
 		}
 	}
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }

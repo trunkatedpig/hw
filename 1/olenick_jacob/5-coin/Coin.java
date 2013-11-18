@@ -2,6 +2,13 @@ import java.io.*;
 import java.util.*;
 
 public class Coin {
+<<<<<<< HEAD
+    private String heads;
+    private int countH;
+    private int countT;
+    private double fairness;
+
+=======
 
     private String heads;
     private int countH;
@@ -24,12 +31,15 @@ public class Coin {
     }
 
     // GETTERS
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     public int getHeads() {
 	return countH;
     }
     public int getTails() {
 	return countT;
     }
+<<<<<<< HEAD
+=======
     public int getFlips() {
 	return countH + countT;
     }
@@ -42,10 +52,13 @@ public class Coin {
     public double getFairness() {
 	return fairness;
     } 	    
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     public String getFace() {
 	return heads;
     }
 
+<<<<<<< HEAD
+=======
     //SETTERS
     public String setFace(String face) {
 	if (face == "heads" || face == "tails" || face == "Heads" || face == "Tails" || face == "HEADS" || face == "TAILS") {
@@ -106,6 +119,7 @@ public class Coin {
 	}
     }
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     public void reset () {
 	countH = 0;
 	countT = 0;

@@ -9,6 +9,7 @@ public class Driver {
 	System.out.println(as.find(-5));
 	System.out.println(as.get(as.findMaxIndex())); 
 	System.out.println(as.mean());
+        System.out.println(as.stddev());
     }
 
 }

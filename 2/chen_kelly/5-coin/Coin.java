@@ -4,16 +4,28 @@ import java.util.*;
 public class Coin{
     //VARIABLES
     private String face;
+<<<<<<< HEAD
+    private int flips;
+    private int heads;
+    private int tails;
+=======
     private int flips, heads, tails;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     private double fairness;
 
 
     //CONSTRUCTORS
     public Coin(){
+<<<<<<< HEAD
+	face = "heads";
+=======
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 	flips = 0;
 	heads = 0;
 	tails = 0;
 	fairness = 0.5;
+<<<<<<< HEAD
+=======
 	face = "none";   
  }
 
@@ -23,13 +35,17 @@ public class Coin{
 	heads = 0;
 	tails = 0;
 	fairness = prob;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
     //METHODS
     public void resetFlips(){
 	flips = 0;
+<<<<<<< HEAD
+=======
 	heads = 0;
 	tails = 0;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
     public String getFace(){
@@ -39,6 +55,8 @@ public class Coin{
     public int getFlips(){
 	return flips;
     }
+<<<<<<< HEAD
+=======
 
     public int getHeads(){
 	return heads;
@@ -59,5 +77,6 @@ public class Coin{
 		}
 	flips = flips + 1;
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
  
 }
