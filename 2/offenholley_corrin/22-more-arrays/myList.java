@@ -28,41 +28,30 @@ public class myList {
         String s = Arrays.toString(data)+" : "+numItems;
         return s;
     }
-    
-    public void insert(int pos, int d) {
-	// inserts data item d at location pos in the data array
-	// remember we have to shift down items to make room and
-	// we might have to grow the array
-	if (data.length >= numItems){
-	    for (int i = data.length; pos < data.length; i--){
-		data[i] = data [i - 1];
-	    }
-	    data[pos]= d; 
+    public void add(int pos, int d){
+	int store;
+	int i =pos;
+	store=data[i];
+	data[i]=d;
+	i++;
+	for (; i <data.length; i++){
+	    
+    /* public void insert (int pos, int d){
+	int i=0;
+	int q=0;
+	int[] ans;
+	ans = new int[data.length+1];
+	while (i<pos){
+	    ans[i]=a[i];
+	    i+=1;
+	    q+=1;
 	}
-	else {
-	    int[] result = new int [data.length + 1];
-	    int i = 0;
-	    while (pos > i){
-		result [i] = data[i];
-		i= i+1;}
-	    result[pos] = d;
-	    for (int j = pos + 1; j > data.length; j++){
-		result[j - pos] = data[j];}
-	    data = result;}
-
-	numItems = numItems + 1;
-    }
-
-    public remove(int p){
-
-    }
-
-    public get(int pos){
-	return data[pos];
-    }
-    public void set(int pos, int d){
-	data[pos] = d;
-    }
-
+	ans[i]=d;
+	i+=1;
+	while (q<data.length){
+	    ans[i]=a[q];
+	    i+=1;
+	    q+=1;
+	}
+	data=ans;*/
 }
-

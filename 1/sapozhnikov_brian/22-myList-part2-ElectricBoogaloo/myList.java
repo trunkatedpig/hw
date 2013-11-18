@@ -11,24 +11,32 @@ public class myList {
 	numItems=0;
     }
     
+    public boolean isFull() {
+	return numItems>=data.length;
+    }
+
+    public void grow() {
+	int[] tmpArray = new int[data.length+(data.length/2)];
+	for (int i=0;i<data.length;i++) 
+	    tmpArray[i]=data[i];
+	data = tmpArray;
+    }
+
     public void add(int d) {
-
-	if (numItems>=data.length) {
-	    System.out.println("Growing");
-	    int[] tmpArray = new int[data.length+(data.length/2)];
-	    for (int i=0;i<data.length;i++) 
-		tmpArray[i]=data[i];
-	    data = tmpArray;
+	if (isFull()) {
+	    grow();
 	}
-
-	
-	// then add
 	data[numItems]=d;
 	numItems=numItems+1;
     }
     
-    public void insert(int pos, int d){
-	if (pos == numItems)
+    public String toString() {
+	String s =Arrays.toString(data)+" --- " +numItems;
+	return s;
+    }
+
+    public void add(int pos, int d){
+    	if (pos == numItems)
 	    add(d);
 	else if(pos < numItems){
 	    if (numItems>=data.length) {
@@ -52,13 +60,23 @@ public class myList {
 	    add(d);
 	}
     }
-
-    public void remove(int i){
-
+    public void remove(int pos){
+	for (int i = pos+1; i<numItems; i++)
+	    data[i-1]=data[i];
+      	data[numItems-1]=0;
+	numItems--;
     }
 
-    public String toString() {
-	String s =Arrays.toString(data)+" --- " +numItems;
-	return s;
+    public int size(){
+	return numItems;
+    }
+
+    public int get(int pos){
+	return data[pos];
+    }
+
+    public void set(int pos, int d){
+	if(pos<numItems)
+	    data[pos] = d;
     }
 }
