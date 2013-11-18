@@ -5,19 +5,30 @@ public class Driver {
         for (int i=0;i<5;i++) {
             L.add(i*10);
         }
-        System.out.println(L);
+
+	L.retList ();
+        
 
         for (int i=0;i<12;i++) {
             L.add(i*10);
         }
+	L.retList ();
 
-        System.out.println(L);
 
-    System.out.println ("============================================");
-    L.insert(4, 4);
-    System.out.println(L);
-    L.remove(4);
-    System.out.println(L);
+	System.out.println ("-----------------------------");
+	L.insert (2, 20);
+	L.retList ();
+
+	System.out.println ("-----------------------------");
+	L.insert (4, 10);
+	L.retList ();
+
+
+
     }
 
+
+
+
 }
+

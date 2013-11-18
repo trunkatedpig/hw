@@ -11,7 +11,7 @@ public class myList {
         numItems=0;
     }
 
-    public void insert (int pos, int d){
+    public void add (int pos, int d){
 	int[] b = new int[a.length + 1];
 	for (int i = 0; i < pos; i++){
 	    b[i] = a[i];
