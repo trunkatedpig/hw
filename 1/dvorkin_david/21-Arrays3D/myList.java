@@ -51,4 +51,18 @@ public class myList {
 	    data=placeholder;
 
     }
+
+    public void remove (int pos){
+	int[] placeholder = new int[data.length-1];
+	for (int i = 0; i < placeholder.length; i = i + 1){
+	    if (i<pos) {
+		placeholder[i] = data[i];
+	    }
+	
+	    else {
+		placeholder[i] = data[i+1];
+	    }
+	}
+	numItems = numItems - 1;
+    }
 }
