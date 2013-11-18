@@ -1,7 +1,9 @@
 import java.io.*;
 import java.util.*;
+import java.io.*;
+import java.util.*;
 public class myList {
-
+    
     private int[] data;
     private int numItems;
     
@@ -11,18 +13,21 @@ public class myList {
 	numItems=0;
     }
     
+    public boolean full() {
+	return numItems>=data.length;
+    }
+    
+    public void grow() {
+	int[] tmpArray = new int[data.length+(data.length/2)];
+	for (int i=0;i<data.length;i++) 
+	    tmpArray[i]=data[i];
+	data = tmpArray;
+    }
+    
     public void add(int d) {
-
-	if (numItems>=data.length) {
-	    System.out.println("Growing");
-	    int[] tmpArray = new int[data.length+(data.length/2)];
-	    for (int i=0;i<data.length;i++) 
-		tmpArray[i]=data[i];
-	    data = tmpArray;
+	if (full()) {
+	    grow();
 	}
-
-	
-	// then add
 	data[numItems]=d;
 	numItems=numItems+1;
     }
@@ -60,7 +65,7 @@ public class myList {
     public void set(int pos, int d){
 	data[pos] = d;
     }
-	
+    
     
     public String toString() {
 	String s =Arrays.toString(data)+" --- " +numItems;
