@@ -1,1 +1,0 @@
-None: Was done on paper
