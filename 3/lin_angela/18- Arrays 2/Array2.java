@@ -1,9 +1,11 @@
 import java.util.*;
 import java.io.*;
+import java.util.Arrays;
+
 
 public class Array2{
 
-    public int[] RevFill(int n){
+    public String RevFill(int n){
 	int[] retA = new int[n];
 	int input = n;
 	for (int i=0; i<retA.length; i++){
@@ -11,7 +13,7 @@ public class Array2{
 	    n=n-1;
 	    // System.out.println(retA[i]);
 	}
-        return retA;
+        return Arrays.toString(retA);
     }
 
     public int[] MakeRandom(int size, int min, int max){
