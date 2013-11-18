@@ -13,7 +13,9 @@ public class Driver {
         for (int i = 0; i<7;i++) {
             L.add((i+6)*1);
         }
-	L.insert(7,42);
+        System.out.println(L);
+	
+	L.remove(6);
         System.out.println(L);
     }        
 
