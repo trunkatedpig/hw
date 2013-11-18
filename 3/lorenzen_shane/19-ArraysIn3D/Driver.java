@@ -7,7 +7,9 @@ public class Driver {
 	System.out.println(as);
 	System.out.println(as.find(as.get(18)));
 	System.out.println(as.find(-5));
-	System.out.println(as.get(as.findMaxIndex())); 
+	System.out.println(as.get(as.findMaxIndex()));
+	as.insert(4,5);
+	System.out.prinln(finalArray);
     }
 
 }

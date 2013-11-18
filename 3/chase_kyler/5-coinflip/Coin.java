@@ -4,6 +4,32 @@ import java.util.*;
 public class Coin {
 	private String face;
 	private int flips;
+<<<<<<< HEAD
+	private int fairness;
+
+	public Coin() {
+		resetFlips();
+		setFairness(50);
+	}
+
+	public Coin(int f) {
+		resetFlips();
+		setFairness(f);
+	}
+
+	public void resetFlips() {
+		flips = 0;
+	}
+
+	public void setFairness(int f) {
+		fairness = f;
+	}
+
+	public String flipCoin() {
+		return face;
+	}
+
+=======
 	private int heads;
 	private int tails;
 	private double fairness;
@@ -85,6 +111,7 @@ public class Coin {
 		return value;
 	{
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
 
 

@@ -3,6 +3,16 @@ import java.util.*;
 
 public class Coin{
     
+<<<<<<< HEAD
+    private String face;
+    private int flipsh;
+    private int fairness;
+
+    public Coin(){
+	face = "heads";
+	flipsh = 0;
+	fairness = 0;
+=======
     private String face,name;
     private int flipsh;
     private int heads;
@@ -36,10 +46,18 @@ public class Coin{
      	face = "heads";
 	flipsh = 0;
 	fairness = 0.5;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
     public void reset() {
 	flipsh = 0;
+<<<<<<< HEAD
+    }
+
+    public String getFace(){
+	return face;
+    }
+=======
 
     }
     
@@ -61,4 +79,5 @@ public class Coin{
 	    face = "tails";
 	}
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }

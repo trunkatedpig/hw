@@ -4,6 +4,11 @@ import java.util.*;
 public class CoinDriver {
     
     public static void main (String[] args) {
+<<<<<<< HEAD
+
+    }
+}
+=======
 	Coin c1;
 	c1 = new Coin();
 	/*
@@ -37,3 +42,4 @@ public class CoinDriver {
     }
 }
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3

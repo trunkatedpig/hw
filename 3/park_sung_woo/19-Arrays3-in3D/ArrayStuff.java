@@ -4,7 +4,7 @@ import java.util.*;
 public class ArrayStuff {
     private int[] a;
     private Random r;
-    
+
     public ArrayStuff() {
 	r = new Random();
 	a = new int[20];
@@ -44,5 +44,16 @@ public class ArrayStuff {
 	    sum = sum + a[i];
 	}
 	return sum/a.length;
+    }
+
+    public double stddev(){
+        double mean = this.mean();
+        double result = 0;
+        for (int i=0;i<a.length;i++){
+            result = result + ((a[i] - mean)*(a[i] - mean));
+        }
+        result = result / a.length;
+        result = Math.sqrt(result);
+        return result;
     }
 }
