@@ -46,23 +46,20 @@ public class ArrayStuff {
 	}
 	return ans/(double)len;
     }
-    public double stddev(){
+    public void insert(int pos, int d){
 	int len = a.length;
-	double mean1 = 0;
-        double mean2;
-	double[] secArray = double[len];
-	int i;
-	for (i=0;i<len;i++){
-            mean1 = mean1 + (double)a[i];
-        }
-        mean1 = mean1/(double)len;
-	for (i=0;i<len;i++){
-	    secArray[i] = (double)a[i] - mean1 * (double)a[i] - mean1;
+	int[] finalArray = new int[len + 1];
+	for (int i = 0; i < finalArray.length;i++){
+	    if (i<d){
+		finalArray[i]=a[i];
+	    }
+	    if (i==d){
+		finalArray[i]=d;
+	    }
+	    else {
+		finalArray[i]=a[i-1];
+	    }
 	}
-	for (i=0;i<len;i++){
-	    mean2 = mean2 + secArray[i];
-	}
-	return mean2/(double)len;
+	System.out.println("Inserted Array: " + finalArray);
     }
-
 }
