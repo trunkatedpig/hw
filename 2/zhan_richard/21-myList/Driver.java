@@ -13,11 +13,11 @@ public class Driver {
 	    L.add((i+1)*5);
 	}
 	System.out.println(L);
-	L.insert(4,81);
+	L.add(4,81);
 	System.out.println(L);
 	System.out.println(L.remove(4));
 	System.out.println(L);
-	L.insert(12,100);
+	L.add(12,100);
 	System.out.println(L);
 	System.out.println(L.remove(12));
 	System.out.println(L);
