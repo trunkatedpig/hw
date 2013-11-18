@@ -33,7 +33,7 @@ public class myList {
 	// inserts data item d at location pos in the data array
 	// remember we have to shift down items to make room and
 	// we might have to grow the array
-	int[] tempArray = new int[data.length + 1];
+        int[] tempArray = new int[data.length + 1];
 	int i;
 	for (i = 0; i< pos; i++){
 	    tempArray[i] = data[i];
@@ -45,19 +45,18 @@ public class myList {
     }
 
 
-    public int remove(int pos) {
+    public void remove(int pos) {
 	// removes the data item at location pos from the array data
 	// remember we have to shift down items.
 	// return the removed data item
-	int tempArray = new int[data.length-1];
+	int[] tempArray = new int[data.length-1];
 	int i;	
 	for (i = 0; i < pos; i++){
 	    tempArray[i] = data[i];
 	}
 	for (int j = i+1; j< data.length; j++){
-	    tempArray [j-1] = data[j];
+	    tempArray[j-1] = data[j];
 	}
     }
 }
 
-//Still need to catch up and fix whatever is wrong here
