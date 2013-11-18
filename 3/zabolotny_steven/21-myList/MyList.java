@@ -34,7 +34,7 @@ public class MyList {
 
     public void insert(int pos,int n) {
 	add(0);
-	for (int i = items;i > pos + 1;i--) {
+	for (int i = items;i > pos;i--) {
 	    data[i] = data[i - 1];
 	}
 	data[pos] = n;
