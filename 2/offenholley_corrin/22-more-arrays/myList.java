@@ -30,12 +30,22 @@ public class myList {
     }
     public void add(int pos, int d){
 	int store;
+	int otherstore;
 	int i =pos;
 	store=data[i];
 	data[i]=d;
 	i++;
+	if (numitems>=data.length){
+	    add(0);
+	    numitems--;
+	}
 	for (; i <data.length; i++){
-	    
+	    otherstore=data[i];
+	    data[i]=store;
+	    store=otherstore;
+	}
+	numitems++;
+    }
     /* public void insert (int pos, int d){
 	int i=0;
 	int q=0;
@@ -53,5 +63,37 @@ public class myList {
 	    i+=1;
 	    q+=1;
 	}
-	data=ans;*/
+	data=ans;
+	numitems++;
+    }*/
+    public void remove(int pos){
+	int i=0;
+	int q=0;
+	int[] ans;
+	ans = new int[data.length+1];
+	while (i<pos){
+	    ans[i]=a[i];
+	    i+=1;
+	    q+=1;
+	}
+	q++;
+
+	while (q<data.length){
+	    ans[i]=a[q];
+	    i+=1;
+	    q+=1;
+	}
+
+	data=ans;
+	numitems--;
+    }
+    public int size(){
+	return numitems;
+    }
+    public int get(int pos){
+	return data[pos];
+    }
+    public void set(int pos, int d){
+	data[pos]=d;
+    }
 }
