@@ -3,6 +3,12 @@ import java.util.*;
 
 public class Driver {
     public static void main (String[] args) {
+<<<<<<< HEAD
+	Coin one;
+	one = new Coin();
+	System.out.println(one.getFace());
+    }
+=======
 	Coin head1 = new Coin();
 	String s = new String("Tails");
 	Coin tail1 = new Coin(s);
@@ -42,4 +48,5 @@ public class Driver {
     }
 
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }

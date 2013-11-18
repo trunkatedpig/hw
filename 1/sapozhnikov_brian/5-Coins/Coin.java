@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 /*
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 import java.io.*;
 import java.util.*;
 
@@ -15,6 +18,10 @@ public class Coin {
 
     public String getFace(){
 	return face;
+<<<<<<< HEAD
+    }
+}
+=======
 
     }
     
@@ -58,3 +65,4 @@ return false ; // placeholder
        if }
     
 }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
