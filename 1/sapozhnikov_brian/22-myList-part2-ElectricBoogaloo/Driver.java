@@ -10,17 +10,24 @@ public class Driver {
 	for (int i=0;i<12;i++) {
 	    L.add(i*10);
 	}
+	System.out.println(L);
+
+	L.remove(2);     
+	System.out.println(L);
 	
+	L.remove(0);     
+	System.out.println(L);
+	
+	L.remove(15);     
 	System.out.println(L);
 
-	L.insert(2,120);
-	System.out.println(L);
+       	System.out.println(L.size());     
 
-	L.insert(18,120);
-	System.out.println(L);
+	System.out.println(L.get(4));
 
-	L.insert(22,120);
+	L.set(5,6);
 	System.out.println(L);
+	
 
     }
 
