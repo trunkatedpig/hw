@@ -1,6 +1,22 @@
 import java.io.*;
 import java.util.*;
 
+<<<<<<< HEAD
+public class Coin {
+    private String face;
+    private int flips,heads,tails,headProb;
+    public Coin() {
+	face = "Heads";
+	
+    }
+    public void resetCount() {
+	flips = 0;
+    }
+   
+    public String getFace() {
+	return face;
+    }
+=======
 public class Coin{
     
     private String face,name;
@@ -61,4 +77,5 @@ public class Coin{
 	    face = "tails";
 	}
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }

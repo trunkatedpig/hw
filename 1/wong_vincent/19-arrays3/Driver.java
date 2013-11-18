@@ -4,8 +4,6 @@ public class Driver {
 	
 	System.out.println(b.mean(a));
 	System.out.println(b.stdDev(a));
-
-    }
-	    
+    }	    
 }
 	    

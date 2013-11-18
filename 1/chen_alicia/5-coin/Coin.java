@@ -3,6 +3,17 @@ import java.util.*;
 
 public class Coin {
     private String face; //"heads" or "tails"
+<<<<<<< HEAD
+    private int flips, heads, tails;
+    private int fairness; //percent of heads
+
+    public void resetCounts(){
+	flips = 0;
+	heads = 0;
+	tails = 0;
+    }
+    
+=======
     private int tosses, heads;
     private double prob = 0.5; //percent of heads
 
@@ -27,10 +38,13 @@ public class Coin {
 	heads = 0;
     }
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     public String getFace() {
 	return face;
     }
 
+<<<<<<< HEAD
+=======
     public boolean equals(Coin other) {
 	return face.equals(other.getFace());
     }
@@ -46,4 +60,5 @@ public class Coin {
 	    face="tails";
 	}
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
