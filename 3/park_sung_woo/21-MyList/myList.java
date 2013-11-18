@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-public class List {
+public class myList {
        private int[] data;
        private int numItems;
 
-       public List() {
+       public myList() {
           data = new int[5];
 	  numItems = 0;
        }
@@ -37,15 +37,5 @@ public class List {
 	String s = Arrays.toString(data)+" : "+numItems;
 	return s;
     }
-
-
-    public int remove(int pos) {
-	int result = data[pos];
-	for (;pos<numItems-1;pos++)
-	    data[pos]=data[pos+1];
-	numItems--;
-	return result;
-    }
-}
 
 }
