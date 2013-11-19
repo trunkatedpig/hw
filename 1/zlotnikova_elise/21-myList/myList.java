@@ -56,4 +56,18 @@ public class myList {
 	}
 	data = tempArray;
     }
+
+    public int remove(int i){
+	int a = data[i];
+	int[] tempArray = new int[data.length - 1];
+	for (int x = 0; x < i; x++){
+	    tempArray[x] = data[x];
+	}
+	for (int x = i; x < data.length; x++){
+	    tempArray[x] = data[x+1];
+	}
+	data = tempArray;
+	return a;
+
+    }
 }
