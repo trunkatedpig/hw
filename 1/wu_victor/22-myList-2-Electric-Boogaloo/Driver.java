@@ -7,10 +7,23 @@ public class Driver {
 	L.add(3, 5);
 	System.out.println(L);
 
-	L.remove(3);
+	System.out.println(L.find(5));
+	System.out.println(L.find(-7));
+
+	L.fRemove(5);
 	System.out.println(L);
-	L.remove(3);
-	System.out.println(L);
+	myListStrings M =new myListStrings();
+
+	M.add(3, "hello");
+	System.out.println(M);
+	M.add(4,"hi");
+	System.out.println(M);
+
+	System.out.println(M.find("hello"));
+	System.out.println(M.find("x'"));
+
+	M.fRemove("hello");
+	System.out.println(M);
 
     }
 

@@ -64,4 +64,20 @@ public class Loops {
 
 	return "true";
     }
+
+    public int gcda (int a, int b) {
+	for(dcg = a; dcg > 0; dcg=dcg-1) {
+	    if ( a%dcg==0 && b%dcg==0)
+		return dcg; 
+	}
+		return 1;
+    }
+
+    public String reverse (String a) {
+	for (int i = a.length();i>0;i=i-1){
+	    System.out.print(a.substring(i-1, i));
+	}
+	System.out.println("");
+	return null;
+    }
 }
