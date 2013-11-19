@@ -71,7 +71,25 @@ public class myList {
 	return data[pos];
     }
     
-    public void set(int pos, int d) {
-	data[pos] = d;
+    public void set(int pos, int i) {
+	data[pos] = i;
+    }
+
+    public int find(int i){
+	for (int j=0;j<data.length-1;j++) {
+	    if (data[j] == i) {
+		return i;
+	    }
+	}
+	return 0;
+    }
+
+    public void fremove(int i){
+	for (int j=0;j<data.length-1;j++) {
+	    if (data[j] == i) {
+		remove(j);
+		break;
+	    }
+	}
     }
 }
