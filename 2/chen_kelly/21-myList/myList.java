@@ -29,7 +29,7 @@ public class myList {
     }
     
     
-    public void insert(int pos, int d) {
+    /*    public void insert(int pos, int d) {
 	// inserts data item d at location pos in the data array
 	// remember we have to shift down items to make room and
 	// we might have to grow the array
@@ -42,6 +42,18 @@ public class myList {
 	for (int j = i; j < data.length; j++){
 	    tempArray[j+1] = data[j];
 	}
+    }
+    */
+
+    public void insert(int pos, int d){
+        if (data.length<=numItems)
+	    grow();
+	for (int i = numItems;i > pos;i--){
+	    data[i]=data[i-1];
+	}
+	data[pos]=d;
+        numItems = numItems+1;
+        
     }
 
 
