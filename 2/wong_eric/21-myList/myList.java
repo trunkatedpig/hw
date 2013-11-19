@@ -38,8 +38,8 @@ public class myList {
 
     public void insert(int pos, int d) {
 	if (numItems < data.length) {
-	    for ( ; pos<data.length; pos++) {
-		data[pos+1] = data[pos];
+	    for (int i=numItems ; i>pos; i--) {
+		data[i] = data[i-1];
 	    }
 	    data[pos] = d;
 	}
@@ -81,6 +81,24 @@ public class myList {
 
     public void set(int pos, int d) {
 	data[pos] = d;
+    }
+
+    public int find(int n) {
+	for (int i=0; i<numItems; i++) {
+	    if (data[i] == n)
+		return data[i];
+	}
+	return -1;
+    }
+
+    public void fremove(int n) {
+	int firstIndex = -1;
+	int i=0;
+	while (data[i]!=n) {
+	    i = i +1;
+	}
+	firstIndex = i;
+	remove(firstIndex);
     }
 	
 }

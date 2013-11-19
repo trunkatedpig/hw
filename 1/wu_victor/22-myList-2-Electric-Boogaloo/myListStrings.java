@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
-public class myList {
+public class myListStrings {
 
-    private int[] data;
+    private String[] data;
     private int numItems;
     
-    public myList(){
-	data = new int[10];
+    public myListStrings(){
+	data = new String[10];
 	numItems = 0;
     }
     
@@ -15,13 +15,13 @@ public class myList {
     }
 
     public void grow() {
-	int[] tmpArray = new int[data.length+(data.length/2)];
+	String[] tmpArray = new String[data.length+(data.length/2)];
 	for (int i=0;i<data.length;i++) 
 	    tmpArray[i]=data[i];
 	data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (full()) {
 	    grow();
 	}
@@ -34,7 +34,7 @@ public class myList {
 	return s;
     }
 
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
 	if (full()) {
 	    grow();
 	    for (int i = data.length-1; i>pos; i--) {
@@ -52,17 +52,9 @@ public class myList {
     }
 
     public void remove(int pos) {
-	int[] temp = new int[data.length-1];
-
-	for(int i = 0; i < temp.length; i++) {
-	    if (i<pos) {
-		temp[i] = data[i];
-	    }
-	    else {
-		temp[i] = data[i + 1];
-	    }
+	for(int i = pos; i <numItems; i++) {
+	    data[i]=data[i+1];
 	}
-	data = temp;
 	numItems = numItems - 1;
     }
 
@@ -70,7 +62,7 @@ public class myList {
 	return numItems;
     }
 
-    public int get(int pos) {
+    public String get(int pos) {
 	return data[pos];
     }
 
@@ -78,18 +70,18 @@ public class myList {
     //	data[pos] = d;
     //}
 
-    public int find(int d) {
+    public String find(String d) {
 	for(int i = 0; i < data.length; i++) {
-	    if (data[i]==d) {
+	    if (data[i].equals(d)) {
 		return d;
 	    }
 	}
-	return -1;
+	return "no";
     }
 
-    public void fRemove(int d) {
+    public void fRemove(String d) {
 	for(int i = 0; i < data.length; i++) {
-	    if (data[i] == d) {
+	    if (data[i].equals(d)) {
 		remove(i);
 		numItems = numItems - 1;
 		break;

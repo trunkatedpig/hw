@@ -86,5 +86,11 @@ public class myList {
 	    numItems++;
     }
 
-	
+    public int find(int d) { 
+	for (int i=0;i<data.length;i++) { 
+	    if (data[i]==d) 
+		return d;
+	}
+	return -1;
+    }
 }
