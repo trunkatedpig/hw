@@ -8,7 +8,7 @@ public class myList {
     
     public myList()
     {
-	data =new int[1];
+	data=new int[10];
 	numItems=0;
     }
     
@@ -24,7 +24,7 @@ public class myList {
 	numItems=numItems+1;
     }
 
-    public void insert(int pos, int d) {
+    public void add(int pos, int d) {
 	int[] A = new int[data.length + 1];
 	for (int i = 0; i < pos; i ++) {
 	    A[i] = data[i];
@@ -35,6 +35,15 @@ public class myList {
 	}
 	data = A;
 	numItems = numItems + 1;
+    }
+
+    public void remove(int pos){
+	int i=0;
+	for (i = pos; i<numItems-1; i++){
+	    data [i] = data[i+1];
+	}
+	data[i] = 0;
+	numItems--;
     }
 
     public String toString() {

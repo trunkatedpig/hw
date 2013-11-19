@@ -2,51 +2,74 @@ import java.io.*;
 import java.util.*;
 
 public class myList {
-    int[] data;
+    private int[] data;
+    private int numItems;
     Random r = new Random();
 
-    public myList(int length, int max) {
-	data = new int[length];
-	for (int i=0;i<length;i++) {
-	    data[i] = r.nextInt(max);
-	}	    
+    public myList(int length) {
+	data = new int[length];	    
+	numItems = 0;
     }
 
     public String toString() {
-	return Arrays.toString(data);
+	String s = Arrays.toString(data) + " : " + numItems;
+	return s;
     }
 
-    public void insert(int pos, int d) {
-	int[] temp = new int[data.length+1];
-	for (int n=0;n<pos;n++) {
-	    temp[n] = data[n];
-	}
-	for (int i=pos;i<temp.length;i++) {
+    public boolean isFull() {
+	return numItems >= data.length;
+    }
+
+    public void grow() {
+	int[] tmpArray = new int[data.length + data.length/2];
+	for (int i=0;i<data.length;i++)
+	    tmpArray[i] = data[i];
+	data = tmpArray;
+    }
+
+    public void add(int d) {
+	if (isFull())
+	    grow();
+	data[numItems] = d;
+	numItems = numItems + 1;
+	System.out.println("Added " + d + "!"); 
+    }
+
+    public void add(int pos, int d) {
+	while (data.length<pos) 
+	    grow();
+	for (int i=pos;i<numItems;i++) {
 	    if (i==pos)
-		temp[i] = d;
+		data[i] = d;
 	    else
-		temp[i] = data[i-1];
+		data[i] = data[i+1];
 	}
-	data = temp;
+	numItems = numItems + 1;
 	System.out.println("Inserted " + d + " into position " + pos + "!");
     }
     
     public void remove(int pos) {
-	int[] temp = new int[data.length-1];
-	int out = 0;
-	int outpos = pos;
-	for (int n=0;n<pos;n++) {
-	    temp[n] = data[n];
+	int out = data[pos];
+	for (int i=pos+1;i<numItems;i++) {
+	    data[i-1] = data[i];
 	}
-	for (int i=pos;i<data.length;i++) {
-	    if (i==pos) {
-		out = data[i];
-		pos = -1;
-	    } else
-		temp[i-1] = data[i];
-	}
-	data = temp;
-	System.out.println("Removed " + out + " from position " + outpos + "!");
+	numItems = numItems - 1;
+	System.out.println("Removed " + out + " from position " + pos + "!");
+    }
+    
+    public String size() {
+	return "Size of array: " + numItems;
+    }
+    
+    public String get(int pos) {
+	return "Number in position " + pos + " : " + data[pos];
+    }
+
+    public void set(int pos, int d) {
+	while (data.length<pos) 
+	    grow();
+	data[pos] = d;
+	System.out.println("Set " + d + " in position " + pos + "!");
     }
 }
 	
