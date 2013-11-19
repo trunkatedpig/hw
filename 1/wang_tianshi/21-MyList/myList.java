@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+
 public class myList {
 
     private int[] data;
@@ -35,47 +36,17 @@ public class myList {
 	return s;
     }
 
-    public int get(int n) {
-	if (n>=0 && n < data.length) 
-	    return data[n];
-	else
-	    return -1;
-    }
-
-    public void set (int i, int d) {
-
-	data [i] = d;
-
-    }
-
-    public int size () {
-	return numItems;
-
-    }
-
- //insert int d at int position.
-    public void add (int pos, int d) {
-	if (full()) {grow();}
-	
-	for (int i = data.length-1; i > pos; i--) {
-	    data [i] = data [i-1];
+    public void insert(int pos, int d) {
+	if (pos>=numItems)
+	    add(d);
+	else {
+	    if (full())
+		grow();
+	    for (int i = pos;i<numItems-1;i++){
+		data[i+1]=data[i];
+	    }
+	    data[pos] = d;
+	    numItems++;
 	}
-
-	data [pos] = d;
-	numItems = numItems + 1;
-
     }
-
-    public void remove (int pos) {
-	for (int i = pos; i < numItems ; i++) {
-	    data [i] = data [i + 1];
-
-	}
-
-	numItems =numItems - 1;
-
-    }	    
 }
-
-
-
