@@ -25,5 +25,15 @@ public class MyListDriver {
 	
 	L.set(4, 6);
 	System.out.println(L);
+	
+	System.out.println(L.find(10));
+        System.out.println(L.find(52));
+	
+        L.fremove(10);
+        System.out.println(L);
+	
+        L.fremove(52);
+        System.out.println(L);
+
     }
 }
