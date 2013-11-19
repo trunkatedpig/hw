@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
 	    
-    public myList() {
-	data = new int[5];
+    public myStringList() {
+	data = new String[5];
 	numItems=0;
     }
 
@@ -16,13 +16,13 @@ public class myList {
 
     public void grow() {
 	// "grow" the array by creating a new one and copying over
-	int[] tmpArray = new int[data.length+data.length/2];
+	String[] tmpArray = new String[data.length+data.length/2];
 	for (int i=0;i<data.length;i++) 
 	    tmpArray[i]=data[i];
 	data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
@@ -35,9 +35,9 @@ public class myList {
 	return s;
     }
 	
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
 	if (isFull()){
-	    int[] newdata = new int[data.length + 1];
+	    String[] newdata = new String[data.length + 1];
 	    for (int i = 0; (i < numItems); i++){
 		if (i<pos){
 		    newdata[i] = data[i];
@@ -61,7 +61,7 @@ public class myList {
 	for (int i = pos; i < data.length - 1; i++) {
             data[i] = data[i + 1];
         }
-        data[numItems - 1] = 0;
+        data[numItems - 1] = null;
         numItems = numItems - 1;
     }
 
@@ -69,24 +69,28 @@ public class myList {
     public int size() {
 	return numItems;
     }
-    public int get(int pos) {
+    public String get(int pos) {
         return data[pos];
     }
-    public int set(int pos, int d) {
-	return data[pos]=d;
+    public void set(int pos, String d) {
+	if (data[pos]==null){
+	    numItems = numItems+1;
+	}
+	data[pos]=d;
+	
     }
 
-    public int find (int n){
+    public int find (String n){
 	int index = 0;
 	for (index = 0; index < data.length; index ++){
-	    if (data[index] == n){
+	    if (data[index].equals(n)){
 		return index;
 	    }
 	}
 	return -1;
     }
 
-    public void remove2 (int n){
+    public void remove2 (String n){
 	int a =find (n);
 	if (a>0){
 	    remove (a);
