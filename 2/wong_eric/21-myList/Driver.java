@@ -16,6 +16,15 @@ public class Driver {
 
 	L.insert(2, 14);
 	System.out.println(L);
+
+	L.remove(5);
+	System.out.println(L);
+
+	L.find(20);
+
+	L.fremove(15);
+	System.out.println(L);
+
     }	
 
 
