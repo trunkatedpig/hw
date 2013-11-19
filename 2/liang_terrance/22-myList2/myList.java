@@ -36,7 +36,7 @@ public class myList {
     }
 	
     public void add(int pos, int d) {
-	if (numItems >= data.length){
+	if (isFull()){
 	    int[] newdata = new int[data.length + 1];
 	    for (int i = 0; (i < numItems); i++){
 		if (i<pos){
@@ -55,17 +55,6 @@ public class myList {
 	}
 	data[pos]=d;
 	numItems = numItems + 1;
-    }
-
-    public void add2(int d){
-	if (numItems >= data.length){
-	    int[] temp = new int[numItems + 1];
-	    for (int i = 0; (i < numItems); i ++){
-		temp[i]=data[i];
-	    }
-	    data = temp;
-	}
-	data[numItems] = d;
     }
 
     public void remove(int pos) {
