@@ -3,11 +3,12 @@
 public class coinPurse {
     //Instance Vars
     private double amt;
+    private double coinVal;
     
     //Methods
 
     public void addTo(Coin c) {
-	c = new coinPurse;
+	c = new coinPurse();
        }
 
 

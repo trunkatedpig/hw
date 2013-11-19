@@ -9,7 +9,7 @@ public class Driver{
 	a.percentage = 20;
 	a.tails = 30;
 	a.reset();
-	a.face("heads");
+	a.setFace("heads");
 	System.out.println(a.Face);
     }
 }

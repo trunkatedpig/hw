@@ -6,6 +6,7 @@ public class myList{
     private int numItems;
     
     public myList() {
+	Random r=new Random();
         data = new int[5];
         numItems=0;
     }
@@ -27,5 +28,17 @@ public class myList{
 	}
 	data=tmpArray;
 	System.out.println(data);
+	numItems=numItems + 1;
+    }
+
+    public void insert2(int pos, int d){
+	int temp = 0;
+	for (int i=pos;i<data.length;i++){
+	    temp = data[i+1];
+	    data[i]=data[temp];
+	}
+	data[pos]=d;
+	System.out.println(data);
     }
 }
+

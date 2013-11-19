@@ -37,10 +37,30 @@ public class myList {
 		data[i]= gone;
 		gone = gone1;
 	    }
+	    numItems = numItems + 1;
 	}
 	else { System.out.println("Wrong input");}
     }
-		
+    public void remove(int pos){
+	if (pos >= data.length)
+	    System.out.println("Wrong input");
+	else{
+	    for (int i = pos; i + 1 < numItems; i++)
+		data[i] = data[i + 1];
+	}
+	data[numItems - 1] = 0;
+	numItems = numItems - 1;
+    }
+    public int size(){
+	return numItems;
+    }
+    public int get(int pos){
+	return data[pos];
+    }
+    public void set(int pos, int d){
+	data[pos] = d;
+    }
+	
     
     public String toString() {
 	String s =Arrays.toString(data)+" --- " +numItems;
