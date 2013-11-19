@@ -39,7 +39,22 @@ public class myList {
 	    temp[k+1] = data[k];
 	}
 	data = temp;
+	numItems++;
     }
+
+    public void insert2(int pos,int d){
+	if (numItems < data.length){
+	    for (int i= numItems; i>=pos; i--){
+	        data[i+1] = data[i];
+	    }
+	    data[pos] = d;
+	    numItems++;
+	}
+	else{
+	    insert(pos, d);
+	}
+    }
+
     public void remove(int pos){
 	int[] temp = new int[data.length-1];
 	int i;
@@ -50,5 +65,6 @@ public class myList {
 	    temp[k-1] = data[k];
 	}
 	data = temp;
+	numItems--;
     }
 }
