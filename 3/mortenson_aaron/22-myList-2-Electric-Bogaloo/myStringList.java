@@ -1,13 +1,13 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
+public class myStringList {
 
-       private int[] data;
+       private String[] data;
        private int numItems;
 
-       public myList() {
-          data = new int[5];
+       public myStringList() {
+          data = new String[5];
 	  numItems = 0;
        }
 
@@ -17,7 +17,7 @@ public class myList {
     }
 
     public void grow() {
-	int[] tmpArray = new int[data.length+data.length/2];
+	String[] tmpArray = new String[data.length+data.length/2];
 	for (int i=0;i<data.length;i++) {
 	    tmpArray[i]=data[i];
 	}
@@ -29,36 +29,36 @@ public class myList {
 	return s;
     }
 
-    public void add(int d) {
+    public void add(String s) {
         if (isFull()) {
             grow();
     }
 
-        data[numItems] = d;
+        data[numItems] = s;
         numItems=numItems+1;
     }
 
-    public int remove(int pos) {
-	int result = data[pos];
+    public String remove(int pos) {
+	String result = data[pos];
 	for (;pos<numItems-1;pos++)
 	    data[pos]=data[pos+1];
 	numItems--;
 	return result;
     }
 
-    public void add(int pos, int d) {
+    public void add(int pos, String s) {
 	if (isFull()) {
 	    grow();
 	}
 	for (int temp = numItems;temp>pos;temp--)
 	    data[temp]=data[temp-1];
-	data[pos]=d;
+	data[pos]=s;
 	numItems++;
     }
 
-    public int set(int pos, int d) {
-	int result = data[pos];
-	data[pos]=d;
+    public String set(int pos, String s) {
+	String result = data[pos];
+	data[pos]=s;
 	return result;
     }
     
@@ -67,26 +67,26 @@ public class myList {
 	return numItems;
     }
 
-    public int get(int pos) {
+    public String get(int pos) {
 	return data[pos];
     }
     
-    public int find(int n) {
+    public String find(String s) {
 	for (int i=0;i<numItems;i++) {
-	    if (data[i]==n)
+	    if (data[i]==s)
 		return data[i];
 	}
-	return 0;
+	return "String not found";
     }
     
-    public int fremove(int n) {
+    public String fremove(String s) {
 	for (int i=0;i<numItems;i++) {
-	    if (data[i]==n) {
-		int result = data[i];
+	    if (data[i]==s) {
+		String result = data[i];
 		remove(i);
 		return result;
 	    }
 	}
-	return 0;
+	return "String not found";
     }
 }
