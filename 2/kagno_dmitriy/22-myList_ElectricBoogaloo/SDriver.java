@@ -1,14 +1,14 @@
-public class Driver {
+public class SDriver {
     public static void main(String[] args) {
-        myList L = new myList();
+        mySList L = new mySList();
 
         System.out.println(L);
         for (int i = 0; i<5;i++) {
-            L.add((i+1)*1);
+            L.add("A");
         }
 	
 	System.out.println(L);
-	L.add(2,42);
+	L.add(2,"B");
 	System.out.println(L);
 	System.out.println(L.get(4));
 	System.out.println(L.get(9));
@@ -16,10 +16,10 @@ public class Driver {
         
 
         for (int i = 0; i<7;i++) {
-            L.add((i+6)*1);
+            L.add("C");
         }
         System.out.println(L);
-	L.set(7,100);
+	L.set(7,"D");
 
         System.out.println(L);
 	
@@ -27,16 +27,16 @@ public class Driver {
         System.out.println(L);
 
         for (int i = 0; i<2;i++) {
-            L.add((i+13)*1);
+            L.add("E");
         }
 	System.out.println(L);
 	System.out.println(L.size());
 	System.out.println(L.get(8));
 
 
-	System.out.println(L.find(10));
+	System.out.println(L.find("F"));
 	System.out.println(L);
-	System.out.println(L.fremove(12));
+	System.out.println(L.fremove("B"));
 	System.out.println(L);
     }        
 
