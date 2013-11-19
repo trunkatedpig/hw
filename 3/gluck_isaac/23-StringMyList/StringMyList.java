@@ -2,11 +2,11 @@ import java.util.*;
 import java.io.*;
 
 public class myList {
-    private int[] data;
+    private String[] data;
     private int numItems;
     
     public myList() {
-	data = new int[5];
+	data = {""};
 	numItems=0;
     }
     
@@ -16,18 +16,18 @@ public class myList {
     
     public void grow() {
 	// "grow" the array by creating a new one and copying over
-	int[] tmpArray = new int[data.length+data.length/2];
+	String[] tmpArray = new String[data.length+data.length/2];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i]=data[i];
 	    data = tmpArray;
     }
     
-    public void add(int d) {
+    public void add(String d) {
     	//Appends to the end of the list
 	if (isFull()){
-		    grow();
-		}
-		data[numItems]=d;
+	    grow();
+	}
+	data[numItems]=d;
     	numItems = numItems + 1;
     }
     
@@ -36,7 +36,7 @@ public class myList {
 	return s;
     }
     
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
     	if (isFull()){
 	    grow();
 	}
@@ -67,13 +67,13 @@ public class myList {
 		return data[pos];
      }
 
-     public void set(int pos, int d) {
+     public void set(int pos, String d) {
 		data[pos] = d;
      }
 
-    public int find(int v){
+    public int find(String v){
 	for (int i=0;i<data.length;i++){
-	    if (data[i]==v)
+	    if (data[i].equals(v))
 		return data[i];
 	}
 	return 0;
@@ -81,7 +81,7 @@ public class myList {
 
     public int findRemove(int v){
 	for (int i=0;i<data.length;i++){
-	    if (data[i]==v){
+	    if (data[i].equals(v)){
 		data.remove(i);
 		return data[i];
 	    }
