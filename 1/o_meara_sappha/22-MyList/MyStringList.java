@@ -1,14 +1,14 @@
 import java.io.*;
 import java.util.*;
 
-public class MyList {
+public class MyStringList {
     
-    private int[] data;
+    private String[] data;
     private int numItems;
     
-    public MyList() {
-	data = new int[5];
-	numItems=0;
+    public MyStringList() {
+	data = new String[5];
+	numItems = 0;
     }
 
     public boolean isFull() {
@@ -26,7 +26,7 @@ public class MyList {
 	if (isFull()){
 	    grow();
 	}
-        data[numItems]=d;
+        data[numItems] = d;
         numItems = numItems + 1;
     }
     
