@@ -1,18 +1,15 @@
 import java.io.*;
 import java.util.*;
 public class myList {
-
     private int[] data;
     private int numItems;
     
-    public myList()
-    {
+    public myList() {
 	data =new int[10];
 	numItems=0;
     }
     
     public void add(int d) {
-
 	if (numItems>=data.length) {
 	    System.out.println("Growing");
 	    int[] tmpArray = new int[data.length+(data.length/2)];
@@ -20,55 +17,45 @@ public class myList {
 		tmpArray[i]=data[i];
 	    data = tmpArray;
 	}
-
 	
 	// then add
 	data[numItems]=d;
 	numItems=numItems+1;
     }
     
-
-	public void insert (int pos, int d){
-		int[] temparray= new int[data.length+1];
-		for (int i=0;i<pos;i++){
-			temparray[i]=data[i];}
-		temparray[pos]=d;
-		for (int i=pos;i<data.length;i++){
-			temparray[i+1]=data[i];	}
-		data=temparray;
-		numItems=numItems+1;
+    public void insert (int pos, int d){
+	int[] temparray= new int[data.length+1];
+	for (int i=0;i<pos;i++){
+	    temparray[i]=data[i];}
+	temparray[pos]=d;
+	for (int i=pos;i<data.length;i++){
+	    temparray[i+1]=data[i];	}
+	data=temparray;
+	numItems=numItems+1;
+    }
+    
+    public int remove (int pos){
+	int output=data[pos];
+	for (int i=pos; i<data.length-1;i++){
+	    data[i]=data[i+1];
 	}
+	data[data.length-1]=null;
+	numItems=numItems-1;
+	return output;
+    }
 
-	public int remove (int pos){
-		int output=data[pos];
-		for (int i=pos; i<data.length-1;i++){
-			data[i]=data[i+1];
-		}
-		data[data.length-1]=0;
-		numItems=numItems-1;
-		return output;
-	}
+    public int get(int i){
+	pos = data[i];
+	return pos;
+    }
+    
+    public set(int i, int d){
+	data[i]= data[d];
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public int size(){
+	return numItems;
+    }
 
     public String toString() {
 	String s =Arrays.toString(data)+" --- " +numItems;
