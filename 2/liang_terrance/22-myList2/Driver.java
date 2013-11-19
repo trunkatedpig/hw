@@ -42,8 +42,14 @@ public class Driver {
 	a.set(4,"YAYYYY");
 	System.out.println(a);
         a.add("LETSGO!");
-	
-
+	System.out.println(a);
+	a.add(6, "WORDSS!!!");
+	System.out.println(a);
+	a.remove(1);
+	System.out.println(a);
+	System.out.println("'WOOO' is found on position " + a.find("WOOO"));
+	a.remove2("YAYYYY");
+	System.out.println(a);	
     }	
    
 
