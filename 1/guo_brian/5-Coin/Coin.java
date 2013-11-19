@@ -3,29 +3,16 @@ import java.util.*;
 
 public class Coin{
 
-<<<<<<< HEAD
-    public String Face;
-    public static int flips, percentage, heads, tails;
-
-    public void reset() {
-	flips = 0;
-	percentage = 0;
-=======
     public String Face, Name;
     public int flips, heads, tails;
     public double percentage, amount;
 
     public void reset() {
 	flips = 0;
->>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 	heads = 0;
 	tails = 0;
     }
 
-<<<<<<< HEAD
-    public void face(String a) {
-	Face = a;
-=======
     public void setFace(String f){
 	Face = f;
     }
@@ -81,6 +68,5 @@ public class Coin{
     
     public double getAmount () {
 	return amount;
->>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 }

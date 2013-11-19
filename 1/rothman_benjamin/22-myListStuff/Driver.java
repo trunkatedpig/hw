@@ -30,34 +30,35 @@ public class Driver {
 
 
 	//---------------------------------------
+	System.out.println ("\n" + "---------------------------------------");
 
 
 
-
-	myListStrings L2 = new myListStrings();
+	myStringList L2 = new myStringList();
 
 	System.out.println(L2);
-	for (int i = 0; i<5;i++) {
-	    L2.add((i+1)*5);
-	}
-	System.out.println(L);
+	L2.add ("Yo");
+	L2.add ("You");
+	L2.add ("Seem");
+	L2.add ("Nice");
+	L2.add ("Want");
+	L2.add ("To");
+	L2.add ("Be");
+	L2.add ("Friends");
 
-	for (int i = 0; i<7;i++) {
-	    L2.add((i+1)*5);
-	}	
-	System.out.println(L2);
+	System.out.println (L2);
 
-	L2.add(2,"13");
+	L2.add(2,"Flamingo");
 	System.out.println(L2);
 	L2.remove(2);
 	System.out.println(L2);
 
 
 	
-	System.out.println (L2.find ("20"));
-	L2.fRemove ("20");
+	System.out.println (L2.find ("Be"));
+	L2.fRemove ("Be");
 	System.out.println (L2);
-	L2.fRemove ("20");
+	L2.fRemove ("You");
 	System.out.println (L2);
 
 

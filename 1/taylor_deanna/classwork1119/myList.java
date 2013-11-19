@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-public class myListString {
-    private String[] data;
+public class myList {
+    private int[] data;
     private int numItems;
     
-    public myListString() {
-	data = new String[5];
+    public myList() {
+	data = new int[5];
 	numItems=0;
     }
 
@@ -16,13 +16,13 @@ public class myListString {
 
     public void grow() {
 	    // "grow" the array by creating a new one and copying over
-	    String[] tmpArray = new String[data.length+data.length/2];
+	    int[] tmpArray = new int[data.length+data.length/2];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i]=data[i];
 	    data = tmpArray;
     }
 
-    public void add(String d) {
+    public void add(int d) {
 	if (isFull()){
 	    grow();
 	}
@@ -30,7 +30,7 @@ public class myListString {
         numItems = numItems + 1;
     }
 
-    public void add(int pos, String d) {
+    public void add(int pos, int d) {
 	if (isFull()) 
 	    grow();
 	
@@ -49,11 +49,11 @@ public class myListString {
     }
 
 
-    public String get(int pos) {
+    public int get(int pos) {
 	return data[pos];
     }
 
-    public void set(int pos, String d) {
+    public void set(int pos, int d) {
 	data[pos]=d;
     }
 
@@ -61,18 +61,30 @@ public class myListString {
 	return numItems;
     }
 
-    public String find(String d){
-	for(int i=0; i < numItems; i++){
-	    if(data[i].equals(d))
+    public int find(int d){
+	for (int i=0; i<numItems; i++){
+	    if (data[i]==d){
 		return d;
+	    }
 	}
-	return data[numItems-1];
+	return 0;
     }
 
-    public void fremove(String d){
-	for(int i=0;i<numItems;i++){
-	    if(data[i].equals(d))
-		remove(i);
+    public int findfirst(int d){
+	for (int i=0; i<numItems; i++){
+	    if (data[i]==d){
+		return i;
+
+    public void fremove(int d){
+	
+boolean is = true;
+	while (is){
+	    for (int i=0; i<numItems; i++){
+		if (data[i]==d){
+		    remove(d);
+		    is = false;
+		}
+	    }
 	}
     }
 
