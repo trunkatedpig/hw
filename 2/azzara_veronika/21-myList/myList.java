@@ -51,41 +51,11 @@ public class myList{
     }
 
     public void insert2(int pos, int d){
-	if (data[data.length-1]!=0)
-	    data.grow();
 	int temp = 0;
-	int i = data.length-1;
-	while (temp==0){
-	    temp = data[i];
-	    i--;
-	}
-	for (int j=temp;j>pos;j--){
-	    data[j+1]=data[j];
-	}
-	data[pos]=d;
-	numItems++;
-	System.out.println(data);
-    }
-
-    public void remove(int pos) {
 	for (int i=pos;i<data.length;i++){
-	    if (i==data.length-1)
-		data[i]=0;
-	    data[i]=data[i+1];
+	    temp = data[i+1];
+	    data[i]=data[temp];
 	}
-	numItems--;
-	System.out.println(data);
-    }
-    
-    public int size() {
-	return data.length;
-    }
-
-    public int get(int pos) {
-        return data[pos];
-    }
-
-    public void set(int pos, int d) {
 	data[pos]=d;
 	System.out.println(data);
     }

@@ -40,7 +40,7 @@ public class MyList {
 	items = items - 1;
     }
 
-    public void insert(int pos,int n) {
+    public void add(int pos,int n) {
 	add(0);
 	while (pos > data.length) {
 	    grow();
@@ -49,7 +49,6 @@ public class MyList {
 	    data[i] = data[i - 1];
 	}
 	data[pos] = n;
-	items = items + 1;
     }
 
     public int get(int pos) {
@@ -60,7 +59,7 @@ public class MyList {
 	data[pos] = d;
     }
 
-    public size() {
+    public int size() {
 	return items;
     }
 }
