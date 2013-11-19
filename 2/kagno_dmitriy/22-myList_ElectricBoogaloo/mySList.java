@@ -1,17 +1,17 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class mySList{
+    private String[] data;
     private int numItems;
     
-    public myList() {
-        data = new int[5];
+    public mySList() {
+        data = new String[5];
         numItems=0;
     }
     
     public void grow(){
-	int[] tmpArray = new int[data.length+data.length/2];
+	String[] tmpArray = new String[data.length+data.length/2];
         for (int i=0;i<data.length;i++) 
             tmpArray[i]=data[i];
 	
@@ -21,7 +21,7 @@ public class myList {
        
 	
    
-    public void add(int d) {
+    public void add(String d) {
         
         if (numItems>=data.length) {
 	    grow();
@@ -30,8 +30,8 @@ public class myList {
         numItems = numItems + 1;
     }
     
-    public void add(int pos, int d){
-	if (data[data.length-1] != 0){
+    public void add(int pos,String d){
+	if (data[data.length-1] != null){
 	    grow();
 	    add(pos, d);
 	}
@@ -62,18 +62,18 @@ public class myList {
 	for (int i = pos;i < data.length-1 ;i++){
 	    data[i] = data[i+1];
 	}
-	data[data.length - 1] = 0;
+	data[data.length - 1] = null;
 	numItems = numItems - 1;
     }
 
-    public int get(int pos){
+    public String get(int pos){
 	if (pos >= data.length)
 	    return data[data.length-1];
 	else
 	    return data[pos];
     }
 
-    public void set(int pos, int d){
+    public void set(int pos, String d){
 	data[pos] = d;
     }
     
@@ -81,23 +81,26 @@ public class myList {
 	return numItems;
     }
 
-    public int find(int n){
+    public String find(String n){
 	for (int i =0; i <data.length;i++){
-	    if (data[i] == n){
+	    if (data[i].equals(null)) {
+		i = i + 1;
+	    }
+	    else if (data[i].equals(n)){
 		return n;
 	    }
 	}
-	return 0;
+	return null;
     }
 		
-    public int fremove(int n){
+    public String fremove(String n){
 	for (int i =0; i <data.length;i++){
-	    if (data[i] == n){
+	    if (data[i].equals(n)){
 		remove(i);
 		return n;
 	    }
 	}
-	return 0;
+	return null;
     }
     
     
