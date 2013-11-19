@@ -21,9 +21,6 @@ public class myList {
 	
 	public int get(int index) {return items[index];}
 	
-	public void remove(int index) {
-		
-	
 	public int[] toArray() {return items;}
 	
 	public String toString() {return Arrays.toString(items);}
