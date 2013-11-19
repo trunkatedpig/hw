@@ -26,6 +26,20 @@ public class classtests {
     }
 
     public String fences (int h,int w) {
-	String result = "";
-	for (i <
+	String result = "+";
+	for (int i = 1; i < w-1; i++)
+	    result = result + "-";
+	result = result + "+ \n";
+	for (int i = 1; i < h - 1; i++) {
+	    result = result + "|";
+	    for (int j = 1; j < w - 1; j++) 
+		result = result + " ";
+	    result = result + "| \n";
+	}
+	result = result + "+";
+	for (int i = 1; i < w - 1; i ++)
+	    result = result + "-";
+	result = result + "+";
+	return result;
+    }
 }
