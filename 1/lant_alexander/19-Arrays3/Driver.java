@@ -1,15 +1,22 @@
+import java.io.*;
+import java.util.*;
+
 public class Driver{
-    public static void main(Strign[] args){
+    public static void main(String[] args){
 
         StdDev sd = new StdDev();
 
+	System.out.println(sd);
+
+	System.out.println(sd);
+
+	System.out.println(sd);
+
+	System.out.println(sd);
+
         //What does an array look like? Oopsies...
 
-        System.out.println(sd.stdde
-        System.out.println(sd.
-        System.out.println(sd.
-        System.out.println(sd.
-        System.out.println(sd.
+       
         
 
     }
