@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class myList2 {
+public class myListStrings {
     private String[] data;
     private int numItems;
     /*
@@ -10,7 +10,7 @@ public class myList2 {
 	numItems=0;
     }
     */
-    public myList2(){
+    public myListStrings(){
 	data= new String[5];
 	
 	numItems=0;
@@ -44,7 +44,7 @@ public class myList2 {
 	String s = Arrays.toString(data)+" : "+numItems;
 	return s;
     }
-    public void add(int pos, int d){
+    public void add(int pos, String d){
 
         if (data.length>numItems){
             for (int i = numItems;i > pos;i--)
@@ -86,7 +86,7 @@ public class myList2 {
 	String toBeReturned = data[pos];
         for (int i = pos;i<numItems;i++){
 	    if (i==numItems-1)
-		data[i]=0;
+		data[i]="null";
 	    else
 		data[i]=data[i+1];
 	}
@@ -111,7 +111,7 @@ public class myList2 {
 	return d;
     }
     */
-    public void set(int pos, int d){
+    public void set(int pos, String d){
         data[pos]=d;
     }
     /*
