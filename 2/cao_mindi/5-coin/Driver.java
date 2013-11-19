@@ -4,6 +4,11 @@ import java.util.*;
 public class Driver{
 
     public static void main(String args[]){
+<<<<<<< HEAD
+	Coin c;
+	c = new Coin();
+	System.out.println(c.getFace());
+=======
 	Coin c, v;
 	CoinPurse d;
 	c = new Coin("dollar");
@@ -17,5 +22,6 @@ public class Driver{
 	d.addTo(v);
 	System.out.println(d.getAmount());
 	
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 }
