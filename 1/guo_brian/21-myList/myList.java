@@ -63,7 +63,7 @@ public class myList {
     }
     
     public int size() {
-	return data.length;
+	return numItems;
     }
 
     public int get(int pos){
