@@ -36,15 +36,23 @@ public class Turtle {
 	setAge (age + 1);
     }
 
-    public String getname () {
+    public String getName () {
 	return name;
     }
 
+<<<<<<< HEAD
     public int getspeed () {
 	return speed;
     }
 
     public int getage () {
+=======
+    public int getSpeed () {
+	return speed;
+    }
+
+    public int getAge () {
+>>>>>>> d952d9e806bc83b21379cfec30a5d3cf4f45a965
 	return age;
     }
     
@@ -52,6 +60,7 @@ public class Turtle {
 	a=age;
     }
 
+<<<<<<< HEAD
     public void setSpeed (int s) {
 	s=speed;
     }
@@ -60,4 +69,21 @@ public class Turtle {
 	n=name;
     }
 
+=======
+    public void setAge (int a) {
+	age=a;
+	    }
+
+    public void setSpeed (int s) {
+	speed=s;
+	    }
+
+    public void setName (String n) {
+	name=n;
+
+	}
+
+	
+
+>>>>>>> d952d9e806bc83b21379cfec30a5d3cf4f45a965
 }
