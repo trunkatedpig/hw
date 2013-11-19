@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+
+public class ArrayStuff {
+
+    private int[] a;
+    private Random r = new Random();
+
+    public ArrayStuff() {
+        a = new int[20];
+        for (int i=0;i<a.length;i++) 
+            a[i] = r.nextInt(100);
+    }
+
+    public String toString() {
+        return Arrays.toString(a);
+    }
+
+    public int get(int n) {
+        return a[n];
+    }
+
+    public int findMaxIndex() {
+        int maxi = 0;
+        for (int i=0 ; i<a.length; i++) {
+            if (a[i] > a[maxi]) 
+                maxi = i;
+        }
+        return maxi;
+    }
+
+    public int find(int n) {
+        for (int i=0; i<a.length; i++) {
+            if (a[i] == n)
+                return i;
+        }
+        return -1;
+    }
+
+    public double mean() {
+        double sum = 0;
+        for (int i=0; i<a.length; i++) {
+            sum += a[i];
+        }
+        return sum / a.length;
+    }
+    
+    public double stddev() {
+        double  mean = mean();
+        double sumMeans = 0;
+        for (int i=0; i<a.length; i++) {
+            sumMeans += Math.pow(a[i] - mean, 2);
+        }
+        return Math.sqrt(sumMeans / a.length);
+    }
+}

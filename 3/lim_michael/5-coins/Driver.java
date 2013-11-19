@@ -6,6 +6,16 @@ public class Driver {
 	System.out.println(c.getFlips());
 	c.reset();
 	System.out.println(c.getFlips());
+<<<<<<< HEAD
+    }
+
+
+
+
+
+
+
+=======
 	c.setCoin("Quarter");
 	System.out.println(c.getValue());
 
@@ -27,4 +37,5 @@ public class Driver {
     }
 
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
