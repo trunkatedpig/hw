@@ -1,24 +1,25 @@
 import java.util.*;
 import java.io.*;
 
-public class myList {
+public class StringMyList {
     private String[] data;
     private int numItems;
     
-    public myList() {
-	data = {""};
+    public StringMyList() {
+	String[] data = new String[5];
+	Arrays.fill(data, "");
 	numItems=0;
     }
     
     public boolean isFull() {
-	return numItems >= data.length;
+		return (numItems >= data.length);
     }
     
     public void grow() {
-	// "grow" the array by creating a new one and copying over
-	String[] tmpArray = new String[data.length+data.length/2];
-	    for (int i=0;i<data.length;i++) 
-		tmpArray[i]=data[i];
+		// "grow" the array by creating a new one and copying over
+		String[] tmpArray = new String[data.length+data.length/2];
+	  	for (int i=0;i<data.length;i++) 
+			tmpArray[i]=data[i];
 	    data = tmpArray;
     }
     
@@ -53,8 +54,8 @@ public class myList {
     	for (int i=pos;i<data.length;i++){
 	    if (i<=numItems)
 		    data[i]=data[i+1];
-    		else
-		    data[i]=0;
+    	else
+		    data[i]="";
     	}
     }
     
@@ -62,7 +63,7 @@ public class myList {
 		return numItems;
      }
 
-     public int get(int pos) {
+     public String get(int pos) {
 		//if (pos>=numItems) not actually in the list
 		return data[pos];
      }
@@ -71,22 +72,22 @@ public class myList {
 		data[pos] = d;
      }
 
-    public int find(String v){
+    public String find(String v){
 	for (int i=0;i<data.length;i++){
 	    if (data[i].equals(v))
-		return data[i];
+			return data[i];
 	}
-	return 0;
+	return "";
     }
 
-    public int findRemove(int v){
+    public String findRemove(int v){
 	for (int i=0;i<data.length;i++){
 	    if (data[i].equals(v)){
-		data.remove(i);
+			remove(i);
 		return data[i];
 	    }
 	}
-	return 0;
+	return "";
     }
 
 }
