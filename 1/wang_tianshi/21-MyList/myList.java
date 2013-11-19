@@ -42,8 +42,8 @@ public class myList {
 	else {
 	    if (full())
 		grow();
-	    for (int i = pos;i<numItems-1;i++){
-		data[i+1]=data[i];
+            for(int i = numItems; i>pos; i--){
+                data[i] = data[i-1];
 	    }
 	    data[pos] = d;
 	    numItems++;
