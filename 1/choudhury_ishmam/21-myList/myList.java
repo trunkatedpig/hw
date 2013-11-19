@@ -57,7 +57,7 @@ public class myList {
 		return data[pos];
 	}
 	
-	public int set(int pos, int d) {
+	public void set(int pos, int d) {
 		data[pos] = d;
 	}
 }
