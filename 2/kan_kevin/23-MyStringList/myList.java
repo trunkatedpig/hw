@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class myList {
-
     private int[] data;
     private int numItems;
     
@@ -35,70 +34,67 @@ public class myList {
 	String s = Arrays.toString(data)+" : "+numItems;
 	return s;
     }
-
+	
     public void insert(int pos, int d) {
-	if (numItems < data.length) {
-	    for (int i=numItems ; i>pos; i--) {
-		data[i] = data[i-1];
+	if (numItems < data.length){
+	    for (int i= numItems; i>=pos; i--){
+	        data[i+1] = data[i];
 	    }
 	    data[pos] = d;
+	    numItems++;
 	}
-	else {
-	    int[] temp = new int[data.length + 1];
-
-	    for (int i=0; i<pos; i++) {
+	else{
+	    int[] temp = new int[data.length+1];
+	    int i;
+	    for (i = 0; i<pos; i++){
 		temp[i] = data[i];
 	    }
-
 	    temp[pos] = d;
-
-	    for ( ;pos<data.length; pos++) {
-		temp[pos+1] = data[pos];
+	    for (int k = i; k< data.length; k++){
+		temp[k+1] = data[k];
 	    }
-
 	    data = temp;
+	    numItems++;
 	}
-	numItems = numItems + 1;
     }
 
-    public void remove(int pos) {
-	while (pos > data.length-1) {
-	    grow();
+    public void remove(int pos){
+	int[] temp = new int[data.length];
+	int i;
+	for (i = 0; i<pos; i++){
+	    temp[i] = data[i];
 	}
-	for ( ; pos<data.length-1; pos++) {
-	    data[pos] = data[pos+1];
+	for (int k=i+1; k<data.length; k++){
+	    temp[k-1] = data[k];
 	}
-	numItems = numItems - 1;
+	data = temp;
+	numItems--;
     }
 
     public int size() {
 	return numItems;
     }
-
     public int get(int pos) {
 	return data[pos];
     }
-
     public void set(int pos, int d) {
 	data[pos] = d;
     }
-
-    public int find(int n) {
-	for (int i=0; i<numItems; i++) {
-	    if (data[i] == n)
+    public int find(int n){
+	for (int i = 0; i<data.length; i++){
+	    if (data[i] == n){
 		return data[i];
+	    }
 	}
-	return -1;
+	return 0;
     }
-
-    public void fremove(int n) {
-	int firstIndex = -1;
-	int i=0;
-	while (data[i]!=n) {
-	    i = i +1;
+    public void fremove(int n){
+	for (int i = 0; i<data.length; i++){
+	    if (data[i] == n){
+		remove(i);
+		break;
+	    }
 	}
-	firstIndex = i;
-	remove(firstIndex);
     }
-	
+	    
 }
