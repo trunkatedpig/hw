@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-public class myListString {
+public class myStringList {
     private String[] data;
     private int numItems;
     
-    public myListString() {
+    public myStringList() {
 	data = new String[5];
 	numItems=0;
     }
