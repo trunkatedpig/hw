@@ -7,7 +7,11 @@ public class myList {
 
     public myList() {
 	data = new int[5];
-	numItems = 0;
+	Random r = new Random();
+	for (int i = 0; i < data.length; i++) {
+	    data[i] = r.nextInt();
+	}
+	numItems = 5;
     }
 
     public String toString() {
@@ -27,7 +31,10 @@ public class myList {
 	data = tempArray;
     }
 
-    public void insert(int pos, int d) {
+    public void add(int pos, int d) {
+	if (numItems < data.length && pos > numItems) {
+	    data[pos] = d;
+	}
 	int[] tempArray = new int[data.length + 1];
 	int i = 0;
 	while (i < pos) {
@@ -41,5 +48,14 @@ public class myList {
 	data = tempArray;
 	numItems = numItems + 1;
     }
+
+    public void remove(int pos) {
+	for (int i = pos; i < data.length-1; i++) {
+	    data[i] = data[i+1];
+	}
+	numItems = numItems - 1;
+	data[numItems] = 0;
+    }
+	
     
 }
