@@ -6,8 +6,12 @@ public class myList {
     private int numItems;
 
     public myList(){
-	data = new int[5];
-	numItems = 0;
+	data = new int[15];
+	Random r = new Random();
+	for (int i=0;i<data.length;i++){
+            data[i]=r.nextInt(100);
+	}
+        numItems = data.length;
     }
 
     public String toString() {
@@ -48,21 +52,16 @@ public class myList {
     }
 
     public void add(int pos, int i){
-	if (pos < data.length) {
-	    if (data[pos]==0){
-		data[pos] = i;
-		numItems++;
-	    }else{
-		add(0);
-		for (int j=data.length-1;j>pos;j--) {
-		    data[j] = data[j-1];
-		}
-		data[pos] = i;
-	    }
-	} else {
-	    add(i);
+	if (isFull()){
+	    grow();
 	}
+	for (int j=data.length-1;j>pos;j--) {
+	    data[j] = data[j-1];
+        }
+        data[pos] = i;
+        numItems++;
     }
+
 
     public int size() {
 	return numItems;
