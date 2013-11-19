@@ -14,6 +14,8 @@ public class Driver {
 	System.out.println(as.mean(as.getArray()));
 	System.out.println("Standard Deviation: ");
 	System.out.println(as.stddev(as.getArray()));
+	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	System.out.println("MyList Stuff"
     }
 
 }

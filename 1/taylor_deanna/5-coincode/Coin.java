@@ -3,15 +3,33 @@ import java.util.*;
 
 public class Coin {
     private String face;
+<<<<<<< HEAD
+    private int heads, tails, totalflips, headpercent;
+=======
     /*   private int heads;
     private int tails;
     private int totalflips;
     private int headpercent;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 
     public void resetCount() {
 	totalflips = 0;
 	heads = 0;
 	tails = 0;
+<<<<<<< HEAD
+	headpercent = 0;
+    }
+
+    public String getFace() {
+	return face;
+    }
+
+    public void setCount() {
+	totalflips = 5;
+	heads = 2;
+	tails = 3;
+	headpercent = 20;
+=======
 	fairness = 0;
 	} */
 
@@ -51,6 +69,7 @@ public class Coin {
 	} else {
 	    return "Tails";
 	}
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
     public int getTotalFlips() {
@@ -64,4 +83,11 @@ public class Coin {
     public int getTails() {
 	return tails;
     }
+<<<<<<< HEAD
+
+    public int getHeadPercent() {
+	return headpercent;
+    }
+=======
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }

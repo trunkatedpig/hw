@@ -62,4 +62,23 @@ public class ArrayStuff {
 	return Math.sqrt(variance());
     }
 
+    public int freq(int n) {
+	int count = 0;
+	for (int i=0;i<a.length;i++) {
+	    if (a[i]==n) {
+		count=count+1;
+	    }
+	}
+	return count;
+    }
+
+    public void mode() {
+	//Plan: Make a new array (or something other type of list)
+	//which contains all the values of the desired array, without
+	//repeats.  (For example, if the array is {2,2,8,4,8,1},
+	//the new array would be {2,8,4,1}.)  Then, check the frequencies
+	//of the values in the latter list in the former list, and
+	//compare those frequencies.  (Dictionaries would be really nice.)
+    }
+
 }

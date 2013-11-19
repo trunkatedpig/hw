@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+public class Coin {
+    public String face;
+    public int count;
+    public int prob;
+
+    /*
+    public Coin() {
+	
+    }
+    */
+
+    public void setCount(int n) {
+	count = n;
+    }
+
+    public void resetCount() {
+	setCount(0);
+=======
 import java.util.*;
 import java.io.*;
 
@@ -37,11 +56,14 @@ public class Coin {
 
     public void resetCount() {
 	tosses = 0;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
     public String getFace() {
 	return face;
     }
+<<<<<<< HEAD
+=======
 
     public double getValue() {
 	return value;
@@ -69,4 +91,5 @@ public class Coin {
 	    return face;
 	}
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
