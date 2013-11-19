@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-public class myListStrings {
+public class myStringList {
     private String[] data;
     private int numItems;
     
-    public myListStrings() {
+    public myStringList() {
 	data = new String[5];
 	numItems=0;
     }
@@ -61,33 +61,20 @@ public class myListStrings {
 	return numItems;
     }
 
-    public String find (String d) {
-
-	for (int i = 0; i < numItems; i++ ) {
-	    if (data [i].equals( d)) {
-		return data [i];
-	    }
+    public String find(String d){
+	for(int i=0; i < numItems; i++){
+	    if(data[i].equals(d))
+		return d;
 	}
-	return "NO!";
+	return data[numItems-1];
     }
 
-    public void fRemove (String d) {
-	int pos = -1;
-	for (int i = 0; i < numItems; i++) {
-	    if (data [i] .equals( d)) {
-		pos = i;
-		i = numItems;
-	    }
-
+    public void fremove(String d){
+	for(int i=0;i<numItems;i++){
+	    if(data[i].equals(d))
+		remove(i);
 	}
-
-	if (pos !=-1) {
-	    remove (pos);
-	}
-
     }
-
-
 
     public String toString() {
 	String s = Arrays.toString(data)+" : "+numItems;
