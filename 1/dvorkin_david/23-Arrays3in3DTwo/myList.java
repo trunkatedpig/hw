@@ -90,11 +90,11 @@ public class myList {
 	boolean t = true;
 	int i = 0;
 	    while ( i<data.length && t){
-	    if (data[i] == d){
-		remove(i);
-		t = false;
-	    }
-	    i = i + 1;
+		if (data[i] == d){
+		    remove(i);
+		    t = false;
+		}
+		i = i + 1;
 	    }	
     }
 }
