@@ -26,5 +26,17 @@ public class MyList {
 	}
 	return s;
     }
+
+    public String remove (int i) {
+	
+    }
+
+    public String get (int i) {
+	return array[i];
+    }
+
+    public String set (int i, int d) {
+	array [i] = d;
+    }
 }
 

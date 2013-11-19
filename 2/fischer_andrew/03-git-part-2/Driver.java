@@ -11,6 +11,6 @@ public class Driver {
 	g = new Greeter("You're a beautiful person,", "No one likes you,");
 	 
 	
-	System.out.println(g2.greet("Tom", "Sarah"));
+	System.out.println(g.greet("Tom", "Sarah"));
     }
 }
