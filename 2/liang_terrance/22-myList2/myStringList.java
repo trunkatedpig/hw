@@ -82,7 +82,7 @@ public class myStringList {
 
     public int find (String n){
 	int index = 0;
-	for (index = 0; index < data.length; index ++){
+	for (index = 0; index < numItems; index ++){
 	    if (data[index].equals(n)){
 		return index;
 	    }
