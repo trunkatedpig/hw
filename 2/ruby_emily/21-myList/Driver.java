@@ -6,6 +6,8 @@ public class Driver {
         myList L = new myList();
 	L.insert(3,8);
 	System.out.println(L.toString());
-        
+        L.insert2(4,7);
+	System.out.println(L.toString());
     }        
 
+}
