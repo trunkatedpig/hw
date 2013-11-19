@@ -35,6 +35,17 @@ public class myList {
 	    temparray[i] = data[i-1];
 	}
 	data = temparray;
+	numItems = numItems + 1;
+    }
+
+    public void remove(int pos){
+	
+	for (int i = pos;i < data.length-1 ;i++){
+	    data[i] = data[i+1];
+	}
+	data[data.length - 1] = 0;
+	//numItems = numItems - 1;
+   
     }
     
     public String toString() {

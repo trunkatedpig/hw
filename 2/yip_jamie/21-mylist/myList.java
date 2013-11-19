@@ -33,15 +33,36 @@ public class myList {
 	// inserts data item d at location pos in the data array
 	// remember we have to shift down items to make room and
 	// we might have to grow the array
-	int[] result = new int [data.length + 1];
-	for (int i = 0; i < data.length; i++){
-	    if (pos > i){
-		result [i] = data[i];}
-	    else{
-		if (pos == i){
-		    result[pos] = d;}
-		else {
-		    result[i + 1] = data[i];}}}
-	data = result;
+	if (data.length >= numItems){
+	    for (int i = data.length; pos < data.length; i--){
+		data[i] = data [i - 1];
+	    }
+	    data[pos]= d; 
+	}
+	else {
+	    int[] result = new int [data.length + 1];
+	    int i = 0;
+	    while (pos > i){
+		result [i] = data[i];
+		i= i+1;}
+	    result[pos] = d;
+	    for (int j = pos + 1; j > data.length; j++){
+		result[j - pos] = data[j];}
+	    data = result;}
+
+	numItems = numItems + 1;
     }
+
+    public remove(int p){
+
+    }
+
+    public get(int pos){
+	return data[pos];
+    }
+    public void set(int pos, int d){
+	data[pos] = d;
+    }
+
 }
+
