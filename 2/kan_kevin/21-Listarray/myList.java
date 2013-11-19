@@ -44,8 +44,8 @@ public class myList {
 
     public void insert2(int pos,int d){
 	if (numItems < data.length){
-	    for (int i= pos+1; i<data.length; i++){
-	        data[i] = data[i-1];
+	    for (int i= numItems; i>=pos; i--){
+	        data[i+1] = data[i];
 	    }
 	    data[pos] = d;
 	    numItems++;
