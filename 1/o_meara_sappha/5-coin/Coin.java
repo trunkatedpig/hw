@@ -3,6 +3,10 @@ import java.util.*;
 
 public class Coin {
 
+<<<<<<< HEAD
+    private String face;
+    private int flips, heads, tails, fairness;
+=======
     private String face, name;
     private int flips, heads, tails;
     private double fairness = .50;
@@ -22,6 +26,7 @@ public class Coin {
 	setValue();
 	reset();
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 
     public void reset() {
 	flips = 0;
@@ -33,6 +38,10 @@ public class Coin {
 	return face;
     }
 
+<<<<<<< HEAD
+}
+	    
+=======
     public String flip(){
 	if (Math.random() < fairness) {
 	    face = "Heads";
@@ -83,3 +92,4 @@ public class Coin {
 	    
 
 	    
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3

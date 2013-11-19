@@ -4,6 +4,31 @@ import java.util.*;
 public class Coin {
     
     private String face;
+<<<<<<< HEAD
+    private int heads = 0;
+    private int tails = 0;
+    private int flips = 0;
+    private double fairness;
+
+    public Coin() {
+	setFlips(0);
+	setHeads(0);
+	setTails(0);
+    }
+	
+    public void setFlips(int n) {
+	flips = n;
+    }
+
+    public void setHeads(int n) {
+	heads = n;
+    }
+
+    public void setTails(int n) {
+	tails = n;
+    }
+
+=======
     private int heads;
     private int tails;
     private int flips;
@@ -16,6 +41,7 @@ public class Coin {
 	fairness = 0.5;
     }
 	
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     public int getFlips() {
 	return flips;
     }
@@ -26,6 +52,20 @@ public class Coin {
 
     public int getTails() {
 	return tails;
+<<<<<<< HEAD
+    }
+
+    public void Reset() {
+      	setFlips(0);
+	setHeads(0);
+	setTails(0);
+    }
+
+    public void Face() {
+    }
+
+
+=======
     }    
 
     public void Reset() {
@@ -49,5 +89,6 @@ public class Coin {
        	}
     }
     //Coin and CoinPurse are in Hw#7
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
     
