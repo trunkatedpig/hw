@@ -26,7 +26,7 @@ public class myList {
     
     public void insert(int pos, int d){
 	int[] newdata = new int[data.length + 1];
-	for (int i = 0; (i < data.length); i++){
+	for (int i = 0; (i < numItems); i++){
 	    if (i<pos){
 		newdata[i] = data[i];
 	    }
@@ -36,6 +36,7 @@ public class myList {
 	}
 	newdata[pos]=d;
 	data = newdata;
+	numItems = numItems + 1;
     }
 
     public String toString() {
