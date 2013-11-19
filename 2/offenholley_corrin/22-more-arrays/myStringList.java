@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
     
     public myList() {
-        data = new int[5];
+        data = new String[5];
         numItems=0;
     }
     public boolean isFull() {
@@ -32,7 +32,7 @@ public class myList {
         String s = Arrays.toString(data)+" : "+numItems;
         return s;
     }
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
         if (numItems<=data.length-1 ){
             for (int q=data.length-1; q>pos; q--) {
                 data[q] = data[q-1];
@@ -41,7 +41,7 @@ public class myList {
             numItems= numItems+1;
         }
         else if (pos<=data.length){
-            int[] end=new int[data.length+1];
+            String[] end=new String[data.length+1];
             int o = pos;
             for (int q=0; q<pos; q++) { 
                 end[q]=data[q];
@@ -55,7 +55,7 @@ public class myList {
         }
     }
     /* public void remove(int pos) {
-        int store=data[pos+1];
+        String store=data[pos+1];
         for (int q=pos+1; q<data.length-1; q++) {
             data[q-1]=store;
             store=data[q+1];
@@ -63,28 +63,28 @@ public class myList {
         numItems=numItems-1;
         }*/
     public void remove(int pos) {
-        int store=data[pos+1];
+        String store=data[pos+1];
         for (int q=pos+1; q<data.length-1; q++) {
             data[q-1]=store;
             store=data[q+1];
         }
         numItems=numItems-1;
     }
-    public int[] getData() {
+    public String[] getData() {
         return data;
     }
-    public int get(int pos) {
+    public String get(int pos) {
         return data[pos];
     }
-    public void set(int pos, int d) {
+    public void set(int pos, String d) {
         data[pos]= d;
     }
     public int size() {
         return numItems;
     }
-    public int find(int n) {
+    public String find(int n) {
         for (int q=0; q<data.length; q++){
-            if (data[q]==(n)) {
+            if (data[q].equals(n)) {
                 return n;
             }
            
@@ -93,7 +93,7 @@ public class myList {
     }
     public void fremove(int n) {
         for (int q=0;q<data.length;q++) {
-            if (data[q]==n) {
+            if (data[q].equalsn) {
                 this.remove(q);
             }
         }
