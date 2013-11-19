@@ -37,6 +37,17 @@ public class Driver {
 	System.out.println();
 
 	L.set(16,100);
+	System.out.println(L);
+	System.out.println();
+
+	System.out.println(L.find(40));
+	System.out.println(L);
+	System.out.println();
+
+	System.out.println(L.fremove(60));
+	System.out.println(L);
+	System.out.println();
     }
+
 
 }
