@@ -16,7 +16,7 @@ public class Driver {
 
 	L.insert(4,36);
 	System.out.println(L);
-	L.insert(16,12);
+	L.insert(16,10);
 	System.out.println(L);
     }	
 
