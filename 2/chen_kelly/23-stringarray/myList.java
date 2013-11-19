@@ -29,56 +29,65 @@ public class myList {
         data[numItems]=d;
         numItems = numItems + 1;
     }
-
-    public void add(int pos, int d) {
-	if (isFull()) 
-	    grow();
+    
+    public String toString() {
+	String s = Arrays.toString(data)+" : "+numItems;
+	return s;
+    }
 	
-	// shift things over to make room
-	for (int i=numItems;i>=pos;i--) {
+    public void add(int pos, int d){
+        if (data.length<=numItems)
+	    grow();
+	for (int i = numItems;i > pos;i--){
 	    data[i]=data[i-1];
 	}
 	data[pos]=d;
-	numItems++;
-    }
-    
-    public void remove(int pos) {
-	for (int i=pos; i< numItems;i++) 
-	    data[i]=data[i+1];
-	numItems--;
+        numItems = numItems+1;
+        
     }
 
+    public int remove(int pos) {
+	int temp = data[pos];
+	for(int i= pos; i < numItems; i++){
+	    data[i] = data[i+1];
+	}
+	numItems--;
+	return temp;
+    }
+     
+    public int size() {
+	return numItems;
+    }
 
     public int get(int pos) {
 	return data[pos];
     }
 
     public void set(int pos, int d) {
-	data[pos]=d;
-    }
-
-    public int size() {
-	return numItems;
-    }
-
-    public int find(int d){
-	for(int i=0; i < numItems; i++){
-	    if(data[i] == d)
-		return d;
-	}
-	return data[numItems-1];
-    }
-
-    public void fremove(int d){
-	for(int i=0;i<numItems;i++){
-	    if(data[i]==d)
-		remove(i);
-	}
-    }
-
-    public String toString() {
-	String s = Arrays.toString(data)+" : "+numItems;
-	return s;
+	data[pos] = d;
     }
 	
+    public int find(int n)
+    {
+	for(int i = 0; i < numItems; i++)
+	{
+	    if(data[i] == n)
+	    {
+		return data[i];
+	    }
+	}
+	return 0;
+    }
+
+    public void fremove(int n)
+    {
+	for(int i = 0; i < numItems; i++)
+	{
+	    if(data[i] == n)
+	    {
+		remove(i);
+	    }
+	}
+    }
 }
+

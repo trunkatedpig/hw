@@ -1,17 +1,19 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
+public class MyList {
     private int[] data;
     private int numItems;
     
-    public myList( int max) {
+ 
+ public MyList(int max) {
         data = new int[5];
-        numItems=0;
+	r= new Random();
+	for (int i=0; i<data.length; i++){
+	    data[i]=r.nextInt(max+1);
+	}
+        numItems=data.length;
     }
-    public boolean isFull(){
-	return numItems>=data.length;
-
     }
 
     public void grow(){
@@ -21,33 +23,54 @@ public class myList {
 	data=tmpArray;
 	}
    
-    public void add(int d){
-	if(isFull())
+    public void add(int d) {
+	if (isFull()) {
 	    grow();
-	data[numItems]=d;
-	numItems=numItems+1;
-}
+	}
+	for (int i = a.length-1; i > pos; i--) {
+	    a[i] = a[i-1];
+	}
+	a[pos] = d;
+	numItems = numItems + 1;
+	}
+
+	public int size() {
+	    return a.length;
+	}
+	public int get(int pos) {
+	    return a[pos];
+	}
+	public void set(int pos, int d) {
+	    a[pos] = d;
+	}
+} 
+
     public void insert(int pos, int d) {
 	int temp[]=new int[data.length+1];
 	for (int x=0;x<pos; x++){
-	    templ[x]=data[x];}
+	    temp[x]=data[x];}
 	for(int c=pos; c<temp.length;c++){
 	    if (c==pos){
 		temp[c]=d;}
 	    else{
 		
-		templ[c]=data[c-1];}
+		temp[c]=data[c-1];}
 
 	}
 	data=temp;
-	return "Array now has "+ d + "at position "+ pos+ "/n"+data;}
-
+	//return "Array now has "+ d + "at position "+ pos+ "/n"+data;}
+    }
     
     public void remove(int pos) {
-	for(int x=pos;i<numsItems;i++){
-	    data[i]=data[i+1];
-	    numItems=numItems-1;
-	}  }
+	int[]ans= new int[data.length-1];
+	for(int x=0;x<pos;x++){
+	    ans[x]=data[x];}
+	for(int i =pos; i <ans.length; i++){
+	    ans[i]=data[i+1];
+	}
+	data=ans;
+	 numItems=numItems-1;
+	} 
 
     public String toString(){
 	String s= Arrays.toString(data)+" "+numItems;
