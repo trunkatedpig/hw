@@ -25,7 +25,16 @@ public class Driver {
 	System.out.println(L.size());
 	L.set(5,8);
 	System.out.println(L.get(5));
+	System.out.println(L);
+	L.remove(2);
+	System.out.println(L);
+	System.out.println(L);
+        L.remove(8);
+        System.out.println(L);
+	
+
     }	
+
 
 
 }

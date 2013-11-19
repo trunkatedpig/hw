@@ -1,32 +1,29 @@
+import java.io.*;
+import java.util.*;
+
 public class Coin {
     private String face;
-    private int tosses;
-    private int heads;
-    private double prob = 0.5; // another way to initialize
-
-    public void initCoin(String f, Double p) {
- face = f;
- tosses=0;
- heads=0;
- prob=p;
-    }
-
+    private int flips,heads,tails,fairness;
 
     public Coin() {
- initCoin("Heads",0.5);
+        face = "heads";
+        flips = 5;
+        heads = 2;
+        tails = 3;
+        fairness = 40;
     }
 
-
-    public Coin(String f) {
- initCoin(f,0.5);
+    public void reset() {
+        flips = 0;
+        heads = 0;
+        tails = 0;
+        fairness = 0;
+        
     }
 
     public String getFace() {
- return face;
-    }
-
-    public boolean equals(Coin other) {
- return face.equals(other.getFace());
+	return face;
+           
     }
     
 }
