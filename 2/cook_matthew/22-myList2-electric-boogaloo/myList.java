@@ -9,16 +9,20 @@ public class myList {
 	data = new int[5];
 	numItems=0;
     }
+    public boolean isFull() {
+	return numItems >= data.length;
+    }
 
+    public void grow() {
+	// "grow" the array by creating a new one and copying over
+	int[] tmpArray = new int[data.length+data.length/2];
+	for (int i=0;i<data.length;i++) 
+	    tmpArray[i]=data[i];
+	data = tmpArray;
+    }
     public void add(int d) {
-	
-	if (numItems>=data.length) {
-	    System.out.println("Growing from "+data.length+" to "+data.length*1.5);
-	    // "grow" the array by creating a new one and copying over
-	    int[] tmpArray = new int[data.length+data.length/2];
-	    for (int i=0;i<data.length;i++) 
-		tmpArray[i]=data[i];
-	    data = tmpArray;
+	if (isFull()){
+	    grow();
 	}
         data[numItems]=d;
         numItems = numItems + 1;
@@ -49,6 +53,14 @@ public class myList {
 	    data=end;
 	    numItems=numItems+1;
 	}
+    }
+    public void remove(int pos) {
+	int store=data[pos+1];
+	for (int q=pos+1; q<data.length-1; q++) {
+	    data[q-1]=store;
+	    store=data[q+1];
+	}
+	numItems=numItems-1;
     }
     public int[] getData() {
 	return data;
