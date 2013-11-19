@@ -1,13 +1,13 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
+public class myStringList {
 
-    private int[] data;
+    private String[] data;
     private int numItems;
     
-    public myList() {
-	data = new int[5];
+    public myStringList() {
+	data = new String[5];
 	numItems=0;
     }
 
@@ -17,13 +17,13 @@ public class myList {
 
     public void grow() {
 	    // "grow" the array by creating a new one and copying over
-	    int[] tmpArray = new int[data.length+data.length/2];
+	    String[] tmpArray = new String[data.length+data.length/2];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i]=data[i];
 	    data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
@@ -36,15 +36,15 @@ public class myList {
 	return s;
     }
 
-    public void insert(int pos, int d) {
-	if (data.length > numItems) {
+    public void insert(int pos, String d) {
+	if (!isFull()) {
 	    for (int i=numItems ; i>pos; i--) {
 		data[i] = data[i-1];
 	    }
 	    data[pos] = d;
 	}
 	else {
-	    int[] temp = new int[data.length + 1];
+	    String[] temp = new String[data.length + 1];
 
 	    for (int i=0; i<pos; i++) {
 		temp[i] = data[i];
@@ -77,23 +77,23 @@ public class myList {
 	return numItems;
     }
 
-    public int get(int pos) {
+    public String get(int pos) {
 	return data[pos];
     }
 
-    public void set(int pos, int d) {
+    public void set(int pos, String d) {
 	data[pos] = d;
     }
 
-    public int find(int n) {
+    public String find(String n) {
 	for (int i=0; i<numItems; i++) {
 	    if (data[i] == n)
 		return data[i];
 	}
-	return -1;
+	return "-1";
     }
 
-    public boolean in(int n) {
+    public boolean in(String n) {
 	for (int i=0; i<numItems; i++) {
 	    if (data[i] == n)
 		return true;
@@ -101,7 +101,7 @@ public class myList {
 	return false;
     }
 
-    public void fremove(int n) {
+    public void fremove(String n) {
 	if (in(n)) {
 	    int firstIndex=0;
 	    while (data[firstIndex]!=n) {
