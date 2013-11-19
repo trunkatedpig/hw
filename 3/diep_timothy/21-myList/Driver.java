@@ -3,19 +3,40 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	myList l1 = new myList(10,50);
-	myList l2 = new myList(10,50);
-	Random r = new Random();
+	myList L = new myList(5);
 
-	System.out.println(l1);
-	l1.insert(r.nextInt(10),100);
-	System.out.println(l1);
-
+        System.out.println(L);
 	System.out.println();
 
-	System.out.println(l2);
-	l2.remove(r.nextInt(10));
-	System.out.println(l2);
-	
+        for (int i=0;i<5;i++)
+            L.add((i+1)*10);
+        System.out.println(L);
+	System.out.println();
+
+        for (int i=0;i<7;i++)
+            L.add((i+1)*10);
+        System.out.println(L);
+	System.out.println();
+
+	L.add(6,100);
+	System.out.println(L);
+	System.out.println();
+
+	L.add(20,100);
+	System.out.println(L);
+	System.out.println();
+
+	L.remove(10);
+	System.out.println(L);
+	System.out.println();
+
+	System.out.println(L.size());
+	System.out.println();
+
+	System.out.println(L.get(20));
+	System.out.println();
+
+	L.set(16,100);
     }
+
 }
