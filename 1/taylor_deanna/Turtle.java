@@ -40,13 +40,24 @@ public class Turtle {
 	return name;
     }
 
-    public getspeed () {
+    public int getspeed () {
 	return speed;
     }
 
-    public getage () {
+    public int getage () {
 	return age;
     }
+    
+    public void setAge (int a) {
+	a=age;
+    }
 
+    public void setSpeed (int s) {
+	s=speed;
+    }
+
+    public void setName (String n) {
+	n=name;
+    }
 
 }
