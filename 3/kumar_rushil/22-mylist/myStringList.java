@@ -1,28 +1,19 @@
 import java.io.*;
 import java.util.*;
 
-public class myList{
+public class myStringList{
 
-    private int[] a;
+    private String[] a;
     private Random r;
     private int numitems;
    
-    public myList(int length, int range) {
-        r = new Random();
-        a = new int[length];
-        for (int i=0;i<a.length;i++){
-            a[i]=r.nextInt(range);
-	}
-	numitems = a.length;
-    }
-
-    public myList(int length) {
-        a = new int[length];
+    public myStringList(int length) {
+        a = new String[length];
 	numitems = 0;
     }
 
-    public myList() {
-        a = new int[10];
+    public myStringList() {
+        a = new String[10];
 	numitems = 0;
     }
 
@@ -30,7 +21,7 @@ public class myList{
 	return numitems >= a.length;
     }
 
-    public int get(int n){
+    public String get(int n){
         return a[n];
     }
 
@@ -38,17 +29,17 @@ public class myList{
 	return numitems;
     }
 
-    public void set(int pos, int d){
-	a[pos]=d;
+    public void set(int pos, String s){
+	a[pos]=s;
     }
 
     public String toString(){
         return Arrays.toString(a);
     }
 
-    public int remove(int pos){
-        int result = a[pos];
-        int[] b = new int [a.length-1];
+    public String remove(int pos){
+        String result = a[pos];
+        String[] b = new String [a.length-1];
         for (int i = 0; i < pos; i ++){
             b[i]=a[i];
         }
@@ -60,49 +51,49 @@ public class myList{
         return result;
     }
 
-    public void add(int d) {
+    public void add(String s) {
 	if (isFull()){
 	    grow();
 	}
-        a[numitems]=d;
+        a[numitems]=s;
         numitems = numitems + 1;
     }
 
-    public void add(int pos, int d){
+    public void add(int pos, String s){
 	if (isFull()){
 	    grow();
 	}
-	int x = a[pos];
-	int y = 0;
+	String x = a[pos];
+	String y = "";
 	for (int i = pos; i < numitems; i ++){
 	    y = a[i+1];
 	    a[i+1] = x;
 	    x = y;
 	}
-	a[pos]=d;
+	a[pos]=s;
     }
 	     
     
     public void grow() {
 	    // "grow" the array by creating a new one and copying over
-	    int[] tmpArray = new int[a.length+a.length/2];
+	    String[] tmpArray = new String[a.length+a.length/2];
 	    for (int i=0;i<a.length;i++) 
 		tmpArray[i]=a[i];
 	    a = tmpArray;
     }
 
-    public int find(int n){
+    public String find(String s){
 	for (int i = 0; i < numitems; i++){
-	    if (a[i] == n)
+	    if (a[i] == s)
 		return a[i];
 	}
-	return 0;
+	return "Not in the list";
     }
 
-    public void fremove(int n){
+    public void fremove(String s){
 	int pos = -1;
 	for (int i = 0; i < numitems && pos < 0; i++){
-	    if (a[i] == n){
+	    if (a[i] == s){
 		pos = i;
 	    }
 	}
@@ -110,7 +101,7 @@ public class myList{
 	    remove(pos);
 	}
 	else{
-	    System.out.println(n + " not found in the list.");
+	    System.out.println(s + " not found in the list.");
 	}
     }
 }
