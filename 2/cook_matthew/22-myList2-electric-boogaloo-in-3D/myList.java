@@ -54,6 +54,14 @@ public class myList {
 	    numItems=numItems+1;
 	}
     }
+    /* public void remove(int pos) {
+	int store=data[pos+1];
+	for (int q=pos+1; q<data.length-1; q++) {
+	    data[q-1]=store;
+	    store=data[q+1];
+	}
+	numItems=numItems-1;
+	}*/
     public void remove(int pos) {
 	int store=data[pos+1];
 	for (int q=pos+1; q<data.length-1; q++) {
@@ -74,4 +82,22 @@ public class myList {
     public int size() {
 	return numItems;
     }
+    public int find(int n) {
+	for (int q=0; q<data.length; q++){
+	    if (data[q]==(n)) {
+		return n;
+	    }
+	   
+	}
+	return 0;
+    }
+    public void fremove(int n) {
+	for (int q=0;q<numItems;q++) {
+	    if (data[q]==n) {
+		this.remove(q);
+		break;
+	    }
+	}
+    }
 }
+
