@@ -52,13 +52,13 @@ public int remove (int pos){
 	for (int i=pos; i<data.length-1;i++){
 	    data[i]=data[i+1];
 	}
-	data[data.length-1]=null;
+	data[data.length-1]=0;
 	numItems=numItems-1;
 	return output;
     }
 
     public int get(int i){
-	pos = data[i];
+	int pos = data[i];
 	return pos;
     }
     
