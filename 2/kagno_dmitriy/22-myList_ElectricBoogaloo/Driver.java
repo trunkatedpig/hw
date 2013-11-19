@@ -19,6 +19,9 @@ public class Driver {
             L.add((i+6)*1);
         }
         System.out.println(L);
+	L.set(7,100);
+
+        System.out.println(L);
 	
 	L.remove(6);
         System.out.println(L);
