@@ -1,24 +1,24 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-       private int[] data;
-       private int numItems;
+public class myStringList {
+       private String[] data;
+       private String  numItems;
 
-       public myList() {
-          data = new int[5];
+       public myStringList() {
+          data = new String[5];
 	  numItems = 0;
        }
 
 
     public boolean isFull() {
-	return numItems.(data.length);
+	return numItems >= data.length;
     }
     
    
    
     public void grow(int d) {
-	int[] tmpArray = new int[data.length + data.length + d ];
+	String[] tmpArray = new String[data.length + data.length + d ];
 	for (int i=0;i<data.length;i++) {
 	    tmpArray[i]=data[i];
 	}
@@ -42,7 +42,7 @@ public class myList {
 
 
     public int remove(int pos){
-	int[] temp = new int[numItems - 1]; 
+	String[] temp = new String[numItems - 1]; 
 	int i = 0; 
 	int j = 0; 
 	while (i < numItems){ 
@@ -69,7 +69,7 @@ public class myList {
 	    //return the item at pos;
 	}
 	public int set(int pos, int d) {
-	    int[] temparray = new int[numItems];
+	    String[] temparray = new String[numItems];
 	    for (int i = 0; i < numItems; i++){
 		if (i !=  pos)
 		    temparray[i] = data[i];  
@@ -81,17 +81,11 @@ public class myList {
 	}
 		// change the item at pos to have the value d
     public int find(int b){ 
-	for (int i = 0; i < numItems; i++){ 
+	for (int i = 0; i < numitems; i++){ 
 	    if( data[i] == b)
 		return b;
 	}
-	return b; 
     }
+   
 
-    
-
-} 
-
-
-
-
+}
