@@ -26,7 +26,7 @@ public class myList {
 	data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
@@ -34,7 +34,7 @@ public class myList {
         numItems = numItems + 1;
     } 
 
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
         if (data[data.length] == 0) {
 	    data[pos] = d;
 	int tempArray[] = new int[data.length + 1];
@@ -65,23 +65,24 @@ public class myList {
 	return data[pos];
     }
     
-    public void set(int pos, int d) {
+    public void set(int pos, String d) {
 	data[pos] = d;
     }	
     
-    public int find{int d) {
-	for (int i = 0;i < data.length;i++) {
-	    if (data[i] == d) {
-		return d;
+    public string find(String d) {
+	String s = "Nothing found"
+	for {int i = 0;i < data.length;i++) {
+	    if (data[i] == n) {
+		return data[i];
 	    }
 	}
-	return 0;
+	return s;
     }
 
-    public void fremove(int d) {
-	for (int i = 0;i < data.length;i++) {
-	    if (data[i] == n) {
-		remove(i); 
+    public void fremove(String d) {
+	for (itn i = 0;i < data.length;i++) {
+	    if (data[i] == d) {
+		remove(i);
 	    }
 	}
     }

@@ -1,13 +1,23 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
     
-    public myList() {
-	data = new int[5];
+    public myStringList() {
+	data = new String[5];
 	numItems = 0;
+    }
+
+    public String makeRandomStrings() {
+	Random r = new Random();
+	String test;
+	if (r.nextInt(100)%2 == 0)
+	    test = "even";
+	else
+	    test = "odd";
+	return test;
     }
 
     public boolean isFull() {
@@ -17,7 +27,7 @@ public class myList {
     public void grow() {
 	if (isFull()) {
 	    System.out.println("Increasing array size from "+data.length+" to "+data.length*3/2+".");
-	    int[] tmpArray = new int[data.length*3/2];
+	    String[] tmpArray = new String[data.length*3/2];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i] = data[i];
 	    data = tmpArray;
@@ -28,34 +38,34 @@ public class myList {
 	return numItems;
     }
 
-    public void set(int pos, int d) {
+    public void set(int pos, String s) {
 	if (pos > numItems) {
-	    data[numItems] = d;
-	    System.out.println("Index exceeded array size.  Value (d) added to end of array.");
+	    data[numItems] = s;
+	    System.out.println("Index exceeded array size.  Value (s) added to end of array.");
 	}
 	else
-	    data[pos] = d;
+	    data[pos] = s;
     }
 
-    public int get(int pos){
+    public String get(int pos){
 	if (pos >= data.length)
-	    return -1;
+	    return "null";
 	return data[pos];
     }
 
-    public void add(int d) {
+    public void add(String s) {
         grow();
-        data[numItems] = d;
+        data[numItems] = s;
         numItems++;
     }
 
-    public void add(int pos, int d) {
+    public void add(int pos, String s) {
 	grow();
         if (pos < numItems) {
 	    for (int i = numItems; i >= pos; i--)
 		set(i, data[i-1]);
 	}
-	set(pos, d);
+	set(pos, s);
 	numItems++;
     }
 
@@ -66,41 +76,27 @@ public class myList {
 	numItems--;
     }
 
-    /* less efficient--but still functional--remove method
-
-    public void remove1(int pos){
-	int[] temp = new int[data.length-1];
-	for (int i=0; i<temp.length; i++) {
-	    if (i<pos)
-		temp[i] = data[i];
-	    else
-		temp[i] = data[i+1];
-	}
-	data = temp;
-	numItems--;
-    }
-
-    */
 
     private int foundIndex;
-    public int find(int n) {
+    public String find(String s) {
 	foundIndex = 0;
 	for (int i = 0; i < numItems; i++) {
-	    foundIndex++;
-	    if (data[i] == n)
+	    foundIndex ++;
+	    if (data[i].equals(s))
 		return data[i];
 	}
-	return 0;
+	return "null";
     }
 
-    public void fRemove(int n) {
-	int temp = find(n);
-	if (temp == 0)
+    public void fRemove(String s) {
+	String temp = find(s);
+	if (temp.equals("null"))
 	    System.out.println("Error: Out of Bounds");
 	else
 	    remove(foundIndex);
     }
     
+
     public String toString() {
 	String s = Arrays.toString(data)+" -- Data Set Size: "+size();
 	return s;

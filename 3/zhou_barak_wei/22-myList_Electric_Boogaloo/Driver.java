@@ -1,3 +1,4 @@
+
 public class Driver {
     public static void main(String[] args) {
 	//Testing myList:
@@ -15,10 +16,10 @@ public class Driver {
 	}
 	System.out.println(L);
 
-	L.insert(4,999);
-	L.insert(4,999);
-	L.insert(4,999);
-	L.insert(4,999);
+	L.add(4,999);
+	L.add(4,999);
+	L.add(4,999);
+	L.add(4,999);
 	System.out.println(L);
 
 	L.remove(12);
@@ -34,7 +35,7 @@ public class Driver {
 	System.out.println(L.fremove(999));
 	System.out.println(L);
 	System.out.println();
-	
+
 	//Testing myStringList:    
 	System.out.println("Testing myStringList:");
 	myStringList SL = new myStringList();
@@ -52,10 +53,10 @@ public class Driver {
 	SL.add("dog");
 	System.out.println(SL);
 
-	SL.insert(4,"tomato");
-	SL.insert(4,"ketchup");
-	SL.insert(4,"potato salad");
-	SL.insert(4,"ranch dressing");
+	SL.add(4,"tomato");
+	SL.add(4,"ketchup");
+	SL.add(4,"potato salad");
+	SL.add(4,"ranch dressing");
 	System.out.println(SL);
 
 	SL.remove(6);
@@ -72,4 +73,6 @@ public class Driver {
 	System.out.println(SL);
 	System.out.println();
     }	
+
+
 }
