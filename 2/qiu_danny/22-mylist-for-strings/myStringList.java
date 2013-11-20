@@ -1,16 +1,26 @@
 import java.util.*;
 
-public class myList {
+public class myStringList {
 
-    private int[] data;
+    private String[] data;
     private int numItems = 0;
 
-    public myList() {
-        data = new int[5];
+    public myStringList() {
+        data = new String[5];
     }
 
-    public myList(int n) {
-        data = new int[n];
+    public myStringList(int n) {
+        data = new String[n];
+    }
+
+    public myStringList(int n, boolean random) {
+        data = new String[n];
+        if (random) {
+            for (int i=0; i<data.length; i++) {
+                data[i] = UUID.randomUUID().toString(); // Got this off Stack Overflow
+            }
+            numItems = data.length;
+        }
     }
 
     public String toString() {
@@ -34,29 +44,29 @@ public class myList {
     public void grow() {
         System.out.println("Growing from "+data.length+" to "+data.length*1.5);
         // "grow" the array by creating a new one and copying over
-        int[] tmpArray = new int[data.length + data.length/2];
+        String[] tmpArray = new String[data.length + data.length/2];
         for (int i=0; i<data.length; i++)
             tmpArray[i] = data[i];
         data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String s) {
         if (isFull()) {
             grow();
         }
-        data[numItems] = d;
+        data[numItems] = s;
         numItems++;
     }
     
-    public void add(int pos, int d) {
+    public void add(int pos, String s) {
         if (badPosition(pos))
             return;
         if (isFull()) {
-            int[] tmpArray = new int[data.length + 1];
+            String[] tmpArray = new String[data.length + 1];
             int offset = 0;
             for (int i=0; i<data.length; i++) {
                 if (i == pos) {
-                    tmpArray[i] = d;
+                    tmpArray[i] = s;
                     offset += 1;
                 }
                 else {
@@ -70,33 +80,54 @@ public class myList {
             for (int i=numItems; i>pos; i--) {
                 data[pos] = data[pos - 1];
             }
-            data[pos] = d;
+            data[pos] = s;
         }
     }
 
     public void remove(int pos) {
         if (badPosition(pos))
             return;
+        else if (numItems <= 0) {
+            System.out.println("There is nothing you can remove!");
+            return;
+        }
         for (int i=pos; i<numItems-1; i++) {
             data[i] = data[i + 1];
         }
-        data[numItems - 1] = 0;
+        data[numItems - 1] = null;
         numItems--;
     }
 
-    public int get(int pos) {
+    public String get(int pos) {
         if (badPosition(pos))
-            return 0;
+            return "";
         return data[pos];
     }
 
-    public void set(int pos, int d) {
+    public void set(int pos, String s) {
         if (badPosition(pos))
             return;
-        data[pos] = d;
+        data[pos] = s;
     }
 
     public int size() {
         return numItems;
+    }
+
+    public String find(String n) {
+        for (int i=0; i<data.length; i++) {
+            if (n == data[i])
+                return data[i];
+        }
+        return "Nothing was found";
+    }
+
+    public void fRemove(String n) {
+        for (int i=0; i<data.length; i++) {
+            if (n == data[i]) {
+                remove(i);
+                break;
+            }
+        }
     }
 }

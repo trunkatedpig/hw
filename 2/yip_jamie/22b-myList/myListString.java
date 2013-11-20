@@ -1,21 +1,21 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myListString {
+    private String[] data;
     private int numItems;
     
-    public myList() {
-        data = new int[5];
+    public myListString() {
+        data = new String[5];
         numItems=0;
     }
 
-    public void add(int d) {
+    public void add(String d) {
         
         if (numItems>=data.length) {
             System.out.println("Growing from "+data.length+" to "+data.length*1.5);
             // "grow" the array by creating a new one and copying over
-            int[] tmpArray = new int[data.length+data.length/2];
+            String[] tmpArray = new String[data.length+data.length/2];
             for (int i=0;i<data.length;i++) 
                 tmpArray[i]=data[i];
             data = tmpArray;
@@ -29,7 +29,7 @@ public class myList {
         return s;
     }
     
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
 	// inserts data item d at location pos in the data array
 	// remember we have to shift down items to make room and
 	// we might have to grow the array
@@ -40,7 +40,7 @@ public class myList {
 	    data[pos]= d; 
 	}
 	else {
-	    int[] result = new int [data.length + 1];
+	    String[] result = new String [data.length + 1];
 	    int i = 0;
 	    while (pos > i){
 		result [i] = data[i];
@@ -62,22 +62,22 @@ public class myList {
 	return numItems;
     }
 
-    public int get(int pos){
+    public String get(int pos){
 	return data[pos];
     }
-    public int set(int pos, int d){
+    public String set(int pos, String d){
 	data[pos] = d;
 	return data[pos];
     }
 
-    public int find (int n){
+    public String find (String n){
 	for (int i = 0; i <data.length; i++){
 	    if (n== data[i]){
 		return data[i];}}
-	return 0;
+	return "error";
     }
 
-    public void fremove (int n){
+    public void fremove (String n){
 	for (int i = 0; i <data.length; i++){
 	    if (n== data[i]){
 		remove(i);}
