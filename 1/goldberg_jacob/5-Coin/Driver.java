@@ -3,6 +3,16 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
+<<<<<<< HEAD
+	Coin coin = new Coin();
+	System.out.println("This flip has returned " + coin.getSide());
+	/*if*/
+	coin.side = "heads"
+	System.out.println("The heads count is now" + coin.heads)
+	/*if*/
+	coin.reset();
+	System.out.println("There have been no flips thus far")
+=======
 	Coin g = new Coin();
 	System.out.println(g.Flip());
 	System.out.println(g.getHeads());
@@ -54,3 +64,4 @@ public class Driver {
 	b.addTo(g);
 	System.out.println("There are" + " " + b.getAmmount() + " " + "many cents in here");*/
 }}
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3

@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+public class Driver {
+
+    public static void main(String[] args) {
+	Coin coin = new Coin();
+	coin.setCount(5);
+	System.out.println(coin.count);
+	coin.resetCount();
+	System.out.println(coin.count);
+	
+	
+=======
 import java.util.*;
 import java.io.*;
 
@@ -22,6 +34,7 @@ public class Driver {
 
 	purse.removeFrom(coin4);
 	System.out.println(purse.getAmount());
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
 }

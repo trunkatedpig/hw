@@ -1,43 +1,50 @@
-public class Turtle(){
-	private String name;
-	private int age;
-	private int speed;
+public class Turtle {
+    private String turtle;
+    public int speed,age;
 
-	public Turtle(){
-		name = "Tom";
-		age = 3;
-		speed = 10;
-	}
+    public void setturtle(String n){
+	turtle = n;
+    }
+    public void setage(int m){
+	age = m;
+    }
+    public void setspeed(int s){
+	speed = s;
+    }
 
-	public Turtle(String n){
-		name = n;
-		age = 3;
-		speed = 10;
-	}
-
-	public Turtle(String n, int a, int s){
-		name = n;
-		age = a;
-		speed = s;
-	}
-
-	public void SpeedUp(int u){
-		speed = speed + u;
-	}
-
-	public void GetOlder(){
-		age = age ++;
-	}
-
-	public String tellname(){
-		return name;
-	}
+    public Turtle() {
+	setspeed(10);
+	setage(93);
+	setturtle("Tom");
+    }
+    public Turtle(String name){
+	setturtle(name);
+	setage(7);
+	setspeed(11);
+    }
+    public Turtle(String nme, int sped, int ag) {
+	setturtle(nme);
+	setage(ag);
+	setspeed(sped);
+    }
 	
-	public int tellspeed(){
-		return speed;
-	}
+    public void SpeedUp(int n){
+	setspeed(speed + n);
+    }
+    public void SlowDown(int n){
+	setspeed(speed - n);
+    }
+    public void GetOlder(){
+	setage(age + 1); 
+    }
 
-	public int tellage(){
-		return age;
-	}
+    public String tellname(){
+	return turtle;
+    }
+    public int tellage(){
+	return age;
+    }
+    public int tellspeed(){
+	return speed;
+    }
 }
