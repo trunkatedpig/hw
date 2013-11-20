@@ -71,5 +71,13 @@ public class myList {
 	String s = Arrays.toString(data)+" : "+numItems;
 	return s;
     }
-
+    
+    public int find(int n){
+	for (int i;i<data.length;i++){
+	    if (data[i]==n){
+		return n;
+	    }
+	}
+	return 0;
+    }
 }
