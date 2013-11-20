@@ -1,32 +1,32 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
-    
-    public myList() {
-	data = new int[5];
+
+    public myStringList() {
+	data = new String[5];
 	numItems=0;
     }
-
+    
     public boolean isFull() {
 	return numItems >= data.length;
     }
 
     public void grow() {
 	// "grow" the array by creating a new one and copying over
-	int[] tmpArray = new int[data.length+data.length/2];
+	String[] tmpArray = new String[data.length+data.length/2];
 	for (int i=0;i<data.length;i++) 
 	    tmpArray[i]=data[i];
 	data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String str) {
 	if (isFull()){
 	    grow();
 	}
-        data[numItems]=d;
+        data[numItems]=str;
         numItems = numItems + 1;
     }
     
@@ -35,14 +35,14 @@ public class myList {
 	return s;
     }
 	
-    public void add(int pos, int d) {
+    public void add(int pos, String str) {
 	if (isFull() || pos > data.length-1){
 	    grow();
 	}
 	for (int i=numItems; i>pos; i--) {
 	    data[i] = data[i-1];
 	}
-	data[pos] = d;
+	data[pos] = str;
 	numItems++;
     }
 
@@ -55,28 +55,28 @@ public class myList {
     public int size() {
 	return numItems;
     }
-    public int get(int pos) {
+    public String get(int pos) {
 	return data[pos];
     }
-    public void set(int pos, int d) {
+    public void set(int pos, String str) {
 	if (pos > numItems-1) {
-	    data[numItems-1] = d;
+	    data[numItems-1] = str;
 	}
 	else {
-	    data[pos] = d;
+	    data[pos] = str;
 	}
     }
-    public int find(int n) {
+    public String find(String str) {
 	for (int i=0; i<numItems; i++) {
-	    if (data[i] == n) {
+	    if (data[i] == str) {
 		    return data[i];
 		}
 	}
-	return -1;
+	return "";
     }
-    public void fremove(int n) {
+    public void fremove(String str) {
 	for (int i=0; i<numItems; i++) {
-	    if (data[i] == n) {
+	    if (data[i] == str) {
 		    remove(i);
 		    break;
 		}
