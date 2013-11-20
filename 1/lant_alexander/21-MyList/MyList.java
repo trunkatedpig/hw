@@ -7,12 +7,19 @@ public class MyList {
     private int numItems;
 
     public MyList(){
-	data = new int[10];
+	data = new int[20];
 	numItems = 0;
+	data = {2,3,4,5,6,23,35,44,23,45,65,23,87,10,99};
+	System.out.println;
     }
 
     public void insert(int pos, int d) {
-     
+	int[] temp = new int[data.length + 1];
+	for (int i = data.length; i > pos; i --){
+	    data[i] = data[i + 1];
+	} 
+	int[pos] = d;
+	data = temp;
     }
 
     public int remove(int pos) {
@@ -25,7 +32,7 @@ public class MyList {
 	if (data[pos] != 0)
 	    numItems = numItems - 1;
 	data = temp;
-     // removes the data item at location pos from the array data
+	// removes the data item at location pos from the array data
       // remember we have to shift down items.
        // return the removed data item.
     }
