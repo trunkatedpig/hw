@@ -80,7 +80,9 @@ public class myList {
     public void fremove (int n){
 	for (int i = 0; i <data.length; i++){
 	    if (n== data[i]){
-		remove(i);}
+		remove(i);
+		numItems = numItems -1;
+	    }
 	}
     }
 
