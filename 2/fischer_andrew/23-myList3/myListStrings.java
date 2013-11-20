@@ -5,12 +5,12 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myListStrings {
+    private String[] data;
     private int numItems;
     
-    public myList() {
-        data = new int[5];
+    public myListStrings() {
+        data = new String[5];
         numItems = 0;
     }
 
@@ -19,14 +19,14 @@ public class myList {
     }
     
     public void grow() {
-        int[] tmpArray = new int[data.length + data.length/2];
+        String[] tmpArray = new String[data.length + data.length/2];
         for (int i = 0; i < data.length; i++) {
             tmpArray[i] = data[i];
         }
         data = tmpArray;
     }
     
-    public void add(int d) {
+    public void add(String d) {
         if (isFull()){
             grow();
         }
@@ -34,8 +34,8 @@ public class myList {
         numItems = numItems + 1;
     }
     
-    public void insert(int pos, int d) {
-        int[] tmpArray = new int[data.length+1];
+    public void insert(int pos, String d) {
+        String[] tmpArray = new String[data.length+1];
         for (int i = 0; i < pos; i++) {
             tmpArray[i] = data[i];
         }
@@ -52,7 +52,7 @@ public class myList {
         return s;
     }
     
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
         if (isFull()){
             grow();
         }
@@ -64,7 +64,7 @@ public class myList {
     }
     
     public void remove(int pos){
-        data[pos] = 0;
+        //data[pos] = 0;
         for(int i = pos; i < numItems; i++){
             data[i] = data[i+1];
         }
@@ -79,20 +79,20 @@ public class myList {
         System.out.println("At position " + pos + " is " + data[pos]);
     }
 
-    public void set(int pos, int d){
+    public void set(int pos, String d){
         data[pos] = d;
     }
 
-    public int find(int n){ //find first occurance of an int.
+    public String find(String n){ //find first occurance of an int.
 	for (int i=0; i<data.length; i++){
 	    if (n==data[i]) {
 		return data[i];
 	    }
 	}
-	return -1;
+	return "n/a";
     }
 
-    public void fremove(int n) {
+    public void fremove(String n) {
 	for (int i=0; i<data.length; i++){
 	    if (n==data[i]){
 		remove(i);

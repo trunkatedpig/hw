@@ -68,7 +68,7 @@ public class myList {
     }
 
     public int size (){
-	return numItems; //Not working?
+	return numItems;
     }
 
     public int get (int pos){
@@ -78,5 +78,23 @@ public class myList {
     public void set (int pos, int d){
 	data[pos] = d;
     }
-
+    public int find (int d){
+        for (int i = 0; i < data.length; i++){
+            if (data[i] == d){
+                return d;
+            }
+        }
+        return -1;
+    }
+    public void fremove(int d){
+        boolean t = true;
+        int i = 0;
+	while ( i<data.length && t){
+            if (data[i] == d){
+                remove(i);
+                t = false;
+            }
+            i = i + 1;
+	}        
+    }
 }
