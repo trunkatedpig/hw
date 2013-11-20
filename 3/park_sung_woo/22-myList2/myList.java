@@ -73,20 +73,11 @@ public class myList {
     }
     
     public int find(int n){
-	for (int i=0;i<data.length;i++){
+	for (int i;i<data.length;i++){
 	    if (data[i]==n){
 		return n;
 	    }
 	}
 	return 0;
-    }
-
-    public void fremove(int n){
-        for (int i=0;i<data.length;i++){
-                if (data[i]==n){
-                    remove(i);
-                    i = data.length;    
-            }
-        }
     }
 }

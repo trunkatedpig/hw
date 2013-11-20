@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
     
-    public myList() {
-	data = new int[5];
+    public myStringList() {
+	data = new String[5];
 	numItems=0;
     }
 
@@ -15,13 +15,13 @@ public class myList {
 
     public void grow() {
 	// "grow" the array by creating a new one and copying over
-	int[] tmpArray = new int[data.length+data.length/2];
+	String[] tmpArray = new String[data.length+data.length/2];
 	for (int i=0;i<data.length;i++) 
 	    tmpArray[i]=data[i];
 	data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
@@ -34,7 +34,7 @@ public class myList {
 	return s;
     }
 	
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
 	// to be completed by you
 	// inserts the value d at location (index) pos)
 	// recall the algorithm we developed in calss:
@@ -42,7 +42,7 @@ public class myList {
 	// 2. shift everything past the insertion point down
 	// 3. add the new item
 	// 4. numitems++
-	int[] retArray = new int[data.length+1];
+	String[] retArray = new String[data.length+1];
 	for (int i=0; i<pos; i++){
 	    retArray[i] = data[i];
 	}
@@ -58,7 +58,7 @@ public class myList {
 	// removes the item at location pos
 	// 1. shift everything down to remove the item
 	// 2. numitems--;
-	int[] retArray = new int[data.length-1];
+	String[] retArray = new String[data.length-1];
 	for (int i=0; i<pos; i++)
 	    retArray[i] = data[i];
 	for (int i=pos+1; i<data.length; i++)
@@ -70,27 +70,27 @@ public class myList {
 	// return the number of items in the list
 	return data.length;
     }
-    public int get(int pos) {
+    public String get(int pos) {
 	//return the item at pos;
 	return data[pos];
     }
-    public void set(int pos, int d) {
+    public void set(int pos, String d) {
 	// change the item at pos to have the value d
 	data[pos] = d;
     }
-    public int find(int n) {
+    public String find(String n) {
 	for (int i=0; i<numItems; i++) {
 	    if (data[i]==n) {return data[i];}
 	}
-	return 0;
+	return "nope";
     }
-    public int fremove(int n) {
+    public String fremove(String n) {
 	for (int i=0; i<numItems; i++) {
 	    if (data[i]==n) {
 		remove(i);
 		return n;
 	    }
 	}
-	return 0;
+	return "nope";
     }
 }
