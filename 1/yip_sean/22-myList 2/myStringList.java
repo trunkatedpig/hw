@@ -1,23 +1,23 @@
 import java.util.*;
 
-public class myList {
-	private int[] data;
+public class myStringList {
+	private String[] data;
 	private int numItems;
 	
-	public myList() {
-		data = new int[5];
+	public myStringList() {
+		data = new String[5];
 		numItems = 0;
 	}
 	
 	//Methods in alphabetical order
-	public void add(int d) {
+	public void add(String d) {
 		if (isFull()) {grow();}
 		
 		data[numItems] = d;
 		numItems++;
 	}
 	
-	public void add(int pos, int d) {
+	public void add(int pos, String d) {
 		if (outOfBounds(pos)) {throw new ArrayIndexOutOfBoundsException(pos);}
 		
 		if (isFull()) {grow();}
@@ -27,27 +27,21 @@ public class myList {
 		numItems++;
 	}
 	
-	public boolean contains(int d) {
-		for (int i = 0; i < data.length; i++) {if (data[i] == d) {return true;}}
+	public boolean contains(String d) {
+		for (int i = 0; i < data.length; i++) {if (data[i].equals(d)) {return true;}}
 		
 		return false;
-	}
-	
-	/*public int find(int d) { //Return d itself
-		for (int i = 0; i < data.length; i++) {if (data[i] == d) {return d;}}
+	}	
 		
-		return d + 1;
-	}*/
-	
-	public int find(int d) {
-		for (int i = 0; i < data.length; i++) {if (data[i] == d) {return i;}}
+	public int find(String d) {
+		for (int i = 0; i < data.length; i++) {if (data[i].equals(d)) {return i;}}
 		
 		return -1;
 	}
 	
-	public void fremove(int d) {remove(find(d));}
+	public void fremove(String d) {remove(find(d));}
 	
-	public int get(int pos) {
+	public String get(int pos) {
 		if (outOfBounds(pos)) {throw new ArrayIndexOutOfBoundsException(pos);}
 		
 		return data[pos];
@@ -63,12 +57,12 @@ public class myList {
 		if (outOfBounds(pos)) {throw new ArrayIndexOutOfBoundsException(pos);}
 		
 		for (int i = pos; i <= data.length - 2; i++) {data[i] = data[i + 1];}
-		data[data.length - 1] = 0;
+		data[data.length - 1] = "";
 		//Note that the array does not shrink.
 		numItems--;
 	}
 	
-	public void set(int pos, int d) {
+	public void set(int pos, String d) {
 		if (outOfBounds(pos)) {throw new ArrayIndexOutOfBoundsException(pos);}
 		
 		data[pos] = d;
@@ -76,7 +70,7 @@ public class myList {
 	
 	public int size() {return data.length;}
 	
-	public int[] toArray() {return data;}
+	public String[] toArray() {return data;}
 	
 	public String toString() {return Arrays.toString(data) + " : " + numItems;}
 }
