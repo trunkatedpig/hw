@@ -84,8 +84,8 @@ public class myList {
 
     public int find(int n) {
 	for (int i = 0; i < numItems; i++) {
-	    if data[i].equals(n)
-		       return data[i];
+	    if (data[i] == n)
+		return data[i];
 	}
 	return 0;
     }
