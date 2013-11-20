@@ -1,16 +1,19 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-       private int[] data;
-       private int numItems;
-
-       public myList() {
-          data = new int[5];
-	  numItems = 0;
-       }
-
-
+public class myStringList {
+    private int[] data;
+    private int numItems;
+    private String[] data2;
+    
+    
+    public myStringList() {
+	data = new int[5];
+	numItems = 0;
+	data2=new String[5]
+    }
+    
+    
     public boolean isFull() {
 	return numItems >= data.length;
     }
