@@ -1,13 +1,13 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
-    private int[] tmp;
+    private String[] tmp;
     
-    public myList() {
-	data = new int[5];
+    public myStringList() {
+	data = new String[5];
 	numItems=0;
     }
 
@@ -16,13 +16,13 @@ public class myList {
     }
 
     public void grow() {
-	    int[] tmpArray = new int[data.length+data.length/2];
+	    String[] tmpArray = new String[data.length+data.length/2];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i]=data[i];
 	    data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
@@ -35,7 +35,7 @@ public class myList {
 	return s;
     }
 	
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
 	if (isFull()){
 	    grow();
 	    tmp = data;
@@ -62,18 +62,18 @@ public class myList {
 	numItems --;
     }
 
-    public int find(int d){
+    public String find(String d){
 	for (int i = 0; i < data.length; i ++){
 	    if (data[i] == d){
 		i = data.length;
 		return d;
 	    }
-	    return 0;
+	    return "";
 	    }
-	return 0;
+	return "";
  }
 
-    public void fremove(int d){
+    public void fremove(String d){
 	for (int i = 0; i < data.length; i ++){
 	    if (data[i] == d){
 	    remove(i);
@@ -85,10 +85,10 @@ public class myList {
 	public int size() {
 	    return numItems;
 	}
-	public int get(int pos) {
+	public String get(int pos) {
 	    return data[pos];
 	}
-	public void set(int pos, int d) {
+	public void set(int pos, String d) {
 	    data[pos] = d;
 	}
 }
