@@ -82,8 +82,11 @@ public class myList {
 
     */
 
+    private int foundIndex;
     public int find(int n) {
+	foundIndex = 0;
 	for (int i = 0; i < numItems; i++) {
+	    foundIndex++;
 	    if (data[i] == n)
 		return data[i];
 	}
@@ -91,9 +94,11 @@ public class myList {
     }
 
     public void fRemove(int n) {
-	if (find(n) == 0)
+	int temp = find(n);
+	if (temp == 0)
 	    System.out.println("Error: Out of Bounds");
-	remove(find(n));
+	else
+	    remove(foundIndex);
     }
     
     public String toString() {

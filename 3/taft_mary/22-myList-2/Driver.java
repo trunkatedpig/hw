@@ -39,6 +39,15 @@ public class Driver {
 
 	System.out.println("Testing get():\nThe value at index 16 is: " + L.get(16)+"\nThe value at index 4 is: " + L.get(4));
 	System.out.println();
+
+	System.out.println("Testing find(): search for 16: found " + L.find(16));
+	System.out.println();
+
+	L.fRemove(16);	
+	System.out.println("Removed the first instance of 16.");
+	System.out.println(L);
+	System.out.println();
+
 	System.out.println();
 
 	myStringList SNL = new myStringList();
@@ -76,6 +85,17 @@ public class Driver {
 	System.out.println();
 
 	System.out.println("Testing get():\nThe value at index 18 is: " + SNL.get(18)+"\nThe value at index 9 is: " + SNL.get(9));
+	System.out.println();
+
+
+	System.out.println("Testing find(): search for \"even\": found " + SNL.find("even"));
+	System.out.println();
+
+	SNL.fRemove("even");	
+	System.out.println("Removed the first instance of \"even\".");
+	System.out.println(SNL);
+	System.out.println();
+
 	System.out.println();
 	
     }
