@@ -5,6 +5,7 @@ public class MyList {
     private int[] a;
     private Random r;
     private int numItems;
+    private int findindex;
     
     public MyList() {
         r = new Random();
@@ -12,10 +13,15 @@ public class MyList {
         for (int i=0;i<a.length;i++)
             a[i]=r.nextInt(100);
 	numItems = a.length;
+	findindex = 0;
     }
 
-      public String toString() {
+    public String toString() {
         return Arrays.toString(a);
+    }
+
+    public int[] getA() {
+	return a;
     }
 
     public int remove(int pos) {
@@ -73,4 +79,25 @@ public class MyList {
 	public void set(int pos, int d) {
 	    a[pos] = d;
 	}
+
+    public int find (int n) {
+	int answer = 0;
+	for (int i = 0; answer == 0; i++) {
+	    if (a[i] == n) {
+		answer = a[i];
+		findindex = i;
+	    }
+	    else {
+		answer = 0;
+	    }
+	}
+	return answer;
+    }
+    
+    public void fremove (int n) {
+	int num = find(n);
+	if (num != 0) {
+	    this.remove(findindex);
+	}
+    }
 } 
