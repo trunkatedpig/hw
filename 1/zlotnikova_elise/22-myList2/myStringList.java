@@ -7,15 +7,15 @@ public class myList {
     
     public myList()
     {
-	data =new int[10];
+	data =new String[10];
 	numItems=0;
     }
     
-    public void add(int d) {
+    public void add(String d) {
 
 	if (numItems>=data.length) {
 	    System.out.println("Growing");
-	    int[] tmpArray = new int[data.length+(data.length/2)];
+	    String[] tmpArray = new String[data.length+(data.length/2)];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i]=data[i];
 	    data = tmpArray;
@@ -31,13 +31,13 @@ public class myList {
 	return s;
     }
 
-    public void insert(int pos, int d) { 
-	int[] tempArray;
+    public void insert(int pos, String d) { 
+	String[] tempArray;
 	if (pos<=data.length) { 
-	    tempArray = new int[data.length+1];
+	    tempArray = new String[data.length+1];
 	}
 	else { 
-	    tempArray = new int[pos+1];
+	    tempArray = new String[pos+1];
 	}
 	tempArray[pos] = d;
 	int i;
@@ -59,7 +59,7 @@ public class myList {
     }
     
     public void remove(int pos) { 
-	int[] tempArray = new int[data.length-1];
+	String[] tempArray = new String[data.length-1];
 	int i;
 	for (i=0;i<pos;i++) { 
 	    tempArray[i] = data[i];
@@ -86,15 +86,15 @@ public class myList {
 	    numItems++;
     }
 
-    public int find(int d) { 
+    public int find(String d) { 
 	for (int i=0;i<data.length;i++) { 
-	    if (data[i]==d) 
+	    if (data[d].equals(d));
 		return i;
 	}
 	return -1;
     }
     
-    public void fremove(int d) { 
+    public void fremove(String d) { 
 	int pos = find(d);
 	remove(pos);
     }
