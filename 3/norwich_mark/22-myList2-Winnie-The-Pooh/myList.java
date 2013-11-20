@@ -12,13 +12,13 @@ public class myList {
 
 
     public boolean isFull() {
-	return numItems >= data.length;
+	return numItems.(data.length);
     }
     
    
    
-    public void grow() {
-	int[] tmpArray = new int[data.length + data.length / 2 ];
+    public void grow(int d) {
+	int[] tmpArray = new int[data.length + data.length + d ];
 	for (int i=0;i<data.length;i++) {
 	    tmpArray[i]=data[i];
 	}
@@ -27,7 +27,7 @@ public class myList {
 
     public void add(int d) {
 	if (isFull()) {
-	    grow();
+	    grow(d);
     }
 
 	data[numItems] = d;
@@ -80,8 +80,17 @@ public class myList {
 	    return numItems;
 	}
 		// change the item at pos to have the value d
-       
-}
+    public int find(int b){ 
+	for (int i = 0; i < numItems; i++){ 
+	    if( data[i] == b)
+		return b;
+	}
+	return b; 
+    }
+
+    
+
+} 
 
 
 
