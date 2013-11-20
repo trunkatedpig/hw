@@ -23,12 +23,12 @@ public class Greeter {
 	
     public void setHappy (String happyGreet) { 
 	//new method that will set the respective Strings to their parameter values
-		happyGreeting = "Happy";
+		happyGreeting = "Happy ";
    }
     
     public void setSad (String sadGreet) { 
 	//new method that will set the respective Strings to their parameter values
-		sadGreeting = "Sad";
+		sadGreeting = "Sad ";
     }
 
     public String greet(String person1, String person2) {
