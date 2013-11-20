@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class stringList {
+    private String[] data;
     private int numItems;
     
-    public myList() {
-	data = new int[5];
+    public stringList() {
+	data = new String[5];
 	numItems=0;
     }
 
@@ -16,13 +16,13 @@ public class myList {
 
     public void grow() {
 	    // "grow" the array by creating a new one and copying over
-	    int[] tmpArray = new int[data.length+data.length/2];
+	    String[] tmpArray = new String[data.length+data.length/2];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i]=data[i];
 	    data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
@@ -35,12 +35,12 @@ public class myList {
 	return s;
     }
 
-    public void add(int pos, int d){
+    public void add(int pos, String d){
 	if (isFull() || pos > data.length)
 	    grow();
         
 	int b = 0;
-	int[] result = new int[data.length+1];
+	String[] result = new String[data.length+1];
 	for (int a=0; a < data.length;a++){
 	    if (b==pos){
 		result[b]=d;
@@ -69,35 +69,35 @@ public class myList {
 	return numItems;
     }
 
-    public int get(int pos){
+    public String get(int pos){
 	if (pos > numItems)
-	    return -1;
+	    return "-1";
 	else
 	    return data[pos];
     }
     
-    public int set(int pos, int d){
+    public String set(int pos, String d){
 	if (pos > numItems)
-	    return -1;
+	    return "-1";
 	else{
-	    int change = data[pos];
+	    String change = data[pos];
 	    data[pos] = d;
 	    return change;
 	}
     }
 
-    public int find(int d){
+    public String find(String d){
 	for (int ind = 0; ind < numItems; ind++){
-	    if (data[ind] == d)
+	    if (data[ind].equals(d))
 		return d;
 	}
-	return -1;
+	return "-1";
     }
 
-    public void fremove(int d){
+    public void fremove(String d){
 	int ind;
 	for (ind = 0; ind < numItems; ind++){
-	    if (data[ind] == d){
+	    if (data[ind].equals(d)){
 		remove(ind);
 		break;
 	    }
