@@ -1,4 +1,4 @@
-public class Driver{
+public class StringDriver{
     public static void main(String[] args){
 	myStringList L = new myStringList();
 	L.add("Hello");
