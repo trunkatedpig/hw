@@ -1,9 +1,9 @@
 public class myList2 {
-    private int[] data;
+    private String[] data;
     private int numItems;
     
     public myList() {
-	data = new int[5];
+	data = new String[5];
 	numItems=0;
     }
 
@@ -13,13 +13,13 @@ public class myList2 {
 
     public void grow() {
 	// "grow" the array by creating a new one and copying over
-	int[] tmpArray = new int[data.length+data.length/2];
+	String[] tmpArray = new String[data.length+data.length/2];
 	for (int i=0;i<data.length;i++) 
 	    tmpArray[i]=data[i];
 	data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
@@ -32,11 +32,11 @@ public class myList2 {
 	return s;
     }
 	
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
 	if (isFull()) {
 	    grow();
 	}
-	int a [] = new int [data.length];
+	String a [] = new String [data.length];
 	for (int i = 0; i <= data.length; i++) {
 	    if ( i == pos ) {
 		a [pos] = d;
@@ -48,8 +48,8 @@ public class myList2 {
 	return a;
     }
 
-    public void remove(int pos) {
-	int a []= new int [data.length - 1];
+    public void remove(String pos) {
+	String a []= new String [data.length - 1];
 	int i = data.length - 1;
 	while ( i >= 0 ) {
 	    if ( i == pos ) {
@@ -69,25 +69,25 @@ public int size() {
     return a; 
 }
 
-public int get(int pos) {
-    int a = 0;
+public String get(int pos) {
+    String a = "";
     a = data[pos];
     return a;
 }
 
-public int set(int pos, int d) {
+public void set(int pos, String d) {
     data [pos] = d;
 }
 
-public int find(int d){
+public String find(int d){
     for (int i=0; i<numItems; i++){
 	if (data[i] == d)
 	    return data[i];
     }
-    return 0;
+    return "none";
 }
 
-public void fremove(int d){
+public void fremove(String d){
     for (int i=0; i<numItems; i++){
 	if (data[i] == d){
 	    remove(i);
