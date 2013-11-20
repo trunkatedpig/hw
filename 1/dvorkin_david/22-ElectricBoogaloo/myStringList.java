@@ -1,21 +1,21 @@
 import java.io.*;
 import java.util.*;
-public class myList {
+public class myStringList {
 
-    private int[] data;
+    private String[] data;
     private int numItems;
     
-    public myList()
+    public myStringList()
     {
-        data =new int[10];
+        data = new String[10];
         numItems=0;
     }
     
-    public void add(int d) {
+    public void add(String d) {
 
         if (numItems>=data.length) {
             System.out.println("Growing");
-            int[] tmpArray = new int[data.length+(data.length/2)];
+            String[] tmpArray = new String[data.length+(data.length/2)];
             for (int i=0;i<data.length;i++) 
                 tmpArray[i]=data[i];
             data = tmpArray;
@@ -24,6 +24,7 @@ public class myList {
         
         // then add
         data[numItems]=d;
+
         numItems=numItems+1;
     }
     
@@ -32,8 +33,8 @@ public class myList {
         return s;
     }
 
-    public void insert (int pos, int d) {
-        int[] placeholder = new int[data.length + 1];
+    public void insert (int pos, String d) {
+        String[] placeholder = new String[data.length + 1];
         for(int i = 0; i < placeholder.length; i = i + 1) {
             if (i < pos){
                 placeholder[i] = data[i];
@@ -53,7 +54,7 @@ public class myList {
     }
 
     public void remove (int pos){
-        int[] placeholder = new int[data.length-1];
+        String[] placeholder = new String[data.length-1];
         for (int i = 0; i < placeholder.length; i = i + 1){
             if (i<pos) {
                 placeholder[i] = data[i];
@@ -68,33 +69,33 @@ public class myList {
     }
 
     public int size (){
-	return numItems; //Not working?
+	return numItems;
     }
 
-    public int get (int pos){
+    public String get (int pos){
 	return data[pos];
     }
 
-    public void set (int pos, int d){
+    public void set (int pos, String d){
 	data[pos] = d;
     }
-    public int find (int d){
-	for (int i = 0; i < data.length; i++){
-	    if (data[i] == d){
-		return d;
-	    }
-	}
-	return -1;
+    public String find (String d){
+        for (int i = 0; i < data.length; i++){
+            if (data[i].equals(d)){
+                return d;
+            }
+        }
+        return "Invalid value";
     }
-    public void fremove(int d){
-	boolean t = true;
-	int i = 0;
-	    while ( i<data.length && t){
-		if (data[i] == d){
-		    remove(i);
-		    t = false;
-		}
-		i = i + 1;
-	    }	
+    public void fremove(String d){
+        boolean t = true;
+        int i = 0;
+	while ( i<data.length && t){
+            if (data[i].equals(d)){
+                remove(i);
+                t = false;
+            }
+            i = i + 1;
+	}        
     }
 }

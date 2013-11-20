@@ -47,8 +47,8 @@ public class myList {
     }
 
     public void remove(int pos) {
-	for (int i = numItems;i>pos;i--){
-	    data[i]=data[i-1];
+	for (int i = pos;i<data.length-1;i++){
+	    data[i]=data[i+1];
 	}
 	numItems = numItems - 1;
     }
@@ -63,5 +63,24 @@ public class myList {
 
     public void set(int pos, int d) {
 	data[pos] = d;
+    }
+
+    public int find(int n) {
+	for (int i = 0;i<numItems;i++) {
+	    if (data[i] == n)
+		return n;
+	}
+	return 0;
+    }
+
+    public void fremove(int n) {
+	int index = 0;
+	for (int i = 0;i<data.length-1;i++){
+	    if (data[i]==n){
+	        index = i;
+		i = data.length;
+	    }
+	}
+	remove(index);
     }
 }

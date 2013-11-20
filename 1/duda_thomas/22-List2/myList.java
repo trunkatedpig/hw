@@ -2,12 +2,12 @@ import java.io.*;
 import java.util.*;
 public class myList {
 
-    private int[] data;
+    private String[] data;
     private int numItems;
 
     public myList()
     {
-        data =new int[10];
+        data =new String[10];
         numItems=0;
     }
 
@@ -22,7 +22,7 @@ public class myList {
         data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
         if (full()) {
             grow();
         }
@@ -42,8 +42,8 @@ public class myList {
             return -1;
     }
 
-    public void set (int i, int d) {
-        while (d > numItems) {
+    public void set (int i, String d) {
+        while (data.indexOf(d) > numItems) {
             grow();
         }
 
@@ -75,7 +75,7 @@ public class myList {
 	numItems = numItems - 1;
     }
 
-    public int find (int d) {
+    public int find (String d) {
 	for (int i = 0; i < numItems; i++) {
 	    if (data[i] == d){
 	    return d;
@@ -84,11 +84,10 @@ public class myList {
 	return data[numItems];
     }
 
-    public void fremove (int d) {
+    public void fremove (String d) {
 	int p = data.indexOf(d);
 	if (p != -1) {
 	    remove(p);
 	}
     }
 }
-//Worked with Ben Rothman
