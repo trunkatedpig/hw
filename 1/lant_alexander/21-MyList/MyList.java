@@ -7,8 +7,10 @@ public class MyList {
     private int numItems;
 
     public MyList(){
-	data = new int[10];
+	data = new int[20];
 	numItems = 0;
+	data = {2,3,4,5,6,23,35,44,23,45,65,23,87,10,99};
+	System.out.println;
     }
 
     public void insert(int pos, int d) {

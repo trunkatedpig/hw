@@ -26,8 +26,21 @@ public class Driver {
 	System.out.println("----------get and size-------");
 	System.out.println(L.size());
 	System.out.println(L.get(4)); 
+	System.out.println("----------fRemove-------");
+	L.fRemove(20);
+	System.out.println(L);
+	System.out.println("--------find-------");
+	System.out.println(L.find(10));
 
-
+	System.out.println("------String List");
+	myStringList M= new myStringList();
+	System.out.println(M);
+	M.add(3,"hello");
+	M.add(5,"hey");
+	M.add(7,"hi");
+	System.out.println(M);
+	M.remove(2);
+	System.out.print(M);
     }
 
 
