@@ -6,6 +6,9 @@ public class Driver {
 	System.out.println("\nModified Array:");
         L.insert(3,1337);
         System.out.println(L+"\n");
+	L.remove(3);
+	System.out.println(L);
+
     }
 
 

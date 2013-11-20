@@ -18,6 +18,10 @@ public class Driver {
 
 	System.out.println(L);
 
+	L.fremove(10);
+
+	System.out.println(L);
+
     }
 
 
