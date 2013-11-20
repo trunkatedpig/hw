@@ -36,37 +36,29 @@ public class myListString {
     }
     
     public void add(int pos, String d) {
-	if (numItems<data.length){
-	    for(int i = numItems-1; i > pos-1; i--) {
-		data[i+1] = data[i];
-	    }
-	    data[pos] = d;
-	    numItems = numItems + 1;    
-	}
-	else{
-	    String[] a = data;
-	    grow();
-	    for (int i=pos;i<data.length;i++){
-		if (i == pos){
-		    data[i] = d;}
-		else
-		    data[i]= a[i-1];
-	    }
-	}
+	if (data.length<=numItems)
+            grow();
+        for (int i = numItems;i > pos;i--){
+            data[i]=data[i-1];
+        }
+        data[pos]=d;
+        numItems = numItems+1;
     }
+    
 
     public void remove(int pos) {
 	for (int i=pos; i<numItems-1; i++) {
             data[i] = data[i + 1];
         }
-        numItems--;    }
+        numItems--;  
+    }
     public int size() {
 	return numItems;
     }
     public String get(int pos) {
 	return data[pos];
     }
-    public int set(int pos, String d) {
+    public void set(int pos, String d) {
 	data[pos]=d;
-}
+    }
 }
