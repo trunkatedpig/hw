@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
     
-    public myList() {
-        data = new int [5];
+    public myStringList() {
+        data = new String [5];
         numItems=0;
     }
 
@@ -18,14 +18,14 @@ public class myList {
 
     public void grow() {
             // "grow" the array by creating a new one and copying over
-            int[] tmpArray = new int[data.length+data.length/2];
+            String[] tmpArray = new String[data.length+data.length/2];
             for (int i=0;i<data.length;i++) 
                 tmpArray[i]=data[i];
             data = tmpArray;
     }
 
 
-    public void add(int d) {
+    public void add(String d) {
         if (isFull()){
             grow();
         }
@@ -33,7 +33,7 @@ public class myList {
         numItems = numItems + 1;
     }
     
-    public void insert ( int pos , int d ) {
+    public void insert ( int pos , String d ) {
         if ( isFull() )
             grow();
         for ( int i = data.length - 1 ; i > pos ; i-- )
@@ -55,12 +55,12 @@ public class myList {
     }
 
 
-    public int get ( int pos ) {
+    public String get ( int pos ) {
         return data [ pos ];
     }
 
 
-    public void set ( int pos , int d ) {
+    public void set ( int pos , String d ) {
         data [ pos ] = d;
     }
 
@@ -70,14 +70,14 @@ public class myList {
         return s;
     }
 
-    public int find ( int n ){
+    public String find ( String n ){
         for ( int i = 0 ; i < data.length ; i++ ) {
             if ( data [ i ] == n )
                 return data [ i ];}
-        return -1;
+        return "-1";
     }
 
-    public void fremove ( int n ) {
+    public void fremove ( String n ) {
 	loop:
         for ( int i = 0 ; i < data.length ; i++ ) {
             if ( data [ i ] == n ) {
