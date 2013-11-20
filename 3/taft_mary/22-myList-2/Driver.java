@@ -37,6 +37,12 @@ public class Driver {
 	System.out.println();
 
 	System.out.println("Testing get():\nThe value at index 16 is: " + L.get(16)+"\nThe value at index 4 is: " + L.get(4));
+
+	myStringList SNL = new myStringList();
+
+	System.out.println(SNL);
+	for (int i = 0; i < 5; i++) {
+	    SNL
 	
     }
 
