@@ -75,5 +75,20 @@ public class myList {
 	numItems = numItems - 1;
     }
 
+    public int find (int d) {
+	for (int i = 0; i < numItems; i++) {
+	    if (data[i] == d){
+	    return d;
+	    }
+	}
+	return data[numItems];
+    }
+
+    public void fremove (int d) {
+	int p = data.indexOf(d);
+	if (p != -1) {
+	    remove(p);
+	}
+    }
 }
 //Worked with Ben Rothman

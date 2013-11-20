@@ -26,6 +26,13 @@ public class Driver {
 
         System.out.println (L.size () );
 
+	System.out.println ("----------------");
+	System.out.println(L.find(10));
+	System.out.println(L.find(52));
+	L.fremove(10);
+	System.out.println(L);
+	L.fremove(52);
+	System.out.println(L);
 
 
     }

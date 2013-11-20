@@ -43,4 +43,28 @@ public class myList {
 	        data[i]= a[i-1];
 	}
     }      
+    public void insert2(int pos, int d){
+	if (numItems<data.length){
+	    for (int i=pos;i<numItems;i++){
+		data[i+1]=data[i];
+	    }
+	    data[pos]=data[d];
+	}
+	else{
+	    int[] a = data;
+	    add(1);
+	    for (int i=pos;i<data.length;i++){
+		if (i == pos){
+		    data[i] = d;}
+		else
+		    data[i]= a[i-1];
+	    }
+	}      
+    }
+    public void remove(int pos){
+	data[pos]=0;
+	for(int i=pos;i<numItems;i++){
+	    data[i]=data[i+1];
+	}
+    }	
 }

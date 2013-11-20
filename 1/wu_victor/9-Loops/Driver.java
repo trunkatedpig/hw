@@ -21,7 +21,7 @@ public class Driver {
 	System.out.println("--------------------");
 	System.out.println(" ");
 	*/
-
+	/*
 	System.out.println(a.gcd(10, 12));
 	System.out.println(a.gcd(15, 10));
 	System.out.println(a.gcd(7, 9));
@@ -41,6 +41,7 @@ public class Driver {
 	System.out.println(a.prime(13));
 	System.out.println(a.prime(10));
 	System.out.println(a.prime(997));
-	
+	*/
+	a.reverse("hello");
     }
 }
