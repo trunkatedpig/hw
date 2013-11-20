@@ -33,5 +33,17 @@ public class Driver {
         System.out.println(L.get(0));
         System.out.println(L.size());
         L.remove(1000);
+        System.out.println(L);
+
+        L = new myList();
+        System.out.println("\n" + L);
+        System.out.println(L.find(5));
+        L.fRemove(L.get(3));
+        System.out.println(L);
+
+        L = new myList(10, 100);
+        System.out.println("\n" + L);
+        L.fRemove(L.get(3));
+        System.out.println(L);
     }
 }
