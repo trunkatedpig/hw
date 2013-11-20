@@ -78,4 +78,30 @@ public class myList {
 	    data[pos]=d;
 	}
     }
+    public int findIndex(int d){
+	int temp = -1;
+	for (int i=0; i<numItems; i++){
+	    if (d==data[i]){
+		temp = i;
+	    }
+	}
+	return temp;
+    }
+    public int fetchMeAD(int d){
+	int temp = -1;
+	for (int i=0; i<numItems; i++){
+	    if (d==data[i]){
+		temp = d;
+	    }
+	}
+	return temp;
+    }
+    
+    public void fremove(int d){
+	if (findIndex(d)!=-1){
+	    int index = findIndex(d);
+	    remove(index);
+	}
+    }
+
 }

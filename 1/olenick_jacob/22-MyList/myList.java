@@ -3,7 +3,7 @@ import java.util.*;
 
 public class myList {
 
-    private int[] data;
+    private int[] data;    
     private int numItems;
     
     public myList() {
@@ -67,4 +67,21 @@ public class myList {
     public void set(int pos, int d) {
 	data[pos] = d;
     }
+
+    public int find(int d){
+	for (int i=0; i<numItems; i++){
+	    if (data[i] == d)
+		return data[i];
+	}
+	return 0;
+    }
+
+    public void fremove(int d){
+	for (int i=0; i<numItems; i++){
+	    if (data[i] == d){
+		remove(i);
+		i = numItems+1;
+	    }
+	}
+    }	   
 }
