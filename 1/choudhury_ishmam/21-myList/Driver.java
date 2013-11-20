@@ -15,5 +15,9 @@ public class Driver {
 	
 	L.insert(2, 6);
 	System.out.println(L);
-	}	
+	
+	L.remove(2);
+	System.out.println(L);
+	}
+	
 }
