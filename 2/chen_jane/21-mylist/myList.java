@@ -40,6 +40,7 @@ public class myList {
 	    newList[i+1] = data[i];
 	}
 	data = newList;
+	numItems = numItems + 1;
     }
 }
 
