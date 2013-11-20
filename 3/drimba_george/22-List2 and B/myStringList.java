@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-public class myList {
-       private int[] data;
+public class myStringList {
+       private String[] data;
        private int numItems;
 
-       public myList() {
-          data = new int[5];
+       public myStringList() {
+          data = new String[5];
           numItems = 0;
        }
 
@@ -16,14 +16,14 @@ public class myList {
     }
 
     public void grow() {
-           int[] tmpArray = new int[data.length+data.length/2];
+           String[] tmpArray = new String[data.length+data.length/2];
            for (int i=0;i<data.length;i++) {
               tmpArray[i]=data[i];
            }
            data = tmpArray;
     }
 
-  public void add(int d) {
+  public void add(String d) {
           if (isFull()) {
             grow();
     }
@@ -31,17 +31,14 @@ public class myList {
           numItems=numItems+1;
   }
 
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
             while(pos >= data.length)
-		grow();//refactoring
+              grow();
       for(int i = data.length-1; i>pos; i--){
                data[i] = data[i-1];
             }
       data[pos] = d;
-      if (pos > numItems)
-        numItems = pos;
-      else
-        numItems++;
+      numItems++;
     }
 
     public String toString() {
@@ -58,18 +55,35 @@ public class myList {
       }
     }
 
-    public int get(int pos){
+    public String get(int pos){
       return data[pos];
     }
 
-    public void set(int pos, int d){
+    public void set(int pos, String d){
       if (pos < data.length)
         data[pos] = d;
       else
-	  add(pos,d);//one of three sensible options
+        add(pos,d);
     }
 
     public int size() {
       return numItems;
+    }
+
+    public String find(String n) {
+        for(int i = 0; i<data.length; i++){
+            if (data[i].equals(n))
+                return n;
+        }
+        return "Not found";
+    }
+
+    public String fremove(String n) {
+        for(int i = 0; i<data.length; i++){
+            if (data[i].equals(n))
+                data[i] = "null";
+                return n;
+        }
+        return "Not found";
     }
 }
