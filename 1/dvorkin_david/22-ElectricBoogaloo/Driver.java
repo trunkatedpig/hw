@@ -13,7 +13,7 @@ public class Driver {
 
         System.out.println(L);
 
-    System.out.println ("============================================");
+	/* System.out.println ("============================================");
     L.insert(4, 4);
     System.out.println(L);
     L.remove(4);
@@ -23,7 +23,12 @@ public class Driver {
     System.out.println ("================================");
     System.out.println (L.get(3));
     System.out.println ("================================");
-    L.set(7, 2);
+    L.set(7, 2);*/
+    System.out.println (L);
+    System.out.println ("================================");
+    System.out.println ( L.find(20));
+    System.out.println ("================================");
+    L.fremove(20);
     System.out.println (L);
     }
 
