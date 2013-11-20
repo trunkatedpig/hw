@@ -7,11 +7,8 @@ public class Driver {
 	System.out.println(ml);
 	ml.add(2,5);
 	System.out.println(ml);
-	ml.remove(2);
-	System.out.println(ml);
-	System.out.println(ml.size());
-	System.out.println(ml.get(2));
-	ml.set(2,5);
+	System.out.println(5);
+	ml.fremove(5);
 	System.out.println(ml);
     }
 }
