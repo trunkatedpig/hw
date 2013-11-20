@@ -45,8 +45,7 @@ public class myList {
     }
 
     public int get(int i){
-	pos = data[i];
-	return pos;
+	return data[i];
     }
     
     public set(int i, int d){

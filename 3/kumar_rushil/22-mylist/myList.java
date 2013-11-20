@@ -91,4 +91,26 @@ public class myList{
 	    a = tmpArray;
     }
 
+    public int find(int n){
+	for (int i = 0; i < numitems; i++){
+	    if (a[i] == n)
+		return a[i];
+	}
+	return 0;
+    }
+
+    public void fremove(int n){
+	int pos = -1;
+	for (int i = 0; i < numitems && pos < 0; i++){
+	    if (a[i] == n){
+		pos = i;
+	    }
+	}
+	if (pos >= 0){
+	    remove(pos);
+	}
+	else{
+	    System.out.println(n + " not found in the list.");
+	}
+    }
 }
