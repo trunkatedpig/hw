@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
-public class myList {
-    private int[] data;
+public class myStringList {
+    private String[] data;
     private int numItems;
     
-    public myList() {
-	data = new int[10];
+    public myStringList() {
+	data = new String[10];
 	numItems=0;
     }
 
@@ -15,17 +15,17 @@ public class myList {
 
     public void grow() {
 	    // "grow" the array by creating a new one and copying over
-	    int[] tmpArray = new int[data.length+data.length/2];
+	    String[] tmpArray = new String[data.length+data.length/2];
 	    for (int i=0;i<data.length;i++) 
 		tmpArray[i]=data[i];
 	    data = tmpArray;
     }
 
-    public void add(int d) {
+    public void add(String d) {
 	if (isFull()){
 	    grow();
 	}
-        data[numItems]=d;
+        data[numItems].equals(d);
         numItems = numItems + 1;
     }
     
@@ -34,11 +34,11 @@ public class myList {
 	return s;
     }
 	
-	public void add1 (int pos, int d) {
+	public void add1 (int pos, String d) {
 	// inserts data item d at location pos in the data array
 	// remember we have to shift down items to make room and
 	// we might have to grow the array
-	int [] tempArray = new int[data.length + 1];
+	String [] tempArray = new String[data.length + 1];
 	int j = 0;
 	for (int i = 0; i<data.length; i ++) {
 		if(i == pos) {
@@ -54,7 +54,7 @@ public class myList {
 	numItems = numItems + 1;
 	}
 	
-    public void add(int pos, int d) {
+    public void add(int pos, String d) {
 	
 	if (numItems< data.length) {
 		
@@ -86,30 +86,30 @@ public class myList {
 		for (int i=pos; i<numItems-1; i++) {
             data[i] = data[i + 1];
         }
-        data[numItems - 1] = 0;
+        data[numItems - 1] = null;
         numItems--;
     }
 	public int size() {
 		// return the number of items in the list
 		return numItems;
 	}
-	public int get(int pos) {
+	public String get(int pos) {
 		//return the item at pos;
 		return data[pos];
 	}
-	public void set(int pos, int d) {
+	public void set(int pos, String d) {
 		// change the item at pos to have the value d
 		data[pos] = d;
 		
 	}
-	public int find (int n){
+	public String find (String n){
 	for (int i = 0; i <data.length; i++){
 	    if (n== data[i]){
 		return data[i];}}
-	return 0;
+	return null;
     }
 
-    public void fremove (int n){
+    public void fremove (String n){
 	for (int i = 0; i <data.length; i++){
 	    if (n== data[i]){
 		remove(i);}
