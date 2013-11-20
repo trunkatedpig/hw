@@ -38,10 +38,7 @@ public class myList {
 	       data[i] = data[i-1];
     	}
       data[pos] = d;
-      if (pos > numItems)
-        numItems = pos;
-      else
-        numItems++;
+      numItems++;
     }
 
     public String toString() {
@@ -71,5 +68,22 @@ public class myList {
 
     public int size() {
       return numItems;
+    }
+
+    public int find(int n) {
+	for(int i = 0; i<data.length; i++){
+	    if (data[i] == n)
+		return n;
+	}
+	return 0;
+    }
+
+    public int fremove(int n) {
+	for(int i = 0; i<data.length; i++){
+	    if (data[i] == n)
+		data[i] = 0;
+		return n;
+	}
+	return 0;
     }
 }
