@@ -69,6 +69,27 @@ public int remove (int pos){
     public int size(){
 	return numItems;
     }
+
+    public int find(int d){
+	for (int i=0; i<numItems; i++){
+	    if (data[i]==d){
+		return d;
+	    }
+	}
+	return 0;
+    }
+    
+    public void fremove(int d){
+	boolean t = true;
+	int i = 0;
+	while ( i<data.length && t){
+	    if (data[i] == d){
+		remove(i);
+		t = false;
+	    }
+	    i = i + 1;
+	    }	
+    }
     
     public String toString() {
 	String s =Arrays.toString(data)+" --- " +numItems;

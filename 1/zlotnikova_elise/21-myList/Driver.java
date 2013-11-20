@@ -17,6 +17,7 @@ public class Driver {
 	System.out.println(L);
 	L.insert(60,5);
 	System.out.println(L);
+	L.remove(60);
     }
 
 
