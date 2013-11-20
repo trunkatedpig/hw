@@ -68,6 +68,27 @@ public class MyList {
 	}
     }
 
+    public int find (int d) {
+        for (int i = 0; i < numItems; i++) {
+            if (data[i] == d){
+            return d;
+            }
+        }
+        return data[numItems];
+    }
+
+    public void fremove (int d) {
+	int pos = -1;
+        if (find(d) == d) {
+	    for (int i = 0; i < numItems; i ++) {
+		if (data[i] == d) {
+		    pos = i;
+		}
+	    }
+	    remove(pos);
+	}		    
+    }
+    
     public int size() {
 	return numItems;
     }

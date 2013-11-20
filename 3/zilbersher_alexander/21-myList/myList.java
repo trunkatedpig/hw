@@ -31,7 +31,7 @@ public class myList {
 	    grow();
 	}
         data[numItems]=d;
-        numItems = numItems + 1;
+        numItems++;
     }
 
     public void remove(int pos){
@@ -48,14 +48,19 @@ public class myList {
     }
 
     public void insert(int pos, int i){
-	add(0);
 	if (pos < data.length) {
-	    for (int j=data.length-1;j>pos;j--) {
-		data[j] = data[j-1];
+	    if (data[pos]==0){
+		data[pos] = i;
+		numItems++;
+	    }else{
+		add(0);
+		for (int j=data.length-1;j>pos;j--) {
+		    data[j] = data[j-1];
+		}
+		data[pos] = i;
 	    }
-	    data[pos] = i;
 	} else {
-	    data[data.length-1] = i;
+	    add(i);
 	}
     }
 }

@@ -24,5 +24,9 @@ public class Driver{
 
 	L.set(2,14);
 	System.out.println(L);
+
+	System.out.println(L.find(10));
+	L.fremove(10);
+	System.out.println(L);
     }
 }
