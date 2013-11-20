@@ -43,15 +43,16 @@ public class myList {
 					ret[pos] = d;
 				}
 			}
-			numItems++;
 			data = ret;
 		} else {
-			for (int i = numItems; i > pos; i++) {
+			for (int i = numItems; i > pos; i--) {
 				data[i] = data[i-1];
 			}
 			data[pos] = d;
 		
 		}
+		numItems++;
+
 	}
 	
 	public void remove(int pos) {
@@ -79,4 +80,20 @@ public class myList {
 		return s;
 	}
 	
+	public int find(int n) {
+		for (int i = 0; i < numItems; i++) {
+			if(data[i] == n) {
+				return data[i];
+			}
+		}
+		return 0;
+	}
+	
+	public void fremove(int n) {
+		for (int i = 0; i < numItems; i++) {
+			if (data[i] == n) {
+				remove(i);
+			}
+		}
+	}
 }

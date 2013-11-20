@@ -1,7 +1,7 @@
 
 public class Driver {
     public static void main(String[] args) {
-	myList L = new myList();
+	/*	myList L = new myList();
 
 	System.out.println(L);
 	for (int i = 0; i<5;i++) {
@@ -30,13 +30,26 @@ public class Driver {
 	A.remove(2);
 	System.out.println (A);
 
-L.grow();
+	L.grow();
 	
+*/
 
-
-        
-	
-
+	myStringList a = new myStringList();
+	a.set(0,"Hello");
+	a.set(1,"Eric");
+	a.set(2, "Terrance");
+	a.set(3, "WOOO");
+	a.set(4,"YAYYYY");
+	System.out.println(a);
+        a.add("LETSGO!");
+	System.out.println(a);
+	a.add(6, "WORDSS!!!");
+	System.out.println(a);
+	a.remove(1);
+	System.out.println(a);
+	System.out.println("'WOOO' is found on position " + a.find("WOOO"));
+	a.remove2("YAYYYY");
+	System.out.println(a);	
     }	
    
 

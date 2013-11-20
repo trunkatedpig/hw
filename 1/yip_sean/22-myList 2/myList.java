@@ -27,6 +27,26 @@ public class myList {
 		numItems++;
 	}
 	
+	public boolean contains(int d) {
+		for (int i = 0; i < data.length; i++) {if (data[i] == d) {return true;}}
+		
+		return false;
+	}
+	
+	/*public int find(int d) { //Return d itself
+		for (int i = 0; i < data.length; i++) {if (data[i] == d) {return d;}}
+		
+		return d + 1;
+	}*/
+	
+	public int find(int d) {
+		for (int i = 0; i < data.length; i++) {if (data[i] == d) {return i;}}
+		
+		return -1;
+	}
+	
+	public void fremove(int d) {remove(find(d));}
+	
 	public int get(int pos) {
 		if (outOfBounds(pos)) {throw new ArrayIndexOutOfBoundsException(pos);}
 		

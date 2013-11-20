@@ -73,5 +73,27 @@ public class myList {
     public void set(int pos, int d) {
 	data[pos] = d;
     }
+
+    public int find(int n){
+	for (int i = 0; i < data.length; i++){
+	    if (data[i] == n)
+		return n;
+	}
+	return 0;
+    }
+
+    public void fremove(int d){
+	boolean cont = true;
+	if (find(d) != d)
+	    cont = false;
+	int i = 0;
+	while (cont){
+	    if (data[i] == d){
+		remove(i);
+		cont = false;
+	    }
+	}
+    }
+    
 }
 	
