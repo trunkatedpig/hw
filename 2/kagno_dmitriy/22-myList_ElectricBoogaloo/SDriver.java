@@ -33,11 +33,17 @@ public class SDriver {
 	System.out.println(L.size());
 	System.out.println(L.get(8));
 
+	System.out.println(L);
+	
+
 
 	System.out.println(L.find("F"));
+	System.out.println(L.find("C"));
 	System.out.println(L);
 	System.out.println(L.fremove("B"));
+	System.out.println(L.fremove("F"));
 	System.out.println(L);
+	
     }        
 
 

@@ -16,5 +16,19 @@ public class Driver {
 		System.out.println(my);
 		my.add(134,23534);
 		System.out.println(my);
+
+		myStringList my2 = new myStringList();
+		System.out.println(my2);
+		my2.add("hi");
+		my2.add("my");
+		my2.add("name");
+		my2.add("is");
+		my2.add("derp");
+		my2.add("maybe");
+		System.out.println(my2);
+		my2.remove(2);
+		System.out.println(my2);
+		my2.add(134,"lol");
+		System.out.println(my2);
 	}
 }

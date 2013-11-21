@@ -57,6 +57,29 @@ public class myList {
 			data[pos] = d;
 	}
 
+	public int find(int n) {
+		for (int i = 0; i<data.length;i++) {
+			if (data[i] == n)
+				return data[i];
+		}
+		return -1;
+	}
+
+	public int fremove(int n) {
+		for (int i = 0;i<data.length;i++) {
+			if (data[i] == n) {
+				int a = data[i];
+				for (; i<data.length-1;i++)
+					data[i] = data[i+1];
+				numItems--;
+				return a;
+			}
+		}
+		return -1;
+	}
+
+	
+			
 
 
 
