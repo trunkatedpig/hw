@@ -41,14 +41,14 @@ public class MyList {
     }
 
     public void add(int pos,int n) {
-	add(0);
-	while (pos > data.length) {
-	    grow();
-	}
+	if (pos > data.length)
+	    pos = items;
+	grow();
 	for (int i = items;i > pos;i--) {
 	    data[i] = data[i - 1];
 	}
 	data[pos] = n;
+	items = items + 1;
     }
 
     public int get(int pos) {
@@ -61,6 +61,35 @@ public class MyList {
 
     public int size() {
 	return items;
+    }
+
+    public int find(int n) {
+	for (int i = 0;i < items;i++) {
+	    if (data[i] == n) 
+		return data[i];
+	}
+	return 0;
+    }
+
+    public void fremove(int n) {
+	for (int i = 0;i < items;i++) {
+	    if (data[i] == n) {
+		remove(i);
+		break;
+	    }
+	}
+    }
+
+    public int[] data() {
+	return data;
+    }
+
+    public String[] rewrite(MyList m) {
+	String[] retArray = new String[m.size()];
+	for (int i = 0;i < m.size();i++) {
+	    retArray[i] = Integer.toString(m.data()[i]);
+	}
+	return retArray;
     }
 }
 
