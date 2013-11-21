@@ -59,10 +59,32 @@ public class MyList2 {
 	    }
 	}
     }
+
+    public void updateNumItems(){
+	for (int i = 0; i < data.length; i++){
+	    if (data[i] != 0)
+		NumItems++;
+	}
+    }
+
     public String toString(){
 	String s = Arrays.toString(data);
 	return s;
     }
+
+    public int size(){
+	return data.lenght;
+    }
+    
+    public int get(int pos){
+	return data[pos];
+    }
+
+    public int set(int pos, int d){
+	data[pos] = d;
+    }
+
+    
 }
 	
 
