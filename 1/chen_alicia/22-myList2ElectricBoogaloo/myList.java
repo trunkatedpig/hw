@@ -69,4 +69,31 @@ public class myList {
     public void set(int pos, int d) {
         data[pos] = d;
     }
+
+    public int find (int d) {
+
+        for (int i = 0; i < numItems; i++ ) {
+            if (data [i] == d) {
+                return data [i];
+            }
+        }
+        return -1;
+    }
+
+    public void fRemove (int d) {
+        int pos = -1;
+        for (int i = 0; i < numItems; i++) {
+            if (data [i] == d) {
+                pos = i;
+                i = numItems;
+            }
+
+        }
+
+        if (pos !=-1) {
+            remove (pos);
+        }
+
+    }
+
 }
