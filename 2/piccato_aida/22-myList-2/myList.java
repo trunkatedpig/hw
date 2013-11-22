@@ -23,20 +23,21 @@ public class myList {
 	return numItems >= data.length;
     }
 
-    public void grow() {
-	int[] tmpArray = new int[data.length+data.length/2];
-	for (int i=0;i<data.length;i++) 
-	    tmpArray[i]=data[i];
-	data = tmpArray;
-    }
-
-    public void add(int d) {
-	if (isFull()){
-	    grow();
+    public void grow(){
+        int[] tmpArray = new int[data.length+data.length/2];
+        for (int i = 0; i < data.length; i++) {
+            tmpArray[i] = data[i];
 	}
+        data = tmpArray;
+    }
+       
+    public void add(int d) {
+        if (numItems>=data.length) {
+	    grow();
+        }
         data[numItems]=d;
         numItems = numItems + 1;
-    } 
+    }
 
     public void add(int pos, int d) {
 	// I'm unclear as to what the difference between the old add and the revised version is; this is basically the old version. 
@@ -71,5 +72,24 @@ public class myList {
     public int set(int pos, int d) {
 	data[pos] = d;
     }	
+
+    public int find(int n){
+	for (int i =0; i <data.length-1;i++){
+	    if (data[i].equals(n)){
+		return n;
+	    }
+	}
+	return "Error";
+    }
+
+    public int fremove(int n){
+	for (int i = 0; i < data.length-1; i++){
+	    if (data[i] == n){
+		remove(i);
+		return n;
+	    }
+	}
+	return "Error";
+    }
     
 }

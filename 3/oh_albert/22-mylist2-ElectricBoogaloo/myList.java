@@ -63,8 +63,9 @@ public class myList {
         if (pos<data.length){
             data[pos] = d;
         }
-        else
-            add(pos,d);
-        }
+        else{
+	    add(pos,d);}
     }
+    
 }
+
