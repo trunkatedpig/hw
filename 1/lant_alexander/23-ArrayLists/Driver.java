@@ -5,7 +5,7 @@
 
 // Create an ArrayList and then fill it using first a.add(”x”) 
 // then a.add(0,”x”) to add n elements to the ArrayList 
-// (with n increasing until it gets crazy large or until you otice a difference between the two adds.
+// (with n increasing until it gets crazy large or until you notice a difference between the two adds.
 
 // Write down your results (they were the same no matter what, one started to get slower at some point, the difference was large or small, etc.).
 
@@ -17,7 +17,8 @@
 // Again, write down your results.
 
 // Part 3
-// Create an ArrayList, fill it with some values, then write the code to reverse teh ArrayList. This is all about getting practice with ArrayList notation.
+// Create an ArrayList, fill it with some values, then write the code to reverse teh ArrayList. 
+// This is all about getting practice with ArrayList notation.
 
 // Write your solution in Driver.java and put in comments your results from part 1 and part 2.
 
@@ -28,15 +29,39 @@ public class Driver{
 
     public static void main (String[] args){
 	// FunWALs fw = new FunWALs();
+	Random R = new Random();
+        int length = 100000;
 	
-       	ArrayList<Integer> A = new ArrayList<Integer>(1000000);
+       	ArrayList<Integer> A = new ArrayList<Integer>(length);
+
+	for (int i = 0; i < length; i++){
+	    A.add(R.nextInt(100));
+	}
+	System.out.println(A.toString());
 	long lasttime = System.currentTimeMillis();
 	System.out.println(System.currentTimeMillis());
 	A.add(10);
 	A.add(0, 10);
 	System.out.println(A.toString());
 	System.out.println(System.currentTimeMillis());
-	System.out.println(System.currentTimeMillis()-lasttime);
+	System.out.println("Time differential: "+ (System.currentTimeMillis()-lasttime) +" milliseconds.");
+
+	/*
+	 * TIME DIFFERENTIAL DATA:
+    	 * 1st ArrayList of length 10: 2 milliseconds.
+	 * 2nd ArrayList of length 10: 1 milliseconds.
+	 * 1st ArrayList of length 100: 1 milliseconds.
+	 * 2nd ArrayList of length 100: 0 milliseconds.
+	 * 1st ArrayList of length 1000: 5 milliseconds.
+	 * 2nd ArrayList of length 1000: 7 milliseconds.
+	 * 1st ArrayList of length 10000: 17 milliseconds.
+	 * 2nd ArrayList of length 10000: 16 milliseconds.
+	 * 1st ArrayList of length 100000: 215 milliseconds.
+	 * 1st ArrayList of length 100000: 198 milliseconds.
+	 * 1st ArrayList of length 1000000: 13544 milliseconds.
+	 * 2nd ArrayList of length 1000000: 13801 milliseconds.  
+	 */
+	    
 	
 	
     }
