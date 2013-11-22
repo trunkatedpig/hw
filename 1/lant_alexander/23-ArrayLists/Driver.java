@@ -29,11 +29,13 @@ public class Driver{
     public static void main (String[] args){
 	// FunWALs fw = new FunWALs();
 	
-       	ArrayList<Integer> A = new ArrayList<Integer>();
+       	ArrayList<Integer> A = new ArrayList<Integer>(1000000);
 	long lasttime = System.currentTimeMillis();
+	System.out.println(System.currentTimeMillis());
 	A.add(10);
 	A.add(0, 10);
 	System.out.println(A.toString());
+	System.out.println(System.currentTimeMillis());
 	System.out.println(System.currentTimeMillis()-lasttime);
 	
 	
