@@ -29,7 +29,7 @@ public class myList {
         return s;
     }
     
-    public void insert(int pos, int d) {
+    public void add(int pos, int d) {
 	// inserts data item d at location pos in the data array
 	// remember we have to shift down items to make room and
 	// we might have to grow the array
@@ -53,15 +53,21 @@ public class myList {
 	numItems = numItems + 1;
     }
 
-    public remove(int p){
-
+    public void remove(int pos){
+	for (int i = pos; i < data.length - 1; i++){
+	    data[i] = data[i + 1];}
+	numItems = numItems - 1;
+    }
+    public int size(){
+	return numItems;
     }
 
-    public get(int pos){
+    public int get(int pos){
 	return data[pos];
     }
-    public void set(int pos, int d){
+    public int set(int pos, int d){
 	data[pos] = d;
+	return data[pos];
     }
 
 }
