@@ -83,7 +83,12 @@ public class myList {
 		// removes the item at location pos
 		// 1. shift everything down to remove the item
 		// 2. numitems--;
-	}
+		for (int i=pos; i<numItems-1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[numItems - 1] = 0;
+        numItems--;
+    }
 	public int size() {
 		// return the number of items in the list
 		return numItems;
@@ -97,4 +102,17 @@ public class myList {
 		data[pos] = d;
 		
 	}
+	public int find (int n){
+	for (int i = 0; i <data.length; i++){
+	    if (n== data[i]){
+		return data[i];}}
+	return 0;
+    }
+
+    public void fremove (int n){
+	for (int i = 0; i <data.length; i++){
+	    if (n== data[i]){
+		remove(i);}
+	}
+    }
 }
