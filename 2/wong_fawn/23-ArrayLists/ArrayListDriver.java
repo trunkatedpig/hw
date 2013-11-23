@@ -8,6 +8,30 @@ public class ArrayListDriver {
     long start, end, difference;
 	int count = 10;
 
+		/* RESULTS
+
+	   Adding: 100000
+	   Adding from end: 21
+	   Adding at beginning: 2839
+	   Removing: 100000
+	   Removing from beginning: 2691
+	   Removing from end: 1
+
+	   Adding: 10000
+	   Adding from end: 2
+	   Adding at beginning: 49
+	   Removing: 10000
+	   Removing from beginning: 50
+	   Removing from end: 3
+
+	   Adding: 1000
+	   Adding from end: 0
+	   Adding at beginning: 1
+	   Removing: 1000
+	   Removing from beginning: 0
+	   Removing from end: 0
+		*/
+
 	//System.out.println("Adding: " + count);
 
 	//start = System.currentTimeMillis();
@@ -55,31 +79,6 @@ public class ArrayListDriver {
 	System.out.println("Removing from end: " + difference);
 	*/
 
-
-
-	/* RESULTS
-
-	   Adding: 100000
-	   Adding from end: 21
-	   Adding at beginning: 2839
-	   Removing: 100000
-	   Removing from beginning: 2691
-	   Removing from end: 1
-
-	   Adding: 10000
-	   Adding from end: 2
-	   Adding at beginning: 49
-	   Removing: 10000
-	   Removing from beginning: 50
-	   Removing from end: 3
-
-	   Adding: 1000
-	   Adding from end: 0
-	   Adding at beginning: 1
-	   Removing: 1000
-	   Removing from beginning: 0
-	   Removing from end: 0
-	*/
 
 
     }
