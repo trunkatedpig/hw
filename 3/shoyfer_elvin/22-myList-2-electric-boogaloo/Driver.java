@@ -17,6 +17,13 @@ public class Driver {
     	System.out.println("The item at position 3 will be changed to 5:");
     	l1.set(3,5);
     	System.out.println(l1);
+
+        int testInt = l1.get(1);
+        System.out.println("Testing find; it should be the element of index 1 : " + l1.find(testInt));
+
+        System.out.println("Testing remove; it should remove the element of index 1");
+        System.out.println("The element is: " + l1.fremove(testInt));
+        System.out.println("The list is now: " + l1);
     }
 
 }
