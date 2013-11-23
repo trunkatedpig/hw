@@ -18,27 +18,31 @@ public class myList{
 	    data = tmpArray;
     }
 
+    public boolean isFull() {
+	return numItems >= data.length;
+    }
 
     public String toString(){
 	String s = Arrays.toString(data);
 	return s;
     }
-    ////NOT COMPLETED T_T
-    public void add(int pos, int d){
-	int index = 0;
-	while (pos>=data.length || data.length == numItems){
+ 
+    public void add(int d){
+	if (isFull()){
 	    grow();
 	}
-	int tmpArray[] = new int[data.length+1];
-	for (index = index; index<pos;index++){
-	    tmpArray[index] = data[index];
+	data[numItems] = d;
+	numItems = numItems +1;
+    }
+
+    public void add(int pos, int d){
+	while (isFull() || pos >= data.length){
+	    grow();
 	}
-	tmpArray[pos] = d;
-	index++; 
-	for (index=index; index<tmpArray.length;index++){
-	    tmpArray[index] = data[index+1];
+	for (int i = pos; i<=numItems; i++){
+	    data[i+1] = data[i];
 	}
-	data = tmpArray;
+	data[pos] = d;
 	numItems++;
     }
 
@@ -50,13 +54,24 @@ public class myList{
 	return numItems;
     }
 
-   
+    public int find(int n){
+	for (int i = 0; i<data.length; i++){ //numItems doesnt work for me if there are 0's in between?
+	    if (data[i] == n)
+		return n;
+	}
+	return -1;
+    }
 
-    
-
-
-	   
-
+    public int fRemove(int n){
+	for (int i = 0; i<data.length; i++){
+	    if (data[i] ==n){
+		remove(i);
+		return n;
+	    }
+	}
+	return -1;
+    }
+    //returns -1 if there is no n in data 
 
     public void insert(int pos, int d){
 	int index=0;
@@ -73,7 +88,13 @@ public class myList{
 	data = tmpArray;
     }
 
-    public void remove(int pos){
+    public void remove(int pos) {
+        for (int i=pos; i< numItems;i++) 
+            data[i]=data[i+1];
+        numItems--;
+    }
+
+    public void remove2(int pos){
 	int index = 0;
 	int tmpArray[]= new int[data.length - 1];
 	while (index<pos){
