@@ -76,7 +76,7 @@ public class myStringList {
 
     public String find(String n) {
 	for (int i=0; i<numItems; i++){
-	    if (data[i]==n)
+	    if (data[i].equals(n))
 		return n;
 	}
 	return "";
@@ -84,7 +84,7 @@ public class myStringList {
      
     public String fremove(String n) {
 	for (int i=0; i<numItems; i++){
-	    if (data[i]==n){
+	    if (data[i].equals(n)){
 		remove(i);
 		return n;
 	    }

@@ -89,8 +89,14 @@ public class myList {
     public int find(int d) { 
 	for (int i=0;i<data.length;i++) { 
 	    if (data[i]==d) 
-		return d;
+		return i;
 	}
 	return -1;
     }
+    
+    public void fremove(int d) { 
+	int pos = find(d);
+	remove(pos);
+    }
 }
+
