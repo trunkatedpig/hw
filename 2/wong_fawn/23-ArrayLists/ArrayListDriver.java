@@ -5,29 +5,38 @@ public class ArrayListDriver {
     public static void main (String[] args) {
 	ArrayList<String> a = new ArrayList<String>();
 	ArrayList<String> b = new ArrayList<String>();
-        long start, end, difference;
-	int count = 1000000;
+    long start, end, difference;
+	int count = 10;
 
-	System.out.println("Adding: " + count);
+	//System.out.println("Adding: " + count);
 
-	start = System.currentTimeMillis();
-	for (int i = 0; i <= count; i++) {
-	    a.add("x");
+	//start = System.currentTimeMillis();
+	for (int i = 0; i < count; i++) {
+	    a.add(i + "");
 	}
-	end = System.currentTimeMillis();
-	difference = end - start;
-	System.out.println("Adding from end: " + difference);
+	//end = System.currentTimeMillis();
+	//difference = end - start;
+	//System.out.println("\nAdding from end: " + difference);
 
-	start = System.currentTimeMillis();
+	/*start = System.currentTimeMillis();
 	for (int i = 0; i <= count; i++) {
 	    b.add(0, "x");
 	}
 	end = System.currentTimeMillis();
 	difference = end - start;
 	System.out.println("Adding at beginning: " + difference);
+	*/
 
+	System.out.println("\nReversing");
+	ArrayList<String> c = new ArrayList<String>(a.size()); 	
+	System.out.println(a);
+	for (int i = 0; i < count; i++) {
+		c.add(a.get(count - 1 - i));
+	}
+	a = c;
+	System.out.println(a);
 
-	System.out.println("Removing: " + count);
+	/*System.out.println("\nRemoving: " + count);
 
 	start = System.currentTimeMillis();
 	for (int i = 0; i <= count; i++) {
@@ -35,7 +44,7 @@ public class ArrayListDriver {
 	}
 	end = System.currentTimeMillis();
 	difference = end - start;
-	System.out.println("Removing from beginning: " + difference);
+	System.out.println("\nRemoving from beginning: " + difference);
 
 	start = System.currentTimeMillis();
 	for (int i = 0; i <= count; i++) {
@@ -44,6 +53,7 @@ public class ArrayListDriver {
 	end = System.currentTimeMillis();
 	difference = end - start;
 	System.out.println("Removing from end: " + difference);
+	*/
 
 
 
