@@ -77,4 +77,22 @@ public class myList {
 	    data[pos] = d;
 		// change the item at pos to have the value d
 	}
+     public int find(int n) {
+	for (int i=0;i<numItems;i++) {
+	    if (data[i]==n)
+		return data[i];
+	}
+	return 0;
+    }
+    
+    public int fremove(int n) {
+	for (int i=0;i<numItems;i++) {
+	    if (data[i]==n) {
+		int result = data[i];
+		remove(i);
+		return result;
+	    }
+	}
+	return 0;
+    }
 }
