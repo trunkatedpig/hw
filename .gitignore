@@ -1,4 +1,4 @@
-# Compiled source #
+# Compiled Source #
 *.class
 
 # Package Files #
@@ -16,7 +16,7 @@
 .DS_Store
 ._*
 _*
-.Spotlight-V100
+.Spotlight*
 .Trashes
 
 # Windows Files #
@@ -24,4 +24,4 @@ Thumbs.db
 ehthumbs.db
 
 # Filenames with special characters
-**/*[/\:;*?!'"<>!#$º•¶§∞¢£%&'()+,-.;=@[]^_`/{/}~]*
+**/*[\\/\:;*?!'"<>|$º•¶§∞¢£]*

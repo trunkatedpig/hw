@@ -78,7 +78,12 @@ public class myList {
 	return data[pos];
     }
     public void set(int pos, int d) {
-	data[pos] = d;
+	if (pos < numItems) {
+	    data[pos] = d;
+	}
+	else{
+	    add(d);
+	}
     }
     public int find(int n){
 	for (int i = 0; i<data.length; i++){

@@ -96,4 +96,22 @@ public class myList {
 	}
 	data[pos] = d;
     }
+
+    public int find(int n){
+	for(int i=0; i<data.length; i++){
+	    if (data[i] == n)
+		return n;
+	}
+	return 0;
+    }
+
+    public int fremove(int n){
+	for(int i=0; i<data.length; i++){
+	    if (data[i] == n){
+		this.remove(i);
+		return n;
+	    }
+	}
+	return 0;
+    }
 }
