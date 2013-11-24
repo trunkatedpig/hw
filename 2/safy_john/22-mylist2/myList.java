@@ -7,11 +7,7 @@ public class myList {
 
     public myList() {
 	data = new int[5];
-	Random r = new Random();
-	for (int i = 0; i < data.length; i++) {
-	    data[i] = r.nextInt();
-	}
-	numItems = 5;
+	numItems = 0;
     }
 
     public String toString() {
@@ -73,4 +69,20 @@ public class myList {
 	data[pos] = d;
     }	
     
+    public int find{int d) {
+	for (int i = 0;i < data.length;i++) {
+	    if (data[i] == d) {
+		return d;
+	    }
+	}
+	return 0;
+    }
+
+    public void fremove(int d) {
+	for (int i = 0;i < data.length;i++) {
+	    if (data[i] == n) {
+		remove(i); 
+	    }
+	}
+    }
 }
