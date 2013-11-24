@@ -15,7 +15,7 @@ public class Driver {
 	System.out.println("Array Size: "+arraySize+" Creation time: "+t);
 	start=System.currentTimeMillis();
 	for (int i =0; i<arraySize; i++)
-		A.add(i);
+	A.add(i);*/
 		
 	t = System.currentTimeMillis()-start;
 	System.out.println("Add Time: "+t);*/
