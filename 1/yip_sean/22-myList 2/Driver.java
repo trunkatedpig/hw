@@ -22,6 +22,9 @@ public class Driver {
 		l.set(2, 10);
 		System.out.println(l);
 		
-		System.out.println(l.get(10));
+		//System.out.println(l.get(10));
+		
+		myListCustom l2 = new myListCustom(new int[] {0, 1, 2, 3, 4});
+		System.out.println(l2.subList(2, 5));
 	}
 }

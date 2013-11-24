@@ -48,27 +48,37 @@ public class myList {
     }
 
     public void remove(int pos){
-	int[]tmp =new int[data.length-1];
-	int removed = data[pos];
-	for (int i = 0; i < data.length; i ++){
-	    if (i < pos){
-		tmp[i]=data[i];
-	    }
-	    else if(i> pos){
-		tmp[i-1]= data[i];
-	    }
+	for (int i = pos; i < numItems; i ++){
+	    data[i]=data[i+1];
 	}
-	data = tmp;
 	numItems=numItems-1;
 	
     }
     public int size() {
 	return numItems;
- }
+    }
     public int  get(int pos) {
 	return data[pos];
     }
     public void set(int pos, int d) {
 	data[pos]=d;
+    }
+    public int find(int d) {
+	for(int i = 0; i < data.length; i++) {
+	    if (data[i]==d) {
+		return d;
+	    }
+	}
+	return -1;
+    }
+
+    public void fRemove(int d) {
+	for(int i = 0; i < data.length; i++) {
+	    if (data[i] == d) {
+		remove(i);
+		numItems = numItems - 1;
+		break;
+	    }
+	}
     }
 }

@@ -68,7 +68,7 @@ public class Driver {
         System.out.println(S);
 	S.fremove("B");
         System.out.println(S);
-
+	System.out.println(S.find("setat5"));
     }	
 
 
