@@ -1,6 +1,7 @@
 public class Driver {
     public static void main(String[] args) {
         myList L = new myList();
+	myStringList S = new myStringList (); 
         
         for (int i=0;i<5;i++) {
             L.add(i*10);
@@ -40,6 +41,39 @@ public class Driver {
 
 	L.set(5,12);
 	L.retList ();
+
+	System.out.println(L.find (10));
+	System.out.println ("-----------------------------");
+
+	L.fremove (10);
+	L.retList ();
+
+	System.out.println( "=============================");
+
+
+        S.retStr ();
+	System.out.println ("-----------------------------");
+
+        S.add("Yooooooo");
+	S.retStr ();
+	System.out.println ("-----------------------------");
+
+        S.add(3,"Meee");
+	S.retStr ();
+	System.out.println ("-----------------------------");
+
+        S.fremove("Hey");
+	System.out.println ("-----------------------------");
+
+	S.fremove ("Yooooooo");
+        S.retStr ();
+	System.out.println ("-----------------------------");
+
+        System.out.println(S.find("Meee"));
+	S.retStr ();
+	System.out.println ("-----------------------------");
+        System.out.println(S.find("So"));
+	System.out.println ("-----------------------------");
     
 
 

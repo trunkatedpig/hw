@@ -85,4 +85,22 @@ public class myList {
 	    return change;
 	}
     }
+
+    public int find(int d){
+	for (int ind = 0; ind < numItems; ind++){
+	    if (data[ind] == d)
+		return d;
+	}
+	return -1;
+    }
+
+    public void fremove(int d){
+	int ind;
+	for (ind = 0; ind < numItems; ind++){
+	    if (data[ind] == d){
+		remove(ind);
+		break;
+	    }
+	}
+    }
 }

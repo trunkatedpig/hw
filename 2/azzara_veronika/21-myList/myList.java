@@ -51,12 +51,70 @@ public class myList{
     }
 
     public void insert2(int pos, int d){
+	if (data[data.length-1]!=0)
+	    data.grow();
 	int temp = 0;
-	for (int i=pos;i<data.length;i++){
-	    temp = data[i+1];
-	    data[i]=data[temp];
+	int i = data.length-1;
+	while (temp==0){
+	    temp = data[i];
+	    i--;
+	}
+	for (int j=temp;j>pos;j--){
+	    data[j+1]=data[j];
 	}
 	data[pos]=d;
+	numItems++;
 	System.out.println(data);
+    }
+
+    public void remove(int pos) {
+	for (int i=pos;i<data.length;i++){
+	    if (i==data.length-1)
+		data[i]=0;
+	    data[i]=data[i+1];
+	}
+	numItems--;
+	System.out.println(data);
+    }
+    
+    public int size() {
+	return data.length;
+    }
+
+    public int get(int pos) {
+        return data[pos];
+    }
+
+    public void set(int pos, int d) {
+	data[pos]=d;
+	System.out.println(data);
+    }
+
+      public int find(int n) {
+	for (int i=0; i<numItems; i++) {
+	    if (data[i] == n)
+		return data[i];
+	}
+	return -1;
+    }
+
+    public boolean in(int n) {
+	for (int i=0; i<numItems; i++) {
+	    if (data[i] == n)
+		return true;
+	}
+	return false;
+    }
+
+    public void fremove(int n) {
+	if (in(n)) {
+	    int firstIndex=0;
+	    while (data[firstIndex]!=n) {
+		firstIndex = firstIndex +1;
+	    }
+	    remove(firstIndex);
+	}
+	else
+	    System.out.println("Sorry, that is not in the list.");
     }
 }
