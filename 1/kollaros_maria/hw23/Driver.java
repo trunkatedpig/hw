@@ -26,7 +26,7 @@ public class Driver{
 	System.out.println("When adding to the beginning of an ArrayList of size " + size + " the time taken is:");
 	System.out.println(end - start);
 
-	//wored with David in class and referenced Ben's code for some help
+	//worked with David in class and referenced Ben's code for some help
 
 	/*in the beginning adding at the end and at the beginning are the same, 
 	  but as the number of elements in the ArrayList laregely increases the adding at the beginning becomes
