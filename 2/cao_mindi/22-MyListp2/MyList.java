@@ -62,6 +62,26 @@ public class myList {
 	numItems --;
     }
 
+    public int find(int d){
+	for (int i = 0; i < data.length; i ++){
+	    if (data[i] == d){
+		i = data.length;
+		return d;
+	    }
+	    return 0;
+	    }
+	return 0;
+ }
+
+    public void fremove(int d){
+	for (int i = 0; i < data.length; i ++){
+	    if (data[i] == d){
+	    remove(i);
+	    i = data.length;
+	}
+    }
+    }
+
 	public int size() {
 	    return numItems;
 	}

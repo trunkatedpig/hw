@@ -38,7 +38,9 @@ public class myList {
     public void add(int pos, int d) {
 	while (data.length<pos) 
 	    grow();
-	for (int i=pos;i<numItems;i++) {
+	if (isFull())
+	    grow();
+	for (int i=pos;i<data.length-1;i++) {
 	    if (i==pos)
 		data[i] = d;
 	    else
@@ -71,5 +73,24 @@ public class myList {
 	data[pos] = d;
 	System.out.println("Set " + d + " in position " + pos + "!");
     }
+
+    public int find(int n) {
+	for (int i=0; i<numItems; i++){
+	    if (data[i]==n)
+		return n;
+	}
+	return 0;
+    }
+     
+    public int fremove(int n) {
+	for (int i=0; i<numItems; i++){
+	    if (data[i]==n){
+		remove(i);
+		return n;
+	    }
+	}
+	return -1;
+    }
+
 }
 	
