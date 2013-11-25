@@ -9,7 +9,8 @@ public class Driver {
 	
 	System.out.println(a.firstadd(10000));
 	System.out.println(a.secondadd(10000,100));
-
+	//second add much slower, 1st add= 5
+	//2nd add= 113
 
 
     }
