@@ -37,7 +37,7 @@ public class myList {
     }
 
     public void insert(int pos, int d) {
-	if (numItems < data.length) {
+	if (data.length > numItems) {
 	    for (int i=numItems ; i>pos; i--) {
 		data[i] = data[i-1];
 	    }
@@ -62,13 +62,15 @@ public class myList {
     }
 
     public void remove(int pos) {
-	while (pos > data.length-1) {
-	    grow();
+	if (pos > numItems) {
+	    System.out.println("Index out of range.");
 	}
-	for ( ; pos<data.length-1; pos++) {
-	    data[pos] = data[pos+1];
+	else {
+	    for ( ; pos<numItems-1; pos++) {
+		data[pos] = data[pos+1];
+	    }
+	    numItems = numItems - 1;
 	}
-	numItems = numItems - 1;
     }
 
     public int size() {
@@ -91,14 +93,24 @@ public class myList {
 	return -1;
     }
 
-    public void fremove(int n) {
-	int firstIndex = -1;
-	int i=0;
-	while (data[i]!=n) {
-	    i = i +1;
+    public boolean in(int n) {
+	for (int i=0; i<numItems; i++) {
+	    if (data[i] == n)
+		return true;
 	}
-	firstIndex = i;
-	remove(firstIndex);
+	return false;
+    }
+
+    public void fremove(int n) {
+	if (in(n)) {
+	    int firstIndex=0;
+	    while (data[firstIndex]!=n) {
+		firstIndex = firstIndex +1;
+	    }
+	    remove(firstIndex);
+	}
+	else
+	    System.out.println("Sorry, that is not in the list.");
     }
 	
 }

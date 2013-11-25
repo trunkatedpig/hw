@@ -7,8 +7,8 @@ public class myList {
    private Random r1 = new Random();
 
    public myList() {
-      	data = new int[5];
-		numItems = 0;
+    	data = new int[5];
+		  numItems = 0;
    }
 
    public void fill() {
@@ -101,5 +101,27 @@ public class myList {
 		}
     return ans;
 	}
+
+  public int find(int d) {
+    for(int i = 0; i < data.length; i++) {
+      if (data[i] == d) {
+        return data[i];
+      }
+    }
+    return -1;
+  }
+
+  public int fremove(int d) {
+    if (find(d) == d) {
+      for(int i = 0; i < data.length; i++) {
+        if (data[i] == d) {
+          remove(i);
+          return d;
+        }
+      }
+    }
+    return 0;
+
+  }
 
 }

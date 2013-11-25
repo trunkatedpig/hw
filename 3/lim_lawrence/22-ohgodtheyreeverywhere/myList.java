@@ -14,15 +14,17 @@ public class myList {
     public int get(int pos) {return data[pos];}
     public void set(int pos, int d) {data[pos]=d;}
 
+    public void grow() {
+	//System.out.println("Growing from " + data.length + 
+	//                   " to " + data.length*3/2);
+	int[] tmpArray = new int[data.length+data.length/2];
+	for (int i=0;i<data.length;i++) 
+	    tmpArray[i]=data[i];
+	data = tmpArray;
+    }
+
     public void add(int d) {
-	if (numItems>=data.length) {
-	    System.out.println("Growing from " + data.length + 
-			       " to " + data.length*3/2);
-	    int[] tmpArray = new int[data.length+data.length/2];
-	    for (int i=0;i<data.length;i++) 
-		tmpArray[i]=data[i];
-	    data = tmpArray;
-	}
+	if (numItems>=data.length) {grow();}
         data[numItems]=d;
         numItems = numItems + 1;
     }
@@ -39,9 +41,29 @@ public class myList {
 	data[pos]=d;
     }
 	
-    public void remove(int pos) {
+    public int remove(int pos) {
+	int r=data[pos];
 	for(int i=pos;i<numItems;i++)
 	    data[i]=data[i+1];
 	numItems--;
+	return r;
+    }
+    
+    public int find(int n) {
+	for(int i=0;i<numItems;i++) {
+	    if(data[i]==n) {return data[i];}
+	}
+	return 0;
+    }
+
+    public int fremove(int n) {
+	for(int i=0;i<numItems;i++) {
+	    if(data[i]==n) {
+		int r = data[i];
+		remove(i);
+		return r;
+	    }
+	}
+	return 0;
     }
 }

@@ -26,6 +26,13 @@ public class Driver {
 	L.set ( 6 , 3 );
 	System.out.println ( L );
 
+	System.out.println ( L.find ( 5 ) );
+	System.out.println ( L.find ( 3 ) );
+	System.out.println ( L.find ( -2 ) );
+
+	L.fremove ( 5 );
+	System.out.println ( L );
+
 	/*myList a = new myList();
 	System.out.println ( a );
 	a.insert ( 0 , 5 );
