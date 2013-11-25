@@ -62,7 +62,7 @@ public class mySList{
 	for (int i = pos;i < data.length-1 ;i++){
 	    data[i] = data[i+1];
 	}
-	data[data.length - 1] = null;
+	data[data.length - 1] = " ";
 	numItems = numItems - 1;
     }
 
@@ -82,25 +82,26 @@ public class mySList{
     }
 
     public String find(String n){
-	for (int i =0; i <data.length;i++){
-	    if (data[i].equals(null)) {
-		i = i + 1;
-	    }
-	    else if (data[i].equals(n)){
+	for (int i =0; i <data.length-1;i++){
+	    //all we had to do was lower the length of the loop, or else
+	    // it would go out of bounds. That was our error in class.
+	    if (data[i].equals(n)){
 		return n;
 	    }
 	}
-	return null;
+	return "Error";
     }
 		
     public String fremove(String n){
-	for (int i =0; i <data.length;i++){
+	for (int i =0; i <data.length-1;i++){
+	    //same applies here as it does for find(String n) also
+	    // .equals() doesn't work for null so made some changes for that
 	    if (data[i].equals(n)){
 		remove(i);
 		return n;
 	    }
 	}
-	return null;
+	return "Error";
     }
     
     

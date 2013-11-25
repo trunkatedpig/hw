@@ -66,4 +66,47 @@ public class myList {
 	data[pos]=d;
     }
     //the remove function was in my last hw
+    
+    //code for 11/19 begins here
+    public int find(int n){
+	for(int i=0; i<numItems; i++){
+	    if(data[i]==n){
+		return data[i];
+	    }
+	}
+	return 0;
+    }
+    public void remove(int pos){
+	if(pos<0){
+	    data=data;
+	}
+	else{
+	    int[] temp=new int[data.length-1];
+	    for(int i=0; i<temp.length; i++){
+		if(i>= pos){
+		    temp[i]=data[i+1];
+		}
+		else{
+		    temp[i]=data[i];
+		}
+	    }
+	    data =temp;
+	    numItems=numItems-1;
+	}
+    }
+    public void fremove(int n){
+	for(int i=0; i<numItems; i++){
+	    if (data[i]== n){
+		remove(i);
+		break;
+	    }
+	}
+    }
+	
+
+
 }
+
+
+
+
