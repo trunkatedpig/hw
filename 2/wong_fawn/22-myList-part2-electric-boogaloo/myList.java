@@ -65,4 +65,24 @@ public class myList {
         }
         data[pos] = d;
     }
+    public int find(int n) {
+	for (int i = 0; i < numItems; i++){
+	    if (data[i] == n) {
+		return n;
+	    }
+	}
+
+	return 0;
+    }
+
+    public void fremove(int n) {
+	int removepos = -1;
+	for (int i = 0; i<numItems; i++) {
+	    if (data[i] == n) {
+		removepos = i;
+		i = numItems;
+	    }
+	}
+	remove(i);
+    }
 }

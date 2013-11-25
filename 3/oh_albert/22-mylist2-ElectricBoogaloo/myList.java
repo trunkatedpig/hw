@@ -67,22 +67,5 @@ public class myList {
 	    add(pos,d);}
     }
     
-    public int find(int n){
-	for (int i=0;i<data.length;i++){
-	    if(data[i] == n){
-		return n;
-	    }
-	}
-	return 0;
-    }
-    
-    public class fremove(int n){
-	for (int i=0;i<data.length;i++){
-	    if(data[i] == n){
-		data.remove(n);
-		return n;}
-	}
-	return 0;
-    }
 }
 
