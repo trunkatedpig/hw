@@ -1,11 +1,6 @@
 import java.util.*;
 import java.io.*;
 
-//Adding at the beginning was already 3s at 100000 (at the end was only .07s) and breaks at 1000000
-//Adding at the end was only .6s at 10000000 and at 100000000 you get a "heap" error
-//Removing from the end was only .047s at 10000000 and at 100000000 you get a "heap" error
-//Removing from the beginning was 2s at 100000 but breaks at 1000000
-
 public class ArrayLists{
     public void test(int n){
 		ArrayList<String> a = new ArrayList<String>();
@@ -28,16 +23,26 @@ public class ArrayLists{
 		// long end3=System.currentTimeMillis();
 		// System.out.println(end3-start3 + ": for deleting from the end of an ArrayList");
 
-		long start3=System.currentTimeMillis();
-		for (int i=0;i<a.size();i++)
-		    a.remove(i);
-		long end3=System.currentTimeMillis();
-		System.out.println(end3-start3 + ": for deleting from the beginning of an ArrayList");
-
+		// long start3=System.currentTimeMillis();
+		// for (int i=0;i<a.size();i++)
+		//     a.remove(i);
+		// long end3=System.currentTimeMillis();
+		// System.out.println(end3-start3 + ": for deleting from the beginning of an ArrayList");
 	    }
-	    
-	public static void main(String[] args){
-		ArrayLists A = new ArrayLists();
-		A.test(1000000);
-    }
+
+	public void reverse(ArrayList<Integer> a){
+		ArrayList<Integer> tmp = new ArrayList<Integer>();
+		int indexg = a.size()-1;
+		for (int i=0;i<a.size();i++){
+			tmp.add(i,a.get(indexg));
+
+			// System.out.println("i = "+i);
+			// System.out.println("indexg = "+ indexg);
+			System.out.println("tmp[i] = "+tmp.get(i));
+
+			indexg=indexg-1;
+		}
+
+		a = tmp;
+	}
 }
