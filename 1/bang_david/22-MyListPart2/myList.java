@@ -99,4 +99,27 @@ public class myList {
 	    data [pos] = d;
 	}
     }
+
+   public int find(int d){
+        for (int i=0;i<data.length;i++) {
+            if (data[i]==d){
+                return data[i];
+            }
+        }
+        return -1;
+    }
+
+
+    public void fremove(int d){
+        for (int i=0;i<data.length;i++) {
+            if (data[i]==d){
+                remove (i);
+                i=data.length;
+            }
+            else if (i==data.length - 1){
+                System.out.println("The number " + d + " is not in the array.");
+            }
+        }
+    }
+
 }
