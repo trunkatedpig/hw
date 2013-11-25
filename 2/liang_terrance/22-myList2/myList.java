@@ -75,4 +75,21 @@ public class myList {
     public int set(int pos, int d) {
 	return data[pos]=d;
     }
+
+    public int find (int n){
+	int index = 0;
+	for (index = 0; index < data.length; index ++){
+	    if (data[index] == n){
+		return index;
+	    }
+	}
+	return -1;
+    }
+
+    public void remove2 (int n){
+	int a =find (n);
+	if (a>0){
+	    remove (a);
+	}
+    }
 }

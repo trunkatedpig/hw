@@ -81,6 +81,25 @@ public class myList {
     }
 
     */
+
+    private int foundIndex;
+    public int find(int n) {
+	foundIndex = 0;
+	for (int i = 0; i < numItems; i++) {
+	    foundIndex++;
+	    if (data[i] == n)
+		return data[i];
+	}
+	return 0;
+    }
+
+    public void fRemove(int n) {
+	int temp = find(n);
+	if (temp == 0)
+	    System.out.println("Error: Out of Bounds");
+	else
+	    remove(foundIndex);
+    }
     
     public String toString() {
 	String s = Arrays.toString(data)+" -- Data Set Size: "+size();

@@ -5,7 +5,7 @@ public class Driver{
 
     public static void main(String[] args){
 
-        myList l1, l2;
+        myList l1, l2, l3;
 
 	l1 = new myList(12,24);
 
@@ -38,5 +38,16 @@ public class Driver{
 	l2.remove(1);
 	System.out.println(l2);
 	System.out.println(l2.size());
+
+	l3 = new myList(8,2);
+	
+	System.out.println(l3);
+	System.out.println(l3.find(1));
+	System.out.println(l3.find(3));
+	
+	l3.fremove(1);
+	System.out.println(l3);
+	l3.fremove(3);
+	System.out.println(l3);
     }
 }

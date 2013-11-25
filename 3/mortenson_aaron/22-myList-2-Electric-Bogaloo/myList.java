@@ -66,7 +66,27 @@ public class myList {
     public int size() {
 	return numItems;
     }
+
     public int get(int pos) {
 	return data[pos];
+    }
+    
+    public int find(int n) {
+	for (int i=0;i<numItems;i++) {
+	    if (data[i]==n)
+		return data[i];
+	}
+	return 0;
+    }
+    
+    public int fremove(int n) {
+	for (int i=0;i<numItems;i++) {
+	    if (data[i]==n) {
+		int result = data[i];
+		remove(i);
+		return result;
+	    }
+	}
+	return 0;
     }
 }
