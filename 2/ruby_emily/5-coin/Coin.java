@@ -3,6 +3,20 @@ import java.util.*;
 
 public class Coin {
     private String face;
+<<<<<<< HEAD
+    private int h,t,f
+    private double p;
+	/*where h=heads, t=tails, f=flips, and p=percent heads*/
+
+    public void resetCount(){
+	h=0;
+	f=0;
+	t=0;
+	p=0;
+    }
+    public void getFace(){
+	return face;
+=======
     private int heads,tails,flips;
     private double fairness;
 
@@ -45,6 +59,7 @@ public class Coin {
     public void setFairness(double i){
         fairness = fairness + i;
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 
 }
