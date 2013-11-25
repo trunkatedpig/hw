@@ -4,7 +4,7 @@ import java.io.*;
 public class Driver{
     public static void main(String[] args){
 
-	long b = System.currentTimeMillis()
+	long b = System.currentTimeMillis(); //Y'were missing a semicolon & I wanted to see your work. - Caspar
 	
 	ArrayList<Integer> a = new ArrayList<Integer>();
 	int n = Integer.parseInt(args[0]);
