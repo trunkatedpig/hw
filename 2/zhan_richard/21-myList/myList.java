@@ -28,39 +28,33 @@ public class myList {
 	String s = Arrays.toString(data)+" : "+numItems;
 	return s;
     }
-    public void add(int pos, int d){
-
-	if (data.length>numItems){
-	    for (int i = numItems-1;i > pos;i--)
-		data[i]=data[i-1];
-	    data[pos]=d;
-	}
-	else{
-	    int b = 0;
-	    int[] result = new int[data.length+1];
-	    for (int a=0; a < data.length;a++){
-		if (b==pos){
-		    result[b]=d;
-		    b++;
-		}
-	    
-		result[b]=data[a];
+    public void insert(int pos, int d){
+	int b = 0;
+	int[] result = new int[data.length+1];
+	for (int a=0; a < data.length;a++){
+	    if (b==pos){
+		result[b]=d;
 		b++;
 	    }
-	    data=result;
+	    
+            result[b]=data[a];
+	    b++;
 	}
+	data=result;
 	numItems = numItems+1;
-	
     }
     public int remove(int pos){
 	int toBeReturned = data[pos];
 	int b = 0;
+	int[] result = new int[data.length-1];
 	for (int i = 0;i<data.length-1;i++){
 	    if (pos == i)
 		b++;
-	    data[i]=data[b];
+	    result[i]=data[b];
 	    b++;
 	}
+	data=result;
+	numItems=numItems-1;
 	return toBeReturned;
     }
 	
