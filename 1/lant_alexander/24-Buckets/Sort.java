@@ -4,9 +4,11 @@ import static java.lang.Math.pow;
 
 public class Sort {
 	public static int[] sort(int[] numbers) {
-		//@SuppressWarnings(value = "unchecked")
+		@SuppressWarnings(value = "unchecked")
 		ArrayList<Integer>[] buckets = new ArrayList[10];
-		for (int i = 0; i < 10; i++) {buckets[i] = new ArrayList<Integer>();} //Sort of generic array creation. This will still generate unchecked warnings but each ArrayList will be type Integer.
+		for (int i = 0; i < 10; i++) {buckets[i] = new ArrayList<Integer>();} 
+		//Sort of generic array creation. 
+		// vThis will still generate unchecked warnings but each ArrayList will be type Integer.
 		
 		int maximum = numbers[0];
 		for (int i = 1; i < numbers.length; i++) {if (numbers[i] > maximum) {maximum = numbers[i];}}
