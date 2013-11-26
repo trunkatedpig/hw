@@ -6,10 +6,13 @@ public class Coin {
     private int flips, tails, heads;
     private double fairness;
     private String face;
+<<<<<<< HEAD
+=======
     //Coin Purse Additions;
     private String name;
     private double value;
     
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 
     //Constructors;
     public Coin(){
@@ -18,6 +21,10 @@ public class Coin {
 	tails = 0;
 	flips = 0;
 	fairness = 0.5;
+<<<<<<< HEAD
+
+    }
+=======
 	}
 
     //Advanced Coin Constructor
@@ -43,6 +50,7 @@ public class Coin {
     }
 	
 	    
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 
     //Methods;
     public void resetFlips(){
@@ -56,6 +64,8 @@ public class Coin {
     public int getFlips(){
 	return flips;
     }
+<<<<<<< HEAD
+=======
     
     public double getValue(){
 	return value;
@@ -84,6 +94,7 @@ public class Coin {
 	}
 	flips = flips + 1;
     }
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
 }
 
     

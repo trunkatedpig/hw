@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+public class Driver {
+    public static void main(String[] args) {
+	Coin z;
+	z = new Coin();
+	System.out.println(z.getFace());
+=======
 // worked with mindi cao
 
 import java.io.*;
@@ -19,5 +26,6 @@ public class Driver{
 	d.addTo(v);
 	System.out.println(d.getAmount());
 	
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
 }
