@@ -31,27 +31,33 @@ public class Driver{
 	// FunWALs fw = new FunWALs();
 	Random R = new Random();
         int l = 10000000;
-	long lasttime = 0;
+	//long lasttime = 0;
 
-	ArrayList<Integer> A = new ArrayList<Integer>(l);
+	//ArrayList<Integer> A = new ArrayList<Integer>(l);
 
 	for (int i = 0; i < l; i++){
 	    A.add(R.nextInt(100));
 	}
-	// System.out.println(A.toString());
-	// long lasttime = System.currentTimeMillis();
-	// System.out.println(System.currentTimeMillis());
-	// A.add(10);
-	// System.out.println(lasttime - System.currentTimeMillis());
-	// lasttime = System.currentTimeMillis();
-	// A.add(0, 10);
-      	// //System.out.println(A.toString());
-	// //System.out.println(System.currentTimeMillis());
-	// System.out.println("Time differential: "+ (System.currentTimeMillis()-lasttime) +" milliseconds.");
+	//System.out.println(A.toString());
+	long lasttime = System.currentTimeMillis();
+	System.out.println(System.currentTimeMillis());
+	A.add(10);
+	System.out.println(lasttime - System.currentTimeMillis());
+	lasttime = System.currentTimeMillis();
+	A.add(0, 10);
+      	//System.out.println(A.toString());
+	//System.out.println(System.currentTimeMillis());
+	System.out.println("Time differential: "+ (System.currentTimeMillis()-lasttime) +" milliseconds.");
+
+	System.out.println     ("---------------------------------------");
+	System.out.println("");
+	
 
 	for (long length = 10; length <= 1000000000 ; length = length * 10){
 	    //10,100,1000,10000,100000,1000000
 	    
+
+	    ArrayList<Integer> A = new ArrayList<Integer>(length);
 	    System.out.println("ArrayList length = " + length);
 	    lasttime = System.currentTimeMillis();
 	    System.out.println("Current time: " + lasttime);
@@ -68,7 +74,7 @@ public class Driver{
 	
 	/*
 	 * TIME DIFFERENTIAL DATA:
-    	 * 1st ArrayList of length 10: 2 milliseconds.
+     * 1st ArrayList of length 10: 2 milliseconds.
 	 * 2nd ArrayList of length 10: 1 milliseconds.
 	 * 1st ArrayList of length 100: 1 milliseconds.
 	 * 2nd ArrayList of length 100: 0 milliseconds.
