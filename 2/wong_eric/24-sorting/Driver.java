@@ -1,4 +1,4 @@
-// Worked with Eric Wong on this
+// Worked with Danny Qiu on this
 
 import java.util.*;
 
