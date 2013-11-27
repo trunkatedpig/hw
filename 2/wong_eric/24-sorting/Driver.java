@@ -15,6 +15,7 @@ public class Driver {
 	    maxValue = 1000;
 	}
 
+	long start,end;
 	Random r = new Random();
 
         ArrayList[] buckets = new ArrayList[10];
