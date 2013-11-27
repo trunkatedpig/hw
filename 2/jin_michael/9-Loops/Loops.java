@@ -37,12 +37,26 @@ public int gcd2(int a, int b) {
 	    return gcd2(c, d%c);}
 }
 
-    //    public boolean isPrime(int n){
-    //	if (gcd(1,n)==1)
+    public int gcd3(int a, int b){
+	int c=Math.min(a,b);
+	int d=Math.max(a,b);
+	while (c>0){
+	    return gcd3(c,d%c);
+	}
+	return d;
 
+    }
+    public int gcd4(int a, int b){
+	int c=Math.min(a,b);
+	int d=Math.max(a,b);
+	while (c>0){
+	    int dd=d;
+	    d=c;
+	    c=dd%c;
+	}
+	return d;
 
-    //    }
-
+    }
     public boolean isPrime(int n) {
 	int rn=n-1;
 	while (rn>1){

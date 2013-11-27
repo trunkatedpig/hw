@@ -6,17 +6,31 @@ public class Coin {
     private int flips;
     private int heads;
     private int tails;
+<<<<<<< HEAD
+    private int fairness;
+=======
     private double fairness;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     public Coin() {
 	face = "Heads";
 	flips = 10;
 	heads = 3;
 	tails = 7;
+<<<<<<< HEAD
+	fairness = 50;
+    }
+    public void resetFlips(){
+	flips = 0;
+=======
 	fairness = .5;
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
     }
     public String getFace() {
 	return face;
     }
+<<<<<<< HEAD
+}
+=======
     public int getFlips() {
 	return flips;
     }
@@ -52,3 +66,4 @@ public class Coin {
     }
 }
 
+>>>>>>> 609c97f791a335e0b897d843768c7ec2867145d3
