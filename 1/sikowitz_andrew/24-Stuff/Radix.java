@@ -11,7 +11,7 @@ public class Radix {
 	int counter;
 
 	for (int i=0; i<100; i++)
-	    a[i] = r.nextInt(0, 10000);
+	    a[i] = r.nextInt(10000);
 
 	for (int n=0; n<4; n++) {
 	    for (int i=0; i<10; i++)
@@ -23,11 +23,12 @@ public class Radix {
 	    counter = 0;
 	    for (int i=0; i<10; i++) {
 		while (buckets[i].size() > 0) {
-		    a[counter] = buckets[i].get(buckets[i].size()-1);
-		    buckets[i].remove(buckets[i].size()-1);
+		    a[counter] = (Integer) buckets[i].get(0);
+		    buckets[i].remove(0);
+		    counter ++;
 		}
 	    }
 	}
-	System.out.println(a);
+	System.out.println(Arrays.toString(a));
     }
 }
