@@ -20,7 +20,14 @@ public class Driver {
 	int n = 0;
 
 	for (int i = 0;i < a.length; i++) {
-	    buckets.set((a[i]/10^n)% 10, a[i]);
+	    buckets [(a[i] / 10^ n ) %10 ] .add ( a[i]);
 	}
+
+	//	public String toString() {
+	//    String s = Arrays.toString(a);
+	//   return ArrayLists.toArray ();
+	//}
+
+	System.out.println (" " + buckets[0]);
     }
 }
