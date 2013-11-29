@@ -13,7 +13,9 @@ public class Sort {
 		for (int i = 1; i < numbers.length; i++) {if (numbers[i] > maximum) {maximum = numbers[i];}}
 		byte max = -1;
 		for (; maximum > 0; maximum /= 10) {max++;} 
-		System.out.println(Arrays.toString(numbers) + "\n maximum: " + maximum + "\n max: " + max);
+		
+		//System.out.println(Arrays.toString(numbers) + "\n maximum: " + maximum + "\n max: " + max);
+		
 		for (byte i = 0; i <= max; i++) {
 			for (int j = 0; j < numbers.length; j++) {
 				if (numbers[j] < (int) pow(10, i)) {buckets[0].add(numbers[j]);}
@@ -60,6 +62,7 @@ public class Sort {
 		Random random = new Random();
 		for (int i = 0; i < size; i++) {numbers[i] = random.nextInt(max);}
 		
-		System.out.println(Arrays.toString(Sort.sort(numbers)));
+		//System.out.println(Arrays.toString(Sort.sort(numbers)));
+	
 	}
 }
