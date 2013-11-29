@@ -16,7 +16,8 @@ public class SortTests{
 	for(int i = 0; i < length; i++){
  	    nums[i]= R.nextInt(range);
 	}
-
+	
+	System.out.println("Length: " + length + "\n Range: " + range)
 	lasttime = System.currentTimeMillis();
 	Sort.sort(nums);
 	System.out.println("My radix sort method takes " + (System.currentTimeMillis() - lasttime) + " milliseconds to complete.");
