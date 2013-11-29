@@ -5,17 +5,15 @@ import static java.lang.Math.pow;
 public class Sort {
 	public static int[] sort(int[] numbers) {
 		@SuppressWarnings(value = "unchecked")
-		ArrayList<Integer>[] buckets = new ArrayList[10];
+		    
+		    ArrayList<Integer>[] buckets = new ArrayList[10];
 		for (int i = 0; i < 10; i++) {buckets[i] = new ArrayList<Integer>();} 
-		//Sort of generic array creation. 
-		// vThis will still generate unchecked warnings but each ArrayList will be type Integer.
 		
 		int maximum = numbers[0];
 		for (int i = 1; i < numbers.length; i++) {if (numbers[i] > maximum) {maximum = numbers[i];}}
 		byte max = -1;
-		for (; maximum > 0; maximum /= 10) {max++;} //A while loop would work but one-line code FTW.
-		//   ^ Yes, that is valid.
-		
+		for (; maximum > 0; maximum /= 10) {max++;} 
+		System.out.println(Arrays.toString(numbers) + "\n maximum: " + maximum + "\n max: " + max);
 		for (byte i = 0; i <= max; i++) {
 			for (int j = 0; j < numbers.length; j++) {
 				if (numbers[j] < (int) pow(10, i)) {buckets[0].add(numbers[j]);}
@@ -29,12 +27,16 @@ public class Sort {
 				}
 				buckets[j].clear();
 			}
-			//System.out.println(Arrays.toString(numbers) + "\n");
+		
 		}
 		
 		return numbers;
 	}
 	
+
+
+
+
 	public static void main(String[] args) {
 		if (args.length != 2) {
 			System.out.println("Usage: java Sort size max, in which size is the number of elements and max is the upper bound (exclusive) of the array of integers");
