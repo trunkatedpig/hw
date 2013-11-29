@@ -3,19 +3,19 @@ import java.util.*;
 
 public class Buckets { 
     
-    private ArrayList[] buckets = new ArrayList[10];
-    private int[]Test = new int[10];
+    private ArrayList[] buckets = new ArrayList[1000000];
+    private int[]Test = new int[1000000];
     
     public Buckets() {
-        for (int i = 0; i < 10; i++) 
+        for (int i = 0; i < 1000000; i++) 
             buckets[i] = new ArrayList();
-        for (int i = 0; i < 10; i++)
-            Test[i] = (int) (Math.random() * 1000);
+        for (int i = 0; i < 1000000; i++)
+            Test[i] = (int) (Math.random() * Math.pow(10,20));
     }
     
     public void sort() {
         int n = 0;
-        while (n < 3) {
+        while (n < 20) {
             for (int i = 0; i < Test.length; i++) {
                 //System.out.print(Test[i] + " (mod " + Math.pow(10,n)+")");
                 int placeholder = (int) ((Test[i]/Math.pow(10,n)) % 10);
