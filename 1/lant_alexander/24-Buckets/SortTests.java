@@ -19,7 +19,7 @@ public class SortTests{
 
 	lasttime = System.currentTimeMillis();
 	Sort.sort(nums);
-	System.out.println("My sort method takes " + (System.currentTimeMillis() - lasttime) + " milliseconds to complete.");
+	System.out.println("My radix sort method takes " + (System.currentTimeMillis() - lasttime) + " milliseconds to complete.");
 	lasttime = (System.currentTimeMillis());
 	Arrays.sort(nums);
         System.out.println("The built-in sort method takes " + (System.currentTimeMillis() - lasttime + " milliseconds to complete."));
