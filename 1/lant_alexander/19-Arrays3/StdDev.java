@@ -3,7 +3,7 @@ import java.util.*;
 
 public class StdDev{
     
-    private  Random R = new Random;
+    private  Random R = new Random();
     private int length = 100;
     private int range = 100; //Range is 0 to "range".
     private double[] ARR = new double[length];
