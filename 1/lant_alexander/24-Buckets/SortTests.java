@@ -16,10 +16,11 @@ public class SortTests{
 	for(int i = 0; i < length; i++){
  	    nums[i]= R.nextInt(range);
 	}
-
+	
+	System.out.println("Length: " + length + "\n Range: " + range)
 	lasttime = System.currentTimeMillis();
 	Sort.sort(nums);
-	System.out.println("My sort method takes " + (System.currentTimeMillis() - lasttime) + " milliseconds to complete.");
+	System.out.println("My radix sort method takes " + (System.currentTimeMillis() - lasttime) + " milliseconds to complete.");
 	lasttime = (System.currentTimeMillis());
 	Arrays.sort(nums);
         System.out.println("The built-in sort method takes " + (System.currentTimeMillis() - lasttime + " milliseconds to complete."));
