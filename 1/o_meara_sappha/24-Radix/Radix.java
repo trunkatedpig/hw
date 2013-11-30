@@ -22,5 +22,4 @@ public class Radix{
         }
         return A;
     }
-            
 }
