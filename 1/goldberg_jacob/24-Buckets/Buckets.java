@@ -3,6 +3,7 @@ import java.io.*;
 import java.lang.Math;
 
 // Creds to Maria for explaining a good amount of this to us
+// Group: Deanna and Coby
 
 public class Buckets{
 
