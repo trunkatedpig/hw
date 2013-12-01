@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 public class SortTests{
     public static void main (String[] args){
 	
@@ -8,18 +11,19 @@ public class SortTests{
 	//Init stuff;
 	long lasttime = 0;
         Random R = new Random();
-	int[] Array = new int[length];
+	int[] nums = new int[length];
 	
 	for(int i = 0; i < length; i++){
- 	    Array[i]= R.nextInt(range);
+ 	    nums[i]= R.nextInt(range);
 	}
-
+	
+	System.out.println("Length: " + length + "\n Range: " + range)
 	lasttime = System.currentTimeMillis();
-	Sort.sort(Array);
-	System.out.println("My sort method takes " + (System.currentTimeMillis() - lasttime) + " to complete.");
-	lasttime = (System.currentTimeMillis() - lasttime);
-	Arrays.sort(Array);
-        System.out.println("The built-in sort method takes " + (System.currentTimeMillis() - lasttime + " to complete.")
+	Sort.sort(nums);
+	System.out.println("My radix sort method takes " + (System.currentTimeMillis() - lasttime) + " milliseconds to complete.");
+	lasttime = (System.currentTimeMillis());
+	Arrays.sort(nums);
+        System.out.println("The built-in sort method takes " + (System.currentTimeMillis() - lasttime + " milliseconds to complete."));
 	
     }
 
