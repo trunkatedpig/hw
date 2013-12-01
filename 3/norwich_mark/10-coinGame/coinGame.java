@@ -1,46 +1,52 @@
 import java.io.*;
 import java.util.*;
 
-public class BankAccount {
-    private double balance;
-    private String name;
-    private double interestRate;
-    private int acctnumber;
+public class CoinGame {
+    private BankAcount B1, B2;
+    private Coin C1, C2;
+    private double pot; 
 
-    public BankAccount(String n, int act) {
-name=n;
-acctnumber = act;
+    public double setPot(){
+	double x = 0; 
+	if (B1.getBalance > B2.getBalance)
+	    x = x + B1.getBalance;
+	else 
+	    x = x + B2.getBalance; 
+
+	Random r = new Random(); 
+	double pot = 2 * r.nextInt(1, x);
+    }
+    public String getFace(){
+	Coin C1 = C1.flip();
+	Coin C2 = C2.flip();
     }
 
-    public void deposit(double amt) {
-// if to make sure amt > 0 would be better
-balance = balance + amt;
+    public String turn(){
+	if (C1.equals("heads") && C2.equals( "heads"))
+	    B1.balance = B1.balance + pot; 
+	else if (C1.equals("tails") && C2.equals("tails"))
+	    B2.balance = B1.balance + pot;
+	else 
+	    return null;
+    }
+    
+
+    public int getCurrent(){
+	return B1.getBalance();
+	return B2.getBalance();
     }
 
-    public void withdraw(double amt) {
-// this if is important
-if (balance >= amt) {
-balance = balance - amt;
+    public void play(int n){
+	int result;
+	result = 0;
+	while (n>0){
+	    result = result + CoinGame.turn();
+	    n = n - 1;
+	}
+	return result;
+	}
 }
-    }
-
-    public double getBalance() {
-return balance;
-    }
-
-    public void takeMoneyFrom(BankAccount other, double amt) {
-if (other.balance >= amt) {
-other.withdraw(amt);
-this.deposit(amt);
-}
-    }
-
-    public void giveMoneyTo(BankAccount other, double amt) {
-if (balance >= amt) {
-balance = balance - amt;
-other.balanace = other.balance + amt;
-}
-
-    }
-}
-
+       
+       
+	
+	
