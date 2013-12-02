@@ -1,11 +1,11 @@
 import java.util.*;
 import java.io.*;
 
-public class myList {
+public class MyList {
     private int[] data;
     private int numItems;
     
-    public myList() {
+    public MyList() {
 	data = new int[5];
 	numItems=0;
     }
@@ -82,7 +82,7 @@ public class myList {
     public int findRemove(int v){
 	for (int i=0;i<data.length;i++){
 	    if (data[i]==v){
-		data.remove(i);
+	    	remove(i);
 		return data[i];
 	    }
 	}
