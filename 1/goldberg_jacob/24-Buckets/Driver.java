@@ -7,7 +7,8 @@ public class Driver{
 
 	Buckets b = new Buckets();
 	System.out.println(b);
-	System.out.println(b.sort());
+	b.sort();
+	System.out.println(b);
     }
 
 }

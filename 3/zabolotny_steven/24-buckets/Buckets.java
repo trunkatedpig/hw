@@ -2,7 +2,19 @@ import java.util.*;
 import java.io.*;
 
 public class Buckets {
-    public int[] sort(int[] a) {
+    private int[] a;
+
+    public Buckets(int size,int digits) {
+	a = new int[size];
+	for (int i = 0;i < a.length;i++) {
+	    int num = (int)(Math.random() * Math.pow(10,digits + 1) + Math.pow(10,digits));
+	    if (num > Math.pow(10,digits + 1)) 
+		num = (int)(num - Math.pow(10,digits));
+	    a[i] = num;
+	}
+    }
+
+    public void rsort() {
 	int digits = 0;
 	//Find the amount of digits in the largest number
 	for (int c = 0;c < a.length;c++) {
@@ -31,7 +43,14 @@ public class Buckets {
 		}
 	    }
 	}
-	return a; 
+    }
+    
+    public int[] get() {
+	return a;
+    }
+
+    public void set(int[] b) {
+	a = b;
     }
 }
 	

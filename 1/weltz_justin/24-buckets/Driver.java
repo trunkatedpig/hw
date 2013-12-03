@@ -10,14 +10,14 @@ public class Driver{
 	Justin.sort();
 	Long two = System.currentTimeMillis();
 	//System.out.println(Justin);
-	System.out.println(two - one);
+	System.out.println("Radix: " + (two - one));
 
 	//System.out.println(Maria);
 	one = System.currentTimeMillis();
 	Arrays.sort(Maria.get());
 	two = System.currentTimeMillis();
 	//System.out.println(Maria);
-	System.out.println(two - one);
+	System.out.println("arrays: " + (two - one));
 	
 
 	
