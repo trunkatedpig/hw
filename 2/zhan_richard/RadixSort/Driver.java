@@ -3,6 +3,5 @@ public class Driver{
 	Radix a = new Radix(10);
 	System.out.println(a);
 	a.sort();
-	System.out.println(10^0);
     }
 }

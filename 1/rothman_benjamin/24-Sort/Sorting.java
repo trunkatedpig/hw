@@ -24,11 +24,11 @@ public class Sorting {
 		daNumba = daNumba + (int) (random.nextInt (10) * Math.pow (10, r));
 	    }
 
-
+	    /*
 	    if (Math.pow (10, digitas - 1 ) > daNumba) {
 		daNumba = (int) ( daNumba + Math.pow (10, digitas - 1));
 
-	    }
+		}*/
 
 
 	    numbers [i] = daNumba;
@@ -51,9 +51,20 @@ public class Sorting {
 
     public void Order () {
 
+	int tempStore = String.valueOf (numbers [0]).length ();
+
+	for (int i =1; i < numbers.length; i++) {
 
 
-	int digits = String.valueOf (numbers [0] ).length ();
+	    if  ( String.valueOf (numbers [i] ).length () > tempStore ) {
+
+		tempStore = String.valueOf (numbers [i] ).length ();
+
+	    }
+
+	}
+
+	int digits = tempStore;
 
 
 	for (int n =0; n < digits; n ++) {
