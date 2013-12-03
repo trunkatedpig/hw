@@ -32,7 +32,12 @@ public class Driver {
 	System.out.println(L);
 	System.out.println(L.size());
 	System.out.println(L.get(8));
-	
+
+
+	System.out.println(L.find(10));
+	System.out.println(L);
+	System.out.println(L.fremove(12));
+	System.out.println(L);
     }        
 
 

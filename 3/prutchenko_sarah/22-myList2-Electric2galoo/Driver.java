@@ -14,6 +14,9 @@ public class Driver {
 	System.out.println(L);
 	L.add(5,20000);
 	System.out.println(L);
+	L.fremove(20000);
+	System.out.println(L);
+
 
     }
 

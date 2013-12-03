@@ -22,11 +22,25 @@ public class myListCustom {
 		items[index] = item;
 	}
 	
+	public boolean contains(int item) {
+		for (int i = 0; i < items.length; i++) {if (items[i] == item) {return true;}}
+		
+		return false;
+	}
+	
+	public int find(int item) {
+		for (int i = 0; i < items.length; i++) {if (items[i] == item) {return i;}}
+		
+		return -1;
+	}
+	
 	public int get(int index) {return items[index];}
 	
 	private boolean outOfBounds(int index) {return ((index < 0) || (index >= items.length));}
 	
-	public void remove(int index) {
+	public void remove(int item) {removeIndex(find(item));}
+	
+	public void removeIndex(int index) {
 		if (outOfBounds(index)) {throw new ArrayIndexOutOfBoundsException(index);}
 		
 		for (int i = index; i <= items.length - 2; i++) {items[i] = items[i + 1];}
@@ -41,6 +55,14 @@ public class myListCustom {
 	}
 	
 	public int size() {return items.length;}
+	
+	public myListCustom subList(int start, int end) {
+		if (outOfBounds(start)) {throw new ArrayIndexOutOfBoundsException(start);}
+		if (outOfBounds(end - 1)) {throw new ArrayIndexOutOfBoundsException(end);} //end or end - 1?
+		if (start > end) {throw new IllegalArgumentException("End index must be greater than or equal to the start index.");}
+		
+		return new myListCustom(Arrays.copyOfRange(items, start, end));
+	}
 	
 	public int[] toArray() {return items;}
 	
