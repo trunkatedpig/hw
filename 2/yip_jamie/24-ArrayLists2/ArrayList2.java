@@ -17,6 +17,7 @@ public class ArrayList2{
 	    data[i] = r.nextInt(9999-1000) +1000;
 	System.out.println(Arrays.toString(data));
 
+	long start = System.currentTimeMillis();
 	for (int k = 0; k < digits; k++){
 	    System.out.println("Digits " + k);
 	    for (int i = 0; i < data.length; i++) {
@@ -40,7 +41,12 @@ public class ArrayList2{
 
 	}    
 
+	long end = System.currentTimeMillis();
+        System.out.println ( end  - start );
+
+        start = System.currentTimeMillis();
+        Arrays.sort ( data );
+        end = System.currentTimeMillis();
+        System.out.println ( end  - start );
     }
 }
-
-//Run timing test compared Array.sort
