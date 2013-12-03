@@ -6,8 +6,8 @@ public class WordSearch {
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
-	this.rows() = rows;
-	this.cols() = cols;
+	this.rows = rows;
+	this.cols = cols;
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
 		board[i][j]='-';
