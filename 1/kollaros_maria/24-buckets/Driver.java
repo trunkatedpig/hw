@@ -18,6 +18,13 @@ public class Driver{
 	two = System.currentTimeMillis();
 	//System.out.println(Maria);
 	System.out.println(two - one);
+
+	/*The longer the inital array is the longer it takes to sort the array 
+	  using either method. The longer the length of the elements of the 
+	  inital array, the longer it takes to sort them using either method. 
+	  The method we wrote though is the slowest of the two no matter what.
+	*/
+
 	
 
 	

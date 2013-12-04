@@ -17,7 +17,7 @@ public class Sorter{
 	@SuppressWarnings(value = "unchecked")
 	    
 	    ArrayList<Integer>[] buckets = new ArrayList[10]; //Makes main ArrayList, buckets.
-	for (int i = 0; i < 10; i++) {buckets[i] = new ArrayList<Integer>();} //Puts an ArrayList at each indx of buckets.
+	for (int i = 0; i < 10; i++) {buckets[i] = new ArrayList<Integer>();} //Puts an ArrayList at each index of buckets.
 	
 	
 

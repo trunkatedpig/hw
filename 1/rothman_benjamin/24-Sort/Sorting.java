@@ -112,4 +112,10 @@ public class Sorting {
 	   return Arrays.toString (numbers);
 	}
 
+
+    public int [] getArray () {
+	return numbers;
+
+    }
+
     }
