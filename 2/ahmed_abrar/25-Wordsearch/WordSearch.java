@@ -29,12 +29,12 @@ public class WordSearch {
     }
 
     public boolean addWordH ( int row , int col , String word ) {
-	if ( col + word.length() - 1 > board [ row ].length )
+	if ( col + word.length() - 1 > board [ row ].length || row > board.length || row < 1 || col < 1 )
 	    return false;
 	else {
 	    int i = col;
 	    int index = 0;
-	    while ( i < col + word.length() - 1 ) {
+	    while ( i < col + word.length() ) {
 		board [ row - 1 ] [ i - 1 ] = word.charAt ( index );
 		i = i + 1;
 		index = index + 1;
