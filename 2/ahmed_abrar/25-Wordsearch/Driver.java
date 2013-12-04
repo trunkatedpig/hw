@@ -14,6 +14,9 @@ public class Driver {
 
 	System.out.println ( w.addWordH ( 10 , 3 , "hi" ) );
 	System.out.println(w);
+
+	System.out.println ( w.addWordH ( 0 , 2 , "h" ) );
+	System.out.println ( w.addWordH ( 2 , 0 , "i" ) );
        
     }
 }
