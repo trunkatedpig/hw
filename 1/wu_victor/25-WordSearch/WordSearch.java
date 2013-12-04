@@ -25,15 +25,21 @@ public class WordSearch {
 	return s;
     }
     
-    public boolean insertWordH (int rows, int cols, String s) {
-	if (board[rows][cols].equals("-")) {
+    public boolean insertWordH (int row, int col, String s) {
+	if (row+s.length()<=20&&col<=20) {
 	    for (int i = 0; i < s.length(); i++) {
-		if (board[rows+i][cols].equals("-")) {
-		    board[rows+i][cols] = s.charAt(i);
+		Character check = board[row+i][col];
+		if (check.equals('-')||check.equals(s.charAt(i))) {
+		    board[row+i][col] = s.charAt(i);
+		}
+		else {
+		    return false;
 		}
 	    }
-	    return true;
 	}
-	return false;
+	else {
+	    return false;
+	}
+	return true;
     }
 }
