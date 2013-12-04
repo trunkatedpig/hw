@@ -1,23 +1,27 @@
 import java.util.*;
 
 public class WordSearch {
+
     private char[][] board;
-    private char defaultvalue = '-';
+    private char defaultvalue = '-'; //just for convenience
     private int rows, cols;
 
     public WordSearch(int rows, int cols) {
-	board = new char[rows][cols];
-	for (int i=0;i<rows;i++) {
-	    for (int j=0;j<cols;j++) {
-		board[i][j]=defaultvalue;
-	    }
-	}
 	this.rows = rows;
 	this.cols = cols;
+	board = new char[rows][cols];
+	resetBoard();
     }
 
     public WordSearch() {
 	this(20,20);
+    }
+
+    public void resetBoard() {
+	for (int i=0;i<rows;i++) {
+	    for (int j=0;j<cols;j++)
+		board[i][j]=defaultvalue;
+	}
     }
 
     public boolean addWordH(int row, int col, String word) {
@@ -26,7 +30,8 @@ public class WordSearch {
 	    return false;
 	for(int i=0;i<word.length();i++) {
 	    //check that each of the spaces is valid
-	    if(!(board[row][col+i]==defaultvalue||board[row][col+i]==word.charAt(i)))
+	    if(!(board[row][col+i]==defaultvalue||
+		 board[row][col+i]==word.charAt(i)))
 		return false;
 	}
 	for (int i=0;i<word.length();i++)
