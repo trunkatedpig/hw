@@ -25,11 +25,40 @@ public class Wordsearch{
 	return s;
     }
 
-    public boolean insertWordH(int r, int c, String s){
-	if (s.length > 20-r){
-	    return false;
+    public boolean insertWordV(int r, int c, String s){
+	boolean value = false;
+	if (s.length() > 20-r){
+	    value = false;
 	}
-	else {
-	    for (int i=0; i<s.length; i++){
-		board[r+i][c] = s.charAt[i];
+	for (int i=0; i<s.length();i++){
+	    if (board[r+i][c] != '-' && board[r+i][c] != s.charAt(i)){
+		value = false;
 	    }
+	    else {
+		board[r+i][c] = s.charAt(i);
+		value = true;
+	    }
+	}
+	return value;
+    }
+
+     public boolean insertWordH(int r, int c, String s){
+	boolean value = false;
+	if (s.length() > 20-r){
+	    value = false;
+	}
+	for (int i=0; i<s.length();i++){
+	    if (board[r][c+i] != '-' && board[r][c+i] != s.charAt(i)){
+		value = false;
+	    }
+	    else {
+		board[r][c+i] = s.charAt(i);
+		value = true;
+	    }
+	}
+	return value;
+    }
+}
+
+
+// ARG why wont overlap work properly!?
