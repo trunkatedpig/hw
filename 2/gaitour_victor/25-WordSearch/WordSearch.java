@@ -10,7 +10,18 @@ public class WordSearch{
 	    return false;
 	if (w+r>board[0].length)
 	    return false;
-	
+	else {
+	    int i = col;
+	    int index = 0;
+	    while ( i < col + word.length() ) {
+		board [ row - 1 ] [ i - 1 ] = word.charAt ( index );
+		i = i + 1;
+		index = index + 1;
+	    }
+	    return true;
+	}
     }
+    
+}
 
 }
