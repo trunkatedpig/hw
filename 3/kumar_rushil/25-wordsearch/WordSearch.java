@@ -2,14 +2,12 @@ import java.util.*;
 
 public class WordSearch {
     private char[][] board;
-    private char[][] temp = new char[0][0];
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
 	    for (int j=0;j<cols;j++) {
 		board[i][j]='-';
-		temp = board;
 	    }
 	}
 
@@ -40,7 +38,9 @@ public class WordSearch {
 		    pos = pos + 1;
 		}
 		else{
-		    board = temp;
+		    for (int k = col - 1; k < pos; k ++){
+			board[row-1][k] = '-';
+		    }
 		    return false;
 		}
 	    }
@@ -50,15 +50,4 @@ public class WordSearch {
 	    return false;
 	}
     }
-    public String tempArray() {
-	String s="";
-	for (int i=0;i<temp.length;i++) {
-	    for (int j=0;j<temp[i].length;j++) {
-		s=s+temp[i][j];
-	    }
-	    s=s+"\n";
-	}
-	return s;
-    }
-
 }
