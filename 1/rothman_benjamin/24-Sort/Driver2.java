@@ -31,7 +31,8 @@ public class Driver2 {
 
 	start = System.currentTimeMillis ();
 
-	s.Order ();
+	/*	s.Order (); */
+	Arrays.sort (s.getArray () );
 
 	t = System.currentTimeMillis () - start;
 
