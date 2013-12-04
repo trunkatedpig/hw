@@ -36,7 +36,7 @@ public class Driver {
 	
 	ArrayList <Integer> b = new ArrayList <Integer>(a.size());
 	for (int i = 0; i < b.size() - 1; i ++) {
-	    b.set(i, a.get(19 - i));
+	    b.set(0, a.get(n));
 	}
 
 	a = b;

@@ -29,7 +29,7 @@ public class Compare{
 	System.out.println(System.currentTimeMillis()-time1);
 	time1=System.currentTimeMillis();
 	for (int i = 0; i <100000; i++)
-	    a.remove("x");
+	    a.remove(a.size()-1);
 	System.out.println(System.currentTimeMillis()-time1);
 
     }
