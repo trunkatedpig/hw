@@ -24,19 +24,22 @@ public class WordSearch {
 	}
 	return s;
     }
-    public boolean insertWordH(int row, int col, String word){
+    public boolean addWordH(int row, int col, String word){
 	int c = 0;
 	while (c<word.length()){
-	    if(col>board[row].length())
+	    String temp = ""+board[row][col];
+	    if(col>board[row].length-1){
 		return false;
-	    else if(board[row][col].equals('-') || board[row][col].equals(word.charAt(c)))
+	    }
+	    else if (temp.equals(""+'-')){
 		board[row][col] = word.charAt(c);
-	    else
+		c = c+1;
+		col = col + 1;
+	    }
+	    else{
 		return false;
-	    c = c+1;
-	    col = col + 1;
+	    }
 	}
 	return true;
-
-
+    }
 }
