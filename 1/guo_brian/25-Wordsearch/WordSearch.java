@@ -1,4 +1,6 @@
 import java.util.*;
+import java.io.*;
+
 public class WordSearch {
 
     private char[][] board;
@@ -16,7 +18,17 @@ public class WordSearch {
     }
 
     public boolean InsertWordH(int row, int col, String word) {
-	
+	for (int i = 0; i<word.length(); i++) {
+	    if (board[row][col+i] == '-'){
+		board[row][col+i] = word.charAt(i);
+	    }
+	    else if (word.charAt(i) != board[row][col+i]) {
+		return false;
+	    }
+	}
+	return true;
+    }
+	    
 
     public String toString() {
 	String s = "";
