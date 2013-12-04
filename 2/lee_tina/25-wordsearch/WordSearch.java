@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-public class wordSearch{
+public class WordSearch{
     private char[][] board;
 
-    public wordSearch(int rows, int cols) {
+    public WordSearch(int rows, int cols) {
         board = new char[rows][cols];
         for (int i=0;i<rows;i++) {
          for (int j=0;j<cols;j++) {
@@ -14,7 +14,7 @@ public class wordSearch{
 
     }
 
-    public wordSearch() {
+    public WordSearch() {
         this(20,20);
     }
 
@@ -28,15 +28,19 @@ public class wordSearch{
         }
         return s;
     }
-
-    public boolean horizontalFit(int lenword, int pos){
-	return (lenword>20-pos);
-    }
-	    
-    public void addWordH(int r, int c, String word){
-	if horizontalFit{
-		
+   
+    public boolean addWordH(int row, int col, String word){
+	if (word.length() > 20 - col)
+	    return false;
+	else{
+	    for (int pos = 0; pos < word.length(); pos++){
+		if (!("" + board[row][col + pos]).equals("-"))
+		    return false;
+		else
+		    board[row][col + pos] = word.charAt(pos);
 	    }
+	    return true;
+	}
     }
 
 }
