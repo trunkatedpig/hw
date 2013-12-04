@@ -28,7 +28,13 @@ public class WordSearch {
     public boolean InsertH(int row,int  col,String word){
 	if (row>board.length||col>board[0].length||(row+word.length())>board.length)
 	    return false;
-	
+	for (int i = 0; i<word.length(); i++){
+	    if (""+word.charAt(i)!=""+board[row][col+i]&&""+board[row][col+i]!="-")
+		return false;
+	}
+	for (int i=0; i<word.length(); i++)
+	    board[row][col+i]=word.charAt(i);
+	return true;
     }
 
 
