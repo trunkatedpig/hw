@@ -2,15 +2,15 @@ import java.util.*;
 public class WordSearch {
 
     private char[][] board;
-    
-    int rows, cols;
+    private int rows, cols;
+
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
+	this.rows = rows;
+	this.cols = cols;
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
 		board[i][j]='-';
-	this.rows = rows;
-	this.cols = cols;
     }
 
     public WordSearch() {
@@ -28,11 +28,19 @@ public class WordSearch {
 	return s;
     }
 
-    //Insertion methods
-    public boolean insertHorizontal(int c, int r, string s){
-	if (c + s.length()-1 > cols)
+    public boolean AddWordH(int r, int c, String word) {
+	int len = word.length();
+	if (c + len >= cols) {
+	    System.out.println("You cannot enter this word at this position");
 	    return false;
-	else {
-	    
 	}
+	for (int i = 0; i < len; i++) {
+	    char letter = word.charAt(i);
+	    board[r][c+i] = letter;
+	}
+	return true;
+
+    }
+
+
 }

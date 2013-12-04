@@ -6,6 +6,8 @@ public class CoinGame {
     private Coin C1, C2;
     private double pot; 
 
+//random comment
+
     public double setPot(){
 	double x = 0; 
 	if (B1.getBalance > B2.getBalance)

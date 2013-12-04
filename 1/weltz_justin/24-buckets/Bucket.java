@@ -6,7 +6,7 @@ public class Bucket{
     public Bucket() {
 	Random r = new Random();
 	for (int i = 0; i < len; i ++){
-	    buckets[i] = (long)r.nextInt(900000000) + 100000000;
+	    buckets[i] = (long)r.nextInt(900000000) + 100000000;//can't randomly generate anythong bigger
 	}
     }
     public void sort(){
