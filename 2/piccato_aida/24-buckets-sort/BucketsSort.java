@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class BucketsSort {
-    private ArrayList<Integer>[] buckets = new ArrayList[100];
-    private int[] nums = new int[10];
+    private int[] nums;
+    private ArrayList<Integer>[] buckets;
 
     public String toString() {
 	return "Nums: " +  Arrays.toString(nums);
@@ -13,13 +13,15 @@ public class BucketsSort {
         return "Buckets: " + Arrays.toString(buckets);
     }
     
-    public BucketsSort() {
-	for (int i = 0; i < 10; i++) {
+    public BucketsSort(int n) {
+	nums = new int[n];
+	buckets = new ArrayList[nums.length];
+	for (int i = 0; i < nums.length; i++) {
   	    buckets[i] = new ArrayList<Integer>();
 	}
 	Random r = new Random();
 	for (int i = 0; i < nums.length; i++) {
-	    nums[i] = r.nextInt(8999)+1000;
+	    nums[i] = r.nextInt(899999999)+100000000;
 	}
     }
 
@@ -54,8 +56,8 @@ public class BucketsSort {
 	    copyIntoArray();
 	    //System.out.println(printBuckets());
 	    //System.out.println(this);
-	    ArrayList<Integer>[] temp = new ArrayList[100];
-	    for (int i = 0; i < 10; i++) {
+	    ArrayList<Integer>[] temp = new ArrayList[nums.length];
+	    for (int i = 0; i < temp.length; i++) {
 		temp[i] = new ArrayList<Integer>();
 	    }
 	    buckets = temp;

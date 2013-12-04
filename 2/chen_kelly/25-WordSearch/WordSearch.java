@@ -24,22 +24,18 @@ public class WordSearch {
 	}
 	return s;
     }
-    
-    public boolean insertWordH (int row, int col, String s) {
-	if (row+s.length()<=20&&col<=20) {
-	    for (int i = 0; i < s.length(); i++) {
-		Character check = board[row+i][col];
-		if (check.equals('-')||check.equals(s.charAt(i))) {
-		    board[row+i][col] = s.charAt(i);
-		}
-		else {
-		    return false;
-		}
-	    }
-	}
-	else {
+    public boolean addWordH(int row, int col, String word){
+	if (word.length()>board[row].length-col)
 	    return false;
+	for (int i = 0; i < word.length(); i++){
+	    if(!(board[row][col+i]==word.charAt(i) || board[row][col+i]== "-".charAt(0)))
+		return false;
+	    else 
+		for(int j = 0; j < word.length(); j++){
+		    board[row][col+j] = word.charAt(j); 
+		}
 	}
 	return true;
     }
+
 }

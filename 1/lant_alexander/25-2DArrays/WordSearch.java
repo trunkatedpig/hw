@@ -1,12 +1,18 @@
 import java.util.*;
+import java.io.*;
+
 public class WordSearch {
 
     private char[][] board;
+    private int rows;
+    private int cols;
 
-    public WordSearch(int rows, int cols) {
-	board = new char[rows][cols];
-	for (int i=0;i<rows;i++) 
-	    for (int j=0;j<cols;j++) 
+    public WordSearch(int r, int c) {
+    rows = r;
+    cols = c;    
+    board = new char[r][c];
+	for (int i=0;i<r;i++) 
+	    for (int j=0;j<c;j++) 
 		board[i][j]='-';
     }
 
@@ -14,14 +20,15 @@ public class WordSearch {
 	this(20,20);
     }
 
-    public boolean InsertWord(int c, int r, String word){
+    public boolean InsertWord(int r, int c, String word){
 	// return #t if word is on board && is compatible with competing words
-	int length = word.length();
-	for(int l = 0; l < length; i ++){
-	    if(length > rows - r && )
-	}
-
-
+        int length = word.length();
+        if(length > rows - r)
+        return false;
+	for(int l = 0; l < length; l++){
+	   if (board[r][c+l] != word.charAt(l));
+	    }
+        return true;
     }
     
     public String toString() {
