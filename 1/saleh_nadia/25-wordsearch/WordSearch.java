@@ -2,12 +2,15 @@ import java.util.*;
 public class WordSearch {
 
     private char[][] board;
+    private int rows, cols;
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
 		board[i][j]='-';
+	this.rows = rows;
+	this.cols = cols;
     }
 
     public WordSearch() {
@@ -25,19 +28,18 @@ public class WordSearch {
 	return s;
     }
 
-    public boolean insertWordH (int r, int c, String s) {
-	for (int i = 0; i < s.length(); i ++) {
-	    if (board[r+i][c].equals('-')) {
-		board[r+i][c] = s.charAt(i);
+    public boolean addWordH(int r, int c, String word){
+	if (r>board.length||c>board[0].length||(c+word.length())>board[0].length){
+	    return false;
+	}
+	for (int i = 0; i < word.length(); i ++) {
+	    if ((("" + board[r][c+i]).equals('-'))||((""+board[r][c+i]).equals(word.charAt(i)))) {
+		board[r][c+i] = word.charAt(i);
 	    }
-	    else if (board[r+i][c].equals(s.charAt(i))) {
-		board[r+i][c] = s.charAt(i);
-	    }
-	    else 
+	    else {
 		return false;
-	    
+	    }
 	}
 	return true;
-
     }
 }
