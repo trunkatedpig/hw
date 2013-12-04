@@ -29,4 +29,14 @@ public class wordsearch{
 	    if 
     }
 
+    public boolean addWordH(int row, int col, String word) {
+	if (col + word.length - 1 > board[row].length || row < 1 || col < 1 || row > board.length) {
+	    return false; 
+	} else {
+	    for (int i = col;i < col + word.length;i++) {
+		//not sure what to do after
+	    }
+	}
+    }
+
 }
