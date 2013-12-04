@@ -31,7 +31,7 @@ public class radixSort{
 		buckets[i] = new ArrayList(); //Places a new array list in each of the bucket spaces
                 
 	    for(int i = 0; i < buckets.length; i++){
-		int j=(int)(buckets[i]/( Math.pow(10, x)))%10; //checks the last number that needs to be checked,
+		int j = (buckets[i] / (Integer)( Math.pow(10, x)))%10; //checks the last number that needs to be checked,
 		buckets[j].add(buckets[i]); //puts the data in it's respective bukcket'
 	    }
 
@@ -39,7 +39,7 @@ public class radixSort{
 
 	    for (int i=0; i<10; i++ ) { //loops through the bucket to fix ordering
 		for (int y = 0; y < buckets[i].size(); y++){
-		    buckets[counter]=(buckets[i].get(y)); //This line drove me absolutly crazy.
+		    buckets[counter]=(buckets[i].get(y)); //This line is driving me absolutly crazy.
 		    counter++;
 		}
 	    }
