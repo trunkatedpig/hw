@@ -7,7 +7,7 @@ public class SortN{
 
     public SortN() {
 	for (int i = 0; i < rando.length; i++) {
-	    rando[i] =(int) (Math.random() * 1000000000);
+	    rando[i] =(int) (Math.random() * 1032523500);
 	}
 
     }
