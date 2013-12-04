@@ -1,0 +1,36 @@
+\\Question 1
+
+public boolean sameStarChar(String str) {
+
+  if ((str.length() > 2) && (str.contains("*"))) {
+    for (int index = 1; index < str.length()-1; index ++) {
+      String char_at, char_b, char_a;
+      char_at = str.substring(index, index + 1);
+      char_b = str.substring(index - 1, index);
+      char_a = str.substring(index + 1, index + 2);
+      if (char_at.equals("*")) {
+        if (!char_b.equals(char_a))
+          return false;
+      }
+    }
+  }
+  
+  return true;
+}
+
+
+\\Question 2
+
+public String sameEnds(String string) {
+  String ans = "";
+  int len = string.length();
+  
+  for (int i = len/2; i > 0; i--) {
+    if (string.substring(0, i).equals(string.substring(len-i))) {
+      ans = string.substring(0, i);
+      return ans;
+    }
+  } 
+  
+  return ans;
+}

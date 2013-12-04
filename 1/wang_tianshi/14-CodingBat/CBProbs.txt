@@ -1,0 +1,31 @@
+answers from the coding bat assignment
+
+
+public boolean sameStarChar(String str) {
+  int x = str.length();
+  boolean ans = true;
+  int i = 0;
+  while (i<x){
+    if (str.substring(i,i+1).equals("*")) {
+      if (i != 0 && i!= x-1) { 
+        ans = ans && (str.substring(i-1,i).equals(str.substring(i+1,i+2)));
+      }
+    }
+    i++;
+  }
+  return ans;
+}
+
+
+
+public String sameEnds(String string) {
+  int ans = 0;
+  int x = string.length();
+  for (int i=x/2;i>0;i--) {
+    if (string.substring(0,i).equals(string.substring(x-i))) {
+      if (i>ans) 
+        ans=i;
+    }
+  }
+  return string.substring(0,ans);
+}

@@ -21,6 +21,8 @@ public class Driver {
 
 	String result;
 	g = new Greeter("Howdy");
+	g2 = new Greeter("Hey");
 	System.out.println(g.greet("Tom"));
+	System.out.println(g.greet());
     }
 }

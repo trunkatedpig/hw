@@ -10,7 +10,11 @@ public class Greeter {
     private String greeting;
     
     public Greeter(String g) {
-	greeting = g;
+	setGreeting(g);
+    }
+
+    public Greeter() {
+	setGreeting("Hey");
     }
 
     public void setGreeting(String greet) {

@@ -1,3 +1,4 @@
+# Compiled Source #
 *.class
 
 # Package Files #
@@ -5,16 +6,22 @@
 *.war
 *.ear
 
-# Text Backup Files
+# Text Backup Files #
 *.s[a-w][a-z]
 *~
 \#*\#
 .\#*
 
-# OS X Files
+# OS X Files #
 .DS_Store
 ._*
+_*
+.Spotlight*
+.Trashes
 
-# Windows Files
+# Windows Files #
 Thumbs.db
 ehthumbs.db
+
+# Filenames with special characters
+**/*[\\/\:;*?!'"<>|$º•¶§∞¢£]*

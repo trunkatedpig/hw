@@ -13,6 +13,10 @@ public class Greeter {
 	greeting = g;
     }
 
+    public Greeter(){
+	setGreeting("Hey");
+    {
+
     public void setGreeting(String greet) {
 	greeting = greet;
     }

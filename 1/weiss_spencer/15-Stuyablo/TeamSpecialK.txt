@@ -1,0 +1,25 @@
+// Spencer Weiss, Coby Goldberg, Nadia Saleh, Ling Dong, Vincent Wong
+
+Class Notes:
+
+- It's a silent k.
+- using 1, 2, 3, etc. for weapons.
+- NO xy positioning
+- "Explore" method
+- Encounter --> attack/run away/talk
+- run away
+	• If npc dex > pc, they catch up
+- attack
+	• Attack options
+	• Defense attribute
+- Mr. Moran, Ms. Zhang, Ms. Weinwurm, Ms. Rodriguez-Tabone
+	• Mr. Moran's specialty is speed (makes hasty decisions)
+	• Ms. Zhang's specialty is defense
+	• Ms. Weinwurm might be an ally!
+
+Sword attack power must be > attack power
+Damage = attack + sword attack - defense
+attack += damage/4 
+	• as you do damage, your attack increases.
+
+Stat boosts may be temporary, but we never decided on that.

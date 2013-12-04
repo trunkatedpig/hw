@@ -1,0 +1,60 @@
+public class Coin {
+    private String face;
+    private int tosses;
+    private int Heads;
+    private int Tails;
+    private int percent = 50; // another way to initialize
+    private int value;
+
+    public void initCoin(String f, Double p) {
+	face = f;
+	tosses=0;
+	Heads=0;
+	Tails=0;
+	prob=p;
+    }
+    
+    public Coin(int v) {
+	value = v;
+	initCoin("Heads",0.5);
+    }
+    
+    public Coin() {
+	initCoin("Heads",0.5);
+    }
+
+    
+    public Coin(String f) {
+	initCoin(f,0.5);
+    }
+    
+    public String getFace() {
+	return face;
+    }
+    
+    public boolean equals(Coin other) {
+	return face.equals(other.getFace());
+    }
+    
+    public int getValue() {
+	return value;
+    }
+    
+    public String toString() {
+	return ""+value+" cents";
+    }
+
+    public void flip() {
+	if (prob.nextInt(100) < percent) {
+	    side = "heads";
+	    Heads+=1;
+	}
+	else
+	    {
+		side="tails";
+		Tails+=1;
+	    }
+    }
+    
+    
+}

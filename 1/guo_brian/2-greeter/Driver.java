@@ -1,25 +1,13 @@
 import java.io.*;
 import java.util.*;
 
-public class Greeter {
-
-    // We can initialize instance variables
-    // when we declare them
-    //private String greeting="default"; 
-
-    private String greeting;
+public class Driver {
     
-    public Greeter(String g) {
-	greeting = g;
-    }
-
-    public void setGreeting(String greet) {
-	greeting = greet;
-    }
-
-    public String greet(String name) {
-	String message;
-	message = greeting + " " + name;
-	return message;
+    public static void main (String[] args) {
+	Greeter g = new Greeter("hello");
+	System.out.println(g.greet("Tom"));
     }
 }
+
+
+

@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Rational {
+	private int a, b;
+	private double quotient;
+	public Rational(int x, int y){
+		a = x;
+		b = y;
+		quotient = (double)(x) / y;
+	}
+	public int gcd(int a, int b) {
+  		if (b==0)
+   			return a;
+ 		else {
+   		return gcd(b,a%b);
+		} 
+	}
+	public void reduce() {
+  		a = a / gcd(a,b);
+  		b = b / gcd(a,b);
+	}
+	public boolean equals(Rational other) {
+		return this.quotient == other.quotient;
+	}
+	public Rational mult(Rational other) {
+		return r = Rational(this.a * other.a , this.b * other.b);
+	}
+	public int compareTo(Rational other){
+		if (this.quotient > other.quotient){
+			return 1;
+		}
+		else if (this.quotient > other.quotient) {
+			return -1;
+		}
+		else {
+			return 0;
+		}
+	}
+	public double getQuotient(){
+		return quotient;
+	}
+}

@@ -3,6 +3,25 @@ import java.util.*;
 
 public class Greet {
 
+<<<<<<< HEAD
+    public String greet;
+
+    public Greet(String g) {
+	setGreet(g);
+    }
+
+    public Greet(){
+	setGreet("Good Mornin'");
+    }
+
+    public void setGreet(String gree){
+	greet = gree;
+    }
+    
+    public String gree(String name){
+	String message;
+	message = greet + " " + name;
+=======
     public String Sgreet,Hgreet;
 
     public Greet(String g,String h) {
@@ -31,6 +50,7 @@ public class Greet {
     public String Hgree(String name){
 	String message;
 	message = Hgreet + " " + name;
+>>>>>>> 469aebf2a556c17873a9719397ffc4b3b8e14cd6
 	return message;
     }
 }
