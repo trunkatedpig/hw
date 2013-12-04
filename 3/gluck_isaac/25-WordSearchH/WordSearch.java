@@ -28,10 +28,28 @@ public class WordSearch {
     }
 
     public boolean addWordH(int row, int col, String word){
-		int length = word.length;
+		int length = word.length();
 		int rowSize = board[0].length;
-		if ( col < 0 || col > rowSize || col + length >=rowSize){
+
+		//If the word is off the board or partly off the board
+		if ( col < 0 || col > rowSize || col + length >=rowSize)
 		    return false;
+
+		//If the place where the word would go has other letters that don't match
+		int n = 0;
+		for (int i=col;i<col+length;i++){
+			if (board[row-1][i] != '-' && board[row-1][i] != word.charAt(n))
+				return false;
+			n++;
 		}
+
+		//Add word
+		n = 0;
+		for (int i=col;i<col+length;i++){
+			board[row-1][i] = word.charAt(n);
+			n++;
+		}
+
+		return true;
     }
 }
