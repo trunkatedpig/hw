@@ -170,4 +170,40 @@ public class WordSearch {
     }
 
 
+
+
+
+    public boolean addWordV (int row, int col, String word) { //Add Word Down
+
+	for (int i = 0; i < word.length (); i ++ ) {
+
+	    try { //If outside of the array, will return false
+
+	    if (board [row + i] [col] != ('-') && board [row + i] [col] != (word.charAt (i) ) ) {
+       
+		return false;
+
+	    }
+	    }
+	    catch (Exception e) {
+		//	System.out.println (e);
+		return false;
+		
+	    }
+
+	}
+
+	for (int i = 0; i <word.length (); i ++) {
+
+	    board [row + i] [col] = word.charAt (i);
+	}
+
+
+
+
+
+	return true;
+
+    }
+
 }

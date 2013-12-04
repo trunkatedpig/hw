@@ -36,6 +36,26 @@ w.addWordH (14, 13, "Carp");
        
 System.out.println(w);
 
+
+
+WordSearch w2 = new WordSearch ();
+
+
+w2.addWordV ( 5 , 2, "Cowboy");
+
+w2. addWordV (10, 3, "Yuke");
+
+w2.addWordV (0, 10, "Howdy");
+
+w2.addWordV (15, 7, "Lordy");
+
+w2.addWordV (4, 2, "Jonas"); //Should not work
+
+w2.addWordV (17, 5, "Umbrella"); //Should not work
+
+System.out.println (w2);
+
+
     }
 
 }
