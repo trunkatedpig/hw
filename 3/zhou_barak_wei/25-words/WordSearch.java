@@ -33,8 +33,8 @@ public class WordSearch {
 		
 		
 		while (letter < word.length()) {
-			if (board[row][location] != word.charAt(letter) ||
-				board[row][location] != '-') System.out.println("Check");
+			if (board[row][location] != word.charAt(letter) &&
+				board[row][location] != '-') return false;
 			location = location + 1;
 			letter = letter + 1;
 		}
