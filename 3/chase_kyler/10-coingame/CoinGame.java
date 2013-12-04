@@ -8,6 +8,8 @@ public class CoinGame {
 	private Coin c2;
 	private double pot;
 
+//random comment
+
 	public CoinGame(BankAccount b1, BankAccount b2) {
 		p1 = b1;
 		p2 = b2;
