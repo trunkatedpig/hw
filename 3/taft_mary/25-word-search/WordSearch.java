@@ -21,14 +21,17 @@ public class WordSearch {
     }
 
     public boolean addWordH(int row, int col, String word) {
+	//check that the word fits on the board
 	if(row>rows||row<0||col>cols||col<0||row+word.length()>rows)
 	    return false;
 	for(int i=0;i<word.length();i++) {
-	    if(board[row][col+i]==defaultvalue||board[row][col+i]==word.charAt(i))
-		board[row][col+i] = word.charAt(i);
-	    else
+	    //check that each of the spaces is valid
+	    if(!(board[row][col+i]==defaultvalue||board[row][col+i]==word.charAt(i)))
 		return false;
 	}
+	for (int i=0;i<word.length();i++)
+	    //add the word
+	    board[row][col+i] = word.charAt(i);
 	return true;
     }
 
