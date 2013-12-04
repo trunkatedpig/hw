@@ -2,9 +2,12 @@ import java.util.*;
 public class WordSearch {
 
     private char[][] board;
+    private int rows, cols;
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
+	this.rows = rows;
+	this.cols = cols;
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
 		board[i][j]='-';
@@ -24,12 +27,20 @@ public class WordSearch {
 	}
 	return s;
     }
-    public boolean addWordH(int r, int c, String word){
-	if (word.length()>board[r].length-c)
-	    return false;
-	for (int i = 0; i < word.length(); i++){
 
+    public boolean AddWordH(int r, int c, String word) {
+	int len = word.length();
+	if (c + len >= cols) {
+	    System.out.println("You cannot enter this word at this position");
+	    return false;
+	}
+	for (int i = 0; i < len; i++) {
+	    char letter = word.charAt(i);
+	    board[r][c+i] = letter;
+	}
 	return true;
+
     }
+
 
 }
