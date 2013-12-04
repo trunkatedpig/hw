@@ -2,6 +2,7 @@ import java.util.*;
 public class WordSearch {
 
     private char[][] board;
+    private int cols, rows;
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
@@ -14,6 +15,9 @@ public class WordSearch {
 	this(20,20);
     }
 
+    public boolean InsertWordH(int row, int col, String word) {
+	
+
     public String toString() {
 	String s = "";
 	for (int i=0;i<board.length;i++) {
@@ -24,12 +28,6 @@ public class WordSearch {
 	}
 	return s;
     }
-    public boolean addWordH(int r, int c, String word){
-	if (word.length()>board[r].length-c)
-	    return false;
-	for (int i = 0; i < word.length(); i++){
 
-	return true;
-    }
 
 }

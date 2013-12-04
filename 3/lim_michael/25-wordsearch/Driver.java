@@ -1,11 +1,10 @@
 import java.util.*;
 
-
 public class Driver {
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
-	System.out.println(w);
-	System.out.println(w.addWordH(5,2,"LongWOrd"));
+	boolean b = w.addWordH(3,5,"StringMuch");
+	System.out.println(b + "\n" + w);
+       
     }
-
 }
