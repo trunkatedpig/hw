@@ -23,20 +23,20 @@ public class wordsearch{
 	}
 	return s;
     }
-
-    public boolean addWordH(int r, int c, string Word){
-	for (int i=c;i<board.length;i++){
-	    if 
-    }
-
-    public boolean addWordH(int row, int col, String word) {
-	if (col + word.length - 1 > board[row].length || row < 1 || col < 1 || row > board.length) {
-	    return false; 
-	} else {
-	    for (int i = col;i < col + word.length;i++) {
-		//not sure what to do after
+   public boolean addWordH(int row,int col,String word){
+	
+	if (c + word.length() - 1 <= board[0].length - 1 || ){
+	    for (int i=0; i<word.length();i++){ 
+		if (board[r][c+i] != "-".charAt(0) && board[r][c + i] != word.charAt(i)){
+		    return false;
+		}
 	    }
+	    for (int i = 0;i<word.length();i++){
+		board[r][c+i] = word.charAt(i);
+	    }
+	    return true;
 	}
+	else 
+	    return false;
     }
-
 }
