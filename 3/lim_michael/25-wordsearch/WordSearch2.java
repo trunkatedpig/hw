@@ -38,75 +38,75 @@ public class WordSearch2 {
 	int m = 0;
 
 	if(x==1){
-	    int length = word.length();
-	    int width = 0;
-	    int nlength = 0;
-	    int nwidth = 0;
-	    int n = 0;
-	    int m = 1;
+	    length = word.length();
+	    width = 0;
+	    nlength = 0;
+	    nwidth = 0;
+	    n = 0;
+	    m = 1;
 	}
 
-	if(x==2){
-	    int length = word.length();
-	    int width = 0;
-	    int nlength = 0;
-	    int nwidth = -1 * word.length();
-	    int n = -1;
-	    int m = 1;   
+	else if(x==2){
+	    length = word.length();
+	    width = 0;
+	    nlength = 0;
+	    nwidth = -1 * word.length();
+	    n = -1;
+	    m = 1;   
 	}
 
-	if(x==3){
-	    int length = word.length();
-	    int width = word.length();
-	    int nlength = 0;
-	    int nwidth = 0;
-	    int n = 1;
-	    int m = 1;
+	else if(x==3){
+	    length = word.length();
+	    width = word.length();
+	    nlength = 0;
+	    nwidth = 0;
+	    n = 1;
+	    m = 1;
 	}
 
-	if(x==4){
-       	    int length = 0;
-	    int width = 0;
-	    int nlength = -1 * word.length();
-	    int nwidth = 0;
-	    int n = 0;
-	    int m = -1;
+	else if(x==4){
+       	    length = 0;
+	    width = 0;
+	    nlength = -1 * word.length();
+	    nwidth = 0;
+	    n = 0;
+	    m = -1;
 	}
 
-	if(x==5){
-	    int length = 0;
-	    int width = 0;
-	    int nlength = -1 * word.length();
-	    int nwidth = -1 * word.length();
-	    int n = -1;
-	    int m = -1;
+	else if(x==5){
+	    length = 0;
+	    width = 0;
+	    nlength = -1 * word.length();
+	    nwidth = -1 * word.length();
+	    n = -1;
+	    m = -1;
 	}
 
-	if(x==6){
-	    int length = 0;
-	    int width = word.length();
-	    int nlength = -1 * word.length();
-	    int nwidth = 0;
-	    int n = 1;
-	    int m = -1;
+	else if(x==6){
+	    length = 0;
+	    width = word.length();
+	    nlength = -1 * word.length();
+	    nwidth = 0;
+	    n = 1;
+	    m = -1;
 	}
 
-	if(x==7){
-	    int length = 0;
-	    int width = 0;
-	    int nlength = 0;
-	    int nwidth = -1 * word.length();
-	    int n = -1;
-	    int m = 0;
+	else if(x==7){
+	    length = 0;
+	    width = 0;
+	    nlength = 0;
+	    nwidth = -1 * word.length();
+	    n = -1;
+	    m = 0;
 	}
 
 	else{
-	    int length = 0;
-	    int width = word.length();
-	    int nlength = 0;
-	    int nwidth = 0;
-	    int n = 1;
-	    int m = 0;
+	    length = 0;
+	    width = word.length();
+	    nlength = 0;
+	    nwidth = 0;
+	    n = 1;
+	    m = 0;
 	}
 
 	if(row+nlength<0||col+width>cols||col+nwidth<0||row+length>rows){
