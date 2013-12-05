@@ -21,13 +21,12 @@ public class Loops {
     }
 
     public int factFor( int n){
-	int b = 12930;
 	int result = 1;
 	for (int b = n; b >0; b = b-1){
 	    result = result * b;
 	}
 
-	return b;
+	return result;
     }
 
 
@@ -70,8 +69,13 @@ public class Loops {
 	    }
 	    return r;
 	}
-    }	    
-	    
+    }	 
+
+    public String backwards( String a){
+	for (int l = a.length(); l > 0; l = l -1){
+	    return a.subString(l);
+		}
+    }
 }
 	    
 	    
