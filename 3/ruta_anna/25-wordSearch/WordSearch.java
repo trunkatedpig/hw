@@ -23,21 +23,35 @@ public class WordSearch {
 
 /*Will test if its possible to horizontally, left-to-right, add the word
 in the desired row and col, where row and col specify the location of the
-first character in the word. If it's possible, the word will be added to
-the gameboard*/
+first character in the word. If possible, the word will be added to gameboard*/
 	public boolean addWordH(int row, int col, String word){
-		if (row>maxRow || col>maxCol+1-word.length())
+		if (row<0 || col<0|| row>maxRow || col+word.length()>maxCol)
 			return false;
 		for (int i=0; i<word.length(); i++){
-			if (word.charAt(i) != board[row-1][col-1+i] && board[row-1][col-1+i] != '-')
+			if (word.charAt(i) != board[row][col+i] && board[row][col+i] != '-')
 				return false;
 		}
 		for (int j=0; j<word.length(); j++){
-			board[row-1][col-1+j] = word.charAt(j);
-			}
+			board[row][col+j] = word.charAt(j);
+		}
 		return true;
 	}
 
+/*Will test if its possible to vertically, top-to-bottom, add the word in the
+desired row and col, where row and col specify the location of the first
+character in the word. If possible, the word will be added to gameboard*/
+	public boolean addWordV(int row, int col, String word){
+		if (row<0 || col<0|| col>maxCol || row+word.length()>maxRow)
+			return false;
+		for (int i=0; i<word.length(); i++){
+			if (word.charAt(i) != board[row+i][col] && board[row+i][col] != '-')
+				return false;
+		}
+		for (int j=0; j<word.length(); j++){
+			board[row+j][col] = word.charAt(j);
+		}
+		return true;
+	}
 
 
     public String toString() {
