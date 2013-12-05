@@ -29,8 +29,8 @@ public class WordSearch {
 	if (row>board.length||col>board[0].length||(row+word.length())>board.length)
 	    return false;
 	for (int i = 0; i<word.length(); i++){
-	    if (""+word.charAt(i)!=""+board[row][col+i]&&""+board[row][col+i]!="-")
-		return false;
+	    if (!(""+word.charAt(i).equals(""+board[row][col+i]))&&!(""+board[row][col+i].equals("-")))
+	    	return false;
 	}
 	for (int i=0; i<word.length(); i++)
 	    board[row][col+i]=word.charAt(i);
