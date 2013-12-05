@@ -28,4 +28,26 @@ public class WordSearch {
 	return s;
     }
 
+    public boolean addWordH(int row, int col, String word){
+	int pos = col - 1;
+	//temp = board;
+	if ((pos + word.length() - 1) <= board[row].length){
+	    for (int i = 0; i < word.length(); i ++){
+		if (board[row-1][pos] == '-' || board[row-1][pos] == word.charAt(i)){
+		    board[row-1][pos] = word.charAt(i);
+		    pos = pos + 1;
+		}
+		else{
+		    for (int k = col - 1; k < pos; k ++){
+			board[row-1][k] = '-';
+		    }
+		    return false;
+		}
+	    }
+	    return true;
+	}
+	else {
+	    return false;
+	}
+    }
 }

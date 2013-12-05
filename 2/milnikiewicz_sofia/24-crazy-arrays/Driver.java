@@ -5,7 +5,7 @@ public class Driver {
     public static void main(String[] args) {
         BucketsSort bs = new BucketsSort();
         System.out.println(bs);
-           bs.sort();
+        bs.sort();
         System.out.println(bs);
     }
 }
