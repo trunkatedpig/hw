@@ -19,6 +19,28 @@ public class WordSearch {
         this(20,20);
     }
     
+    public boolean addWordV(int row, int col, String word){
+	
+	if(row<0||col<0||col>cols||row>rows||col+word.length() > cols){
+	    return false;
+	}
+	
+	for (int rowAdd = 0;
+	     rowAdd < word.length();
+	     i++){
+	    
+	    if (board[row + rowAdd][col] != -'-' && board[row + rowAdd][col] != word.charAt(rowAdd)){
+		
+		return false;
+	    } 
+	}
+	for (int i = 0; i<word.length();i++){
+	    board[row + 1][col] = word.charAt(i);
+	} 
+	return true;
+    }
+    
+
     public boolean addWordH(int row, int col, String word){
         if(row<0||col>cols||col<0||row+word.length()>rows){
             return false;
@@ -35,6 +57,7 @@ public class WordSearch {
         }
         return true;
     }
+    
     
     public String toString() {
         String s="";
