@@ -28,20 +28,26 @@ public class WordSearch {
 	return s;
     }
 
-    public void addHorizontal(int y, int x, String word){
+    public void add(int dx, int dy, int x, int y, String word){
+	int xl, yl;
+	xl = x + dx * word.length() -dx;
+	yl = y + dy * word.length() - dy;
+
 	    if(
-			    x >= 0 &&
-			    x + word.length() <= board.length &&
-			    y >= 0 &&
-			    y < board[0].length
-		){
+	       x >= 0 && xl < board[0].length&&
+	       y >= 0 && yl < board.length&&
+	       xl >= 0 && x < board[0].length&&
+	       yl >= 0 && y < board.length)
+			  
+			    
+		{
 		    for(int i = 0; i < word.length(); i++){
-			    if(word.charAt(i) != board[i + x][y] && board[i + x][y] != '-'){
+			    if(word.charAt(i) != board[dy*i + y][x + dx*i] && board[i*dy + y][x + dx*i] != '-'){
 				    return;
 			    }
 		    }
 		    for(int i = 0; i < word.length(); i++){
-			    board[x + i][y] = word.charAt(i);
+			    board[y + i*dy][x + i*dx] = word.charAt(i);
 		    }
 		}
     }
