@@ -40,8 +40,8 @@ public class WordSearch {
 	public boolean addWord(int x, int y, int orientation, String word) {
 		if ((x < 0) || (x > grid.length - 1)) {throw new ArrayIndexOutOfBoundsException("x = " + x);}
 		if ((y < 0) || (y > grid[0].length - 1)) {throw new ArrayIndexOutOfBoundsException("y = " + y);}
-		if ((orientation < 0) || (orientation > 6)) {
-			System.out.println("addWord(int x, int y, int orientation, String word) -> orientation x must be 0 <= x <= 6 (0-Random, 1-Horizontal, 2-Horizontal reversed, 3-Vertical, 4-Vertical reversed, 5-Diagonal, 6-Diagonal reversed)");
+		if ((orientation < 0) || (orientation > 8)) {
+			System.out.println("addWord(int x, int y, int orientation, String word) -> orientation x must be 0 <= x <= 6 (0-Random, 1-Horizontal, 2-Horizontal reversed, 3-Vertical, 4-Vertical reversed, 5-Diagonal left, 6-Diagonal left reversed, 7-Diagonal right, 8-Diagonal right reversed)");
 			return false;
 		}
 		if (word.length() == 0) {return true;}
@@ -52,6 +52,8 @@ public class WordSearch {
 		}
 		
 		if (orientation == 0) {orientation = random.nextInt(6) + 1;}
+		String wordReversed = "";
+		for (int i = word.length() - 1; i >= 0; i--) {wordReversed += word.charAt(i);}
 		switch (orientation) {
 			case 1:
 				if (x + word.length() - 1 > grid.length - 1) {return false;}
@@ -61,6 +63,9 @@ public class WordSearch {
 				
 				return true;
 			
+			case 2:
+				return addWord(x - word.length() + 1, y, 1, wordReversed);
+			
 			case 3:
 				if (y + word.length() - 1 > grid.length - 1) {return false;}
 				for (int i = 0; i < word.length(); i++) {if ((grid[x][y + i] != '-') && (grid[x][y + i] != word.charAt(i))) {return false;}}
@@ -69,23 +74,38 @@ public class WordSearch {
 				
 				return true;
 			
+			case 4:
+				return addWord(x, y - word.length() + 1, 3, wordReversed);
+				
+			case 5:
+				if ((x - word.length() < 0) || (y + word.length() - 1 > grid.length - 1)) {return false;}
+				for (int i = 0; i < word.length(); i++) {if ((grid[x - i][y + i] != '-') && (grid[x - i][y + i] != word.charAt(i))) {return false;}}
+				
+				for (int i = 0; i < word.length(); i++) {grid[x - i][y + i] = word.charAt(i);}
+				
+				return true;
+			
+			case 6:
+				return addWord(x + word.length() - 1, y - word.length() + 1, 5, wordReversed);
+			
+			case 7:
+				if ((x + word.length() - 1 > grid.length - 1) || (y + word.length() - 1 > grid.length - 1)) {return false;}
+				for (int i = 0; i < word.length(); i++) {if ((grid[x + i][y + i] != '-') && (grid[x + i][y + i] != word.charAt(i))) {return false;}}
+				
+				for (int i = 0; i < word.length(); i++) {grid[x + i][y + i] = word.charAt(i);}
+				
+				return true;
+			case 8:
+				return addWord(x - word.length() + 1, y - word.length() + 1, 7, wordReversed);
 			default:
 				System.out.println("Unimplemented");
 				return false;
 		}
 	}
 	
-	public boolean addWordHorizontal(int x, int y, String word) {
-		if (addWord(x, y, 1, word)) {return true;}
-		
-		return false;
-	}
+	public boolean addWordHorizontal(int x, int y, String word) {return addWord(x, y, 1, word);}
 	
-	public boolean addWordVertical(int x, int y, String word) {
-		if (addWord(x, y, 3, word)) {return true;}
-		
-		return false;
-	}
+	public boolean addWordVertical(int x, int y, String word) {return addWord(x, y, 3, word);}
 		
 	public int getHeight() {return grid[0].length;}
 	public int getWidth() {return grid.length;}
