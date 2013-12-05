@@ -26,7 +26,7 @@ public class WordSearch {
 
     public boolean addWordH(int row, int col, String word) {
 	//check that the word fits on the board
-	if(row>rows||row<0||col>cols||col<0||row+word.length()>rows)
+	if(row<0||col>cols||col<0||row+word.length()>rows)
 	    return false;
 	for(int i=0;i<word.length();i++) {
 	    //check that each of the spaces is valid
@@ -37,6 +37,32 @@ public class WordSearch {
 	for (int i=0;i<word.length();i++)
 	    //add the word
 	    board[row][col+i] = word.charAt(i);
+	return true;
+    }
+
+    public boolean addWordV(int row, int col, String word){
+	if(row>rows||row<0||col<0||col+word.length()>cols)
+	    return false;
+	for(int i=0;i<word.length();i++) {
+	    if(!(board[row+i][col]==defaultvalue||
+		 board[row+i][col]==word.charAt(i)))
+		return false;
+	}
+	for (int i=0;i<word.length();i++)
+	    board[row+i][col] = word.charAt(i);
+	return true;
+    }
+
+    public boolean addWordD(int row, int col, String word) {
+	if(row<0||col<0||row+word.length()>rows||col+word.length()>cols)
+	    return false;
+	for(int i=0;i<word.length();i++) {
+	    if(!(board[row+i][col+i]==defaultvalue||
+		 board[row+i][col+i]==word.charAt(i)))
+		return false;
+	}
+	for (int i=0;i<word.length();i++)
+	    board[row+i][col+i] = word.charAt(i);
 	return true;
     }
 

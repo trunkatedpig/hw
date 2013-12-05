@@ -29,10 +29,13 @@ public class Wordsearch {
     }
 
     public boolean AddWordH(int r,int c,String word){
-	int i = word.length();
-	if (board.length >= c + i){
-	    for (int j = 0;j<i;j++){
-		board[r][c + j] = word.charAt(j);
+	if (board.length >= c + word.length()){
+	    for (int i = 0;i < word.length();i++){
+		if (board[r][c+i] != '-' && board[r][c+i] != word.charAt(i))
+		    return false;				  
+	    }
+	    for (int i = 0;i < word.length();i++){
+		board[r][c+i] = word.charAt(i);
 	    }
 	    return true;
 	}
@@ -40,15 +43,17 @@ public class Wordsearch {
     }
     
     
-    //My original idea for AddWordH, but it
+    //Our original idea for AddWordH, but it
     //turned out to be AddWordV.....
     public boolean AddWordV(int r,int c,String word){
-	int j = word.length();
-	if (board[r].length >= r + j){
-
-	    for (int i = 0;i < j;i++){
-		board[r + i][c] = word.charAt(i);
-	    
+	
+	if (board[r].length >= r + word.length()){
+	    for (int i = 0;i < word.length();i++){
+		if (board[r+i][c] != '-' && board[r+i][c] != word.charAt(i))
+		    return false;				  
+	    }
+	    for (int i = 0;i < word.length();i++){
+		board[r+i][c] = word.charAt(i);
 	    }
 	    return true;
 	}

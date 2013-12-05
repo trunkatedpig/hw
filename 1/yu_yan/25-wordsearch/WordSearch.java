@@ -40,22 +40,18 @@ public class WordSearch {
 	    System.out.println("insertion failed");
 	    return false;
 	}
-	else {
-	    for (int n=0; n<s.length(); n++){
-		if (board[r][n] == '-') {}
-		else {
-		    if (board[r][c+n] != s.charAt(n)){
-			System.out.println("insertion failed");
-			return false;
-		    }
-		}
+	for (int n=0; n<s.length(); n++){
+	    if ( (board[r][c+n] != '-') && 
+		 (board[r][c+n] != s.charAt(n))){
+		System.out.println("insertion failed");
+		return false;
 	    }
-	    for (int n=0; n<s.length(); n++)
-		board[r][c+n] = s.charAt(n);
-	    System.out.println("success!");
-	    return true;
-	}	
+	}
+	for (int n=0; n<s.length(); n++){
+	    board[r][c+n] = s.charAt(n);
+	}
+	return true;
     }
-
-
+   
+    
 }
