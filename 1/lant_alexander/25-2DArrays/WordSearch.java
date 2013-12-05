@@ -20,7 +20,7 @@ public class WordSearch {
 	this(20,20);
     }
     
-    public boolean AddWordH(int r, int c, String word){
+    public boolean AddWordHR(int r, int c, String word){
         int i = 0;
         try{
 	    while (i < word.length()){
@@ -40,8 +40,29 @@ public class WordSearch {
         toString();
         return true;
     }
-    
-    public boolean AddWordV(int r, int c, String word){
+
+   public boolean AddWordHL(int r, int c, String word){
+        int i = 0;
+        try{
+	    while (i < word.length()){
+		if (board[r][c-i] != '-' && board[r][c-i] != word.charAt(i))
+		    return false;
+		i ++;
+            }
+        }
+        catch (Exception e){
+            return false;
+        }
+        i = 0; 
+        while (i < word.length()){
+            board[r][c-i] = word.charAt(i);
+            i ++;
+        }
+        toString();
+        return true;
+    }
+        
+    public boolean AddWordVD(int r, int c, String word){
         int i = 0;
         try {
             while (i < word.length()){
@@ -52,18 +73,39 @@ public class WordSearch {
 	}
         catch (Exception e1){
             return false;
-        }
-	
-        i = 0;
+        }	
+	i = 0;
         while (i < word.length()){
             board [r+i][c] = word.charAt(i);
             i ++;
         }
 	toString();
         return true;
-	
-	
     }
+
+ public boolean AddWordVU(int r, int c, String word){
+        int i = 0;
+        try {
+            while (i < word.length()){
+                if (board[r-i][c] != '-' && board[r-i][c] != word.charAt(i))
+		    return false;
+		i ++;
+	    }
+	}
+        catch (Exception e1){
+            return false;
+        }	
+	i = 0;
+        while (i < word.length()){
+            board [r-i][c] = word.charAt(i);
+            i ++;
+        }
+	toString();
+        return true;
+    }
+    
+    // (7,7,"hello")
+  
     
     public String toString() {
 	String s = "";

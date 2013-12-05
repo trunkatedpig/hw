@@ -12,7 +12,7 @@ public class Driver {
 	System.out.println (l.isPrime(13));
 	System.out.println ("\n" + l.fact2(5));
 	System.out.println(l.factFor(5));
-	
+	lSystem.out.print(l.backwards("hello"));
     }
 }
 			    
