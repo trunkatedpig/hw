@@ -14,7 +14,7 @@ public class Driver {
 	w.insertHorizontal(0, 1, "asdf");
 	w.test(w);
 	w.insertHorizontal(3, 1, "fghj");
-	//this last one doesn't work
+	w.test(w);
     }
 
 }
