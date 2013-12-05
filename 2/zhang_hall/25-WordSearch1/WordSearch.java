@@ -42,5 +42,49 @@ public class WordSearch {
 	    return true;
 	}
     }
+
+
+    public boolean addWordV(int row, int col, String word){
+	char c;
+	if (row > board.length || row+1+word.length() > board.length - row ||
+	    board[0].length < col
+	    ){
+	    return false;
+	}
+	else {
+	    for (int i=0; i<word.length(); i++){
+		    c= word.charAt(i);
+		    board[row-1+i][col-1] = c;
+		}
+	    return true;
+	}
+    }
+
+     public boolean addWordDiag(int row, int col, String word,) {
+	char c;
+	//downright
+	    if (board[0].length < col ||
+		col+1+word.length() > board[row-1].length ||
+		row > board.length||
+		row+1+word.length() > board.length - row ||
+		){
+		return false
+		    }
+	    else{ 
+		for (int i=0; i<word.length(); i++){	
+		    c= word.charAt(i);
+		    board[row-1+i][col-1+i] = c;
+		}
+		return true;
+	    }
+	}
+	
+    /*	//upright
+	if (direc == 2){
+	    if (board[0].length < col ||
+		col+1+word.length() > board[row-1].length ||
+		row > board.length ||
+		*      /
+
 }
 
