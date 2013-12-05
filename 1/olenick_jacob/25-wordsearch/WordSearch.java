@@ -30,7 +30,28 @@ public class WordSearch {
 
     public boolean insertH(int row, int col, String s){
 	if (s.length < (cols - (col+1))){
-	    
+	    for (int i=0;i<word.length();i++) {
+		if (board[row][col+i]!="-" && board[row][col+i]!=word.chatAt(i))
+		    return false;
+	    }
+	    for (int i=0;i<word.length();i++) {
+		board[row][col+i]=word.charAt(i);
+	    }
+	    return true;
+	}
+	return false
+    }
+
+    public boolean insertH(int row, int col, String s){
+	if (s.length < (rows - (row+1))){
+	    for (int i=0;i<word.length();i++) {
+		if (board[row+i][col]!="-" && board[row+i][col]!=word.chatAt(i))
+		    return false;
+	    }
+	    for (int i=0;i<word.length();i++) {
+		board[row+i][col]=word.charAt(i);
+	    }
+	    return true;
 	}
 	return false
     }
