@@ -6,6 +6,9 @@ public class WordSearch {
     private boolean ticker;
     private boolean counterRight;
     private boolean counterLeft;
+    private boolean up;
+    private boolean counterUp;
+    private boolean counterDown;
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
@@ -175,11 +178,14 @@ public class WordSearch {
 
     public boolean addWordV (int row, int col, String word) { //Add Word Down
 
+	up = true;
+	ticker = true;
+
 	for (int i = 0; i < word.length (); i ++ ) {
 
 	    try { //If outside of the array, will return false
 
-	    if (board [row + i] [col] != ('-') && board [row + i] [col] != (word.charAt (i) ) ) {
+		if (board [row + i] [col] != ('-') && board [row + i] [col] != (word.charAt (i) ) && board [row - i] col != ('-') && board [row - i] col ! = word.charAt (i) )  {
        
 		return false;
 
@@ -187,15 +193,72 @@ public class WordSearch {
 	    }
 	    catch (Exception e) {
 		//	System.out.println (e);
-		return false;
+		try { //Now we test if going up is only problem
+
+
+
+
+		    if (board [row + i] [col] != ('-') && board [row + i] [col] != (word.charAt (i) ) ) {
+			return false;
+		    }
+
+		    else { up = true; ticker = false;}
+		}
 		
+
+
+		catch (Exception e) {
+
+
+			if (board [row - i] [col] != ('-') && board [row - i] [col] != word.charAt (i) ) {
+
+			    return false;
+
+			}
+			else {up = false; ticker = false;}
+
+		    
+			    }
+	    }
+    
+
+		
+    
+    
+
+	
+	if (ticker) {
+
+	    if (Direction () ) {
+
+		up = true;
+	    }
+
+	    else {
+		up = false;
 	    }
 
 	}
+    
+
+
+
+	if (up) {
 
 	for (int i = 0; i <word.length (); i ++) {
 
 	    board [row + i] [col] = word.charAt (i);
+	}
+	}
+
+	else {
+
+	    for (int i = 0; i <word.length (); i ++) {
+
+		board [row - i] [col] = word.charAt (i);
+	    }
+
+
 	}
 
 
@@ -205,5 +268,25 @@ public class WordSearch {
 	return true;
 
     }
+
+
+    public boolean Direction () {
+	
+	Random random2 = new Random ();
+
+	if (random2.nextInt (2) == 0) {
+	    up = true;
+	}
+
+	else {
+	    up = false;
+	}
+
+	return true;
+
+    }
+
+
+	    
 
 }
