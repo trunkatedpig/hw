@@ -2,19 +2,19 @@ import java.util.*;
 public class WordSearch {
 
     private char[][] board;
-    private int rows, cols;
 
     public WordSearch(int rows, int cols) {
-                board = new char[rows][cols];
-                this.rows = rows;
-                this.cols = cols;
-                for (int i=0;i<rows;i++) 
-                    for (int j=0;j<cols;j++) 
-                        board[i][j]='-';
+        board = new char[rows][cols];
+        for (int i=0;i<rows;i++) {
+            for (int j=0;j<cols;j++) {
+                board[i][j]='-';
+            }
+        }
+
     }
 
     public WordSearch() {
-                this(20,20);
+        this(20,20);
     }
 
     public String toString() {
@@ -29,16 +29,20 @@ public class WordSearch {
     }
 
     public boolean AddWordH(int r, int c, String word) {
-                int x = word.length();
-                if (c + x >= cols) {
-                    System.out.println("Cannot put word here");
-                    return false;
-                }
-                for (int i = 0; i < x; i++) {
-                    char y = word.charAt(i);
-                    board[r][c + i] = y;
-                }
-                return true;
+	if (word.length()+c<=board[r].length){
+	    for (int i=0;i<word.length();i++){
+		if (board[r][i+c]!= '-' && board[r][i+c]!=word.charAt(i)){
+		    return false;
+		}
+	    }
+	    for (int i=0;i<word.length();i++){
+		board[r][c+i]=word.charAt(i);
+	    }
+	}
+	return true;
+	
+	
     }
+
 
 }
