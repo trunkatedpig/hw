@@ -33,9 +33,43 @@ public class WordSearch {
 		int length = word.length();
 		if (col + length >= board[0].length)
 			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row][i+col] == '-' || board[row][i+col] == word.charAt(i)))
+				return false;
+		}
 		for (int i = 0;i<length;i++)
 			board[row][i+col] = word.charAt(i);
 		return true;
 	}
 
+	public boolean addWordV(int row, int col, String word){
+		int length = word.length();
+		if (row + length >= board[0].length)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row+i][col] == '-' || board[row+i][col] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row+i][col] = word.charAt(i);
+		return true;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
