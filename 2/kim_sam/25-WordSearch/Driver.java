@@ -15,7 +15,10 @@ public class Driver {
 	w.AddwordV(2,2,"howdy");
 
 	System.out.println(w);
-	w.AddWordVReverse(6,6,"away");
+	w.AddwordHReverse(6,5,"away");
+
+	System.out.println(w);
+	w.AddwordVReverse(8,8,"allowed");
 
 	System.out.println(w);
 	
