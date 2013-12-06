@@ -77,6 +77,7 @@ public class WordSearch {
 		}
 	    }
 	    for (int i=0;i<word.length();i++) {
+		System.out.println("assign");
 		board[r-i][c] = word.charAt(i);
 	    }
 	    return true;
@@ -166,6 +167,20 @@ public class WordSearch {
 	else {
 	    System.out.println("Please type up right, up left, down right, or down left");
 	    return false;
+	}
+    }
+
+    public char randomLetter() {
+	Random r = new Random();
+	return (char)(r.nextInt(25)+97);
+    }
+
+    public void fillUp() {
+	for (int i=0;i<board.length;i++) {
+	    for (int j=0;j<board[i].length;j++) {
+		if (board[i][j]=="-".charAt(0))
+		    board[i][j] = randomLetter();
+	    }
 	}
     }
 }
