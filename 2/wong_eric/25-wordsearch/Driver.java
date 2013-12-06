@@ -5,6 +5,9 @@ public class Driver {
 	WordSearch w = new WordSearch();
 	
 	System.out.println(w);
+
+	w.addWordH(10, 10, "Hello", "left");
+	System.out.println(w);
        
     }
 }
