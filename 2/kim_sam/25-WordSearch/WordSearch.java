@@ -31,11 +31,11 @@ public class WordSearch {
     public boolean AddwordH(int r, int c, String word) {
         int w = word.length();
 	
-	if  (c >= board.length || c < 0
+	if  (c >= board.length
 	     ||
-	     r >= board[0].length || r < 0
+	     r >= board[0].length
 	     ||
-	     w + r > board[0].length) {
+	     w + c > board[0].length) {
 	    return false;
 	}
 	else {
@@ -50,6 +50,67 @@ public class WordSearch {
 	for (int i = 0; i < w; i++) {
 	    board[r][c + i] = word.charAt(i);
 	}
+	return true;
+    }
+
+    public boolean AddwordV(int r, int c, String word) {
+	int w = word.length();
+	
+	if (w + r > board[0].length
+	    ||
+	    c >= board.length
+	    ||
+	    r >= board[0].length) {
+	    return false;
+	}
+	else {
+	    for (int i=0; i< w; i++) {
+		if (board[r + i][c] != "-".charAt(0)
+		    &&
+		    board[r + i][c] != word.charAt(i)) {
+		    return false;
+		}
+	    }
+	}
+	for (int i = 0; i < w; i++) {
+	    board[r + i][c] = word.charAt(i);
+	}
+	return true;
+    }
+    
+    public boolean AddwordHReverse(int r, int c, String word) {
+	int w = word.length();
+	if (r-w < 0
+	    ||
+	    c >= board.length
+	    ||
+	    r >= board[0].length) {
+	    return false;
+	}
+	for (int i = w-1; i >= 0; i--){ 
+	    if (board[r][c + i] != "-".charAt(0)           
+		&&
+		board[r][c + i] != word.charAt(i)) {     
+		return false;
+	    }
+	}
+	
+	for (int i = w-1; i >= 0; i--) {
+	    board[r][c + i] = word.charAt(i);
+	    }
+	return true;
+    }
+    public boolean AddWordVReverse(int r, int c, String word) {
+	String rword="";
+	int w = word.length();
+	for (int i=w-1;i>=0; i--){
+	    rword= rword+ word.charAt(i);
+	}
+	r=r-w;
+	AddwordV(r,c,word);
+	return true;
+    }
+    public boolean AddWordDiagLR(int r, int c, String word) {
 	return true;
     }
 }
