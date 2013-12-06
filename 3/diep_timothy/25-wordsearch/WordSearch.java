@@ -3,6 +3,10 @@ import java.util.*;
 
 public class WordSearch {
     private char[][] board;
+    private int rows;
+    private int cols;
+    Random r = new Random();
+
 
     public WordSearch(int rows, int cols) {
         board = new char[rows][cols];
@@ -11,6 +15,8 @@ public class WordSearch {
                 board[i][j]='-';
             }
         }
+	this.rows = rows;
+	this.cols = cols;
 
     }
 
@@ -205,8 +211,13 @@ public class WordSearch {
 	return true;
     }
 
-    public boolean fill() {
+    public void fill() {
 	for (int i=0; i<board.length;i++) {
-	    for (int j=0; j<board[row].length; j++) { 
+	    for (int j=0; j<board[0].length; j++) { 
+		if (board[i][j] == '-')
+		    board[i][j] = (char)(r.nextInt(26) + 65);
+	    }
+	}
+    }
 }
 
