@@ -26,7 +26,6 @@ public class WordSearch {
     }
         
     public boolean addWordH(int row, int col, String word) {
-	   if (row < 0 || col < 0 || row > board.length || col > board[row].length) return false;
 	   if (row >= board.length) return false;
 	   if ((board[row].length - col) < word.length()) return false; //check if the word can fit
 	   int location = col;
@@ -52,64 +51,58 @@ public class WordSearch {
 	   }
     
     public boolean addWordV(int row, int col, String word) {
-	if (row < 0 || col < 0 || row > board.length || col > board[row].length) return false;
-	if (col <= board[row].length) return false;
-	if ((board.length-row) < word.length()) return false;
-	int location = row;
-	int letter = 0;
-	while (letter < word.length()) {
-	    if (board[location][col] != word.charAt(letter) &&
-		board[location][col] != '-') return false;
-	    location = location + 1;
-	    letter = letter + 1;
-	}
+		if (col >= board[row].length) return false;
+		if ((board.length-row) < word.length()) return false;
+		int location = row;
+		int letter = 0;
+		while (letter < word.length()) {
+			if (board[location][col] != word.charAt(letter) &&
+			board[location][col] != '-') return false;
+			location = location + 1;
+			letter = letter + 1;
+		}
 
-	location = row;
-	letter = 0;
-	while (letter < word.length()) {
-	    board[location][col] = word.charAt(letter);
-	    location = location + 1;
-	    letter = letter + 1;
-	}
-	return true;
-
+		location = row;
+		letter = 0;
+		while (letter < word.length()) {
+			board[location][col] = word.charAt(letter);
+			location = location + 1;
+			letter = letter + 1;
+		}
+		return true;
     }
 
     public boolean addWordHx(int row, int col, String word) {
-	   if (row < 0 || col < 0 || row > board.length || col > board[row].length) return false;
 	   if (row >= board.length) return false;
 	   if ((board[row].length - col) < word.length()) return false;
 	   int location = col;
            int letter = word.length()-1;
-
-           while (letter >= 0) {
-      		   if (board[row][location] != word.charAt(letter) &&
-      			   board[row][location] != '-') return false;
-			   location = location + 1;
-			   letter = letter - 1;
-		   }
-
-		   location = col;
-		   letter = word.length()-1;
-		   while (letter >= 0) {
-			   board[row][location] = word.charAt(letter);
-			   location = location + 1;
-			   letter = letter - 1;
-		   }
-		   return true;
+	   while (letter >= 0) {
+		   if (board[row][location] != word.charAt(letter) &&
+			   board[row][location] != '-') return false;
+		   location = location + 1;
+		   letter = letter - 1;
 	   }
+	   location = col;
+	   letter = word.length()-1;
+	   while (letter >= 0) {
+		   board[row][location] = word.charAt(letter);
+		   location = location + 1;
+		   letter = letter - 1;
+	   }
+	   return true;
+   }
 
-     public boolean addWordVx(int row, int col, String word) {
-	if (row < 0 || col < 0 || row > board.length || col > board[row].length) return false;
-	if (col <= board[row].length) return false;
-	if ((board.length-row) < word.length()) return false;
-	int location = row;
-	int letter = word.length()-1;
-	while (letter >= 0) {
-	    if (board[location][col] != word.charAt(letter) &&
-		board[location][col] != '-') return false;
-	    location = location + 1;
-	    letter = letter - 1;
+    public boolean addWordVx(int row, int col, String word) {
+		if (col >= board[row].length) return false;
+		if ((board.length-row) < word.length()) return false;
+		int location = row;
+		int letter = word.length()-1;
+		while (letter >= 0) {
+			if (board[location][col] != word.charAt(letter) &&
+			board[location][col] != '-') return false;
+			location = location + 1;
+			letter = letter - 1;
 	}
 
 	location = row;
@@ -135,7 +128,9 @@ public class WordSearch {
 	    x = x + 1;
 	}
 	if (size < word.length()) return false; //check size
-	while (y >= 0 && x < board[row].length) {
+	y = row;
+	x = col;
+	while (letter < word.length()) {
 	    board[y][x] = word.charAt(letter);
 	    y = y - 1;
 	    x = x + 1;
@@ -156,7 +151,9 @@ public class WordSearch {
 	    x = x + 1;
 	}
 	if (size < word.length()) return false; //check size
-	while (y >= 0 && x < board[row].length) {
+	y = row;
+	x = col;
+	while (letter >= 0) {
 	    board[y][x] = word.charAt(letter);
 	    y = y - 1;
 	    x = x + 1;
@@ -177,7 +174,9 @@ public class WordSearch {
 	    x = x - 1;
 	}
 	if (size < word.length()) return false;
-	while (y < board.length && x >= 0) {
+	y = row;
+	x = col;
+	while (letter < word.length()) {
 	    board[y][x] = word.charAt(letter);
 	    y = y + 1;
 	    x = x - 1;
@@ -198,7 +197,9 @@ public class WordSearch {
 	    x = x - 1;
 	}
 	if (size < word.length()) return false;
-	while (y < board.length && x >= 0) {
+	y = row;
+	x = col;
+	while (letter >= 0) {
 	    board[y][x] = word.charAt(letter);
 	    y = y + 1;
 	    x = x - 1;
@@ -219,7 +220,9 @@ public class WordSearch {
 	    x = x + 1;
 	}
 	if (size < word.length()) return false;
-	while (y < board.length && x < board[row].length) {
+	y = row;
+	x = col;
+	while (letter < word.length()) {
 	    board[y][x] = word.charAt(letter);
 	    y = y + 1;
 	    x = x + 1;
@@ -240,7 +243,9 @@ public class WordSearch {
 	    x = x + 1;
 	}
 	if (size < word.length()) return false;
-	while (y < board.length && x < board[row].length) {
+	y = row;
+	x = col;
+	while (letter >= 0) {
 	    board[y][x] = word.charAt(letter);
 	    y = y + 1;
 	    x = x + 1;
@@ -261,7 +266,9 @@ public class WordSearch {
 	    x = x - 1;
 	}
 	if (size < word.length()) return false;
-	while (y >= 0 && x >= 0) {
+	y = row;
+	x = col;
+	while (letter < word.length()) {
 	    board[y][x] = word.charAt(letter);
 	    y = y - 1;
 	    x = x - 1;
@@ -282,7 +289,9 @@ public class WordSearch {
 	    x = x - 1;
 	}
 	if (size < word.length()) return false;
-	while (y >= 0 && x >= 0) {
+	y = row;
+	x = col;
+	while (letter >= 0) {
 	    board[y][x] = word.charAt(letter);
 	    y = y - 1;
 	    x = x - 1;
@@ -292,11 +301,12 @@ public class WordSearch {
     }
 
     public void fill() { //incomplete
-	int y = 0;
-	int x = 0;
-	while (y < board.length && x < board[y].length) {
-	    if (board[y][x] == '-')
-	}
+		Random r = new Random();	
+		for (int i=0;i<board.length;i++) {
+			for (int j=0;j<board[i].length;j++) {
+				if (board[i][j] == '-') board[i][j] = (char)(r.nextInt(26) + 'a');
+			}
+		}
     }
     
     ////////////////
