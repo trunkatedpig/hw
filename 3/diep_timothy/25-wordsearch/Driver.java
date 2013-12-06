@@ -7,14 +7,28 @@ public class Driver {
         
         System.out.println(w);
 
-	w.addWordH(4,5,"Timothy");
-	System.out.println(w);
-       
-	w.addWordH(24,5,"Timothy");
+	w.addWordH(4,5,"timothy");
 	System.out.println(w);
 
-	w.addWordH(4,17,"Timothy");
+	w.addWordV(10,5,"timothy");
 	System.out.println(w);
-       
+
+	w.addWordHb(15,17,"timothy");
+	System.out.println(w);
+
+	w.addWordVb(8,9,"timothy");
+	System.out.println(w);
+
+       	w.addWordHV(8,7,"timothy");
+	System.out.println(w);
+
+       	w.addWordHbV(5,19,"timothy");
+	System.out.println(w);
+
+       	w.addWordHVb(9,11,"timothy");
+	System.out.println(w);
+
+       	w.addWordHbVb(19,13,"timothy");
+	System.out.println(w);
     }
 }
