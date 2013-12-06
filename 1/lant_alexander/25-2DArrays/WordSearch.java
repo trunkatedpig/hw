@@ -3,6 +3,8 @@ import java.io.*;
 
 public class WordSearch {
     
+    Random R = new Random();
+    
     private char[][] board;
     private int rows;
     private int cols;
@@ -45,9 +47,15 @@ public class WordSearch {
         i++;
     }
     return true;
-}
+    }
     // (7,7,"hello")
-  
+
+    public void FillIn(){
+      for (int x = 0; x < columns; x++)
+        for (int y = 0; y < rows; y++)
+           if (board[x][y] == '-')
+               board[x][y] = (char)(R.nextInt(26 + 'a'); 
+  }
     
     public String toString() {
 	String s = "";
