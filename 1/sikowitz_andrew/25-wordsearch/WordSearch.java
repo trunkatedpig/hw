@@ -44,7 +44,7 @@ public class WordSearch {
     }
 
     public boolean addWordH(int row, int col, String word) {
-	boolean statement = row < board.length && row >= 0 && col >= 0 && board[0].length >= col + word.length() - 1;
+	boolean statement = row < board.length && row >= 0 && col >= 0 &&  col + word.length() <= board[0].length;
 	if (statement) {
 	    if (checkBoardH(row, col, word)) {
 		for (int i=0; i<word.length(); i++)
@@ -58,7 +58,7 @@ public class WordSearch {
     }
 
     public boolean addWordV(int row, int col, String word) {
-	boolean statement = col < board[0].length && row >= 0 && row >= 0 && board.length >= row + word.length() - 1;
+	boolean statement = col < board[0].length && row >= 0 && col >= 0 && row + word.length() <= board.length;
 	if (statement) {
 	    if (checkBoardV(row, col, word)) {
 		for (int i=0; i<word.length(); i++)
