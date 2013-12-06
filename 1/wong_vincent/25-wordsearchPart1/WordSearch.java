@@ -26,13 +26,19 @@ public class WordSearch {
     }
 
     public boolean insertWordH (int r, int c, String s) {
-	if (r > 0 && r < rows) {
-	    if (c > 0 && c < cols-s.length) {
-		for (int i = 0; i < s.length; i++) {
-		    board[r][c] = s.charAt(i);
-		    c = c + 1;
+	if (r+s.length()<=20 && c<20) {
+	    for (int i = 0; i < s.length(); i++) {
+		Character z = board[r+i][c];
+		if (z.equals('-') || z.equals(s.charAt(i))) {
+		    board[r][c+i] = s.charAt(i);
+		}
+		else {
+		    return false;
 		}
 	    }
+	}
+	else {
+	    return false;
 	}
 	return true;
     }

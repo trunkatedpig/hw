@@ -35,27 +35,66 @@ public class WordSearch {
 
     //Insertion methods
 
+    //see if it's possible to combine H/V
     public boolean insertHorizontal(int c, int r, String s){
-	if (c + s.length()-1 > cols){
+	if (c + s.length()-1 > cols || r>rows-1 || r<0){
 	    System.out.println("insertion failed");
 	    return false;
 	}
-	else {
-	    for (int n=0; n<s.length(); n++){
-		if (board[r][n] == '-') {}
-		else {
-		    if (board[r][c+n] != s.charAt(n)){
-			System.out.println("insertion failed");
-			return false;
-		    }
-		}
+	for (int n=0; n<s.length(); n++){
+	    if ( (board[r][c+n] != '-') && 
+		 (board[r][c+n] != s.charAt(n))){
+		System.out.println("insertion failed");
+		return false;
 	    }
-	    for (int n=0; n<s.length(); n++)
-		board[r][c+n] = s.charAt(n);
-	    System.out.println("success!");
-	    return true;
-	}	
+	}
+	for (int n=0; n<s.length(); n++){
+	    board[r][c+n] = s.charAt(n);
+	}
+	return true;
     }
 
+    public boolean insertVertical(int c, int r, String s){
+	if (r + s.length()-1 > rows || c>cols-1 || c<0){
+	    System.out.println("insertion failed");
+	    return false;
+	}
+	for (int n=0; n<s.length(); n++){
+	    if ( (board[r+n][c] != '-') && 
+		 (board[r+n][c] != s.charAt(n))){
+		System.out.println("insertion failed");
+		return false;
+	    }
+	}
+	for (int n=0; n<s.length(); n++){
+	    board[r+n][c] = s.charAt(n);
+	}
+	return true;
+    }
 
+    public boolean insertDiagonal(int c, int r, String s){
+	if (r + s.length()-1 > rows || c + s.length()-1 > cols){
+	    System.out.println("insertion failed");
+	    
+	}
+    }
+    public String reverse(String s){
+	String s1 = "";
+	for (int n=s.length(); n>0; n--){
+	    s1 = s1 + s.substring(n-1, n);
+	}
+	return s1;
+    }
+
+    public boolean insertHReverse(int c, int r, String s){
+	return insertHorizontal(c, r, reverse(s));
+    }
+
+    public boolean insertVReverse(int c, int r, String s){
+	return insertVertical(c, r, reverse(s));
+    }
+    
+    public boolean insertDReverse(int c, int r, String s){
+	return insertDiagonal(c, r, reverse(s));
+    }
 }

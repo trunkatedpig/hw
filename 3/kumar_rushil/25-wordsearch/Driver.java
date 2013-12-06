@@ -11,6 +11,5 @@ public class Driver {
         b = w.addWordH(2,2,"Rushil");
 	System.out.println(w); 
 	System.out.println(b); 
-	System.out.println(w.tempArray()); 
     }
 }
