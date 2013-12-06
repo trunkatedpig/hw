@@ -219,8 +219,8 @@ public class WordSearch {
 	
 	for (int r=0;r<board.length; r++){
 	    for (int c=0; c<board[0].length; c++){
-		if (board[r][c].equals("-")){
-			board[r][c] = allChar.charAt(x.nextInt(0,26));
+		if (board[r][c] == "-".charAt(0)){
+		    board[r][c] = allChar.charAt(x.nextInt(26));
 		}
 	    }
 	}

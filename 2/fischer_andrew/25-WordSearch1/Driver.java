@@ -22,9 +22,11 @@ public class Driver {
 	w.AddWordSW(7,9,"sWast");
 	w.AddWordNE(7,17,"nEast");
 	w.AddWordNW(7,17,"nWast");
-	w.fill();
+	
 	System.out.println(w);
 	
+	w.fill();
+	System.out.println(w);
 	
     }
 }
