@@ -20,90 +20,32 @@ public class WordSearch {
 	this(20,20);
     }
     
-    public boolean AddWordHR(int r, int c, String word){
-        int i = 0;
-        try{
-	    while (i < word.length()){
-		if (board[r][c+i] != '-' && board[r][c+i] != word.charAt(i))
-		    return false;
-		i ++;
-            }
-        }
-        catch (Exception e){
+    public boolean AddWord (int r, int c, int dx, int dy, String word){
+    if (dx == 0 && dy == 0)
+        return false; //this would mean that the word was not sprouting in any direction. Only the first letter would render.
+    int i = 0;
+    
+    //dx: "X-Direction" --  (-1) for Left, (1) for Right, (0) for neither;
+    //dy: "Y-Direction" -- ditto;
+    
+    
+    try{
+        while (int i < word.length()){
+        if (board[r + (dy*i)][c + (dx*i)]
             return false;
+        i++;
         }
-        i = 0; 
-        while (i < word.length()){
-            board[r][c+i] = word.charAt(i);
-            i ++;
-        }
-        toString();
-        return true;
-    }
-
-   public boolean AddWordHL(int r, int c, String word){
-        int i = 0;
-        try{
-	    while (i < word.length()){
-		if (board[r][c-i] != '-' && board[r][c-i] != word.charAt(i))
-		    return false;
-		i ++;
-            }
-        }
-        catch (Exception e){
-            return false;
-        }
-        i = 0; 
-        while (i < word.length()){
-            board[r][c-i] = word.charAt(i);
-            i ++;
-        }
-        toString();
-        return true;
-    }
-        
-    public boolean AddWordVD(int r, int c, String word){
-        int i = 0;
-        try {
-            while (i < word.length()){
-                if (board[r+i][c] != '-' && board[r+i][c] != word.charAt(i))
-		    return false;
-		i ++;
-	    }
-	}
-        catch (Exception e1){
-            return false;
-        }	
-	i = 0;
-        while (i < word.length()){
-            board [r+i][c] = word.charAt(i);
-            i ++;
-        }
-	toString();
-        return true;
-    }
-
- public boolean AddWordVU(int r, int c, String word){
-        int i = 0;
-        try {
-            while (i < word.length()){
-                if (board[r-i][c] != '-' && board[r-i][c] != word.charAt(i))
-		    return false;
-		i ++;
-	    }
-	}
-        catch (Exception e1){
-            return false;
-        }	
-	i = 0;
-        while (i < word.length()){
-            board [r-i][c] = word.charAt(i);
-            i ++;
-        }
-	toString();
-        return true;
+    }catch (Exception e){
+        return false;
     }
     
+    int i = 0;
+    while (int i < word.length()){
+        board[r + (dy*i)][c + (dx*i)] = word.charAt(i);
+        i++;
+    }
+    return true;
+}
     // (7,7,"hello")
   
     
