@@ -51,7 +51,7 @@ public class WordSearch {
 		//This can be done using a switch statement
 		if (orientation == 0) {orientation = random.nextInt(8) + 1;}
 		if (orientation == 1) {
-			if (x + word.length() - 1 > grid.length - 1) {return false;}
+			if (x + word.length() - 1 > grid.length - 1) {return fals;}
 			for (int i = 0; i < word.length(); i++) {if ((grid[x + i][y] != '-') && (grid[x + i][y] != word.charAt(i))) {return false;}}
 			for (int i = 0; i < word.length(); i++) {grid[x + i][y] = word.charAt(i);}
 			return true;
