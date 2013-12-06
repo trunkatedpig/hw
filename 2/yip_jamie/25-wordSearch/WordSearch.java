@@ -31,14 +31,16 @@ public class WordSearch {
 
     public boolean addWordH(int row, int col, String word){
 	int i = word.length();
-	if (board.length - col < i){
+	if (board.length - col < i)
 	    return false;
+
+	for (int j = 0; j < i; j++){
+	    if (!(board[row][col + j]== word.charAt(j) || board[row][col +j]=="-".charAt(0)))
+                return false;
 	}
-	else { 
-	    for (int j = 0; j < i; j++){
-		board[row][col + j] = word.charAt(j);
-	    }
-	    return true;
-	}
+
+	for (int j = 0; j < i; j++)
+	    board[row][col + j] = word.charAt(j);
+	return true;
     }
 }

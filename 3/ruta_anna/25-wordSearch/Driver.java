@@ -7,11 +7,17 @@ public class Driver {
         System.out.println(w);
         System.out.println();
 
-        w.addWordH(3,5,"ANNA");
-        w.addWordH(3,7,"JOHN");
-		w.addWordH(5,19,"AH");
-		w.addWordH(7,18,"LUIS");
-		w.addWordH(20,5,"RUTA");
+        w.addWordH(0,5,"RED");
+		w.addWordH(3,7,"ORANGE");
+		w.addWordH(5,16,"BLUE");
+		w.addWordH(7,18,"GREEN");
+		w.addWordH(19,5,"PINK");
+
+		w.addWordV(0,5,"RUBY");
+		w.addWordV(0,7,"TEAL");
+		w.addWordV(5,15,"YELLOW");
+		w.addWordV(17,2,"PURPLE");
+
 		System.out.println(w);
     }
 }

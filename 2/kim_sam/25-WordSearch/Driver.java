@@ -9,11 +9,15 @@ public class Driver {
         w.AddwordH(2,2,"hello");
 
         System.out.println(w);
-        w.AddwordH(2,4,"hello");
-
-        System.out.println(w);
         w.AddwordH(2,6,"old");
 
         System.out.println(w);
+	w.AddwordV(2,2,"howdy");
+
+	System.out.println(w);
+	w.AddWordVReverse(6,6,"away");
+
+	System.out.println(w);
+	
     }
 }

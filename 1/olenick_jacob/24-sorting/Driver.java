@@ -3,13 +3,55 @@ import java.util.*;
 
 public class Driver {
     public static void main (String [] args) {
-	Sorter s = new Sorter();
-	int[] a = new int[10];
 	Random r = new Random();
-	for (int i = 0; i <10; i ++) {
-	    a[i] = r.nextInt(8999)+1000;//gives us random numbers 1000-9999
+	int[] a = new int[10000];
+	for (int i = 0; i <10000; i ++) {
+	    a[i] = r.nextInt(899)+100;
 	}
-	System.out.println(Arrays.toString(sort(a)));
+	int[] b = new int[100000];
+	for (int i = 0; i <100000; i ++) {
+	    b[i] = r.nextInt(899)+100;
+	}
+	int[] c = new int[1000000];
+	for (int i = 0; i <1000000; i ++) {
+	    c[i] = r.nextInt(899)+100;
+	}
+	long[] d = new long[10000];
+	for (int i = 0; i <10000; i ++) {
+	    d[i] = r.nextLong();
+	}
+	long[] e = new long[100000];
+	for (int i = 0; i <100000; i ++) {
+	    e[i] = r.nextLong();
+	}
+	long[] f = new long[1000000];
+	for (int i = 0; i <1000000; i ++) {
+	    f[i] = r.nextLong();
+	}
+	int[] A = new int[10000];
+	for (int i = 0; i <10000; i ++) {
+	    A[i] = r.nextInt(899)+100;
+	}
+	int[] B = new int[100000];
+	for (int i = 0; i <100000; i ++) {
+	    B[i] = r.nextInt(899)+100;
+	}
+	int[] C = new int[1000000];
+	for (int i = 0; i <1000000; i ++) {
+	    C[i] = r.nextInt(899)+100;
+	}
+	long[] D = new long[10000];
+	for (int i = 0; i <10000; i ++) {
+	    D[i] = r.nextLong();
+	}
+	long[] E = new long[100000];
+	for (int i = 0; i <100000; i ++) {
+	    E[i] = r.nextLong();
+	}
+	long[] F = new long[1000000];
+	for (int i = 0; i <1000000; i ++) {
+	    F[i] = r.nextLong();
+	}
     }
 
     public static int[] sort(int[] i){
