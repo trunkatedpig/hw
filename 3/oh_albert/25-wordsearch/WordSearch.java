@@ -41,4 +41,18 @@ public class WordSearch {
         return false;
     }
 
+    public boolean addWordV(int row, int col, String word){
+	if(row<0 || row>rows || col<0 || col+word.length()>cols){
+	    return false;
+	}
+	for(int i=0;i<word.length;i++){
+	    if(board[row+i][col] != '-' && board[row+i][col] != word.charAt(i)){
+		return false;
+	    } else {
+		board[row+i][col] = word.charAt(i);
+	    }
+	    return true;
+	}
+	
+
 }

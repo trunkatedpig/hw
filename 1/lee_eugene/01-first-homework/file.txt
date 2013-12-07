@@ -1,1 +1,0 @@
-This is a file that I'm placing here since git won't simply add empty directories unless there is something in there.

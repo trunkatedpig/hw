@@ -25,7 +25,7 @@ public class WordSearch {
         }
         
         for(int i = 0; i<word.length();i++) {
-            if(board[row][col+i] != '-'&& board[row][col+i] != word.charAt(i)){
+            if(board[row][col+i] != '$'&& board[row][col+i] != word.charAt(i)){
                 return false;
             }
         }
@@ -35,6 +35,21 @@ public class WordSearch {
         }
         return true;
     }
+     public boolean addWordV(int row, int col, String word){
+                if (row<0 || col<0|| col>maxCol || row+word.length()>maxRow)
+                        return false;
+                    
+                for (int i=0; i<word.length(); i++){
+                        if (word.charAt(i) != board[row+i][col] && board[row+i][col] != '$')
+                                return false;
+                }
+                for (int j=0; j<word.length(); j++){
+                        board[row+j][col] = word.charAt(j);
+                }
+                return true;
+        }
+
+
     
     public String toString() {
         String s="";

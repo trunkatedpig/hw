@@ -39,16 +39,80 @@ public class WordSearch {
 	}
 	      
 
-	    for (int j=0; j<word.length(); j++){
-		board[row][col + j]= word.charAt(j);
-	    }
-	    return true;
+	for (int j=0; j<word.length(); j++){
+	    board[row][col + j]= word.charAt(j);
 	}
-    
+	return true;
+    }
+
+    public boolean addWordV (int row, int col, String word){
+	if (row>board.length||col>board[0].length||(col+word.length())>board[0].length){
+            return false;
+	}
+        for (int i = 0; i<word.length(); i++){
+            if (!(("" + word.charAt(i)).equals ( "" + board[row+i][col])) &&  !(( ("" + board[row+i][col])).equals( "-"))){
+		return false;
+	    }
+	}
+	      
+
+	for (int j=0; j<word.length(); j++){
+	    board[row+j][col]= word.charAt(j);
+	}
+	return true;
+    }
 
 
 
         
+
+
+
+
+
+
+    public boolean addWordHback (int row,int col,String word) {
+        if (row>board.length||col>board[0].length||(row-word.length())<0){
+            return false;
+	}
+        for (int i = 0; i<word.length(); i++){
+            if (!(("" + word.charAt(i)).equals ("" + board[row][col-i])) &&  !(( ("" + board[row][col-i])).equals("-"))){
+		return false;
+	    }
+	}
+	      
+
+	for (int j=0; j<word.length(); j++){
+	    board[row][col - j]= word.charAt(j);
+	}
+	return true;
+    }
+
+    public boolean addWordVup (int row, int col, String word){
+	if (row>board.length||col>board[0].length||(col-word.length())<0){
+            return false;
+	}
+        for (int i = 0; i<word.length(); i++){
+            if (!(("" + word.charAt(i)).equals ( "" + board[row-i][col])) &&  !(( ("" + board[row-i][col])).equals( "-"))){
+		return false;
+	    }
+	}
+	      
+
+	for (int j=0; j<word.length(); j++){
+	    board[row-j][col]= word.charAt(j);
+	}
+	return true;
+    }
+
+
+
+
+
+
+
+
+
 
 
 
