@@ -141,6 +141,16 @@ public class WordSearch {
     public boolean addWordNE(int r, int c, String word){
 	return addWordSW(r-word.length()+1,c+word.length()-1,reverse(word));
     }
+
+    public void fillRand(){
+	for (int i = 0; i < board.length; i++){
+	    for (int j=0; j<board[i].length; j++){
+		if(board[i][j] == '-'){
+		    board[i][j] = (char)('a' + (int)(Math.random()*26));
+		}
+	    }
+	}
+    }
     
 
 }

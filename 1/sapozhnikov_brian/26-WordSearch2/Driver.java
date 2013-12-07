@@ -20,6 +20,8 @@ public class Driver {
 	System.out.println(w);
 	System.out.println(w.addWordNE(5,5,"hello"));
 	System.out.println(w);
+	w.fillRand();
+	System.out.println(w);
     }
 
 }
