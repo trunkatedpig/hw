@@ -3,6 +3,7 @@ import java.util.*;
 public class Wordsearch {
 
     private char[][] grid;
+    Random rand = new Random();
 
     public Wordsearch(int rows, int columns) {
         grid = new char[rows][columns];
@@ -27,61 +28,193 @@ public class Wordsearch {
         return tmpGrid;
     }
 
-    public boolean addWord(int row, int column, String word) {
+    public boolean addWordHorizontal(int row, int column, String word, boolean reverse) {
         char[][] tmpGrid = createTmpGrid();
-        if (row < 0 || column < 0 || row > grid.length || column > grid[row].length) {
+        if (row < 0 || column < 0 || row >= grid.length || column >= grid[row].length) {
             System.out.println("Out of range");
             return false;
         }
-        else if (word.length() + column > grid[row].length) {
-            System.out.println("The word is too long!");
-            return false;
+        if (reverse) {
+            if (column - word.length() < -1) {
+                System.out.println("The word is too long!");
+                return false;
+            }
+            for (int i=0; i<word.length(); i++) {
+                if ((tmpGrid[row][column-i] != '-') && (tmpGrid[row][column-i] != word.charAt(i))) {
+                    return false;
+                }
+                tmpGrid[row][column-i] = word.charAt(i);
+            }
         }
-        for (int i=0; i<word.length(); i++) {
-            if ((tmpGrid[row][column+i] != '-') && (tmpGrid[row][column+i] != word.charAt(i))) {
-                return false;}
-            tmpGrid[row][column+i] = word.charAt(i);
+        else {    
+            if (word.length() + column > grid[row].length) {
+                System.out.println("The word is too long!");
+                return false;
+            }
+            for (int i=0; i<word.length(); i++) {
+                if ((tmpGrid[row][column+i] != '-') && (tmpGrid[row][column+i] != word.charAt(i))) {
+                    return false;
+                }
+                tmpGrid[row][column+i] = word.charAt(i);
+            }
         }
         grid = tmpGrid;
         return true;
     }
 
-    public boolean addWordDown(int row, int column, String word) {
+    public boolean addWordVertical(int row, int column, String word, boolean reverse) {
         char[][] tmpGrid = createTmpGrid();
-        if (row < 0 || column < 0 || row > grid.length || column > grid[row].length) {
+        if (row < 0 || column < 0 || row >= grid.length || column >= grid[row].length) {
             System.out.println("Out of range");
             return false;
         }
-        else if (word.length() + row > grid.length) {
-            System.out.println("The word is too long!");
-            return false;
-        }
-        for (int i=0; i<word.length(); i++) {
-            if ((tmpGrid[row+i][column] != '-') && (tmpGrid[row+i][column] != word.charAt(i)))
+        if (reverse) {
+            if (row - word.length() < -1) {
+                System.out.println("The word is too long!");
                 return false;
-            tmpGrid[row+i][column] = word.charAt(i);
+            }
+            for (int i=0; i<word.length(); i++) {
+                if ((tmpGrid[row-i][column] != '-') && (tmpGrid[row-i][column] != word.charAt(i))) {
+                    return false;
+                }
+                tmpGrid[row-i][column] = word.charAt(i);
+            }
+        }
+        else {
+            if (word.length() + row > grid.length) {
+                System.out.println("The word is too long!");
+                return false;
+            }
+            for (int i=0; i<word.length(); i++) {
+                if ((tmpGrid[row+i][column] != '-') && (tmpGrid[row+i][column] != word.charAt(i)))
+                    return false;
+                tmpGrid[row+i][column] = word.charAt(i);
+            }
         }
         grid = tmpGrid;
         return true;
     }
 
-    public boolean addWordDiagonal(int row, int column, String word) {
+    public boolean addWordDiagonal(int row, int column, String word, String dir, boolean reverse) {
         char[][] tmpGrid = createTmpGrid();
-        if (row < 0 || column < 0 || row > grid.length || column > grid[row].length) {
+        if (row < 0 || column < 0 || row >= grid.length || column >= grid[row].length) {
             System.out.println("Out of range");
             return false;
         }
-        else if (word.length() + column > grid[row].length || word.length() + row > grid.length) {
-            System.out.println("The word is too long!");
-            return false;
+        if (dir.equalsIgnoreCase("nw")) {
+            if (reverse) {
+                if (word.length() + column > grid[row].length || word.length() + row > grid.length) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row+i][column+i] != '-') && (tmpGrid[row+i][column+i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row+i][column+i] = word.charAt(i);
+                }   
+            }
+            else {
+                if (column - word.length() < -1 || row - word.length() < -1) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row-i][column-i] != '-') && (tmpGrid[row-i][column-i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row-i][column-i] = word.charAt(i);
+                }
+            }
         }
-        for (int i=0; i<word.length(); i++) {
-            if ((tmpGrid[row+i][column+i] != '-') && (tmpGrid[row+i][column+i] != word.charAt(i)))
-                return false;
-            tmpGrid[row+i][column+i] = word.charAt(i);
+        else if (dir.equalsIgnoreCase("ne")) {
+            if (reverse) {
+                if (word.length() + column > grid[row].length || row - word.length() < -1) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row-i][column+i] != '-') && (tmpGrid[row-i][column+i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row-i][column+i] = word.charAt(i);
+                }
+            }
+            else {
+                if (column - word.length() < -1 || word.length() + row > grid.length) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row+i][column-i] != '-') && (tmpGrid[row+i][column-i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row+i][column-i] = word.charAt(i);
+                }
+            }
+        }
+        else if (dir.equalsIgnoreCase("sw")) {
+            if (reverse) {
+                if (word.length() + column > grid[row].length || row - word.length() < -1) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row-i][column+i] != '-') && (tmpGrid[row-i][column+i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row-i][column+i] = word.charAt(i);
+                }
+            }
+            else {
+                if (column - word.length() < -1 || word.length() + row > grid.length) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row+i][column-i] != '-') && (tmpGrid[row+i][column-i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row+i][column-i] = word.charAt(i);
+                }
+            }
+        }
+        else if (dir.equalsIgnoreCase("se")) {
+            if (reverse) {
+                if (column - word.length() < -1 || row - word.length() < -1) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row-i][column-i] != '-') && (tmpGrid[row-i][column-i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row-i][column-i] = word.charAt(i);
+                }
+            }
+            else {  
+                if (word.length() + column > grid[row].length || word.length() + row > grid.length) {
+                    System.out.println("The word is too long!");
+                    return false;
+                }
+                for (int i=0; i<word.length(); i++) {
+                    if ((tmpGrid[row+i][column+i] != '-') && (tmpGrid[row+i][column+i] != word.charAt(i)))
+                        return false;
+                    tmpGrid[row+i][column+i] = word.charAt(i);
+                }
+            }
+        }
+        else {
+            System.out.println("Please input a valid direction (nw, ne, sw, or se)");
+            return false;
         }
         grid = tmpGrid;
         return true;
+    }
+
+    public void fillRand() {
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        for (int r=0; r<grid.length; r++) {
+            for (int c=0; c<grid[r].length; c++) {
+                if (grid[r][c] == '-') {
+                    int x = rand.nextInt(alphabet.length());
+                    grid[r][c] = alphabet.charAt(x);
+                }
+            }
+        }
     }
 
     public String toString() {
