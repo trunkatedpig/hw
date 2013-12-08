@@ -3,10 +3,11 @@ public class Driver{
     public static void main(String[] args){
 	WordSearch x = new WordSearch(20,20);
 	System.out.println(x);
-	System.out.println(x.InsertWordH(4, 6, "Hello"));
+	x.addWordV(4, 6, "Bye");
 	System.out.println(x);
-	System.out.println(x.InsertWordH(4, 5, "Hello"));
-
+	x.addWordH(12, 6, "Hello");
+	System.out.println(x);
+	x.addWordV(3, 1, "Homie");
 	System.out.println(x);
 	
     } 

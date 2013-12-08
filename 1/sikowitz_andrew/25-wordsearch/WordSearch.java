@@ -25,17 +25,28 @@ public class WordSearch {
 	return s;
     }
     
-    public boolean checkBoard(int row, int col, String word) {
+    public boolean checkBoardH(int row, int col, String word) {
 	for (int i=0; i<word.length(); i++) {
-	    if (word.charAt(i) != board[row][col+i] && board[row][col+i] != '-')
+	    char c = board[row][col+i];
+	    if (c != word.charAt(i) && c != '-')
+		return false;
+	}
+	return true;
+    }
+
+    public boolean checkBoardV(int row, int col, String word) {
+	for (int i=0; i<word.length(); i++) {
+	    char c = board[row+i][col];
+	    if (c != word.charAt(i) && c != '-')
 		return false;
 	}
 	return true;
     }
 
     public boolean addWordH(int row, int col, String word) {
-	if (board[0].length > col + word.length() - 1) {
-	    if (checkBoard(row, col, word)) {
+	boolean statement = row < board.length && row >= 0 && col >= 0 &&  col + word.length() <= board[0].length;
+	if (statement) {
+	    if (checkBoardH(row, col, word)) {
 		for (int i=0; i<word.length(); i++)
 		    board[row][col + i] = word.charAt(i);
 	    }
@@ -46,4 +57,15 @@ public class WordSearch {
 	return false;
     }
 
+    public boolean addWordV(int row, int col, String word) {
+	boolean statement = col < board[0].length && row >= 0 && col >= 0 && row + word.length() <= board.length;
+	if (statement) {
+	    if (checkBoardV(row, col, word)) {
+		for (int i=0; i<word.length(); i++)
+		    board[row + i][col] = word.charAt(i);
+	    }
+	}
+
+	return false;
+    }
 }
