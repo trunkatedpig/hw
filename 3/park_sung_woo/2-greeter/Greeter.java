@@ -1,0 +1,20 @@
+import java.io.*;
+import java.util.*;
+
+public class Greeter {
+	private String greeting;
+
+	public Greeter (String g) {
+		greeting = g;
+	}
+
+	public void setGreeting(String greet) {
+		greeting = greet;
+	}
+
+	public String greet(String name) {
+		String message;
+		message = greeting + " " + name;
+		return message;
+	}
+}

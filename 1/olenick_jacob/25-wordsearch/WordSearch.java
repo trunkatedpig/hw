@@ -1,8 +1,10 @@
 import java.util.*;
+
 public class WordSearch {
 
     private char[][] board;
     private int rows, cols;
+    private Random r;
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
@@ -140,5 +142,9 @@ public class WordSearch {
 	for (int i=0; i<rows; i++){
 	    for (int j=0; j<cols; j++){
 		if (board[i][j]=='-'){
-		    board[i][j]==
+		    board[i][j]=(char)(r.nextInt(25)+97);
+		}
+	    }
+	}
+    }
 }
