@@ -60,15 +60,13 @@ public class WordSearch {
 	}
     }
 
-     public boolean addWordDiag(int row, int col, String word,) {
+     public boolean addWordDiagDownLeft(int row, int col, String word) {
 	char c;
 	//downright
-	    if (board[0].length < col ||
-		col+1+word.length() > board[row-1].length ||
-		row > board.length||
-		row+1+word.length() > board.length - row ||
-		){
-		return false
+	if (board[0].length < col || col+1+word.length() > board[row-1].length ||
+	    row > board.length|| row+1+word.length() > board.length - row )
+		{
+		return false;
 		    }
 	    else{ 
 		for (int i=0; i<word.length(); i++){	
@@ -77,14 +75,33 @@ public class WordSearch {
 		}
 		return true;
 	    }
-	}
-	
-    /*	//upright
-	if (direc == 2){
+     }
+
+    public boolean addWordDiagUpRight(int row, int col, String word) {
+	char c;
+	//upright
 	    if (board[0].length < col ||
 		col+1+word.length() > board[row-1].length ||
-		row > board.length ||
-		*      /
+		row+1-word.length() < 0 ||
+		row > board.length )
+		{
+		    return false;
+		}
+	    else{
+		for (int i=0; i<word.length(); i++){
+		    c= word.charAt(i);
+		    board[row-i][col-1+i] = c;
+		}
+		return true;
+	    }
+    }
+
+
 
 }
+		    
+		
+		
+
+
 
