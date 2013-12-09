@@ -1,7 +1,21 @@
 import java.util.*;
 import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
 
 public class WordSearch {
+    ////////////////////////////////////////////
+    //MAKE AN ARRAY(LIST?) OF MUSICICAL WORDS://
+    ////////////////////////////////////////////
+
+    ArrayList<String> instruments = new ArrayList<String>(Arrays.asList("tuba" , "trombone" , "bass" , "guitar" , "slapstick",
+									"sitar" , "djembe" , "celesta" , "bassoon" , "clarinet", "flute",
+									"cowbell","oboe","saxophone", "glockenspiel","xylophone","marimba",
+									"piano", "didgeridoo", "violin","cello","viola", "tabla", "gamalan",
+									"gong","cymbal","snare", "tomtom"
+									));
     
     Random R = new Random();
     
@@ -10,6 +24,10 @@ public class WordSearch {
     private int columns;
     
     public WordSearch(int r, int c) {
+	
+
+	
+	
 	rows = r;
 	columns = c;    
 	board = new char[r][c];
@@ -22,10 +40,32 @@ public class WordSearch {
 	this(20,20);
     }
     
+
+    public boolean RandWords(int reps){
+	// will fill board with with "reps" words.
+	// next: dictate length (/complexity!) of words.
+	for (int i = 0; i <= reps; i++){
+	
+	    int dx = R.nextInt(3)-1;
+	    int dy = R.nextInt(3)-1;
+	    int c = R.nextInt(columns);
+	    int r = R.nextInt(rows);
+	    String word = (instruments.get(R.nextInt(20))); //(instruments[R.nextInt(instruments.length())]);
+	    AddWord (r, c, dx, dy, word);
+	    
+	}
+	return true;
+       
+    }
+    
     public boolean AddWord (int r, int c, int dx, int dy, String word){
 	if (dx == 0 && dy == 0){
 	    System.out.println("dx and dy cannot both equal zero");
 	    return false; //this would mean that the word was not sprouting in any direction. Only the first letter would render.
+	}
+	if (dx > 1 || dx < -1 || dy > 1 || dy < -1){
+	    System.out.println("dx and dy must both be within range.");
+	    return false;
 	}
 	int i = 0;
 	

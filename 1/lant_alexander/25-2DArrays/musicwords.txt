@@ -1,0 +1,18 @@
+[
+  "piano"
+, "trumpet"
+, "cello"
+, "clarinet"
+, "bass"
+, "viola"
+, "flute"
+, "djembe"
+, "tabla"
+, "clave"
+, "cymbal"
+, "trombone"
+, "tuba"
+, "guitar"
+, "sitar"
+]
+
