@@ -19,6 +19,11 @@ public class Driver {
 	System.out.println(w);
 	System.out.println(w.addWordRevV(5,0,"raceeeeeeee"));
 	System.out.println(w.addWordRevV(5,0,"raceee"));
+	System.out.println(w.addWordNE(19,0, "banana"));
+	System.out.println(w.addWordNE(1,18, "tea"));
+	System.out.println(w.addWordNW(19,6, "banana"));
+	System.out.println(w.addWordSW(7,18, "cookie"));
+	System.out.println(w.addWordSE(7,14, "cookie"));
 	System.out.println(w);
     }
 
