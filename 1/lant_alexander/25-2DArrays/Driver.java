@@ -20,7 +20,9 @@ public class Driver {
 	w.FillIn();
        	System.out.println(w);	
 	//TESTS:
-	
+        byte a = 1;
+        int b = 5; 
+        System.out.println(a+b);
 
     }
 
