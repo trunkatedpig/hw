@@ -59,7 +59,7 @@ public class WordSearch {
 		if (orientation == 7) {xOffset = 1; yOffset = 1;}
 		if (orientation == 8) {xOffset = -1; yOffset = -1;}
 		
-		for (int i = 0; i < word.length(); i++) {if ((x + (i * xOffset) < 0) || (x + (i * xOffset) > grid.length) || (y + (i * yOffset) < 0) || (y + (i * yOffset) > grid[0].length) || ((grid[x + (i * xOffset)][y + (i * yOffset)] != '-') && (grid[x + (i * xOffset)][y + (i * yOffset)] != word.charAt(i)))) {return false;}}
+		for (int i = 0; i < word.length(); i++) {if ((x + (i * xOffset) < 0) || (x + (i * xOffset) > grid.length - 1) || (y + (i * yOffset) < 0) || (y + (i * yOffset) > grid[0].length - 1) || ((grid[x + (i * xOffset)][y + (i * yOffset)] != '-') && (grid[x + (i * xOffset)][y + (i * yOffset)] != word.charAt(i)))) {return false;}}
 		for (int i = 0; i < word.length(); i++) {grid[x + (i * xOffset)][y + (i * yOffset)] = word.charAt(i);}
 		
 		return true;
@@ -74,7 +74,8 @@ public class WordSearch {
 	public boolean addWordDiagonalRight(int x, int y, String word) {return addWord(x, y, 7, word);}
 	public boolean addWordDiagonalRightReversed(int x, int y, String word) {return addWord(x, y, 8, word);}
 		
-	public void fillGrid() {for (int y = 0; y < grid[0].length; y++) {for (int x = 0; x < grid.length; x++) {if (grid[x][y] == '-') {grid[x][y] = (char) ('A' + random.nextInt(26));}}}}
+	public void fillRandom() {for (int y = 0; y < grid[0].length; y++) {for (int x = 0; x < grid.length; x++) {if (grid[x][y] == '-') {grid[x][y] = (char) ('A' + random.nextInt(26));}}}}
+	
 	public int getHeight() {return grid[0].length;}
 	public int getWidth() {return grid.length;}
 	
