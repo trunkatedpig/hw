@@ -5,10 +5,10 @@ public class Driver {
 	WordSearch w = new WordSearch();
 	boolean b;	
 	System.out.println(w);  
-        b = w.addWordH(2,3,"Rushil");
+        b = w.addWordV(2,3,"Rushil");
 	System.out.println(w);     
 	System.out.println(b); 
-        b = w.addWordH(2,2,"Rushil");
+        b = w.addWordH(2,3,"Rushil");
 	System.out.println(w); 
 	System.out.println(b); 
     }
