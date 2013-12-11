@@ -43,14 +43,13 @@ public class Loops {
 	}
 	return a;
     }
-  public boolean isPrime(int i){
-      int j = i-1;
-	while (i%j != 0 )
-	    j = j - 1;
-	if ( j == 1)
+    public boolean isPrime(int i){
+	int j;
+	for (j=i-1;i%j!=0;j=j-1)
+	    if (j ==1)
 		return true;
-	else return false;
-	
-  }
+	    else return false;
+	return true;
+    }
 }
 
