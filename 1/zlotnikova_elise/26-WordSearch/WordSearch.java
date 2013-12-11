@@ -5,28 +5,10 @@ public class WordSearch {
 
     private char[][] board;
     private Random rand;
-    private ArrayList<String> wordList = new ArrayList<String>();;
+    private ArrayList<String> wordList;
 
- 
-
-    public WordSearch(int rows, int cols) {
-	rand = new Random();
-	readWords("Words");
-	board = new char[rows][cols];
-	for (int i=0;i<rows;i++) 
-	    for (int j=0;j<cols;j++) 
-		board[i][j]='-';
-
-    }
-
-
-    public WordSearch() {
-	this(20,20);
-    }
-
-
-   private void readWords(String filename) {
-
+    private void readWords(String filename) {
+	wordList = new ArrayList<String>();
 	try {
 	    Scanner sc = new Scanner(new File(filename));
 	    while (sc.hasNext()) {
@@ -41,22 +23,20 @@ public class WordSearch {
 	}
     }
 
-    public void placeWords(int amount) {
-	Arraylist <String> words = new Arraylist <String>();
-	int tries = 5;
-	while (words.size < amount) {
-	    int a = rand.nextInt(wordList.size);
-	    while (tries > 0) {
+    public WordSearch(int rows, int cols) {
+	rand = new Random();
+	readWords("wordlist");
+	System.out.println(wordList);
+	board = new char[rows][cols];
+	for (int i=0;i<rows;i++) 
+	    for (int j=0;j<cols;j++) 
+		board[i][j]='-';
 
-		if ( addWordRandomLoc(wordList.get(a))){
-		    words.add(wordList.get(a));
-		    wordList.remove(a);
-		    tries = 0;
+    }
 
-		    
-		 
-	    
-	
+    public WordSearch() {
+	this(20,20);
+    }
 
     public boolean addWord(int row, int col, int deltaR, int deltaC,  String word) {
 
@@ -69,17 +49,17 @@ public class WordSearch {
 	int r = row;
 	int c = col;
 	for (int i=0; i < word.length(); i++) {
-	    try {
-		//j=10/i; <-- this is only to show the Arithmetic exception
-		if ( board[r][c] != '-' && board[r][c]!=word.charAt(i)) {
-		    return false; // we return false since we can't add the word
+		try {
+		    //j=10/i; <-- this is only to show the Arithmetic exception
+		    if ( board[r][c] != '-' && board[r][c]!=word.charAt(i)) {
+			return false; // we return false since we can't add the word
+		    }
+		} catch (ArrayIndexOutOfBoundsException e) { // Handle the array one
+		    return false;  // we return false since we can't add the word
 		}
-	    } catch (ArrayIndexOutOfBoundsException e) { // Handle the array one
-		return false;  // we return false since we can't add the word
+		r = r + deltaR; 
+		c = c+ deltaC;
 	    }
-	    r = r + deltaR; 
-	    c = c+ deltaC;
-	}
     	
 	/* if we get here, we can add the word */
 	r = row;
@@ -92,6 +72,16 @@ public class WordSearch {
     	
 	
 	return true;
+    }
+
+    public boolean addWordH(int r, int c, String w) {
+	return addWord(r,c,0,-1,w);
+    }
+    public boolean addWordV(int r, int c, String w) {
+	return addWord(r,c,1,0,w);
+    }
+    public boolean addWordD(int r, int c, String w) {
+	return addWord(r,c,1,1,w);
     }
     
     public boolean addWordRandomLoc(String w) {
@@ -108,7 +98,7 @@ public class WordSearch {
 	for (int r = 0; r < board.length; r++)
 	    for (int c=0;c<board[0].length;c++) {
 		if (board[r][c]=='-')
-		    board[r][c]=(char)('a'+(char)rand.nextInt('z'-'a'));
+		    board[r][c]=(char)('A'+(char)rand.nextInt('Z'-'A'));
 	    }
     }
 
@@ -123,4 +113,25 @@ public class WordSearch {
 	}
 	return s;
     }
+
+    public void readIn() {
+	WordSearch w = new WordSearch(15,30);
+	try { 
+	    sc = new Scanner(new File("wordList"));
+	}
+	catch { 
+	    System.out.println(e);
+	    System.exit(0);
+	}
+	while (sc.hasNext) { 
+	    String s = sc;
+	    wordList.add(s);
+	}
+    }
+
+    public void makePuzzle(int numWords) { 
+	
+    }
+
+
 }
