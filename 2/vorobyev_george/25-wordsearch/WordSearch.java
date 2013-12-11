@@ -1,7 +1,9 @@
 import java.util.*;
+import java.io.*;
 
 public class WordSearch {
     private char[][] board;
+    private ArrayList<String> w;
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
@@ -10,12 +12,30 @@ public class WordSearch {
 		board[i][j]='-';
 	    }
 	}
+	w = loadList();
 
     }
 
     public WordSearch() {
 	this(20,20);
+
     }
+
+    public ArrayList<String> loadList()
+    {
+	ArrayList<String> words = new ArrayList<String>();
+	try{
+	    Scanner s = new Scanner(new File("WordList.txt"));
+	    while(s.hasNext()){
+		words.add(s.next());
+	    }
+	}
+	catch(Exception e){
+	    e.printStackTrace();
+	}
+	return words;
+    }
+
 
     public String toString() {
 	String s="";
@@ -28,7 +48,7 @@ public class WordSearch {
 	return s;
     }
 
-    public void add(int dx, int dy, int x, int y, String word){
+    public boolean add(int dx, int dy, int x, int y, String word){
 	int xl, yl;
 	xl = x + dx * word.length() -dx;
 	yl = y + dy * word.length() - dy;
@@ -43,13 +63,26 @@ public class WordSearch {
 		{
 		    for(int i = 0; i < word.length(); i++){
 			    if(word.charAt(i) != board[dy*i + y][x + dx*i] && board[i*dy + y][x + dx*i] != '-'){
-				    return;
-			    }
+				return false;
+				}
+
 		    }
 		    for(int i = 0; i < word.length(); i++){
 			    board[y + i*dy][x + i*dx] = word.charAt(i);
-		    }
+			    }
+		    return true;
 		}
+	    return false;
     }
+
+
+    public void placeWord(String word){
+	Random r = new Random;
+	int dx = r.nextInt(3) - 1;
+	int dy = r.nextInt(3) - 1;
+	for( int i = 0; i < 10; i ++){
+	    if(add(dx, dy, 
+
+    
 }
 
