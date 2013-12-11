@@ -19,65 +19,48 @@ public class WordSearch {
 		}
 	}
 	
-	public boolean addWord(String word) {return addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), random.nextInt(8) + 1, word);}
-	public boolean addWord(int orientation, String word) {return addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), orientation, word);}
-	public boolean addWord(int x, int y, String word) {return addWord(x, y, random.nextInt(8) + 1, word);}
-	public boolean addWord(int x, int y, int orientation, String word) {
-		if (((x < 0) || (x > grid.length - 1)) && ((y < 0) || (y > grid[0].length - 1))) {
-			System.out.println("ArrayIndexOutOfBounds: x = " + x + ", y = " + y);
-			return false;
-		}
-		if ((x < 0) || (x > grid.length - 1)) {
-			System.out.println("ArrayIndexOutOfBounds: x = " + x);
-			return false;
-		}
-		if ((y < 0) || (y > grid[0].length - 1)) {
-			System.out.println("ArrayIndexOutOfBounds: y = " + y);
-			return false;
-		}
-		if ((orientation < 0) || (orientation > 8)) {
-			System.out.println("IllegalArgument: Orientation must be [0, 8] (0-Random, 1-Horizontal, 2-Horizontal reversed, 3-Vertical, 4-Vertical reversed, 5-Diagonal left, 6-Diagonal left reversed, 7-Diagonal right, 8-Diagonal right reversed)");
-			return false;
-		}
-		if (word.length() == 0) {return true;}
-		word = word.toUpperCase();
-		if (!(word.matches("[A-Z_]*"))) {
-			System.out.println("IllegalArgument: Word must only contain letters A-Z, a-z and underscores");
-			return false;
+	public boolean addWord(String word) {return addWord(word, 100);}
+	public boolean addWord(String word, int retries) {
+		for (int i = 0; i < retries; i++) {if (addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), random.nextInt(8) + 1, word)) {return true;}}
+		
+		return false;
+	}
+	public boolean addWord(int orientation, String word) {return addWord(orientation, word, 100);}
+	public boolean addWord(int orientation, String word, int retries) {
+		for (int i = 0; i < retries; i++) {if (addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), orientation, word)) {return true;}}
+		
+		return false;
+	}
+	public boolean addWord(int x, int y, String word) {
+		boolean[] orientations = new boolean[8];
+		Arrays.fill(orientations, false);
+		int orientation = random.nextInt(8) + 1;
+		while (!(orientations[1] && orientations[2] && orientations[3] && orientations[4] && orientations[5] && orientations[6] && orientations[7] && orientations[8])) {//Index 0 goes unused
+			while (orientations[orientation]) {orientation = random.nextInt(8) + 1;}
+			orientations[orientation] = true;
+			if (addWord(x, y, orientation, word)) {return true;}
 		}
 		
-		String wordReversed = "";
-		for (int i = word.length() - 1; i >= 0; i--) {wordReversed += word.charAt(i);}
-		//This can be done using a switch statement
+		return false;
+	}
+	//The master addWord method:
+	public boolean addWord(int x, int y, int orientation, String word) {
+		word = word.toUpperCase();
+		if ((x < 0) || (x > grid.length - 1) || (y < 0) || (y > grid.length - 1) || (orientation < 0) || (orientation > 8) || !(word.matches("[A-Z_]*"))) {return false;}
+		
+		byte xOffset = 0, yOffset = 0;
 		if (orientation == 0) {orientation = random.nextInt(8) + 1;}
-		if (orientation == 1) {
-			if (x + word.length() - 1 > grid.length - 1) {return fals;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x + i][y] != '-') && (grid[x + i][y] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x + i][y] = word.charAt(i);}
-			return true;
-		}	
-		if (orientation == 2) {return addWord(x - word.length() + 1, y, 1, wordReversed);}
-		if (orientation == 3) {
-			if (y + word.length() - 1 > grid.length - 1) {return false;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x][y + i] != '-') && (grid[x][y + i] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x][y + i] = word.charAt(i);}
-			return true;
-		}
-		if (orientation == 4) {return addWord(x, y - word.length() + 1, 3, wordReversed);}
-		if (orientation == 5) {
-			if ((x - word.length() < 0) || (y + word.length() - 1 > grid.length - 1)) {return false;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x - i][y + i] != '-') && (grid[x - i][y + i] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x - i][y + i] = word.charAt(i);}
-			return true;
-		}
-		if (orientation == 6) {return addWord(x + word.length() - 1, y - word.length() + 1, 5, wordReversed);}
-		if (orientation == 7) {
-			if ((x + word.length() - 1 > grid.length - 1) || (y + word.length() - 1 > grid.length - 1)) {return false;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x + i][y + i] != '-') && (grid[x + i][y + i] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x + i][y + i] = word.charAt(i);}
-			return true;
-		}
-		if (orientation == 8) {return addWord(x - word.length() + 1, y - word.length() + 1, 7, wordReversed);}
+		if (orientation == 1) {xOffset = 1; yOffset = 0;}
+		if (orientation == 2) {xOffset = -1; yOffset = 0;}
+		if (orientation == 3) {xOffset = 0; yOffset = 1;}
+		if (orientation == 4) {xOffset = 0; yOffset = -1;}
+		if (orientation == 5) {xOffset = -1; yOffset = 1;}
+		if (orientation == 6) {xOffset = 1; yOffset = -1;}
+		if (orientation == 7) {xOffset = 1; yOffset = 1;}
+		if (orientation == 8) {xOffset = -1; yOffset = -1;}
+		
+		for (int i = 0; i < word.length(); i++) {if ((x + (i * xOffset) < 0) || (x + (i * xOffset) > grid.length) || (y + (i * yOffset) < 0) || (y + (i * yOffset) > grid[0].length) || ((grid[x + (i * xOffset)][y + (i * yOffset)] != '-') && (grid[x + (i * xOffset)][y + (i * yOffset)] != word.charAt(i)))) {return false;}}
+		for (int i = 0; i < word.length(); i++) {grid[x + (i * xOffset)][y + (i * yOffset)] = word.charAt(i);}
 		
 		return true;
 	}
