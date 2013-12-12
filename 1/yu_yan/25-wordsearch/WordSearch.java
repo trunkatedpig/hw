@@ -83,8 +83,14 @@ public class WordSearch {
 	return insert(c, r, 0, 1, s);
     }
 
-    public boolean insertDiagonal(int c, int r, String s){
+    public boolean insertDiagonal1(int c, int r, String s){
+	//top left to bottom right
 	return insert(c, r, 1, 1, s);
+    }
+    
+    public boolean insertDiagonal2(int c, int r, String s){
+	//bottom left to top right
+	return insert(c, r, -1, -1, s);
     }
 
     public String reverse(String s){
@@ -103,10 +109,27 @@ public class WordSearch {
 	return insertVertical(c, r, reverse(s));
     }
     
-    public boolean insertDReverse(int c, int r, String s){
-	return insertDiagonal(c, r, reverse(s));
+    public boolean insertDReverse1(int c, int r, String s){
+	return insertDiagonal1(c, r, reverse(s));
+    }
+
+    public boolean insertDReverse2(int c, int r, String s){
+	return insertDiagonal2(c, r, reverse(s));
     }
     
+    public boolean addWords(int n, String s){
+	Scanner sc = new Scanner(newFile(s));
+	Random r = new Random();
+	while (n>0){
+	    int x = r.nextInt(8);
+	    if (x=0){
+		if (insertHorizontal)
+		    n = n+1;
+	    }
+	    if (x=1){
+		if (insert
+		    }
+
     public void fillIn(){
 	Random r = new Random();
 	for (int n=0; n<cols; n++){
@@ -116,60 +139,4 @@ public class WordSearch {
 	    }
 	}
     }
-    /*
-    OLD INSERTION METHODS
-    public boolean insertHorizontal(int c, int r, String s){
-	if (c + s.length()-1 > cols || r>rows-1 || r<0){
-	    System.out.println("insertion failed");
-	    return false;
-	}
-	for (int n=0; n<s.length(); n++){
-	    if ( (board[r][c+n] != '-') && 
-		 (board[r][c+n] != s.charAt(n))){
-		System.out.println("insertion failed");
-      return false;
-	    }
-	}
-	for (int n=0; n<s.length(); n++){
-	    board[r][c+n] = s.charAt(n);
-	}
-	return true;
-    }
-    
-    public boolean insertVertical(int c, int r, String s){
-	if (r + s.length()-1 > rows || c>cols-1 || c<0){
-	    System.out.println("insertion failed");
-	    return false;
-	}
-	for (int n=0; n<s.length(); n++){
-	    if ( (board[r+n][c] != '-') && 
-		 (board[r+n][c] != s.charAt(n))){
-		System.out.println("insertion failed");
-		return false;
-	    }
-	}
-	for (int n=0; n<s.length(); n++){
-	    board[r+n][c] = s.charAt(n);
-	}
-	return true;
-    }
-    
-    public boolean insertDiagonal(int c, int r, String s){
-	if (r + s.length()-1 > rows || c + s.length()-1 > cols){
-	    System.out.println("insertion failed");
-	    return false;
-	}
-	for (int n=0; n<s.length(); n++){
-	    if( (board[r+n][c+n] != '-') &&
-		(board[r+n][c+n] != s.charAt(n))){
-		System.out.println("insertion failed");
-		return false;
-	    }
-	}
-	for (int n=0; n<s.length(); n++){
-	    board[r+n][c+n] = s.charAt(n);
-	}
-	return true;
-    }
-    */
 }
