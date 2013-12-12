@@ -6,64 +6,58 @@ import javax.swing.*;
 
 
 public class WordSearch {
-    ////////////////////////////////////////////
-    //MAKE AN ARRAY(LIST?) OF MUSICICAL WORDS://
-    ////////////////////////////////////////////
-
-    ArrayList<String> instruments = new ArrayList<String>(Arrays.asList("TUBA","TROMBONE","BASS","GUITAR","SLAPSTICK",
-                                                                        "SITAR","DJEMBE","CELESTA","OBOE","SAXOPHONE",
-                                                                        "GLOCKENSPIEL","XYLOPHONE","MARIMBA","PIANO",
-                                                                        "DIDGERIDO","VIOLIN","CELLO","VIOLA","TABLA",
-                                                                        "GAMALAN","GONG","CYMBAL","PICCALO","TOMTOM",
-                                                                        "CLAVE","TRUMPET","BASSOON","COWBELL","FLUTE",
-                                                                        "CLARINET","TRIANGLE","ZITHER","MELLOPHONE",
-                                                                        "HORN","BARITONE","HARMONICA","HARP","MARACA",
-                                                                        "GUIRO","SAW","COMPUTER","SYNTHESIZER","TYMPANI",
-                                                                        "BELLS","GUITARRON","MANDOLIN","UKULELE","CAJON",
-                                                                        "BONGO","CONGA","TSUZUMI","ACCORDION","CORNET",
-                                                                        "DULCIMER","EUPHONIUM","FIFE","MELODICA","OCARINA",
-                                                                        "RECORDER","SAXOTROMBA","SAXHORN","TROMBOON","BANJO",
-                                                                        "BANDONEON","CIMBALOM","HARPSICHORD" 
-                                                                        ));
-                                                                        //("tuba" , "trombone" , "bass" , "guitar" , "slapstick",
-                                                                        //"sitar" , "djembe" , "celesta" , "bassoon" , "clarinet", "flute",
-                                                                        //"cowbell","oboe","saxophone", "glockenspiel","xylophone","marimba",
-                                                                        //"piano", "didgeridoo", "violin","cello","viola", "tabla", "gamalan",
-                                                                        //"gong","cymbal","snare", "tomtom", "clave", "trumpet"
-                                                                        //);
+  
     
     Random R = new Random();
     
+    private ArrayList<String> wordList;
+    public ArrayList<String> usedWords = new ArrayList<String>();
+    public int length = 0; //length of usedWords
     private char[][] board;
     private int rows;
     private int columns;
     
-    public WordSearch(int r, int c) {
-	
-    //CONSTRUCT THE BOARD//
-    // *Border with |'s and -'s
+    private void readWords(String filename){
+	wordList = new ArrayList<String>();
+	try{
+	    Scanner sc = new Scanner(new File(filename));
+	    while(sc.hasNext()){
+		String s = sc.nextLine();
+		wordList.add(s);
+	    }
+	}catch (Exception e) {
+	    System.out.println(e);
+	    System.exit(0);
+	}
+    }
     
-    rows = r;
+    public WordSearch(int r, int c) {
+	//CONSTRUCT THE BOARD//
+	// *Border with |'s and -'s	
+	rows = r;
 	columns = c;    
 	board = new char[r][c];
-    for (int i = 1; i < r-1; i++){
-        board[i][0]='|';
-        board[i][c-1]='|';
-    }
-    for (int i = 0; i < c; i++){
-        board[0][i] = '-';
-        board[r-1][i] = '-';
-    }
-
-	for (int i=1;i<r-1;i++) 
+	for (int i = 1; i < r-1; i++){
+	    board[i][0]='|';
+	    board[i][c-1]='|';
+	}
+	for (int i = 0; i < c; i++){
+	    board[0][i] = '-';
+	    board[r-1][i] = '-';
+	}
+       	for (int i=1;i<r-1;i++) 
 	    for (int j=1;j<c-1;j++) 
 		board[i][j]=' ';
+	readWords("Instruments.txt");
     }
     
     public WordSearch() {
 	this(20,20);
     }
     
+    public String ReadList(){
+	return "";
+    }
     
     public boolean RandWords(int reps){
 	// will fill board with with "reps" words.
@@ -72,27 +66,38 @@ public class WordSearch {
     // NEEDED: A way to ensure that no words are used twice (Should probably be integrated into AddWord()
     //         so we know which/how many words are on the board. *
     
-    int stats = 0;
-	for (int i = 0; i < reps; i++){    
+	int stats = 0;
+ 	for (int i = 0; i < reps; i++){    
 	    int dx = R.nextInt(3)-1;
 	    int dy = R.nextInt(3)-1;
 	    int c = R.nextInt(columns);
 	    int r = R.nextInt(rows);
         // *Maybe add to a list  which has all the indexes of the used words?
         // OR: Just go through the words in order!
-	    String word = (instruments.get(i)); //(instruments[R.nextInt(instruments.length())]);
-	    System.out.println(AddWord (r, c, dx, dy, word));
-        if ((AddWord (r, c, dx, dy, word)))
-            stats++;
+	    String word = (wordList.get(i)); //(instruments[R.nextInt(wordList.length())]);
+	    if ((AddWord (r, c, dx, dy, word))){
+		usedWords.add(word);
+		length++;
+		stats++;
+	    }
 	}
-    System.out.println(stats + " ----> " + (stats*10000)/(reps*100)+"%");
-    return true;
+	System.out.println(stats + " ----> " + (stats*10000)/(reps*100)+"%");
+	return true;
     }
     
+
+   
+    
     public boolean AddWord (int r, int c, int dx, int dy, String word){
+	//  AddWord (int r, int c, int dx, int dy, String word)
+	// dx: 1 for right, -1 for left, 0 for stationary
+	// dy: 1 for down, -1 for up, 0 for stationary
+       	
 	if (dx == 0 && dy == 0){
-	    System.out.println("dx and dy cannot both equal zero");
-	    return false; //this would mean that the word was not sprouting in any direction. Only the first letter would render.
+	    //System.out.println("dx and dy cannot both equal zero");
+	    return false; //this would mean that the word was not 
+	                  //sprouting in any direction. 
+	                  //Only the first letter would render.
 	}
 	if (dx > 1 || dx < -1 || dy > 1 || dy < -1){
 	    System.out.println("dx and dy must both be within range.");
@@ -105,7 +110,8 @@ public class WordSearch {
 		
 	try{
 	    while (i < word.length()){
-		if (board[r + (dy*i)][c + (dx*i)] != ' ' && board[r + (dy*i)][c + (dx*i)] != word.charAt(i))
+		if (board[r + (dy*i)][c + (dx*i)] != ' ' 
+		    && board[r + (dy*i)][c + (dx*i)] != word.charAt(i))
 		    return false;
 		i++;
 	    }

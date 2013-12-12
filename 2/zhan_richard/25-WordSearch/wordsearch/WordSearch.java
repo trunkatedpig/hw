@@ -5,17 +5,15 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
-    private ArrayList<String> wordsAdded;
-
-    private void loadWords(String filename, int words) {
+    private ArrayList<String> wordBank = new ArrayList<String>();
+    private void loadWords(String filename) {
 	wordList = new ArrayList<String>();
 	try {
 	    File f = new File(filename);
 	    Scanner sc = new Scanner(f);
-	    while (sc.hasNext() || words > 0) {
+	    while (sc.hasNext()) {
 		String s =sc.nextLine();
 		wordList.add(s);
-		words = words - 1;
 	    }
 	} catch (FileNotFoundException e) {
 	    System.out.println(e);
@@ -23,9 +21,9 @@ public class WordSearch {
 	}
     }
 
-    public WordSearch(int rows, int cols, int words) {
+    public WordSearch(int rows, int cols) {
 	rand = new Random();
-	loadWords("wordlist.txt", words);
+	loadWords("wordlist");
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
@@ -33,20 +31,11 @@ public class WordSearch {
 		board[i][j]='-';
 	    }
 	}
+
     }
 
     public WordSearch() {
-	this(20,20,5);
-    }
-
-    public void fillUp() {
-	wordsAdded = new ArrayList<String>();
-	for (int i=0; i<wordList.size(); i++) {
-	    if (addWordRand(wordList.get(i))) {  
-		addWordRand(wordList.get(i));	    
-		wordsAdded.add(wordList.get(i));
-	    }
-	}
+	this(20,20);
     }
 
     public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
@@ -105,7 +94,27 @@ public class WordSearch {
 	return addWord(row,col,1,0,word);
     }
 
+    public void fillWords(){
+	
+	int r;/*
+	int directionH = (int)(Math.random()*2-1);
+	int directionV = (int)(Math.random()*2-1);
+	int x = (int)(Math.random()**/
+	int n = 0;
+	while (n <10){
+	    r= (int)(Math.random()*wordList.size()-1);
+	    System.out.println("r is " + r);
+	    System.out.println("wordList.get(r) is " + wordList.get(r));
+	    System.out.println(wordBank);
+	    while(!(addWordRand(wordList.get(r)))){
+	    }
+	    
+	    wordBank.add(wordList.get(r));
+	    wordList.remove(r);
+	}
 
+	
+    }
     public String toString() {
 	String s="";
 	for (int i=0;i<board.length;i++) {
@@ -115,10 +124,6 @@ public class WordSearch {
 	    s=s+"\n";
 	}
 	return s;
-    }
-
-    public ArrayList getWordList() {
-	return wordsAdded;
     }
 
 }

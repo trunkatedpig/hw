@@ -5,15 +5,15 @@ public class Driver {
 	WordSearch w = new WordSearch();
 	
 	System.out.println(w);
-	w.addHorizontal(0,0,"apples");
+	w.add(1, 1,0,0,"apples");
 	System.out.println(w);
-	w.addHorizontal(18,5,"pie");
+	w.add(-1, -1, 18,5,"pie");
 	System.out.println(w);
-	w.addHorizontal(-2,8,"sadness");
+	w.add(1,-1,8,5,"sadness");
 	System.out.println(w);
-	w.addHorizontal(0,25,"wheeee");
+	w.add(0, 0, 0,25,"wheeee");
 	System.out.println(w);
-	w.addHorizontal(13,17,"bworp");
+	w.add(1, 0, 13,17,"bworp");
 	System.out.println(w);
        
     }
