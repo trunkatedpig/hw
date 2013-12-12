@@ -6,7 +6,7 @@ public class WordSearch {
 
     private char[][] board;
     private int rows, cols;
-    private Random rand;
+    private Random rand = new Random();
     private ArrayList<String> wordList, wordsInBoard;
 
     public WordSearch(int rows, int cols) {
@@ -33,7 +33,7 @@ public class WordSearch {
         return s;
     }
 
-    private void loadWords(String filename) {
+    public void loadWords(String filename) {
         wordList = new ArrayList<String>();
         try {
 	    File f = new File(filename);
@@ -87,9 +87,11 @@ public class WordSearch {
 
     public void fillWords(int numWords) {
 	int count = 0;
+	wordsInBoard = new ArrayList<String>();
 	while (count < numWords) {
 	    int s = wordList.size();
-	    String w = wordList.get(rand.nextInt(s - 1));
+	    int randomIndex = rand.nextInt(s);
+	    String w = wordList.get(randomIndex);
 	    if (addWordRand(w)) {
 		count = count + 1;
 		wordList.remove(w);
@@ -97,51 +99,6 @@ public class WordSearch {
 	    }  
 	}
     }
-
-    /*
-      public String reverseWord(String word) {
-      String revWord = "";
-      for (int i = 0; i < word.length(); i++){
-      revWord = revWord + word.charAt(word.length() - 1 - i);
-      }
-      return revWord;
-      }
-      public boolean addWordH(int r, int c, String word) {
-      return addWord(r,c,0,1,word);
-      }
-
-      public boolean addWordV(int r, int c, String word) {
-      return addWord(r,c,1,0,word);
-      }
-
-      public boolean addWordAsc(int r, int c, String word) {
-      return addWord(r,c,-1,1,word);
-      }
-
-      public boolean addWordDes(int r, int c, String word) {
-      return addWord(r,c,1,1,word);
-      }
-
-      public boolean addRevH(int r, int c, String word) {
-      word = reverseWord(word);
-      return addWordH(r, c - word.length(), word);
-      }
-    
-      public boolean addRevV(int r, int c, String word) {
-      word = reverseWord(word);
-      return addWordV(r - word.length(), c, word);
-      }
-
-      public boolean addRevDes (int r, int c, String word) {
-      word = reverseWord(word);
-      return addWordAsc(r - word.length(), c + word.length(), word);
-      }
-
-      public boolean addRevAsc(int r, int c, String word) {
-      word = reverseWord(word);
-      return addWordDes(r + word.length(), c + word.length(), word);
-      }
-    */
 
     public void fillSpaces() {
 	Random r = new Random();
@@ -152,5 +109,13 @@ public class WordSearch {
                 }
 	    }
 	}
+    }
+
+    public String getWords() {
+        String retString = "";
+	for (int i = 0; i < wordsInBoard.size(); i++) {
+	    retString = retString + wordsInBoard.get(i) + "\n";
+	}
+	return retString;
     }
 }
