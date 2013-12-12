@@ -77,13 +77,13 @@ public class WordSearch {
     }
 
     public boolean addWordRand(String w) {
-	boolean re = true;
+	boolean re;
         int r = rand.nextInt(board.length);
         int c = rand.nextInt(board[0].length);
         int deltaR = rand.nextInt(3)-1;
         int deltaC = rand.nextInt(3)-1;
-	int rev = rand.nextInt(2) - 1;
-	if (rev = -1)
+	int rev = rand.nextInt(2);
+	if (rev == 1)
 	    re = false; 
 	else 
 	    re = true;
@@ -98,21 +98,7 @@ public class WordSearch {
                 }
             }
         }
-
     }
-    public boolean addWordH(int row, int col, String word, boolean re) {
-        return addWord(row,col,0,1,word,re);
-    }
-    public boolean addWordV(int row, int col, String word, boolean re) {
-        return addWord(row,col,1,0,word,re);
-    }
-    public boolean addWordD1(int row, int col, String word, boolean re) {
-        return addWord(row,col,1,1,word,re);
-    }
-    public boolean addWordV(int row, int col, String word, boolean re) {
-        return addWord(row,col,-1,-1,word,re);
-    }
-
 
     public String toString() {
         String s="";
@@ -125,22 +111,31 @@ public class WordSearch {
         return s;
     }
 
-    public void constructWordSearch(ArrayList<String> wordlist){
-	ArrayList<String> words = new ArrayList<String>;
-	for (int i = 0; i < wordList.length;i++){
-	    addWordRand(wordlist[i]);
-	    if (addWordRand(wordList[i])) {
-		words.add(wordList[i]);
-		wordList.remove(wordList[i]);
+    public void makeWordSearch(){
+	ArrayList<String> words = new ArrayList<String>();
+	ArrayList<String> wordlist = wordList;
+	for (int i = 0;i<wordlist.length();i++){
+	    boolean result=addWordRand(wordlist.get(i));
+	    if (result){
+		words.add(wordlist.get(i));
+		wordlist.remove(wordlist.get(i));
 	    }
-	    if (!addWordRand(wordlist[i])){
-		for (int j =0: j < 10; j++){
-		    addWordRand(wordlist[i]);
-		    if (addWordRand(wordList[i])){
-			words.add(wordList[i]);
-			wordList.remove(wordList[i]);
+	    else{
+		for (int j=0;j<10;j++){
+		    boolean retry = addWordRand(wordlist.get(i));
+		    if (retry){
+			words.add(wordlist.get(i));
+			wordlist.remove(wordlist.get(i));
 			break;
-			}}}
-	    wordlist.remove(wordlist[i]);
+		    }
+		    wordlist.remove(wordlist.get(i));
+		}
+	    }
+	}
+	System.out.println(board);
+	this.fillBlanks();
+	System.out.println(board);
+	System.out.println(words);
+    }
 
 }
