@@ -41,7 +41,7 @@ public class WordSearch {
         if ((row>20 || row<0) || (col>20 || col<0))
          return false;
         int l = word.length();
-        if (col-l<0){
+        if (col-l+1<0){
          return false;
         }
         for (int i=0; i<l; i++){
@@ -83,7 +83,7 @@ public class WordSearch {
         if ((row>20 || row<0) || (col>20 || col<0))
          return false;
         int l = word.length();
-        if (row-l<0){
+        if (row-l+1<0){
          return false;
         }
         for (int i=0; i<l; i++){
@@ -125,7 +125,7 @@ public class WordSearch {
         if ((row>20 || row<0) || (col>20 || col<0))
          return false;
         int l = word.length();
-        if (row-l<0 || col+l>board.length){
+        if (row-l+1<0 || col+l>board.length){
          return false;
         }
         for (int i=0; i<l; i++){
@@ -146,7 +146,7 @@ public class WordSearch {
         if ((row>20 || row<0) || (col>20 || col<0))
          return false;
         int l = word.length();
-        if (row+l>board.length || col-l<0){
+        if (row+l>board.length || col-l+1<0){
          return false;
         }
         for (int i=0; i<l; i++){
@@ -167,7 +167,7 @@ public class WordSearch {
         if ((row>20 || row<0) || (col>20 || col<0))
          return false;
         int l = word.length();
-        if (row-l<0 || col-l<0){
+        if (row-l+1<0 || col-l+1<0){
          return false;
         }
         for (int i=0; i<l; i++){
