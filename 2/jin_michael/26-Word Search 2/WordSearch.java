@@ -8,7 +8,7 @@ public class WordSearch {
     
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	loadWords("wordlist");
+	loadWords("wordlist.txt");
 	System.out.println(wordList+"\n");
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
