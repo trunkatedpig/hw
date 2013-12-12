@@ -5,13 +5,14 @@ import java.io.*;
 
 public class Driver {
     public static void main(String[] args) {
-		WordSearch w = new WordSearch();
+	WordSearch w = new WordSearch(20,60);
 
-		System.out.println(w);
-		w.loadWords(wordList);
-		w.fillWords(20);
-		w.fillSpaces();
-		System.out.println(w);
+	w.loadWords("wordList");
+	w.fillWords(50);
+	System.out.println(w);
+	w.fillSpaces();
+	System.out.println(w);
+	System.out.println(w.getWords());
     }
 
 }
