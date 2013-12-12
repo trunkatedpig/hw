@@ -12,6 +12,7 @@ public class WordSearch {
     
     private ArrayList<String> wordList;
     public ArrayList<String> usedWords = new ArrayList<String>();
+    public int length = 0; //length of usedWords
     private char[][] board;
     private int rows;
     private int columns;
@@ -54,6 +55,9 @@ public class WordSearch {
 	this(20,20);
     }
     
+    public String ReadList(){
+	return "";
+    }
     
     public boolean RandWords(int reps){
 	// will fill board with with "reps" words.
@@ -73,11 +77,11 @@ public class WordSearch {
 	    String word = (wordList.get(i)); //(instruments[R.nextInt(wordList.length())]);
 	    if ((AddWord (r, c, dx, dy, word))){
 		usedWords.add(word);
+		length++;
 		stats++;
 	    }
 	}
 	System.out.println(stats + " ----> " + (stats*10000)/(reps*100)+"%");
-	System.out.println(usedWords);
 	return true;
     }
     
@@ -85,9 +89,15 @@ public class WordSearch {
    
     
     public boolean AddWord (int r, int c, int dx, int dy, String word){
+	//  AddWord (int r, int c, int dx, int dy, String word)
+	// dx: 1 for right, -1 for left, 0 for stationary
+	// dy: 1 for down, -1 for up, 0 for stationary
+       	
 	if (dx == 0 && dy == 0){
-	    System.out.println("dx and dy cannot both equal zero");
-	    return false; //this would mean that the word was not sprouting in any direction. Only the first letter would render.
+	    //System.out.println("dx and dy cannot both equal zero");
+	    return false; //this would mean that the word was not 
+	                  //sprouting in any direction. 
+	                  //Only the first letter would render.
 	}
 	if (dx > 1 || dx < -1 || dy > 1 || dy < -1){
 	    System.out.println("dx and dy must both be within range.");
@@ -100,7 +110,8 @@ public class WordSearch {
 		
 	try{
 	    while (i < word.length()){
-		if (board[r + (dy*i)][c + (dx*i)] != ' ' && board[r + (dy*i)][c + (dx*i)] != word.charAt(i))
+		if (board[r + (dy*i)][c + (dx*i)] != ' ' 
+		    && board[r + (dy*i)][c + (dx*i)] != word.charAt(i))
 		    return false;
 		i++;
 	    }
