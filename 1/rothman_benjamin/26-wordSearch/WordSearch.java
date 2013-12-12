@@ -6,10 +6,11 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
-    private String [] wordsUsed;
+    private ArrayList <String> wordsUsed;
 
     private void readWords(String filename) {
 	wordList = new ArrayList<String>();
+	wordsUsed = new ArrayList <String> ();
 	try {
 	    Scanner sc = new Scanner(new File(filename));
 	    while (sc.hasNext()) {
@@ -27,7 +28,7 @@ public class WordSearch {
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	readWords("filename");
-	System.out.println(wordList);
+	/*System.out.println(wordList);*/
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
@@ -108,11 +109,49 @@ public class WordSearch {
 
     public void makePuzzle (int numWords) {
 
-	int i = 0;
+	int counter = 0; //will go through every word in wordList
+
+	if (numWords <= wordList.size() ) {
+
+	    while (wordsUsed.size () < numWords && counter < wordList.size () ) {
+
+		int timesTried = 0; //How many times you've tried to put it in the puzzle
+		boolean add = false; //true if the word was added
+		int word = rand.nextInt (wordList.size () );
+
+		while (timesTried < 30 && !add) { //Will try to add 30 times
+
+
+		    if (addWordRandomLoc (wordList.get (word) ) ) {
+
+			wordsUsed.add (wordList.get(word));
+			wordList.remove (word);
+			add = true;
+			counter = counter + 1;
+		    }
+
+		    timesTried = timesTried + 1;
+
+		}
+
+		counter = counter + 1;
+
+	    }
+
+	}
+
+		    
 
     }
 
 
+    public ArrayList <String> getWordsUsed () {
+
+	return wordsUsed;
+
+    }
+
+    
 
 
 
