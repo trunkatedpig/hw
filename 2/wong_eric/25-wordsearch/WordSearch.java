@@ -36,17 +36,21 @@ public class WordSearch {
     }
 
     public WordSearch() {
-	this(20,20,5);
+	this(20,20,10);
     }
 
     public void fillUp() {
 	wordsAdded = new ArrayList<String>();
-	for (int i=0; i<wordList.size(); i++) {
-	    if (addWordRand(wordList.get(i))) {  
-		addWordRand(wordList.get(i));	    
-		wordsAdded.add(wordList.get(i));
+	for (int i=0; i<wordList.size(); i++) {  
+	    int times = 0;
+	    while (times < 5) {
+		if (addWordRand(wordList.get(i))){
+		    wordsAdded.add(wordList.get(i));
+		    break;
+		}
+		times = times + 1;
 	    }
-	}
+ 	}
     }
 
     public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
@@ -92,7 +96,7 @@ public class WordSearch {
 	for (int r=0;r<board.length;r++) {
 	    for (int c=0;c<board[0].length;c++) {
 		if (board[r][c]=='-') {
-		    board[r][c]=(char)('A'+rand.nextInt('Z'-'A'));
+		    board[r][c]=(char)('a'+rand.nextInt('z'-'a'));
 		}
 	    }
 	}
