@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class WordSearch {
     private char[][] board;
@@ -8,15 +9,15 @@ public class WordSearch {
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	loadWords("wordlist");
-	System.out.println(wordList);
+	System.out.println(wordList+"\n");
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
 	    for (int j=0;j<cols;j++) {
 		board[i][j]='-';
 	    }
 	}
-	for (int i=0;i<wordlist.size();i++)
-	    addwordRand(wordlist.get(i));
+	for (int i=0;i<wordList.size();i++)
+	    addWordRand(wordList.get(i));
 	System.out.println(toString());
 	fillBlanks();
 	System.out.println(toString());
