@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,18 +11,15 @@ public class Driver {
 	
 	WordSearch w = new WordSearch(20,40);
 	Random R = new Random();
-	//  AddWord (int r, int c, int dx, int dy, String word)
-	// dx: 1 for right, -1 for left, 0 for stationary
-	// dy: 1 for down, -1 for up, 0 for stationary
-       	w.RandWords(50);
-	System.out.println(w);
+	w.RandWords(60);
+	//System.out.println(w);
 	w.FillIn();
        	System.out.println(w);	
-	//TESTS:
-        byte a = 1;
-        int b = 5; 
-        System.out.println(a+b);
-
+	System.out.println("WORDS:");
+	for (int i = 0; i < w.length; i++){
+	    if (i != 0 && i%6 == 0) System.out.println("");
+	    System.out.print(w.usedWords.get(i) + " ");
+    	}
+	System.out.println("\n");
     }
-
 }
