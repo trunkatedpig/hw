@@ -16,17 +16,14 @@ public class WordSearch {
 		wordList.add(s);
 	    }
 	} catch (FileNotFoundException e) {
-	    System.out.println("Can't open wordlist - exiting");
+	    System.out.println("Can't open words - exiting");
 	    System.exit(0);
 	}
     }
 
-
-
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	loadWords("words");
-	//System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
 	    for (int j=0;j<cols;j++) {
@@ -39,17 +36,13 @@ public class WordSearch {
 	this(20,20);
     }
 
-    public boolean addWordH(int row, int col, String word) {
-	return addWord(row,col,1,0,word);
-    }
-
     public boolean addWord(int row, int col, int drow, int dcol, String word) {
 	for (int i=0;i<word.length();i++) {
 	    try {
-		// int j = 10/0; // <-- only here to show ArithmeticException
 		if (board[row+(i*drow)][col+(i*dcol)]!='-' && 
-		    board[row+(i*drow)][col+(i*dcol)]!=word.charAt(i))
+		    board[row+(i*drow)][col+(i*dcol)]!=word.charAt(i)) { 
 		    return false;
+		}
 	    } catch (ArrayIndexOutOfBoundsException e) {
 		System.out.println("Got ArrayIndex thing: "+e);
 		return false;
