@@ -30,6 +30,8 @@ public class WordSearch{
     }
    
     public boolean addWordH(int row, int col, String word){
+	row -= 1;
+	col -= 1;
 	if (word.length() > 20 - col)
 	    return false;
 	else{
