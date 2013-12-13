@@ -3,7 +3,8 @@ import java.io.*;
 
 public class WordSearch {
     private char[][] board;
-    private ArrayList<String> w;
+    private ArrayList<String> w,wordsUsed;
+    
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
@@ -13,12 +14,11 @@ public class WordSearch {
 	    }
 	}
 	w = loadList();
-
+	wordsUsed = new ArrayList<String>();
     }
 
     public WordSearch() {
 	this(20,20);
-
     }
 
     public ArrayList<String> loadList()
@@ -75,13 +75,39 @@ public class WordSearch {
 	    return false;
     }
 
+    public void addWords(int num){
+	Random r = new Random();
+	for(int i = 0; i < num; i++){
+		if(w.size() < 1)
+			return;
+		String temp = w.remove(r.nextInt(w.size()));
+		if(placeWord(temp))
+			wordsUsed.add(temp);
+	}
+    }
 
-    public void placeWord(String word){
-	Random r = new Random;
-	int dx = r.nextInt(3) - 1;
-	int dy = r.nextInt(3) - 1;
+    public ArrayList<String> getWordsUsed(){
+	    return wordsUsed;
+    }
+
+
+    public boolean placeWord(String word){
+	Random r = new Random();
+	int dx, dy;
+	do{
+		dx = r.nextInt(3) - 1;
+		dy = r.nextInt(3) - 1;
+	}
+	while(dx == 0 && dy == 0);
+	int x = r.nextInt(board[0].length);
+	int y = r.nextInt(board.length);
 	for( int i = 0; i < 10; i ++){
-	    if(add(dx, dy, 
+	    if(add(dx, dy, x, y, word)){
+		    return true;
+	    }
+	}
+	return false;
+    }
 
     
 }
