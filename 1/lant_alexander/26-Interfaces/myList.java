@@ -11,7 +11,7 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
 	public myListIterator(myList l) {
 	    list = l;
 	}
-
+	
 	public boolean hasNext() {
 	    if (current+1 > list.numItems)
 		return false;
@@ -19,8 +19,8 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
 	    return true;
 	}
 	public Integer next() {
-	    return(list[current+1]);
-	    current++;
+	    current ++;
+	    return(list.get(current));
 	}
 	public void remove() {
 	    list.remove(current);
