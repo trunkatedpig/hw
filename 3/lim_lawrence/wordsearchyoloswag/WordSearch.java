@@ -39,31 +39,11 @@ public class WordSearch {
 	this(20,20);
     }
 
-
-
     public boolean addWordH(int row, int col, String word) {
-	for (int i=0;i<word.length();i++) {
-	    try {
-		// int j = 10/0; // <-- only here to show ArithmeticException
-		if (board[row][col+i]!='-' && board[row][col+i]!=word.charAt(i))
-		    return false;
-	    } catch (ArrayIndexOutOfBoundsException e) {
-		System.out.println("Got ArrayIndex thing: "+e);
-		return false;
-	    } catch (ArithmeticException e) {
-		System.out.println("Got the math thing: "+e);
-		return false;
-	    } catch (Exception e) {
-		System.out.println("Last case, generic exception: "+e);
-		return false;
-	    }
-	}
-	for (int i=0;i<word.length();i++) {
-	    board[row][col+i]=word.charAt(i);
-	}
-	return true;
+	return addWord(row,col,1,0,word);
+    }
 
-    }    public boolean addWord(int row, int col, int drow, int dcol, String word) {
+    public boolean addWord(int row, int col, int drow, int dcol, String word) {
 	for (int i=0;i<word.length();i++) {
 	    try {
 		// int j = 10/0; // <-- only here to show ArithmeticException
