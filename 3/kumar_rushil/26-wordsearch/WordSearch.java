@@ -5,6 +5,7 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
+    private ArrayList<String> wordsUsed = new ArrayList<String>();
     
     public void loadWords(String filename) {
 	wordList = new ArrayList<String>();
@@ -117,16 +118,35 @@ public class WordSearch {
 
     public String randWord(){
 	int x = rand.nextInt(wordList.size());
-	return wordList.remove(x);
+	String s = wordList.remove(x);//need to fix the code here
+	//wordsUsed.add(s);
+	return s;
     }
 
     public void makeGame(int num){
 	int success = 0;
 	while(success < num){
-	    if(addWordRand(randWord())){
+	    String s = randWord();
+	    if(addWordRand(s)){
 		success ++;
+		wordsUsed.add(s);
 	    }
 	}
+	System.out.println("Words are added\n");
+	System.out.println(this);
+        fillSpaces();
+	System.out.println("Board is setup\n");
+	System.out.println(this);
+
     }
+
+    public String getWordsUsed(){      //working on this part over here
+	String s = "";
+	for (int i = 0; i < wordsUsed.size(); i ++){
+	    s = s + wordsUsed.get(i) + ", ";
+	}
+	return s;
+    }
+
 	
 }
