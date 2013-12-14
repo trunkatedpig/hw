@@ -31,8 +31,5 @@ public class Driver {
 	while (mlit.hasNext()) {
 	    System.out.println(mlit.next());
 	}
-
-
-
     }
 }
