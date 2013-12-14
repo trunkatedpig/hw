@@ -5,7 +5,7 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
-    // private ArrayList<String> words;
+    private ArrayList<String> words;
     
     private void loadWords(String filename) {
         wordList = new ArrayList<String>();
@@ -23,6 +23,7 @@ public class WordSearch {
     }
 
     public WordSearch(int rows, int cols) {
+	words = new ArrayList<String>();
         rand = new Random();
         loadWords("wordlist");
         System.out.println(wordList);
@@ -98,7 +99,19 @@ public class WordSearch {
         }
     }
 
-    // public ArrayList<String> makePuzzle(int numWords
+    public ArrayList<String> makePuzzle(int numWords) {
+	while (words.size() < numWords) {
+	    String addThis = wordList.get(rand.nextInt(wordList.size()));
+	    int attempt = 0;
+	    while (!words.contains(addThis) && attempt <50) {
+		if (addWordRand(addThis)) {
+		    words.add(addThis); 
+		    wordList.remove(addThis);
+		}
+	    }
+	}
+	return words;
+    }
 
     public String toString() {
         String s="";
