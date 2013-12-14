@@ -1,12 +1,10 @@
 import java.util.*;
+import java.io.*;
 
 public class Driver {
-    public static void main(String[] args) {
-	WordSearch w = new WordSearch();
-	w.addWordH(12,7,"moo");
-	//	w.addWordH(10,7,"Kabloosh");
-	w.addWordH(13,7,"oopmh");
-	//	w.addWordH(10,21,"fds");
+    public static void main(String[] args){
+        
+        WordSearch w = new WordSearch(15,40);
 	System.out.println(w);
     }
 }
