@@ -1,46 +1,1 @@
-import java.util.*;
-public class WordSearch {
-
-    private char[][] board;
-    private int rows, cols;
-
-    public WordSearch(int rows, int cols) {
-	board = new char[rows][cols];
-	this.rows = rows;
-	this.cols = cols;
-	for (int i=0;i<rows;i++) 
-	    for (int j=0;j<cols;j++) 
-		board[i][j]='-';
-    }
-
-    public WordSearch() {
-	this(20,20);
-    }
-
-    public String toString() {
-	String s = "";
-	for (int i=0;i<board.length;i++) {
-	    for (int j=0;j<board[i].length;j++) {
-		s=s+board[i][j];
-	    }
-	    s=s+"\n";
-	}
-	return s;
-    }
-
-    public boolean AddWordH(int r, int c, String word) {
-	int len = word.length();
-	if (c + len >= cols) {
-	    System.out.println("You cannot enter this word at this position");
-	    return false;
-	}
-	for (int i = 0; i < len; i++) {
-	    char letter = word.charAt(i);
-	    board[r][c+i] = letter;
-	}
-	return true;
-
-    }
-
-
-}
+// Partner: Fawn Wongimport java.util.*;public class WordSearch {    private char[][] board;    private int rows, cols;    public WordSearch(int rows, int cols) {	board = new char[rows][cols];	this.rows = rows;	this.cols = cols;	for (int i=0;i<rows;i++) 	    for (int j=0;j<cols;j++) 		board[i][j]='-';    }    public WordSearch() {	this(20,20);    }    public String toString() {	String s = "";	for (int i=0;i<board.length;i++) {	    for (int j=0;j<board[i].length;j++) {		s=s+board[i][j];	    }	    s=s+"\n";	}	return s;    }    public boolean addWord(int row, int col, int deltaR, int deltaC, String word) {	int len = word.length();	int r = row;	int c = col;	if (deltaR < -1 || deltaR > 1 || deltaC < -1 || deltaC > 1 || (deltaR== 0 && deltaC == 0)) {	    return false;	}	for (int i = 0; i < len; i++) {	    try {		if (board[r][c]!='-' && board[r][c]!=word.charAt(i)) {		    return false;		}	    } catch (ArrayIndexOutOfBoundsException e) {		return false;	    }	    r = r + deltaR;	    c = c + deltaC;	}	r = row;	c = col;	for (int i = 0; i < len; i++) {	    board[r][c] = word.charAt(i);	    r = r + deltaR;	    c = c + deltaC;	}	return true;    }    public boolean addWordH(int r, int c, String word) {	return addWord(r,c,0,1,word);    }    public boolean addWordV(int r, int c, String word) {	return addWord(r,c,1,0,word);    }    public String reverseWord(String word) {	String revWord = "";	for (int i = 0; i < word.length(); i++){	    revWord = revWord + word.charAt(word.length() - 1 - i);	}	return revWord;    }    public boolean addWordAsc(int r, int c, String word) {        return addWord(r,c,-1,1,word);    }    public boolean addWordDes(int r, int c, String word) {        return addWord(r,c,1,1,word);    }       public boolean addRevH(int r, int c, String word) {	word = reverseWord(word);	return addWordH(r, c - word.length(), word);    }        public boolean addRevV(int r, int c, String word) {	word = reverseWord(word);	return addWordV(r - word.length(), c, word);    }    public boolean addRevAsc(int r, int c, String word) {    	word = reverseWord(word);    	return addWordAsc(r - word.length(), c + word.length(), word);    }    public boolean addRevDes(int r, int c, String word) {    	word = reverseWord(word);    	return addWordDes(r + word.length(), c + word.length(), word);    }    public void fillSpaces() {    	Random r = new Random();    	for (int x = 0; x < rows; x ++) {	    for (int y = 0; y < cols; y ++) {		if (Character.toString(board[x][y]).equals("-")) {		    board[x][y] = (char)(r.nextInt(26) + 65);		}	    }    	}    }}

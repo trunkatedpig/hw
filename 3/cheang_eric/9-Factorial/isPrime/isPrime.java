@@ -5,7 +5,7 @@ public class isPrime{
     
 
 	int factorCheck = 0;
-	int factorCounter = 0;
+	int factorCoutner = 0;
 
 
     public boolean isPrime(int number){

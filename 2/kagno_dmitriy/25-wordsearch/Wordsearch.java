@@ -28,6 +28,41 @@ public class Wordsearch {
 	}
 	return s;
     }
+    
+    public addWord(int R,int C,int DeltaR,int DeltaC,String word){
+	int r,c;
+	
+	if (DeltaR < -1 || DeltaR > 1 || DeltaC < -1 || DeltaC > 1 || 
+	    (DeltaR == 0 && DeltaC == 0) ){
+	    return false;
+	}
+        r = R;
+	c = C;
+	
+	for (int i = 0; i < word.length();i++){
+	    try{
+		if (board[r][c] != "-" && board[r][c]!=word.charAt(i)){
+			return false;
+		}
+	    } catch (ArrayIndexOutOfBoundsException e){
+		return false;
+	    }
+	    r = R + DeltaR;
+	    c = C + DeltaC;
+	}
+	r = R;
+	c = C;
+	for (int i = 0; i < word.length();i++){
+	    board[r][c] = word.charAt(i);
+	    r = r + DeltaR;
+	    c = c + DeltaC;
+	}
+    	return true;
+    }
+
+    public boolean addWordRand(String w){
+	add
+    }
 
     public boolean AddWordH(int r,int c,String word){
 	if (board.length >= c + word.length()){
