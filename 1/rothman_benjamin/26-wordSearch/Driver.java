@@ -4,8 +4,9 @@ import java.io.*;
 public class Driver {
     public static void main(String[] args) {
 	WordSearch w = new WordSearch(15,30);
-	System.out.println(w);
-	w.addWordRandomLoc("defenistration");
+
+
+	/*	w.addWordRandomLoc("defenistration");
 	w.addWordRandomLoc("hello");
 	w.addWordRandomLoc("world");
 	w.addWordRandomLoc("goat");
@@ -17,6 +18,17 @@ public class Driver {
 	//System.out.println(w);
 	//w.fillInBlanks();
 	//System.out.println(w);
+
+	*/
+
+
+	w.makePuzzle (5);
+	System.out.println (w);
+	w.fillInBlanks ();
+	System.out.println (w);
+
+	System.out.println (w.getWordsUsed () );
+
     }
 
 }

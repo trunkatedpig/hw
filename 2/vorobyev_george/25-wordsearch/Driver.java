@@ -5,16 +5,9 @@ public class Driver {
 	WordSearch w = new WordSearch();
 	
 	System.out.println(w);
-	w.addHorizontal(0,0,"apples");
+	w.addWords(5);
 	System.out.println(w);
-	w.addHorizontal(18,5,"pie");
-	System.out.println(w);
-	w.addHorizontal(-2,8,"sadness");
-	System.out.println(w);
-	w.addHorizontal(0,25,"wheeee");
-	System.out.println(w);
-	w.addHorizontal(13,17,"bworp");
-	System.out.println(w);
+	System.out.println(w.getWordsUsed().toString());
        
     }
 }
