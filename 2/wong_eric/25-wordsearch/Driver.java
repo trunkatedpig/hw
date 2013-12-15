@@ -4,10 +4,12 @@ public class Driver {
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
 	
+	w.fillUp();
 	System.out.println(w);
 
-	w.addWordH(10, 10, "Hello", "left");
+	w.fillBlanks();
 	System.out.println(w);
-       
+
+	System.out.println(w.getWordList());       
     }
 }

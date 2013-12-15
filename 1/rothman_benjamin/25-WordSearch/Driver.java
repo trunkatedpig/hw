@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	WordSearch w = new WordSearch();
+	WordSearch2 w = new WordSearch2();
 	System.out.println(w);
 
 	w.addWordH (3, 14, "Hello");
@@ -38,12 +38,12 @@ System.out.println(w);
 
 
 
-WordSearch w2 = new WordSearch ();
+WordSearch2 w2 = new WordSearch2 ();
 
 
 w2.addWordV ( 5 , 2, "Cowboy");
 
-w2. addWordV (10, 3, "Yuke");
+w2.addWordV (10, 3, "Yuke");
 
 w2.addWordV (0, 10, "Howdy");
 
