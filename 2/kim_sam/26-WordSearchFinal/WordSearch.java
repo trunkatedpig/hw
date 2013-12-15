@@ -82,7 +82,7 @@ public class WordSearch {
 	for (int r = 0; r < board.length; r++) {
 	    for (int c = 0; c < board[0].length; c++) {
 		if (board[r][c] == '-') {
-		    board[r][c] = (char)('A' + rand.nextInt('Z' - 'A'));
+		    board[r][c] = (char)('a' + rand.nextInt('z' - 'a'));
 		}
 	    }
 	}
@@ -104,7 +104,7 @@ public class WordSearch {
 	    String s = wordList.get(choose);
 	    for (int j = 0; j < 5; j++) {
 		if(addWordRand(wordList.get(choose)) == true){
-		    addWordRand(s.toUpperCase());
+		    addWordRand(s);
 		    wordList.remove(s);
 		    inputWords.add(s);
 		    break;
@@ -113,6 +113,10 @@ public class WordSearch {
 	    i--;
 	}
 	fillBlanks();
+    }
+
+    public void getInputWords() {
+	System.out.println(inputWords);
     }
 
     public String toString() {
