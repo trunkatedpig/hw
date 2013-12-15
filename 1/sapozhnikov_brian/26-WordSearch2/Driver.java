@@ -1,26 +1,25 @@
 import java.util.*;
-
+import java.io.*;
 
 public class Driver {
     public static void main(String[] args) {
-	WordSearch w = new WordSearch();
-	System.out.println(w.addWordH(5,5,"hello"));
+	WordSearch w = new WordSearch(15,30);
 	System.out.println(w);
-	System.out.println(w.addWordHLeft(5,5,"hello"));
+	/*
+	w.addWordRandomLoc("defenistration");
+	w.addWordRandomLoc("hello");
+	w.addWordRandomLoc("world");
+	w.addWordRandomLoc("goat");
+	w.addWordRandomLoc("turtle");
+	w.addWordRandomLoc("koala");
+	w.addWordRandomLoc("squid");
+	w.addWordRandomLoc("doggie");
+	*/
+
+	w.setWords(5);
 	System.out.println(w);
-	System.out.println(w.addWordV(5,5,"hello"));
-	System.out.println(w);
-	System.out.println(w.addWordVUp(5,5,"hello"));
-	System.out.println(w);
-	System.out.println(w.addWordSE(5,5,"hello"));
-	System.out.println(w);
-	System.out.println(w.addWordNW(5,5,"hello"));
-	System.out.println(w);
-	System.out.println(w.addWordSW(5,5,"hello"));
-	System.out.println(w);
-	System.out.println(w.addWordNE(5,5,"hello"));
-	System.out.println(w);
-	w.fillRand();
+	System.out.println("\n" + w.getWords() + "\n");
+	w.fillInBlanks();
 	System.out.println(w);
     }
 
