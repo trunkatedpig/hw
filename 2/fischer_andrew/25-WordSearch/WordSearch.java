@@ -100,7 +100,7 @@ public class WordSearch {
     }
 
 
-<<<<<<< HEAD
+
     public void fill(){
 	String allChar = "abcdefghijklmnopqrstuvwxyz";
 	Random x = new Random();
@@ -110,13 +110,15 @@ public class WordSearch {
 		if (board[r][c] == "-".charAt(0)){
 		    board[r][c] = allChar.charAt(x.nextInt(26));
 		}
-=======
+	    }
+	}
+    }
+
     public String toString() {
 	String s="";
 	for (int i=0;i<board.length;i++) {
 	    for (int j=0;j<board[i].length;j++) {
 		s=s+board[i][j];
->>>>>>> a16d4eaff2e40dd14fb647c7f97bb4cb1c51c158
 	    }
 	    s=s+"\n";
 	}
