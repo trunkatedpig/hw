@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
+
 public class Driver {
     public static void main(String[] args) throws FileNotFoundException {
 	String s;
-	/*
 	ArrayList<String> al = new ArrayList<String>();
 	al.add("one");
 	al.add("two");
@@ -19,20 +19,20 @@ public class Driver {
 	    System.out.println("ArrayList (iterator): "+s);
 	}
 	System.out.println();
-	*/
 
+	int i;
 	myList ml = new myList();
-	ml.add(10);
-	ml.add(30);
-	ml.add(50);
 	ml.add(20);
-	ml.add(900);
+	ml.add(50);
+	ml.add(15);
+	ml.add(8);
 	System.out.println(ml);
 	Iterator<Integer> mlit = ml.iterator();
-	while (mlit.hasNext()){
-	    System.out.println(mlit.next());
+	// here we should be able to do the while , hasNext, next loop thing
+	while (mlit.hasNext()) {
+	    i=mlit.next();
+	    System.out.println("MyList (iterator): " + i);
 	}
-	
 
 
     }
