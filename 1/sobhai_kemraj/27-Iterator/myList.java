@@ -13,12 +13,14 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
 	}
 
 	public boolean hasNext() {
-	    return false;
+	    return (current<list.size());
 	}
 	public Integer next() {
-	    return new Integer(10);
+	    current++;
+	    return ((Integer)list.get(current-1));
 	}
 	public void remove() {
+	    list.remove(current);
 	}
     }
     
