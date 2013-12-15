@@ -7,29 +7,24 @@ public class WordSearch {
     private ArrayList<String> wordList;
 
     private void loadWords(String filename) {
-	ArrayList<String> tmpWordList = new ArrayList<String>();
+	wordList = new ArrayList<String>();
 	try {
 	    File f = new File(filename);
 	    Scanner sc = new Scanner(f);
 	    while (sc.hasNext()) {
 		String s =sc.nextLine();
-		tmpWordList.add(s);
+		s = s.replace(" ","");
+		wordList.add(s);
 	    }
 	} catch (FileNotFoundException e) {
 	    System.out.println(e);
 	    System.exit(0);
 	}
-
-	int length = tmpWordList.size();
-	wordList = new ArrayList<String>();
-	Random r = new Random();
-	for (int i=0;i<20;i++)
-	    wordList.add(tmpWordList.get(r.nextInt(length)));
     }
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	loadWords("words");
+	loadWords("wordlist");
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
@@ -37,11 +32,14 @@ public class WordSearch {
 		board[i][j]='-';
 	    }
 	}
+	addTenRandom();
+	System.out.println(this);
+	fillBlanks();
 
     }
 
     public WordSearch() {
-	this(40,40);
+	this(20,20);
     }
 
     public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
@@ -83,6 +81,19 @@ public class WordSearch {
 	return addWord(r,c,deltaR,deltaC,w);
     }
 
+    public int addTenRandom() {
+	int s = 0;
+	Random r = new Random();
+	ArrayList<String> left = new ArrayList<String>(wordList);
+	for (int i = 0; i < 10; i++) {
+	    int x = r.nextInt(left.size());
+	    if (addWordRand(left.get(x))) {
+		s++;
+		left.remove(x);
+	    }
+	}
+	return s;
+    } 
     public void fillBlanks() {
 	for (int r=0;r<board.length;r++) {
 	    for (int c=0;c<board[0].length;c++) {
@@ -100,7 +111,7 @@ public class WordSearch {
 	return addWord(row,col,1,0,word);
     }
 
-
+    
     public String toString() {
 	String s="";
 	for (int i=0;i<board.length;i++) {

@@ -6,7 +6,7 @@ public class WordSearch {
     private Random rand;
     private ArrayList<String> wordList;
 
-    protected void loadWords(String filename) {
+    private void loadWords(String filename) {
 	wordList = new ArrayList<String>();
 	try {
 	    File f = new File(filename);
@@ -23,7 +23,7 @@ public class WordSearch {
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	loadWords("wordlist");
+	loadWords("wordList.java");
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
@@ -31,15 +31,18 @@ public class WordSearch {
 		board[i][j]='-';
 	    }
 	}
-
+	for (int i=0;i<wordList.size();i++){
+	    addWordRand(wordList.get(i));
+	}
+	System.out.println(toString());
+	fillBlanks();
     }
-
     public WordSearch() {
-	this(40,30);
+	this(20,20);
     }
-    
+	    
 
-    private boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
+    public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
 	int r,c;
 
 	if (deltaR<-1||deltaR>1||deltaC<-1||deltaC>1||
@@ -55,7 +58,7 @@ public class WordSearch {
 		    return false;
 		}
 	    } catch (ArrayIndexOutOfBoundsException e) {
-		return false; // return false since we can't add the word - we're out of bounds
+		return false; 
 	    }
 	    r=r+deltaR;
 	    c=c+deltaC;
@@ -67,30 +70,26 @@ public class WordSearch {
 	    r=r+deltaR;
 	    c=c+deltaC;
 	}
-	return true;
+    return true;
     }
-    
+
     public boolean addWordRand(String w) {
 	int r = rand.nextInt(board.length);
 	int c = rand.nextInt(board[0].length);
 	int deltaR = rand.nextInt(3)-1;
 	int deltaC = rand.nextInt(3)-1;
-	if (addWord(r,c,deltaR,deltaC,w) == true) {
-	    wordList.add(w);
-	    return addWord(r,c,deltaR,deltaC,w);	
-	}
-	else {return false;}
+	return addWord(r,c,deltaR,deltaC,w);
     }
-    
+
     public void fillBlanks() {
 	for (int r=0;r<board.length;r++) {
 	    for (int c=0;c<board[0].length;c++) {
 		if (board[r][c]=='-') {
-		    board[r][c]=(char)('A'+rand.nextInt('Z'-'A'));
+		    board[r][c]=(char)('a'+rand.nextInt('z'-'a'));
 		}
 	    }
 	}
-	
+
     }
     public boolean addWordH(int row, int col, String word) {
 	return addWord(row,col,0,1,word);
@@ -100,23 +99,11 @@ public class WordSearch {
     }
 
 
-<<<<<<< HEAD
-    public void fill(){
-	String allChar = "abcdefghijklmnopqrstuvwxyz";
-	Random x = new Random();
-	
-	for (int r=0;r<board.length; r++){
-	    for (int c=0; c<board[0].length; c++){
-		if (board[r][c] == "-".charAt(0)){
-		    board[r][c] = allChar.charAt(x.nextInt(26));
-		}
-=======
     public String toString() {
 	String s="";
 	for (int i=0;i<board.length;i++) {
 	    for (int j=0;j<board[i].length;j++) {
 		s=s+board[i][j];
->>>>>>> a16d4eaff2e40dd14fb647c7f97bb4cb1c51c158
 	    }
 	    s=s+"\n";
 	}
