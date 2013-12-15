@@ -104,7 +104,7 @@ public class WordSearch {
 	    String s = wordList.get(choose);
 	    for (int j = 0; j < 5; j++) {
 		if(addWordRand(wordList.get(choose)) == true){
-		    addWordRand(s);
+		    addWordRand(s.toUpperCase());
 		    wordList.remove(s);
 		    inputWords.add(s);
 		    break;
