@@ -1,5 +1,8 @@
+import java.io.*;
+import java.util.*;
+
 public class Driver {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		WordSearch ws = new WordSearch(10, 10);
 		System.out.println(ws + "\n");
 		
@@ -24,7 +27,15 @@ public class Driver {
 			System.out.println(ws + "\n");
 		}
 		
-		ws.fillGrid();
-		System.out.println(ws);
+		Scanner scanner = new Scanner(new File("Words.txt"));
+		ArrayList<String> words = new ArrayList<String>();
+		while (scanner.hasNext()) {words.add(scanner.next());}
+		System.out.println(words + "\n");
+		
+		for (int i = 0; i < words.size(); i++) {ws.addWord(words.get(i));}
+		System.out.println(ws + "\n");
+		
+		ws.fillRandom();
+		System.out.println(ws + "\n");
 	}
 }

@@ -1,7 +1,10 @@
+import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
 public class WordSearch {
 	private char[][] grid;
+	private ArrayList<String> wordList;
 	private Random random = new Random();
 	
 	public WordSearch() {grid = new char[0][0];}
@@ -19,79 +22,71 @@ public class WordSearch {
 		}
 	}
 	
-	public boolean addWord(String word) {return addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), random.nextInt(8) + 1, word);}
-	public boolean addWord(int orientation, String word) {return addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), orientation, word);}
-	public boolean addWord(int x, int y, String word) {return addWord(x, y, random.nextInt(8) + 1, word);}
-	public boolean addWord(int x, int y, int orientation, String word) {
-		if (((x < 0) || (x > grid.length - 1)) && ((y < 0) || (y > grid[0].length - 1))) {
-			System.out.println("ArrayIndexOutOfBounds: x = " + x + ", y = " + y);
-			return false;
-		}
-		if ((x < 0) || (x > grid.length - 1)) {
-			System.out.println("ArrayIndexOutOfBounds: x = " + x);
-			return false;
-		}
-		if ((y < 0) || (y > grid[0].length - 1)) {
-			System.out.println("ArrayIndexOutOfBounds: y = " + y);
-			return false;
-		}
-		if ((orientation < 0) || (orientation > 8)) {
-			System.out.println("IllegalArgument: Orientation must be [0, 8] (0-Random, 1-Horizontal, 2-Horizontal reversed, 3-Vertical, 4-Vertical reversed, 5-Diagonal left, 6-Diagonal left reversed, 7-Diagonal right, 8-Diagonal right reversed)");
-			return false;
-		}
-		if (word.length() == 0) {return true;}
-		word = word.toUpperCase();
-		if (!(word.matches("[A-Z_]*"))) {
-			System.out.println("IllegalArgument: Word must only contain letters A-Z, a-z and underscores");
-			return false;
+	private boolean addWord(String word) {return addWord(word, 100);}
+	private boolean addWord(String word, int retries) {
+		for (int i = 0; i < retries; i++) {if (addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), random.nextInt(8) + 1, word)) {return true;}}
+		
+		return false;
+	}
+	private boolean addWord(int orientation, String word) {return addWord(orientation, word, 100);}
+	private boolean addWord(int orientation, String word, int retries) {
+		for (int i = 0; i < retries; i++) {if (addWord(random.nextInt(grid.length), random.nextInt(grid[0].length), orientation, word)) {return true;}}
+		
+		return false;
+	}
+	private boolean addWord(int x, int y, String word) {
+		boolean[] orientations = new boolean[8];
+		Arrays.fill(orientations, false);
+		int orientation = random.nextInt(8) + 1;
+		while (!(orientations[1] && orientations[2] && orientations[3] && orientations[4] && orientations[5] && orientations[6] && orientations[7] && orientations[8])) {//Index 0 goes unused
+			while (orientations[orientation]) {orientation = random.nextInt(8) + 1;}
+			orientations[orientation] = true;
+			if (addWord(x, y, orientation, word)) {return true;}
 		}
 		
-		String wordReversed = "";
-		for (int i = word.length() - 1; i >= 0; i--) {wordReversed += word.charAt(i);}
-		//This can be done using a switch statement
+		return false;
+	}
+	//The master addWord method:
+	private boolean addWord(int x, int y, int orientation, String word) {
+		word = word.toUpperCase();
+		if ((x < 0) || (x > grid.length - 1) || (y < 0) || (y > grid.length - 1) || (orientation < 0) || (orientation > 8) || !(word.matches("[A-Z_]*"))) {return false;}
+		
+		byte xOffset = 0, yOffset = 0;
 		if (orientation == 0) {orientation = random.nextInt(8) + 1;}
-		if (orientation == 1) {
-			if (x + word.length() - 1 > grid.length - 1) {return fals;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x + i][y] != '-') && (grid[x + i][y] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x + i][y] = word.charAt(i);}
-			return true;
-		}	
-		if (orientation == 2) {return addWord(x - word.length() + 1, y, 1, wordReversed);}
-		if (orientation == 3) {
-			if (y + word.length() - 1 > grid.length - 1) {return false;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x][y + i] != '-') && (grid[x][y + i] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x][y + i] = word.charAt(i);}
-			return true;
-		}
-		if (orientation == 4) {return addWord(x, y - word.length() + 1, 3, wordReversed);}
-		if (orientation == 5) {
-			if ((x - word.length() < 0) || (y + word.length() - 1 > grid.length - 1)) {return false;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x - i][y + i] != '-') && (grid[x - i][y + i] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x - i][y + i] = word.charAt(i);}
-			return true;
-		}
-		if (orientation == 6) {return addWord(x + word.length() - 1, y - word.length() + 1, 5, wordReversed);}
-		if (orientation == 7) {
-			if ((x + word.length() - 1 > grid.length - 1) || (y + word.length() - 1 > grid.length - 1)) {return false;}
-			for (int i = 0; i < word.length(); i++) {if ((grid[x + i][y + i] != '-') && (grid[x + i][y + i] != word.charAt(i))) {return false;}}
-			for (int i = 0; i < word.length(); i++) {grid[x + i][y + i] = word.charAt(i);}
-			return true;
-		}
-		if (orientation == 8) {return addWord(x - word.length() + 1, y - word.length() + 1, 7, wordReversed);}
+		if (orientation == 1) {xOffset = 1; yOffset = 0;} //Horizontal
+		if (orientation == 2) {xOffset = -1; yOffset = 0;} //Horizontal reversed
+		if (orientation == 3) {xOffset = 0; yOffset = 1;} //Vertical
+		if (orientation == 4) {xOffset = 0; yOffset = -1;} //Vertical reversed
+		if (orientation == 5) {xOffset = -1; yOffset = 1;} //Diagonal left
+		if (orientation == 6) {xOffset = 1; yOffset = -1;} //Diagonal left reversed
+		if (orientation == 7) {xOffset = 1; yOffset = 1;} //Diagonal right
+		if (orientation == 8) {xOffset = -1; yOffset = -1;} //Diagonal right reversed
+		
+		for (int i = 0; i < word.length(); i++) {if ((x + (i * xOffset) < 0) || (x + (i * xOffset) > grid.length - 1) || (y + (i * yOffset) < 0) || (y + (i * yOffset) > grid[0].length - 1) || ((grid[x + (i * xOffset)][y + (i * yOffset)] != '-') && (grid[x + (i * xOffset)][y + (i * yOffset)] != word.charAt(i)))) {return false;}}
+		for (int i = 0; i < word.length(); i++) {grid[x + (i * xOffset)][y + (i * yOffset)] = word.charAt(i);}
 		
 		return true;
 	}
 	
-	public boolean addWordHorizontal(int x, int y, String word) {return addWord(x, y, 1, word);}
-	public boolean addWordHorizontalReversed(int x, int y, String word) {return addWord(x, y, 2, word);}
-	public boolean addWordVertical(int x, int y, String word) {return addWord(x, y, 3, word);}
-	public boolean addWordVerticalReversed(int x, int y, String word) {return addWord(x, y, 4, word);}
-	public boolean addWordDiagonalLeft(int x, int y, String word) {return addWord(x, y, 5, word);}
-	public boolean addWordDiagonalLeftReversed(int x, int y, String word) {return addWord(x, y, 6, word);}
-	public boolean addWordDiagonalRight(int x, int y, String word) {return addWord(x, y, 7, word);}
-	public boolean addWordDiagonalRightReversed(int x, int y, String word) {return addWord(x, y, 8, word);}
+	/*public void createPuzzle(String filename) {
+		readWords(filename);*/
 		
-	public void fillGrid() {for (int y = 0; y < grid[0].length; y++) {for (int x = 0; x < grid.length; x++) {if (grid[x][y] == '-') {grid[x][y] = (char) ('A' + random.nextInt(26));}}}}
+	
+	private boolean readWords(String filename) {
+		wordList = new ArrayList<String>();
+		Scanner scanner = null;
+		try {scanner = new Scanner(new File(filename));}
+		catch (FileNotFoundException e) {return false;}
+		while (scanner.hasNext()) {
+			String word = scanner.next().toUpperCase();
+			if ((word.length() >= 2) && (word.matches("[A-Z_]*"))) {wordList.add(word);}
+		}
+		
+		return true;
+	}
+		
+	public void fillRandom() {for (int y = 0; y < grid[0].length; y++) {for (int x = 0; x < grid.length; x++) {if (grid[x][y] == '-') {grid[x][y] = (char) ('A' + random.nextInt(26));}}}}
+	
 	public int getHeight() {return grid[0].length;}
 	public int getWidth() {return grid.length;}
 	
@@ -104,5 +99,36 @@ public class WordSearch {
 		}
 		
 		return s.trim();
+	}
+	
+	public static void main(String[] args) {
+		String usage = "Usage: \"java WordSearch width height filename [numWords]\"";
+		String help = "Type \"java WordSearch for help\"";
+		if ((args.length <= 0) || (args.length > 4)) {
+			System.out.println(usage + "\nfilename: the location of the file containing the words, which are separated by whitespace, to put into the puzzle");
+			System.out.println("[numWords] (optional argument): number of words to put into the puzzle (can be greater than the number of words contained in filename). If not specified, put in as many words as possible");
+			System.exit(1);
+		}
+		if (args.length == 3) {
+			args = Arrays.copyOf(args, args.length + 1);
+			args[3] = "none";
+		}
+		if (!((args[0] + args[1]).matches("[0-9]+")) || (!(args[3].equals("none")) && !(args[3].matches("[0-9]+")))) {
+			System.out.println(usage + "\nwidth, height and [numWords] must be non-negative integers\n" + help);
+			System.exit(1);
+		}
+		BigInteger _width = new BigInteger(args[0]);
+		BigInteger _height = new BigInteger(args[1]);
+		
+		BigInteger _maxInteger = new BigInteger(String.valueOf(Integer.MAX_VALUE));
+		if ((_width.compareTo(_maxInteger) == 1) || (_height.compareTo(_maxInteger) == 1)) {
+			System.out.println(usage + "\nwidth and height must not exceed the maximum integer\n" + help);
+			System.exit(1);
+		}	
+		try {Scanner scanner = new Scanner(new File(args[2]));}
+		catch (FileNotFoundException e) {
+			System.out.println(usage + "\nFilename/path " + "\"" + args[2] + "\"" + " not found\n" + help);
+			System.exit(1);
+		}
 	}
 }

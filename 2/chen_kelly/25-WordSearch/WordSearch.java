@@ -84,4 +84,75 @@ public class WordSearch {
 	
 	return true;
     }
+
+
+    public boolean addWordNE(int row,int col, String word){
+	int k = 0;
+	if ((row+1)-word.length() < 0 || word.length()>board[row].length-col)
+	    return false;
+	for (int i = 0; i < word.length(); i++){
+	    if (!(board[row-i][col+k]==word.charAt(i) || board[row-i][col+k]== '-'))
+		return false;
+	}
+	k = 0;
+	
+	for (int j = 0; j < word.length(); j++){
+	    board[row-j][col+k] = word.charAt(j);
+	    k++;
+	}
+	
+	return true;
+    }
+
+    public boolean addWordNW(int row,int col, String word){
+	int k = 0;
+	if ((row+1)-word.length() < 0 || (col+1) - word.length() < 0)
+	    return false;
+	for (int i = 0; i < word.length(); i++){
+	    if (!(board[row-i][col-k]==word.charAt(i) || board[row-i][col-k]== '-'))
+		return false;
+	}
+	
+	for (int j = 0; j < word.length(); j++){
+	    board[row-j][col-k] = word.charAt(j);
+	    k++;
+	}
+	
+	return true;
+    }
+
+
+    public boolean addWordSW(int row,int col, String word){
+	int k = 0;
+	if (word.length()>r-row || (col+1) - word.length() < 0)
+	    return false;
+	for (int i = 0; i < word.length(); i++){
+	    if (!(board[row+i][col-k]==word.charAt(i) || board[row+i][col-k]== '-'))
+		return false;
+	}
+	
+	for (int j = 0; j < word.length(); j++){
+	    board[row+j][col-k] = word.charAt(j);
+	    k++;
+	}
+	
+	return true;
+    }
+
+    public boolean addWordSE(int row,int col, String word){
+	int k = 0;
+	if (word.length()>r-row || word.length()>board[row].length-col)
+	    return false;
+	for (int i = 0; i < word.length(); i++){
+	    if (!(board[row+i][col+k]==word.charAt(i) || board[row+i][col+k]== '-'))
+		return false;
+	}
+	
+	for (int j = 0; j < word.length(); j++){
+	    board[row+j][col+k] = word.charAt(j);
+	    k++;
+	}
+	
+	return true;
+    }
 }
