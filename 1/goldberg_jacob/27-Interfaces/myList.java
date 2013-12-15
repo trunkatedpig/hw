@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class myList implements myMadeUpInterface, Iterable<Integer> {
+public class myList implements myInterface, Iterable<Integer> {
 
     private class myListIterator implements Iterator<Integer> {
 
