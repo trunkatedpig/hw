@@ -1,93 +1,50 @@
-import java.io.*;
 import java.util.*;
 
-public class WordSearch{
-	
-    private char[][] playArea;
-	
-	
-    public WordSearch(int rows, int columns){
-	
-	playArea = new char[rows][columns];
-		
+public class WordSearch {
+    private int rows, cols;
+    private char[][] board;
+
+    public WordSearch(int rows, int cols) {
+        board = new char[rows][cols];
+        for (int i=0;i<rows;i++) {
+            for (int j=0;j<cols;j++) {
+                board[i][j]='-';
+            }
+        }
+        this.rows = rows;
+        this.cols = cols;
     }
-	
-    public String toString(){
-        
-	String returnString = "";
-	
-	for (int rInt = 0;
-	     rInt < playArea.length;
-	     rInt++){
-	
-	    for (int cInt = 0;
-		 cInt < playArea[rInt].length;
-		 cInt++){
-	
-		returnString = returnString + playArea[rInt][cInt];
-	       
-	    } 
-	}
-	return returnString;
+
+    public WordSearch() {
+        this(20,20);
     }
     
-    public boolean addWordH(int row, int column, String word){
-	
-	if (row < 0 || column < 0){
-	    //Row and column cannot be less than 0
-	    return false;
-	    
-	} 
-	//____________________________________________
-
-	char[] CharacterWord = new char[word.length()];
-	
-	for (int wordRun = 0;
-	     wordRun < word.length();
-	     wordRun++){
-	    //Creates an array of all of the letters of the word.
-	    CharacterWord[wordRun] = word.charAt(wordRun);
-	    
-	}
-	
-	if (word.length() + row > playArea[0].length){
-
-	    return false;
-	    
-	}
-	//_________________________________________
-	int rowInt = row;
-	
-	for (int wordRun = 0;
-	     wordRun < word.length();
-	     wordRun++){	    
-	    
-	    //Checks if there are any letter conflictions
-	    if (playArea[rowInt][column] != CharacterWord[wordRun] || CharacterWord[wordRun] != 0){
-		
-		System.out.println("Heyyooo");
-		return false;
-		
-	    } 
-	    
-	    else {
-		
-		playArea[rowInt][column] = CharacterWord[wordRun];
-		rowInt++;
-		
-	    }
-	}
-	return true; 
+    public boolean addWordH(int row, int col, String word){
+        if(row<0||col>cols||col<0||row+word.length()>rows){
+            return false;
+        }
+        
+        for(int i = 0; i<word.length();i++) {
+            if(board[row][col+i] != '-'&& board[row][col+i] != word.charAt(i)){
+                return false;
+            }
+        }
+        
+        for(int i = 0; i<word.length();i++) {
+            board[row][col+i] = word.charAt(i);
+        }
+        return true;
     }
+    
+    public String toString() {
+        String s="";
+        for (int i=0;i<board.length;i++) {
+            for (int j=0;j<board[i].length;j++) {
+                s=s+board[i][j];
+            }
+            s=s+"\n";
+        }
+        return s;
+    }
+
 }
-	    
-	    
-		
-	    
-	    
-	    
-	
-	    
-	    
-	    
-	    

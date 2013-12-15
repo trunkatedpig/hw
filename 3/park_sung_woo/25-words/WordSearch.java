@@ -2,6 +2,8 @@ import java.util.*;
 
 public class WordSearch {
     private char[][] board;
+    private int numRow;
+    private int numCol;
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
@@ -10,6 +12,8 @@ public class WordSearch {
 		board[i][j]='-';
 	    }
 	}
+	numRow = rows;
+	numCol = cols;
 
     }
 
@@ -40,5 +44,16 @@ public class WordSearch {
             return true;
         }
         return false;
+    }
+
+    public boolean addWordV(int row, int col, String word){
+	if (row+word.length()<numRow+1){
+	    for (int i=0;i<word.length();i++){
+		board[row][col] = word.charAt(i);
+		row++;
+	    }
+	    return true;
+	}
+	return false;
     }
 }
