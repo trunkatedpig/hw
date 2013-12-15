@@ -24,7 +24,6 @@ public class WordSearch {
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	loadWords("wordList.java");
-	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
 	    for (int j=0;j<cols;j++) {
@@ -36,6 +35,7 @@ public class WordSearch {
 	}
 	System.out.println(toString());
 	fillBlanks();
+	System.out.println(wordList);
     }
     public WordSearch() {
 	this(20,20);
@@ -46,18 +46,21 @@ public class WordSearch {
 	int r,c;
 
 	if (deltaR<-1||deltaR>1||deltaC<-1||deltaC>1||
-	    (deltaR==0&&deltaC==0))
+	    (deltaR==0&&deltaC==0)){
+	    wordList.remove(word);
 	    return false;
-
+	}
 	// see if we can add the word
 	r = row;
 	c = col;
 	for (int i=0;i<word.length();i++) {
 	    try {
 		if (board[r][c]!='-' && board[r][c]!=word.charAt(i)) {
+		    wordList.remove(word);
 		    return false;
 		}
 	    } catch (ArrayIndexOutOfBoundsException e) {
+		wordList.remove(word);
 		return false; 
 	    }
 	    r=r+deltaR;
