@@ -1,4 +1,6 @@
 import java.util.*;
+import java.io.*;
+
 public class WordSearch {
 
     private char[][] board;
@@ -25,24 +27,233 @@ public class WordSearch {
         return s;
     }
     
-    public boolean addWord(int row, int col, String word){
-	if(col + word.length() > board[row].length){
-	    return false;
-	}
-	else{
-	    for(int i = 0; i < word.length(); i ++){
-		if(board[row][col] == ('-')){
-		    board[row][col] = word.charAt(i);
-		    col = col + 1;
+    public boolean addWordHR(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r][c+i] != '-' && board[r][c+i]!=word.charAt(i)) {
+		    return false; 
 		}
-		else if(!(board[row][col] == (word.charAt(i)))){
-		    return false;
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println(e);
+		return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r][c+i]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+    }
+
+    public boolean addWordHL(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r][c-i] != '-' && board[r][c-i]!=word.charAt(i)) {
+		    return false; 
+		}
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println(e);
+		return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r][c-i]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+    }
+
+     public boolean addWordVU(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r-i][c] != '-' && board[r-i][c]!=word.charAt(i)) {
+		    return false; 
+		}
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println(e);
+		return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r-i][c]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+     }
+
+      public boolean addWordVD(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r+i][c] != '-' && board[r+i][c]!=word.charAt(i)) {
+		    return false; 
+		}
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println(e);
+                    return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r+i][c]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+      }
+
+     public boolean addWordDRD(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r+i][c+i] != '-' && board[r+i][c+i]!=word.charAt(i)) {
+		    return false; 
+		}
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println(e);
+		return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r+i][c+i]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+     }
+
+    public boolean addWordDLD(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r+i][c-i] != '-' && board[r+i][c-i]!=word.charAt(i)) {
+		    return false; 
+		}
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println(e);
+		return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r+i][c-i]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+    }
+
+     public boolean addWordDRU(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r-i][c+i] != '-' && board[r-i][c+i]!=word.charAt(i)) {
+		    return false; 
+		}
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println(e);
+		return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r-i][c+i]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+     }
+
+     public boolean addWordDLU(int r, int c, String word) {
+	int i = 0;
+	while (i<word.length()) {
+	    try {
+		if ( board[r-i][c-i] != '-' && board[r-i][c-i]!=word.charAt(i)) {
+		    return false; 
+		}
+	    }
+	    catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println(e);
+		return false;  
+	    }
+	    i++;
+	}
+    
+
+        /* if we get here, we can add the word */
+        i=0;
+        while (i<word.length()) {
+            board[r-i][c-i]=word.charAt(i);
+            i++;
+        }
+        
+        return true;
+     }
+
+    /*public void fillIn(){
+	Random r = new Random();
+	for(int i = 0; i < board.length; i ++){
+	    for(int j = 0; j < board[i].length; j ++){
+		if(board[i][j] == '-'){
+		    int y =  r.nextInt(26) + 92;
+		    board[i][j] = char(y);
 		}
 	    }
 	}
-	return true;
     }
+    Doesn't work because replaces - with non-letters such as ^ / etc.
+    */
+
    
 
+
 }
+
+
+
 
