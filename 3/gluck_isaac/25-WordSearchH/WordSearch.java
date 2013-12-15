@@ -8,6 +8,7 @@ public class WordSearch {
 
     private void loadWords(String filename) {
 	ArrayList<String> tmpWordList = new ArrayList<String>();
+	//ArrayList<Integer> toDelete = new ArrayList<Integer>();
 	try {
 	    File f = new File(filename);
 	    Scanner sc = new Scanner(f);
@@ -22,26 +23,43 @@ public class WordSearch {
 
 	int length = tmpWordList.size();
 	wordList = new ArrayList<String>();
-	Random r = new Random();
 	for (int i=0;i<20;i++)
-	    wordList.add(tmpWordList.get(r.nextInt(length)));
+	    wordList.add(tmpWordList.get(rand.nextInt(length)));
+
+	int counter;
+	for (int i=0;i<wordList.size();i++){
+	    if (!addWordRand(wordList.get(i))){
+		counter = 0;
+		while(counter<=20){
+		    if (addWordRand(wordList.get(i)))
+			break;
+		    counter++;
+		}
+		if (counter>=20){
+		    wordList.remove(i);
+		    wordList.add(i, tmpWordList.get(rand.nextInt(length)));
+		    i--;
+		}
+	    }		
+	}
     }
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	loadWords("words");
-	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
 	    for (int j=0;j<cols;j++) {
 		board[i][j]='-';
 	    }
 	}
-
+	loadWords("words");
+	System.out.println(wordList);
+	System.out.println(this);
+	fillBlanks();
     }
 
     public WordSearch() {
-	this(40,40);
+	this(20,40);
     }
 
     public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
@@ -111,5 +129,4 @@ public class WordSearch {
 	}
 	return s;
     }
-
 }

@@ -4,7 +4,7 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
-	System.out.println(w);
+	/*System.out.println(w);
 	System.out.println(w.addWordHB(11,6, "hello"));
 	System.out.println(w);
 	System.out.println(w.addWordVU(11,9,"tornado"));
@@ -17,7 +17,9 @@ public class Driver {
 	System.out.println(w);
 	w.fill();
 	System.out.println(w);
-	
+	*/
+	w.getWords("wordlist");
+	w.makeSearch(15);
     }
 
 

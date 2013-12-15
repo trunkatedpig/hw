@@ -4,7 +4,7 @@ import java.io.*;
 public class WordSearch {
     private char[][] board;
     private Random rand;
-    private ArrayList<String> wordList;
+    private ArrayList<String> wordList, insertedWords;
 
     private void loadWords(String filename) {
 	wordList = new ArrayList<String>();
@@ -23,45 +23,38 @@ public class WordSearch {
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	loadWords("wordList.java");
+	loadWords("wordlist");
+	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
 	    for (int j=0;j<cols;j++) {
 		board[i][j]='-';
 	    }
 	}
-	for (int i=0;i<wordList.size();i++){
-	    addWordRand(wordList.get(i));
-	}
-	System.out.println(toString());
-	fillBlanks();
-	System.out.println(wordList);
+
     }
+
     public WordSearch() {
 	this(20,20);
     }
-	    
 
     public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
 	int r,c;
 
 	if (deltaR<-1||deltaR>1||deltaC<-1||deltaC>1||
-	    (deltaR==0&&deltaC==0)){
-	    wordList.remove(word);
+	    (deltaR==0&&deltaC==0))
 	    return false;
-	}
+
 	// see if we can add the word
 	r = row;
 	c = col;
 	for (int i=0;i<word.length();i++) {
 	    try {
 		if (board[r][c]!='-' && board[r][c]!=word.charAt(i)) {
-		    wordList.remove(word);
 		    return false;
 		}
 	    } catch (ArrayIndexOutOfBoundsException e) {
-		wordList.remove(word);
-		return false; 
+		return false; // return false since we can't add the word - we're out of bounds
 	    }
 	    r=r+deltaR;
 	    c=c+deltaC;
@@ -88,7 +81,7 @@ public class WordSearch {
 	for (int r=0;r<board.length;r++) {
 	    for (int c=0;c<board[0].length;c++) {
 		if (board[r][c]=='-') {
-		    board[r][c]=(char)('a'+rand.nextInt('z'-'a'));
+		    board[r][c]=(char)('A'+rand.nextInt('Z'-'A'));
 		}
 	    }
 	}
@@ -101,6 +94,29 @@ public class WordSearch {
 	return addWord(row,col,1,0,word);
     }
 
+	public void insertWords(int numWords) {
+	insertedWords = new ArrayList<String>();
+	Random r = new Random();
+	int count = numWords;
+	
+	while(count != 0) {
+		int pickWord = r.nextInt(wordList.size());
+		String word = wordList.get(pickWord);
+		for (int i = 0; i < 10; i++) {
+			if(addWordRand(word) == true) {
+				addWordRand(word);
+				wordList.remove(word);
+				insertedWords.add(word);
+				break;
+			}
+		}	
+		count --;
+		
+	
+			
+	}
+	System.out.println("Inserted Words : " + insertedWords + ": " + insertedWords.size());
+	}
 
     public String toString() {
 	String s="";
@@ -112,5 +128,7 @@ public class WordSearch {
 	}
 	return s;
     }
+	
+	
 
 }
