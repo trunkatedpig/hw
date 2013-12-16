@@ -5,6 +5,10 @@ public class WordSearch {
 
     private char[][] board;
     private int cols, rows;
+    private ArrayList<String> wordList;
+    private Random r;
+    private char[][] wordboard;
+    private ArrayList<String> list;
 
     public WordSearch(int row, int col) {
 	board = new char[row][col];
@@ -15,13 +19,55 @@ public class WordSearch {
 		board[i][j]='-';
     }
 
-    private void readWords(String filename) {
-	Scanner s = new Scanner(new file "wordlist");
-	ArrayList<String> L = new ArrayList<String>;
-	while (s.hasNext()) {
-	    L.add(s.next());
+    private void create() {
+	for (int n = 0; n < 10; n++) {
+	    int i = r.nextInt(wordList.length());
+	    int m = 0;
+	    boolean x = addWordRandomLoc(wordList.get(i));
+	    while (!x && m < 3){
+	        m = m+1;
+	    }
+	    if (x)
+		list.add(wordList.get(i));
 	}
+	wordboard = board;
+	fillInBlanks();
     }
+
+    public void fillInBlanks() {
+        for (int r = 0; r < board.length; r++)
+            for (int c=0;c<board[0].length;c++) {
+                if (board[r][c]=='-')
+                    board[r][c]=(char)('A'+(char)rand.nextInt('Z'-'A'));
+            }
+    }
+	    
+	    
+	
+    private void readWords(String filename) {
+        wordList = new ArrayList<String>();
+        try {
+            Scanner sc = new Scanner(new File(filename));
+            while (sc.hasNext()) {
+                String s =sc.nextLine();
+                wordList.add(s);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            System.exit(0);
+        }
+    }
+
+    public boolean addWordRandomLoc(String w) {
+        int r = rand.nextInt(board.length);
+        int c = rand.nextInt(board[0].length);
+        int deltaR = rand.nextInt(3)-1;
+        int deltaC = rand.nextInt(3)-1;
+
+        return addWord(r,c,deltaR,deltaC,w);
+
+    }
+
 
     public WordSearch() {
 	this(20,20);
@@ -97,3 +143,4 @@ public class WordSearch {
     public boolean addWordNW(int row, int col, String word) {
 	return addWord (row, col, -1, -1, word);
     }
+}
