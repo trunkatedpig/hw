@@ -23,7 +23,7 @@ public class WordSearch {
 
     public WordSearch(int rows, int cols) {
         rand = new Random();
-        loadWords("wordlist");
+        loadWords("wordslist");
         System.out.println(wordList);
         board = new char[rows][cols];
         for (int i=0;i<rows;i++) {
@@ -114,15 +114,16 @@ public class WordSearch {
     public void makeWordSearch(){
 	ArrayList<String> words = new ArrayList<String>();
 	ArrayList<String> wordlist = wordList;
-	for (int i = 0;i<wordlist.length();i++){
+	for (int i = 0;i<wordlist.size();i++){
 	    boolean result=addWordRand(wordlist.get(i));
 	    if (result){
 		words.add(wordlist.get(i));
 		wordlist.remove(wordlist.get(i));
 	    }
 	    else{
+		boolean retry;
 		for (int j=0;j<10;j++){
-		    boolean retry = addWordRand(wordlist.get(i));
+		    retry = addWordRand(wordlist.get(i));
 		    if (retry){
 			words.add(wordlist.get(i));
 			wordlist.remove(wordlist.get(i));
@@ -132,9 +133,9 @@ public class WordSearch {
 		}
 	    }
 	}
-	System.out.println(board);
+	System.out.println(board.toString());
 	this.fillBlanks();
-	System.out.println(board);
+	System.out.println(board.toString());
 	System.out.println(words);
     }
 
