@@ -1,18 +1,137 @@
 import java.util.*;
+import java.io.*;
+
 public class WordSearch {
 
     private char[][] board;
+    private Random rand;
+    private ArrayList<String> wordList;
+    private ArrayList<String> words;
+    
+    private void readWords(String filename) {
+	wordList = new ArrayList<String>();
+	try {
+	    Scanner sc = new Scanner(new File(filename));
+	    while (sc.hasNext()) {
+		String s =sc.nextLine();
+		wordList.add(s.toUpperCase());
+	    }
+	} catch (FileNotFoundException e) {
+	    // if we can't open the file we
+	    // exit the program
+	    System.out.println(e);
+	    System.exit(0);
+	}
+    }
+
+
+  
+    public void setWords(int numWords){
+	words = new ArrayList<String>();
+	for (int i=0; i<numWords; i++){
+	    int n = rand.nextInt(wordList.size());
+	    String s = wordList.get(n);
+	    boolean added = false;
+	    while(!added){
+		n = rand.nextInt(wordList.size());
+		s = wordList.get(n);
+		added = false;
+		for (int x=0; x<30; x++){
+		    if(addWordRandomLoc(s)){
+			words.add(s);
+			wordList.remove(n);
+			added = true;
+			break;
+		    }
+		}
+	    }
+
+	}
+    }
+
+    public ArrayList getWords(){
+	return words;
+    }
 
     public WordSearch(int rows, int cols) {
+	rand = new Random();
+	readWords("words");
+	//System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
 		board[i][j]='-';
+
     }
 
     public WordSearch() {
 	this(20,20);
     }
+
+    public boolean addWord(int row, int col, int deltaR, int deltaC,  String word) {
+
+	/* make sure deltas are in range */
+	if (deltaR < -1 || deltaR > 1 || deltaC < -1 || deltaC > 1 || 
+	    (deltaR==0 && deltaC==0) )
+	    return false;
+
+	/* see if we can place the word */
+	int r = row;
+	int c = col;
+	for (int i=0; i < word.length(); i++) {
+		try {
+		    //j=10/i; <-- this is only to show the Arithmetic exception
+		    if ( board[r][c] != '-' && board[r][c]!=word.charAt(i)) {
+			return false; // we return false since we can't add the word
+		    }
+		} catch (ArrayIndexOutOfBoundsException e) { // Handle the array one
+		    return false;  // we return false since we can't add the word
+		}
+		r = r + deltaR; 
+		c = c+ deltaC;
+	    }
+    	
+	/* if we get here, we can add the word */
+	r = row;
+	c = col;
+	for (int i=0; i < word.length(); i++) {
+	    board[r][c]=word.charAt(i);
+	    r = r + deltaR; 
+	    c = c+ deltaC;
+	}
+    	
+	
+	return true;
+    }
+
+    public boolean addWordH(int r, int c, String w) {
+	return addWord(r,c,0,-1,w);
+    }
+    public boolean addWordV(int r, int c, String w) {
+	return addWord(r,c,1,0,w);
+    }
+    public boolean addWordD(int r, int c, String w) {
+	return addWord(r,c,1,1,w);
+    }
+    
+    public boolean addWordRandomLoc(String w) {
+	int r = rand.nextInt(board.length);
+	int c = rand.nextInt(board[0].length);
+	int deltaR = rand.nextInt(3)-1;
+	int deltaC = rand.nextInt(3)-1;
+
+	return addWord(r,c,deltaR,deltaC,w);
+
+    }
+
+    public void fillInBlanks() {
+	for (int r = 0; r < board.length; r++)
+	    for (int c=0;c<board[0].length;c++) {
+		if (board[r][c]=='-')
+		    board[r][c]=(char)('A'+(char)rand.nextInt('Z'-'A'));
+	    }
+    }
+
 
     public String toString() {
 	String s = "";
@@ -24,133 +143,6 @@ public class WordSearch {
 	}
 	return s;
     }
-    public boolean addWordH(int row, int col, String word){
-	//test if legal
-	int c = 0;
 
-	//prevents error in next boolean
-	if (word.length() == 0)
-	    return true;
-
-	//check range of row and col
-	if (!(row>=0 && row<board.length) || !(col>=0 && col<=board[row].length-word.length()))
-	    return false;
-
-	//check if something is in the way before adding
-	while (c<word.length()){
-	    if(!((""+board[row][col+c]).equals("-")) && !((""+board[row][col+c]).equals(""+word.charAt(c))))
-		return false;
-	    c = c + 1;
-	}
-
-	//if legal, add
-	c=0;
-	while (c<word.length()){   
-	    board[row][col] = word.charAt(c);
-	    c = c + 1;
-	    col = col + 1;
-	}
-	return true;
-    }
-   
-    public String reverse(String s){
-	String reversed = "";
-	for (int i = s.length()-1; i>=0; i--){
-	    reversed += s.charAt(i);
-	}
-	return reversed;
-    }
-    
-    public boolean addWordHLeft(int r, int c, String word){
-	return addWordH(r,c-word.length()+1,reverse(word));
-    }
-
-    public boolean addWordV(int r, int c, String word){
-	int x = 0;
-
-	if (!(c>=0 && c<board.length) || !(r>=0 && r<board[c].length-word.length()))
-	    return false;
-
-	while (x<word.length()){
-	    if(!((""+board[r+x][c]).equals("-")) && !((""+board[r+x][c]).equals(""+word.charAt(x))))
-		return false;
-	    x=x+1;
-	}
-
-	x=0;
-	while (x<word.length()){
-	    board[r][c] = word.charAt(x);
-	    x++;
-	    r++;
-	}
-	return true;
-    }
-    
-    public boolean addWordVUp(int r, int c, String word){
-	return addWordV(r-word.length()+1,c,reverse(word));
-    }
-
-    public boolean addWordSE(int r, int c, String word){
-	int x = 0;
-
-	if (!(c>=0 && c<board.length-word.length()) || !(r>=0 && r<board[c].length-word.length()))
-	    return false;
-
-	while (x<word.length()){
-	    if(!((""+board[r+x][c+x]).equals("-")) && !((""+board[r+x][c+x]).equals(""+word.charAt(x))))
-		return false;
-	    x=x+1;
-	}
-
-	x=0;
-	while (x<word.length()){
-	    board[r][c] = word.charAt(x);
-	    x++;
-	    c++;
-	    r++;
-	}
-	return true;
-    }
-    
-    public boolean addWordNW(int r, int c, String word){
-	return addWordSE(r-word.length()+1,c-word.length()+1,reverse(word));
-    }
-
-    public boolean addWordSW(int r, int c, String word){
-	int x = 0;
-
-	if (!(c>=0 && c<board.length+word.length()) || !(r>=0 && r<board[c].length-word.length()))
-	    return false;
-
-	while (x<word.length()){
-	    if(!((""+board[r+x][c-x]).equals("-")) && !((""+board[r+x][c-x]).equals(""+word.charAt(x))))
-		return false;
-	    x=x+1;
-	}
-
-	x=0;
-	while (x<word.length()){
-	    board[r][c] = word.charAt(x);
-	    x++;
-	    c--;
-	    r++;
-	}
-	return true;
-    }
-    
-    public boolean addWordNE(int r, int c, String word){
-	return addWordSW(r-word.length()+1,c+word.length()-1,reverse(word));
-    }
-
-    public void fillRand(){
-	for (int i = 0; i < board.length; i++){
-	    for (int j=0; j<board[i].length; j++){
-		if(board[i][j] == '-'){
-		    board[i][j] = (char)('a' + (int)(Math.random()*26));
-		}
-	    }
-	}
-    }
-    
 
 }
