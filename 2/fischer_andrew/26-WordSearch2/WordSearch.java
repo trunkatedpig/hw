@@ -6,8 +6,8 @@ public class WordSearch {
     private Random rand;
     private ArrayList<String> wordList;
 
-    private ArrayList loadWords(String filename) {
-    	wordList = new ArrayList<String>();
+    protected void loadWords(String filename) {
+	wordList = new ArrayList<String>();
 	try {
 	    File f = new File(filename);
 	    Scanner sc = new Scanner(f);
@@ -19,7 +19,6 @@ public class WordSearch {
 	    System.out.println(e);
 	    System.exit(0);
 	}
-	return wordList;
     }
 
     public WordSearch(int rows, int cols) {
@@ -36,10 +35,11 @@ public class WordSearch {
     }
 
     public WordSearch() {
-	this(20,20);
+	this(40,30);
     }
+    
 
-    public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
+    private boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
 	int r,c;
 
 	if (deltaR<-1||deltaR>1||deltaC<-1||deltaC>1||
@@ -67,26 +67,30 @@ public class WordSearch {
 	    r=r+deltaR;
 	    c=c+deltaC;
 	}
-    return true;
+	return true;
     }
-
+    
     public boolean addWordRand(String w) {
 	int r = rand.nextInt(board.length);
 	int c = rand.nextInt(board[0].length);
 	int deltaR = rand.nextInt(3)-1;
 	int deltaC = rand.nextInt(3)-1;
-	return addWord(r,c,deltaR,deltaC,w);
+	if (addWord(r,c,deltaR,deltaC,w) == true) {
+	    wordList.add(w);
+	    return addWord(r,c,deltaR,deltaC,w);	
+	}
+	else {return false;}
     }
-
+    
     public void fillBlanks() {
 	for (int r=0;r<board.length;r++) {
 	    for (int c=0;c<board[0].length;c++) {
 		if (board[r][c]=='-') {
-		    board[r][c]=(char)('a'+rand.nextInt('z'-'a'));
+		    board[r][c]=(char)('A'+rand.nextInt('Z'-'A'));
 		}
 	    }
 	}
-
+	
     }
     public boolean addWordH(int row, int col, String word) {
 	return addWord(row,col,0,1,word);
@@ -95,6 +99,20 @@ public class WordSearch {
 	return addWord(row,col,1,0,word);
     }
 
+
+
+    public void fill(){
+	String allChar = "abcdefghijklmnopqrstuvwxyz";
+	Random x = new Random();
+	
+	for (int r=0;r<board.length; r++){
+	    for (int c=0; c<board[0].length; c++){
+		if (board[r][c] == "-".charAt(0)){
+		    board[r][c] = allChar.charAt(x.nextInt(26));
+		}
+	    }
+	}
+    }
 
     public String toString() {
 	String s="";
@@ -106,33 +124,5 @@ public class WordSearch {
 	}
 	return s;
     }
-    
 
-    public void autoFill(int numberWords, String answerCheck){
-	int numberLeft = numberWords;
-	ArrayList<String> wordList = loadWords("wordlist");
-	ArrayList<String> usedList = new ArrayList();
-	for (; numberLeft != 0; ){
-	    String addAttempt =  wordList.get(rand.nextInt(wordList.size()));
-	    if (addWordRand(addAttempt) == true){
-		numberLeft--;
-		addWordRand(addAttempt);
-		usedList.add(addAttempt);
-		//Oh god, the moment when you spelled something wrong
-		//and you don't have the zamansky skills to auto
-		//change everything instantly. 
-	    }}
-	if (answerCheck.equals("yes")){
-	    }
-	    else{
-		fillBlanks();
-	    }
-	System.out.println("\n\n\n Word Bank:" +  usedList + "\n\n");
-    }
-	    
-	
-		
-	
-	
-	
 }

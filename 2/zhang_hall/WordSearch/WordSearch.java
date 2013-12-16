@@ -6,8 +6,8 @@ public class WordSearch {
     private Random rand;
     private ArrayList<String> wordList;
 
-    private ArrayList loadWords(String filename) {
-    	wordList = new ArrayList<String>();
+    private void loadWords(String filename) {
+	wordList = new ArrayList<String>();
 	try {
 	    File f = new File(filename);
 	    Scanner sc = new Scanner(f);
@@ -19,7 +19,6 @@ public class WordSearch {
 	    System.out.println(e);
 	    System.exit(0);
 	}
-	return wordList;
     }
 
     public WordSearch(int rows, int cols) {
@@ -67,7 +66,7 @@ public class WordSearch {
 	    r=r+deltaR;
 	    c=c+deltaC;
 	}
-    return true;
+	return true;
     }
 
     public boolean addWordRand(String w) {
@@ -82,7 +81,7 @@ public class WordSearch {
 	for (int r=0;r<board.length;r++) {
 	    for (int c=0;c<board[0].length;c++) {
 		if (board[r][c]=='-') {
-		    board[r][c]=(char)('a'+rand.nextInt('z'-'a'));
+		    board[r][c]=(char)('A'+rand.nextInt('Z'-'A'));
 		}
 	    }
 	}
@@ -106,33 +105,7 @@ public class WordSearch {
 	}
 	return s;
     }
-    
 
-    public void autoFill(int numberWords, String answerCheck){
-	int numberLeft = numberWords;
-	ArrayList<String> wordList = loadWords("wordlist");
-	ArrayList<String> usedList = new ArrayList();
-	for (; numberLeft != 0; ){
-	    String addAttempt =  wordList.get(rand.nextInt(wordList.size()));
-	    if (addWordRand(addAttempt) == true){
-		numberLeft--;
-		addWordRand(addAttempt);
-		usedList.add(addAttempt);
-		//Oh god, the moment when you spelled something wrong
-		//and you don't have the zamansky skills to auto
-		//change everything instantly. 
-	    }}
-	if (answerCheck.equals("yes")){
-	    }
-	    else{
-		fillBlanks();
-	    }
-	System.out.println("\n\n\n Word Bank:" +  usedList + "\n\n");
-    }
-	    
-	
-		
-	
-	
-	
+
+
 }
