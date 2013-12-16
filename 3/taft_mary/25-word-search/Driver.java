@@ -8,8 +8,10 @@ public class Driver {
 	System.out.println("Original board:\n\n"+w);
 	System.out.println();
 
-	w.addWordH(8,5,"hello");
-	w.addWordH(10,5,"world");
+	w.addWordH(9,7,"hello");
+	w.addWordH(11,7,"world");
+	w.addWordV(1,1,"bonjour");
+	w.addWordD(15,15,"hola");
 	System.out.println("Updated board:\n\n"+w);
 	System.out.println();
 

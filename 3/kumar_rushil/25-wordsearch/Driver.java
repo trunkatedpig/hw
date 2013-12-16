@@ -2,15 +2,17 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
+	String s;
 	WordSearch w = new WordSearch();
-	boolean b;	
-	System.out.println(w);  
-        b = w.addWordH(2,3,"Rushil");
-	System.out.println(w);     
-	System.out.println(b); 
-        b = w.addWordH(2,2,"Rushil");
+	System.out.println(w);
+	/*
+	s = w.randWord();
+	w.addWordRand(s);
+	System.out.println("Added " + s);
 	System.out.println(w); 
-	System.out.println(b); 
-	System.out.println(w.tempArray()); 
+	*/
+	w.makeGame(10);
+	System.out.println(w); 
+
     }
 }
