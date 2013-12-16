@@ -21,7 +21,7 @@ public class WordSearch {
 
     private void create() {
 	for (int n = 0; n < 10; n++) {
-	    int i = r.nextInt(wordList.length());
+	    int i = r.nextInt(wordList.size());
 	    int m = 0;
 	    boolean x = addWordRandomLoc(wordList.get(i));
 	    while (!x && m < 3){
@@ -35,10 +35,11 @@ public class WordSearch {
     }
 
     public void fillInBlanks() {
-        for (int r = 0; r < board.length; r++)
+        for (int x = 0; x < board.length; x++)
             for (int c=0;c<board[0].length;c++) {
-                if (board[r][c]=='-')
-                    board[r][c]=(char)('A'+(char)rand.nextInt('Z'-'A'));
+                if (board[x][c]=='-'){
+                    board[x][c]=(char)('A'+(char) r.nextInt('Z'-'A'));
+		}
             }
     }
 	    
@@ -59,12 +60,12 @@ public class WordSearch {
     }
 
     public boolean addWordRandomLoc(String w) {
-        int r = rand.nextInt(board.length);
-        int c = rand.nextInt(board[0].length);
-        int deltaR = rand.nextInt(3)-1;
-        int deltaC = rand.nextInt(3)-1;
+        int x = r.nextInt(board.length);
+        int c = r.nextInt(board[0].length);
+        int deltaR = r.nextInt(3)-1;
+        int deltaC = r.nextInt(3)-1;
 
-        return addWord(r,c,deltaR,deltaC,w);
+        return addWord(x,c,deltaR,deltaC,w);
 
     }
 
