@@ -3,12 +3,19 @@ import java.io.*;
 
 public class Driver {
     public static void main(String[] args) {
-	WordSearch w = new WordSearch();
-	w.addWordH(3,3,"swagtastic");
-	w.addWordV(4,5,"sostress");
-	w.addWordHB(15,15,"exo");
-	w.addWordVB(10,10,"peanuts");
+	WordSearch w = new WordSearch(15,30);
 	System.out.println(w);
+	w.addWordRandomLoc("defenistration");
+	w.addWordRandomLoc("hello");
+	w.addWordRandomLoc("world");
+	w.addWordRandomLoc("goat");
+	w.addWordRandomLoc("turtle");
+	w.addWordRandomLoc("koala");
+	w.addWordRandomLoc("squid");
+	w.addWordRandomLoc("doggie");
+	//System.out.println(w);
+	//w.fillInBlanks();
+	//System.out.println(w);
     }
 
 }
