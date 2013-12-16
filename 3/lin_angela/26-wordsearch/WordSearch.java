@@ -38,6 +38,7 @@ public class WordSearch {
 
 
     public void createBoard(){
+	readWords("wordlist");
 	for (int i=0; i<wordList.size(); i++){
 	    int tries=0;
 	    boolean success=false;
