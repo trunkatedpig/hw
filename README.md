@@ -15,8 +15,8 @@ Please be sure to upload your homework into the correct repository.
 
 ### Additional Notes:
 
-Please *do not* delete everyone's folder.
-
-Before you commit, do `git status` to see the changes you made locally.
+- Please *do not* delete everyone's folder.
+- Please *do not* name your folders with the same name (even if it uses different upper/lower case letters).
+- Before you commit, do `git status` to see the changes you made locally.
 
 Check out and contribute useful information in the [the wiki](https://github.com/stuycs-apcs-z/hw/wiki/_pages).
