@@ -3,6 +3,9 @@ import java.util.*;
 public class WordSearch {
     private char[][] board;
     private int numRows, numCols;
+    
+    Scanner s = new Scanner(new File("words"));
+    
 
     public WordSearch(int rows, int cols) {
 	board = new char[rows][cols];
