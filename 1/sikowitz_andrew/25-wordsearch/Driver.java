@@ -3,20 +3,19 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
+	/*char[] a = {'a', 'e', 'b', 'd'};
+	Arrays.sort(a);
+	System.out.println(Arrays.toString(a));
+	System.out.println(Arrays.binarySearch(a, '-'));*/
 	WordSearch w = new WordSearch();
-	w.addWordH(5, 5, "hello");
-	w.addWordH(0, 13, "goodbye");
-	System.out.println(w.addWordH(6,16,"apple"));
-	w.addWordH(6, 15, "apple");
-	System.out.println(w.addWordH(5,5,"hello"));
-	w.addWordH(8, 4, "e");
-	w.addWordH(8, 1, "pokes");
-	System.out.println(w);
-	w.addWordV(4, 6, "negligible");
-	w.addWordV(0, 0, "hello");
-	System.out.println(w.addWordV(16, 3, "night"));
-	w.addWordV(15, 3, "night");
-	System.out.println(w.addWordV(4, 0, "goodbye"));
+	w.addWordH(3, 3, "fish", 1);
+	w.addWordH(4, 5, "fish", -1);
+	w.addWordV(8, 3, "corn", 1);
+	w.addWordV(9, 15, "corn", -1);
+	w.addWordD(14, 11, "apple", 1, 1);
+	w.addWordD(12, 11, "pears", -1, 1);
+	w.addWordD(14, 9, "cherry", 1, -1);
+	w.addWordD(12, 9, "banana", -1, -1);
 	System.out.println(w);
     }
 

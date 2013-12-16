@@ -1,22 +1,55 @@
+
 import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.io.*;
+
 
 public class Driver {
     public static void main(String[] args) {
-	WordSearch w = new WordSearch(20,40);
+
+	//////////////////////////
+	// BOARD HEIGHT & WIDTH // 
+	//////////////////////////
+	
+	int height = 30;
+	int width = 120;
+	
+	if (args.length >= 2){
+	    height = Integer.parseInt(args[0]);
+	    width = Integer.parseInt(args[1]);
+	}
+       	//////////////////////////
+	
+	WordSearch w = new WordSearch(height,width);
 	Random R = new Random();
-	System.out.println(w);
-	//  AddWord (int r, int c, int dx, int dy, String word)
-	// dx: 1 for right, -1 for left, 0 for stationary
-	// dy: 1 for down, -1 for up, 0 for stationary
-	w.AddWord(10, 10, -1, 0, "caspar");
-	w.AddWord(11, 10, 1, 0, "CASPAR");
-	//w.AddWord(
-	//w.AddWord(
-	//w.AddWord(
-	w.FillIn();
-       	System.out.println(w);
+	
+	//Clear the screen:
+	for (int i = 0; i < 45; i++)
+	    System.out.println();
+	//
+	
+	w.RandWords(67); //length of instrument list; crashes if higher.
+	w.FillIn(); 
+       	System.out.println(w + "\n");
 
-
+	String spaces = "";
+	for (int i = 0; i < (width/2 -5); i ++)
+	    spaces = spaces + " ";
+	System.out.println(spaces + "WORDS: \n");
+	
+	// Print used words:
+	int wordsOnLine = -1;
+	for (int i = 0; i < w.length; i++){
+	    wordsOnLine++;
+	    if (width - ((wordsOnLine+1)*15) < 0){
+		wordsOnLine = 0;
+		System.out.println("");
+	    }
+	System.out.print(w.usedWords.get(i) + " ");
+    	}
+	System.out.println("\n");
+	//
     }
-
 }
