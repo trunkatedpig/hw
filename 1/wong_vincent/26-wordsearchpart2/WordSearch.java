@@ -6,17 +6,15 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
-    private ArrayList<String> words;
+    private ArrayList <String> words = new ArrayList <String>();
 
     private void readWords(String filename) {
 	wordList = new ArrayList<String>();
 	try {
 	    Scanner sc = new Scanner(new File(filename));
 	    while (sc.hasNext()) {
-		if (sc.nextLine().length() < 3 ){
-		    String s =sc.nextLine().toUpperCase();
-		    wordList.add(s);
-		}
+		String s =sc.nextLine();
+		wordList.add(s);
 	    }
 	} catch (FileNotFoundException e) {
 	    // if we can't open the file we
@@ -25,16 +23,7 @@ public class WordSearch {
 	    System.exit(0);
 	}
     }
-    public void chooseWords(int numWords){
-	while (words.size()<numWords){
-	    int i = rand.nextInt(wordList.size());
-	    String s = wordList.get(i);
-	    if(s.addWordRandomLoc())
-		words.add(s);
-	}
-
-    }
-
+    
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	readWords("wordlist");
@@ -45,7 +34,7 @@ public class WordSearch {
 		board[i][j]='-';
 
     }
-
+    
     public WordSearch() {
 	this(20,20);
     }
@@ -106,6 +95,21 @@ public class WordSearch {
 
     }
 
+    //___________________________________________________________________
+
+    public void answerkey() {
+	for (int i = 0; i < 20; i++) {
+	    int r = rand.nextInt(wordList.size());
+	    if (addWordRandomLoc(wordList.get(r).toUpperCase())) {
+		words.add(wordList.get(r));
+	    }
+	}
+	//fillInBlanks();
+	System.out.println("List of words in the puzzle: " + words);
+    }
+
+    //___________________________________________________________________
+
     public void fillInBlanks() {
 	for (int r = 0; r < board.length; r++)
 	    for (int c=0;c<board[0].length;c++) {
@@ -125,6 +129,6 @@ public class WordSearch {
 	}
 	return s;
     }
-	    
+
 
 }
