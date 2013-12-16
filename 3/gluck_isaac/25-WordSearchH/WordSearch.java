@@ -1,196 +1,132 @@
 import java.util.*;
+import java.io.*;
 
 public class WordSearch {
     private char[][] board;
+    private Random rand;
+    private ArrayList<String> wordList;
+
+    private void loadWords(String filename) {
+	ArrayList<String> tmpWordList = new ArrayList<String>();
+	//ArrayList<Integer> toDelete = new ArrayList<Integer>();
+	try {
+	    File f = new File(filename);
+	    Scanner sc = new Scanner(f);
+	    while (sc.hasNext()) {
+		String s =sc.nextLine();
+		tmpWordList.add(s);
+	    }
+	} catch (FileNotFoundException e) {
+	    System.out.println(e);
+	    System.exit(0);
+	}
+
+	int length = tmpWordList.size();
+	wordList = new ArrayList<String>();
+	for (int i=0;i<20;i++)
+	    wordList.add(tmpWordList.get(rand.nextInt(length)));
+
+	int counter;
+	for (int i=0;i<wordList.size();i++){
+	    if (!addWordRand(wordList.get(i))){
+		counter = 0;
+		while(counter<=20){
+		    if (addWordRand(wordList.get(i)))
+			break;
+		    counter++;
+		}
+		if (counter>=20){
+		    wordList.remove(i);
+		    wordList.add(i, tmpWordList.get(rand.nextInt(length)));
+		    i--;
+		}
+	    }		
+	}
+    }
 
     public WordSearch(int rows, int cols) {
-		board = new char[rows][cols];
-		for (int i=0;i<rows;i++) {
-	    	for (int j=0;j<cols;j++) {
-				board[i][j]='-';
-	    	}
-		}
+	rand = new Random();
+	board = new char[rows][cols];
+	for (int i=0;i<rows;i++) {
+	    for (int j=0;j<cols;j++) {
+		board[i][j]='-';
+	    }
+	}
+	loadWords("words");
+	System.out.println(wordList);
+	System.out.println(this);
+	fillBlanks();
     }
 
     public WordSearch() {
-		this(20,20);
+	this(20,40);
     }
+
+    public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
+	int r,c;
+
+	if (deltaR<-1||deltaR>1||deltaC<-1||deltaC>1||
+	    (deltaR==0&&deltaC==0))
+	    return false;
+
+	// see if we can add the word
+	r = row;
+	c = col;
+	for (int i=0;i<word.length();i++) {
+	    try {
+		if (board[r][c]!='-' && board[r][c]!=word.charAt(i)) {
+		    return false;
+		}
+	    } catch (ArrayIndexOutOfBoundsException e) {
+		return false; // return false since we can't add the word - we're out of bounds
+	    }
+	    r=r+deltaR;
+	    c=c+deltaC;
+	}
+	r=row;
+	c=col;
+	for (int i=0;i<word.length();i++) {
+	    board[r][c]=word.charAt(i);
+	    r=r+deltaR;
+	    c=c+deltaC;
+	}
+    return true;
+    }
+
+    public boolean addWordRand(String w) {
+	int r = rand.nextInt(board.length);
+	int c = rand.nextInt(board[0].length);
+	int deltaR = rand.nextInt(3)-1;
+	int deltaC = rand.nextInt(3)-1;
+	return addWord(r,c,deltaR,deltaC,w);
+    }
+
+    public void fillBlanks() {
+	for (int r=0;r<board.length;r++) {
+	    for (int c=0;c<board[0].length;c++) {
+		if (board[r][c]=='-') {
+		    board[r][c]=(char)('A'+rand.nextInt('Z'-'A'));
+		}
+	    }
+	}
+
+    }
+    public boolean addWordH(int row, int col, String word) {
+	return addWord(row,col,0,1,word);
+    }
+    public boolean addWordV(int row, int col, String word) {
+	return addWord(row,col,1,0,word);
+    }
+
 
     public String toString() {
-		String s="";
-		for (int i=0;i<board.length;i++) {
-		    for (int j=0;j<board[i].length;j++) {
-			s=s+board[i][j];
-		    }
-		    s=s+"\n";
-		}
-		return s;
+	String s="";
+	for (int i=0;i<board.length;i++) {
+	    for (int j=0;j<board[i].length;j++) {
+		s=s+board[i][j];
+	    }
+	    s=s+"\n";
+	}
+	return s;
     }
-
-    public boolean addWordForwardH(int row, int col, String word){
-		int length = word.length();
-		int rowSize = board[0].length;
-
-		//If the word is off the board or partly off the board
-		if ( col < 0 || col > rowSize || col + length >=rowSize)
-		    return false;
-
-		//If the place where the word would go has other letters that don't match
-		int n = 0;
-		for (int i=col;i<col+length;i++){
-			if (board[row][i] != '-' && board[row][i] != word.charAt(n))
-				return false;
-			n++;
-		}
-
-		//Add word
-		n = 0;
-		for (int i=col;i<col+length;i++){
-			board[row][i] = word.charAt(n);
-			n++;
-		}
-
-		return true;
-    }
-
-    public boolean addWordBackwardH(int row, int col, String word){
-	int length = word.length();
-	int rowSize = board[0].length;
-	
-	//If the word is off the board or partly off the board
-	if ( col < 0 || col > rowSize || col + length >=rowSize)
-	    return false;
-	
-	//If the place where the word would go has other letters that don't match
-	int n = length-1;
-	for (int i=col;i<col+length;i++){
-	    if (board[row][i] != '-' && board[row][i] != word.charAt(n))
-		return false;
-	    n--;
-	}
-	
-	//Add word
-	n = length-1;
-	for (int i=col;i<col+length;i++){
-	    board[row][i] = word.charAt(n);
-	    n--;
-	}
-	
-	return true;
-    }
-
-    public boolean addWordForwardV(int row, int col, String word){
-	int length = word.length();
-	int colSize = board.length;
-	
-	//If the word is off the board or partly off the board
-	if ( row < 0 || row > colSize || row + length >=colSize)
-	    return false;
-
-	//If the place where the word would go has other letters that don't match
-	int n=0;
-	for (int i=row; i<row+length;i++){
-	    if (board[i][col] != '-' && board[i][col] != word.charAt(n))
-		return false;
-	    n++;
-	}
-
-	//Add word
-	n = 0;
-	for (int i=row;i<row+length;i++){
-	    board[i][col] = word.charAt(n);
-	    n++;
-	}
-
-	return true;
-    }
-
-    public boolean addWordBackwardV(int row, int col, String word){
-	int length = word.length();
-	int colSize = board.length;
-	
-	//If the word is off the board or partly off the board
-	if ( row < 0 || row > colSize || row + length >=colSize)
-	    return false;
-	
-	//If the place where the word would go has other letters that don't match
-	int n=length-1;
-	for (int i=row; i<row+length;i++){
-	    if (board[i][col] != '-' && board[i][col] != word.charAt(n))
-		return false;
-	    n--;
-	}
-	
-	//Add word
-	n = length-1;
-	for (int i=row;i<row+length;i++){
-	    board[i][col] = word.charAt(n);
-	    n--;
-	}
-	
-	return true;
-    }
-
-    public boolean addWordForwardD(int row, int col, String word){
-	int length = word.length();
-	int rowSize = board[0].length;
-	int colSize = board.length;
-	
-	//If the word is off the board or partly off the board
-	if ( col < 0 || col > rowSize || col + length >=rowSize)
-	    return false;
-	
-	//If the place where the word would go has other letters that don't match
-	int n=0;
-	int r=row;
-	for (int i=col; i<col+length;i++){
-	    if (board[r][i] != '-' && board[r][i] != word.charAt(n))
-		return false;
-	    n++;
-	    r++;
-	}
-	
-	//Add word
-	n = 0;
-	r = row;
-	for (int i=col;i<col+length;i++){
-	    board[r][i] = word.charAt(n);
-	    n++;
-	    r++;
-	}
-	
-	return true;
-    }
-
- public boolean addWordBackwardD(int row, int col, String word){
-	int length = word.length();
-	int rowSize = board[0].length;
-	int colSize = board.length;
-	
-	//If the word is off the board or partly off the board
-	if ( col < 0 || col > rowSize || col + length >=rowSize)
-	    return false;
-	
-	//If the place where the word would go has other letters that don't match
-	int n=length-1;
-	int r=row;
-	for (int i=col; i<col+length;i++){
-	    if (board[r][i] != '-' && board[r][i] != word.charAt(n))
-		return false;
-	    n--;
-	    r++;
-	}
-	
-	//Add word
-	n = length-1;
-	r = row;
-	for (int i=col;i<col+length;i++){
-	    board[r][i] = word.charAt(n);
-	    n--;
-	    r++;
-	}
-	
-	return true;
-    }
-
 }
