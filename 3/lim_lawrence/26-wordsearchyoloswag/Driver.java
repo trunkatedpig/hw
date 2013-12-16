@@ -5,9 +5,10 @@ public class Driver {
     public static void main(String[] args){
 	
 	WordSearch w = new WordSearch(15,40);
+	w.fillWords(30);
 	System.out.println(w);
-	w.addWord(0,0,1,1,"yoloyolo");
-	w.addWord(3,1,0,1,"wooooord");
+	w.fillSpaces();
+	System.out.println(w.showWords());
 	System.out.println(w);
     }
 }
