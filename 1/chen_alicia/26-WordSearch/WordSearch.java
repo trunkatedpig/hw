@@ -5,18 +5,21 @@ public class WordSearch {
 
     private char[][] board;
     private Random rand;
-    private ArrayList<String> wordList = new ArrayList<String>();;
-
- 
+    private ArrayList<String> wordList = new ArrayList<String>();
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	readWords("Words");
-	board = new char[rows][cols];
-	for (int i=0;i<rows;i++) 
-	    for (int j=0;j<cols;j++) 
-		board[i][j]='-';
-
+        board = new char[rows][cols];
+        for (int i=0;i<rows;i++) {
+            for (int j=0;j<cols;j++) {
+                board[i][j]='-';
+            }
+        }
+        readWords("Words");
+        placeWords(10);
+	System.out.println(toString());
+        fillInBlanks();
+        System.out.println(toString());
     }
 
 
@@ -25,7 +28,7 @@ public class WordSearch {
     }
 
 
-   private void readWords(String filename) {
+    private void readWords(String filename) {
 
 	try {
 	    Scanner sc = new Scanner(new File(filename));
@@ -42,18 +45,20 @@ public class WordSearch {
     }
 
     public void placeWords(int amount) {
-	Arraylist <String> words = new Arraylist <String>();
-	int tries = 5;
-	while (words.size < amount) {
-	    int a = rand.nextInt(wordList.size);
-	    while (tries > 0) {
-
-		if ( addWordRandomLoc(wordList.get(a))){
-		    words.add(wordList.get(a));
-		    wordList.remove(a);
-		    tries = 0;
-
-		    
+	ArrayList <String> words = new ArrayList <String>();
+        while (words.size() < amount) {
+            int a = rand.nextInt(wordList.size());
+            int tries = 5;
+            while (tries > 0) {
+                if (addWordRandomLoc(wordList.get(a))) {
+                    tries = 0;
+                    words.add(wordList.get(a));
+                    wordList.remove(a);
+                }
+            }
+        }
+        System.out.println(words);
+    }
 		 
 	    
 	
