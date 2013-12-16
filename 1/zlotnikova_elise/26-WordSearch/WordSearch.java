@@ -5,33 +5,23 @@ public class WordSearch {
 
     private char[][] board;
     private Random rand;
-    private ArrayList<String> wordList;
-
-    private void readWords(String filename) {
-	wordList = new ArrayList<String>();
-	try {
-	    Scanner sc = new Scanner(new File(filename));
-	    while (sc.hasNext()) {
-		String s =sc.nextLine();
-		wordList.add(s);
-	    }
-	} catch (FileNotFoundException e) {
-	    // if we can't open the file we
-	    // exit the program
-	    System.out.println(e);
-	    System.exit(0);
-	}
-    }
+    private ArrayList<String> wordList = new ArrayList<String>();
+    private ArrayList<String> finalWordList = new ArrayList<String>();
+    private Random randGen = new Random();
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	readWords("wordlist");
+	readIn("wordsearch.txt");
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
 		board[i][j]='-';
 
+    }
+
+    public ArrayList<String> getFinalWordList() {
+	return finalWordList;
     }
 
     public WordSearch() {
@@ -114,24 +104,36 @@ public class WordSearch {
 	return s;
     }
 
-    public void readIn() {
-	WordSearch w = new WordSearch(15,30);
+    public void readIn(String filename) {
 	try { 
-	    sc = new Scanner(new File("wordList"));
+	    Scanner sc = new Scanner(new File(filename));
+	    while (sc.hasNext()) { 
+		String s = sc.nextLine();
+		wordList.add(s);
+	    }
 	}
-	catch { 
+	catch (FileNotFoundException e) { 
 	    System.out.println(e);
 	    System.exit(0);
-	}
-	while (sc.hasNext) { 
-	    String s = sc;
-	    wordList.add(s);
 	}
     }
 
     public void makePuzzle(int numWords) { 
-	
+	for (int i=0;i<numWords;i++) {
+	    int index = randGen.nextInt(wordList.size());
+	    String word = wordList.get(index);
+	    wordList.remove(index);
+	    int x = 0;
+	    boolean b = false;
+	    while (x<5 && !b) { 
+		b = addWordRandomLoc(word);
+		if (b) 
+		    finalWordList.add(word);
+		x = x + 1;
+	    }
+
+	}
     }
 
-
 }
+
