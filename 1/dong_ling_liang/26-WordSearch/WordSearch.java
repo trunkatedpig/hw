@@ -6,17 +6,31 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
-    private ArrayList<String> words;
+    private String[] wordsUsed;
+    private char[][] board1;
+
+    public void printInfo(){
+	for (int i = 0; i < board1.length; i++){
+	    String currentLine = "";
+	    for (int e = 0; e <board1[i].length; e++){
+		currentLine = currentLine + board1[i][e] + " ";
+	    }
+	    System.out.println(currentLine);
+	}
+	System.out.println("");
+	for (int i = 0; i<wordsUsed.length; i++){
+	    System.out.print(wordsUsed[i] + " ");
+	}
+	System.out.println("");
+    }
 
     private void readWords(String filename) {
 	wordList = new ArrayList<String>();
 	try {
 	    Scanner sc = new Scanner(new File(filename));
 	    while (sc.hasNext()) {
-		if (sc.nextLine().length() < 3 ){
-		    String s =sc.nextLine().toUpperCase();
-		    wordList.add(s);
-		}
+		String s =sc.nextLine();
+		wordList.add(s.toUpperCase());
 	    }
 	} catch (FileNotFoundException e) {
 	    // if we can't open the file we
@@ -25,25 +39,15 @@ public class WordSearch {
 	    System.exit(0);
 	}
     }
-    public void chooseWords(int numWords){
-	while (words.size()<numWords){
-	    int i = rand.nextInt(wordList.size());
-	    String s = wordList.get(i);
-	    if(s.addWordRandomLoc())
-		words.add(s);
-	}
-
-    }
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	readWords("wordlist");
-	System.out.println(wordList);
+	readWords("words");
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
 	    for (int j=0;j<cols;j++) 
 		board[i][j]='-';
-
+	board1 = new char[rows][cols];
     }
 
     public WordSearch() {
@@ -77,17 +81,15 @@ public class WordSearch {
 	r = row;
 	c = col;
 	for (int i=0; i < word.length(); i++) {
-	    board[r][c]=word.charAt(i);
+	    board[r][c]=word.toUpperCase().charAt(i);
 	    r = r + deltaR; 
 	    c = c+ deltaC;
 	}
-    	
-	
 	return true;
     }
 
     public boolean addWordH(int r, int c, String w) {
-	return addWord(r,c,0,-1,w);
+	return addWord(r,c,0,1,w);
     }
     public boolean addWordV(int r, int c, String w) {
 	return addWord(r,c,1,0,w);
@@ -106,6 +108,31 @@ public class WordSearch {
 
     }
 
+    public void generatePuzzle(int wordAmount){
+	wordsUsed = new String[wordAmount];
+	int numWord = 0;
+	boolean boo = false;
+	while (numWord < wordAmount){
+	    String temp = null;
+	    while (temp == null){
+		temp = wordList.get(rand.nextInt(wordList.size()));
+	    }
+	    int tempr = 0;
+	    while (((!(addWordRandomLoc(temp))) && tempr <25) && !boo){
+		if (addWordRandomLoc(temp)){
+		    wordsUsed[numWord] = temp;
+		    numWord ++;
+		    boo = true;
+		}
+		tempr = tempr + 1;
+	    }
+	    if (tempr == 0)
+		wordsUsed[numWord] = temp;
+	        numWord++;
+	}
+	board1 = board;
+    }
+
     public void fillInBlanks() {
 	for (int r = 0; r < board.length; r++)
 	    for (int c=0;c<board[0].length;c++) {
@@ -116,15 +143,14 @@ public class WordSearch {
 
 
     public String toString() {
+	fillInBlanks();
 	String s = "";
 	for (int i=0;i<board.length;i++) {
 	    for (int j=0;j<board[i].length;j++) {
-		s=s+board[i][j];
+		s=s+board[i][j] + " ";
 	    }
 	    s=s+"\n";
 	}
 	return s;
     }
-	    
-
 }
