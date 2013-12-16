@@ -8,6 +8,8 @@ public class WordSearch {
         for (int i=0;i<rows;i++) 
             for (int j=0;j<cols;j++) 
                 board[i][j]='-';
+	this.rows = rows;
+        this.cols = cols;
     }
 
     public WordSearch() {
@@ -26,20 +28,17 @@ public class WordSearch {
     }
 
     public boolean addWordH (int r, int c, String word) {
-	if (r>board.length||c>board[0].length||(c+word.length())>board[0].length){
+	if (r>board.length || (c+(word.length()-1)>board[r].length)) {
             return false;
 	}
-        for (int i = 0; i < word.length(); i ++) {
-            if (((""+board[r][c+i]).equals('-'))||((""+board[r][c+i]).equals(word.charAt(i)))) {
-                board[r][c+i] = word.charAt(i);
-	    }
-	    else {
+	for (int i=0;i<word.length();i++) {
+            if ((!((""+board[r][c+i]).equals("-"))) && (!((""+board[r][c+i]).equals("" + word.charAt(i))))) {
                 return false;
             }
-
-	}
-        
-	return true;
-
+        }
+        for (int i=0;i<word.length(); i++) {
+            board[r][c+i] = word.charAt(i);
+        }
+        return true;
     }
 }
