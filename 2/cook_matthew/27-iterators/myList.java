@@ -1,29 +1,31 @@
 import java.io.*;
 import java.util.*;
 
-
 public class myList implements myInterface,Iterable {
 
-    private class myListIterator implements Iterator<Integer> {
+    public class myListIterator implements Iterator<Integer> {
 	private myList list;
-	private int current=0;
-	public myListIterator(myList l) {
-	    list = l;
+	private int spot;
+	
+	public myListIterator(myList list1) {
+	    list=list1;
 	}
+	
 	public boolean hasNext() {
-	    if (current < numItems){
-		return true;}
-	    else{
-		return false;
-	    }
+	    return (spot < numItems);
 	}
+
 	public Integer next() {
-	    current = current +1
-	    return list.get(current);
+	    Integer returned = list.get(spot);
+	    spot=spot+1;
+	    return returned;
 	}
+
 	public void remove() {
 	}
+
     }
+
 
     private int[] data;
     private int numItems;
