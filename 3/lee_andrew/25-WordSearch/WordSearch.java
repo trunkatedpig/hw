@@ -29,7 +29,7 @@ public class WordSearch {
     }
 
     public boolean addWordH(int row,int col,String word) {
-	if (col + word.length() <= board[row].length-1) {
+	if (col + word.length() <= board[row].length) {
 	    int count = 0;
 	    for (int i = col;i<col + word.length();i++){
 		board[row][i] = word.charAt(count);
