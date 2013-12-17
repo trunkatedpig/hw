@@ -5,7 +5,7 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
-    private ArrayList<String> words;
+    private char[][] solution;
 
     private void loadWords(String filename) {
         wordList = new ArrayList<String>();
@@ -20,29 +20,6 @@ public class WordSearch {
             System.out.println(e);
             System.exit(0);
         }
-    }
-    public void makePuzzle(String filename){
-	loadWords(filename);
-	words=new ArrayList<String>();
-	int n=0;
-	while (n<4){
-	     for (int i=0;i<wordList.size();i++){
-		if (addWordRand(wordList.get(0))){
-		addWordRand(wordList.get(0));
-		words.add(wordList.get(0));
-	     
-		}
-	     }
-	      for (int j=0;j<words.size();j++){
-		for (int i=0;i<wordList.size();i++){
-		    if (words.get(j)==wordList.get(i))
-			wordList.remove(i);
-		}
-	      }
-	      //for some reason program always adds one word twice, cant resolve
-	    n=n+1;
-	    }
-	System.out.println(words);
     }
 
     public WordSearch(int rows, int cols) {
@@ -62,13 +39,20 @@ public class WordSearch {
         this(20,20);
     }
 
-    public boolean addWord(int row, int col, int deltaR,int deltaC,String word) {
-        int r,c;
+    public boolean addWord(int row, int col, int deltaR,int deltaC,String word,boolean re) {
+        if (re==true){
+	    String temp = "";
+	    for (int i = 0; i<word.length(); i++){
+		temp = word.charAt(i)+temp;
+	    }
+	    word = temp;
+	}
+
+	int r,c;
 
         if (deltaR<-1||deltaR>1||deltaC<-1||deltaC>1||
             (deltaR==0&&deltaC==0))
             return false;
-
         // see if we can add the word
         r = row;
         c = col;
@@ -94,71 +78,79 @@ public class WordSearch {
     }
 
     public boolean addWordRand(String w) {
+	boolean re = true;
         int r = rand.nextInt(board.length);
         int c = rand.nextInt(board[0].length);
         int deltaR = rand.nextInt(3)-1;
         int deltaC = rand.nextInt(3)-1;
-        return addWord(r,c,deltaR,deltaC,w);
+	int rev = rand.nextInt(2) - 1;
+	if (rev == -1)
+	    re = false; 
+	else 
+	    re = true;
+        return addWord(r,c,deltaR,deltaC,w,re);
+    }
+
+    public String toString() {
+	String s="";
+	for (int i=0;i<board.length;i++) {
+	    for (int j=0;j<board[i].length;j++) {
+		s=s+board[i][j];
+	    }
+	    s=s+"\n";
+	}
+	return s;
+    }
+
+    public String toStringSolution() {
+	String s="";
+	for (int i=0;i<solution.length;i++) {
+	    for (int j=0;j<solution[i].length;j++) {
+		s=s+solution[i][j];
+	    }
+	    s=s+"\n";
+	}
+	return s;
     }
 
     public void fillBlanks() {
         for (int r=0;r<board.length;r++) {
             for (int c=0;c<board[0].length;c++) {
                 if (board[r][c]=='-') {
-                    board[r][c]=(char)('A'+rand.nextInt('Z'-'A'));
+                    board[r][c]=(char)('a'+rand.nextInt('z'-'a'));
                 }
             }
         }
-
-    }
-    public boolean addWordH(int row, int col, String word) {
-        return addWord(row,col,0,1,word);
-    }
-    public boolean addWordV(int row, int col, String word) {
-        return addWord(row,col,1,0,word);
     }
 
-
-    public String toString() {
-        String s="";
-        for (int i=0;i<board.length;i++) {
-            for (int j=0;j<board[i].length;j++) {
-                s=s+board[i][j];
-            }
-            s=s+"\n";
-        }
-        return s;
-    }
-
-<<<<<<< HEAD:2/azzara_veronika/25-WordSearch/WordSearch.java
-    public void makeWordSearch(){
+    public void constructWordSearch(){
 	ArrayList<String> words = new ArrayList<String>();
-	ArrayList<String> wordlist = wordList;
-	for (int i = 0;i<wordlist.size();i++){
-	    boolean result=addWordRand(wordlist.get(i));
-	    if (result){
-		words.add(wordlist.get(i));
-		wordlist.remove(wordlist.get(i));
+	for (int i = 0;i<wordList.size();i++){
+	    addWordRand(wordList.get(i));
+	    if (addWordRand(wordList.get(i))) {
+		words.add(wordList.get(i));
+		wordList.remove(wordList.get(i));
 	    }
-	    else{
-		boolean retry;
-		for (int j=0;j<10;j++){
-		    retry = addWordRand(wordlist.get(i));
-		    if (retry){
-			words.add(wordlist.get(i));
-			wordlist.remove(wordlist.get(i));
+	    if (!addWordRand(wordList.get(i))){
+		for (int j=0; j<10; j++){
+		    addWordRand(wordList.get(i));
+		    if (addWordRand(wordList.get(i))){
+			words.add(wordList.get(i));
+			wordList.remove(wordList.get(i));
 			break;
 		    }
-		    wordlist.remove(wordlist.get(i));
 		}
 	    }
 	}
-	System.out.println(board.toString());
-	this.fillBlanks();
-	System.out.println(board.toString());
+	solution = new char[board.length][board[0].length];
+	for (int i=0;i<board.length;i++){
+	    for (int j=0;j<board[0].length;j++)
+		solution[i][j]=board[i][j];
+	}
+	fillBlanks();
+	System.out.println(toStringSolution());
+	System.out.println();
+	System.out.println(this);
 	System.out.println(words);
     }
-
-=======
->>>>>>> 6f636829ff906d268ef5309cd02b68c18b473adb:2/ruby_emily/26-WordSearch2.0/WordSearch.java
 }
