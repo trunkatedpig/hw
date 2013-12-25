@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Enemy extends Character{
-    public Enemy(Hero h){
+    public Enemy(String n, Hero h){
 	maxHP=40;
 	hP=maxHP;
 	maxMP=20;
@@ -13,7 +13,7 @@ public class Enemy extends Character{
 	dex=8;
 	intell=8;
 	inventory= new ArrayList<Items>();
-	name = "Monster";
+	name = n;
 	ability = new ArrayList<Abilities>();
 	spells = new ArrayList<Spells>();
 	armor = 0;
