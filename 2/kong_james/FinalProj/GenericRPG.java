@@ -144,10 +144,10 @@ public class GenericRPG{
 	String blacksmithInput1 = sc.nextLine();
 	if (blacksmithInput1.equals("1")){
 	    if ( h.getGold() > 15) {
-			h.EquipW.Weapons("Short Sword");
-		        System.out.println("You have bought a Short Sword!");
-			System.out.println("Gold: " + h.loseGold(15));
-		    }
+		h.toEquipW("Short Sword");
+		System.out.println("You have bought a Short Sword!");
+		h.loseGold(15);
+	    }
 		else {
 		    System.out.println("You do not have enough gold");
 		}

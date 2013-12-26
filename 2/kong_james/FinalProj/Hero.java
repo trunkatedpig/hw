@@ -24,6 +24,17 @@ public class Hero extends Character{
 	armor = 0;
 	level = 1;
 	exp = 0;
-	gold = 10;
+	gold = 10000;
+    }
+
+    public void toEquipW(String i){
+	EquipW  = new Weapons("i");
+	Equipment.add(EquipW);
+       
+	
+    }
+    public void toEquipA(String i){
+	EquipA.Ename = "i";
+	Equipment.add(1,EquipA);
     }
 }
