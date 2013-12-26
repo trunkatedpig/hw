@@ -2,6 +2,10 @@ import java.io.*;
 import java.util.*;
 
 public class Hero extends Character{
+   
+    public Weapons EquipW;
+    public Armor EquipA;
+    public ArrayList<Equips> Equipment;
     public Hero(){
 	maxHP=100;
 	hP=maxHP;
@@ -20,5 +24,6 @@ public class Hero extends Character{
 	armor = 0;
 	level = 1;
 	exp = 0;
+	gold = 10;
     }
 }

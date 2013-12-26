@@ -5,7 +5,7 @@ public class Character{
     //THE INSTANCES
     public int maxHP,hP,maxMP,mP,maxAP,aP;
     public int str,dex,intell;
-    public int level, exp;
+    public int level, exp, gold;
     public ArrayList<Items> inventory;
     public String name;
     public ArrayList<Abilities> ability;
@@ -39,12 +39,24 @@ public class Character{
     public int getIntell(){
 	return intell;
     }
+    public int getGold(){
+	return gold;
+    }
     //THE SETS
     public void setHP(int loss){
 	if (hP <= loss)
 	    hP = 0;
 	else
 	    hP=hP-loss;
+    }
+    public void heal(int gain){
+	if (hP >= maxHP)
+	    hP=maxHP;
+	else
+	    hP=hP+gain;
+    }
+    public void fullHeal(){
+	hP=maxHP;
     }
     public void setMP(int loss){
 	mP=mP-loss;
@@ -71,6 +83,16 @@ public class Character{
 	level=level+1;
 	exp = 0;
     }
+    public void gainGold(int gain){
+	gold = gold + gain;
+    }
+    public boolean loseGold(int loss){
+	if (gold >= loss){
+	    gold = gold - loss;
+	    return false;
+	}
+	return true;
+    }
     //THE METHODS
     public Character(){
 	maxHP=1;
@@ -89,6 +111,7 @@ public class Character{
 	armor = 0;
 	level = 1;
 	exp = 0;
+	gold = 0;
     }
 
 

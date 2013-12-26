@@ -56,6 +56,30 @@ public class Fence{
         }
 	return result;
     }
+    public String listFence(int x, String[][] text){
+	String result="";
+	for (int i = 0;i<x+2;i++){
+	    if (i==0 || i == x+1)
+		result = result + "+";
+	    else
+		result = result + "-";
+	}
+	result = result + "\n";
+	for (int out = 0; out < text.length; out++){
+	    for (int deep = 0; deep < text[out].length;deep++){
+		result = result + "|" + text[out][deep];
+		for (int spaces = text[out][deep].length(); spaces < x; spaces++)
+		    result = result + " ";
+		result = result + "|\n";
+	    }
+	    result = result + "|";
+	    for (int dashes = 0; dashes < x; dashes++)
+		result = result + "-";
+	    result = result + "|\n";
+	}
+	return result;
+    }
+
 
 }    
     
