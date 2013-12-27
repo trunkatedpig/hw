@@ -18,6 +18,6 @@ public class Enemy extends Character{
 	spells = new ArrayList<Spells>();
 	armor = 0;
 	exp = 10;
-    } 
+    }
 }
 

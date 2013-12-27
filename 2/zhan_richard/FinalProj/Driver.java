@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Driver{
-    public static void main(String[] args){ 
+    public static void main(String[] args){
 	Fence f = new Fence();
 	Hero h = new Hero();
 	Scanner sc = new Scanner(System.in);

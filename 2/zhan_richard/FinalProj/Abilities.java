@@ -10,5 +10,5 @@ public class Abilities{
 	if (skillName == "Flee"){
 	}
     }
- 
+
 }
