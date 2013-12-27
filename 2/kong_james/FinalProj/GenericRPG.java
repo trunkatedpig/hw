@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-
+ 
 public class GenericRPG{ 
     private Equips[] EquipmentA = new Equips[2];
     private Items[] InventoryA = new Items[10];

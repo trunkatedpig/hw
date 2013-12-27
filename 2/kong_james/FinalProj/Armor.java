@@ -2,7 +2,7 @@ public class Armor extends Equips{
     
     private int armor;
     private double evasion;
-    private String description;
+    private String description; 
 
     //The Methods
     public Armor (String i){

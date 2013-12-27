@@ -2,10 +2,10 @@ public class Weapons extends Equips{
     private int mindamage;
     private int maxdamage;
     private double crit;
-    private double accuracy;
+    private double accuracy; 
     private String description;
     //THE METHODS 
-    public Weapons(String i){
+    public Weapons(String i){ 
 	super(i);
 	if (i.equals("Short Sword")){
 	    mindamage = 3;
