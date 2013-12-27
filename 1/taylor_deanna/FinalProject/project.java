@@ -13,7 +13,7 @@ public class project extends JFrame implements ActionListener{
     private int pigs = 0;
     private Container pane, one, two, three, four;
     private JFrame frame;
-    private JButton exit, race, gts, buy, gtb, gtr;
+    private JButton exit, race, gts, buy, gtb, gtr, sell;
     private JPanel grid;
     private JLabel PanelOne, PanelTwo, PanelThree, PanelFour;
     private JTextField text;
@@ -73,6 +73,25 @@ public class project extends JFrame implements ActionListener{
 		text.setText("You don't have enough money to race");
 	    }
 	}
+	else if (e.getSource() == sell){
+	    if (Shopping){
+		if (pigs > 0){
+		    String s = "you sold a pig";
+		    money = money + 5;
+		    pigs = pigs - 1;
+		    String p = "" + pigs;
+		    String m = " You now have $" + money + " and " + pigs + " pigs.";
+		    String a = s + m;
+		    text.setText(a);
+		}
+		else {
+		    text.setText("You ain't got any pigs to sell");
+		}
+	    }
+	    else {
+		text.setText("You have to be at the store to sell");
+	    }
+	}
 	else if (e.getSource() == buy){
 	    if (Shopping){ if (money > 5){
 		    String s = "you bought a pig";
@@ -129,11 +148,12 @@ public class project extends JFrame implements ActionListener{
 	pane.setLayout(new GridLayout(2,2));
 
 	exit = new JButton("exit");
-	buy = new JButton("buy");
-	gts = new JButton("shop");
+	buy = new JButton("buy a pig");
+	gts = new JButton("go to the shop");
 	gtb = new JButton("go home");
 	gtr = new JButton("go to races");
 	race = new JButton("enter a race");
+	sell = new JButton("sell a pig");
 
 	text = new JTextField();
 
@@ -160,6 +180,7 @@ public class project extends JFrame implements ActionListener{
 	two.setLayout(new FlowLayout());
 	pane.add(two);
 	two.add(buy);
+	two.add(sell);
 	two.add(gtb);
 	//two.add(gtr); /* Here: should we make a master panel of all buttons on the side or should we make it so that the go home button is at both the races and the shop? I like the idea of a master list of buttons but wasnt sure how to plan that. */
 	pane.add(text);
@@ -175,6 +196,7 @@ public class project extends JFrame implements ActionListener{
 	gtb.addActionListener(this);
 	gtr.addActionListener(this);
 	race.addActionListener(this);
+	sell.addActionListener(this);
 
     }
 	
