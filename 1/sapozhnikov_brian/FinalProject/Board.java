@@ -1,11 +1,22 @@
 import java.io.*;
 import java.util.*;
 
-public class Board{
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import javax.imageio.*;
+
+public class Board {
     private ShipPart[][] board;
 
     public Board(int r, int c){
 	board = new ShipPart[r][c];
+	clear();
+    }
+
+    public ShipPart[][] getBoard(){
+	return board;
     }
 
     public boolean movePartForward(ShipPart p){

@@ -1,7 +1,13 @@
 import java.io.*;
 import java.util.*;
 
-public class ShipPart{
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import javax.imageio.*;
+
+public class ShipPart extends JPanel{
     private Ship ship;
     private int r,c;
     private boolean visable;
