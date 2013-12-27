@@ -4,7 +4,7 @@ public class Weapons extends Equips{
     private double crit;
     private double accuracy;
     private String description;
-    //THE METHODS
+    //THE METHODS 
     public Weapons(String i){
 	super(i);
 	if (i.equals("Short Sword")){

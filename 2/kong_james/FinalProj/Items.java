@@ -4,7 +4,7 @@ public class Items{
     private int apheal;
     private int apbonus;
     public String Iname;
-    private String description;
+    private String description; 
 
     public Items(String i){
 	Iname = i;

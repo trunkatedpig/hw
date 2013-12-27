@@ -6,7 +6,7 @@ public class Armor extends Equips{
 
     //The Methods
     public Armor (String i){
-	super(i);
+	super(i); 
 	if (i.equals("Leather Armor")){
 	    armor=5;
 	    evasion=.1;
