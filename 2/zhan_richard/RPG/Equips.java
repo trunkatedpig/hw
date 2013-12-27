@@ -3,5 +3,5 @@ public class Equips{
     //The Methods
     public Equips(String i){
 	Ename = i;
-    }
+    }  
 }

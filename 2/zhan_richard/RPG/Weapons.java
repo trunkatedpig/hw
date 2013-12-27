@@ -13,7 +13,7 @@ public class Weapons extends Equips{
 	if (i.equals("Sabre")){
 	    mindamage = 3;
 	    maxdamage = 5;
-	    crit = .4;
+	    crit = .4; 
 	}
 	if (i.equals("Long Sword")){
 	    mindamage = 5;

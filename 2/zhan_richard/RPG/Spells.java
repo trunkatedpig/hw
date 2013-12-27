@@ -1,2 +1,2 @@
-public class Spells{
+public class Spells{ 
 }

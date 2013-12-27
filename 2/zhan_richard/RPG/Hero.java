@@ -5,7 +5,7 @@ public class Hero extends Character{
    
     public Weapons EquipW;
     public Armor EquipA;
-    public Items ItemI;
+    public Items ItemI; 
     public ArrayList<Equips> Equipment= new ArrayList<Equips>();
     public Hero(){
 	maxHP=100;

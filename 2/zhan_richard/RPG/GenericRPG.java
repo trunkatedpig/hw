@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class GenericRPG{
-    private Equips[] EquipmentA = new Equips[2];
+    private Equips[] EquipmentA = new Equips[2]; 
     private Items[] InventoryA = new Items[10];
     private String[] villages = {"(1)Town Hall","(2)Hospital","(3)Blacksmith","(4)Magic Store","(5)Inventory","(6)Quit"};
     private String[] blacksmithOptions = {"(1)Weapons","(2)Armor"};
@@ -11,7 +11,7 @@ public class GenericRPG{
     private String[][] magicStoreSpells = {{"(1)Magic Bolt-$20","Deals 20 damage","Costs 4 mana"},{"(2)Minor Heal-$30","Heals a little based on intell","Costs 10 mana"},{"(3)Stone Skin-$50","Increases resistance towards attacks","Lasts 3 turns","Costs 8 mana"},{"(4)Fireball-$80","Deals damage based on intell","Costs 15 mana"},{"(5)Temper-$100","Increases damage and crit chance","Costs 19 mana"},{"(6)Heal-$150","Heals based on intell","Costs 24 mana"},{"(7)Blizzard-$200","Deals damage based on intell","20% Freeze","Costs 30 mana"},{"(8)Poison-$300","Deals damage per turn based on enemy max HP","Lasts 5 turns","Costs 35 mana"},{"(9)Full Heal-$500","Full heals","Costs 77 mana"},{"(10)Unholy-$666","Oh my...","Costs 100 mana"}};
     private String[][] magicStorePotions = {{"(1)Minor Healing Potion-$3","Heals 20 hit points"},{"(2)Healing Potion-$15","Heals 50 hit points"},{"(3)Major Healing Potion-$40","Heals 200 hit points"},{"(4)Minor Mana Potion-$2","Heals 10 mana"},{"(5)Mana Potion-$10","Heals 40 mana"},{"(6)Major Mana Potion-$25","Heals 100 mana"},{"(7)Stamina Potion-$20","Recovers 40 ability power"},{"(8)Elixir-$100","Heals 300 HP, 200 MP, 100 AP"}};
     private String[][] swordList = {{"(1)Short Sword-$15","3-6 Damage","2% Crit","85% Accuracy"},{"(2)Sabre-$50","4-9 Damage","%15 Crit","95% Accuracy"},{"(3)Long Sword-$60","11-18 Damage","10# Crit","75% Accuracy"},{"(4)Scimitar-$100","13-20 Damage","20% Crit","85% Accuracy"}};
-    private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasion"},{"(2)Copper Cuirass-#40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
+    private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasion"},{"(2)Copper Cuirass-$40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
     private Enemy bounty;
     private Random r = new Random(); 
     private Scanner sc = new Scanner(System.in);
@@ -116,34 +116,8 @@ public class GenericRPG{
 	System.out.println("(9)Back (10)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String magicStoreInput2 = sc.nextLine();
-	//LOOK OVER HERE JAMES
-	//PLEASE REDO THE BLACKSMITH IN THIS FASHION
-	//YOUR CODE IS SUPER LONG
-	//PLEASE BE MORE LAZY :D AND FIND BETTER WAYS
-	//Arrays.asList(String[]).contains(String)) will return a boolean whether that String is in the String[]
-	//Integer.parseInt(String) returns an integer of that string
-	//noGold I set to be the standard missing gold phrase
-	//purchase I set to be the standard purchasing phrase. String.format(purchase,String) will substitute that String into the purchase phrase
-	//also, my loseGold function returns a boolean. It works how Mr.Zamansky's fit word in wordsearch works AKA THE ONE YOU SHOWED TO THE CLASS
 	String[] ops = {"1","2","3","4","5","6","7","8"};
-	if (Arrays.asList(ops).contains(magicStoreInput2)){
-
-	    int magicStoreInputTrue=Integer.parseInt(magicStoreInput2);
-	    String potName = magicStorePotions[magicStoreInputTrue-1][0];
-	    int dollarsign = potName.indexOf("$");
-	    int start = potName.indexOf(")");
-	    int end = potName.indexOf("-");
-	    String priceS = potName.substring(dollarsign+1);
-	    int price = Integer.parseInt(priceS);
-	    String potTrueName = potName.substring(start+1,end);
-
-	    if (h.loseGold(price))
-		System.out.println(noGold);	    
-	    else{        
-		h.toItem(potTrueName);
-		System.out.println(String.format(purchase,potTrueName));
-	    }
-	}
+	Store(ops,magicStoreInput2,magicStorePotions,5);
 	if (magicStoreInput2.equals("9"))
 	    magicStore();
 	else if (magicStoreInput2.equals("10"))
@@ -174,46 +148,8 @@ public class GenericRPG{
 	System.out.println("(5)Back (6)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String blacksmithInput1 = sc.nextLine();
-	if (blacksmithInput1.equals("1")){
-	    if ( h.getGold() > 15) {
-		h.toEquipW("Short Sword");
-		System.out.println("You have bought a Short Sword!");
-		h.loseGold(15);
-	    }
-	    else {
-		System.out.println("You do not have enough gold");
-	    }
-	}
-	if (blacksmithInput1.equals("2")){
-	    if (h.getGold() > 50) {
-		h.toEquipW("Sabre");
-		System.out.println("You have bought a Sabre!");
-		h.loseGold(50);
-	    }
-	    else {
-		System.out.println("You do not have enough gold");
-	    }
-	}
-	if (blacksmithInput1.equals("3")){
-	    if(h.getGold()> 60){
-		h.toEquipW("Long Sword");
-		System.out.println("You have bought a Long Sword!");
-		h.loseGold(60);
-	    }
-	    else {
-		System.out.println("You do not have enough gold");
-	    }
-	}
-	if (blacksmithInput1.equals("4")){
-	    if(h.getGold()>100){
-		h.toEquipW("Scimitar");
-		System.out.println("You have bought a Scimitar");
-		h.loseGold(100);
-	    }
-	    else { 
-		System.out.println("You do not have enough gold");
-	    }
-	}
+	String[] ops = {"1","2","3","4"};
+	Store(ops,blacksmithInput1,swordList,0);
 	if (blacksmithInput1.equals("5"))
 	    blacksmith();
 	else if (blacksmithInput1.equals("6"))
@@ -221,58 +157,21 @@ public class GenericRPG{
 	else
 	    blacksmithWeapons();
     }
-    public void blacksmithArmor(){
+
+	public void blacksmithArmor(){
 	System.out.println(f.listFence(50,armorList));
 	System.out.println("(5)Back (6)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String blacksmithInput1 = sc.nextLine();
-	if (blacksmithInput1.equals("1")){
-	    if (h.getGold()> 15){
-		h.toEquipA("Leather Armor");
-		System.out.println("You have bought Leather Armor");
-		h.loseGold(15);
-	    }
-	    else {
-		System.out.println("You do not have enough gold");
-	    }
-	}
-	if (blacksmithInput1.equals("2")){
-	    if (h.getGold()>40){
-		h.toEquipA("Copper Cuirass");
-		System.out.println("You have bought Copper Cuirass");
-		h.loseGold(40);
-	    }
-	    else {
-		System.out.println("You do not have enough gold");
-	    }
-	}
-	if (blacksmithInput1.equals("3")){
-	    if (h.getGold()>80){
-		h.toEquipA("Iron Suit");
-		System.out.println("You have bought Iron Suit");
-		h.loseGold(80);
-	    }
-	    else {
-		System.out.println("You do not have enough gold");
-	    }
-	}
-	if (blacksmithInput1.equals("4")){
-	    if (h.getGold()> 110){
-		h.toEquipA("Chainmail");
-		System.out.println("You have bought Chainmail");
-		h.loseGold(110);
-	    }
-	    else {
-		System.out.println("You do not have enough gold");
-	    }
-	}
-       	if (blacksmithInput1.equals("5"))
+	String[] ops = {"1","2","3","4"};
+	Store(ops,blacksmithInput1,armorList,1);
+	if (blacksmithInput1.equals("5"))
 	    blacksmith();
 	else if (blacksmithInput1.equals("6"))
 	    village();
 	else
 	    blacksmithArmor();
-    }
+	}
 
 
     public void hospital(){
@@ -310,5 +209,41 @@ public class GenericRPG{
 	    return s.substring(0,s.length()-2)+"ies";
 	else
 	    return s+"s";
+    }
+    public void Store(String[] i,String j,String[][]k,int l){
+	if (Arrays.asList(i).contains(j)){
+	    int inputTrue= Integer.parseInt(j);
+	    String thingName = k[inputTrue - 1][0];
+	    int dollarSign = thingName.indexOf("$");
+	    int start = thingName.indexOf(")");
+	    int end = thingName.indexOf("-");
+	    String priceS= thingName.substring(dollarSign + 1);
+	    int price = Integer.parseInt(priceS);
+	    String thingTrueName= thingName.substring(start + 1,end);
+	    if (h.loseGold(price))
+		System.out.println(noGold);
+	    if (l == 0){
+		h.toEquipW(thingTrueName);
+		System.out.println("You have bought a " + thingTrueName);
+	    }
+	    if (l == 1){
+		h.toEquipA(thingTrueName);
+		System.out.println("You have bought a " + thingTrueName + "!");
+	    }
+	    else {
+		h.toItem(thingTrueName);
+		System.out.println("You have bought a " + thingTrueName + "!");
+	    }
+	}
+    }
+    public void toDictionary(){
+	Map Descriptions = new HashMap();		
+	for (int i = 0; i < 8; i ++){
+	    Descriptions.put(magicStorePotions[i][0],magicStorePotions[i][1]);}
+	//for (int i = 0; i < swordList.size();i++)
+	//	Descriptions.put(swordList[i][0],swordList[i][1] + swordList[i][2] + swordList[i][3]);
+    // for (int i = 0; i < armorList.size;i ++)
+	//Descriptions.put(armorList[i][0],swordList[i][1] + swordList[i][2]+ swordList [i][3]);
+	System.out.println(Descriptions);
     }
 }
