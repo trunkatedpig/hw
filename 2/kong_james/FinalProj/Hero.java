@@ -45,6 +45,6 @@ public class Hero extends Character{
     
     public void toItem(String i){
 	ItemI = new Items("i");
-	super.inventory.add(ItemI);
+	inventory.add(ItemI);
     }
 }
