@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class GenericRPG{
+    private Equips[] EquipmentA = new Equips[2];
+    private Items[] InventoryA = new Items[10];
     private String[] villages = {"(1)Town Hall","(2)Hospital","(3)Blacksmith","(4)Magic Store","(5)Inventory","(6)Quit"};
     private String[] blacksmithOptions = {"(1)Weapons","(2)Armor"};
     private String[] magicStoreOptions = {"(1)Spell Tomes","(2)Potions"};
@@ -112,6 +114,86 @@ public class GenericRPG{
 	System.out.println("(9)Back (10)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String magicStoreInput2 = sc.nextLine();
+	if (magicStoreInput2.equals("1")){
+	    if (h.getGold() > 3){
+		h.toItem("Minor Healing Potion");
+		System.out.println("You have bought a Minor Healing Potion!");
+		h.loseGold(3);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (magicStoreInput2.equals("2")){
+	    if(h.getGold()> 15){
+		h.toItem("Healing Potion");
+		System.out.println("You have bought a Healing Potion!");
+		h.loseGold(15);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (magicStoreInput2.equals("3")){
+	    if(h.getGold()>40){
+		h.toItem("Major Healing Potion");
+		System.out.println("You have bought a Major Healing Potion!");
+		h.loseGold(40);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (magicStoreInput2.equals("4")){
+	    if(h.getGold()>2){
+		h.toItem("Minor Mana Potion");
+		System.out.println("You have bought a Minor Mana Potion!");
+		h.loseGold(2);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (magicStoreInput2.equals("5")){
+	    if(h.getGold()> 10){
+		h.toItem("Mana Potion");
+		System.out.println("You have bought a Mana Potion!");
+		h.loseGold(10);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (magicStoreInput2.equals("6")){
+	    if (h.getGold() > 25){
+		h.toItem("Major Mana Potion");
+		System.out.println("You have bought a Major Mana Potion!");
+		h.loseGold(25);
+	    }
+	    else { 
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (magicStoreInput2.equals("7")){
+	    if (h.getGold()> 20){
+		h.toItem("Stamina Potion");
+		System.out.println("You have bought a Stamina Potion!");
+		h.loseGold(20);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (magicStoreInput2.equals("8")){
+	    if (h.getGold()> 100){
+		h.toItem("Elixir");
+		System.out.println("You have bought an Elixir!");
+		h.loseGold(100);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
 	if (magicStoreInput2.equals("9"))
 	    magicStore();
 	else if (magicStoreInput2.equals("10"))
@@ -148,10 +230,40 @@ public class GenericRPG{
 		System.out.println("You have bought a Short Sword!");
 		h.loseGold(15);
 	    }
-		else {
-		    System.out.println("You do not have enough gold");
-		}
+	    else {
+		System.out.println("You do not have enough gold");
 	    }
+	}
+	if (blacksmithInput1.equals("2")){
+	    if (h.getGold() > 50) {
+		h.toEquipW("Sabre");
+		System.out.println("You have bought a Sabre!");
+		h.loseGold(50);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("3")){
+	    if(h.getGold()> 60){
+		h.toEquipW("Long Sword");
+		System.out.println("You have bought a Long Sword!");
+		h.loseGold(60);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("4")){
+	    if(h.getGold()>100){
+		h.toEquipW("Scimitar");
+		System.out.println("You have bought a Scimitar");
+		h.loseGold(100);
+	    }
+	    else { 
+		System.out.println("You do not have enough gold");
+	    }
+	}
 	if (blacksmithInput1.equals("5"))
 	    blacksmith();
 	else if (blacksmithInput1.equals("6"))
@@ -164,6 +276,46 @@ public class GenericRPG{
 	System.out.println("(5)Back (6)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String blacksmithInput1 = sc.nextLine();
+	if (blacksmithInput1.equals("1")){
+	    if (h.getGold()> 15){
+		h.toEquipA("Leather Armor");
+		System.out.println("You have bought Leather Armor");
+		h.loseGold(15);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("2")){
+	    if (h.getGold()>40){
+		h.toEquipA("Copper Cuirass");
+		System.out.println("You have bought Copper Cuirass");
+		h.loseGold(40);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("3")){
+	    if (h.getGold()>80){
+		h.toEquipA("Iron Suit");
+		System.out.println("You have bought Iron Suit");
+		h.loseGold(80);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("4")){
+	    if (h.getGold()> 110){
+		h.toEquipA("Chainmail");
+		System.out.println("You have bought Chainmail");
+		h.loseGold(110);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
        	if (blacksmithInput1.equals("5"))
 	    blacksmith();
 	else if (blacksmithInput1.equals("6"))
@@ -194,6 +346,12 @@ public class GenericRPG{
 	    hospital();
     }
     public void checkInventory(){
+	for (int i = 0; i < h.Equipment.size();i++){
+	    EquipmentA[i] = h.Equipment.get(i);
+	}
+	for (int i = 0; i < h.inventory.size();i++){
+	    InventoryA[i] = h.inventory.get(i);
+	}
     }
     public String plural(String s){
 	if (s.substring(s.length()-1).equals("s"))
