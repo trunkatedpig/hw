@@ -10,8 +10,8 @@ public class GenericRPG{
     private String[] hospitalOptions = {"(1)Cure-$1","(2)Leave"};
     private String[][] magicStoreSpells = {{"(1)Magic Bolt-$20","Deals 20 damage","Costs 4 mana"},{"(2)Minor Heal-$30","Heals a little based on intell","Costs 10 mana"},{"(3)Stone Skin-$50","Increases resistance towards attacks","Lasts 3 turns","Costs 8 mana"},{"(4)Fireball-$80","Deals damage based on intell","Costs 15 mana"},{"(5)Temper-$100","Increases damage and crit chance","Costs 19 mana"},{"(6)Heal-$150","Heals based on intell","Costs 24 mana"},{"(7)Blizzard-$200","Deals damage based on intell","20% Freeze","Costs 30 mana"},{"(8)Poison-$300","Deals damage per turn based on enemy max HP","Lasts 5 turns","Costs 35 mana"},{"(9)Full Heal-$500","Full heals","Costs 77 mana"},{"(10)Unholy-$666","Oh my...","Costs 100 mana"}};
     private String[][] magicStorePotions = {{"(1)Minor Healing Potion-$3","Heals 20 hit points"},{"(2)Healing Potion-$15","Heals 50 hit points"},{"(3)Major Healing Potion-$40","Heals 200 hit points"},{"(4)Minor Mana Potion-$2","Heals 10 mana"},{"(5)Mana Potion-$10","Heals 40 mana"},{"(6)Major Mana Potion-$25","Heals 100 mana"},{"(7)Stamina Potion-$20","Recovers 40 ability power"},{"(8)Elixir-$100","Heals 300 HP, 200 MP, 100 AP"}};
-    private String[][] swordList = {{"(1)Short Sword-$15","3-6 Damage","2% Crit","85% Accuracy"},{"(2)Sabre-$50","4-9 Damage","%15 Crit","95% Accuracy"},{"(3)Long Sword-$60","11-18 Damage","10# Crit","75% Accuracy"},{"(4)Scimitar-$100","13-20 Damage","20% Crit","85% Accuracy"}};
-    private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasion"},{"(2)Copper Cuirass-$40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
+    private String[][] swordList = {{"(1)Short Sword-$15","3-6 Damage","2% Crit","85% Accuracy"},{"(2)Sabre-$50","4-9 Damage","%15 Crit","95% Accuracy"},{"(3)Long Sword-$60","11-18 Damage","10% Crit","75% Accuracy"},{"(4)Scimitar-$100","13-20 Damage","20% Crit","85% Accuracy"}};
+    private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasion"},{"(2)Copper Cuirass-$40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor","20% Evasion"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
     private Enemy bounty;
     private Random r = new Random(); 
     private Scanner sc = new Scanner(System.in);
@@ -236,14 +236,5 @@ public class GenericRPG{
 	    }
 	}
     }
-    public void toDictionary(){
-	Map Descriptions = new HashMap();		
-	for (int i = 0; i < 8; i ++){
-	    Descriptions.put(magicStorePotions[i][0],magicStorePotions[i][1]);}
-	//for (int i = 0; i < swordList.size();i++)
-	//	Descriptions.put(swordList[i][0],swordList[i][1] + swordList[i][2] + swordList[i][3]);
-    // for (int i = 0; i < armorList.size;i ++)
-	//Descriptions.put(armorList[i][0],swordList[i][1] + swordList[i][2]+ swordList [i][3]);
-	System.out.println(Descriptions);
-    }
+  
 }
