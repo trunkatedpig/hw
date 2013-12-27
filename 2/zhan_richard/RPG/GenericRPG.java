@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class GenericRPG{
-    private Equips[] EquipmentA = new Equips[2];
+    private Equips[] EquipmentA = new Equips[2]; 
     private Items[] InventoryA = new Items[10];
     private String[] villages = {"(1)Town Hall","(2)Hospital","(3)Blacksmith","(4)Magic Store","(5)Inventory","(6)Quit"};
     private String[] blacksmithOptions = {"(1)Weapons","(2)Armor"};

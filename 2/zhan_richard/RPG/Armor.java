@@ -4,4 +4,5 @@ public class Armor extends Equips{
     public Armor (String i){
 	super(i);
     }
+
 }

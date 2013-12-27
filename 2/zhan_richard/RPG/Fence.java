@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Fence{
+public class Fence{ 
     private String result;
     public String multiFence(int xcor, int ycor, int x, int y, String[] text){
 	result ="";

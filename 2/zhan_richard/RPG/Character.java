@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Character{
-    //THE INSTANCES
+    //THE INSTANCES  
     public int maxHP,hP,maxMP,mP,maxAP,aP;
     public int str,dex,intell;
     public int level, exp, gold;
