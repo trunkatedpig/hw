@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class GenericRPG{
+    private Equips[] EquipmentA = new Equips[2];
+    private Items[] InventoryA = new Items[10];
     private String[] villages = {"(1)Town Hall","(2)Hospital","(3)Blacksmith","(4)Magic Store","(5)Inventory","(6)Quit"};
     private String[] blacksmithOptions = {"(1)Weapons","(2)Armor"};
     private String[] magicStoreOptions = {"(1)Spell Tomes","(2)Potions"};
@@ -16,6 +18,8 @@ public class GenericRPG{
     private Fence f = new Fence();
     private Hero h;
     private ArrayList<String> en = new ArrayList<String>();
+    private String noGold = "You do not have enough gold";
+    private String purchase = "You have purchased %s!";
     public GenericRPG(Hero hero){
 	h=hero;
 	loadWords("enemynames.txt");
@@ -112,6 +116,34 @@ public class GenericRPG{
 	System.out.println("(9)Back (10)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String magicStoreInput2 = sc.nextLine();
+	//LOOK OVER HERE JAMES
+	//PLEASE REDO THE BLACKSMITH IN THIS FASHION
+	//YOUR CODE IS SUPER LONG
+	//PLEASE BE MORE LAZY :D AND FIND BETTER WAYS
+	//Arrays.asList(String[]).contains(String)) will return a boolean whether that String is in the String[]
+	//Integer.parseInt(String) returns an integer of that string
+	//noGold I set to be the standard missing gold phrase
+	//purchase I set to be the standard purchasing phrase. String.format(purchase,String) will substitute that String into the purchase phrase
+	//also, my loseGold function returns a boolean. It works how Mr.Zamansky's fit word in wordsearch works AKA THE ONE YOU SHOWED TO THE CLASS
+	String[] ops = {"1","2","3","4","5","6","7","8"};
+	if (Arrays.asList(ops).contains(magicStoreInput2)){
+
+	    int magicStoreInputTrue=Integer.parseInt(magicStoreInput2);
+	    String potName = magicStorePotions[magicStoreInputTrue-1][0];
+	    int dollarsign = potName.indexOf("$");
+	    int start = potName.indexOf(")");
+	    int end = potName.indexOf("-");
+	    String priceS = potName.substring(dollarsign+1);
+	    int price = Integer.parseInt(priceS);
+	    String potTrueName = potName.substring(start+1,end);
+
+	    if (h.loseGold(price))
+		System.out.println(noGold);	    
+	    else{        
+		h.toItem(potTrueName);
+		System.out.println(String.format(purchase,potTrueName));
+	    }
+	}
 	if (magicStoreInput2.equals("9"))
 	    magicStore();
 	else if (magicStoreInput2.equals("10"))
@@ -142,6 +174,46 @@ public class GenericRPG{
 	System.out.println("(5)Back (6)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String blacksmithInput1 = sc.nextLine();
+	if (blacksmithInput1.equals("1")){
+	    if ( h.getGold() > 15) {
+		h.toEquipW("Short Sword");
+		System.out.println("You have bought a Short Sword!");
+		h.loseGold(15);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("2")){
+	    if (h.getGold() > 50) {
+		h.toEquipW("Sabre");
+		System.out.println("You have bought a Sabre!");
+		h.loseGold(50);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("3")){
+	    if(h.getGold()> 60){
+		h.toEquipW("Long Sword");
+		System.out.println("You have bought a Long Sword!");
+		h.loseGold(60);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("4")){
+	    if(h.getGold()>100){
+		h.toEquipW("Scimitar");
+		System.out.println("You have bought a Scimitar");
+		h.loseGold(100);
+	    }
+	    else { 
+		System.out.println("You do not have enough gold");
+	    }
+	}
 	if (blacksmithInput1.equals("5"))
 	    blacksmith();
 	else if (blacksmithInput1.equals("6"))
@@ -154,6 +226,46 @@ public class GenericRPG{
 	System.out.println("(5)Back (6)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String blacksmithInput1 = sc.nextLine();
+	if (blacksmithInput1.equals("1")){
+	    if (h.getGold()> 15){
+		h.toEquipA("Leather Armor");
+		System.out.println("You have bought Leather Armor");
+		h.loseGold(15);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("2")){
+	    if (h.getGold()>40){
+		h.toEquipA("Copper Cuirass");
+		System.out.println("You have bought Copper Cuirass");
+		h.loseGold(40);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("3")){
+	    if (h.getGold()>80){
+		h.toEquipA("Iron Suit");
+		System.out.println("You have bought Iron Suit");
+		h.loseGold(80);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
+	if (blacksmithInput1.equals("4")){
+	    if (h.getGold()> 110){
+		h.toEquipA("Chainmail");
+		System.out.println("You have bought Chainmail");
+		h.loseGold(110);
+	    }
+	    else {
+		System.out.println("You do not have enough gold");
+	    }
+	}
        	if (blacksmithInput1.equals("5"))
 	    blacksmith();
 	else if (blacksmithInput1.equals("6"))
@@ -184,6 +296,12 @@ public class GenericRPG{
 	    hospital();
     }
     public void checkInventory(){
+	for (int i = 0; i < h.Equipment.size();i++){
+	    EquipmentA[i] = h.Equipment.get(i);
+	}
+	for (int i = 0; i < h.inventory.size();i++){
+	    InventoryA[i] = h.inventory.get(i);
+	}
     }
     public String plural(String s){
 	if (s.substring(s.length()-1).equals("s"))
