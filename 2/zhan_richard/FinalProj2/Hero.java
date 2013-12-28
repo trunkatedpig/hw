@@ -65,6 +65,7 @@ public class Hero  extends Character{
 	crit=EquipW.getCrit();
 	accuracy=EquipW.getAccuracy();
 	armor=EquipA.getArmor();
+	evasion = EquipA.getEvasion();
     }
 
 

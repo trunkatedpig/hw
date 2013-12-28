@@ -74,6 +74,9 @@ public class Character {
     public double getCritStat(){
 	return crit;
     }
+    public double getAccuracyStat(){
+	return accuracy;
+    }
     public double getEvasionStat(){
 	return evasion;
     }
