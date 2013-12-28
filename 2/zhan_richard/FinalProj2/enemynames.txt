@@ -1,6 +1,5 @@
 Centuar
 Cerberus
-Chimera
 Cyclops
 Demon
 Dragon
@@ -11,6 +10,5 @@ Gargoyle
 Ghost
 Giant
 Medusa
-Minotaur
 Troll
 Vampire

@@ -79,7 +79,7 @@ public class GenericRPG {
     public void townHall(){
 	System.out.println("                                +\n                               /_\\\n                     ,%%%______|O|\n                     %%%/_________\\\n                     `%%| /\\[][][]|%\n                    ___||_||______|%\n                         /  \\\n");
 	if (!quest){
-	    int ene = (int)(Math.random()*en.size());
+	    int ene = r.nextInt(14);//(int)(Math.random()*en.size());
 	    quest = true;
 	    bounty = new Enemy(en.get(ene),h);
 	    bountyNumber = (r.nextInt(4)+2);
@@ -296,6 +296,7 @@ public class GenericRPG {
 	while (h.getHP()>0 && v.getHP()>0){
 	    System.out.println(f.singleFence(50,3,"Name:"+v.getName()+" "+v.getHP()+"/"+v.getMaxHP()+"HP "+
 					     v.getMP()+"/"+v.getMaxMP()+"MP"));
+	    System.out.println(bounty.getPortrait());
 	    System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
 					     h.getMP()+"/"+h.getMaxMP()+"MP "+ h.getAP()+"/"+h.getMaxAP()+"AP "+
 					     "Level:" + h.getLevel()+" Gold:"+h.getGold()+" Exp:"+h.getXP()));
