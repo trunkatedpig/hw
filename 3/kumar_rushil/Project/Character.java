@@ -52,6 +52,39 @@ public class Character{
 	maxexp = i;
     }
 
+    public int getMaxHealth(){
+	return maxhealth;
+    }
+
+    public int getHealth(){
+	return health;
+    }
+
+    public int getMana(){
+	return mana;
+    }
+
+    public int getMaxMana(){
+	return maxmana;
+    }
+
+    public int getDexterity(){
+	return dexterity;
+    }
+
+    public int getMagic(){
+	return magic;
+    }
+
+    public int getStrength(){
+	return strength;
+    }
+
+    public int getMaxExp(){
+	return maxexp;
+    }
+
+
     public void addExp(int i){
 	int k = exp + i;
 	if (k >= maxexp){
