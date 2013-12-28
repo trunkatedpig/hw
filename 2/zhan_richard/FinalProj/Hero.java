@@ -3,48 +3,62 @@ import java.util.*;
 
 public class Hero extends Character{
    
-    public Weapons EquipW;
-    public Armor EquipA;
-    public Items ItemI;
-    public ArrayList<Equips> Equipment= new ArrayList<Equips>();
+    private Weapons EquipW;
+    private Armor EquipA;
+    private Items ItemI;
+    private ArrayList<Equips> Equipment= new ArrayList<Equips>();
+
     public Hero(){
-	maxHP=100;
+	updateStats();
 	hP=maxHP;
-	maxMP=100;
+
 	mP=maxMP;
-	maxAP=10;
+
 	aP=maxAP;
-	str=10;
-	dex=10;
-	intell=10;
+
 	inventory= new ArrayList<Items>();
 	name = "Sir Arthur";
 	ability = new ArrayList<Abilities>();
 	ability.add(new Abilities("Flee"));
 	spells = new ArrayList<Spells>();
-	armor = 0;
 	level = 1;
 	exp = 0;
-	gold = 10000;
+	gold = 1000;
 	EquipW = new Weapons("Wooden Sword");
 	Equipment.add(EquipW);
+
 	EquipA = new Armor("Leather Vest");
 	Equipment.add(EquipA);
+
     }
 
     public void toEquipW(String i){
-	EquipW  = new Weapons("i");
+	EquipW  = new Weapons(i);
 	Equipment.add(EquipW);
        
 	
     }
     public void toEquipA(String i){
-	EquipA = new Armor("i");
+	EquipA = new Armor(i);
 	Equipment.add(EquipA);
     }
     
     public void toItem(String i){
-	ItemI = new Items("i");
+	ItemI = new Items(i);
 	inventory.add(ItemI);
     }
+
+    public void updateStats(){
+	maxHP=60+(str*4);
+	maxMP=10+(intell*2);
+	maxAP=10+((level-1)*2);
+	minDamage=(dex/4)+EquipW.getMinDamage();
+	maxDamage=(dex/2)+EquipW.getMaxDamage();
+	crit=EquipW.getCrit();
+	accuracy=EquipW.getAccuracy();
+	armor=EquipA.getArmor();
+    }
+
+
+
 }

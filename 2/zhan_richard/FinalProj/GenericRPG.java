@@ -6,7 +6,7 @@ public class GenericRPG{
     private Items[] InventoryA = new Items[10];
     private String[] villages = {"(1)Town Hall","(2)Hospital","(3)Blacksmith","(4)Magic Store","(5)Inventory","(6)Quit"};
     private String[] blacksmithOptions = {"(1)Weapons","(2)Armor"};
-    private String[] magicStoreOptions = {"(1)Spell Tomes","(2)Potions"};
+    private String[] magicStoreOptions= {"(1)Spell Tomes","(2)Potions"};
     private String[] hospitalOptions = {"(1)Cure-$1","(2)Leave"};
     private String[][] magicStoreSpells = {{"(1)Magic Bolt-$20","Deals 20 damage","Costs 4 mana"},{"(2)Minor Heal-$30","Heals a little based on intell","Costs 10 mana"},{"(3)Stone Skin-$50","Increases resistance towards attacks","Lasts 3 turns","Costs 8 mana"},{"(4)Fireball-$80","Deals damage based on intell","Costs 15 mana"},{"(5)Temper-$100","Increases damage and crit chance","Costs 19 mana"},{"(6)Heal-$150","Heals based on intell","Costs 24 mana"},{"(7)Blizzard-$200","Deals damage based on intell","20% Freeze","Costs 30 mana"},{"(8)Poison-$300","Deals damage per turn based on enemy max HP","Lasts 5 turns","Costs 35 mana"},{"(9)Full Heal-$500","Full heals","Costs 77 mana"},{"(10)Unholy-$666","Oh my...","Costs 100 mana"}};
     private String[][] magicStorePotions = {{"(1)Minor Healing Potion-$3","Heals 20 hit points"},{"(2)Healing Potion-$15","Heals 50 hit points"},{"(3)Major Healing Potion-$40","Heals 200 hit points"},{"(4)Minor Mana Potion-$2","Heals 10 mana"},{"(5)Mana Potion-$10","Heals 40 mana"},{"(6)Major Mana Potion-$25","Heals 100 mana"},{"(7)Stamina Potion-$20","Recovers 40 ability power"},{"(8)Elixir-$100","Heals 300 HP, 200 MP, 100 AP"}};
@@ -195,11 +195,11 @@ public class GenericRPG{
 	    hospital();
     }
     public void checkInventory(){
-	for (int i = 0; i < h.Equipment.size();i++){
-	    EquipmentA[i] = h.Equipment.get(i);
+	for (int i = 0; i < h.getEquipment().size();i++){
+	    EquipmentA[i] = h.getEquipment().get(i);
 	}
-	for (int i = 0; i < h.inventory.size();i++){
-	    InventoryA[i] = h.inventory.get(i);
+	for (int i = 0; i < h.getInventory().size();i++){
+	    InventoryA[i] = h.getInventory().get(i);
 	}
     }
     public String plural(String s){

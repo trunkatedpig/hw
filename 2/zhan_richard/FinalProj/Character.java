@@ -3,14 +3,17 @@ import java.util.*;
 
 public class Character{
     //THE INSTANCES
+    private Random r=new Random();
     public int maxHP,hP,maxMP,mP,maxAP,aP;
     public int str,dex,intell;
-    public int level, exp;
+    public int level, exp, gold;
     public ArrayList<Items> inventory;
+    public ArrayList<Equips> Equipment;
     public String name;
     public ArrayList<Abilities> ability;
     public ArrayList<Spells> spells;
-    public double armor=0;
+    public double armor,crit,evasion,accuracy;
+    public int minDamage,maxDamage;
     //THE GETS
     public int getHP(){
 	return hP;
@@ -30,6 +33,10 @@ public class Character{
     public ArrayList<Items> getInventory(){
 	return inventory;
     }
+    public ArrayList<Equips> getEquipment(){
+	return inventory;
+    }
+    
     public int getStr(){
 	return str;
     }
@@ -39,12 +46,39 @@ public class Character{
     public int getIntell(){
 	return intell;
     }
+    public int getCharacterMinDamage(){
+	return minDamage;
+    }
+    public int getCharacterMaxDamage(){
+	return maxDamage;
+    }
+    public int getGold(){
+	return gold;
+    }
+    public double getArmorStat(){
+	return armor;
+    }
+    public double getCritStat(){
+	return crit;
+    }
+    public double getEvasionStat(){
+	return evasion;
+    }
     //THE SETS
     public void setHP(int loss){
 	if (hP <= loss)
 	    hP = 0;
 	else
 	    hP=hP-loss;
+    }
+    public void heal(int gain){
+	if (hP >= maxHP)
+	    hP=maxHP;
+	else
+	    hP=hP+gain;
+    }
+    public void fullHeal(){
+	hP=maxHP;
     }
     public void setMP(int loss){
 	mP=mP-loss;
@@ -71,6 +105,16 @@ public class Character{
 	level=level+1;
 	exp = 0;
     }
+    public void gainGold(int gain){
+	gold = gold + gain;
+    }
+    public boolean loseGold(int loss){
+	if (gold >= loss){
+	    gold = gold - loss;
+	    return false;
+	}
+	return true;
+    }
     //THE METHODS
     public Character(){
 	maxHP=1;
@@ -85,16 +129,30 @@ public class Character{
 	inventory = new ArrayList<Items>();
 	ability = new ArrayList<Abilities>();
 	spells = new ArrayList<Spells>();
-	name = "Derp";
 	armor = 0;
+	crit=0;
+	evasion=0;
+	name = "Derp";
 	level = 1;
 	exp = 0;
+	gold = 0;
+	minDamage=0;
+	maxDamage=0;
     }
 
 
     public void attack(Character c){
-	double s = (double)(str);
-	int b = (int)(Math.round(s*(1-armor)));
-	c.setHP(b);
+	int damage1 = maxDamage-minDamage+1;
+	int damage2 = r.nextInt()%damage;
+	int damage3 = minDamage + i;
+	if (r.nextInt(1/c.getEvasionStat())==0 || r.nextInt(1/accuracy==0)){
+	    System.out.println(c.getName() + "missed!");
+	}
+	else{
+	    int b = (int)(Math.round(damage3*(1-c.getArmorStat())));
+	    c.setHP(b);
+	    System.out.print(name + " hit " + c.getName() + " for " +b+ " damage");
+
+	}
     }
 }

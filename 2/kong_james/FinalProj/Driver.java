@@ -11,6 +11,7 @@ public class Driver{
 	h.setName(nameInput);
 
 	GenericRPG g = new GenericRPG(h);
+	System.out.println("Welcome to Kongsville!");
 	g.village();
     }
 }
