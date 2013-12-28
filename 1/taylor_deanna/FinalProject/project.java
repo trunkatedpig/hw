@@ -156,6 +156,7 @@ public class project extends JFrame implements ActionListener{
 	sell = new JButton("sell a pig");
 
 	text = new JTextField();
+	text.setEditable(false);
 
 	grid = new JPanel();
 
