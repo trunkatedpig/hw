@@ -1,0 +1,1212 @@
+import java.io.*;
+import java.util.*;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import javax.imageio.*;
+
+public class chetris {
+    public static void main ( String[] args ) {
+	ChetrisGame game = new ChetrisGame();
+    }
+}
+
+class ChetrisGame implements Runnable {
+    private JPanel f;
+    private JFrame f2;
+    private ChessBoard chessBoard;
+    private TetrisBoard p1t , p2t , pt;
+    private JButton start;
+    private int player , finishedTurn;
+    private Thread t;
+
+    public ChetrisGame() {
+	//	this.addActionListener ( this );
+	chessBoard = new ChessBoard();
+	p1t = new TetrisBoard();
+	p2t = new TetrisBoard();
+	start = new JButton ( "Start" );
+	t = new Thread ( this );
+	//start.addActionListener ( this );
+	// start.addKeyListener ( this );
+	f = new JPanel();
+	f2 = new JFrame();
+	//	f.setDefaultCloseOperation ( JFrame.EXIT_ON_CLOSE );
+	//	f.getContentPane().setLayout ( new FlowLayout() );
+	//	f.setVisible ( true );
+	//f.add ( start );
+	f.add ( p2t );
+	f.add ( chessBoard );
+	f.add ( p1t );
+	f2.setDefaultCloseOperation ( JFrame.EXIT_ON_CLOSE );
+	f2.getContentPane().setLayout ( new BorderLayout () );
+	f2.setVisible ( true );
+	f2.getContentPane().add ( start , BorderLayout.PAGE_START );
+	f2.getContentPane().add ( f );
+	f2.show();
+	f2.pack();
+	player = 1;
+	pt = p1t;
+	p1t.t.start();
+	p2t.t.start();
+	p2t.t.suspend();
+	t.start();
+    }
+
+    public void run() {
+	while ( true ) {
+	    try {
+		t.sleep ( 500 );
+	    } catch ( InterruptedException e ) {
+	    }
+	    if ( chessBoard.moveOver == 1 ) {
+		System.out.println ( "move over" );
+		String direction = chessBoard.direction;
+		if ( direction.length() > 0 ) {
+		    System.out.println ( direction );
+		    if ( direction.equals ( "up" ) )
+			pt.rotate();
+		    if ( direction.equals ( "down" ) )
+			pt.wait = 50;
+		    if ( direction == "left" ) {
+			if ( pt.piece == pt.piece1 && pt.x < pt.buttons [ pt.y ].length + 3 ||
+			     pt.x < pt.buttons [ pt.y ].length + 2 ||
+			     pt.piece == pt.piece3 && pt.x > 0 ||
+			     pt.x > 1 ) {
+			    System.out.println ( "going left" );
+			    pt.z = -1;
+			}
+		    }
+		    if ( direction == "right" ) {
+			if ( pt.piece == pt.piece1 && pt.x < pt.buttons [ pt.y ].length + 3 ||
+			     pt.x < pt.buttons [ pt.y ].length + 2 ||
+			     pt.piece == pt.piece3 && pt.x > 0 ||
+			     pt.x > 1 ) {
+			    System.out.println ( "going right" );
+			    pt.z = 1;
+			}
+		    }
+		}
+		else {
+		    pt.z = 0;
+		    pt.wait = 500;
+		}
+	    }
+	    if ( pt.moveOver == 1 ) {
+		System.out.println ( "tetris move over" );
+		if ( chessBoard.moveOver == 1 ) {
+		    if ( pt == p1t )
+			pt = p2t;
+		    else if ( pt == p2t )
+			pt = p1t;
+		    pt.moveOver = 0;
+		    chessBoard.moveOver = 0;
+		    System.out.println (  p1t == pt);// + "\np2t: " + p2t == pt );
+		    pt.start();
+		    pt.t.resume();
+		}
+	    }
+	}
+    }
+
+    /*
+    public void actionPerformed ( ActionEvent e ) {
+	if ( e.getSource() == start ) {
+	    System.out.println ( "Start" );
+	    player = 1;
+	    pt = p1t;
+	    pt.t.start();
+	}
+    }
+
+    public void keyReleased ( KeyEvent e ) {
+	pt.z = 0;
+	pt.wait = 500;
+    }
+    public void keyPressed ( KeyEvent e ) {
+	if ( e.getKeyCode() == KeyEvent.VK_UP ) {
+	    System.out.println ( "up" );
+	    pt.rotate();
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_DOWN ) {
+	    System.out.println ( "down" );
+	    pt.wait = 50;
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_LEFT ) {
+	    System.out.println ( "left" );
+	    if ( pt.piece == pt.piece1 && pt.x < pt.buttons [ pt.y ].length + 3 ||
+		 pt.x < pt.buttons [ pt.y ].length + 2 ||
+		 pt.piece == pt.piece3 && pt.x > 0 ||
+		 pt.x > 1 ) {
+		System.out.println ( "going left" );
+		pt.z = -1;
+	    }
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
+	    System.out.println ( "left" );
+	    if ( pt.piece == pt.piece1 && pt.x < pt.buttons [ pt.y ].length + 3 ||
+		 pt.x < pt.buttons [ pt.y ].length + 2 ||
+		 pt.piece == pt.piece3 && pt.x > 0 ||
+		 pt.x > 1 ) {
+		System.out.println ( "going right" );
+		pt.z = 1;
+	    }
+	}
+    }
+    public void keyTyped ( KeyEvent e ) {
+    }*/
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class ChessBoard extends JPanel implements ActionListener , KeyListener {
+    private JButton[][] buttons = new JButton [ 8 ] [ 8 ];
+    private int[] currentMove = new int [ 2 ];
+    private ArrayList<int[]> options = new ArrayList<int[]>();
+    protected String piece , direction;
+    protected int turn , moveOver;
+
+    public ChessBoard() {
+	//	this.addActionListener ( this );
+	piece = new String();
+	direction = new String();
+	turn = 1;
+	super.setLayout ( new GridLayout ( 8 , 8 ) );
+	for ( int row = 0 ; row < buttons.length ; row++ ) {
+	    for ( int col = 0 ; col < buttons [ row ].length ; col++ ) {
+		if ( row == 1 || row == buttons.length - 2 ) {
+		    if ( row == 1 )
+			setPiece ( "p2_pawn" , row , col );
+		    if ( row == buttons.length - 2 )
+			setPiece ( "p1_pawn" , row , col );
+		}
+		else if ( row == buttons.length - 1 || row == 0 ) {
+		    if ( col == 0 || col == buttons [ row ].length - 1 ) {
+			if ( row == buttons.length - 1 )
+			    setPiece ( "p1_rook" , row , col );
+			if ( row == 0 )
+			    setPiece ( "p2_rook" , row , col );
+		    }
+		    else if ( col == 1 || col == buttons [ row ].length - 2 ) {
+			if ( row == buttons.length - 1 )
+			    setPiece ( "p1_knight" , row , col );
+			if ( row == 0 )
+			    setPiece ( "p2_knight" , row , col );
+		    }
+		    else if ( col == 2 || col == buttons [ row ].length - 3 ) {
+			if ( row == buttons.length - 1 )
+			    setPiece ( "p1_bishop" , row , col );
+			if ( row == 0 )
+			    setPiece ( "p2_bishop" , row , col );
+		    }
+		    else if ( col == 3 ) {
+			if ( row == buttons.length - 1 )
+			    setPiece ( "p1_queen" , row , col );
+			if ( row == 0 )
+			    setPiece ( "p2_queen" , row , col );
+		    }
+		    else if ( col == 4 ) {
+			if ( row == buttons.length - 1 )
+			    setPiece ( "p1_king" , row , col );
+			if ( row == 0 )
+			    setPiece ( "p2_king" , row , col );
+		    }
+		}
+		//		    else buttons [ row ] [ col ] = new JButton ( row + " " + col );
+		else buttons [ row ] [ col ] = new JButton ( row + " " + col );
+		System.out.println ( "rowcol: " + row + ", " + col );
+		buttons [ row ] [ col ].addActionListener ( this );
+		buttons [ row ] [ col ].addKeyListener ( this );
+		this.add ( buttons [ row ] [ col ] );
+	    }
+	}
+    }
+
+    public void keyReleased ( KeyEvent e ) {
+	direction = new String();
+    }
+    public void keyPressed ( KeyEvent e ) {
+	if ( e.getKeyCode() == KeyEvent.VK_UP ) {
+	    direction = "up";
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_DOWN ) {
+	    direction = "down";
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_LEFT ) {
+	    direction = "left";
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
+	    direction = "right";
+	}
+    }
+    public void keyTyped ( KeyEvent e ) {
+    }
+
+    public void setPiece ( String name , int row , int col ) {
+	buttons [ row ] [ col ] = new JButton ( row + " " + col + name );
+	try {
+	    Image image = ImageIO.read ( getClass().getResource ( name + ".png" ) );
+	    buttons [ row ] [ col ].setIcon ( new ImageIcon ( image ) );
+	} catch ( IllegalArgumentException e ) {
+	    System.out.println ( name );
+	} catch ( IOException e ) {
+	}
+	piece = name;
+    }
+
+    public Dimension getPreferredSize() {
+	return new Dimension ( 400 , 400 );
+    }
+
+    public void actionPerformed ( ActionEvent e ) {
+	System.out.println ( e );
+	System.out.println ( "getText" + ( ( JButton ) e.getSource() ).getText() );
+	piece =  ( ( JButton ) e.getSource() ).getText().substring ( 3 );
+	//	System.out.println ( piece );
+	//	System.out.println ( piece.equals ( "p1_pawn" ) );
+	String row = ( ( JButton ) e.getSource() ).getText().substring ( 0 , 1 );
+	String col = ( ( JButton ) e.getSource() ).getText().substring ( 2 , 3 );
+	int r = Integer.parseInt ( row );
+	int c = Integer.parseInt ( col );
+	//	for ( int[] coor : options ) {
+	//  buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
+	//  System.out.println ( Arrays.toString ( coor ) + "    opt" );
+	//	}
+	System.out.println ( buttons [ r ] [ c ].getBackground().equals ( Color.blue ) );
+	if ( buttons [ r ] [ c ].getBackground() != Color.blue ) {
+	    System.out.println ( "not blue" );
+	    System.out.println ( r + ", " + c );
+	    for ( int[] coor : options ) {
+		System.out.println ( "set null: " + coor [ 0 ] + ", " + coor [ 1 ] );
+		buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
+	    }
+	    options.clear();
+	}
+	/*	System.out.println ( "options: " );
+	for ( int[] coor : options ) {
+	    buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
+	    System.out.println ( Arrays.toString ( coor ) + "   opt" );
+	    }*/
+	if ( turn == 1 ) {
+	if ( piece.equals ( "p1_pawn" ) ) {
+	    getOptions ( "p1 pawn" , r , c );
+	    //	    options.clear();
+	    //	    int[] a = { r - 1 , c };
+	    //	    options.add ( a );
+	    //	    if ( r == buttons.length - 2 ) {
+	    //	int[] b = { r - 2 , c };
+	    //	options.add ( b );
+	    //	    }
+	    System.out.println ( "pawn selected" );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p1_knight" ) ) {
+	    getOptions ( "knight" , r , c );
+	    //	    options.clear();
+	    //	    int[] a = { r - 2 , c + 1 };
+	    //	    int[] b = { r - 2 , c - 1 };
+	    //	    options.add ( a );
+	    //	    options.add ( b );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p1_rook" ) ) {
+	    getOptions ( "rook" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p1_bishop" ) ) {
+	    getOptions ( "bishop" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p1_king" ) ) {
+	    getOptions ( "king" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p1_queen" ) ) {
+	    getOptions ( "queen" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	}
+	if ( turn == 2 ) {
+	if ( piece.equals ( "p2_pawn" ) ) {
+	    getOptions ( "p2 pawn" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p2_rook" ) ) {
+	    getOptions ( "rook" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if (  piece.equals ( "p2_bishop" ) ) {
+	    getOptions ( "bishop" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p2_knight" ) ) {
+	    getOptions ( "knight" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p2_king" ) ) {
+	    getOptions ( "king" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	if ( piece.equals ( "p2_queen" ) ) {
+	    getOptions ( "queen" , r , c );
+	    selectPiece ( e , r , c );
+	}
+	}
+	System.out.println ( "color matches?" );
+	System.out.println ( r + ", " + c );
+	System.out.println ( buttons [ r ] [ c ].getBackground().equals ( Color.blue ) );
+	//	System.out.println  ( ( ( JButton ) e.getSource() ).getBackground() == Color.blue );
+	if ( ( ( JButton ) e.getSource() ).getBackground() == Color.blue ) {
+	    piece = buttons [ currentMove [ 0 ] ] [ currentMove [ 1 ] ].getText().substring ( 3 );
+	    System.out.println ( piece );
+	    //	    System.out.println ( (  ( JButton ) e.getSource() ).getText() );
+	    System.out.println ( "move pawn" );
+	    System.out.println ( Arrays.toString ( currentMove ) );
+	    try {
+		System.out.println ("piece" + piece);//.substring ( 3 ) );
+		Image image = ImageIO.read ( getClass().getResource ( piece + ".png" ) );
+		buttons [ r ] [ c ].setIcon ( new ImageIcon ( image ) );
+		buttons [ r ] [ c ].setBackground ( null );
+		buttons [ r ] [ c ].setText ( row + " " + col + piece );
+		System.out.println ( "change image: " + row + ", " + col );
+		System.out.println ( buttons [ r ] [ c ].getText() );
+		int[] removed = { r , c };
+	    } catch ( IOException ex ) {
+		System.out.println ( "fail" );
+	    }
+	    System.out.println ( "options: " );
+	    for ( int[] coor : options ) {
+		buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
+		System.out.println ( Arrays.toString ( coor ) + "    opt" );
+	    }
+	    buttons [ currentMove [ 0 ] ] [ currentMove [ 1 ] ].setIcon ( null );
+	    buttons [ currentMove [ 0 ] ] [ currentMove [ 1 ] ].setText ( currentMove [ 0 ] + " " + currentMove [ 1 ] );
+	    //	    for ( int[] coor : options ) {
+	    //	buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
+	    //	    }
+	    options.clear();
+	    System.out.println ( "turn: " + turn );
+	    if ( turn == 1 ) {
+		turn = 2;
+	    }
+	    else {
+		turn = 1;
+	    }
+	    moveOver = 1;
+	}
+    }
+
+    public void selectPiece ( ActionEvent e , int r , int c ) {
+	System.out.println ( Arrays.toString ( currentMove ) );
+	buttons [ currentMove [ 0 ] ] [ currentMove [ 1 ] ].setBackground ( null );
+	currentMove [ 0 ] = r;
+	currentMove [ 1 ] = c;
+	System.out.println ( "currentMove: " +  Arrays.toString ( currentMove ) );
+	//options.add ( a );
+	//options.add ( b );
+	for ( int[] coor : options ) {
+	    buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( Color.blue );
+	}
+	//	options.clear();
+	//	buttons [ r ] [ c ].setText ( row + " " + col );
+    }
+
+    public void getOptions ( String name , int r , int c ) {
+	if ( name == "p1 pawn" ) {
+	    if ( buttons [ r - 1 ] [ c ].getIcon() == null ) {
+		//		System.out.println (  eatable ( buttons [ r ] [ c ] , buttons [ r - 1 ] [ c + 1 ] ) );
+		int[] a = { r - 1 , c };
+		options.add ( a );
+		if ( r == buttons.length - 2 && buttons [ r - 2 ] [ c ].getIcon() == null ) {
+		    int[] b = { r - 2, c };
+		    options.add ( b );
+		}
+	    }
+	    if ( ( c < buttons.length - 1 &&  eatable ( buttons [ r ] [ c ] , buttons [ r - 1 ] [ c + 1 ] ) ) || 
+		 ( c > 0 && eatable ( buttons [ r ] [ c ] , buttons [ r - 1 ] [ c - 1 ] ) ) ) {
+		if ( c < buttons.length - 1 )
+		    eatable ( buttons [ r ] [ c ] , buttons [ r - 1 ] [ c + 1 ] );
+		if ( c > 0 )
+		    eatable ( buttons [ r ] [ c ] , buttons [ r - 1 ] [ c - 1 ] );
+	    }
+	}
+	if ( name == "knight" ) {
+	    /*	    if ( buttons [ r - 2 ] [ c + 1 ].getIcon() == null ) {
+		int[] a = { r - 2 , c + 1 };
+		options.add ( a );
+	    }
+	    if ( buttons [ r - 2 ] [ c - 1 ].getIcon() == null ) {
+		int[] a = { r - 2 , c - 1 };
+		options.add ( a );
+	    }*/
+	    int[][] knightList = { { -2 , -1 } , { -2 , 1 } , { 2 , 1 } , { 2 , -1 } , { 1 , 2 } , { 1 , -2 } , { -1 , 2 } , { -1 , -2 } };
+	    for ( int[] coor : knightList ) {
+		int coor1 = coor [ 0 ];
+		int coor2 = coor [ 1 ];
+		try {
+		    if ( buttons [ r + coor1 ] [ c + coor2 ].getIcon() == null ) {
+			int[] a = { r + coor1 , c + coor2 };
+			options.add ( a );
+		    }
+		    if ( eatable ( buttons [ r ] [ c ] , buttons [ r + coor1 ] [ c + coor2 ] ) )
+			eatable ( buttons [ r ] [ c ] , buttons [ r + coor1 ] [ c + coor2 ] );
+		} catch ( ArrayIndexOutOfBoundsException e ) {
+		    System.out.println ( "out of bounds" );
+		}
+	    }
+
+	}
+	if ( name == "rook" ) {
+	    if ( r > 0 ) {
+		for ( int i = r - 1 ; i >= 0 ; i -- ) {
+		    if ( buttons [ i ] [ c ].getIcon() == null ) {
+			int[] a = { i , c };
+			options.add ( a );	
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ c ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r < buttons.length - 1 ) {
+		for ( int i = r + 1 ; i < buttons.length ; i++ ) {
+		    if ( buttons [ i ] [ c ].getIcon() == null ) {
+			int[] a = { i , c };
+			options.add ( a );	
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ c ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( c > 0 ) {
+		for ( int i = c - 1 ; i >= 0 ; i-- ) {
+		    if ( buttons [ r ] [ i ].getIcon() == null ) {
+			int[] a = { r , i };
+			options.add ( a );	
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ r ] [ i ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    System.out.println ( buttons [ r ].length );
+	    if ( c < buttons [ r ].length - 1 ) {
+		for ( int i = c + 1 ; i < buttons.length ; i++ ) {
+		    if ( buttons [ r ] [ i ].getIcon() == null ) {
+			int[] a = { r , i };
+			options.add ( a );
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ r ] [ i ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	}
+	if ( name == "bishop" ) {
+	    if ( r > 0 && c > 0 ) {
+		System.out.println ( "bishop" );
+		System.out.println ( r + ", " + c );
+		int j = c;
+		for ( int i = r - 1 ; i >= 0 ; i-- ) {
+		    j = j - 1;
+		    System.out.println ( "i j :" + i + ", " + j );
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j <= 0 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r > 0 && c < buttons [ r ].length - 1 ) {
+		int j = c;
+		for ( int i = r - 1 ; i >= 0 ; i-- ) {
+		    j = j + 1;
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j >= buttons [ r ].length - 1 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r < buttons.length - 1 && c > 0 ) {
+		int j = c;
+		for ( int i = r + 1 ; i < buttons.length ; i++ ) {
+		    j = j - 1;
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j <= 0 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r < buttons.length - 1 && c < buttons [ r ].length - 1 ) {
+		int j = c;
+		for ( int i = r + 1 ; i < buttons.length ; i++ ) {
+		    j = j + 1;
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j >= buttons [ r ].length - 1 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	}
+	if ( name == "king" ) {
+	    int[][] kingList = { { -1 , -1 } , { -1 , 0 } , { -1 , 1 } , { 0 , -1 } , { 0 , 1 } , { 1 , -1 } , { 1 , 0 } , { 1 , 1 } };
+	    for ( int[] coor : kingList ) {
+		int coor1 = coor [ 0 ];
+		int coor2 = coor [ 1 ];
+		System.out.println ( "coors: " + coor1 + ", " + coor2 );
+		try {
+		    if ( buttons [ r + coor1 ] [ c + coor2 ].getIcon() == null ) {
+			int[] a = { r + coor1 , c + coor2 };
+			options.add ( a );
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ r + coor1 ] [ c + coor2 ] ) ) {
+		    }
+		} catch ( ArrayIndexOutOfBoundsException e ) {
+		    System.out.println ( "out of bounds" );
+		}
+	    }
+	}
+	if ( name == "queen" ) {
+	    System.out.println ( "queensryche" );
+	    if ( r > 0 ) {
+		for ( int i = r - 1 ; i >= 0 ; i -- ) {
+		    if ( buttons [ i ] [ c ].getIcon() == null ) {
+			int[] a = { i , c };
+			options.add ( a );	
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ c ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r < buttons.length - 1 ) {
+		for ( int i = r + 1 ; i < buttons.length ; i++ ) {
+		    if ( buttons [ i ] [ c ].getIcon() == null ) {
+			int[] a = { i , c };
+			options.add ( a );	
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ c ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( c > 0 ) {
+		for ( int i = c - 1 ; i >= 0 ; i-- ) {
+		    if ( buttons [ r ] [ i ].getIcon() == null ) {
+			int[] a = { r , i };
+			options.add ( a );	
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ r ] [ i ] ) ) {
+			break;
+		    }
+		    else {
+			break;
+		    }     
+		}
+	    }
+	    System.out.println ( buttons [ r ].length );
+	    if ( c < buttons [ r ].length ) {
+		for ( int i = c + 1 ; i < buttons.length ; i++ ) {
+		    if ( buttons [ r ] [ i ].getIcon() == null ) {
+			int[] a = { r , i };
+			options.add ( a );
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ r ] [ i ] ) ) {
+			break;
+		    }
+		    else {
+			break;
+		    }
+		}
+	    }
+	    if ( r > 0 && c > 0 ) {
+		int j = c;
+		for ( int i = r - 1 ; i >= 0 ; i-- ) {
+		    j = j - 1;
+		    System.out.println ( "i j :" + i + ", " + j );
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j <= 0 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r > 0 && c < buttons [ r ].length ) {
+		int j = c;
+		for ( int i = r - 1 ; i >= 0 ; i-- ) {
+		    j = j + 1;
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j >= buttons [ r ].length - 1 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r < buttons.length - 1 && c > 0 ) {
+		int j = c;
+		for ( int i = r + 1 ; i < buttons.length ; i++ ) {
+		    j = j - 1;
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j <= 0 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	    if ( r < buttons.length - 1 && c < buttons [ r ].length - 1 ) {
+		int j = c;
+		for ( int i = r + 1 ; i < buttons.length ; i++ ) {
+		    j = j + 1;
+		    if ( buttons [ i ] [ j ].getIcon() == null ) {
+			int[] a = { i , j };
+			options.add ( a );
+			if ( j >= buttons [ r ].length - 1 )
+			    break;
+		    }
+		    else if ( eatable ( buttons [ r ] [ c ] , buttons [ i ] [ j ] ) ) {
+			break;
+		    }
+		    else break;
+		}
+	    }
+	}
+	if ( name == "p2 pawn" ) {
+	    if ( buttons [ r + 1 ] [ c ].getIcon() == null ) {
+		int[] a = { r + 1 , c };
+		options.add ( a );
+		if ( r == 1 && buttons [ r + 2 ] [ c ].getIcon() == null ) {
+		    int[] b = { r + 2 , c };
+		    options.add ( b );
+		}
+	    }   
+	    if ( ( c < buttons.length - 1 &&  eatable ( buttons [ r ] [ c ] , buttons [ r + 1 ] [ c + 1 ] ) ) || 
+		 ( c > 0 && eatable ( buttons [ r ] [ c ] , buttons [ r + 1 ] [ c - 1 ] ) ) ) {
+		if ( c < buttons.length - 1 )
+		    eatable ( buttons [ r ] [ c ] , buttons [ r + 1 ] [ c + 1 ] );
+		if ( c > 0 )
+		    eatable ( buttons [ r ] [ c ] , buttons [ r + 1 ] [ c - 1 ] );
+	    }
+	}
+    }
+
+    public boolean eatable ( JButton a , JButton b ) {
+	if ( b.getText().length() > 6 ) {
+	    System.out.println ( "player b: " + b.getText().substring ( 4 , 5 ) );
+	    System.out.println ( b.getText().substring ( 0 , 1 )  + ", " + b.getText().substring ( 2 , 3 ) );
+	    System.out.println ( a.getText().substring ( 4 , 5 ) + "==?" + b.getText().substring ( 4 , 5 ) );
+	    if ( ! a.getText().substring ( 4 , 5 ).equals ( b.getText().substring ( 4 , 5 ) ) ) {
+	    int row = Integer.parseInt ( b.getText().substring ( 0 , 1 ) );
+	    int col = Integer.parseInt ( b.getText().substring ( 2 , 3 ) );
+	    int[] addOption = { row , col };
+	    options.add ( addOption );
+	    System.out.println ( "eatable" );
+	    return true;
+	}
+	}
+	System.out.println ( "not eatable" );
+	return false;
+    }
+
+    /*
+    public boolean optionLooop ( int i , int c ) {
+	if ( buttons [ i ] [ c ].getIcon() == null ) {
+	    int[] a = { i , c };
+	    options.add ( a );
+	    return true;
+	}
+	else return false;
+    }
+
+    public void mouseExited ( MouseEvent e ) {
+    }
+    public void mouseEntered ( MouseEvent e ) {
+    }
+    public void mouseReleased ( MouseEvent e ) {
+    }
+    public void mouseClicked ( MouseEvent e ) {
+    }*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class TetrisBoard extends JPanel implements KeyListener , Runnable {
+    Image image;
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    JButton[][] buttons = new JButton [ 15 ] [ 9 ];
+    int buttonPressed = 0;
+    Thread t;
+    protected int x , y, z , oldX , oldY , moveOver;
+    int[][] piece = new int [ 4 ] [ 2 ];
+    int[][] piece1 = { { -1 , 0 } , { 0 , 0 } , { 1 , 0 } , { 2 , 0 } };
+    int[][] piece2 = { { -1 , 0 } , { 0 , 0 } , { 1 , 0 } , { 0 , -1 } };
+    int[][] piece3 = { { 0 , 1 } , { 0 , 0 } , { 1 , 0 } , { 1 , 1 } };
+    int[][] piece4 = { { 0 , -1 } , { 0 , 0 } , { -1 , 0 } , { 1 , -1 } };
+    int[][] piece5 = { { 0 , -1 } , { 0 , 0 } , { 1 , 0 } , { 2 , 0 } };
+    int[][] piece1Rotated = { { 0 , -2 } , { 0 , 0 } , { 0 , -1 } , { 0 , 1 } };
+    int[][] piece2Rotated1 = { { 0 , -1 } , { 0 , 0 } , { 1 , 0 } , { 0 , 1 } };
+    int[][] piece2Rotated2 = { { -1 , 0 } , { 0 , 0 } , { 1 , 0 } , { 0 , 1 } };
+    int[][] piece2Rotated3 = { { 0 , -1 } , { 0 , 0 } , { -1 , 0 } , { 0 , 1 } };
+    int[][] piece4Rotated = { { -1 , -1 } , { 0 , 0 } , { -1 , 0 } , { 0 , 1 } };
+    int[][] piece5Rotated1 = { { 1 , 0 } , { 0 , 0 } , { 0 , 1 } , { 0 , 2 } };
+    int[][] piece5Rotated2 = { { 0 , 1 } , { 0 , 0 } , { -1 , 0 } , { -2 , 0 } };
+    int[][] piece5Rotated3 = { { -1 , 0 } , { 0 , 0 } , { 0 , -1 } , { 0 , -2 } };
+    protected int wait;
+    //JTable table = new JTable ( 10 , 15 );
+
+    public TetrisBoard() {
+	//super ( 15 , 10 );
+	this.addKeyListener(this);
+
+	super.setLayout ( new GridLayout( 15 , 9 ) );
+	wait = 500;
+	int k = 0;
+	for ( int i = 0 ; i < 15 ; i++ ) {
+	    for ( int j = 0 ; j < 9 ; j++ ) {
+		buttons [ i ] [ j ] = new JButton ( );
+		this.add ( buttons [ i ] [ j ] );
+		buttons [ i ] [ j ].addKeyListener ( this );
+		k = k + 1;
+		if ( i > 11 && j != 3 && j != 4 && j != 5 && j != 6 )
+		    buttons [ i ] [ j ].setBackground ( Color.red );
+		if ( i == 13 && j == 2 )
+		    buttons [ i ] [ j ].setBackground ( null );
+	    }
+	}
+	//	setSize ( 400 , 400 );
+	t = new Thread ( this );
+	moveOver = 0;
+	//t.start();
+	//this.add (button);
+    }
+
+    public Dimension getPreferredSize() {
+	return new Dimension ( 400, 400 );
+    }
+
+    public void keyReleased ( KeyEvent e ) {
+ 	if ( e.getKeyCode() == KeyEvent.VK_UP )
+	    System.out.println ( "up" );
+	if ( e.getKeyCode() == KeyEvent.VK_DOWN ) {
+	    System.out.println ( "down" );
+	    wait = 500;
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_LEFT )
+	    System.out.println ( "left" );
+	if ( e.getKeyCode() == KeyEvent.VK_RIGHT )
+	    System.out.println ( "right" );
+	System.out.println ( "released: " + e.getKeyCode() );
+	z = 0;
+	this.update ( this.getGraphics() );
+    }
+
+    public void keyPressed ( KeyEvent e ) {
+	System.out.println ("pressed: " + e.getKeyCode() );
+	buttonPressed = 1;
+	if ( e.getKeyCode() == KeyEvent.VK_UP ) {
+	    System.out.println ( "up" );
+	    rotate();
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_DOWN ) {
+	    System.out.println ( "down" );
+	    wait = 50;
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_LEFT ) {
+	    System.out.println ( "left" );
+	    if ( piece == piece1 && x < buttons [ y ].length + 3 ||
+		 x < buttons [ y ].length + 2 ||
+		 piece == piece3 && x > 0 ||
+		 x > 1 ) {
+		System.out.println ( "going left" );
+		z = -1;
+	    }
+	    //	    if ( x + piece [ 0 ] [ 0 ] >= 0 )
+	}
+	if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
+	    System.out.println ( "right" );
+	    if ( piece == piece1 && x < buttons [ y ].length + 3 ||
+		 x < buttons [ y ].length + 2 ||
+		 piece == piece3 && x > 0 ||
+		 x > 1 ) {
+		//	    if ( x + piece [ 3 ] [ 0 ]<= buttons [ 0 ].length )
+		System.out.println ( "going right" );
+		z = 1;
+	    }
+	}
+    }
+
+    public void keyTyped ( KeyEvent e ) {
+	System.out.println ( "typed: " + e.getKeyCode() );
+	if ( e.getKeyCode() == KeyEvent.VK_UP )
+	    System.out.println ( "up" );
+	if ( e.getKeyCode() == KeyEvent.VK_DOWN )
+	    System.out.println ( "down" );
+	if ( e.getKeyCode() == KeyEvent.VK_LEFT )
+	    System.out.println ( "left" );
+	if ( e.getKeyCode() == KeyEvent.VK_RIGHT )
+	    System.out.println ( "right" );
+    }
+
+    public void rotate() {
+	int[][] list = new int [ 3 ] [ 2 ];
+	list [ 0 ] = piece [ 0 ];
+	list [ 1 ] = piece [ 2 ];
+	list [ 2 ] = piece [ 3 ];
+	System.out.println ( "rotate" );
+	if ( piece == piece1 && y > 0 ) {
+	    rotateRefactored ( list , piece1Rotated );
+	}
+	else if ( piece == piece1Rotated ) {
+	    rotateRefactored ( list , piece1 );
+	}
+	if ( piece == piece2 && y > 0 ) {
+	    rotateRefactored ( list , piece2Rotated1 );
+	}
+	else if ( piece == piece2Rotated1 ) {
+	    rotateRefactored ( list , piece2Rotated2 );
+	}
+	else if ( piece == piece2Rotated2 ) {
+	    rotateRefactored ( list , piece2Rotated3 );
+	}
+	else if ( piece == piece2Rotated3 ) {
+	    rotateRefactored ( list , piece2 );
+	}
+	else if ( piece == piece4 ) {
+	    rotateRefactored ( list , piece4Rotated );
+	}
+	else if ( piece == piece4Rotated ) {
+	    rotateRefactored ( list , piece4 );
+	}
+	else if ( piece == piece5 ) {
+	    rotateRefactored ( list , piece5Rotated1 );
+	}
+	else if ( piece == piece5Rotated1 ) {
+	    rotateRefactored ( list , piece5Rotated2 );
+	}
+	else if ( piece == piece5Rotated2 ) {
+	    rotateRefactored ( list , piece5Rotated3 );
+	}
+	else if ( piece == piece5Rotated3 ) {
+	    rotateRefactored ( list , piece5 );
+	}
+    }
+
+    public void rotateRefactored ( int[][] list , int[][] rotatedPiece ) {
+	piece = rotatedPiece;
+	for ( int[] coor : list ) {
+	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( null );
+	}
+    }
+
+    public void start() {
+	Random rand = new Random();
+	int r = rand.nextInt ( 5 );
+	x = 4;
+	y = 0;
+	z = 0;
+	if ( r == 0 )
+	    piece = piece1;
+	if ( r == 1 ) {
+	    y = 1;
+	    piece = piece2;
+	}
+	if ( r == 2 )
+	    piece = piece3;
+	if ( r == 3 ) {
+	    y = 1;
+	    piece = piece4;
+	}
+	if ( r == 4 ) {
+	    y = 1;
+	    piece = piece5;
+	}
+	//	y = 1;
+	//	piece = piece5;
+    }
+
+    public void go() {
+	oldY = y;
+	oldX = x;
+	y = y + 1;
+	//if ( x + piece [ 0 ] [ 0 ] != 0 || x + piece [ 3 ] [ 0 ] != border.length )
+	    x = x + z;
+	    //else System.out.println ( "Out of Bounds" );
+    }
+
+    public void reset() {
+	//	System.out.println ( "resetHelp: " + resetHelp() );
+	if ( resetHelp() ) {
+	    this.update ( this.getGraphics() );
+	    try {
+		t.sleep ( 500 );
+	    } catch ( InterruptedException e ) {
+		System.out.println ( "interrupted" );
+	    }
+
+	    int shiftHere = y + piece [ 3 ] [ 1 ] - 1;
+	    int k = 4;
+	    while ( k > 0 ) {
+		while ( lineClear ( shiftHere ) ) {
+		    for ( int i = 0 ; i < buttons [ shiftHere ].length ; i++ )
+			buttons [ shiftHere ] [ i ].setBackground ( null );
+		    System.out.println ( "lineClear is true" );
+		    shift ( shiftHere );
+		}
+		k = k - 1;
+		shiftHere = shiftHere - 1;
+	    }
+	    //	    this.update ( this.getGraphics() );
+	    //start();
+	    moveOver = 1;
+	    t.suspend();
+	}
+    }
+
+    public boolean lineClear ( int row ) {
+	System.out.println ( "lineClear: " + row );
+	for ( int c = 0 ; c < buttons [ row ].length - 1 ; c++ ) {
+	    if ( buttons [ row ] [ c ].getBackground() != Color.red ) {
+		System.out.println ( "rowcol: " + row + c );
+		return false;
+	    }
+	}
+	return true;
+    }
+
+    public boolean resetHelp() {
+	if ( piece == piece1 ) {
+	    if ( y == buttons.length )
+		return true;
+	    for ( int[] coor : piece ) {
+		if ( y + 1 == buttons.length || buttons [ y + coor [ 1 ] + 1 ] [ x + coor [ 0 ] ].getBackground().equals ( Color.red ) ) {
+		    System.out.println ( "resetHelp coors: " + x + ", " + y + "\n" + coor [ 0 ] + ", " + coor [ 1 ] );
+		    return true;
+		}
+	    }
+	}
+	if ( piece == piece1Rotated ) {
+	    if ( y + 2 == buttons.length || buttons [ y + 2 ] [ x ].getBackground().equals ( Color.red ) ) {
+		System.out.println ( "rotated 1: " + ( y + 3 ) + "-     " + y );
+		return true;
+	    }
+	}
+	if ( piece == piece2 ) {
+	    int[][] coors = { piece [ 0 ] , piece [ 1 ] , piece [ 2 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	if ( piece == piece2Rotated2 ) {
+	    int[][] coors = { piece [ 0 ] , piece [ 2 ] , piece [ 3 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	    return resetOtherHelp ( coors );
+	}
+	if ( piece == piece2Rotated1 || piece == piece2Rotated3 ) {
+	    int[][] coors = { piece [ 2 ] , piece [ 3 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	if ( piece == piece3 ) {
+	    int[][] coors = { { 0 , 1 } , { 1 , 1 } };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	if ( piece == piece4 ) {
+	    int[][] coors = { piece [ 1 ] , piece [ 2 ] , piece [ 3 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	if ( piece == piece4Rotated ) {
+	    int[][] coors = { { -1 , 0 } , { 0 , 1 } };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	if ( piece == piece5 ) {
+	    int[][] coors = { piece [ 1 ] , piece [ 2 ] , piece [ 3 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	if ( piece == piece5Rotated1 ) {
+	    int[][] coors = { piece [ 0 ] , piece [ 3 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	if ( piece == piece5Rotated2 ) {
+	    int[][] coors = { piece [ 0 ] , piece [ 2 ] , piece [ 3 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
+	return false;
+    }
+
+    public boolean resetOtherHelp ( int[][] coors ) {
+	for ( int[] coor : coors ) {
+	    if ( y + coor [ 1 ] + 1 == buttons.length || buttons [ y + coor [ 1 ] + 1 ] [ x + coor [ 0 ] ].getBackground().equals ( Color.red ) )
+		return true;
+	}
+	return false;
+    }
+
+    public void shift ( int i ) {
+	for ( int m = i ; m > 0 ; m-- ) {
+	    for ( int n = 0 ; n < buttons [ m ].length ; n++ ) {
+		if ( buttons [ m ] [ n ].getBackground() == Color.red ) {
+		    buttons [ m + 1 ] [ n ].setBackground ( Color.red );
+		    buttons [ m ] [ n ].setBackground ( null );
+		}
+	    }
+	}
+    }
+
+    public void paintComponent ( Graphics g ) {
+	super.paintComponent ( g );
+	// System.out.println ( "hi" + buttons.length );
+	// System.out.println ( "x:" + x + "  " + "\n" + "y:" + y );
+	if ( y > 0 && piece == piece1 && piece == piece3 ) {
+	    for ( int[] coor : piece ) {
+		buttons [ oldY + coor [ 1 ] ] [ oldX + coor [ 0 ] ].setBackground ( null );
+	    }
+	}
+	else if ( y > 1 )
+	    for ( int[] coor : piece ) {
+		buttons [ oldY + coor [ 1 ] ] [ oldX + coor [ 0 ] ].setBackground ( null );
+	    }
+	for ( int[] coor : piece ) {
+	    //	    System.out.println ( "coors: " + coor [ 0 ] + ", " + coor [ 1 ] );
+	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
+	}
+    }
+
+    public void run() {
+	start();
+	System.out.println ( "new round" );
+
+	while ( true ) {
+		try {
+		    t.sleep ( wait );
+		} catch ( InterruptedException e ) {
+		}
+		this.go();
+		this.reset();
+		this.update ( this.getGraphics() );
+		System.out.println ( "x:" + x + "\n" + "y:" + y );
+	}
+    }
+}
