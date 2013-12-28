@@ -58,11 +58,11 @@ class ChetrisGame implements Runnable {
     public void run() {
 	while ( true ) {
 	    try {
-		t.sleep ( 500 );
+		t.sleep ( 50 );
 	    } catch ( InterruptedException e ) {
 	    }
 	    if ( chessBoard.moveOver == 1 ) {
-		System.out.println ( "move over" );
+		//System.out.println ( "move over" );
 		String direction = chessBoard.direction;
 		if ( direction.length() > 0 ) {
 		    System.out.println ( direction );
@@ -77,6 +77,7 @@ class ChetrisGame implements Runnable {
 			     pt.x > 1 ) {
 			    System.out.println ( "going left" );
 			    pt.z = -1;
+			    pt.recolor();
 			}
 		    }
 		    if ( direction == "right" ) {
@@ -86,6 +87,7 @@ class ChetrisGame implements Runnable {
 			     pt.x > 1 ) {
 			    System.out.println ( "going right" );
 			    pt.z = 1;
+			    pt.recolor();
 			}
 		    }
 		}
@@ -856,18 +858,18 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
     protected int x , y, z , oldX , oldY , moveOver;
     int[][] piece = new int [ 4 ] [ 2 ];
     int[][] piece1 = { { -1 , 0 } , { 0 , 0 } , { 1 , 0 } , { 2 , 0 } };
-    int[][] piece2 = { { -1 , 0 } , { 0 , 0 } , { 1 , 0 } , { 0 , -1 } };
+    int[][] piece2 = { { -1 , 0 } , { 0 , 0 } , { 0 , -1 } , { 1 , 0} };
     int[][] piece3 = { { 0 , 1 } , { 0 , 0 } , { 1 , 0 } , { 1 , 1 } };
-    int[][] piece4 = { { 0 , -1 } , { 0 , 0 } , { -1 , 0 } , { 1 , -1 } };
-    int[][] piece5 = { { 0 , -1 } , { 0 , 0 } , { 1 , 0 } , { 2 , 0 } };
+    int[][] piece4 = { { 0 , -1 } , { 0 , 0 } , { 1, -1 } , { -1 , 0 } };
+    int[][] piece5 = { { 2 , 0 } , { 0 , 0 } , { 0 , -1} , { 1 , 0 } };
     int[][] piece1Rotated = { { 0 , -2 } , { 0 , 0 } , { 0 , -1 } , { 0 , 1 } };
     int[][] piece2Rotated1 = { { 0 , -1 } , { 0 , 0 } , { 1 , 0 } , { 0 , 1 } };
     int[][] piece2Rotated2 = { { -1 , 0 } , { 0 , 0 } , { 1 , 0 } , { 0 , 1 } };
     int[][] piece2Rotated3 = { { 0 , -1 } , { 0 , 0 } , { -1 , 0 } , { 0 , 1 } };
-    int[][] piece4Rotated = { { -1 , -1 } , { 0 , 0 } , { -1 , 0 } , { 0 , 1 } };
+    int[][] piece4Rotated = { { -1 , -1} , { 0 , 0 } , { -1 , 0 } , { 0 , 1 } };
     int[][] piece5Rotated1 = { { 1 , 0 } , { 0 , 0 } , { 0 , 1 } , { 0 , 2 } };
-    int[][] piece5Rotated2 = { { 0 , 1 } , { 0 , 0 } , { -1 , 0 } , { -2 , 0 } };
-    int[][] piece5Rotated3 = { { -1 , 0 } , { 0 , 0 } , { 0 , -1 } , { 0 , -2 } };
+    int[][] piece5Rotated2 = { { -2 , 0 } , { 0 , 0 } , { -1 , 0 } , { 0 , 1 } };
+    int[][] piece5Rotated3 = { { 0 , -2 } , { 0 , 0 } , { 0 , -1 } , { -1 , 0 } };
     protected int wait;
     //JTable table = new JTable ( 10 , 15 );
 
@@ -930,26 +932,41 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	}
 	if ( e.getKeyCode() == KeyEvent.VK_LEFT ) {
 	    System.out.println ( "left" );
-	    if ( piece == piece1 && x < buttons [ y ].length + 3 ||
-		 x < buttons [ y ].length + 2 ||
-		 piece == piece3 && x > 0 ||
-		 x > 1 ) {
+	    if ( x > 1 ) {
 		System.out.println ( "going left" );
 		z = -1;
+		recolor();
 	    }
 	    //	    if ( x + piece [ 0 ] [ 0 ] >= 0 )
 	}
 	if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
 	    System.out.println ( "right" );
-	    if ( piece == piece1 && x < buttons [ y ].length + 3 ||
-		 x < buttons [ y ].length + 2 ||
-		 piece == piece3 && x > 0 ||
-		 x > 1 ) {
+	    if ( x < buttons.length - 3 ) {
 		//	    if ( x + piece [ 3 ] [ 0 ]<= buttons [ 0 ].length )
 		System.out.println ( "going right" );
 		z = 1;
+		recolor();
 	    }
 	}
+    }
+
+    public void recolor() {
+	if ( ( x + z < buttons [ y ].length - 2 && z == 1 ) || ( x > 1 && z == -1 ) ) {
+	    oldX = x;
+	    x = x + z;
+	    for ( int[] coor : piece ) {
+		if ( x != oldX ) {
+		    buttons [ y + coor [ 1 ] ] [ oldX + coor [ 0 ] ].setBackground ( null );
+		}
+	    }
+	    for ( int[] coor : piece ) {
+		buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
+	    }
+	    t.suspend();
+	}
+	update ( getGraphics() );
+	oldY = y;
+	t.resume();
     }
 
     public void keyTyped ( KeyEvent e ) {
@@ -1013,6 +1030,10 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	for ( int[] coor : list ) {
 	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( null );
 	}
+	for ( int[] coor : piece ) {
+	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
+	}
+	update ( getGraphics() );
     }
 
     public void start() {
@@ -1043,11 +1064,25 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 
     public void go() {
 	oldY = y;
-	oldX = x;
+	//	oldX = x;
 	y = y + 1;
 	//if ( x + piece [ 0 ] [ 0 ] != 0 || x + piece [ 3 ] [ 0 ] != border.length )
-	    x = x + z;
-	    //else System.out.println ( "Out of Bounds" );
+	//	x = x + z;
+	//else System.out.println ( "Out of Bounds" );
+	if ( y == 0 && piece == piece1 && piece == piece3 ) {
+	    for ( int[] coor : piece ) {
+		buttons [ oldY + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( null );
+	    }
+	}
+	else if ( y >= 1 )
+	    for ( int[] coor : piece ) {
+		buttons [ oldY + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( null );
+	    }
+	for ( int[] coor : piece ) {
+	    //	    System.out.println ( "coors: " + coor [ 0 ] + ", " + coor [ 1 ] );
+	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
+	}
+	update ( getGraphics() );
     }
 
     public void reset() {
@@ -1060,8 +1095,8 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		System.out.println ( "interrupted" );
 	    }
 
-	    int shiftHere = y + piece [ 3 ] [ 1 ] - 1;
-	    int k = 4;
+	    int shiftHere = y + piece [ 3 ] [ 1 ];
+	    int k = 3;
 	    while ( k > 0 ) {
 		while ( lineClear ( shiftHere ) ) {
 		    for ( int i = 0 ; i < buttons [ shiftHere ].length ; i++ )
@@ -1175,7 +1210,7 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	}
     }
 
-    public void paintComponent ( Graphics g ) {
+    /*    public void paintComponent ( Graphics g ) {
 	super.paintComponent ( g );
 	// System.out.println ( "hi" + buttons.length );
 	// System.out.println ( "x:" + x + "  " + "\n" + "y:" + y );
@@ -1192,7 +1227,7 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    //	    System.out.println ( "coors: " + coor [ 0 ] + ", " + coor [ 1 ] );
 	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
 	}
-    }
+	}*/
 
     public void run() {
 	start();
