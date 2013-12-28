@@ -49,10 +49,10 @@ public class project extends JFrame implements ActionListener{
 	else if (e.getSource() == race){
 	    if (money >= 5){
 		if (Racing){
-		    int i = r.nextInt(2);
+		    int i = r.nextInt(5);
 		    if (i == 1){
-			money = money + 10;
-			String s = "You're animal won the race";
+			money = money + 20;
+			String s = "Your animal won the race";
 			String t = "" + money;
 			String a = s + " Now you have $" + t;
 			text.setText(a);
@@ -156,6 +156,7 @@ public class project extends JFrame implements ActionListener{
 	sell = new JButton("sell a pig");
 
 	text = new JTextField();
+	text.setEditable(false);
 
 	grid = new JPanel();
 
