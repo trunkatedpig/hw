@@ -11,7 +11,12 @@ public class GenericRPG {
     private String[][] magicStorePotions = {{"(1)Minor Healing Potion-$3","Heals 20 hit points"},{"(2)Healing Potion-$15","Heals 50 hit points"},{"(3)Major Healing Potion-$40","Heals 200 hit points"},{"(4)Minor Mana Potion-$2","Heals 10 mana"},{"(5)Mana Potion-$10","Heals 40 mana"},{"(6)Major Mana Potion-$25","Heals 100 mana"},{"(7)Stamina Potion-$20","Recovers 40 ability power"},{"(8)Elixir-$100","Heals 300 HP, 200 MP, 100 AP"}};
     private String[][] swordList = {{"(1)Short Sword-$15","3-6 Damage","2% Crit","85% Accuracy"},{"(2)Sabre-$50","4-9 Damage","%15 Crit","95% Accuracy"},{"(3)Long Sword-$60","11-18 Damage","10% Crit","75% Accuracy"},{"(4)Scimitar-$100","13-20 Damage","20% Crit","85% Accuracy"}};
     private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasion"},{"(2)Copper Cuirass-$40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor","20% Evasion"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
+
+    private String[] fightOptions = {"(1)Attack","(2)Abilties","(3)Spells","(4)Items"};
     private Enemy bounty;
+    private int bountyNumber;
+    private int bountyKilled;
+    private boolean quest = false;
     private Random r = new Random(); 
     private Weapons Dict = new Weapons("Short Sword");
     private Scanner sc = new Scanner(System.in);
@@ -73,9 +78,25 @@ public class GenericRPG {
     }
     public void townHall(){
 	System.out.println("                                +\n                               /_\\\n                     ,%%%______|O|\n                     %%%/_________\\\n                     `%%| /\\[][][]|%\n                    ___||_||______|%\n                         /  \\\n");
-	int ene = (int)(Math.random()*en.size());
-	bounty = new Enemy(en.get(ene),h);
-	System.out.println("I have a quest for you! Slay "+plural(en.get(ene)));
+	if (!quest){
+	    int ene = (int)(Math.random()*en.size());
+	    quest = true;
+	    bounty = new Enemy(en.get(ene),h);
+	    bountyNumber = (r.nextInt(4)+2);
+	    bountyKilled=0;
+	}
+	System.out.println("I have a quest for you! Slay "+bountyNumber+" "+plural(bounty.getName()));
+	System.out.println(f.singleFence(50,3,"(1)Let's Go! (2)Train (3)Leave"));
+	String townHallInput=sc.nextLine();
+	if (townHallInput.equals("1"))
+	    toQuest();
+	else if(townHallInput.equals("2"))
+	    train();
+	else if (townHallInput.equals("3"))
+	    village();
+	else
+	    townHall();
+    
     }
     public void magicStore(){
 	System.out.println("            ,    _\n           /|   | |\n         _/_\\_  >_<\n        .-\\-/.   |\n       /  | | \\_ |\n       \\ \\| |\\__(/\n       /(`---')  |\n      / /     \\  |\n   _.'  \\'-'  /  |\n   `----'`=-='   '\n");
@@ -235,9 +256,9 @@ public class GenericRPG {
     }
     public String plural(String s){
 	if (s.substring(s.length()-1).equals("s"))
-	    return s.substring(0,s.length()-1)+"es";
+	    return s.substring(0,s.length())+"es";
 	else if (s.substring(s.length()-1).equals("y"))
-	    return s.substring(0,s.length()-2)+"ies";
+	    return s.substring(0,s.length()-1)+"ies";
 	else
 	    return s+"s";
     }
@@ -266,6 +287,32 @@ public class GenericRPG {
 		System.out.println("You have bought a " + thingTrueName + "!");
 	    }
 	}
+       
+    }
+    public void toQuest(){
+    }
+    public void train(){
+	Enemy v = new Enemy(bounty.getName(),h);
+	while (h.getHP()>0 && v.getHP()>0){
+	    System.out.println(f.singleFence(50,3,"Name:"+v.getName()+" "+v.getHP()+"/"+v.getMaxHP()+"HP "+
+					     v.getMP()+"/"+v.getMaxMP()+"MP"));
+	    System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
+					     h.getMP()+"/"+h.getMaxMP()+"MP "+ h.getAP()+"/"+h.getMaxAP()+"AP "+
+					     "Level:" + h.getLevel()+" Gold:"+h.getGold()+" Exp:"+h.getXP()));
+	    System.out.println(f.multiFence(2,2,20,2,fightOptions));
+	    String fightInput = sc.nextLine();
+	    if (fightInput.equals("1")){
+		if (h.getDex()>=v.getDex()){
+		    h.attack(v);
+		    v.attack(h);
+		}
+		else{
+		    v.attack(h);
+		    h.attack(v);
+		}
+	    }
+	}
+
     }
   
 

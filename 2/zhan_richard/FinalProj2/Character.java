@@ -160,13 +160,18 @@ public class Character {
 	int damage1 = maxDamage-minDamage+1;
 	int damage2 = r.nextInt(damage1);
 	int damage3 = minDamage + damage2;
+	String isCrit = " hit ";
 	if (Math.random()<=c.getEvasionStat()|| Math.random()>accuracy){
-	    System.out.println(c.getName() + "missed!");
+	    System.out.println(name + " missed!");
 	}
 	else{
+	    if (Math.random()<=crit){
+		damage3=damage3*2;
+		isCrit = " CRIT ";
+	    }
 	    int b = (int)(Math.round(damage3*(1-c.getArmorStat())));
 	    c.setHP(b);
-	    System.out.print(name + " hit " + c.getName() + " for " +b+ " damage");
+	    System.out.println(name + isCrit + c.getName() + " for " +b+ " damage");
 
 	}
     }
