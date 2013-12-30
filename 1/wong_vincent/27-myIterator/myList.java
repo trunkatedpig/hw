@@ -5,38 +5,42 @@ import java.util.*;
 public class myList implements myMadeUpInterface, Iterable<Integer> {
 
     private class myListIterator implements Iterator<Integer> {
-	private myList list;
 	private int current = 0;
+	private myList list;
+
 	public myListIterator(myList l) {
 	    list = l;
 	}
 
 	public boolean hasNext() {
-	    if (current < list.size()){
-		return true;
-	    }
-	    else{
+	    if (current >= list.numItems) {
 		return false;
 	    }
-	}
-  
-	public Integer next() {
-	    int result = data[current];
-	    current ++;
-	    return result;
-	}
-	public void remove() {
+	    else {
+		return true;
+	    }
 	}
 
+	public Integer next() {
+	    if (hasNext()) {
+		current++;
+		return list.get(current);
+	    }
+	    return new Integer(10);
+	}
+
+	public void remove() {
+	}
     }
+    
 
     private int[] data;
     private int numItems;
-        
+    
     public Iterator<Integer> iterator() {
 	return new myListIterator(this);
     }
-    
+
 
     public String saySomething() {
 	return "Hello";
@@ -107,3 +111,4 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
     }
 	
 }
+
