@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Driver{
+public class Driver {
     public static void main(String[] args){
 	Fence f = new Fence();
 	Hero h = new Hero();
