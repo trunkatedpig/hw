@@ -291,15 +291,11 @@ public class GenericRPG {
        
     }
     public void toQuest(){
-	Enemy v = new Enemy(bounty.getName(),h);
 	while (bountyNumber > 0){
+
 	    train();
 	    bountyNumber= bountyNumber -1;
-	    System.out.println("You have Gained Experience:" + v.getXP() + " " + "You have Gained Gold:" + v.getGold());
-	    h.gainExp(v.getXP());
-	    totalg = totalg + v.getGold();
-	    h.gainGold(v.getGold());
-	    totale= totale + v.getXP();
+
 	    h.levelUp();
 	}
 	Random generator = new Random();
@@ -323,36 +319,42 @@ public class GenericRPG {
 		      
     }
     public void train(){
-	Enemy v = new Enemy(bounty.getName(),h);
-	while (h.getHP()>0 && v.getHP()>0){
-	    System.out.println(f.singleFence(50,3,"Level:" + v.getLevel()+ " " + "Name:"+v.getName()+" "+v.getHP()+ "/" +v.getMaxHP()+"HP "+
-					     v.getMP()+"/"+v.getMaxMP()+"MP"));
-	    System.out.println(bounty.getPortrait());
-	    System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
-					     h.getMP()+"/"+h.getMaxMP()+"MP "+ h.getAP()+"/"+h.getMaxAP()+"AP "+
-					     "Level:" + h.getLevel()+" Gold:"+h.getGold()+" Exp:"+h.getXP()));
-	    System.out.println(f.multiFence(2,2,20,2,fightOptions));
-	    String fightInput = sc.nextLine();
+	    Enemy v = new Enemy(bounty.getName(),h);
+	    
+	    while (h.getHP()>0 && v.getHP()>0){
+		System.out.println(f.singleFence(50,3,"Level:" + v.getLevel()+ " " + "Name:"+v.getName()+" "+v.getHP()+ "/" +v.getMaxHP()+"HP "+
+						 v.getMP()+"/"+v.getMaxMP()+"MP"));
+		System.out.println(bounty.getPortrait());
+		System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
+						 h.getMP()+"/"+h.getMaxMP()+"MP "+ h.getAP()+"/"+h.getMaxAP()+"AP "+
+						 "Level:" + h.getLevel()+" Gold:"+h.getGold()+" Exp:"+h.getXP()));
+		System.out.println(f.multiFence(2,2,20,2,fightOptions));
+		String fightInput = sc.nextLine();
 	    if (fightInput.equals("1")){
 		if (h.getDex()>=v.getDex()){
 		    h.attack(v);
 		    v.attack(h);
 		    if (h.getHP() < 0){
-		      die();
-		  }
+			die();
+		    }
 		}
 		else{
 		    v.attack(h);
 		    h.attack(v);
 		    if (h.getHP() < 0){
-			  die();
+			die();
 		    }
 		}
 	    }
-	}
-
+	    }
+	    if (v.getHP() == 0){System.out.println("You have Gained Experience:" + v.getXP() + " " + "You have Gained Gold:" + v.getGold());
+		h.gainExp(v.getXP());
+		totalg = totalg + v.getGold();
+		h.gainGold(v.getGold());
+		totale= totale + v.getXP();
+	    }
     }
-  
+    
 
 
 }
