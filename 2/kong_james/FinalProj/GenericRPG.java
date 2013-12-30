@@ -292,8 +292,6 @@ public class GenericRPG {
     public void toQuest(){
 	while (bountyNumber > 0){
 	    train();
-	    if (h.getHP() < 0)
-		die();
 	    bountyNumber= bountyNumber -1;
 	}
 	h.gainExp(h.getLevel());
@@ -307,6 +305,7 @@ public class GenericRPG {
 					     h.getMP()+"/"+h.getMaxMP()+"MP "+ h.getAP()+"/"+h.getMaxAP()+"AP "+
 					     "Level:" + h.getLevel()+" Gold:"+h.getGold()+" Exp:"+h.getXP()));
 	 System.out.println("You have died and the Reaper is coming... BUT WAIT! HE'S BUSY COLLECTING OTHER SOULS AND COINCIDENTALLY A NEARBY PRIEST SEES YOU AND YOU ARE SAVED! This Good Sir only charges half of your gold.");
+	 h.heal(h.getMaxHP());
 	 h.loseGold(h.getGold() / 2);
 	 village();
 
@@ -315,7 +314,7 @@ public class GenericRPG {
     public void train(){
 	Enemy v = new Enemy(bounty.getName(),h);
 	while (h.getHP()>0 && v.getHP()>0){
-	    System.out.println(f.singleFence(50,3,"Name:"+v.getName()+" "+v.getHP()+"/"+ "Level: " + v.getLevel() + "/" +v.getMaxHP()+"HP "+
+	    System.out.println(f.singleFence(50,3,"Level:" + v.getLevel()+ " " + "Name:"+v.getName()+" "+v.getHP()+"/"+ "/" +v.getMaxHP()+"HP "+
 					     v.getMP()+"/"+v.getMaxMP()+"MP"));
 	    System.out.println(bounty.getPortrait());
 	    System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
@@ -327,10 +326,16 @@ public class GenericRPG {
 		if (h.getDex()>=v.getDex()){
 		    h.attack(v);
 		    v.attack(h);
+		    if (h.getHP() < 0){
+		      die();
+		  }
 		}
 		else{
 		    v.attack(h);
 		    h.attack(v);
+		    if (h.getHP() < 0){
+			  die();
+		    }
 		}
 	    }
 	}
