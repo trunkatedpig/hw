@@ -58,7 +58,7 @@ class ChetrisGame implements Runnable {
     public void run() {
 	while ( true ) {
 	    try {
-		t.sleep ( 50 );
+		t.sleep ( 70 );
 	    } catch ( InterruptedException e ) {
 	    }
 	    if ( chessBoard.moveOver == 1 ) {
@@ -78,9 +78,10 @@ class ChetrisGame implements Runnable {
 			    System.out.println ( "going left" );
 			    pt.z = -1;
 			    pt.recolor();
+			    pt.t.resume();
 			}
 		    }
-		    if ( direction == "right" ) {
+		    else if ( direction == "right" ) {
 			if ( pt.piece == pt.piece1 && pt.x < pt.buttons [ pt.y ].length + 3 ||
 			     pt.x < pt.buttons [ pt.y ].length + 2 ||
 			     pt.piece == pt.piece3 && pt.x > 0 ||
@@ -88,12 +89,14 @@ class ChetrisGame implements Runnable {
 			    System.out.println ( "going right" );
 			    pt.z = 1;
 			    pt.recolor();
+			    pt.t.resume();
 			}
 		    }
 		}
 		else {
 		    pt.z = 0;
 		    pt.wait = 500;
+		    //pt.t.resume();
 		}
 	    }
 	    if ( pt.moveOver == 1 ) {
@@ -888,7 +891,7 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		k = k + 1;
 		if ( i > 11 && j != 3 && j != 4 && j != 5 && j != 6 )
 		    buttons [ i ] [ j ].setBackground ( Color.red );
-		if ( i == 13 && j == 2 )
+		if ( i == 13 && ( j == 2 || j == 7 || j == 8 || j == 9 ) )
 		    buttons [ i ] [ j ].setBackground ( null );
 	    }
 	}
@@ -951,7 +954,7 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
     }
 
     public void recolor() {
-	if ( ( x + z < buttons [ y ].length - 2 && z == 1 ) || ( x > 1 && z == -1 ) ) {
+	if ( notOutOfBounds ( z ) ) {
 	    oldX = x;
 	    x = x + z;
 	    for ( int[] coor : piece ) {
@@ -965,8 +968,114 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    t.suspend();
 	}
 	update ( getGraphics() );
+	this.reset();
 	oldY = y;
-	t.resume();
+	//	t.resume();
+    }
+
+    public boolean notOutOfBounds ( int z ) {
+	//int[][] right , left;
+	ArrayList<Integer> yList = new ArrayList<Integer>();
+	yList.add ( 0 );
+	if ( piece == piece1 ) {
+	    int[][] right = { { 2 , 0 } };
+	    int[][] left = { { -1 , 0 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece1Rotated ) {
+	    int[][] right = piece;
+	    int[][] left = piece;
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece2 ) {
+	    int[][] right = { { 1 , 0 } , { 0 , -1 } };
+	    int[][] left = { { -1 , 0 } , { 0 , -1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece2Rotated1 ) {
+	    int[][] right = { { 0 , -1 } , { 1 , 0 } , { 0 , 1 } };
+	    int[][] left = { { 0 , -1 } , { 0 , 0 } , { 0 , 1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece2Rotated2 ) {
+	    int[][] right = { { 1 , 0 } , { 0 , 1 } };
+	    int[][] left = { { -1 , 0 } , { 0 , 1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece2Rotated3 ) {
+	    int[][] right = { { 0 , -1 } , { 0 , 0 } , { 0 , 1 } };
+	    int[][] left = { { 0 , -1 } , { -1 , 0 } , { 0 , 1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece3 ) {
+	    int[][] right = { { 1 , 0 } , { 1 , 1 } };
+	    int[][] left = { { 0 , 0 } , { 0 , 1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece4 ) {
+	    int[][] right = { { 0 , 0 } , { 1 , -1 } };
+	    int[][] left = { { 0 , -1 } , { -1 , 0 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece4Rotated ) {
+	    int[][] right = { { -1 , -1 } , { 0 , 0 } , { 0 , 1 } };
+	    int[][] left = { { -1 , -1 } , { -1 , 0 } , { 0 , 1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece5 ) {
+	    int[][] right = { { 2 , 0 } , { 0 , -1 } };
+	    int[][] left = { { 0 , 0 } , { 0 , -1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece5Rotated1 ) {
+	    int[][] right = { { 1 , 0 } , { 0 , 1 } , { 0 , 2 } };
+	    int[][] left = { { 0 , 0 } , { 0 , 1 } , { 0 , 2 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece5Rotated2 ) {
+	    int[][] right = { { 0 , 0 } , { 0 , 1 } };
+	    int[][] left = { { -2 , 0 } , { 0 , 1 } };
+	    return outHelp ( right , left );
+	}
+	if ( piece == piece5Rotated3 ) {
+	    int[][] right = { { 0 , -2 } , { 0 , -1 } , { 0 , 0 } };
+	    int[][] left = { { 0 , -2 } , { 0 , -1 } , { -1 , 0 } };
+	    return outHelp ( right , left );
+	}
+	else {
+	    int[][] right = { { 0 , 0 } };
+	    int[][] left = { { 0 , 0 } };
+	}
+	//	return outHelp ( right );
+	/*	if ( z == -1 ){
+	    for ( Integer y : yList ) {
+		if ( !( x + left > 0 && buttons [ this.y + y ] [ x + left + z ].getBackground() != Color.red ) )
+		    return false;
+		else System.out.println ( "ys: " + this.y + "," + y + "\nx" + x + left );
+	    }
+	    return true;
+	    }*/
+	//else return true;
+	return true;
+    }
+
+    public boolean outHelp ( int[][] right , int[][] left ) {
+	if ( z == 1 ) {
+	    for ( int[] coor : right ) {
+		if ( !( x + coor [ 0 ] < buttons [ y + coor [ 1 ] ].length - 1 && buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] + z ].getBackground() != Color.red ) )
+		    return false;
+	    }
+	    return true;
+	}
+	if ( z == -1 ) {
+	    for ( int[] coor : left ) {
+		if ( !( x + coor [ 0 ] > 0 && buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] + z ].getBackground() != Color.red ) )
+		    return false;
+		else System.out.println ( "outHelp: " + x + coor [ 0 ] + z + y);
+	    }
+	    return true;
+	}
+	return false;
     }
 
     public void keyTyped ( KeyEvent e ) {
@@ -1058,11 +1167,12 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    y = 1;
 	    piece = piece5;
 	}
-	//	y = 1;
-	//	piece = piece5;
+	//y = 1;
+	//piece = piece5;
     }
 
     public void go() {
+	//	if ( y < buttons.length - 1 && buttons [ y + 1 ] [ x ].getBackground() != Color.red ) {
 	oldY = y;
 	//	oldX = x;
 	y = y + 1;
@@ -1083,6 +1193,7 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
 	}
 	update ( getGraphics() );
+	//    }
     }
 
     public void reset() {
@@ -1143,7 +1254,7 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    }
 	}
 	if ( piece == piece2 ) {
-	    int[][] coors = { piece [ 0 ] , piece [ 1 ] , piece [ 2 ] };
+	    int[][] coors = { piece [ 0 ] , piece [ 1 ] , piece [ 3 ] };
 	    if ( resetOtherHelp ( coors ) )
 		return true;
 	}
@@ -1174,7 +1285,7 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		return true;
 	}
 	if ( piece == piece5 ) {
-	    int[][] coors = { piece [ 1 ] , piece [ 2 ] , piece [ 3 ] };
+	    int[][] coors = { piece [ 0 ] , piece [ 1 ] , piece [ 3 ] };
 	    if ( resetOtherHelp ( coors ) )
 		return true;
 	}
@@ -1188,13 +1299,20 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    if ( resetOtherHelp ( coors ) )
 		return true;
 	}
+	if ( piece == piece5Rotated3 ) {
+	    int[][] coors = { piece [ 1 ] , piece [ 3 ] };
+	    if ( resetOtherHelp ( coors ) )
+		return true;
+	}
 	return false;
     }
 
     public boolean resetOtherHelp ( int[][] coors ) {
 	for ( int[] coor : coors ) {
-	    if ( y + coor [ 1 ] + 1 == buttons.length || buttons [ y + coor [ 1 ] + 1 ] [ x + coor [ 0 ] ].getBackground().equals ( Color.red ) )
+	    if ( y + coor [ 1 ] + 1 == buttons.length || buttons [ y + coor [ 1 ] + 1 ] [ x + coor [ 0 ] ].getBackground().equals ( Color.red ) ) {
+		System.out.println ( "reset x , y: " + x + coor [ 0 ] + ", " + y + coor [ 1 ] );
 		return true;
+	    }
 	}
 	return false;
     }
@@ -1238,8 +1356,8 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		    t.sleep ( wait );
 		} catch ( InterruptedException e ) {
 		}
-		this.go();
 		this.reset();
+		this.go();
 		this.update ( this.getGraphics() );
 		System.out.println ( "x:" + x + "\n" + "y:" + y );
 	}
