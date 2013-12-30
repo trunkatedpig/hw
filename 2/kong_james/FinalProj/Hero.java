@@ -64,6 +64,7 @@ public class Hero  extends Character{
     }
     public void levelUp(){
 	if (exp > expThreshold){
+	    exp = 0;
 	    level = level + 1;
 	    System.out.println(f.listFence(50,levelStats));
 	    updateStats();
@@ -105,7 +106,7 @@ public class Hero  extends Character{
 	accuracy=EquipW.getAccuracy();
 	armor=EquipA.getArmor();
 	evasion = EquipA.getEvasion();
-	expThreshold = (Math.pow(level,2)) + 20;
+	expThreshold = (Math.pow(level,5)) + 100;
     }
 		
 }

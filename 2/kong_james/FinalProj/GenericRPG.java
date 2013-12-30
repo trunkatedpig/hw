@@ -25,6 +25,7 @@ public class GenericRPG {
     private ArrayList<String> en = new ArrayList<String>();
     private String noGold = "You do not have enough gold";
     private String purchase = "You have purchased %s!";
+    private int totalg, totale;
     public GenericRPG(Hero hero){
 	h=hero;
 	loadWords("enemynames.txt");
@@ -290,15 +291,25 @@ public class GenericRPG {
        
     }
     public void toQuest(){
+	Enemy v = new Enemy(bounty.getName(),h);
 	while (bountyNumber > 0){
 	    train();
 	    bountyNumber= bountyNumber -1;
+	    System.out.println("You have Gained Experience:" + v.getXP() + " " + "You have Gained Gold:" + v.getGold());
+	    h.gainExp(v.getXP());
+	    totalg = totalg + v.getGold();
+	    h.gainGold(v.getGold());
+	    totale= totale + v.getXP();
+	    h.levelUp();
 	}
-	h.gainExp(h.getLevel());
-	h.gainGold(h.getLevel());
+	Random generator = new Random();
+	bountyNumber = generator.nextInt(4) + 2;
+	System.out.println("Total Gained Experience:" + totale + " " + "Total Gained Gold:" + totalg);
+	totale = 0;
+	totalg = 0;
+	quest = false;
 	village();
-	bountyNumber = 0;
-	bountyKilled = 0;
+
     }
     public void die(){
 	 System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
@@ -314,7 +325,7 @@ public class GenericRPG {
     public void train(){
 	Enemy v = new Enemy(bounty.getName(),h);
 	while (h.getHP()>0 && v.getHP()>0){
-	    System.out.println(f.singleFence(50,3,"Level:" + v.getLevel()+ " " + "Name:"+v.getName()+" "+v.getHP()+"/"+ "/" +v.getMaxHP()+"HP "+
+	    System.out.println(f.singleFence(50,3,"Level:" + v.getLevel()+ " " + "Name:"+v.getName()+" "+v.getHP()+ "/" +v.getMaxHP()+"HP "+
 					     v.getMP()+"/"+v.getMaxMP()+"MP"));
 	    System.out.println(bounty.getPortrait());
 	    System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
