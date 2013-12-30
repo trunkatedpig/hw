@@ -1,35 +1,31 @@
+import java.util.*;
+import java.io.*;
 public class Armor extends Equips{
     
-    private int armor;
+    private double armor;
     private double evasion;
-    private String description; 
-
+    private String[][] descriptions = {{"Leather Armor","5 Armor","10% Evasion"},{"Copper Cuirass","12 Armor","2% Evasion"},{"Iron Suit","20 Armor","20% Evasion"},{"Chainmail","15 Armor","25% Evasion"},{"Tunic","1 Armor","15% Evasion"}};
     //The Methods
     public Armor (String i){
-	super(i); 
-	if (i.equals("Leather Armor")){
-	    armor=5;
-	    evasion=.1;
-	    description="5 Armor and 10% Evasion";
-	    
-	}
-	if (i.equals("Copper Cuirass")){
-	    armor=12;
-	    evasion=.02;
-	    description="12 Armor and 2% Evasion";
-	  
-	}
-	if (i.equals("Iron Suit")){
-	    armor=20;
-	    evasion= .2;
-	    description= "20 Armor and 20% Evasion";
-	    
-	}
-	if (i.equals("Chainmail")){
-	    armor=15;
-	    evasion=.25;
-	    description= "15 Armor and 25% Evasion";
-	    
-	}
+	Ename=i;
+    	int index = 0;
+    	for (int j = 0; j < descriptions.length;j++){
+	    if (descriptions[j][0].equals(i)){
+		index = j;
+		break;
+	    }
+    	}
+    	description=descriptions[index];
+    	int indexOfArmor = description[1].indexOf(" ");
+    	int indexOfEvasion = description[2].indexOf("%");
+    	armor = .01*Integer.parseInt(description[1].substring(0,indexOfArmor));
+    	evasion = .01*Integer.parseInt(description[2].substring(0,indexOfEvasion));
+	
+    }
+    public double getArmor(){
+	return armor;
+    }
+    public double getEvasion(){
+	return evasion;
     }
 }

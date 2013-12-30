@@ -5,15 +5,21 @@ public class Character{
     protected int health, maxhealth;
     protected int mana, maxmana; //are we going to have mana points?
     protected int dexterity, magic, strength;
-    protected int exp, maxexp, level, gold;
+    protected int exp, maxexp, level, gold, damage;
     //protected int gold; this is in case we have a store. i think it would be a good idea
     protected String name, profession;
     protected ArrayList<String> inventory;
-
+    Weapon sword = new Weapon();
+    Random r = new Random();
     public Character(String s){
 	name = s;
 	maxexp = 10;
 	level = 1;
+	magic = 15;
+	strength = 15;
+	gold = 0;
+	health = 100;
+	mana = 100;
     }
 
     public String toString(){
@@ -101,4 +107,17 @@ public class Character{
 	level = level + 1;
     }
 
+    public void die(){
+	health = 0;
+    }
+
+    public void meleeAttack (Character other){	
+	damage = (int)(sword.getDamage() * (1 + .5 * strength/100));//this damage formula is taken from Skyrim
+	//the strength does not add a boost to the damage at 15
+	other.setHealth(other.getHealth()-damage);
+	System.out.println(other + "'s health decreased to " + other.getHealth() + "hp");
+	//the success will depend on dexterity for melee attacks
+	//for magic attacks it will depend on magic stat? 
+	//need to figure out health points and how much damage is done
+    }
 }

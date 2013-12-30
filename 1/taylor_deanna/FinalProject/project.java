@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.*;
+//import java.awt.Component.*;
 import javax.imageio.*;
 
 public class project extends JFrame implements ActionListener{
@@ -40,6 +41,7 @@ public class project extends JFrame implements ActionListener{
 		text.setText("Ummm, you're already at the races");
 	    }
 	    else {
+		buy.setText("Bet");
 		Racing = true;
 		Shopping = false;
 		Home = false;
@@ -144,7 +146,16 @@ public class project extends JFrame implements ActionListener{
 	setSize(600,400);
 	setLocation(100,100);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
-	pane = this.getContentPane();
+	baseset();
+    }
+	
+    public static void main(String[] args) {
+        project g = new project();
+	g.setVisible(true);
+    }
+    
+    public void baseset(){
+pane = this.getContentPane();
 	pane.setLayout(new GridLayout(2,2));
 
 	exit = new JButton("exit");
@@ -199,11 +210,7 @@ public class project extends JFrame implements ActionListener{
 	race.addActionListener(this);
 	sell.addActionListener(this);
 
-    }
-	
-    public static void main(String[] args) {
-        project g = new project();
-	g.setVisible(true);
+
     }
 }
 
