@@ -5,7 +5,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.*;
-//import java.awt.Component.*;
 import javax.imageio.*;
 
 public class project extends JFrame implements ActionListener{
@@ -18,6 +17,9 @@ public class project extends JFrame implements ActionListener{
     private int fodder = 20;
     private int popularity = 0;
     private int raceswon = 0;
+    public int milk = 0;
+    public int pork = 0;
+    public int beef = 0;
     private Container pane, one, two, three, four;
     private JFrame frame;
     private JButton exit, gts, gth, gtr, gtf, gtg, enter;
@@ -27,6 +29,8 @@ public class project extends JFrame implements ActionListener{
     private JLabel PanelOne, PanelTwo, PanelThree, PanelFour;
     private JTextField text;
     private JTextArea stats;
+    /*private CheckboxGroup animals;
+      private Checkbox cow, pig, horse;*/
     private boolean Home = true;
     private boolean Racing = false;
     private boolean InFields = false;
@@ -73,6 +77,11 @@ public class project extends JFrame implements ActionListener{
 	gtg = new JButton("Go to the gov office");
 	enter = new JButton("Enter");
 
+	/*animals = new CheckboxGroup();
+	pig = new Checkbox("Pigs",animals,true);
+	horse = new Checkbox("Horses",animals,false);
+	cow = new Checkbox("Cows",animals,false);*/
+
 	text = new JTextField();
 	text.setEditable(false);
 	stats = new JTextArea();
@@ -91,7 +100,6 @@ public class project extends JFrame implements ActionListener{
 	frame.getContentPane().setLayout(new GridLayout());
 
 	PanelOne = new JLabel("Hi");
-
 
 	one = new Container();
 	one.setLayout(new FlowLayout());
@@ -113,7 +121,8 @@ public class project extends JFrame implements ActionListener{
 	fnamelabel=new JLabel("");
 	fnamefield=new JTextField(5);
 	fnamefield.setEditable(false);
-	
+       
+
 	JPanel box = new JPanel();
 	box.add(fnamelabel);
 	box.add(fnamefield);
@@ -438,7 +447,7 @@ public class project extends JFrame implements ActionListener{
 
     public void statify(){
 
-	String s = "Money: " + money + " \nCharm: " + charm +  "\nPopularity: " + popularity + "\nFodder: " + fodder + "\nCows: " + cows + "\nPigs: " + pigs + "\nHorses: " + horses + "\nRaces won: " + raceswon;
+	String s = "Money: " + money + " \nCharm: " + charm +  "\nPopularity: " + popularity + "\nFodder: " + fodder + "\nCows: " + cows + "\nPigs: " + pigs + "\nHorses: " + horses + "\nRaces won: " + raceswon + "\nBeef: " + beef + "\nPork: " + pork;
 	stats.setText(s);
     }
 
