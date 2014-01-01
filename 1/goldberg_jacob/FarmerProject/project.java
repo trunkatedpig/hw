@@ -17,9 +17,11 @@ public class project extends JFrame implements ActionListener{
     private int fodder = 20;
     private int popularity = 0;
     private int raceswon = 0;
-    public int milk = 0;
-    public int pork = 0;
-    public int beef = 0;
+    private int timer = 0;
+    private int milk = 0;
+    private int pmilk = 0;
+    private int pork = 0;
+    private int beef = 0;
     private Container pane, one, two, three, four;
     private JFrame frame;
     private JButton exit, gts, gth, gtr, gtf, gtg, enter;
@@ -142,6 +144,8 @@ public class project extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
+	timer = timer + 1;
+	pmilk = pmilk + 2*cows;
 	statify();
 	if (e.getSource() == exit){
 	    System.exit(0);
@@ -169,6 +173,9 @@ public class project extends JFrame implements ActionListener{
 	    
 	    else{
 		gtf.setEnabled(true);
+		gtr.setEnabled(true);
+		gts.setEnabled(true);
+		gtg.setEnabled(true);
 		gtr.setText("Go to the races");
 		gtf.setText("Go to the fields");
 		gts.setText("Go to the shop");
@@ -179,7 +186,6 @@ public class project extends JFrame implements ActionListener{
 		InFields = false;
 		atGov = false;
 		text.setText("Welcome home honey");
-		
 
 	    }
 	}
@@ -255,6 +261,8 @@ public class project extends JFrame implements ActionListener{
 		gtf.setText("Milk");
 		gts.setText("Slaughter");
 		gtg.setText("Train");
+		if(!Rancher)
+		    gtg.setEnabled(false);
 		Home = false;
 		Shopping = false;
 		Racing = false;
@@ -272,7 +280,8 @@ public class project extends JFrame implements ActionListener{
 
 	    if (InFields){
 
-		// Milk the cows
+	        milk = milk + pmilk;
+		pmilk = 0;
 
 	    }
 
@@ -412,7 +421,11 @@ public class project extends JFrame implements ActionListener{
 
 	    if (Shopping){
 
-		// Buy animals
+		// Sell milk
+		// sells at 1 dollar per gallon, we can have fluctuating milk prices
+		money = money + milk;
+		milk = 0;
+		statify();
 
 	    }
 
@@ -442,12 +455,12 @@ public class project extends JFrame implements ActionListener{
 	    }
 
 	}
-
+	statify();
     }
 
     public void statify(){
 
-	String s = "Money: " + money + " \nCharm: " + charm +  "\nPopularity: " + popularity + "\nFodder: " + fodder + "\nCows: " + cows + "\nPigs: " + pigs + "\nHorses: " + horses + "\nRaces won: " + raceswon + "\nBeef: " + beef + "\nPork: " + pork;
+	String s = "Money: " + money + " \nCharm: " + charm +  "\nPopularity: " + popularity + "\nFodder: " + fodder + "\nCows: " + cows + "\nPigs: " + pigs + "\nHorses: " + horses + "\nRaces won: " + raceswon + "\nBeef: " + beef + "\nPork: " + pork + "\nMilk: " + milk;
 	stats.setText(s);
     }
 
