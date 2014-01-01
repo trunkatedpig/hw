@@ -10,7 +10,7 @@ public class Gui extends JFrame implements ActionListener{
     private JButton attack;
     private JButton flee;
     private JPanel buttons;
-    Character main;
+    MainPlayer main;
     Character enemy;
     int test = 1;
     public Gui(){
@@ -30,7 +30,7 @@ public class Gui extends JFrame implements ActionListener{
 	this.setVisible(true);
     }
 
-    public Gui(Character first, Character second){
+    public Gui(MainPlayer first, Character second){
 	this.setTitle("Game");
 	this.setSize(600,400);
 	this.setLocation(100,100);
@@ -58,17 +58,25 @@ public class Gui extends JFrame implements ActionListener{
 		    test = enemy.meleeAttack(main);
 		}
 	    }
+	    if (test == -1){
+		this.setVisible(false);
+	    }
 	}
 	if(e.getSource() == flee){
 	    System.out.println("Flee!!!");
 	}
     }
-
-    public Character getMainPlayer(){
+    
+    public MainPlayer getMainPlayer(){
 	return main;
     }
 
     public Character getEnemy(){
 	return enemy;
     }
+
+    public int getTest(){
+	return test;
+    }
+
 }
