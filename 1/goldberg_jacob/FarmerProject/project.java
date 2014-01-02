@@ -444,16 +444,16 @@ public class project extends JFrame implements ActionListener{
 		// Slaughter
 		if (pigs > 0){
 		    pigs = pigs - 1;
-		    pork = pork + 20;
+		    pork = pork + fatness;
 		}
 
 		else if (cows > 0){
 		    cows = cows - 1;
-		    beef = beef + 30;
+		    beef = beef + fatness * 2;
 		}
 		else if (horses > 0){
 		    horses = horses - 1;
-		    beef = beef + 20;
+		    beef = beef + fatness;
 		}
 
 	    }
