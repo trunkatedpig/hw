@@ -11,11 +11,12 @@ public class myList implements myInterface,Iterable {
 	    list = l;
 	}
 	public boolean hasNext() {
-	    return false;
+	    return (current < list.numItmes);
 	}
 	public Integer next() {
-	    
-	    return new Integer(10);
+	    int num = list.get(current);
+	    current = current + 1;
+	    return num;
 	}
 	public void remove() {
 	}

@@ -1,0 +1,76 @@
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import javax.swing.*;
+import javax.imageio.*;
+import java.io.*;
+
+public class SwingPane extends JLayeredPane {
+    private int gridHeight;
+    private int gridWidth;
+    private Dimension cellDim;//temp
+    private Dimension paneDim;
+    private boolean[][] changed;
+    private BufferedImage[][] bg;
+    private BufferedImage[][] fg;
+    private BufferedImage curimg;
+    private TilesetFactory tilesetFact = new TilesetFactory();
+    private Color defbgcol = Color.BLACK;
+    private Color deffgcol = Color.WHITE;
+
+    public void paintComponent(Graphics g) {
+        g.drawImage(curimg, 0, 0, null);
+        paintComponents(g);
+        Toolkit.getDefaultToolkit().sync();
+    }
+
+    public SwingPane(int gridWidth, int gridHeight, Font font) {
+	this.gridWidth = gridWidth;
+	this.gridHeight = gridHeight;
+	bg = new BufferedImage[gridWidth][gridHeight];
+	fg = new BufferedImage[gridWidth][gridHeight];
+	changed = new boolean[gridWidth][gridHeight];
+	
+	for (int x=0; x<gridWidth; x++) {
+	    for (int y=0; y<gridHeight; y++) {
+		changed[x][y]=true;
+	    }
+	}
+
+	tilesetFact.init(font);
+	cellDim=tilesetFact.getCellDim();
+	int w = gridWidth * cellDim.width;
+	int h = gridHeight * cellDim.height;
+	paneDim = new Dimension(w,h);
+	setSize(paneDim);
+	setMinimumSize(paneDim);
+	setPreferredSize(paneDim);
+	curimg = new BufferedImage(w,h,BufferedImage.TYPE_4BYTE_ABGR);
+    }
+
+    public void putChar(char c, int x, int y, Color fgcol, Color bgcol) {
+	fg[x][y] = tilesetFact.getImage(c,fgcol,defbgcol);
+	bg[x][y] = tilesetFact.getImage(' ',deffgcol,bgcol);
+	changed[x][y] = true;
+    }
+
+    public void refresh() {
+	Graphics2D g = curimg.createGraphics();
+	for (int x=0; x<gridWidth; x++) {
+	    for (int y=0; y<gridHeight; y++) {
+		if (changed[x][y]) {
+		    g.setColor(defbgcol);
+		    g.fillRect(x*cellDim.width, y*cellDim.height, 
+			       cellDim.width, cellDim.height);
+		    g.drawImage(bg[x][y], null, 
+				x*cellDim.width, y*cellDim.height);
+		    g.drawImage(fg[x][y], null, 
+				x*cellDim.width, y*cellDim.height);
+		    changed[x][y]=false;
+		}
+	    }
+	}
+	repaint();
+    }
+
+    public Dimension getPaneDim() {return paneDim;} 
+}
