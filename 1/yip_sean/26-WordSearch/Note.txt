@@ -1,0 +1,1 @@
+For filename in "java WordSearch width height filename [numWords]", use "/usr/share/dict/words" (without quotes) if on Homer.
