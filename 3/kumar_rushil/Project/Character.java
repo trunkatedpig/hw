@@ -17,6 +17,7 @@ public class Character{
 	level = 1;
 	magic = 15;
 	strength = 15;
+	dexterity = 15;
 	gold = 0;
 	health = 100;
 	mana = 100;
@@ -107,15 +108,44 @@ public class Character{
 	level = level + 1;
     }
 
-    public void die(){
-	health = 0;
+// we can definitely change this, it was just something i made up on the spot
+    public boolean attackHits(){
+	if (r.nextInt(30) + 1 <= dexterity){
+	    return true;
+	}
+	else {
+	    return false;
+	}
     }
 
-    public void meleeAttack (Character other){	
+    public void die(){
+	health = 0;
+	System.out.println(name + " has died");
+    }
+
+    public void die(Character other){
+	health = 0;
+	System.out.println(other + " has defeated " + this);
+    }
+
+    public int meleeAttack (Character other){	
 	damage = (int)(sword.getDamage() * (1 + .5 * strength/100));//this damage formula is taken from Skyrim
 	//the strength does not add a boost to the damage at 15
-	other.setHealth(other.getHealth()-damage);
-	System.out.println(other + "'s health decreased to " + other.getHealth() + "hp");
+	if(attackHits()){
+	    if(other.getHealth()-damage > 0){
+		other.setHealth(other.getHealth()-damage);
+		System.out.println(other + "'s health decreased to " + other.getHealth() + "hp");
+		return 1;
+	    }
+	    else{
+		other.die(this);
+		return -1;
+	    }
+	}
+	else{
+	    System.out.println(this + "'s attacked missed!");
+	    return 1;
+	}
 	//the success will depend on dexterity for melee attacks
 	//for magic attacks it will depend on magic stat? 
 	//need to figure out health points and how much damage is done
