@@ -10,7 +10,10 @@ public class GenericRPG {
     private String[][] magicStoreSpells = {{"(1)Magic Bolt-$20","Deals 20 damage","Costs 4 mana"},{"(2)Minor Heal-$30","Heals a little based on intell","Costs 10 mana"},{"(3)Stone Skin-$50","Increases resistance towards attacks","Lasts 3 turns","Costs 8 mana"},{"(4)Fireball-$80","Deals damage based on intell","Costs 15 mana"},{"(5)Temper-$100","Increases damage and crit chance","Costs 19 mana"},{"(6)Heal-$150","Heals based on intell","Costs 24 mana"},{"(7)Blizzard-$200","Deals damage based on intell","20% Freeze","Costs 30 mana"},{"(8)Poison-$300","Deals damage per turn based on enemy max HP","Lasts 5 turns","Costs 35 mana"},{"(9)Full Heal-$500","Full heals","Costs 77 mana"},{"(10)Unholy-$666","Oh my...","Costs 100 mana"}};
     private String[][] magicStorePotions = {{"(1)Minor Healing Potion-$3","Heals 20 hit points"},{"(2)Healing Potion-$15","Heals 50 hit points"},{"(3)Major Healing Potion-$40","Heals 200 hit points"},{"(4)Minor Mana Potion-$2","Heals 10 mana"},{"(5)Mana Potion-$10","Heals 40 mana"},{"(6)Major Mana Potion-$25","Heals 100 mana"},{"(7)Stamina Potion-$20","Recovers 40 ability power"},{"(8)Elixir-$100","Heals 300 HP, 200 MP, 100 AP"}};
     private String[][] swordList = {{"(1)Short Sword-$15","3-6 Damage","2% Crit","85% Accuracy"},{"(2)Sabre-$50","4-9 Damage","%15 Crit","95% Accuracy"},{"(3)Long Sword-$60","11-18 Damage","10% Crit","75% Accuracy"},{"(4)Scimitar-$100","13-20 Damage","20% Crit","85% Accuracy"}};
-    private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasion"},{"(2)Copper Cuirass-$40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor","20% Evasion"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
+    private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasimon"},{"(2)Copper Cuirass-$40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor","20% Evasion"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
+    private String[] smethod = {"v.setHP(20)","h.heal(h.getIntell())","h.setStr(10)","v.setHP(h.getIntell()*3)","h.setCritStat(.05)","h.heal(h.getIntell() * 2)","v.setHP(h.getIntell()*4)","poision?myniggacan'tfight","h.fullheal()","h.setHP(10000000000)" };
+    private String[] cmethod = {"h.setMP(4)","h.setMP(10)","h.setMP(8)","h.setMP(15)","h.setMP(19)","h.setMP(24)","h.setMP(30)","h.setMP(35)","h.setMP(77)","h.setMP(100)"};
+    private String[] s2method= {"", "","","","","","","","",""};
 
     private String[] fightOptions = {"(1)Attack","(2)Abilties","(3)Spells","(4)Items"};
     private Enemy bounty;
@@ -124,6 +127,8 @@ public class GenericRPG {
 	System.out.println("(11)Back (12)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String magicStoreInput2 = sc.nextLine();
+	String[] ops = {"1","2","3","4","5","6","7","8","9","10"};
+	Store(ops,magicStoreInput2,magicStoreSpells,2);
 	if (magicStoreInput2.equals("11"))
 	    magicStore();
 	else if (magicStoreInput2.equals("12"))
@@ -283,6 +288,10 @@ public class GenericRPG {
 		h.toBuyA(thingTrueName);
 		System.out.println("You have bought a " + thingTrueName + "!");
 	    }
+	    else if (l == 2){
+		h.toBuyS(thingTrueName);
+		System.out.println("You have bought a " + thingTrueName + "!");
+	    }
 	    else {
 		h.toItem(thingTrueName);
 		System.out.println("You have bought a " + thingTrueName + "!");
@@ -346,6 +355,10 @@ public class GenericRPG {
 		    }
 		}
 	    }
+	    if(fightInput.equals("3")){
+		System.out.println(f.listFence(50,magicStoreSpells));
+		String spellInput = sc.nextLine();
+		chooseSpell(spellInput);
 	    }
 	    if (v.getHP() == 0){System.out.println("You have Gained Experience:" + v.getXP() + " " + "You have Gained Gold:" + v.getGold());
 		h.gainExp(v.getXP());
@@ -353,8 +366,17 @@ public class GenericRPG {
 		h.gainGold(v.getGold());
 		totale= totale + v.getXP();
 	    }
+	    }
+    }
+    public void chooseSpell(int i){
+	JexelEngine jexl = new JexelEngine();
+	String jexlExp = smethod.get(i-1);
+	Expression e = jexel.createExpression(jexlExp);
+	JexlContext jctx = new MapContext();
+	//jctx.set(smethod.get(i-1).substring(0,1), new Foo() );
+	jctx.set("foo", new Foo() );
+	Object o = e.evaulate(jctx);
     }
     
-
-
 }
+
