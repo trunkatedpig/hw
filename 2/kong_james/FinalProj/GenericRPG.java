@@ -127,8 +127,6 @@ public class GenericRPG {
 	System.out.println("(11)Back (12)Leave");
 	System.out.println("Gold: " + h.getGold());
 	String magicStoreInput2 = sc.nextLine();
-	String[] ops = {"1","2","3","4","5","6","7","8","9","10"};
-	Store(ops,magicStoreInput2,magicStoreSpells,2);
 	if (magicStoreInput2.equals("11"))
 	    magicStore();
 	else if (magicStoreInput2.equals("12"))
@@ -288,10 +286,6 @@ public class GenericRPG {
 		h.toBuyA(thingTrueName);
 		System.out.println("You have bought a " + thingTrueName + "!");
 	    }
-	    else if (l == 2){
-		h.toBuyS(thingTrueName);
-		System.out.println("You have bought a " + thingTrueName + "!");
-	    }
 	    else {
 		h.toItem(thingTrueName);
 		System.out.println("You have bought a " + thingTrueName + "!");
@@ -355,10 +349,6 @@ public class GenericRPG {
 		    }
 		}
 	    }
-	    if(fightInput.equals("3")){
-		System.out.println(f.listFence(50,magicStoreSpells));
-		String spellInput = sc.nextLine();
-		chooseSpell(spellInput);
 	    }
 	    if (v.getHP() == 0){System.out.println("You have Gained Experience:" + v.getXP() + " " + "You have Gained Gold:" + v.getGold());
 		h.gainExp(v.getXP());
@@ -366,17 +356,9 @@ public class GenericRPG {
 		h.gainGold(v.getGold());
 		totale= totale + v.getXP();
 	    }
-	    }
     }
-    public void chooseSpell(int i){
-	JexelEngine jexl = new JexelEngine();
-	String jexlExp = smethod.get(i-1);
-	Expression e = jexel.createExpression(jexlExp);
-	JexlContext jctx = new MapContext();
-	//jctx.set(smethod.get(i-1).substring(0,1), new Foo() );
-	jctx.set("foo", new Foo() );
-	Object o = e.evaulate(jctx);
-    }
+    
+       
     
 }
 

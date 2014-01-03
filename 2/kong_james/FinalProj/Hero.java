@@ -7,7 +7,6 @@ public class Hero  extends Character{
     private String[][] levelStats = {{"(1)Strength:" + str +"+ 1", "Increases Health"},{"(2)Dexterity:" + dex + "+ 1", "Increases Damage"},{"(3)Intelligence:" + intell + "+1", "Increases Mana and Spell Power"}};
     private int statCount;
     private Fence f = new Fence();
-    private Spells spell;
 
     
     public Hero(){
@@ -39,10 +38,6 @@ public class Hero  extends Character{
     public void toBuyW(String i){
 	toEquipW(i);
 	Equipment.add(EquipW);
-    }
-    public void toBuyS(String i){
-	spell = new Spells(i);
-	spellbook.add(spell);
     }
     public void toEquipW(String i){
 	EquipW  = new Weapons(i);
