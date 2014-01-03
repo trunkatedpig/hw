@@ -4,6 +4,7 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args) throws FileNotFoundException {
 	String s;
+	/*
 	ArrayList<String> al = new ArrayList<String>();
 	al.add("one");
 	al.add("two");
@@ -18,15 +19,20 @@ public class Driver {
 	    System.out.println("ArrayList (iterator): "+s);
 	}
 	System.out.println();
+	*/
 
 	myList ml = new myList();
 	ml.add(10);
 	ml.add(30);
 	ml.add(50);
 	ml.add(20);
+	ml.add(900);
 	System.out.println(ml);
 	Iterator<Integer> mlit = ml.iterator();
-
+	while (mlit.hasNext()){
+	    System.out.println(mlit.next());
+	}
+	
 
 
     }
