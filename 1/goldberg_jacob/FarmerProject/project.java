@@ -5,7 +5,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.*;
-//import java.awt.Component.*;
 import javax.imageio.*;
 
 public class project extends JFrame implements ActionListener{
@@ -18,6 +17,13 @@ public class project extends JFrame implements ActionListener{
     private int fodder = 20;
     private int popularity = 0;
     private int raceswon = 0;
+    private int timer = 0;
+    private int milk = 0;
+    private int pmilk = 0;
+    private int pork = 0;
+    private int beef = 0;
+    private int fatness = 10;
+    private int hunger = 0;
     private Container pane, one, two, three, four;
     private JFrame frame;
     private JButton exit, gts, gth, gtr, gtf, gtg, enter;
@@ -27,14 +33,19 @@ public class project extends JFrame implements ActionListener{
     private JLabel PanelOne, PanelTwo, PanelThree, PanelFour;
     private JTextField text;
     private JTextArea stats;
+    /*private CheckboxGroup animals;
+      private Checkbox cow, pig, horse;*/
     private boolean Home = true;
     private boolean Racing = false;
     private boolean InFields = false;
     private boolean Shopping = false;
     private boolean atGov = false;
+    private boolean horseKiller = false;
     private boolean buyingfood = false;
+    private boolean sellingmeat = false;
     private boolean Rancher = false; //allows you to own horses
     private boolean mobster = false;
+    private boolean buyinganimals = false;
     private Random r = new Random();
 
 
@@ -73,6 +84,11 @@ public class project extends JFrame implements ActionListener{
 	gtg = new JButton("Go to the gov office");
 	enter = new JButton("Enter");
 
+	/*animals = new CheckboxGroup();
+	pig = new Checkbox("Pigs",animals,true);
+	horse = new Checkbox("Horses",animals,false);
+	cow = new Checkbox("Cows",animals,false);*/
+
 	text = new JTextField();
 	text.setEditable(false);
 	stats = new JTextArea();
@@ -91,7 +107,6 @@ public class project extends JFrame implements ActionListener{
 	frame.getContentPane().setLayout(new GridLayout());
 
 	PanelOne = new JLabel("Hi");
-
 
 	one = new Container();
 	one.setLayout(new FlowLayout());
@@ -113,7 +128,8 @@ public class project extends JFrame implements ActionListener{
 	fnamelabel=new JLabel("");
 	fnamefield=new JTextField(5);
 	fnamefield.setEditable(false);
-	
+       
+
 	JPanel box = new JPanel();
 	box.add(fnamelabel);
 	box.add(fnamefield);
@@ -133,6 +149,20 @@ public class project extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
+	timer = timer + 1;
+	pmilk = pmilk + 2*cows;
+	hunger = hunger + 1;
+	fatness = fatness - 1;
+	if ((fatness < 0) && ((cows > 0) || (pigs > 0) || (horses > 0))){
+	    cows = 0;
+	    pigs = 0;
+	    horses = 0;
+	    text.setText("Animals died of hunger");
+	}
+	else{
+	    hunger = 0;
+	    fatness = 0;
+	}
 	statify();
 	if (e.getSource() == exit){
 	    System.exit(0);
@@ -150,6 +180,56 @@ public class project extends JFrame implements ActionListener{
 		    text.setText("Insufficient friends");
 		}
 	    }
+	    else if(sellingmeat){
+		String x = fnamefield.getText();
+		if ((x.equals("Pig")) || (x.equals("Pigs"))  || (x.equals("pigs")) || (x.equals("pig")) || (x.equals("pork")) || (x.equals("Pork"))){
+			money = money + (pork * 2);
+			pork = 0;
+		    }
+		else if ((x.equals("Cow")) || (x.equals("Cows"))  || (x.equals("cows")) || (x.equals("cow")) || (x.equals("beef")) || (x.equals("Beef"))){
+		    money = money + (beef * 3);
+		    beef = 0;
+		}
+		else {
+		    text.setText("Invalid input");
+		}
+	    }
+	    else if(buyinganimals){
+		String x = fnamefield.getText();
+		if ((x.equals("Pig")) || (x.equals("Pigs"))  || (x.equals("pigs")) || (x.equals("pig"))){
+		    if (money > 15){
+			pigs = pigs + 1;
+			money = money - 15;
+		    }
+		    else{
+			text.setText("insufficient funds");
+		    }
+		}
+		else if ((x.equals("Cow")) || (x.equals("Cows"))  || (x.equals("cows")) || (x.equals("cow"))){
+		    if (money > 30){
+			cows = cows + 1;
+			money = money - 30;
+		    }
+		    else{
+			text.setText("insufficient funds");
+		    }
+		}
+		else if ((x.equals("Horse")) || (x.equals("Horses"))  || (x.equals("horses")) || (x.equals("horse"))){
+		    if (!Rancher){
+			text.setText("You are not a rancher");
+		    }
+		    else if (money > 50){
+			horses = horses + 1;
+			money = money - 50;
+		    }
+		    else {
+			text.setText("insufficient funds");
+		    }
+		}
+		else {
+		    text.setText("Invalid input");
+		}
+	    }
 	}
 	
 	else if(e.getSource() == gth){
@@ -160,6 +240,9 @@ public class project extends JFrame implements ActionListener{
 	    
 	    else{
 		gtf.setEnabled(true);
+		gtr.setEnabled(true);
+		gts.setEnabled(true);
+		gtg.setEnabled(true);
 		gtr.setText("Go to the races");
 		gtf.setText("Go to the fields");
 		gts.setText("Go to the shop");
@@ -170,7 +253,6 @@ public class project extends JFrame implements ActionListener{
 		InFields = false;
 		atGov = false;
 		text.setText("Welcome home honey");
-		
 
 	    }
 	}
@@ -204,8 +286,17 @@ public class project extends JFrame implements ActionListener{
 	    if (InFields){
 
 		// FEED DIFFERENT ANIMAL TYPES USING FEED VARIABLE
+		if (fodder < cows + pigs){
+		    text.setText("Not enough fodder, needs " +  (cows + pigs - fodder) + " more");
+		}
+		else{
+		    while ((fodder > cows + pigs) && (hunger > 0)){
+			fodder = fodder - 1;
+			hunger = hunger - 1;
+			fatness = fatness + 1;
+		}
 
-	    }
+		}}
 
 	    if (Shopping){
 
@@ -246,6 +337,11 @@ public class project extends JFrame implements ActionListener{
 		gtf.setText("Milk");
 		gts.setText("Slaughter");
 		gtg.setText("Train");
+		if(!Rancher)
+		    gtg.setEnabled(false);
+		if((cows + pigs + horses) <= 1){
+		    gts.setEnabled(false);
+		}
 		Home = false;
 		Shopping = false;
 		Racing = false;
@@ -263,13 +359,19 @@ public class project extends JFrame implements ActionListener{
 
 	    if (InFields){
 
-		// Milk the cows
+	        milk = milk + pmilk;
+		pmilk = 0;
 
 	    }
 
 	    if (Shopping){
 
 		// Buy animals
+		buyinganimals = true;
+		fnamelabel.setText("Type 'Pig' 'Horse' or 'Cow'");
+		fnamefield.setEditable(true);
+		enter.setEnabled(true);
+		text.setText(fnamefield.getText());
 
 	    }
 
@@ -340,12 +442,33 @@ public class project extends JFrame implements ActionListener{
 	    if (InFields){
 
 		// Slaughter
+		if (pigs > 0){
+		    pigs = pigs - 1;
+		    pork = pork + fatness;
+		}
+
+		else if (cows > 0){
+		    cows = cows - 1;
+		    beef = beef + fatness * 2;
+		}
+		else if (horses > 0){
+		    horses = horses - 1;
+		    beef = beef + fatness;
+		}
 
 	    }
 
 	    if (Shopping){
 
 		// sell meat
+		// we can add fluctuating meat prices
+		sellingmeat = true;
+		fnamelabel.setText("Type 'Pork' or 'Beef'");
+		fnamefield.setEditable(true);
+		enter.setEnabled(true);
+		text.setText(fnamefield.getText());
+
+		
 
 	    }
 
@@ -403,7 +526,11 @@ public class project extends JFrame implements ActionListener{
 
 	    if (Shopping){
 
-		// Buy animals
+		// Sell milk
+		// sells at 1 dollar per gallon, we can have fluctuating milk prices
+		money = money + milk;
+		milk = 0;
+		statify();
 
 	    }
 
@@ -433,12 +560,12 @@ public class project extends JFrame implements ActionListener{
 	    }
 
 	}
-
+	statify();
     }
 
     public void statify(){
 
-	String s = "Money: " + money + " \nCharm: " + charm +  "\nPopularity: " + popularity + "\nFodder: " + fodder + "\nCows: " + cows + "\nPigs: " + pigs + "\nHorses: " + horses + "\nRaces won: " + raceswon;
+	String s = "Money: " + money + " \nCharm: " + charm +  "\nPopularity: " + popularity + "\nFodder: " + fodder + "\nCows: " + cows + "\nPigs: " + pigs + "\nHorses: " + horses + "\nRaces won: " + raceswon + "\nBeef: " + beef + "\nPork: " + pork + "\nMilk: " + milk + "\nHunger: " + hunger;
 	stats.setText(s);
     }
 
