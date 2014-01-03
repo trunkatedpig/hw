@@ -77,6 +77,7 @@ public class TilesetFactory {
 					    BufferedImage.TYPE_4BYTE_ABGR);
 	Graphics2D g = r.createGraphics();
 	g.setBackground(bgcol);
+	g.clearRect(0,0,cellDim.width,cellDim.height);
 	g.setColor(fgcol);
 	g.setFont(font);
 
@@ -85,7 +86,7 @@ public class TilesetFactory {
 	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 			   RenderingHints.VALUE_ANTIALIAS_OFF);
 	
-	g.drawString(String.valueOf(c),0,11); //I HAVE NO IDEA WHAT I'M EVEN--
+	g.drawString(String.valueOf(c),0,cellDim.height); //I HAVE NO IDEA WHAT I'M EVEN--
 
 	return r;
     }
