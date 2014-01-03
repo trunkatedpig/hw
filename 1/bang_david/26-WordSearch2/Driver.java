@@ -16,7 +16,12 @@ public class Driver {
 	//System.out.println(w);
 	//w.fillInBlanks();
 	//System.out.println(w);
-	w.readFile(wordList);
+
+	w.ListWords (3);
+	System.out.println (w.getWord ());
+	System.out.println (w);
+	w.fillInBlanks ();
+	System.out.println (w);
 
 
     }

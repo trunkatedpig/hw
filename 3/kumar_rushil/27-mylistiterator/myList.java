@@ -32,11 +32,11 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
 
     private int[] data;
     private int numItems;
-    
+        
     public Iterator<Integer> iterator() {
 	return new myListIterator(this);
     }
-
+    
 
     public String saySomething() {
 	return "Hello";

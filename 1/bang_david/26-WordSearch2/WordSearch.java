@@ -6,6 +6,7 @@ public class WordSearch {
     private char[][] board;
     private Random rand;
     private ArrayList<String> wordList;
+    private ArrayList<String> words;
 
     private void readWords(String filename) {
 	wordList = new ArrayList<String>();
@@ -13,7 +14,7 @@ public class WordSearch {
 	    Scanner sc = new Scanner(new File(filename));
 	    while (sc.hasNext()) {
 		String s =sc.nextLine();
-		wordList.add(s);
+		wordList.add(s.toUpperCase());
 	    }
 	} catch (FileNotFoundException e) {
 	    // if we can't open the file we
@@ -23,9 +24,10 @@ public class WordSearch {
 	}
     }
 
+
     public WordSearch(int rows, int cols) {
 	rand = new Random();
-	readWords("wordlist");
+	readWords("wordList");
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
@@ -113,6 +115,30 @@ public class WordSearch {
 	}
 	return s;
     }
-
+    
+    public boolean randWord (){
+        
+	int a = rand.nextInt(wordList.size());
+	String b = wordList.get (a);
+	for (int i = 5; i > 0 ; i --) {
+	    if (addWordRandomLoc(b)) {
+		words.add(b);
+		wordList.remove (b);
+		return true;
+	    }
+	}
+	return false;
+    }
+    public void ListWords (int i) {
+	words = new ArrayList <String> ();
+	while (i > 0) {
+	    randWord ();
+	    i --;
+	}
+    }
+			   	 	
+    public ArrayList getWord () {
+	return words;
+    }
 
 }

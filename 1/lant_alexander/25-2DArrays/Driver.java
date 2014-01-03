@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -25,6 +24,7 @@ public class Driver {
 	WordSearch w = new WordSearch(height,width);
 	Random R = new Random();
 	
+	
 	//Clear the screen:
 	for (int i = 0; i < 45; i++)
 	    System.out.println();
@@ -43,7 +43,7 @@ public class Driver {
 	int wordsOnLine = -1;
 	for (int i = 0; i < w.length; i++){
 	    wordsOnLine++;
-	    if (width - ((wordsOnLine+1)*15) < 0){
+	    if (width - ((wordsOnLine+1)*14) < 0){
 		wordsOnLine = 0;
 		System.out.println("");
 	    }
