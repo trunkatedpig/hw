@@ -39,7 +39,6 @@ public class Hero  extends Character{
 	toEquipW(i);
 	Equipment.add(EquipW);
     }
-
     public void toEquipW(String i){
 	EquipW  = new Weapons(i);
 	updateStats();	
