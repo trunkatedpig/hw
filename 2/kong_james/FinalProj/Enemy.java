@@ -75,11 +75,12 @@ public class Enemy  extends Character{
 
     public Enemy(String n, Hero h){
 	Random generator= new Random();
-	level=h.getLevel() + i;
-	while (level == 0){
-	    level =level + generator.nextInt(3) - 1;
+	level=h.getLevel() + generator.nextInt(3) - 1;
+	while (level == 0 ){
+	    level = h.getLevel() + generator.nextInt(3) - 1;
 	}
 	int index = Arrays.asList(monsterNames).indexOf(n);
+	gold = level;
 	str=monsterStats[index][0]+((level-1)*monsterStats[index][3]);
 	dex=monsterStats[index][1]+((level-1)*monsterStats[index][4]);
 	intell=monsterStats[index][2]+((level-1)*monsterStats[index][5]);
