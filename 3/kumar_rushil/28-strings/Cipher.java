@@ -8,7 +8,9 @@ public class Cipher{
 		result = result + (char)(s.charAt(i) + n);
 	    }
 	    if (s.charAt(i) + n > 'z'){
-		
+		k = 'z' - s.charAt(i);
+		k = n - k - 1;
+		result = result + (char)('a' + k);
 	    }
 	}
 	return result;
