@@ -2,31 +2,29 @@ import java.io.*;
 import java.util.*;
 
 
-public class myList implements myMadeUpInterface, Iterable<Integer> {
+public class myList implements myInterface,Iterable {
 
     private class myListIterator implements Iterator<Integer> {
-	private int current = 0;
 	private myList list;
-
+	private int current=0;
 	public myListIterator(myList l) {
 	    list = l;
 	}
-	
 	public boolean hasNext() {
-	    if (current+1 > list.numItems)
+	    if (current == list.size())
 		return false;
-	    //current++;
-	    return true;
+	    else 
+		return true;
 	}
 	public Integer next() {
-	    current++;
-	    return(list.get(current-1));
+	    Integer next = list.get(current);
+	    current = current + 1;
+	    return next;
 	}
+
 	public void remove() {
-	    list.remove(current);
 	}
     }
-    
 
     private int[] data;
     private int numItems;
@@ -35,12 +33,14 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
 	return new myListIterator(this);
     }
 
-    public String saySomething() {
-     	return "Hello";
-    }
     public int addOne(int z) {
 	return z-1;
     }
+    public String saySomething() {
+	return "Hello";
+    }
+
+
 
     public myList() {
 	data = new int[5];
@@ -104,4 +104,3 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
     }
 	
 }
-
