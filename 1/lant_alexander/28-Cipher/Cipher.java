@@ -6,21 +6,32 @@ public class Cipher{
     public ArrayList<String> wordList;
 
     public static void main(String[] args){
-
-	if (args.length > 1){
-	    Cipher c = new Cipher(args[0], Integer.parseInt( args[1]));
+	
+	if (args.length == 2){
+	    Cipher c = new Cipher(args[0], (Integer.parseInt(args[1])));
 	}
-	else
-	    System.out.println("No String given");
+	if (args.length == 1){
+	    if (args[0].length() > 1){
+		System.out.println("No int given");
+	    }
+	    else{
+		System.out.println("No String given");
+	    }
+	}
+	if (args.length == 0){
+	    System.out.println ("No parameters given");
+	}
     }
     
     public Cipher(String input, int num){
-       	//input = deCap(input);
+       	input = Decapitalize(input);
 	String firstWord = getFirstWord(input);
 	String output = "";
 	readWords("words.txt");
 	System.out.println(Encrypt(input, num));
 	System.out.println(Decrypt(input));
+
+	System.out.println(wordList.toArray().length);
     }   
 
     public String getFirstWord(String input){
@@ -57,6 +68,17 @@ public class Cipher{
 	}
     }
 
+    public String Decapitalize(String input){
+	String output = "";
+	for (int i = 0; i < input.length(); i++){
+	    if (input.charAt(i) >= 65 && input.charAt(i) <= 90)
+		output += (char) (input.charAt(i) + 32);
+	    else
+		output += input.charAt(i);
+	}
+	return output;
+    }
+    
     public String Encrypt(String input, int num){
       	String output = "";
       	
@@ -75,11 +97,13 @@ public class Cipher{
     
     public String Decrypt(String input){
 	String firstWord = getFirstWord(input);
+	System.out.println(firstWord);
 	String output = "";
-	
-	for (int a = 1; a < 26; a++){
+
+	for (int a = 0; a < 26; a++){
+	    System.out.println(Encrypt(firstWord, a));
 	    if (wordList.contains(Encrypt(firstWord, a))){
-		return (Encrypt(firstWord, a));
+		return Encrypt(input, a);
 	    }
 	}
 	return "ERROR";
