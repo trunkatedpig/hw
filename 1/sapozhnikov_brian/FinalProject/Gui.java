@@ -13,6 +13,7 @@ public class Gui extends JFrame implements ActionListener{
     private Container b;
     private Board board = new Board(10,10);
     private Ship currentShip = null;
+    private JLabel messages;
     
     //determines stage of the game
     private boolean shipBuildMode = false;
@@ -23,6 +24,9 @@ public class Gui extends JFrame implements ActionListener{
     private JButton newShip;
     private JTextField name;
     private JButton enterName;
+
+    //text snippets
+    String shipBuildingModeMessage = "<html>You are in Ship Building Mode. <br>";
 
     
     private class partKeyListener implements KeyListener {
@@ -84,6 +88,9 @@ public class Gui extends JFrame implements ActionListener{
     }
 
     public void shipBuildingMode(){
+	String text = shipBuildingModeMessage;
+	text = text + "Click \"New Ship\" to begin creating a new ship.";
+	messages.setText(text);
 	newShip = new JButton("New Ship");
 	newShip.addActionListener(this);
 	buildMainButtons.add(newShip);
@@ -110,7 +117,7 @@ public class Gui extends JFrame implements ActionListener{
 	pane.add(b,c);
 
         buildMainButtons = new Container();
-	c.weightx = 0.5;
+	c.weightx = 0.2;
 	c.gridx = 0;
 	c.gridy = 1;
 	buildMainButtons.setLayout(new FlowLayout());
@@ -124,6 +131,12 @@ public class Gui extends JFrame implements ActionListener{
 	enterName = new JButton("Enter Name");
 	enterName.addActionListener(this);
 	buildNewShipButtons.add(enterName);
+
+	messages = new JLabel();
+	c.weightx = 0.5;
+	c.gridx = 1;
+	c.gridy = 0;
+	pane.add(messages,c);
 	
 	for(ShipPart[] row : board.getBoard()){
 	    for(ShipPart p : row){
