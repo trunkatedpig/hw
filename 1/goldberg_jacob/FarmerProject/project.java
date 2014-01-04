@@ -61,7 +61,7 @@ public class project extends JFrame implements ActionListener{
 
     public project(){
 	setTitle("Farmer Joe");
-	setSize(600,400);
+	setSize(600,500);
 	setLocation(100,100);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	baseset();
@@ -177,7 +177,7 @@ public class project extends JFrame implements ActionListener{
 		    fodder = fodder + a;
 		}
 		else{
-		    text.setText("Insufficient friends");
+		    text.setText("Insufficient funds");
 		}
 	    }
 	    else if(sellingmeat){
