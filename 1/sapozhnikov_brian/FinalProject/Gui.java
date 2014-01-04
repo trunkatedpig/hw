@@ -12,13 +12,14 @@ public class Gui extends JFrame implements ActionListener{
     private GridBagConstraints c = new GridBagConstraints();
     private Container b;
     private Board board = new Board(10,10);
-    private Container buttons;
-   
+    private Ship currentShip = null;
     
     //determines stage of the game
     private boolean shipBuildMode = false;
 
     //buttons only used in certain stages
+    private Container buildMainButtons;
+    private Container buildNewShipButtons;
     private JButton newShip;
     private JTextField name;
     private JButton enterName;
@@ -85,17 +86,11 @@ public class Gui extends JFrame implements ActionListener{
     public void shipBuildingMode(){
 	newShip = new JButton("New Ship");
 	newShip.addActionListener(this);
-	buttons.add(newShip);
+	buildMainButtons.add(newShip);
 	pane.update(this.getGraphics());
     }
 
-    public void resetButtons(){
-	buttons = new Container();
-	c.gridx = 0;
-	c.gridy = 1;
-	buttons.setLayout(new FlowLayout());
-	pane.add(buttons,c);
-    }
+    
     
     public Gui(){
 	//format gui
@@ -108,13 +103,27 @@ public class Gui extends JFrame implements ActionListener{
 	
 
 	b = new Container();
+	c.weightx = 0.5;
 	c.gridx = 0;
 	c.gridy = 0;
 	b.setLayout(new GridLayout(10,10));
 	pane.add(b,c);
 
-        resetButtons();
+        buildMainButtons = new Container();
+	c.weightx = 0.5;
+	c.gridx = 0;
+	c.gridy = 1;
+	buildMainButtons.setLayout(new FlowLayout());
+	pane.add(buildMainButtons,c);
 
+	buildNewShipButtons = new Container();
+	buildNewShipButtons.setLayout(new FlowLayout());
+	name = new JTextField(10);
+	name.addActionListener(this);
+	buildNewShipButtons.add(name);
+	enterName = new JButton("Enter Name");
+	enterName.addActionListener(this);
+	buildNewShipButtons.add(enterName);
 	
 	for(ShipPart[] row : board.getBoard()){
 	    for(ShipPart p : row){
@@ -136,26 +145,26 @@ public class Gui extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
 	if (e.getSource() == newShip){
-	    buttons.removeAll();
-	    //buttons.remove(newShip);
-	    name = new JTextField(10);
-	    name.addActionListener(this); //this line is probably not necessary
-	    buttons.add(name);
-	    /*
-	    enterName = new JButton("Enter Name");
-	    enterName.addActionListener(this);
-	    buttons.add(enterName);
-	    */
-	    buttons.update(this.getGraphics());
-	    //pane.remove(buttons);
-	    //pane.add(buttons);
-	    pane.update(this.getGraphics());
-	    
-	    
-	}
+	    pane.remove(buildMainButtons);
+	    c.weightx = 0.5;
+	    c.gridx = 0;
+	    c.gridy = 1;
+	    pane.add(buildNewShipButtons,c);
+	    pane.revalidate();
+	    pane.repaint();
+	    	         
+	   }
 	
 	if (e.getSource() == enterName){
-	    System.out.println("recieved name: " + name.getText());
+	    //System.out.println("recieved name: " + name.getText());
+	    currentShip = new Ship(name.getText(), false);
+	    pane.remove(buildNewShipButtons);
+	    c.weightx = 0.5;
+	    c.gridx = 0;
+	    c.gridy = 1;
+	    pane.add(buildMainButtons,c);
+	    pane.revalidate();
+	    pane.repaint();
 	}
     }
 
