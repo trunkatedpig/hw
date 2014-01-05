@@ -43,6 +43,7 @@ public class Disease{
 	    chanceInfected = chanceInfected + .05;
 	    water =true;	
 	}
+	return "";
     }
 
     public void upgradeSymptoms(String name) {
@@ -95,7 +96,7 @@ public class Disease{
 	    //efficiency of Cure is reduced by .04
 	}
     }
-    public String winner(){
+    public void winner(){
 	System.out.println ("Congratulations! Your disease, " +name + "has successfully destroyed the human population!");
     }
     public void winYet(){
@@ -127,6 +128,7 @@ public class Disease{
 	    DNAPoints = DNAPoints + 2;
 	    System.out.println("DNA Points: " + DNAPoints);
 	}
+	return "";
     }
 }
 	    
