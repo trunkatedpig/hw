@@ -1,9 +1,9 @@
-public class disease{
+public class Disease{
     private double infected,dead,chanceInfected,chanceDead;
     private int  DNAPoints;
-    private string name;
+    private String name;
     private  boolean nausea = false,coughing =false,rash=false,anemia=false,livestock=false,rodent=false,bird=false,insect=false,blood=false,air=false,water=false,coldR=false,headR=false,drugR=false,GeneticH=false,GeneticR=false;
-    public disease(n){
+    public Disease(string n){
 	name = n;
 	infected = 0;
 	dead = 0;
@@ -14,38 +14,38 @@ public class disease{
 
     //all these methods for if player chooses to (1) UPGRADE
     
-    public String upgradeTransmission(name) {
-	if (name = "livestock"){
+    public String upgradeTransmission(String name) {
+	if (name == "livestock"){
 	    chanceInfected = chanceInfected + .05;
 	    livestock = true;
 	}
-	if (name = "rodent"){
+	if (name == "rodent"){
 	    chanceInfected = chanceInfected + .06;
 	    rodent= true;
 	}
-	if (name = "bird"){
+	if (name == "bird"){
 	    chanceInfected = chanceInfected + .05;
 	    bird=true;	
 	}
-	if (name = "insect"){
+	if (name == "insect"){
 	    chanceInfected = chanceInfected + .06;
 	    insect =true;
 	}
-	if (name = "blood"){
+	if (name == "blood"){
 	    chanceInfected = chanceInfected + .05;
 	    blood =true;	
 	}
-	if (name = "air"){
+	if (name == "air"){
 	    chanceInfected = chanceInfected + .06;
 	    air =true;	
 	}
-	if (name = "water"){
+	if (name == "water"){
 	    chanceInfected = chanceInfected + .05;
 	    water =true;	
 	}
     }
 
-    public void upgradeSymptoms(name) {
+    public void upgradeSymptoms(String name) {
 	if (name == "nausea"){
 	    chanceInfected = chanceInfected + .01;
 	    chanceDead = chanceDead + .03;
@@ -71,24 +71,26 @@ public class disease{
     }
 
 
-    public void upgradeAbilities(name){
-	if (name = "coldR"){
+    public void upgradeAbilities(String name){
+	//you messed up variable names here and i didnt know how to fix it
+
+	if (name == "coldR"){
 	    coldResistance = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "heatR"){
+	if (name == "heatR"){
 	    coldResistance = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "drugR"){
+	if (name == "drugR"){
 	    coldResistance = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "GeneticH"){
+	if (name == "GeneticH"){
 	    coldResistance = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "GeneticR"){
+	if (name == "GeneticR"){
 	    coldResistance = true;
 	    //efficiency of Cure is reduced by .04
 	}
@@ -97,7 +99,7 @@ public class disease{
 	System.out.println ("Congratulations! Your disease, " +name + "has successfully destroyed the human population!");
     }
     public void winYet(){
-	if dead = 1{
+	if (dead = 1){
 		this.winner();
 	    }
     }
@@ -113,7 +115,8 @@ public class disease{
 	    System.out.println("Infectivity: " +( chanceInfected*100 )+"%")
 		System.out.println("Infected: " +( infected*100 )+"%")
 		}
-	if (Math.random() chanceDead) {
+	//your forgot the inequality sign here so i just put less than 
+	if (Math.random()< chanceDead) {
 	    dead = dead + 2 + (chanceDead/2);
 	    System.out.println("Severity: " +( chanceDead*100 )+"%")
 		System.out.println("Dead: " +(dead*100 )+"%")
