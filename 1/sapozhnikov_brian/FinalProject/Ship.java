@@ -25,4 +25,12 @@ public class Ship{
     public String getName(){
 	return name;
     }
+
+    public void addPart(ShipPart p){
+	parts.add(p);
+    }
+
+    public String toString(){
+	return name;
+    }
 }

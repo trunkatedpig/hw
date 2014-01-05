@@ -8,9 +8,9 @@ import java.awt.image.*;
 import javax.imageio.*;
 
 public class Gui extends JFrame implements ActionListener{
+    private Gui gui = this;
     private Container pane;
     private GridBagConstraints c = new GridBagConstraints();
-    private Container b;
     private Board board = new Board(10,10);
     private Ship currentShip = null;
     private JLabel messages;
@@ -26,7 +26,7 @@ public class Gui extends JFrame implements ActionListener{
     private JButton enterName;
 
     //text snippets
-    String shipBuildingModeMessage = "<html>You are in Ship Building Mode. <br>";
+    String shipBuildingModeMessage = "<html>You are in Ship Building Mode. <br><hr><br>";
 
     
     private class partKeyListener implements KeyListener {
@@ -54,8 +54,8 @@ public class Gui extends JFrame implements ActionListener{
 
     private class partMouseListener implements MouseListener {
 	public void mouseClicked(MouseEvent e){
-	    System.out.println(e.getSource())
-		;	}
+	    System.out.println("Ship Part pressed.");
+	}
 	public void mouseEntered(MouseEvent e){
 
 	}
@@ -71,8 +71,28 @@ public class Gui extends JFrame implements ActionListener{
     }
     private class emptyMouseListener implements MouseListener {
 	public void mouseClicked(MouseEvent e){
-	    System.out.println(e.getSource())
-		;	}
+	    if (currentShip != null){
+		JPanel p = (JPanel)(e.getSource());
+		int pX = p.getX()/20;
+		int pY = p.getY()/20;
+		ShipPart newPart = new ShipPart(currentShip); 
+		board.set(pY, pX, newPart);
+		currentShip.addPart(newPart);
+		System.out.println(board);
+		//System.out.println(Arrays.toString(newPart.getMouseListeners()));
+		//newPart.removeMouseListener(newPart.getMouseListeners()[0]);
+		newPart.addMouseListener(new partMouseListener());
+		newPart.setBorder(BorderFactory.createLineBorder(Color.red,2));
+		newPart.setBackground(Color.red);
+		board.remove(pY*10+pX);
+		board.add(newPart, pY*10+pX);
+		board.revalidate();
+		board.repaint();
+		pane.revalidate();
+		pane.repaint();
+		pane.update(gui.getGraphics());
+	    }
+	}
 	public void mouseEntered(MouseEvent e){
 
 	}
@@ -109,12 +129,12 @@ public class Gui extends JFrame implements ActionListener{
 	pane.setLayout(new GridBagLayout());
 	
 
-	b = new Container();
+	//board
 	c.weightx = 0.5;
 	c.gridx = 0;
 	c.gridy = 0;
-	b.setLayout(new GridLayout(10,10));
-	pane.add(b,c);
+	board.setLayout(new GridLayout(10,10));
+	pane.add(board,c);
 
         buildMainButtons = new Container();
 	c.weightx = 0.2;
@@ -146,11 +166,11 @@ public class Gui extends JFrame implements ActionListener{
 		    empty.setBorder(BorderFactory.createLineBorder(Color.blue,2));
 		    empty.setBackground(Color.blue);
 		    empty.addMouseListener(new emptyMouseListener());
-		    b.add(empty);
+		    board.add(empty);
 		}
 		else{
 		    p.addMouseListener(new partMouseListener());
-		    b.add(p);
+		    board.add(p);
 		}
 	    }
 	}
@@ -163,6 +183,7 @@ public class Gui extends JFrame implements ActionListener{
 	    c.gridx = 0;
 	    c.gridy = 1;
 	    pane.add(buildNewShipButtons,c);
+	    messages.setText(shipBuildingModeMessage+"Enter the name of your ship. <br>");
 	    pane.revalidate();
 	    pane.repaint();
 	    	         
@@ -176,6 +197,7 @@ public class Gui extends JFrame implements ActionListener{
 	    c.gridx = 0;
 	    c.gridy = 1;
 	    pane.add(buildMainButtons,c);
+	    messages.setText(shipBuildingModeMessage+"Now Building \"" + currentShip + "\" <br>");
 	    pane.revalidate();
 	    pane.repaint();
 	}
