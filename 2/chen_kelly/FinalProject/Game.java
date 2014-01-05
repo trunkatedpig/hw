@@ -41,10 +41,20 @@ public class Game extends Canvas implements Runnable{
 
     public void run(){
 	while(running){
-	    System.out.println("Running...");
+	    //consistent speed for update  no matter what fps
+	    update();
+	    //as fast as your computer can
+	    render();
 	}
     }
 
+    public void update(){
+
+    }
+
+    public void render(){
+
+    }
     public static void main(String[] args){
 	Game game = new Game();
 	game.frame.setResizable(false);

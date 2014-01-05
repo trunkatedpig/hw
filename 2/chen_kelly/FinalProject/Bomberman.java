@@ -14,8 +14,8 @@ public class Bomberman extends JFrame{
     public Bomberman(){
 	//mainTimer = new Timer(10,this);
 
-	ImageIcon grass = new ImageIcon("C:/Users/Kelly/Documents/hw/2/chen_kelly/FinalProject/grass.jpg");
-	ImageIcon stone = new ImageIcon("C:/Users/Kelly/Documents/hw/2/chen_kelly/FinalProject/stone.jpg");
+	ImageIcon grass = new ImageIcon("grass.jpg");
+	ImageIcon stone = new ImageIcon("stone.jpg");
 	JPanel grid = new JPanel();
 	grid.setLayout(new GridLayout(GridW,GridH));
 	for (int i =0; i < GridW; i++){
