@@ -5,9 +5,9 @@ import java.awt.*;
 import javax.imageio.*;
 import java.awt.image.*;
 
-Timer mainTimer;
+//Timer mainTimer;
 
-public class Bomberman extends JFrame implements ActionListener{
+public class Bomberman extends JFrame{
     int GridW = 31;
     int GridH = 31;
     
@@ -37,9 +37,9 @@ public class Bomberman extends JFrame implements ActionListener{
      	this.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent arg0){
+    /*    public void actionPerformed(ActionEvent arg0){
 	this.update(this.getGraphics());
-    }
+	}*/
 
     public static void main(String[] args){
 	Bomberman b = new Bomberman();
