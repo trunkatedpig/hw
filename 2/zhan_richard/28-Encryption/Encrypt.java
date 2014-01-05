@@ -3,10 +3,11 @@ public class Encrypt{
 	String result="";
 	int truth = 0;
 	for (int i =0; i < s.length();i++){
-	    if ((((int)s.charAt(i))+n)>122)
-		truth = 97 + ((((int)s.charAt(i))+n)-122);
-	    else
-		truth = (((int)s.charAt(i))+n);
+	    truth = (((int)s.charAt(i))+n);
+	    if (truth-n<97 || truth-n>122)
+		truth = truth - n;
+	    else if (truth>122)
+		truth = 97 + (truth-122);	    
 	    result = result + Character.toString((char)truth);
 	}
 	return result;
