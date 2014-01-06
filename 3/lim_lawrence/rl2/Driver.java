@@ -4,8 +4,15 @@ import java.awt.*;
 public class Driver {
     public static void main(String[] args) {
 	Gui gui = new Gui();
-	
-	gui.getPane().refresh();
+	SwingPane pane = gui.getPane();
+	pane.refresh();
+	for (int x=0; x<80; x++) {
+	    for (int y=0; y<25; y++) {
+		if ((x+y)%2==1) {pane.putChar(' ',x,y,Color.WHITE,Color.DARK_GRAY);}
+	        else {pane.putChar(' ',x,y,Color.WHITE,Color.BLACK);}
+		if (x%5==4 || y%5 ==4) {pane.putChar(' ',x,y,Color.WHITE,Color.LIGHT_GRAY);}
+	    }
+	}
 
 	gui.getPane().putChar('@',4,4,Color.WHITE,Color.BLACK);
 	gui.getPane().putChar('@',4,5,Color.WHITE,Color.BLACK);
