@@ -5,17 +5,17 @@ import java.awt.*;
 import javax.imageio.*;
 import java.awt.image.*;
 
-Timer mainTimer;
+//Timer mainTimer;
 
-public class Bomberman extends JFrame implements ActionListener{
+public class Bomberman extends JFrame{
     int GridW = 31;
     int GridH = 31;
     
     public Bomberman(){
 	//mainTimer = new Timer(10,this);
 
-	ImageIcon grass = new ImageIcon("C:/Users/Kelly/Documents/hw/2/chen_kelly/FinalProject/grass.jpg");
-	ImageIcon stone = new ImageIcon("C:/Users/Kelly/Documents/hw/2/chen_kelly/FinalProject/stone.jpg");
+	ImageIcon grass = new ImageIcon("grass.jpg");
+	ImageIcon stone = new ImageIcon("stone.jpg");
 	JPanel grid = new JPanel();
 	grid.setLayout(new GridLayout(GridW,GridH));
 	for (int i =0; i < GridW; i++){
@@ -37,9 +37,9 @@ public class Bomberman extends JFrame implements ActionListener{
      	this.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent arg0){
+    /*    public void actionPerformed(ActionEvent arg0){
 	this.update(this.getGraphics());
-    }
+	}*/
 
     public static void main(String[] args){
 	Bomberman b = new Bomberman();

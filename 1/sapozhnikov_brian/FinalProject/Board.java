@@ -7,7 +7,7 @@ import java.awt.event.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
-public class Board {
+public class Board extends Container{
     private ShipPart[][] board;
 
     public Board(int r, int c){
@@ -19,10 +19,42 @@ public class Board {
 	return board;
     }
 
+    public void set(int r, int c, ShipPart p){
+	board[r][c] = p;
+    }
+
+    public int getRow(ShipPart p){
+	for(int r=0; r<board.length; r++){
+	    for(int c=0; c<board[r].length; c++){
+		if (board[r][c].equals(p)){
+		    return r;
+		}
+	    }
+	}
+	return -1;
+    }
+    public int getColumn(ShipPart p){
+	for(int r=0; r<board.length; r++){
+	    for(int c=0; c<board[r].length; c++){
+		if (board[r][c].equals(p)){
+		    return c;
+		}
+	    }
+	}
+	return -1;
+    }
+
     public boolean movePartForward(ShipPart p){
 	int dir = p.getShip().getDirection();
 	int dRow = 0;
 	int dCol = 0;
+	int row;
+	int col;
+	row = getRow(p);
+	col = getColumn(p);
+	if(row<0 || col<0){
+	    return false;
+	}
 	switch(dir){
 	case 0:
 	    dRow = -1;
@@ -37,14 +69,8 @@ public class Board {
 	    dCol = -1;
 	    break;
 	}
-	try{
-	    board[p.getRow()+dRow][p.getColumn()+dCol] = p;
-	} catch(ArrayIndexOutOfBoundsException e){
-	    return false;
-	}
-	board[p.getRow()][p.getColumn()] = null;
-	p.setRow(p.getRow()+dRow);
-	p.setColumn(p.getColumn()+dCol);
+	board[row+dRow][col+dCol] = p;
+	board[row][col] = null;
 	return true;
     }
 
@@ -54,5 +80,16 @@ public class Board {
 		part = null;
 	    }
 	}
+    }
+
+    public String toString(){
+	String s = "";
+	for (ShipPart[] row : board){
+	    for(ShipPart p : row){
+		s = s + p + " ";
+	    }
+	    s = s + "\n";
+	}
+	return s;
     }
 }
