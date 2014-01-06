@@ -1,6 +1,8 @@
 import java.io.*; 
 import java.util.*; 
 
+//nts- add case for anything that's not a letter
+
 public class Caesar {
 
     public String caesar (String i, int z) {
