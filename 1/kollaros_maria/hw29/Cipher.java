@@ -4,6 +4,7 @@ import java.io.*;
 public class Cipher {
 
     private double[] CorpusFreqs = new double[26];
+    private int total;
 
     public String encode(String orig, int offset) {
         String result="";
@@ -29,10 +30,14 @@ public class Cipher {
 		    char c = p.charAt(i);
 		    int y = 0;
 		    if(c>= 'a' && c<='z'){
+			total = total + 1;
 			y = (int)(c - 'a');
 			CorpusFreqs[y] = CorpusFreqs[y] + 1;
 		    }
 		}
+	    }
+	    for(int i = 0; i<CorpusFreqs.length; i++){
+		CorpusFreqs[i] = CorpusFreqs[i] / total;
 	    }
 	}
 	    catch (Exception e) {}
