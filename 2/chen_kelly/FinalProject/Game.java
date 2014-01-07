@@ -43,7 +43,7 @@ public class Game extends Canvas implements Runnable{
 	while(running){
 	    //consistent speed for update  no matter what fps
 	    update();
-	    //as fast as your computer can
+	    //as many times as your computer can
 	    render();
 	}
     }
@@ -53,8 +53,22 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void render(){
-
+	//Buffers are for temp storage
+	//getting BufferStrategy of Canvas object--> Game
+	BufferStrategy bs =  getBufferStrategy();
+	if(bs == null){
+	    createBufferStrategy(3);
+	    return;
+	}
+	//link between graphics and bufferstrategy (creating graphics context)
+	Graphics g = bs.getDrawGraphics();
+	//ALL GRAPHICS GO HERE
+	g.setColor(Color.BLACK);
+	g.fillRect(0,0,getWidth(), getHeight());
+	g.dispose(); //disposes of current graphics
+	bs.show(); //makes next available buffer visible
     }
+
     public static void main(String[] args){
 	Game game = new Game();
 	game.frame.setResizable(false);
