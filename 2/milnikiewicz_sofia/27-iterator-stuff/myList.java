@@ -2,23 +2,30 @@ import java.io.*;
 import java.util.*;
 
 
-public class myList implements myInterface,Iterable {
+public class myList implements myInterface,Iterable{
 
-    private class myListIterator implements Iterator<Integer> {
+    private class myListIterator implements Iterator<Integer>{
+
         private myList list;
         private int current=0;
+
         public myListIterator(myList l) {
             list = l;
         }
+
         public boolean hasNext() {
-            return false;
+            return current < list.numItems;
         }
+
         public Integer next() {
-            
-            return new Integer(10);
+            int n = list.get(current);
+            current++;
+            return n;
         }
+
         public void remove() {
         }
+
     }
 
     private int[] data;
