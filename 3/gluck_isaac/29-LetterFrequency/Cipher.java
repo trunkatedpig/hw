@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class CountFreq{
+public class Cipher{
 	private double[] corpusFreqs = new double[26];
 	private int total = 0;
 
@@ -54,7 +54,7 @@ public class CountFreq{
 	}
 
 	public static void main(String[] args){
-		CountFreq c = new CountFreq();
+		Cipher c = new Cipher();
 		c.buildCorpusFreqs(args[0]);
 		System.out.println(c);
 	}
