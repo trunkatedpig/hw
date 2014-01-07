@@ -23,20 +23,13 @@ class ChetrisGame implements Runnable {
     private Thread t;
 
     public ChetrisGame() {
-	//	this.addActionListener ( this );
 	chessBoard = new ChessBoard();
 	p1t = new TetrisBoard();
 	p2t = new TetrisBoard();
 	start = new JButton ( "Start" );
 	t = new Thread ( this );
-	//start.addActionListener ( this );
-	// start.addKeyListener ( this );
 	f = new JPanel();
 	f2 = new JFrame();
-	//	f.setDefaultCloseOperation ( JFrame.EXIT_ON_CLOSE );
-	//	f.getContentPane().setLayout ( new FlowLayout() );
-	//	f.setVisible ( true );
-	//f.add ( start );
 	f.add ( p2t );
 	f.add ( chessBoard );
 	f.add ( p1t );
@@ -62,7 +55,6 @@ class ChetrisGame implements Runnable {
 	    } catch ( InterruptedException e ) {
 	    }
 	    if ( chessBoard.moveOver == 1 ) {
-		//System.out.println ( "move over" );
 		String direction = chessBoard.direction;
 		if ( direction.length() > 0 ) {
 		    System.out.println ( direction );
@@ -96,7 +88,6 @@ class ChetrisGame implements Runnable {
 		else {
 		    pt.z = 0;
 		    pt.wait = 500;
-		    //pt.t.resume();
 		}
 	    }
 	    if ( pt.moveOver == 1 ) {
@@ -108,61 +99,13 @@ class ChetrisGame implements Runnable {
 			pt = p1t;
 		    pt.moveOver = 0;
 		    chessBoard.moveOver = 0;
-		    System.out.println (  p1t == pt);// + "\np2t: " + p2t == pt );
+		    System.out.println (  p1t == pt);
 		    pt.start();
 		    pt.t.resume();
 		}
 	    }
 	}
     }
-
-    /*
-    public void actionPerformed ( ActionEvent e ) {
-	if ( e.getSource() == start ) {
-	    System.out.println ( "Start" );
-	    player = 1;
-	    pt = p1t;
-	    pt.t.start();
-	}
-    }
-
-    public void keyReleased ( KeyEvent e ) {
-	pt.z = 0;
-	pt.wait = 500;
-    }
-    public void keyPressed ( KeyEvent e ) {
-	if ( e.getKeyCode() == KeyEvent.VK_UP ) {
-	    System.out.println ( "up" );
-	    pt.rotate();
-	}
-	if ( e.getKeyCode() == KeyEvent.VK_DOWN ) {
-	    System.out.println ( "down" );
-	    pt.wait = 50;
-	}
-	if ( e.getKeyCode() == KeyEvent.VK_LEFT ) {
-	    System.out.println ( "left" );
-	    if ( pt.piece == pt.piece1 && pt.x < pt.buttons [ pt.y ].length + 3 ||
-		 pt.x < pt.buttons [ pt.y ].length + 2 ||
-		 pt.piece == pt.piece3 && pt.x > 0 ||
-		 pt.x > 1 ) {
-		System.out.println ( "going left" );
-		pt.z = -1;
-	    }
-	}
-	if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
-	    System.out.println ( "left" );
-	    if ( pt.piece == pt.piece1 && pt.x < pt.buttons [ pt.y ].length + 3 ||
-		 pt.x < pt.buttons [ pt.y ].length + 2 ||
-		 pt.piece == pt.piece3 && pt.x > 0 ||
-		 pt.x > 1 ) {
-		System.out.println ( "going right" );
-		pt.z = 1;
-	    }
-	}
-    }
-    public void keyTyped ( KeyEvent e ) {
-    }*/
-
 }
 
 
@@ -200,7 +143,6 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
     protected int turn , moveOver;
 
     public ChessBoard() {
-	//	this.addActionListener ( this );
 	piece = new String();
 	direction = new String();
 	turn = 1;
@@ -245,7 +187,6 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 			    setPiece ( "p2_king" , row , col );
 		    }
 		}
-		//		    else buttons [ row ] [ col ] = new JButton ( row + " " + col );
 		else buttons [ row ] [ col ] = new JButton ( row + " " + col );
 		System.out.println ( "rowcol: " + row + ", " + col );
 		buttons [ row ] [ col ].addActionListener ( this );
@@ -295,16 +236,10 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 	System.out.println ( e );
 	System.out.println ( "getText" + ( ( JButton ) e.getSource() ).getText() );
 	piece =  ( ( JButton ) e.getSource() ).getText().substring ( 3 );
-	//	System.out.println ( piece );
-	//	System.out.println ( piece.equals ( "p1_pawn" ) );
 	String row = ( ( JButton ) e.getSource() ).getText().substring ( 0 , 1 );
 	String col = ( ( JButton ) e.getSource() ).getText().substring ( 2 , 3 );
 	int r = Integer.parseInt ( row );
 	int c = Integer.parseInt ( col );
-	//	for ( int[] coor : options ) {
-	//  buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
-	//  System.out.println ( Arrays.toString ( coor ) + "    opt" );
-	//	}
 	System.out.println ( buttons [ r ] [ c ].getBackground().equals ( Color.blue ) );
 	if ( buttons [ r ] [ c ].getBackground() != Color.blue ) {
 	    System.out.println ( "not blue" );
@@ -315,31 +250,14 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 	    }
 	    options.clear();
 	}
-	/*	System.out.println ( "options: " );
-	for ( int[] coor : options ) {
-	    buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
-	    System.out.println ( Arrays.toString ( coor ) + "   opt" );
-	    }*/
 	if ( turn == 1 ) {
 	if ( piece.equals ( "p1_pawn" ) ) {
 	    getOptions ( "p1 pawn" , r , c );
-	    //	    options.clear();
-	    //	    int[] a = { r - 1 , c };
-	    //	    options.add ( a );
-	    //	    if ( r == buttons.length - 2 ) {
-	    //	int[] b = { r - 2 , c };
-	    //	options.add ( b );
-	    //	    }
 	    System.out.println ( "pawn selected" );
 	    selectPiece ( e , r , c );
 	}
 	if ( piece.equals ( "p1_knight" ) ) {
 	    getOptions ( "knight" , r , c );
-	    //	    options.clear();
-	    //	    int[] a = { r - 2 , c + 1 };
-	    //	    int[] b = { r - 2 , c - 1 };
-	    //	    options.add ( a );
-	    //	    options.add ( b );
 	    selectPiece ( e , r , c );
 	}
 	if ( piece.equals ( "p1_rook" ) ) {
@@ -388,15 +306,13 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 	System.out.println ( "color matches?" );
 	System.out.println ( r + ", " + c );
 	System.out.println ( buttons [ r ] [ c ].getBackground().equals ( Color.blue ) );
-	//	System.out.println  ( ( ( JButton ) e.getSource() ).getBackground() == Color.blue );
 	if ( ( ( JButton ) e.getSource() ).getBackground() == Color.blue ) {
 	    piece = buttons [ currentMove [ 0 ] ] [ currentMove [ 1 ] ].getText().substring ( 3 );
 	    System.out.println ( piece );
-	    //	    System.out.println ( (  ( JButton ) e.getSource() ).getText() );
 	    System.out.println ( "move pawn" );
 	    System.out.println ( Arrays.toString ( currentMove ) );
 	    try {
-		System.out.println ("piece" + piece);//.substring ( 3 ) );
+		System.out.println ("piece" + piece);
 		Image image = ImageIO.read ( getClass().getResource ( piece + ".png" ) );
 		buttons [ r ] [ c ].setIcon ( new ImageIcon ( image ) );
 		buttons [ r ] [ c ].setBackground ( null );
@@ -414,9 +330,6 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 	    }
 	    buttons [ currentMove [ 0 ] ] [ currentMove [ 1 ] ].setIcon ( null );
 	    buttons [ currentMove [ 0 ] ] [ currentMove [ 1 ] ].setText ( currentMove [ 0 ] + " " + currentMove [ 1 ] );
-	    //	    for ( int[] coor : options ) {
-	    //	buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( null );
-	    //	    }
 	    options.clear();
 	    System.out.println ( "turn: " + turn );
 	    if ( turn == 1 ) {
@@ -435,19 +348,14 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 	currentMove [ 0 ] = r;
 	currentMove [ 1 ] = c;
 	System.out.println ( "currentMove: " +  Arrays.toString ( currentMove ) );
-	//options.add ( a );
-	//options.add ( b );
 	for ( int[] coor : options ) {
 	    buttons [ coor [ 0 ] ] [ coor [ 1 ] ].setBackground ( Color.blue );
 	}
-	//	options.clear();
-	//	buttons [ r ] [ c ].setText ( row + " " + col );
     }
 
     public void getOptions ( String name , int r , int c ) {
 	if ( name == "p1 pawn" ) {
 	    if ( buttons [ r - 1 ] [ c ].getIcon() == null ) {
-		//		System.out.println (  eatable ( buttons [ r ] [ c ] , buttons [ r - 1 ] [ c + 1 ] ) );
 		int[] a = { r - 1 , c };
 		options.add ( a );
 		if ( r == buttons.length - 2 && buttons [ r - 2 ] [ c ].getIcon() == null ) {
@@ -464,14 +372,6 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 	    }
 	}
 	if ( name == "knight" ) {
-	    /*	    if ( buttons [ r - 2 ] [ c + 1 ].getIcon() == null ) {
-		int[] a = { r - 2 , c + 1 };
-		options.add ( a );
-	    }
-	    if ( buttons [ r - 2 ] [ c - 1 ].getIcon() == null ) {
-		int[] a = { r - 2 , c - 1 };
-		options.add ( a );
-	    }*/
 	    int[][] knightList = { { -2 , -1 } , { -2 , 1 } , { 2 , 1 } , { 2 , -1 } , { 1 , 2 } , { 1 , -2 } , { -1 , 2 } , { -1 , -2 } };
 	    for ( int[] coor : knightList ) {
 		int coor1 = coor [ 0 ];
@@ -784,25 +684,6 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 	System.out.println ( "not eatable" );
 	return false;
     }
-
-    /*
-    public boolean optionLooop ( int i , int c ) {
-	if ( buttons [ i ] [ c ].getIcon() == null ) {
-	    int[] a = { i , c };
-	    options.add ( a );
-	    return true;
-	}
-	else return false;
-    }
-
-    public void mouseExited ( MouseEvent e ) {
-    }
-    public void mouseEntered ( MouseEvent e ) {
-    }
-    public void mouseReleased ( MouseEvent e ) {
-    }
-    public void mouseClicked ( MouseEvent e ) {
-    }*/
 }
 
 
@@ -874,10 +755,8 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
     int[][] piece5Rotated2 = { { -2 , 0 } , { 0 , 0 } , { -1 , 0 } , { 0 , 1 } };
     int[][] piece5Rotated3 = { { 0 , -2 } , { 0 , 0 } , { 0 , -1 } , { -1 , 0 } };
     protected int wait;
-    //JTable table = new JTable ( 10 , 15 );
 
     public TetrisBoard() {
-	//super ( 15 , 10 );
 	this.addKeyListener(this);
 
 	super.setLayout ( new GridLayout( 15 , 9 ) );
@@ -895,11 +774,8 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		    buttons [ i ] [ j ].setBackground ( null );
 	    }
 	}
-	//	setSize ( 400 , 400 );
 	t = new Thread ( this );
 	moveOver = 0;
-	//t.start();
-	//this.add (button);
     }
 
     public Dimension getPreferredSize() {
@@ -940,12 +816,10 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		z = -1;
 		recolor();
 	    }
-	    //	    if ( x + piece [ 0 ] [ 0 ] >= 0 )
 	}
 	if ( e.getKeyCode() == KeyEvent.VK_RIGHT ) {
 	    System.out.println ( "right" );
 	    if ( x < buttons.length - 3 ) {
-		//	    if ( x + piece [ 3 ] [ 0 ]<= buttons [ 0 ].length )
 		System.out.println ( "going right" );
 		z = 1;
 		recolor();
@@ -970,11 +844,9 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	update ( getGraphics() );
 	this.reset();
 	oldY = y;
-	//	t.resume();
     }
 
     public boolean notOutOfBounds ( int z ) {
-	//int[][] right , left;
 	ArrayList<Integer> yList = new ArrayList<Integer>();
 	yList.add ( 0 );
 	if ( piece == piece1 ) {
@@ -1046,16 +918,6 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    int[][] right = { { 0 , 0 } };
 	    int[][] left = { { 0 , 0 } };
 	}
-	//	return outHelp ( right );
-	/*	if ( z == -1 ){
-	    for ( Integer y : yList ) {
-		if ( !( x + left > 0 && buttons [ this.y + y ] [ x + left + z ].getBackground() != Color.red ) )
-		    return false;
-		else System.out.println ( "ys: " + this.y + "," + y + "\nx" + x + left );
-	    }
-	    return true;
-	    }*/
-	//else return true;
 	return true;
     }
 
@@ -1167,18 +1029,11 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    y = 1;
 	    piece = piece5;
 	}
-	//y = 1;
-	//piece = piece5;
     }
 
     public void go() {
-	//	if ( y < buttons.length - 1 && buttons [ y + 1 ] [ x ].getBackground() != Color.red ) {
 	oldY = y;
-	//	oldX = x;
 	y = y + 1;
-	//if ( x + piece [ 0 ] [ 0 ] != 0 || x + piece [ 3 ] [ 0 ] != border.length )
-	//	x = x + z;
-	//else System.out.println ( "Out of Bounds" );
 	if ( y == 0 && piece == piece1 && piece == piece3 ) {
 	    for ( int[] coor : piece ) {
 		buttons [ oldY + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( null );
@@ -1189,15 +1044,12 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		buttons [ oldY + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( null );
 	    }
 	for ( int[] coor : piece ) {
-	    //	    System.out.println ( "coors: " + coor [ 0 ] + ", " + coor [ 1 ] );
 	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
 	}
 	update ( getGraphics() );
-	//    }
     }
 
     public void reset() {
-	//	System.out.println ( "resetHelp: " + resetHelp() );
 	if ( resetHelp() ) {
 	    this.update ( this.getGraphics() );
 	    try {
@@ -1218,8 +1070,6 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 		k = k - 1;
 		shiftHere = shiftHere - 1;
 	    }
-	    //	    this.update ( this.getGraphics() );
-	    //start();
 	    moveOver = 1;
 	    t.suspend();
 	}
@@ -1327,25 +1177,6 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    }
 	}
     }
-
-    /*    public void paintComponent ( Graphics g ) {
-	super.paintComponent ( g );
-	// System.out.println ( "hi" + buttons.length );
-	// System.out.println ( "x:" + x + "  " + "\n" + "y:" + y );
-	if ( y > 0 && piece == piece1 && piece == piece3 ) {
-	    for ( int[] coor : piece ) {
-		buttons [ oldY + coor [ 1 ] ] [ oldX + coor [ 0 ] ].setBackground ( null );
-	    }
-	}
-	else if ( y > 1 )
-	    for ( int[] coor : piece ) {
-		buttons [ oldY + coor [ 1 ] ] [ oldX + coor [ 0 ] ].setBackground ( null );
-	    }
-	for ( int[] coor : piece ) {
-	    //	    System.out.println ( "coors: " + coor [ 0 ] + ", " + coor [ 1 ] );
-	    buttons [ y + coor [ 1 ] ] [ x + coor [ 0 ] ].setBackground ( Color.red );
-	}
-	}*/
 
     public void run() {
 	start();
