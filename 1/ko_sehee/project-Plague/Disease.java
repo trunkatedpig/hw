@@ -2,8 +2,8 @@ public class Disease{
     private double infected,dead,chanceInfected,chanceDead;
     private int  DNAPoints;
     private String name;
-    private  boolean nausea = false,coughing =false,rash=false,anemia=false,livestock=false,rodent=false,bird=false,insect=false,blood=false,air=false,water=false,coldR=false,headR=false,drugR=false,GeneticH=false,GeneticR=false;
-    public Disease(string n){
+    private  boolean nausea = false,coughing =false,rash=false,anemia=false,livestock=false,rodent=false,bird=false,insect=false,blood=false,air=false,water=false,coldR=false,heatR=false,drugR=false,GeneticH=false,GeneticR=false;
+    public Disease(String n){
 	name = n;
 	infected = 0;
 	dead = 0;
@@ -43,6 +43,7 @@ public class Disease{
 	    chanceInfected = chanceInfected + .05;
 	    water =true;	
 	}
+	return "";
     }
 
     public void upgradeSymptoms(String name) {
@@ -72,61 +73,63 @@ public class Disease{
 
 
     public void upgradeAbilities(String name){
-	//you messed up variable names here and i didnt know how to fix it
+	//fixed!!!
 
 	if (name == "coldR"){
-	    coldResistance = true;
+	    coldR = true;
 	    //efficiency of Cure is reduced by .04
 	}
 	if (name == "heatR"){
-	    coldResistance = true;
+	    heatR = true;
 	    //efficiency of Cure is reduced by .04
 	}
 	if (name == "drugR"){
-	    coldResistance = true;
+	    drugR = true;
 	    //efficiency of Cure is reduced by .04
 	}
 	if (name == "GeneticH"){
-	    coldResistance = true;
+	    GeneticH = true;
 	    //efficiency of Cure is reduced by .04
 	}
 	if (name == "GeneticR"){
-	    coldResistance = true;
+	    GeneticR= true;
 	    //efficiency of Cure is reduced by .04
 	}
     }
-    public String winner(){
+    public void winner(){
 	System.out.println ("Congratulations! Your disease, " +name + "has successfully destroyed the human population!");
     }
     public void winYet(){
-	if (dead = 1){
-		this.winner();
-	    }
+	if (dead == 1){
+	    this.winner();
+	}
     }
     
 
     
 
     //only happens if player chooses to (2)WAIT AND ANALYZE
-    public turn(int choice) {
+    public String  turn(int choice) {
 	this.winYet();
 	if (Math.random() < chanceInfected) {
 	    infected = infected + 2 + (chanceInfected/2);
-	    System.out.println("Infectivity: " +( chanceInfected*100 )+"%")
-		System.out.println("Infected: " +( infected*100 )+"%")
-		}
+	    System.out.println("Infectivity: " +( chanceInfected*100 )+"%");
+	    System.out.println("Infected: " +( infected*100 )+"%");
+	}
 	//your forgot the inequality sign here so i just put less than 
 	if (Math.random()< chanceDead) {
 	    dead = dead + 2 + (chanceDead/2);
-	    System.out.println("Severity: " +( chanceDead*100 )+"%")
-		System.out.println("Dead: " +(dead*100 )+"%")
-		}
+	    System.out.println("Severity: " +( chanceDead*100 )+"%");
+	    System.out.println("Dead: " +(dead*100 )+"%");
+	}
 
 
 	if (Math.random() < chanceInfected+chanceDead) {
 	    DNAPoints = DNAPoints + 2;
-	    System.out.println("DNA Points: " + DNAPoints))
-	    }
+	    System.out.println("DNA Points: " + DNAPoints);
+	}
+	return "";
+    }
 }
 	    
       

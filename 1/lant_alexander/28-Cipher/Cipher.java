@@ -30,18 +30,16 @@ public class Cipher{
 	readWords("words.txt");
 	System.out.println(Encrypt(input, num));
 	System.out.println(Decrypt(input));
-
-	System.out.println(wordList.toArray().length);
     }   
 
-    public String getFirstWord(String input){
+    private String getFirstWord(String input){
 	String firstWord = "";
 	
 	if (input.contains(" ")){
 	    for (int i = 0; input.charAt(i) != ' '; i++){
 		firstWord += input.charAt(i);
 		}
-	}
+	}.
 	else{
 	    for (int i = 0; i < input.length(); i ++){
 		firstWord += input.charAt(i);
@@ -68,7 +66,7 @@ public class Cipher{
 	}
     }
 
-    public String Decapitalize(String input){
+    private String Decapitalize(String input){
 	String output = "";
 	for (int i = 0; i < input.length(); i++){
 	    if (input.charAt(i) >= 65 && input.charAt(i) <= 90)
@@ -101,7 +99,6 @@ public class Cipher{
 	String output = "";
 
 	for (int a = 0; a < 26; a++){
-	    System.out.println(Encrypt(firstWord, a));
 	    if (wordList.contains(Encrypt(firstWord, a))){
 		return Encrypt(input, a);
 	    }
