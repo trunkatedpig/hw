@@ -22,6 +22,7 @@ public class Cipher {
     private void buildCorpusFreqs(String filename) {
         try {
             Scanner sc = new Scanner(new File(filename));
+            int totalCount = 0;
             while (sc.hasNext()) {
                 String s = sc.nextLine();
                 String test = s.toLowerCase();
@@ -29,9 +30,13 @@ public class Cipher {
                     char c = test.charAt(i);
                     if (Character.isLetter(c))
                         corpusFreqs[c-'a']++;
+                        totalCount++;
                 }
             }
             sc.close();
+            for (int i=0; i<26; i++) {
+                corpusFreqs[i] /= totalCount;
+            }
         }
         catch (FileNotFoundException e) {
             System.out.println("Could not find " + filename + " to base decryption on!");
@@ -62,32 +67,10 @@ public class Cipher {
         double biggestFreq = 0;
         int offset = 0;
         for (int e=0; e<26; e++) {
-            double freqComp = letters[e][0] * corpusFreqs[0] +
-                              letters[e][1] * corpusFreqs[1] +
-                              letters[e][2] * corpusFreqs[2] +
-                              letters[e][3] * corpusFreqs[3] +
-                              letters[e][4] * corpusFreqs[4] +
-                              letters[e][5] * corpusFreqs[5] +
-                              letters[e][6] * corpusFreqs[6] +
-                              letters[e][7] * corpusFreqs[7] +
-                              letters[e][8] * corpusFreqs[8] +
-                              letters[e][9] * corpusFreqs[9] +
-                              letters[e][10] * corpusFreqs[10] +
-                              letters[e][11] * corpusFreqs[11] +
-                              letters[e][12] * corpusFreqs[12] +
-                              letters[e][13] * corpusFreqs[13] +
-                              letters[e][14] * corpusFreqs[14] +
-                              letters[e][15] * corpusFreqs[15] +
-                              letters[e][16] * corpusFreqs[16] +
-                              letters[e][17] * corpusFreqs[17] +
-                              letters[e][18] * corpusFreqs[18] +
-                              letters[e][19] * corpusFreqs[19] +
-                              letters[e][20] * corpusFreqs[20] +
-                              letters[e][21] * corpusFreqs[21] +
-                              letters[e][22] * corpusFreqs[22] +
-                              letters[e][23] * corpusFreqs[23] +
-                              letters[e][24] * corpusFreqs[24] +
-                              letters[e][25] * corpusFreqs[25];
+            double freqComp = 0;
+            for (int i=0; i<26; i++) {
+                freqComp += letters[e][i] * corpusFreqs[i];
+            }
             if (freqComp > biggestFreq) {
                 biggestFreq = freqComp;
                 offset = e;
