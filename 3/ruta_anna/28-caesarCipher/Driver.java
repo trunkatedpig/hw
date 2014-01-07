@@ -25,7 +25,21 @@ public class Driver {
         System.out.println("Original Sentence: I'm almost a second-term senior!");
         System.out.println("Character Offset by 10");
 		word = c.caesarEncode("I'm almost a second-term senior!",10);
-        System.out.println("Caesar Word: " + word);
+        System.out.println("Caesar Sentence: " + word);
+        System.out.println();
+
+		System.out.println("Using 2nd caeser encoding method");
+		System.out.println("Original Sentence: I'm almost a second-term senior!");
+        System.out.println("Character Offset by 10");
+		word = c.caesarEncode2("I'm almost a second-term senior!",10);
+        System.out.println("Caesar Sentence: " + word);
+        System.out.println();
+
+        System.out.println("Original Word: pinEapPle");
+		word = c.rot13("pinEapPle");
+		System.out.println("Rot13 Word: " + word);
+        System.out.println();
+
 
     }
 }
