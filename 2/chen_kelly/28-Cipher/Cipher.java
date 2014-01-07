@@ -10,7 +10,7 @@ public class Cipher{
 	String sLower = s.toLowerCase();
 
 	for(int i = 0; i < sLower.length() ; i++){
-	    if ((sLower.charAt(i) < 'a') || (sLower.charAt(i)>'z')){
+	    if ((sLower.charAt(i) < 'a')&& (sLower.charAt(i)>'z')){
 		ans = ans + sLower.charAt(i);
 	    }
 	    else{
