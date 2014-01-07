@@ -14,6 +14,7 @@ public class Driver {
 			Scanner sc = new Scanner(new File(filename));
 			while (sc.hasNext()) {
 				String s = sc.nextLine();
+				s = s.toLowerCase();
 				for (int i = 0; i < s.length();i++) {
 					char c = s.charAt(i);
 					if (c >= 'a' && c <= 'z') {
