@@ -30,5 +30,9 @@ public class Driver {
 	System.out.println(mlit.hasNext());
 	System.out.println(mlit.next());
 	
+	//for (Integer i : mlit)
+	//    System.out.println(i);
+	for (int i : ml)
+	    System.out.println(i);
     }
 }
