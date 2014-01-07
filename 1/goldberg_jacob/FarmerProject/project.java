@@ -1,3 +1,12 @@
+
+/* NOTES:
+
+   1. I accidentally switched BOne and BTwo so just know that the first button
+      is called BTwo and the second is called BOne
+   2. We need for hunger, milk, pmilk to increase every few seconds
+
+*/
+
 import java.io.*;
 import java.util.*;
 
@@ -26,7 +35,7 @@ public class project extends JFrame implements ActionListener{
     private int hunger = 0;
     private Container pane, one, two, three, four;
     private JFrame frame;
-    private JButton exit, gts, gth, gtr, gtf, gtg, enter;
+    private JButton exit, BThree, gth, BTwo, BOne, BFour /*gtg*/, enter;
     private JPanel grid;
     private JLabel fnamelabel;
     private JTextField fnamefield;
@@ -42,7 +51,9 @@ public class project extends JFrame implements ActionListener{
     private boolean atGov = false;
     private boolean horseKiller = false;
     private boolean buyingfood = false;
+    private boolean sellingmilk = false;
     private boolean sellingmeat = false;
+    private boolean betting = false;
     private boolean Rancher = false; //allows you to own horses
     private boolean mobster = false;
     private boolean buyinganimals = false;
@@ -77,11 +88,11 @@ public class project extends JFrame implements ActionListener{
 	pane.setLayout(new GridLayout(2,2));
 
 	exit = new JButton("exit");
-	gts = new JButton("Go to the shop");
+	BThree = new JButton("Go to the shop");
 	gth = new JButton("Go home");
-	gtr = new JButton("Go to the races");
-	gtf = new JButton("Go to the fields");
-	gtg = new JButton("Go to the gov office");
+	BTwo = new JButton("Go to the races");
+	BOne = new JButton("Go to the fields");
+	BFour = new JButton("Go to the gov office");
 	enter = new JButton("Enter");
 
 	/*animals = new CheckboxGroup();
@@ -118,10 +129,10 @@ public class project extends JFrame implements ActionListener{
 	two = new Container();
 	two.setLayout(new FlowLayout());
 	pane.add(two);
-	two.add(gtr);
-	two.add(gtf);
-	two.add(gts);
-	two.add(gtg);
+	two.add(BTwo);
+	two.add(BOne);
+	two.add(BThree);
+	two.add(BFour);
 	pane.add(text);
 	pane.add(stats);
 
@@ -141,10 +152,10 @@ public class project extends JFrame implements ActionListener{
 	exit.addActionListener(this);
 	enter.addActionListener(this);
 	gth.addActionListener(this);
-	gts.addActionListener(this);
-	gtf.addActionListener(this);
-	gtr.addActionListener(this);
-	gtg.addActionListener(this);
+	BThree.addActionListener(this);
+	BOne.addActionListener(this);
+	BTwo.addActionListener(this);
+	BFour.addActionListener(this);
 
     }
 
@@ -167,7 +178,33 @@ public class project extends JFrame implements ActionListener{
 	if (e.getSource() == exit){
 	    System.exit(0);
 	}
+	else if(e.getSource() == gth){
+	    
+	    if(Home){
+		text.setText("Already home.");
+	    }
+	    
+	    else{
+		BOne.setEnabled(true);
+		BTwo.setEnabled(true);
+		BThree.setEnabled(true);
+		BFour.setEnabled(true);
+		enter.setEnabled(false);
+		BOne.setText("Go to the fields");
+		BTwo.setText("Go to the races");
+		BThree.setText("Go to the shop");
+		BFour.setText("Go to government");
+		Home = true;
+		Shopping = false;
+		Racing = false;
+		InFields = false;
+		atGov = false;
+		text.setText("Welcome home honey");
+		fnamelabel.setText("");
 
+	    }
+	}
+	
 	else if(e.getSource() == enter){
 	    if (buyingfood){
 		String x = fnamefield.getText();
@@ -183,9 +220,9 @@ public class project extends JFrame implements ActionListener{
 	    else if(sellingmeat){
 		String x = fnamefield.getText();
 		if ((x.equals("Pig")) || (x.equals("Pigs"))  || (x.equals("pigs")) || (x.equals("pig")) || (x.equals("pork")) || (x.equals("Pork"))){
-			money = money + (pork * 2);
-			pork = 0;
-		    }
+		    money = money + (pork * 2);
+		    pork = 0;
+		}
 		else if ((x.equals("Cow")) || (x.equals("Cows"))  || (x.equals("cows")) || (x.equals("cow")) || (x.equals("beef")) || (x.equals("Beef"))){
 		    money = money + (beef * 3);
 		    beef = 0;
@@ -232,39 +269,15 @@ public class project extends JFrame implements ActionListener{
 	    }
 	}
 	
-	else if(e.getSource() == gth){
-	    
-	    if(Home){
-		text.setText("Already home.");
-	    }
-	    
-	    else{
-		gtf.setEnabled(true);
-		gtr.setEnabled(true);
-		gts.setEnabled(true);
-		gtg.setEnabled(true);
-		gtr.setText("Go to the races");
-		gtf.setText("Go to the fields");
-		gts.setText("Go to the shop");
-		gtg.setText("Go to government");
-		Home = true;
-		Shopping = false;
-		Racing = false;
-		InFields = false;
-		atGov = false;
-		text.setText("Welcome home honey");
 
-	    }
-	}
-	
-	else if (e.getSource() == gtr){
+	else if (e.getSource() == BTwo){
 
 	    if(Home){
 		
-		gtr.setText("Bet");
-		gtf.setText("Enter race");
-		gts.setText("Join mob");
-		gtg.setText("Throw party");
+		BTwo.setText("Bet");
+		BOne.setText("Enter race");
+		BThree.setText("Join mob");
+		BFour.setText("Throw party");
 		Home = false;
 		Shopping = false;
 		Racing = true;
@@ -272,13 +285,16 @@ public class project extends JFrame implements ActionListener{
 		atGov = false;
 		text.setText("Welcome to the races, boy");
 		if (!Rancher){
-		    gtf.setEnabled(false);
+		    BOne.setEnabled(false);
 		}
 
 	    }
 
 	    if(Racing){
-		
+		betting = true;
+		if (betting){
+		    fnamelabel.setText("Betting amount:");
+		}
 	        // THIS IS THE FUNCTION TO BET ON A RACE
 
 	    }
@@ -329,18 +345,18 @@ public class project extends JFrame implements ActionListener{
 	    }
 	}
 
-	else if (e.getSource() == gtf){
+	else if (e.getSource() == BOne){
 
 	    if(Home){
 		// going to the fields
-		gtr.setText("Feed");
-		gtf.setText("Milk");
-		gts.setText("Slaughter");
-		gtg.setText("Train");
+		BTwo.setText("Feed");
+		BOne.setText("Milk");
+		BThree.setText("Slaughter");
+		BFour.setText("Train");
 		if(!Rancher)
-		    gtg.setEnabled(false);
+		    BFour.setEnabled(false);
 		if((cows + pigs + horses) <= 1){
-		    gts.setEnabled(false);
+		    BThree.setEnabled(false);
 		}
 		Home = false;
 		Shopping = false;
@@ -352,22 +368,45 @@ public class project extends JFrame implements ActionListener{
 	    }
 
 	    if(Racing){
-		
-	        /* if you have horses, then you can enter. I think it should be a game. If 0 horses, can't enter */
+		betting = false;
+		if (horses <= 0){
+		    text.setText("You don't have a horse...");
+		}
+		else {
+		    int i = r.nextInt(2);
+		    if (i == 1){
+			text.setText("Your horsie won the race");
+			money = money + 10;
+		    }
+		    else{
+			text.setText("Your horsie sucks");
+			money = money -5;
+		    }
+		}
+		    
+	        /* if you have horses, then you can enter. I think it should be a game. If 0 horses, can't enter
+		 Yeah, we should change it so that its based on like hunger or strength or something*/
 
 	    }
 
 	    if (InFields){
-
-	        milk = milk + pmilk;
-		pmilk = 0;
-
+		if (cows == 0){
+		    text.setText("You have a no cows");
+		}
+		else{
+		    milk = milk + pmilk;
+		    pmilk = 0; 
+		}
 	    }
+	
 
 	    if (Shopping){
 
 		// Buy animals
 		buyinganimals = true;
+		buyingfood = false;
+		sellingmilk = false;
+		sellingmeat = false;
 		fnamelabel.setText("Type 'Pig' 'Horse' or 'Cow'");
 		fnamefield.setEditable(true);
 		enter.setEnabled(true);
@@ -380,10 +419,10 @@ public class project extends JFrame implements ActionListener{
 		//visiting the mob
 		if (mobster){
 		    
-		    gtr.setText("Buy politician");
-		    gtf.setText("Rob bank");
-		    gts.setText("Throw a race");
-		    gtg.setText("Eat Pasta");
+		    BTwo.setText("Buy politician");
+		    BOne.setText("Rob bank");
+		    BThree.setText("Throw a race");
+		    BFour.setText("Eat Pasta");
 		    Home = false;
 		    Shopping = false;
 		    Racing = false;
@@ -406,14 +445,14 @@ public class project extends JFrame implements ActionListener{
 
 	}
 
-	else if (e.getSource() == gts){
+	else if (e.getSource() == BThree){
 
 	    if(Home){
 		
-		gtr.setText("Buy food");
-		gtf.setText("Buy animals");
-		gts.setText("Sell meat");
-		gtg.setText("Sell milk");
+		BTwo.setText("Buy food");
+		BOne.setText("Buy animals");
+		BThree.setText("Sell meat");
+		BFour.setText("Sell milk");
 		Home = false;
 		Shopping = true;
 		Racing = false;
@@ -424,7 +463,8 @@ public class project extends JFrame implements ActionListener{
 	    }
 
 	    if(Racing){
-		
+		betting = false;
+		fnamelabel.setText("");
 	        //Join mob
 		if ((charm > 15) && (r.nextInt(5) > 1)){
 		    mobster = true;
@@ -484,14 +524,14 @@ public class project extends JFrame implements ActionListener{
 	}
 
 
-	else if (e.getSource() == gtg){
+	else if (e.getSource() == BFour){
 
 	    if(Home){
 		
-		gtr.setText("Apply for horseing liscense");
-		gtf.setText("Visit mob");
-		gts.setText("Pay taxes");
-		gtg.setText("Run for office");
+		BTwo.setText("Apply for horseing liscense");
+		BOne.setText("Visit mob");
+		BThree.setText("Pay taxes");
+		BFour.setText("Run for office");
 		Home = false;
 		Shopping = false;
 		Racing = false;
@@ -499,8 +539,8 @@ public class project extends JFrame implements ActionListener{
 		atGov = true;
 		text.setText("Welcome to the Western government offices");
 		if(!mobster){
-		    gtf.setEnabled(false);
-		}
+		    BOne.setEnabled(false);
+		    } 
 	    }
 
 	    if(Racing){
