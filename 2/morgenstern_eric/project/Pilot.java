@@ -11,4 +11,7 @@ public class Pilot extends Player {
 	a3 = new int[2];
 	a4 = new int[2];
     }
+    public int getXcor(int[] a){
+	return a[0];
+    }
 }
