@@ -5,8 +5,8 @@ import static java.lang.System.nanoTime;
 import java.math.BigInteger;
 
 public class CaesarCipher {
-	private final static char[] ALPHABET_LOWERCASE = new char[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-	private final static char[] ALPHABET_UPPERCASE = new char[] {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	private final static Character[] ALPHABET_LOWERCASE = new Character[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+	private final static Character[] ALPHABET_UPPERCASE = new Character[] {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
 	public static String encryptLowerCase(String text, int shift) {
 		text = text.toLowerCase();
@@ -40,8 +40,8 @@ public class CaesarCipher {
 		return ciphertext;
 	}
 	
-	public static int indexOf(char[] array, char element) {
-		for (int i = 0; i < array.length; i++) {if (array[i] == element) {return i;}}
+	public static <T> int indexOf(T[] array, T element) {
+		for (int i = 0; i < array.length; i++) {if (array[i].equals(element)) {return i;}}
 		return -1;
 	}
 	
