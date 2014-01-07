@@ -1,9 +1,9 @@
-public class disease{
+public class Disease{
     private double infected,dead,chanceInfected,chanceDead;
     private int  DNAPoints;
-    private string name;
-    private  boolean nausea = false,coughing =false,rash=false,anemia=false,livestock=false,rodent=false,bird=false,insect=false,blood=false,air=false,water=false,coldR=false,headR=false,drugR=false,GeneticH=false,GeneticR=false;
-    public disease(n){
+    private String name;
+    private  boolean nausea = false,coughing =false,rash=false,anemia=false,livestock=false,rodent=false,bird=false,insect=false,blood=false,air=false,water=false,coldR=false,heatR=false,drugR=false,GeneticH=false,GeneticR=false;
+    public Disease(String n){
 	name = n;
 	infected = 0;
 	dead = 0;
@@ -14,38 +14,39 @@ public class disease{
 
     //all these methods for if player chooses to (1) UPGRADE
     
-    public String upgradeTransmission(name) {
-	if (name = "livestock"){
+    public String upgradeTransmission(String name) {
+	if (name == "livestock"){
 	    chanceInfected = chanceInfected + .05;
 	    livestock = true;
 	}
-	if (name = "rodent"){
+	if (name == "rodent"){
 	    chanceInfected = chanceInfected + .06;
 	    rodent= true;
 	}
-	if (name = "bird"){
+	if (name == "bird"){
 	    chanceInfected = chanceInfected + .05;
 	    bird=true;	
 	}
-	if (name = "insect"){
+	if (name == "insect"){
 	    chanceInfected = chanceInfected + .06;
 	    insect =true;
 	}
-	if (name = "blood"){
+	if (name == "blood"){
 	    chanceInfected = chanceInfected + .05;
 	    blood =true;	
 	}
-	if (name = "air"){
+	if (name == "air"){
 	    chanceInfected = chanceInfected + .06;
 	    air =true;	
 	}
-	if (name = "water"){
+	if (name == "water"){
 	    chanceInfected = chanceInfected + .05;
 	    water =true;	
 	}
+	return "";
     }
 
-    public void upgradeSymptoms(name) {
+    public void upgradeSymptoms(String name) {
 	if (name == "nausea"){
 	    chanceInfected = chanceInfected + .01;
 	    chanceDead = chanceDead + .03;
@@ -71,59 +72,64 @@ public class disease{
     }
 
 
-    public void upgradeAbilities(name){
-	if (name = "coldR"){
-	    coldResistance = true;
+    public void upgradeAbilities(String name){
+	//fixed!!!
+
+	if (name == "coldR"){
+	    coldR = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "heatR"){
-	    coldResistance = true;
+	if (name == "heatR"){
+	    heatR = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "drugR"){
-	    coldResistance = true;
+	if (name == "drugR"){
+	    drugR = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "GeneticH"){
-	    coldResistance = true;
+	if (name == "GeneticH"){
+	    GeneticH = true;
 	    //efficiency of Cure is reduced by .04
 	}
-	if (name = "GeneticR"){
-	    coldResistance = true;
+	if (name == "GeneticR"){
+	    GeneticR= true;
 	    //efficiency of Cure is reduced by .04
 	}
     }
-    public String winner(){
+    public void winner(){
 	System.out.println ("Congratulations! Your disease, " +name + "has successfully destroyed the human population!");
     }
     public void winYet(){
-	if dead = 1{
-		this.winner();
-	    }
+	if (dead == 1){
+	    this.winner();
+	}
     }
     
 
     
 
     //only happens if player chooses to (2)WAIT AND ANALYZE
-    public turn(int choice) {
+    public String  turn(int choice) {
 	this.winYet();
 	if (Math.random() < chanceInfected) {
 	    infected = infected + 2 + (chanceInfected/2);
-	    System.out.println("Infectivity: " +( chanceInfected*100 )+"%")
-		System.out.println("Infected: " +( infected*100 )+"%")
-		}
-	if (Math.random() chanceDead) {
+	    System.out.println("Infectivity: " +( chanceInfected*100 )+"%");
+	    System.out.println("Infected: " +( infected*100 )+"%");
+	}
+	//your forgot the inequality sign here so i just put less than 
+	if (Math.random()< chanceDead) {
 	    dead = dead + 2 + (chanceDead/2);
-	    System.out.println("Severity: " +( chanceDead*100 )+"%")
-		System.out.println("Dead: " +(dead*100 )+"%")
-		}
+	    System.out.println("Severity: " +( chanceDead*100 )+"%");
+	    System.out.println("Dead: " +(dead*100 )+"%");
+	}
 
 
 	if (Math.random() < chanceInfected+chanceDead) {
 	    DNAPoints = DNAPoints + 2;
-	    System.out.println("DNA Points: " + DNAPoints))
-	    }
+	    System.out.println("DNA Points: " + DNAPoints);
+	}
+	return "";
+    }
 }
 	    
       
