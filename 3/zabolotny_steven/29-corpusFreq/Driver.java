@@ -5,7 +5,7 @@ public class Driver {
 
     public static void main(String[] args) {
 	CorpusFreqs cp = new CorpusFreqs();
-	System.out.println(cp.Freqs("Shakespeare.txt"));
+	System.out.println(Arrays.toString(cp.Freqs("Shakespeare.txt")));
     }
 
 }

@@ -7,6 +7,7 @@ public class CorpusFreqs {
 
     private void buildCorpusFreq(String filename) {
 	try {
+	    CorpusFreqs = new double[26];
 	    Scanner sc = new Scanner (new File(filename));
 	    while (sc.hasNext()) {
 		String l = sc.nextLine();
