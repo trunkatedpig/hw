@@ -1,4 +1,3 @@
-
 /* NOTES:
 
    1. I accidentally switched BOne and BTwo so just know that the first button
@@ -146,6 +145,13 @@ public class project extends JFrame implements ActionListener{
 	box.add(fnamefield);
 
 	pane.add(box);
+	
+	cow[] cowser = new cow[100];
+	cow gh = new cow();
+	cowser[0]=gh;
+
+	pig[] piger = new pig[100];
+	
 
 	statify();
 
@@ -178,6 +184,116 @@ public class project extends JFrame implements ActionListener{
 	if (e.getSource() == exit){
 	    System.exit(0);
 	}
+	
+	
+	else if(e.getSource() == enter){
+	    if (buyingfood){
+		String x = fnamefield.getText();
+		int a = Integer.parseInt(x);
+		if (money > a){
+		    money = money - a;
+		    fodder = fodder + a;
+		}
+		else{
+		    text.setText("Insufficient funds");
+		}
+	    }
+	    else if(sellingmeat){
+		String x = fnamefield.getText();
+		if ((x.equals("Pig")) || (x.equals("Pigs"))  || (x.equals("pigs")) || (x.equals("pig")) || (x.equals("pork")) || (x.equals("Pork"))){
+			money = money + (pork * 2);
+			pork = 0;
+		    }
+		else if ((x.equals("Cow")) || (x.equals("Cows"))  || (x.equals("cows")) || (x.equals("cow")) || (x.equals("beef")) || (x.equals("Beef"))){
+		    money = money + (beef * 3);
+		    beef = 0;
+		}
+		else {
+		    text.setText("Invalid input");
+		}
+	    }
+
+
+	    else if(feeding){
+		String x = fnamefield.getText();
+		if ((x.equals("Pig")) || (x.equals("Pigs"))  || (x.equals("pigs")) || (x.equals("pig"))){
+		    int z = -1;
+		    int hungerest = 0;
+		    for(int i = 0; i < piger.length; i++){
+			if (piger[i].gethunger() > hungerest){
+			    z = i;
+			    hungerest = piger[i].gethunger();
+			}
+		    }
+		    if (z == -1){
+			text.setText("No pigs are hungry");
+		    }
+		    else if(fodder > (piger[z].gethunger())){
+			    text.setText("Pig " + z + " fed");
+			    fodder = fodder - piger[z].gethunger();
+			    piger[z].addhunger(0-fodder);
+			}
+		    else{
+			text.setText("That's a no go");
+		    }
+			
+		}
+		      
+	    }
+
+	    else if(buyinganimals){
+		String x = fnamefield.getText();
+		if ((x.equals("Pig")) || (x.equals("Pigs"))  || (x.equals("pigs")) || (x.equals("pig"))){
+		    if (money > 15){
+			for (int i = 0; i < piger.length; i++){
+			    if (piger[i] == null){
+				pig p = new pig();
+				piger[i] = p;
+				i = piger.length;
+				cows++;
+			    }
+			}
+			money = money - 15;
+		    }
+		    else{
+			text.setText("insufficient funds");
+		    }
+		}
+		else if ((x.equals("Cow")) || (x.equals("Cows"))  || (x.equals("cows")) || (x.equals("cow"))){
+		    if (money > 30){
+			for (int i = 0; i < cowser.length; i++){
+			    if (cowser[i] == null){
+				cow c = new cow();
+				cowser[i] = c;
+				i = cowser.length;
+				cows++;
+			    }
+			}
+			money = money - 30;
+		    }
+		    else{
+			text.setText("insufficient funds");
+		    }
+		}
+		else if ((x.equals("Horse")) || (x.equals("Horses"))  || (x.equals("horses")) || (x.equals("horse"))){
+		    if (!Rancher){
+			text.setText("You are not a rancher");
+		    }
+		    else if (money > 50){
+			horses = horses + 1;
+			money = money - 50;
+		    }
+		    else {
+			text.setText("insufficient funds");
+		    }
+		}
+		else {
+		    text.setText("Invalid input");
+		}
+	    }
+	}
+	
+	
 	else if(e.getSource() == gth){
 	    
 	    if(Home){
