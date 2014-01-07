@@ -3,7 +3,14 @@ import java.util.*;
 
 public class Caesar {
 
-    public String  encode(String s, int i) {
+    public static void main(String[] args){
+	Caesar c = new Caesar();
+	System.out.println(c.encode("Zoidberg", 3));
+	System.out.println(c.encode("FISH", 6));
+	System.out.println(c.encode("!a!", 13));
+    }
+
+    public String encode(String s, int i) {
 	String s2,s3;
 	s2 = s.toLowerCase();
 	s3 = "";
