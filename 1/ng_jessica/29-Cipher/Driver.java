@@ -18,6 +18,6 @@ public class Driver {
 	System.out.println (julius.decode ("hoorah", 28));
 	
 
-	c.buildCorpusFreq("text.txt");
+	julius.buildCorpusFreq("text.txt");
     }
 }
