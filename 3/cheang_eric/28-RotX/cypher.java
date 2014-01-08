@@ -1,6 +1,9 @@
+import java.io.*;
+import java.util.*;
+
 public class cypher{
     
-    public boolean isLetter(char character) {
+    private boolean isLetter(char character) {
 	
 	if (character >= 65 && character <= 90 ||
 	    character >= 97 && character <= 122){
@@ -9,7 +12,7 @@ public class cypher{
 	return false;
     }
     
-    public String toLower(String str){
+    private String toLower(String str){
         String returnString = "";
 	int strIndex = 0;
 	int strLength = str.length();
@@ -32,7 +35,7 @@ public class cypher{
     }
     
     
-    public boolean rotCheckSafe(char character, int rot){
+    private boolean rotCheckSafe(char character, int rot){
 	
 	int cutRot = rot % 32;
 	if (this.isLetter(character) == true){
@@ -52,22 +55,29 @@ public class cypher{
 	return (char)(character + rot);
     } 
 
-    public char rotIreg(char character, int rot){
+    private char rotIreg(char character, int rot){
 
 	int cutRot = rot % 32;
-	return (char)(97 + cutRot);
+	int zCutRot = cutRot - (122 - character);
+	return (char)(97 + zCutRot - 1);
 	
     }
     
-    public char firstCharPopRot(String str, int rot){
-	String lowerStr = this.toLower(str);
-	char firstChar = str.getChar(0);
+
+    private char[] strToArray(String str){
+	char[] charArray = new char[str.length()];
 	
-	if (this.rotCheckSafe(firstChar, rot) = true){
-	    str
-	    this.rotReg(firstChar,rot);
-	
+	for (int index = 0;
+	     index != str.length();
+	     index++){
+	    
+	    charArray[index] = str.charAt(index);
+	    
+	}
+	return charArray;
     }
+	
+	    
 	
 	
     public cypher(){
@@ -75,9 +85,23 @@ public class cypher{
     
     public cypher(String str, int rot){
 	String lowerStr = this.toLower(str);
+	char[] charArray = strToArray(str);
 	
+	for (int index = 0;
+	     index != lowerStr.length();
+	     index++){
+	    if (this.rotCheckSafe(charArray[index]) = true) {
+
+
+	}
+	    
+	    
+	    
 	
     }
+	    
+	
+	
 	
     
     
@@ -99,9 +123,21 @@ public class cypher{
 	//LOWER TEST
 	System.out.println(eMe.toLower("HE   $&*& LLO"));
 	
-	//RotCheck test
+	//RotCheckSafe test
 	System.out.println(eMe.rotCheckSafe('b',3498));
 	System.out.println(eMe.rotCheckSafe('z',1));
+	
+	//RotReg and RotIreg test
+	System.out.println(eMe.rotReg('a', 1));
+	System.out.println(eMe.rotIreg('z', 1));
+	
+	//strToArray test
+	System.out.println(eMe.strToArray("hello what is good"));
+	System.out.println(eMe.strToArray("pinfewpifnepnfwepo")[5]);
+
+	
+			   
+	
 		
 	
 	/////////////////////////////////////////////

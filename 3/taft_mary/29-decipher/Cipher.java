@@ -56,7 +56,7 @@ public class Cipher {
     public static void main(String[] args) {
 	Cipher c = new Cipher();
 
-	c.buildCorpusFreq("temp.txt");
+	c.buildCorpusFreq("TaleOfTwoCities.txt");
 
 	System.out.println("\"abc\" shifted by 2: " + c.encode("abc",2));
 	System.out.println("\"xyz\" shifted by 3: " + c.encode("xyz",3));
