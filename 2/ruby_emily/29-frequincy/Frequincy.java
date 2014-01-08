@@ -26,8 +26,6 @@ public class Frequincy{
     }
 
     public static void main(String[] args){
-	Frequincy g=new Frequincy();
-	g.buildCorpusFreqs("Tale of Two Tunnels.txt");
-	System.out.println(Arrays.toString(CorpusFreqs));
+	Frequincy g=new Frequincy
     }
 }
