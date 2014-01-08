@@ -27,7 +27,7 @@ public class WordSearch {
 	}
 	return s;
     }
-    public boolean valid (int r, int c, String w){
+    public boolean validH (int r, int c, String w){
 	if(r<0 || c<0 || r>board.length || c>board[0].length){
 	    return false;
 	}
@@ -43,8 +43,28 @@ public class WordSearch {
 	    }
 	}
     }  
+
+ public boolean validV (int r, int c, String w){
+	if(r<0 || c<0 || r>board.length || c>board[0].length){
+	    return false;
+	}
+	if(w.length()>board.length){
+	    return false;
+	}
+	else{
+	    if(board.length-r>= w.length()){
+		return true;
+	    }
+	    else{
+		return false;
+	    }
+	}
+    }  
+  
+
+
     public boolean addWordH(int row, int col, String word){
-	if (valid(row, col, word)){
+	if (validH(row, col, word)){
 	    for (int i=0; i< word.length(); i++){
 		board[row][col]= word.charAt(i);
 		col=col+1;
@@ -53,5 +73,26 @@ public class WordSearch {
 	}
 	return false;
     }
+    public boolean addWordV(int row, int col, String word){
+	if (validV(row, col, word)){
+	    for (int i=0; i<word.length(); i++){
+		board[row][col]=word.charAt(i);
+		row=row+1;
+	    }
+	    return true;
+	}
+	return false;
+    }
 
+    public boolean addWordD(int row, int col, String word){
+	if (validV(row, col, word)&& validH(row, col, word)){
+	    for (int i=0; i<word.length(); i++){
+		board[row][col]=word.charAt(i);
+		row=row+1;
+		col=col+1;
+	    }
+	    return true;
+	}
+	return false;
+    }
 }
