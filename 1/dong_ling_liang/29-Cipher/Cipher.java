@@ -32,4 +32,28 @@ public class Cipher {
 	}
 	return ret;
     }
+    public double[] getFreq(String s) {
+	int[] temp = new int[26];
+	int total = 0;
+	for (int i=0; i<s.length();i++){
+	    char c = s.charAt(i);
+	    if (c>='a' && c<='z'){
+		temp[c-97] = temp[c-97] + 1;
+		total = total + 1;
+	    }
+	}
+	double[] freq = new double[26];
+	for (int i=0; i<26; i++){
+	    freq[i] = temp[i]/(double)total;
+	}
+	return freq;
+    }
+    
+    public String cipherCracker(String s){
+	double[] freq = getFreq(s);
+	try{
+	    for (double s: freq) {
+		
+	    }
+    }
 }
