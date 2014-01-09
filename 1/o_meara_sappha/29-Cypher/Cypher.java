@@ -48,7 +48,7 @@ public class Cypher{
         System.out.println(c.encode("hello",3));
         System.out.println(c.encode("abcxyz",3));
 
-        c.buildCorpusFreq("data");
+        c.buildCorpusFreq("Shakespeare");
     }
     
 }
