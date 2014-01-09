@@ -73,8 +73,11 @@ public class Cipher {
 
     public String dechiper(String s, String filename) {
     	buildCorpusFreqs(filename);
+	//plot
     	buildStringFreqs(s);
-	
+	//plot different ciphers & compare
+	//find smallest
+	//return
     }
 
     public static void main(String[] args) {
