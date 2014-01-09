@@ -1,5 +1,5 @@
 public class TestCorpusFreq {
-	public static void main(String[] args) throws java.io.IOException {
+	public static void main(String[] args) {
 		CaesarCipher c = new CaesarCipher();
 		long t1 = System.nanoTime();
 		c.buildcorpusFreq("Pride_and_Prejudice.txt");

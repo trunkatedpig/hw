@@ -10,7 +10,8 @@ public class Frequency{
 	
     }
   
-    private void buildCorpusFreq (String filename){    
+    private void buildCorpusFreq (String filename){
+	int totalLetters=0;
 	try{
 	    Scanner sc= new Scanner (new File(filename));
 	    while (sc.hasNext()){
@@ -19,10 +20,12 @@ public class Frequency{
 		for (int i=0; i<s.length();i++){
 		    char c= s.charAt(i);
 			addToArray(c);
+			totalLetters=totalLetters+1;
 		}
 	    }
 	    System.out.println("You made it!");
 	    for (int i=0; i<CorpusFreqs.length; i++){
+		CorpusFreqs[i]= CorpusFreqs[i]/totalLetters;
 		System.out.print(CorpusFreqs[i]+ " ");
 		
 	    }
@@ -38,9 +41,4 @@ public class Frequency{
 	    CorpusFreqs[ch-97]= CorpusFreqs[ch-97]+1;
 	}
     }
-        
-	
-		    
-
-
 }

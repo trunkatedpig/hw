@@ -23,7 +23,7 @@ public class Frequency {
 		    letters = letters + 1;
 		    
 		    if (c>='a' && c<='z') {
-			CorpusFreqs[c-'a'] = CorpusFreqs[c-'a'] + 1;
+			CorpusFreqs[c-'a']++;
 		    }
 
 		}
@@ -46,11 +46,76 @@ public class Frequency {
 
     }
 
+    public String encode(String original, int offset){
+	String s = original.toLowerCase();
+	String result = "";
+	char c;
+
+	for (int i=0;i<s.length();i++){
+	    c = s.charAt(i);
+	    if (c>='a' && c<='z') {
+		c = (char)(((c-'a'+offset)%26)+'a');
+	    }
+	    result = result + c;
+	}
+	return result;
+    }
+
+    public double similar(String message) {
+	double[] Freqs = new double[26];
+	String s = message;
+	s=s.toLowerCase();
+	int count = 0;
+
+	for (int i=0;i<s.length();i++) {
+	    char c = s.charAt(i);
+
+	    if (c >= 'a' && c<='z'){
+		int val = c - 'a';
+		Freqs[val]++;
+		count++;
+	    }
+	}
+
+	for (int i=0;i<26;i++) {
+	    Freqs[i] = Freqs[i]/count;
+	}
+
+	double dist = 0.0;
+
+	for (int i=0;i<26;i++) {
+	    dist = dist + Math.pow((Freqs[i] - CorpusFreqs[i]), 2);
+	}
+
+	dist = Math.sqrt(dist);
+	return dist;
+    }
+
+    public String decode(String message) {
+	String result = "";
+	double mindist = 100000.0;
+	int offset = 0;
+
+	for (int i=0;i<26;i++) {
+	    String s = this.encode(message, i);
+
+	    if (similar(s) < mindist) {
+		mindist = similar(s);
+		offset = i;
+	    }
+	}
+
+	result = this.encode(message, offset);
+	return result;
+
+    }
+
     public static void main(String[] args) {
 
 	Frequency f = new Frequency();
 	f.buildCorpusFreq("pg2591.txt");
-	f.getFreq();
+	String s = f.encode("This is a testing sentence to see if it works", 5);
+	System.out.println(f.decode(s));
 
     }
 

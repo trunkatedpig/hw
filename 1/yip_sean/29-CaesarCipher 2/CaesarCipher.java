@@ -4,8 +4,6 @@ import static java.lang.System.nanoTime;
 import java.math.BigInteger;
 
 public class CaesarCipher {
-	public final static Character[] ALPHABET_LOWERCASE = new Character[] {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-	public final static Character[] ALPHABET_UPPERCASE = new Character[] {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	public double[] corpusFreq;
 	
 	public CaesarCipher() {}
@@ -29,23 +27,15 @@ public class CaesarCipher {
 		text = text.toLowerCase();
 		long[] counts = new long[26];
 		long sum = 0;
-		for (int i = 0; i < 26; i++) {
-			counts[i] = count(text, ALPHABET_LOWERCASE[i]);
-			sum += counts[i];
+		for (int i = 0; i < text.length(); i++) {
+			char currentCharacter = text.charAt(i);
+			if ((currentCharacter >= 'a') && (currentCharacter <= 'z')) {
+				counts[currentCharacter - 'a']++;
+				sum++;
+			}
 		}
 		corpusFreq = new double[26];
 		for (int i = 0; i < 26; i++) {corpusFreq[i] = (double) counts[i] / sum;}
-	}
-	
-	public static int count(String s, char c) {
-		int count = 0;
-		for (int i = 0; i < s.length(); i++) {if (s.charAt(i) == c) {count++;}}
-		return count;
-	}
-		
-	public <T> int indexOf(T[] array, T element) { //Does not work for primitives
-		for (int i = 0; i < array.length; i++) {if (array[i].equals(element)) {return i;}}
-		return -1;
 	}
 	
 	public static void main(String[] args) {
