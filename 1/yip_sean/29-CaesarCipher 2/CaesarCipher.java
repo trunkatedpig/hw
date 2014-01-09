@@ -4,10 +4,40 @@ import static java.lang.System.nanoTime;
 import java.math.BigInteger;
 
 public class CaesarCipher {
-	public double[] corpusFreq;
+	public double[] corpusFreqs;
 	
 	public CaesarCipher() {}
-	public CaesarCipher(String filename) {buildcorpusFreq(filename);}
+	public CaesarCipher(String filename) {buildcorpusFreqs(filename);}
+	
+	public void buildcorpusFreqs(String filename) {
+		String text = "";
+		try {text = new java.util.Scanner(new java.io.File(filename)).useDelimiter("\\A").next();}
+		catch (java.io.IOException e) {}
+		corpusFreqs = frequencies(text);
+	}
+	
+	public static String[] decryptBruteForce(String ciphertext) {
+		String[] decryptions = new String[26];
+		for (int i = 0; i < 26; i++) {decryptions[i] = encrypt(ciphertext, i);}
+		return decryptions;
+	}
+	
+	public String decryptIntelligent(String ciphertext) {
+		ciphertext = ciphertext.toLowerCase();
+		double[] distances = new double[26];
+		for (int i = 0; i < 26; i++) {
+			ciphertext = encrypt(ciphertext, 1);
+			double[] frequencies = frequencies(ciphertext);
+			double sum = 0;
+			for (int j = 0; j < 26; j++) {sum += Math.pow(frequencies[j] - corpusFreqs[i], 2);}
+			distances[i] = Math.sqrt(sum);
+		}
+		int minimumIndex = 0;
+		for (int i = 1; i < 26; i++) {if (distances[i] < distances[minimumIndex]) {minimumIndex = i;}}
+		System.out.println(java.util.Arrays.toString(corpusFreqs));
+		System.out.println(java.util.Arrays.toString(distances));
+		return minimumIndex + ": " + encrypt(ciphertext, minimumIndex);
+	}
 	
 	public static String encrypt(String text, int shift) {
 		String ciphertext = "";
@@ -20,10 +50,7 @@ public class CaesarCipher {
 		return ciphertext;
 	}
 	
-	public void buildcorpusFreq(String filename) {
-		String text = "";
-		try {text = new java.util.Scanner(new java.io.File(filename)).useDelimiter("\\A").next();}
-		catch (java.io.IOException e) {}
+	public static double[] frequencies(String text) {
 		text = text.toLowerCase();
 		long[] counts = new long[26];
 		long sum = 0;
@@ -34,10 +61,11 @@ public class CaesarCipher {
 				sum++;
 			}
 		}
-		corpusFreq = new double[26];
-		for (int i = 0; i < 26; i++) {corpusFreq[i] = (double) counts[i] / sum;}
+		double[] frequencies = new double[26];
+		for (int i = 0; i < 26; i++) {frequencies[i] = (double) counts[i] / sum;}
+		return frequencies;
 	}
-	
+		
 	public static void main(String[] args) {
 		String help = "Type \"java CaesarCipher\" for help.";
 		if (args.length == 0) {
