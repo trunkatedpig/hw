@@ -48,7 +48,6 @@ public class Caesar{
 	    else
 		str = str + (char)c;
 	}
-	System.out.println(str);
 	return str;
     }
 
@@ -79,14 +78,24 @@ public class Caesar{
 	}
 	return (Math.pow(sum, 0.5));
     }
-    /*
+    
     public String decode(String s){
 	double[] distances = new double[26];
 	//one for each offset
 	for (int i=0; i<26; i++){
-	    
-	
+	    distances[i] = distanceFormula(corpusFreqs(encode(s, i)));
+	}
+	double min = distances[0];
+	int minindex = 0;
+	for (int i=1; i<26; i++){
+	    if (distances[i] < min){
+		min = distances[i];
+		minindex = i;
+	    }
+	}
+	return encode(s, minindex);
+
     }
-    */
+    
  
 }
