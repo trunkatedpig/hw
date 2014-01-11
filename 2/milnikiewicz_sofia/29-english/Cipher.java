@@ -4,12 +4,13 @@ import java.util.*;
 public class Cipher {
     protected double[] CorpusFreqs = new double[26];
     protected double totalChars=0;
+    protected String alpha = "abcdefghijklmnopqrstuvwxyz";
     
     //for encoded string
     protected double[] freqs = new double[26];
     protected double total=0;
 
-    protected double[] values = new double[26];
+    protected double[] rotvalues = new double[26];
 
     public String encode(String s, int rot) {
 	String lower = s.toLowerCase();
@@ -55,14 +56,24 @@ public class Cipher {
     }
 
     public String cracker(String s) {
-	double sum = 0;
+	double sum;
 	double value;
+	//no rotation...rotation:
 	for (int i=0; i<26; i++) {
-	    sum = sum + (CorpusFreqs[i] - freqs[i]) * (CorpusFreqs[i] - freqs[i]);
+	    //each letter:
+	    sum = 0;
+	    for (int i2=0; i2<26; i2++){
+		sum+=Math.pow((getVect(alpha.charAt(i2),CorpusFreqs,totalChars) + getVect(alpha.charAt(i2),freqs,total)),2);
+	    }
+	    double r = Math.sqrt(sum);
+	    rotvalues[i] = r;
 	}
-	value[i] = sum.sqrt();
-	
-
+	int min = 0;
+	for (int i3=1;i3<26;i3++){
+	    if (rotvalues[i3] < rotvalues[min])
+		min = i3;
+	}
+	return encode(s, -min);
     }
     
     public void codeFreqs(String s) {
