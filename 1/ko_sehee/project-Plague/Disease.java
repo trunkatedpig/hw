@@ -4,11 +4,20 @@ public class Disease{
     private int  DNAPoints;
     private String name;
     private  boolean nausea = false,coughing =false,rash=false,anemia=false,livestock=false,rodent=false,bird=false,insect=false,blood=false,air=false,water=false,coldR=false,heatR=false,drugR=false,GeneticH=false,GeneticR=false;
-    private int[] currentPop = {346000000,596000000,37000000,4216000000,1072000000};
-    private int[] airInteraction;
-    private int[] waterInteraction;
-    private int[] infected;
-    private int[] temp;
+    // countries in order = N america, S. America, Antartica, Africa, Asia, Australia, Europe
+    //populations in millions
+    //0   
+    private int[] currentPop = {529, 386, 0.004, 995, 4140,36, 739};
+    //1
+    private int[] airInteraction = {10,6,1,4,9,5,8}; //to be changed
+    //2
+    private int[] waterInteraction = {9,5,0,6,9,5,9};
+    //3    
+    private int[] infected = {0,0,0,0,0,0,0};
+    //4
+    private int[] temp{/*still need to decide*/};
+    //5    
+    private int[] chanceInfected = {0,0,0,0,0,0,0};
 				
     public Disease(String n){
 	name = n;
@@ -112,28 +121,35 @@ public class Disease{
 	}
     }
     
+    public void setChanceInfected(int cont){
+	continents[cont][5]=((airInteraction[cont]+ waterInteraction[cont])/100)+ (temp/5); 
+    }
 
     //Will be called when user first creates disease    
     public void firstSpread(int cont){
-	//	continents[cont][0]= currentPop[cont];
-	//	continents[cont][1]=airInteraction[cont];
-	//	continents[cont][2]= waterInteraction[cont];
-	//	continents[cont][3]= infected[cont];
-	//	continents[cont][4]= .01;
-	//	continents[cont][5]= temp[cont];
+	setChanceInfected(cont);
     }
     public void spread(){
-if (Math.random() < chanceInfected) {
-	    infected = infected + 2 + (chanceInfected/2);
-	    System.out.println("Infectivity: " +( chanceInfected*100 )+"%");
-	    System.out.println("Infected: " +( infected*100 )+"%");
+	for (int i = 0; i < continents.length; i ++){
+	    if (continents[i][5]>0){
+		if (Math.random() < continents[i][5]) {
+		    infected = infected + 2 + (chanceInfected/2);
+		    System.out.println("Infectivity: " +( chanceInfected*100 )+"%");
+		    System.out.println("Infected: " +( infected*100 )+"%");
+		}
+		//need to add a chanceDead characteristic to continents
+		if (Math.random()< chanceDead) {
+		    dead = dead + 2 + (chanceDead/2);
+		    System.out.println("Severity: " +( chanceDead*100 )+"%");
+		    System.out.println("Dead: " +(dead*100 )+"%");
+		}
+	    }
+	    else{
+		setChanceInfected(i);
+	    }
 	}
-	if (Math.random()< chanceDead) {
-	    dead = dead + 2 + (chanceDead/2);
-	    System.out.println("Severity: " +( chanceDead*100 )+"%");
-	    System.out.println("Dead: " +(dead*100 )+"%");
-	}
-
+    }
+		
 
 
 	
@@ -142,12 +158,17 @@ if (Math.random() < chanceInfected) {
 
     public void upgrade(int choice){
 	if (choice == 1){
+	    System.out.prinln("You chose to Upgrade Transmission");
 	    //list choices
 	    //scanner
 	    //upgrade
 	}
+	if (choice ==2){
+	}
+	if (choice == 3){
+	}
 	    
-
+    }
 
 
     //only happens if player chooses to (2)WAIT AND ANALYZE
