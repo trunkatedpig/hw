@@ -108,7 +108,7 @@ public class Cipher {
 	System.out.println(c.encode("That's what you get, when you let your heart win.",20));
 	System.out.println(c.decode("nbun'm qbun sio ayn, qbyh sio fyn siol byuln qch."));
 			   
-			   
+	//randomcomment
     }
 
 }
