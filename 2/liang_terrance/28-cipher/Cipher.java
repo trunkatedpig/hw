@@ -8,21 +8,21 @@ public class Cipher {
 	int place = 0;
 	for (int i = 0; i < s.length(); i ++){
 	    place = s.charAt(i);
-	    if ((place >= "A".charAt(0)) && (place <= "Z".charAt(0))){
+	    if ((place >= 'A') && (place <= 'Z')){
 		place = place + n;
-		if (place > "Z".charAt(0)){
+		if (place > 'Z'){
 		    place = place - 26;
 		}
-		if (place < "A".charAt(0)){
+		if (place < 'A'){
 		    place = place + 26;
 		}
 	    }
-	    else if ((place >= "a".charAt(0)) && (place <= "z".charAt(0))){
+	    else if ((place >= 'a') && (place <= 'z')){
 		place = place + n;
-		if (place > "z".charAt(0)){
+		if (place > 'z'){
 		    place = place - 26;
 		}
-		if (place < "a".charAt(0)){
+		if (place < 'a'){
 		    place = place + 26;
 		}
 	    }
