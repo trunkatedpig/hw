@@ -10,20 +10,28 @@ public class WordSearch {
     
     Random R = new Random();
     
-    private ArrayList<String> wordList;
+    public ArrayList<String> wordList;
     public ArrayList<String> usedWords = new ArrayList<String>();
+    public int length = 0; //length of usedWords
     private char[][] board;
     private int rows;
     private int columns;
-    
+
+    LongestWord LW = new LongestWord(wordList);
+      
     private void readWords(String filename){
+	int longest = 0;
+
 	wordList = new ArrayList<String>();
 	try{
 	    Scanner sc = new Scanner(new File(filename));
 	    while(sc.hasNext()){
 		String s = sc.nextLine();
 		wordList.add(s);
+		if (s.length() > longest)
+		    longest = s.length();
 	    }
+	    //System.out.println(longest);
 	}catch (Exception e) {
 	    System.out.println(e);
 	    System.exit(0);
@@ -51,9 +59,12 @@ public class WordSearch {
     }
     
     public WordSearch() {
-	this(20,20);
+	this(30,120);
     }
     
+    public String ReadList(){
+	return "";
+    }
     
     public boolean RandWords(int reps){
 	// will fill board with with "reps" words.
@@ -68,16 +79,19 @@ public class WordSearch {
 	    int dy = R.nextInt(3)-1;
 	    int c = R.nextInt(columns);
 	    int r = R.nextInt(rows);
+	    String spaces = "";
         // *Maybe add to a list  which has all the indexes of the used words?
         // OR: Just go through the words in order!
 	    String word = (wordList.get(i)); //(instruments[R.nextInt(wordList.length())]);
 	    if ((AddWord (r, c, dx, dy, word))){
-		usedWords.add(word);
+		for (int s = 0; s < (14 - word.length()); s++)
+		    spaces = spaces + " ";
+		usedWords.add(word + spaces);
+		length++;
 		stats++;
 	    }
 	}
-	System.out.println(stats + " ----> " + (stats*10000)/(reps*100)+"%");
-	System.out.println(usedWords);
+	//System.out.println(stats + " ----> " + (stats*10000)/(reps*100)+"%");
 	return true;
     }
     
@@ -85,9 +99,15 @@ public class WordSearch {
    
     
     public boolean AddWord (int r, int c, int dx, int dy, String word){
+	//  AddWord (int r, int c, int dx, int dy, String word)
+	// dx: 1 for right, -1 for left, 0 for stationary
+	// dy: 1 for down, -1 for up, 0 for stationary
+       	
 	if (dx == 0 && dy == 0){
-	    System.out.println("dx and dy cannot both equal zero");
-	    return false; //this would mean that the word was not sprouting in any direction. Only the first letter would render.
+	    //System.out.println("dx and dy cannot both equal zero");
+	    return false; //this would mean that the word was not 
+	                  //sprouting in any direction. 
+	                  //Only the first letter would render.
 	}
 	if (dx > 1 || dx < -1 || dy > 1 || dy < -1){
 	    System.out.println("dx and dy must both be within range.");
@@ -100,7 +120,8 @@ public class WordSearch {
 		
 	try{
 	    while (i < word.length()){
-		if (board[r + (dy*i)][c + (dx*i)] != ' ' && board[r + (dy*i)][c + (dx*i)] != word.charAt(i))
+		if (board[r + (dy*i)][c + (dx*i)] != ' ' 
+		    && board[r + (dy*i)][c + (dx*i)] != word.charAt(i))
 		    return false;
 		i++;
 	    }

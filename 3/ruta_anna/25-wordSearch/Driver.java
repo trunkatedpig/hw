@@ -4,26 +4,22 @@ public class Driver {
     public static void main(String[] args) {
         WordSearch w = new WordSearch();
 
-        w.addWordH(0,5,"RED");
-		w.addWordH(3,7,"ORANGE");
-		w.addWordH(5,16,"BLUE");
-		w.addWordH(7,18,"GREEN");
-		w.addWordH(19,5,"PINK");
+		w.addWord(4,5,1,1,"PURPLE");
+		w.addWord(17,2,-1,1,"BLUE");
+		w.addWord(5,17,-1,1,"GREEN");
+		w.addWordH(8,15,"RED");
+		w.addWordV(13,14,"ORANGE");
+		w.addWordHRev(2,19,"MAGENTA");
+		w.addWordVRev(14,0,"TURQUOISE");
+		w.addWordTRBL(2,7,"MANGO");
+		w.addWordBLTR(19,12,"GRAY");
+		w.addWordBRTL(15,3,"BLACK");
+		w.addWordTLBR(0,6,"WHITE");
+		w.addWordRand("INDIGO");
+		w.addWordRand("PINK");
+		w.addWordRand("YELLOW");
+		System.out.println(w);
 
-		w.addWordV(0,5,"RUBY");
-		w.addWordV(0,7,"TEAL");
-		w.addWordV(5,15,"YELLOW");
-		w.addWordV(17,2,"PURPLE");
-
-		w.addWordHRev(15,7,"GRAY");
-		w.addWordHRev(2,14,"BLACK");
-
-		w.addWordVRev(4,6,"WHITE");
-
-		w.addWordTRBL(5,0,"MAGENTA");
-		w.addWordBLTR(7,1,"PEARL");
-		w.addWordTLBR(10,19,"EMERALD");
-		w.addWordBRTL(16,18,"ROSE");
 
 		w.fillInBoard();
 
