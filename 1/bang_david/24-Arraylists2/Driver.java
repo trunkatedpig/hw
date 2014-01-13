@@ -3,7 +3,7 @@ import java.util.*;
 
 
 public class Driver {
-    public static void main (String[] args) {
+    public void radixSort () {
         ArrayList[] buckets = new ArrayList[10];
         
         for (int i = 0; i < 10; i++) {
@@ -28,5 +28,25 @@ public class Driver {
             buckets[(a[i]/10^n)% 10].set(a[i]);
         }
     }
+    
+    public void bubbleSort (){
+	double holder;
+	int numSwaps;
+	boolean notSorted;
+	double[] Data = new double[15];
+	// Fill the array with stuff
+	for (int i = 0; i < Data.length; i++)
+	    Data[i]= ((math.random()* math.random())*100);
+	//now that filled do stuff!!
+	
+	for (int i = 0; i < Data.length-1; i++){
+	    numSwaps = 0;
+	    if (Data[i]>Data[i+1]){
+		//finish later
+	    }
+	}
+
+    }
+	
 }
 
