@@ -39,6 +39,31 @@ public class Cipher {
         return s;
     }
 
+    public double buildReferenceVector() {
+	double sum = 0;
+	for (double d: CorpusFreqs) {
+	    sum = sum + Math.pow(d,2);
+	}
+	return Math.sqrt(sum);
+    }
+    
+    public double buildVector(String s) {
+	double[] freqs = new double[26];
+	String code = s.toLowerCase();
+	for (int i = 0; i < code.length(); i++) {
+	    char c = s.charAt(i);
+	    if (c >= 'a' && c <= 'z') {
+		freqs[c-'a'] ++;
+	    }
+	}
+	double sum = 0;
+	for (double d: freqs) {
+	    sum = sum + Math.pow(d,2);
+	}
+	return Math.sqrt(sum);	
+    }
+	    
+
 }
 
 
