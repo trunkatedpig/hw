@@ -49,11 +49,49 @@ public class Cipher {
 	return freq;
     }
     
+    public double getDist(double[] freq){
+	double dist = 0;
+	for (int i = 0; i < freq.length; i++){
+	    dist = dist + Math.pow((CorpusFreqs[i] - freq[i]),2);
+	}
+        return Math.sqrt(dist);
+    }
+
+    public String encode(String words, int move){
+	String ret = "";
+	for (int i = 0 ; i<words.length(); i++){
+	    char ascii = words.toLowerCase().charAt(i);
+	    if (ascii >'z' || ascii  <'a'){
+		ret = ret + ascii;
+	    }
+	    else {
+		ascii = (char) ((((int) ascii+move-97)%26)+97);
+		ret = ret + ascii;
+	    }
+	}
+	return ret;
+    }
+    public double[] encodedFreq(double[] d, int move){
+	double[] ret = new double[d.length];
+	for (int i = 0; i<d.length; i++){
+	    ret[(move+i)%26] = d[i];
+	}
+	return ret;
+    }
+
     public String cipherCracker(String s){
 	double[] freq = getFreq(s);
-	try{
-	    for (double s: freq) {
-		
+	double[] allDist = new double[26];
+	for (int i = 0; i<26; i++){
+	    allDist[i] = getDist(encodedFreq(freq, i));
+	}
+	int leastDistIndex = 0;
+	for (int i = 0; i <26; i++){
+	    if (allDist[i] <  allDist[leastDistIndex]){
+		leastDistIndex = i;
 	    }
+	}
+	return encode(s, leastDistIndex);
     }
+    
 }
