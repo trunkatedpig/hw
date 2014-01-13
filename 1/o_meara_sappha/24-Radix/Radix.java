@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Radix{
     
-    private int BubbleComps = 0;
+    private int BubbleComparisons = 0;
     private int BubbleSwaps = 0;
     
     public int[] sort(int[] A){
@@ -30,7 +30,7 @@ public class Radix{
     public int[] bubble(int[] A) {
 	for (int i = 0; i < A.length - 1; i ++) {
 	    for (int j = 0; j < A.length - 1; j ++) {
-		BubbleComps ++;
+		BubbleComparisons ++;
 		if (A[i] > A[i + 1]) {
 		    int t = A[i];
 		    A[i] = A[i + 1];
