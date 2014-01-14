@@ -3,45 +3,28 @@ import java.util.*;
 
 public class Sorts { 
 
-    private ArrayList[] buckets = new ArrayList[10];
-    private double[]Test = new double[10];
-
-    
-    public Sorts() {
-        for (int i = 0; i < 10; i++) 
+    public double[] sort(double[] a){
+        ArrayList[] buckets = new ArrayList[a.length];
+        for (int i = 0; i<a.length; i++){
             buckets[i] = new ArrayList();
-        for (int i = 0; i < 10; i++)
-            Test[i] = Math.random() * 100;
-    }
-    
-    public void sort() {
-        int n = 0;
-        while (n < 3) {
-            for (int i = 0; i < Test.length; i++) {
-                int placeholder = (int) ((Test[i]/Math.pow(10,n)) % 10);
-                buckets[placeholder].add(Test[i]); 
-            }
-            double[] tempArray = new double[Test.length];
-            int x = 0;
-            for (int j = 0; j< buckets.length; j++){
-                for(int k = 0; k < buckets[j].size(); k++) {
-                    tempArray[x] = (Integer)buckets[j].get(k);
-                    x = x + 1;
-                    }
-            }
-            Test = tempArray;
-            for (int i = 0; i < 10; i++) 
-                buckets[i] = new ArrayList();
-            n = n + 1;
         }
+        for (int n = 0; n<3; n++){
+            for (int i = 0; i <a.length; i++){
+                buckets[(int)(a[i]/Math.pow(10,n))%10].add(a[i]);
+            }
+            int x = 0;
+            for (int j = 0; j <a.length; j++){
+                for (int k = 0; k <buckets[j].size(); k++){
+                    a[x] = (Double)buckets[j].get(k);
+                    x = x +1;
+                }
+            }
+            for (int b = 0; b <buckets.length; b++){
+                buckets[b] = new ArrayList();
+            }
+        }   
+        return a;
     }
-
-
-
-    public String toString() {
-        return Arrays.toString(Test);
-    }
-
 
     public double[] bsort(double[] a) {
         int comparisons = 0;
@@ -57,8 +40,8 @@ public class Sorts {
                 }
             }
         }
-        //System.out.println(comparisons);
-        //System.out.println(swaps);
+        System.out.println(comparisons);
+        System.out.println(swaps);
 	return a;
     }                
 }
