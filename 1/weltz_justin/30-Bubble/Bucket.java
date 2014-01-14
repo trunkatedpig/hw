@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class Bucket{
-    private int len = 10;
+    private int len = 1000;
     private int[] buckets = new int[len];
     private double[] doubleBuckets;
     private int comparisons;
@@ -46,17 +46,23 @@ public class Bucket{
     public void bubbleSort(){
 	comparisons = 0;
 	swap = 0;
-	for (int i = 0; i < len; i ++){
-	    comparisons ++;
-	    if (doubleBuckets[i] > doubleBuckets[i+1]){
-		double tmp = doubleBuckets[i];
-		doubleBuckets[i] = doubleBuckets[i+1];
-		doubleBuckets[i+1] = tmp;
-		swap ++;
-	    }
+	boolean swapBoolean = true;
+	for (int j = len - 1; j > 1 ; j--){
+	     for (int i = 0; i < j; i ++){
+		 comparisons ++;
+		 if (doubleBuckets[i] > doubleBuckets[i+1]){
+		     swapBoolean = false;
+		     double tmp = doubleBuckets[i];
+		     doubleBuckets[i] = doubleBuckets[i+1];
+		     doubleBuckets[i+1] = tmp;
+		     swap ++;
+		 }
+	     }
+	     if (swapBoolean){
+		 break;
+	     }
 	}
     }
-
     public int getSwap(){
 	return swap;
     }
@@ -74,8 +80,11 @@ public class Bucket{
 	return Arrays.toString(buckets);
     }
 
-    public int[] get(){
+    public int[] getBuckets(){
 	return buckets;
+    }
+    public double[] getDoubleBuckets(){
+	return doubleBuckets;
     }
 }
 		

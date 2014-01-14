@@ -101,7 +101,7 @@ public class Cipher {
         //c.buildCorpus("pg2600.txt");
 	//c.buildText("khoor");
 	System.out.println(c.encode("Hi name is justin", 7));
-	System.out.println(c.encode("Hello World", 14));
+	System.out.println(c.encode("Hello World", 14));git 
 	System.out.println(c.decode(c.encode("Hello World", 14)));
 	System.out.println(c.decode(c.encode("Hi name is justin", 7)));
     }
