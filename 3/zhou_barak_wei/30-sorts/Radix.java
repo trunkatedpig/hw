@@ -46,19 +46,22 @@ public class Radix {
         return Arrays.toString(data);
     }
     
-    public void bsort(int[] a) {
+    public int[] bsort(int[] a) {
 	int compcount = 0;
 	int swapcount = 0;
 	for (int i=0;i<a.length;i++) {
 	    for (int j=0;j<a.length-1;j++) {
+		compcount ++;
 		int left = a[j];
 		int right = a[j+1];
 		if (right > left) {
 		    a[j] = right;
 		    a[j+1] = left;
+			swapcount ++;
 		}
 	    }
 	}
+	return a;
     }
 
 }
