@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class BucketsSort {
+public class RadixSort {
     private int[] nums;
     private ArrayList<Integer>[] buckets;
 
@@ -13,7 +13,7 @@ public class BucketsSort {
         return "Buckets: " + Arrays.toString(buckets);
     }
     
-    public BucketsSort(int n) {
+    public RadixSort(int n) {
 	nums = new int[n];
 	buckets = new ArrayList[nums.length];
 	for (int i = 0; i < nums.length; i++) {
@@ -21,7 +21,7 @@ public class BucketsSort {
 	}
 	Random r = new Random();
 	for (int i = 0; i < nums.length; i++) {
-	    nums[i] = r.nextInt(899999999)+100000000;
+	    nums[i] = r.nextInt(99)+1;
 	}
     }
 
@@ -49,21 +49,38 @@ public class BucketsSort {
 	nums = temp;
     }
 
-    public void sort() {
+    public void RadixSort() {
 	for (int n = 0; n < 4; n++) {
-	    //System.out.println("Digit: " + n);
 	    sortIntoBuckets(n);
 	    copyIntoArray();
-	    //System.out.println(printBuckets());
-	    //System.out.println(this);
 	    ArrayList<Integer>[] temp = new ArrayList[nums.length];
 	    for (int i = 0; i < temp.length; i++) {
 		temp[i] = new ArrayList<Integer>();
 	    }
 	    buckets = temp;
-	    
+		    
 	}
     }
+    public void bubbleSort() {
+	int k = 0;
+	int swaps = 0;
+	while (k < nums.length) {
+	    for (int i = 0; i < nums.length - 1; i++) {
+		if (nums[i] > nums[i+1]) {
+		    swaps++;
+		    int n = nums[i+1];
+		    nums[i+1] = nums[i];
+		    nums[i] = n;
+		}
+	    }
+	    k++;
+	}
+	System.out.println(swaps);
+    }
+
+
+	
+
 	
 }
 
