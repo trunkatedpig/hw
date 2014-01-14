@@ -47,23 +47,35 @@ public class Sort {
     private int comparisons = 0;
     private int swaps = 0;
 
-    public void bsort(int[] a) {
+    public int[] bsort(int[] a) {
 	int greatest = 0;
 	int temp;
-	for (int i=0;i<a.length-1;i++){
-	    if (a[i] > a[i+1]) {
-		greatest = a[i];
-		comparisons = comparisons + 1;
-		temp = a[i+1];
-		a[i+1] = a[i];
-		a[i] = temp;
-		swaps = swaps + 1;
-	    }
-	    else if (a[i] <= a[i+1]) {
-		greatest = a[i+1];
-		comparisons = comparisons + 1;
+	for (int j=0;j<a.length;j++){
+	    for (int i=0;i<a.length-1;i++){
+		if (a[i] > a[i+1]) {
+		    greatest = a[i];
+		    comparisons = comparisons + 1;
+		    temp = a[i+1];
+		    a[i+1] = a[i];
+		    a[i] = temp;
+		    swaps = swaps + 1;
+		}
+		else if (a[i] <= a[i+1]) {
+		    greatest = a[i+1];
+		    comparisons = comparisons + 1;
+		}
 	    }
 	}
+	return a;
     }
 
+    public static void main(String[] args) {
+	Random r = new Random();
+	Sort s = new Sort();
+	int[] a = new int[10];
+	for (int i=0;i<a.length;i++){
+	    a[i] = r.nextInt(100);
+	}
+	System.out.println(Arrays.toString(s.bsort(a)));
+    }
 }
