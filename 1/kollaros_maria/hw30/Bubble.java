@@ -1,28 +1,23 @@
 import java.util.*;
 import java.io.*;
-public class Bucket{
-    private int len = 10;
+public class Bubble{
+    private int len = 10000;
     private int[] buckets = new int[len];
-    private double[] doubleBuckets;
+    private double[] doubleBuckets = new double[len];
     private int comparisons;
     private int swap;
-    public Bucket() {
+    public Bubble() {
 	Random r = new Random();
 	for (int i = 0; i < len; i ++){
-	    buckets[i] = r.nextInt(90) + 10;
+	    buckets[i] = r.nextInt(9000) + 1000;
 	}
-    }
-
-    public Bucket(int len){
-	Random r = new Random();
-	doubleBuckets = new double[len];
 	for (int i = 0; i < len; i ++){
-	    doubleBuckets[i] = r.nextInt(90)*1.0 + 10.0;
+	    doubleBuckets[i] = r.nextInt(9000) * 1.0 + 1000.0;
 	}
+	
     }
 	
 	
-    
     public void sort(){
 	ArrayList[] water = new ArrayList[10];
 	for (int n = 0; n < 6; n++){
@@ -46,13 +41,16 @@ public class Bucket{
     public void bubbleSort(){
 	comparisons = 0;
 	swap = 0;
-	for (int i = 0; i < len; i ++){
-	    comparisons ++;
-	    if (doubleBuckets[i] > doubleBuckets[i+1]){
-		double tmp = doubleBuckets[i];
-		doubleBuckets[i] = doubleBuckets[i+1];
-		doubleBuckets[i+1] = tmp;
-		swap ++;
+	for (int j = 0; j < len; j ++){
+
+	    for (int i = 0; i < (len - 1); i ++){
+		comparisons ++;
+		if (doubleBuckets[i] > doubleBuckets[i+1]){
+		    double tmp = doubleBuckets[i];
+		    doubleBuckets[i] = doubleBuckets[i+1];
+		    doubleBuckets[i+1] = tmp;
+		    swap ++;
+		}
 	    }
 	}
     }
@@ -71,7 +69,7 @@ public class Bucket{
 	
     
     public String toString(){
-	return Arrays.toString(buckets);
+	return Arrays.toString(doubleBuckets);
     }
 
     public int[] get(){
