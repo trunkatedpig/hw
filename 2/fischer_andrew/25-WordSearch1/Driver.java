@@ -7,19 +7,33 @@ public class Driver {
 	WordSearch w = new WordSearch(15,40);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+	w.loadWords("wordlist");
+	System.out.println(w);       
+=======
 	w.AddWordSE(7,9,"sEast");
 	w.AddWordSW(7,9,"sWast");
 	w.AddWordNE(7,17,"nEast");
 	w.AddWordNW(7,17,"nWast");
-	
-	System.out.println(w);
-	
-	w.fill();
-	System.out.println(w);
-	
 =======
+	//	w.AddWordSW(7,9,"sWast");
+	//	w.AddWordNE(7,17,"nEast");
+	//	w.AddWordNW(7,17,"nWast");
+>>>>>>> c3bb70eaf8cc787b45db278904b82ad4774435e9
+	
+	//	System.out.println(w);
+	
+	//	w.fill();
+	//      System.out.println(w);
+	
+<<<<<<< HEAD
+>>>>>>> 102f62e2395367dd85aa22a5f72d106331ea491c
+=======
+
 	w.loadWords("wordlist");
+	w.fill();
 	System.out.println(w);       
->>>>>>> a16d4eaff2e40dd14fb647c7f97bb4cb1c51c158
+
+>>>>>>> c3bb70eaf8cc787b45db278904b82ad4774435e9
     }
 }

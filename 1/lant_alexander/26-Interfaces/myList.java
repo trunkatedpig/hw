@@ -11,16 +11,16 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
 	public myListIterator(myList l) {
 	    list = l;
 	}
-
+	
 	public boolean hasNext() {
 	    if (current+1 > list.numItems)
 		return false;
-	    current++;
+	    //current++;
 	    return true;
 	}
 	public Integer next() {
-	    return(list[current+1]);
 	    current++;
+	    return(list.get(current-1));
 	}
 	public void remove() {
 	    list.remove(current);
@@ -36,7 +36,7 @@ public class myList implements myMadeUpInterface, Iterable<Integer> {
     }
 
     public String saySomething() {
-	return "Hello";
+     	return "Hello";
     }
     public int addOne(int z) {
 	return z-1;

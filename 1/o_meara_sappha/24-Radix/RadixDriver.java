@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Driver{
+public class RadixDriver{
     //worked with Brian and Emile
     public static void main(String[] args){
         int[] A = new int[1000000];
@@ -16,10 +16,12 @@ public class Driver{
 
         long start = System.currentTimeMillis();
                 
-        A = R.sort(A);
+        //A = R.sort(A);
+	A = R.bubble(A);
 
         long t = System.currentTimeMillis();
-        System.out.println("Radix sort: " + (t - start));
+        //System.out.println("Radix sort: " + (t - start));
+	System.out.println("Bubble Sort: " + (t - start));
         
         // System.out.println(Arrays.toString(A));
         
@@ -27,10 +29,10 @@ public class Driver{
 
         start = System.currentTimeMillis();
         
-        Arrays.sort(B);
+        //Arrays.sort(B);
 
         t = System.currentTimeMillis();
-        System.out.println("Built-in sort: " + (t - start));
+        //System.out.println("Built-in sort: " + (t - start));
         // System.out.println(Arrays.toString(B));
 
     }

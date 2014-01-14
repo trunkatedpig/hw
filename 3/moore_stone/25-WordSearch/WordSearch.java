@@ -51,4 +51,24 @@ Postcondition: If the word can be legally placed in the puzzle, modify the board
 	    return false;
         return true;
     }
+
+    public boolean addWordH(int row, int col, String word) {
+        int l = word.length();
+	int width = board[0].length;
+        int height = board.length;
+	int k = 0;
+        if (col >= 0 && col + l <= width && row >= 0 && row <= height) {
+            for (int i = row; i < row + l; i++) {           
+		if (board[col][i] == word.charAt(k) || board[col][i] == '-'){
+		    board[col][i] = word.charAt(k);
+		    k = k + 1;
+		}
+		else
+		    return false;
+            }
+        }
+	else
+	    return false;
+        return true;
+    }
 }

@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class WordSearch {
  private char[][] board;
@@ -33,9 +34,130 @@ public class WordSearch {
 		int length = word.length();
 		if (col + length >= board[0].length)
 			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row][i+col] == '-' || board[row][i+col] == word.charAt(i)))
+				return false;
+		}
 		for (int i = 0;i<length;i++)
 			board[row][i+col] = word.charAt(i);
 		return true;
 	}
 
+	public boolean addWordV(int row, int col, String word){
+		int length = word.length();
+		if (row + length >= board.length)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row+i][col] == '-' || board[row+i][col] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row+i][col] = word.charAt(i);
+		return true;
+	}
+
+	public boolean addWordHBack(int row, int col, String word){
+		int length = word.length();
+		if (length>col)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row][col-i] == '-' || board[row][col-i] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row][col-i] = word.charAt(i);
+		return true;
+	}
+
+	public boolean addWordVBack(int row, int col, String word){
+		int length = word.length();
+		if (length>row)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row-i][col] == '-' || board[row-i][col] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row-i][col] = word.charAt(i);
+		return true;
+	}
+
+	public boolean addWordDR(int row, int col, String word){
+		int length = word.length();
+		if (length + row > board.length || length + col > board[0].length)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row+i][col+i] == '-' || board[row+i][col+i] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row+i][col+i] = word.charAt(i);
+		return true;
+	}
+
+	public boolean addWordDL(int row, int col, String word){
+		int length = word.length();
+		if (length + row > board.length || length > col)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row+i][col-i] == '-' || board[row+i][col-i] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row+i][col-i] = word.charAt(i);
+		return true;
+	}
+
+	public boolean addWordUR(int row, int col, String word){
+		int length = word.length();
+		if (length > row || length + col > board[0].length)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row-i][col+i] == '-' || board[row-i][col+i] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row-i][col+i] = word.charAt(i);
+		return true;
+	}
+
+	public boolean addWordUL(int row, int col, String word){
+		int length = word.length();
+		if (length > row || length > col)
+			return false;
+		for (int i = 0;i<length;i++) {
+			if (!(board[row-i][col-i] == '-' || board[row-i][col-i] == word.charAt(i)))
+				return false;
+		}
+		for (int i = 0;i<length;i++)
+			board[row-i][col-i] = word.charAt(i);
+		return true;
+	}
+
+	public void fillBoard() {
+		Random r = new Random();
+		for (int i = 0;i<board.length;i++) {
+			for (int j = 0;j<board[i].length;j++) {
+				if (board[i][j] == '-')
+					board[i][j] = (char)('A' + r.nextInt(26));
+			}
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
