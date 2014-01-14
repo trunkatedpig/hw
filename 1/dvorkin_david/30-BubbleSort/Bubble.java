@@ -27,7 +27,7 @@ public class Bubble{
         }
         return intList;
     }
-
+    
     public void bsort(int[] a){
 	for(int i = 0; i < a.length; i++) {
 	    for(int j = 0; j < a.length-1; j++) {
