@@ -4,10 +4,12 @@ import java.util.*;
 public class Sorting {
 
     Random random = new Random ();
-	private int numItems = 0;
+    private int numItems = 0;
     private int numItems2 = 0;
     private int [] numbers;
     private ArrayList [] buckets;
+    private int compareNumber;
+    private int swapNumber;
 
 
     public Sorting (int n, int digitas) { //n is the amount of elements in the array, digitas in the digits of the units
@@ -108,6 +110,30 @@ public class Sorting {
 
     }
 
+
+    public void bubbleSort () {
+
+	for (int p = 0; p < numbers.length - 1; p++) {
+
+
+	for (int i = 0; i <numbers.length - 1; i++) {
+
+	    compareNumber = compareNumber + 1;
+	    if (numbers [i] > numbers [i+1]) {
+		swapNumber = swapNumber + 1;
+		int n = numbers [i];
+		numbers [i] = numbers [i + 1];
+		numbers [i + 1] = n;
+
+	    }
+
+	}
+
+    }
+
+    }
+	
+
     public String toString () {
 	   return Arrays.toString (numbers);
 	}
@@ -116,6 +142,15 @@ public class Sorting {
     public int [] getArray () {
 	return numbers;
 
+    }
+
+    public int getCompareNumber () {
+
+	return compareNumber;
+    }
+
+    public int getSwapNumber () {
+	return swapNumber;
     }
 
     }
