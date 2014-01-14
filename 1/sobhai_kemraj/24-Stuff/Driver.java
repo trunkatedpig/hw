@@ -1,38 +1,52 @@
 import java.io.*;
 import java.util.*;
 
-public class Driver{
-    public static void main(String[] args){
-	int[] numbs = new int[20];
-	for (int i=0;i < 20; i++)
-	    numbs[i]=(int)(Math.random()*10000);
-	//The array has now been created
 
-	//make an array for buckets
-	ArrayList[] buckets= new ArrayList[10];
-	for (int i = 0; i < 10; i++){
-	    ArrayList<Integer>  LIST = new ArrayList();
-	    buckets[i] = LIST;
-	}
-
-	System.out.println(numbs);
-	//	int n = 0;
+public class Driver {
+    public void radixSort () {
+        ArrayList[] buckets = new ArrayList[10];
+        
+        for (int i = 0; i < 10; i++) {
+            buckets [i] = new ArrayList();
+        }
 
 
-	for (int n =0; n<4; n++){
-	    for (int i =0; i<numbs.length;i++){
-		buckets[(numbs[i] / (int)(Math.pow(10,n)))%10].add(numbs[i]);
-	    }
-	    //numbs = buckets;
-	    int k = 0;
-	    for (int i = 0; i < 10; i++){
-		for (int j = 0; j < buckets[i].size(); j++){
-		    numbs[k] = buckets[i].get(j);
-		    k++;
-		}
-	    }
-	    System.out.println(numbs);
-	}
+        int [] a = new int [4];
+
+
+        Random r = new Random();
+        
+        for (int i = 0; i < 4; i++) {
+            a[i]= r.nextInt(9999);
+        }
+
+
+        int n = 0;
+
+
+        for (int i = 0;i < a.length; i++) {
+            buckets[(a[i]/10^n)% 10].set(a[i]);
+        }
     }
+    
+    public void bubbleSort (){
+	double holder;
+	int numSwaps;
+	boolean notSorted;
+	double[] Data = new double[15];
+	// Fill the array with stuff
+	for (int i = 0; i < Data.length; i++)
+	    Data[i]= ((math.random()* math.random())*100);
+	//now that filled do stuff!!
+	
+	for (int i = 0; i < Data.length-1; i++){
+	    numSwaps = 0;
+	    if (Data[i]>Data[i+1]){
+		//finish later
+	    }
+	}
 
+    }
+	
 }
+
