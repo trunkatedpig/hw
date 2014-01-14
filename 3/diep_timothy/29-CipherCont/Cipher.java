@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Cipher {
     private double[] CorpusFreqs;
+    private double totalWords = 0.0;
 
     public Cipher() {
 	CorpusFreqs = new double[26];
@@ -16,10 +17,14 @@ public class Cipher {
 		s = s.toLowerCase();
 		for (int i=0;i<s.length();i++) {
 		    char c = s.charAt(i);
-		    if (c >= 'a' && c <= 'z')
+		    if (c >= 'a' && c <= 'z') {
 			CorpusFreqs[c-'a']++;
+			totalWords++;
+		    }
 		}
 	    }
+	    for (int i=0; i<26; i++) 
+		CorpusFreqs[i] = CorpusFreqs[i]/totalWords;
 	} catch (Exception e) {}
     }
     
@@ -44,6 +49,23 @@ public class Cipher {
 	}
 	return result;
     }
+
+    public String codeCracker(String code){
+	code = code.toLowerCase();
+	double[] Freqs = new double[26];
+	double totalW = 0.0;
+	for (int i=0;i<code.length();i++) {
+	    char c = code.charAt(i);
+	    if (c >= 'a' && c <= 'z') {
+		Freqs[c-'a']++;
+		totalW++;
+	    }
+	}
+    for (int i=0; i<26; i++) 
+	Freqs[i] = Freqs[i]/totalW;
+    int minFre
+    }
+
 
     public static void main(String args[]) {
 	Cipher c = new Cipher();

@@ -33,9 +33,10 @@ public class Cipher {
         }
         return result;
     }
+    public double[] freqCount;
 
     public void freq(String filename){
-        double[] freqCount = new double[26]; //for each letter in alphabet
+        freqCount = new double[26]; //for each letter in alphabet
         int totalChars=0;
         try {
             Scanner sc = new Scanner (new File(filename));
@@ -56,4 +57,24 @@ public class Cipher {
         }
         System.out.println(Arrays.toString(freqCount));
     }
+
+    public void decipher(String s) {
+	freq("Dictionary.txt");
+	String copy = s.toLowerCase();
+	double greatest = 0.0;
+	int greatone = 0;
+	int current = 0;
+	char c;
+	int countpercent = 0;
+	for (int j=0;j<26;j++){
+	    encode(s,1);
+	    current ++;
+	    countpercent = 0;
+	    for (int i=0;i<s.length();i++) {
+		c = s.charAt(i);
+		if (c>='a' && c<='z') {
+		    
+		
+    
+
 }
