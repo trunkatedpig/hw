@@ -3,16 +3,80 @@ import java.util.*;
 
 public class Sorting {
 
-    public int[] bubbleSort(int[] i){
+    public static void main(String[] args){
+	Sorting s = new Sorting();
+
+	Random r = new Random();
+	int[] a = new int[10000];
+	for (int i = 0; i <10000; i ++) {
+	    a[i] = r.nextInt(899)+100;
+	}
+	int[] b = new int[100000];
+	for (int i = 0; i <100000; i ++) {
+	    b[i] = r.nextInt(899)+100;
+	}
+	int[] c = new int[1000000];
+	for (int i = 0; i <1000000; i ++) {
+	    c[i] = r.nextInt(899)+100;
+	}
+	int[] g = new int[10000];
+	for (int i = 0; i <10000; i ++) {
+	    g[i] = r.nextInt(899)+100;
+	}
+	int[] h = new int[100000];
+	for (int i = 0; i <100000; i ++) {
+	    h[i] = r.nextInt(899)+100;
+	}
+	int[] i = new int[1000000];
+	for (int n = 0; n <1000000; n ++) {
+	    i[n] = r.nextInt(899)+100;
+	}
+
+	
+	long t = System.currentTimeMillis();
+	s.bsort(a);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.radixSort(a);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.bsort(b);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.radixSort(b);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.bsort(c);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.radixSort(c);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.bsort(g);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.radixSort(g);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.bsort(i);
+	System.out.println(System.currentTimeMillis()-t);
+	t = System.currentTimeMillis();
+	s.radixSort(i);
+	System.out.println(System.currentTimeMillis()-t);
+    }
+
+	
+
+    public int[] bsort(int[] a){
 	int swaps = 0;
 	int checks = 0;
-
-	for(int a=0; a<i.length-1; a++){
-	    for(int b = 0; b<i.length-a-1; b++){
-		if (i[b] > i[b+1]){
-		    int tmp = i[b];
-		    i[b] = i[b+1];
-		    i[b+1] = tmp;
+	
+	for(int b=0; b<a.length-1; b++){
+	    for(int c = 0; c<a.length-b-1; c++){
+		if (a[c] > a[c+1]){
+		    int tmp = a[c];
+		    a[c] = a[c+1];
+		    a[c+1] = tmp;
 		    swaps++;
 		}
 		checks++;
@@ -20,11 +84,10 @@ public class Sorting {
 	}
 	System.out.println(swaps);
 	System.out.println(checks);
-	return i;
-	
+	return a;
     }
-
-
+    
+    
     public static int exp(int i, int n){//lolwut
 	int result = 1;
 	for (int a = 0; a<n; a++){
@@ -59,12 +122,6 @@ public class Sorting {
 	}
 	return i;
     }
-
-    public static void main(String[] args){
-	
-	int[] a = {2,6,5,7,8,9,4,2,54,6,7,10};
-	Sorting dumb = new Sorting();
-	System.out.println(Arrays.toString(dumb.bubbleSort(a)));
-    }
+    
 }
 
