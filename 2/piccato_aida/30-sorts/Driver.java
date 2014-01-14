@@ -3,11 +3,11 @@ import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
-	RadixSort bs = new RadixSort(100000);
+	Sorts sort = new Sorts(100000);
 	//	System.out.println(bs);
 	long start = System.currentTimeMillis();
 	
-	bs.bubbleSort();
+	sort.bsort(sort.getNums());
 	
 	long end = System.currentTimeMillis();
 
@@ -17,7 +17,7 @@ public class Driver {
 	
 	start = System.currentTimeMillis();
 
-	bs.RadixSort();
+	sort.rsort();
 
 	end = System.currentTimeMillis();
 	

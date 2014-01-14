@@ -1,19 +1,18 @@
 import java.io.*;
 import java.util.*;
 
-public class RadixSort {
+public class Sorts {
     private int[] nums;
     private ArrayList<Integer>[] buckets;
 
+    public int[] getNums() {
+	return nums;
+    }
     public String toString() {
 	return "Nums: " +  Arrays.toString(nums);
     }
-
-    public String printBuckets() {
-        return "Buckets: " + Arrays.toString(buckets);
-    }
     
-    public RadixSort(int n) {
+    public Sorts(int n) {
 	nums = new int[n];
 	buckets = new ArrayList[nums.length];
 	for (int i = 0; i < nums.length; i++) {
@@ -23,6 +22,10 @@ public class RadixSort {
 	for (int i = 0; i < nums.length; i++) {
 	    nums[i] = r.nextInt(999999)+1;
 	}
+    }
+
+    public String printBuckets() {
+        return "Buckets: " + Arrays.toString(buckets);
     }
 
     public void sortIntoBuckets(int n) {
@@ -49,7 +52,7 @@ public class RadixSort {
 	nums = temp;
     }
 
-    public void RadixSort() {
+    public void rsort() {
 	for (int n = 0; n < 4; n++) {
 	    sortIntoBuckets(n);
 	    copyIntoArray();
@@ -61,22 +64,22 @@ public class RadixSort {
 		    
 	}
     }
-    public void bubbleSort() {
+
+    public void bsort(int[] a) {
 	int k = 1;
 	int swaps = 0;
         boolean swapped = false;
 	int comparisons = 0;
-	while (k <= nums.length) {
+	while (k <= a.length) {
 	    swapped = false;
-	    System.out.println(this + "Comparisons: " + comparisons);
-	    for (int i = 0; i < nums.length - k; i++) {
+	    for (int i = 0; i < a.length - k; i++) {
 		comparisons++;
-		if (nums[i] > nums[i+1]) {
+		if (a[i] > a[i+1]) {
 		    swaps++;
 		    swapped = true;
-		    int n = nums[i+1];
-		    nums[i+1] = nums[i];
-		    nums[i] = n;
+		    int n = a[i+1];
+		    a[i+1] = a[i];
+		    a[i] = n;
 		}
 	    }
 	    if (!swapped) {
