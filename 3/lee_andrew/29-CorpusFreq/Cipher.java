@@ -24,6 +24,8 @@ public class Cipher {
     }
 
     public void buildCorpusFreq(String filename) {
+	int total = 0;
+	CorpusFreqs = new double[26];
 	try {
         Scanner sc = new Scanner (new File(filename));
         while (sc.hasNext()) {
@@ -33,9 +35,20 @@ public class Cipher {
               char c = s.charAt(i);
 	      if (c>=97 && c<=123) {
 		  CorpusFreqs[c-97] = CorpusFreqs[c-97] + 1;
+		  total = total + 1;
 	      }
 	    }
 	}
 	} catch (Exception e) {}
+	for (int i = 0;i<26;i++){
+	    CorpusFreqs[i] = CorpusFreqs[i]/total;
+	}
+	System.out.println(Arrays.toString(CorpusFreqs));
+    }
+
+    public static void main(String[] args) {
+	Cipher c = new Cipher();
+	System.out.println(c.encode("hello",3));
+	c.buildCorpusFreq("Shakespeare.txt");
     }
 }
