@@ -5,7 +5,7 @@ public class Driver {
 	for (int i = 0; i < array.length; i++){
 	    array[i] = array.length-i;
 	    System.out.print(array[i] + " ");
-	}
+	}//
 	bubble.bsort(array);
     }
 }
