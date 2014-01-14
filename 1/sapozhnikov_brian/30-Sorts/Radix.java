@@ -60,6 +60,17 @@ public class Radix{
 	return A;
     }
 
+    public int[] selection(int[] A){
+	for (int i = 0; i<A.length-1; i++){
+	    int minI = i;
+	    for (int j = i; j<A.length-2; j++){
+		if (A[j]<A[j+1]){
+		    minI = j;
+		}
+	    }
+	}
+    }
+
      // public String toString(int[] A){
      // 	String Ans = "{";
      // 	for (int i = 0; i < A.length; i++)
