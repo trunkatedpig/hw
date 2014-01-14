@@ -36,16 +36,28 @@ public class RadixSort{
 
     public int[] bSort(int[] nums){ 
 	int[] temp = nums;
+	int swaps = 0;
+	int comparisons = 0;
+	boolean test = true;
 	for(int k = 0; k <= nums.length; k++){
 	    for(int i = 0; i < nums.length - 1; i++){
 		if(temp[i] > temp[i+1]){
 		    int x = temp[i];
 		    temp[i] = temp[i+1];
 		    temp[i+1] = x;
-		
-		}	
+		    swaps = swaps + 1;
+		    test = false;
+		}
+		comparisons = comparisons + 1;
+	    }
+	    if(test){
+		System.out.println("Number of swaps:" + swaps);
+		System.out.println("Number of comparisons:" + comparisons);
+		return temp;
 	    }
 	}
+	System.out.println("Number of swaps:" + swaps);
+	System.out.println("Number of comparisons:" + comparisons);
 	return temp;
     }
 
