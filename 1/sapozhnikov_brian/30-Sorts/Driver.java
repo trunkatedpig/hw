@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Driver{
     public static void main(String[] args){
-        int[] A = new int[10000];
+        int[] A = new int[100000];
 	int[] B = new int[1000000];
         Random r = new Random();
         for (int i = 0; i<A.length; i++){
@@ -23,7 +23,7 @@ public class Driver{
 	//System.out.println("Radix sort: " + (t - start));
 	//System.out.println("Bubble sort: " + (t - start));
 	System.out.println("New bubble sort: " + (t - start));
-	System.out.println(Arrays.toString(A));	
+	//System.out.println(Arrays.toString(A));	
 	// System.out.println(Arrays.toString(A));
 	
         // System.out.println(R.toString(R.sort(A)));
