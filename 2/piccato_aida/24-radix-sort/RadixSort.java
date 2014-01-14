@@ -21,7 +21,7 @@ public class RadixSort {
 	}
 	Random r = new Random();
 	for (int i = 0; i < nums.length; i++) {
-	    nums[i] = r.nextInt(99)+1;
+	    nums[i] = r.nextInt(999999)+1;
 	}
     }
 
@@ -62,20 +62,30 @@ public class RadixSort {
 	}
     }
     public void bubbleSort() {
-	int k = 0;
+	int k = 1;
 	int swaps = 0;
-	while (k < nums.length) {
-	    for (int i = 0; i < nums.length - 1; i++) {
+        boolean swapped = false;
+	int comparisons = 0;
+	while (k <= nums.length) {
+	    swapped = false;
+	    System.out.println(this + "Comparisons: " + comparisons);
+	    for (int i = 0; i < nums.length - k; i++) {
+		comparisons++;
 		if (nums[i] > nums[i+1]) {
 		    swaps++;
+		    swapped = true;
 		    int n = nums[i+1];
 		    nums[i+1] = nums[i];
 		    nums[i] = n;
 		}
 	    }
+	    if (!swapped) {
+		break;
+	    }
 	    k++;
 	}
-	System.out.println(swaps);
+	System.out.println("Swaps: " + swaps);
+	System.out.println("Comparisons: " + comparisons);
     }
 
 
