@@ -30,18 +30,22 @@ public class Cipher {
                 String s = sc.nextLine().toLowerCase();
                 for (int i=0;i<s.length();i++) {
                     char c = s.charAt(i);
+                    System.out.println("something went wrong");
+                    System.out.println(c);
                     if (Character.isLetter(c)){
                         int index = c - 'a';
                         CorpusFreqs[index] = CorpusFreqs[index] + 1;
-			letterCount ++;
+			            letterCount ++;
                     }
                 }
             }
         } catch (Exception e) {
+            System.out.println("something went wrong");
         }
     }
 
     public void printCorpusFreqs() {
+        System.out.println(letterCount);
         for (int i = 0; i < 26; i++) {
             String s;
             int c = i + 'a';
@@ -54,6 +58,7 @@ public class Cipher {
 	double[] tempArray;
 	double[] distance = new double[26];
 	int count;
+    int minInd = 0;
 	for (int i = 0; i < 26; i++) {
 	    tempArray = new double[26];
 	    count = 0;
@@ -75,6 +80,11 @@ public class Cipher {
 	    }
 	    distance[i] = Math.pow(sum, 0.5);	    
 	}
-	return rotate(s, Collections.min(distance));
+    for (int i = 0;i<26;i++) {
+        if (distance[minInd] > distance[i]) {
+            minInd = i;
+        }
+    }
+	return rotate(s, minInd);
     }
 }

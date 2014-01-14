@@ -42,14 +42,14 @@ public class Cipher2{
 		    int integer = 0;
 		    if (c>='a' && c<='z'){
 			total += 1;
-			integer = (int)(c-'a');
-			corpusFreqs[integer] += 1.0;
+			integer = c-'a';
+			corpusFreqs[integer]++;
 		    }
 		}
 	    }
 	    s.close();
 	    for (int i=0;i<26;i++){
-		corpusFreqs[i] = (corpusFreqs[i]/total)*100.0;
+		corpusFreqs[i] = ((double)corpusFreqs[i]/total)*100.0;
 	    }
 	}
 	catch(Exception e){}
