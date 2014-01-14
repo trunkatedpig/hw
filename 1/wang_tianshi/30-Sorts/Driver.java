@@ -16,14 +16,10 @@ public class Driver{
 
         Sorts sorts  = new Sorts();
 
-        double[] a = new double[10];
-	for (int i = 0; i < 10; i++)
-            a[i] = Math.random() * 100;
-
 	long start = System.currentTimeMillis();
-	sorts.bsort(test);
+	System.out.println(sorts.bsort(test));
 	long end = System.currentTimeMillis();
-	//System.out.println(Arrays.toString(a));
+
 	System.out.println("Time elapsed: "+(end - start) + " milliseconds");
     }
 }                

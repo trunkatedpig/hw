@@ -18,22 +18,18 @@ public class Sorts {
         int n = 0;
         while (n < 3) {
             for (int i = 0; i < Test.length; i++) {
-                //System.out.print(Test[i] + " (mod " + Math.pow(10,n)+")");
                 int placeholder = (int) ((Test[i]/Math.pow(10,n)) % 10);
-                //System.out.println(" --> " + placeholder);
                 buckets[placeholder].add(Test[i]); 
             }
             double[] tempArray = new double[Test.length];
             int x = 0;
             for (int j = 0; j< buckets.length; j++){
-                //System.out.println(j+ ":"+buckets[j].size());
                 for(int k = 0; k < buckets[j].size(); k++) {
                     tempArray[x] = (Integer)buckets[j].get(k);
                     x = x + 1;
                     }
             }
             Test = tempArray;
-            //System.out.println(Arrays.toString(Test));
             for (int i = 0; i < 10; i++) 
                 buckets[i] = new ArrayList();
             n = n + 1;
@@ -61,8 +57,8 @@ public class Sorts {
                 }
             }
         }
-        System.out.println(comparisons);
-        System.out.println(swaps);
+        //System.out.println(comparisons);
+        //System.out.println(swaps);
 	return a;
     }                
 }
