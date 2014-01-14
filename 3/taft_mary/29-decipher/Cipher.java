@@ -3,10 +3,11 @@ import java.util.*;
 
 public class Cipher {
 
-    private double[] CorpusFreqs;
+    private double[] CorpusFreqs, StringFreqs;
 
-    private void buildCorpusFreq(String filename) {
+    private void buildCorpusFreqs(String filename) {
 	String s;
+	int charcount=0;
 	CorpusFreqs = new double[26];
 	try {
 	    File f = new File(filename);
@@ -21,9 +22,26 @@ public class Cipher {
 	    char c = s.charAt(i);
 	    if (c>='a'&&c<='z')
 		CorpusFreqs[c-97]++;
+	    charcount++;
 	}
-	System.out.println(Arrays.toString(CorpusFreqs));
-	System.out.println();
+	for (int i=0;i<CorpusFreqs.length;i++) {
+	    CorpusFreqs[i]=CorpusFreqs[i]/charcount;
+	}
+    }
+    
+    private void buildStringFreqs(String s) {
+	int charcount=0;
+	StringFreqs = new double[26];
+	s.toLowerCase();
+	for (int i=0;i<s.length();i++) {
+	    char c = s.charAt(i);
+	    if (c>='a'&&c<='z')
+		StringFreqs[c-97]++;
+	    charcount++;
+	}
+	for (int i=0;i<StringFreqs.length;i++) {
+	    StringFreqs[i]=StringFreqs[i]/charcount;
+	}
     }
 
     public String encode(String s, int i) {
@@ -53,10 +71,19 @@ public class Cipher {
 	return new String(ca);
     }
 
+    public String dechiper(String s, String filename) {
+    	buildCorpusFreqs(filename);
+	//plot
+    	buildStringFreqs(s);
+	//plot different ciphers & compare
+	//find smallest
+	//return
+    }
+
     public static void main(String[] args) {
 	Cipher c = new Cipher();
 
-	c.buildCorpusFreq("TaleOfTwoCities.txt");
+	c.buildCorpusFreqs("TaleOfTwoCities.txt");
 
 	System.out.println("\"abc\" shifted by 2: " + c.encode("abc",2));
 	System.out.println("\"xyz\" shifted by 3: " + c.encode("xyz",3));
