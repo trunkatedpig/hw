@@ -25,7 +25,7 @@ public class WordSearch {
         wordList = new ArrayList<String>();
 
         try {
-            Scanner sc = new Scanner(new File(filename));
+            Scanner sc = new Scanner(new File(wordlist));
             while (sc.hasNext()) {
                 String s = sc.next();
                 wordList.add(s);
@@ -77,6 +77,12 @@ public class WordSearch {
         }
 
         return true;
+    }
+
+    public boolean addWordRand(String word){
+	int deltaR  = r.nextInt(2)-1;
+	
+
     }
 
     public boolean addWordH(int row, int col, String word) {
