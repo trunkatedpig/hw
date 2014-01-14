@@ -24,7 +24,11 @@ public class WordSearch {
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	loadWords("wordlist");
+<<<<<<< HEAD
 	System.out.println(wordList);
+=======
+	//System.out.println(wordList);
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) {
 	    for (int j=0;j<cols;j++) {
@@ -96,6 +100,7 @@ public class WordSearch {
 
     public void fillWords(){
 	
+<<<<<<< HEAD
 	int r;/*
 	int directionH = (int)(Math.random()*2-1);
 	int directionV = (int)(Math.random()*2-1);
@@ -112,6 +117,34 @@ public class WordSearch {
 	    wordBank.add(wordList.get(r));
 	    wordList.remove(r);
 	}
+=======
+	int r;
+	int n = 0;
+	int try10times = 0;
+	boolean added = true;
+	while (n <10){
+	    r= (int)(Math.random()*wordList.size()-1);
+	    while(!(addWordRand(wordList.get(r).toUpperCase()))){
+		if (try10times >= 10){
+		    added = false;
+		    break;
+		}
+		try10times++;
+	    }
+	    if (added = true){
+		wordBank.add(wordList.get(r).toUpperCase());
+		wordList.remove(r);
+	    }
+	    added=true;
+	    try10times=0;
+	    n++;
+	}
+        System.out.println(toString());
+	fillBlanks();
+	System.out.println(toString());
+	System.out.println(wordBank);
+	
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 
 	
     }

@@ -5,6 +5,7 @@ public class WordSearch {
 
     private char[][] board;
     private Random rand;
+<<<<<<< HEAD
     private ArrayList<String> wordList;
 
     private void readWords(String filename) {
@@ -26,6 +27,15 @@ public class WordSearch {
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	readWords("wordlist");
+=======
+    private ArrayList<String> wordList = new ArrayList<String>();
+    private ArrayList<String> finalWordList = new ArrayList<String>();
+    private Random randGen = new Random();
+
+    public WordSearch(int rows, int cols) {
+	rand = new Random();
+	readIn("wordsearch.txt");
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
@@ -34,6 +44,13 @@ public class WordSearch {
 
     }
 
+<<<<<<< HEAD
+=======
+    public ArrayList<String> getFinalWordList() {
+	return finalWordList;
+    }
+
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
     public WordSearch() {
 	this(20,20);
     }
@@ -114,6 +131,7 @@ public class WordSearch {
 	return s;
     }
 
+<<<<<<< HEAD
     public void readIn() {
 	WordSearch w = new WordSearch(15,30);
 	try { 
@@ -135,3 +153,38 @@ public class WordSearch {
 
 
 }
+=======
+    public void readIn(String filename) {
+	try { 
+	    Scanner sc = new Scanner(new File(filename));
+	    while (sc.hasNext()) { 
+		String s = sc.nextLine();
+		wordList.add(s);
+	    }
+	}
+	catch (FileNotFoundException e) { 
+	    System.out.println(e);
+	    System.exit(0);
+	}
+    }
+
+    public void makePuzzle(int numWords) { 
+	for (int i=0;i<numWords;i++) {
+	    int index = randGen.nextInt(wordList.size());
+	    String word = wordList.get(index);
+	    wordList.remove(index);
+	    int x = 0;
+	    boolean b = false;
+	    while (x<5 && !b) { 
+		b = addWordRandomLoc(word);
+		if (b) 
+		    finalWordList.add(word);
+		x = x + 1;
+	    }
+
+	}
+    }
+
+}
+
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c

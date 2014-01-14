@@ -1,0 +1,19 @@
+Centuar
+Cerberus
+Chimera
+Cyclops
+Demon
+Dragon
+Dust Bunny
+Fairy
+Faun
+Gargoyle
+Ghost
+Giant
+Goblin?
+Medusa
+Minotaur
+Slime(Generic)
+Troll
+Vampire
+

@@ -4,7 +4,10 @@ import java.io.*;
 public class WordSearch {
     private char[][] board;
     private Random rand;
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
     private ArrayList<String> wordList;
     
     public void loadWords(String filename) {
