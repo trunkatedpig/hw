@@ -51,7 +51,7 @@ public class Sort {
 	int[] tempArray = new int[a.length];
 	tempArray = a;
 	for (int i = 0; i<a.length; i++){
-	    for (int j = 0; j < a.length-1; j++){
+	    for (int j = 0; j<a.length-1; j++){
 		compFreqs++;
 		if (tempArray[j] > tempArray[j+1]){
 		    swapperFreqs++;
@@ -61,7 +61,7 @@ public class Sort {
 		}
 	    }
 	}
-	return a;
+	return tempArray;
     }
 
     public void radixSort() {
