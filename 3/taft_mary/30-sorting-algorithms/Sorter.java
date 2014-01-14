@@ -20,16 +20,16 @@ public class Sorter {
 	    nums[i] = r.nextInt(power);
     }
 
-    public void rsort() {
+    public void rsort(int[] a) {
 	while (currentDigit < numDigits) {
-	    for(int i=0; i<nums.length; i++) {
-		int sortDigit = (nums[i]/(int)(Math.pow(10,currentDigit)))%10;
-		buckets[sortDigit].add(nums[i]);
+	    for(int i=0; i<a.length; i++) {
+		int sortDigit = (a[i]/(int)(Math.pow(10,currentDigit)))%10;
+		buckets[sortDigit].add(a[i]);
 	    }
 	    int index = 0;		
 	    for(int i=0; i<buckets.length; i++) {
 		for(int j=0; j<buckets[i].size(); j++) {
-		    nums[index] = (Integer)(buckets[i].get(j));
+		    a[index] = (Integer)(buckets[i].get(j));
 		    index++;
 		}
 		buckets[i].clear();
@@ -40,9 +40,9 @@ public class Sorter {
     }
 
     public void bsort(int[] a) {
-	int len=a.length,swaps=0,localswaps=0,comparisons=0;
+	int len=a.length,comparisons=0,swaps=0,localswaps=0;
 	while (len>0) {
-	    for (int i=0;i<a.length-1;i++) {
+	    for (int i=a.length-len;i<a.length-1;i++) {
 		if (a[i]>a[i+1]) {
 		    int temp=a[i];
 		    a[i]=a[i+1];
@@ -60,6 +60,48 @@ public class Sorter {
 	System.out.println("Bubble sort:");
 	System.out.println("Number of times the sorter went through the loop: "+comparisons);
 	System.out.println("Total number of swaps: "+swaps);
+	System.out.println();
+    }
+
+    public void ssort(int[] a) {
+	int len = a.length,swaps=0,comparisons=0;
+	while (len>0) {
+	    int firstindex=a.length-len;
+	    int swapindex=a.length-1;
+	    for(int i=firstindex;i<a.length;i++) {
+		if (a[i]<a[swapindex])
+		    swapindex=i;
+		swaps++;
+	    }
+	    int temp=a[firstindex];
+	    a[firstindex]=a[swapindex];
+	    a[swapindex]=temp;
+	    comparisons++;
+	    len--;
+	}
+	System.out.println("Selection sort:");
+	System.out.println("Number of times the sorter went through the loop: "+comparisons);
+	System.out.println("Total number of swaps: "+swaps);
+	System.out.println();
+    }
+
+    public void isort(int[] a) {
+	int swaps=0,comparisons=0;
+	for (int i=1; i<a.length; i++) {
+	    int insertindex=i;
+	    while(insertindex!=0&&a[insertindex-1]>a[insertindex]) {
+		int temp=a[insertindex];
+		a[insertindex]=a[insertindex-1];
+		a[insertindex-1]=temp;
+		swaps++;
+		insertindex--;
+	    }
+	    comparisons++;
+	}
+	System.out.println("Insertion sort:");
+	System.out.println("Number of times the sorter went through the loop: "+comparisons);
+	System.out.println("Total number of swaps: "+swaps);
+	System.out.println();
     }
 
     public int[] getNums() {
