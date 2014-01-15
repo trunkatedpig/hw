@@ -4,14 +4,15 @@ import java.util.*;
 public class Driver {
     public static void main(String[] args) throws FileNotFoundException {
 	String s;
-	// ArrayList<String> al = new ArrayList<String>();
-	// al.add("one");
-	// al.add("two");
-	// al.add("three");
-	// al.add("four");
-	// al.add("five");
-	// al.add("six");
-	// System.out.println("ArrayList: (iterator): "+al);
+	ArrayList<String> al = new ArrayList<String>();
+	al.add("one");
+	al.add("two");
+	al.add("three");
+	al.add("four");
+	al.add("five");
+	al.add("six");
+	System.out.println("ArrayList: (iterator): "+al);
+
 	Iterator<String> it = al.iterator();
 	while (it.hasNext()){
 	    s=it.next();
@@ -28,8 +29,10 @@ public class Driver {
 	Iterator<Integer> mlit = ml.iterator();
 	System.out.println(mlit.hasNext());
 	System.out.println(mlit.next());
-
-
-
+	
+	//for (Integer i : mlit)
+	//    System.out.println(i);
+	for (int i : ml)
+	    System.out.println(i);
     }
 }
