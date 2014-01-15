@@ -5,10 +5,10 @@ public class Radix {
 
     public static void main(String[] args) {
 	Random r = new Random();
-	int n1 = 1000;
-	int n2 = 10000000;
-	int d1 = 400;
-	int d2 = 300000;
+	int n1 = 10000;
+	int n2 = 100000;
+	int d1 = 10;
+	int d2 = 100;
 	int[] a1 = new int[n1];
 	int[] a2 = new int[n2];
 	int[] a3 = new int[n1];
@@ -25,47 +25,47 @@ public class Radix {
 	
 	long t;
 
-	/*System.out.println("Radix sort tests");
+	System.out.println("Insertion sort tests");
 
-	long t = System.currentTimeMillis();
-	radix(n1, d1, a1);
+	t = System.currentTimeMillis();
+	insertion(a1);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 
 	t = System.currentTimeMillis();
-	radix(n2, d1, a2);
+	insertion(a2);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 
 	t = System.currentTimeMillis();
-	radix(n1, d2, a3);
+	insertion(a3);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 
 	t = System.currentTimeMillis();
-	radix(n2, d2, a4); 
+	insertion(a4);
 	t = System.currentTimeMillis() - t;
-	System.out.println(t);*/
+	System.out.println(t);
 
-	System.out.println("Arrays.sort tests: ");
-	
+	System.out.println("Selection sort tests");
+
 	t = System.currentTimeMillis();
-	Arrays.sort(a1);
+	selection(a1);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 
 	t = System.currentTimeMillis();
-	Arrays.sort(a2);
+	selection(a2);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 
 	t = System.currentTimeMillis();
-	Arrays.sort(a3);
+	selection(a3);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 
 	t = System.currentTimeMillis();
-	Arrays.sort(a4);
+	selection(a4);
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 
@@ -94,27 +94,139 @@ public class Radix {
 	t = System.currentTimeMillis() - t;
 	System.out.println(t);
 	//System.out.println(Arrays.toString(a4));
+
+	System.out.println("Radix sort tests");
+
+	t = System.currentTimeMillis();
+	radix(n1, d1, a1);
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+
+	t = System.currentTimeMillis();
+	radix(n2, d1, a2);
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+
+	t = System.currentTimeMillis();
+	radix(n1, d2, a3);
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+
+	t = System.currentTimeMillis();
+	radix(n2, d2, a4); 
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+
+	System.out.println("Arrays.sort tests: ");
+	
+	t = System.currentTimeMillis();
+	Arrays.sort(a1);
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+
+	t = System.currentTimeMillis();
+	Arrays.sort(a2);
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+
+	t = System.currentTimeMillis();
+	Arrays.sort(a3);
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
+
+	t = System.currentTimeMillis();
+	Arrays.sort(a4);
+	t = System.currentTimeMillis() - t;
+	System.out.println(t);
     }
 
-    public static int[] bubble(int[] list) {
-	int store = 0;
-	int numSwaps = 0;
-	int numRuns = 0;
+    public static int[] insertion(int[] l) {
+	int list[] = l.clone();
+	int store;
+	int index;
+	long numC = 0;
+	long numA = 0;
+	boolean done;
 
-	for (int i=0; i<list.length-1; i++) {
-	    if (list[i] > list[i+1]) {
-		store = list[i];
-		list[i] = list[i+1];
-		list[i+1] = store;
-		numSwaps++;
+	for (int n=1; n<list.length; n++) {
+	    index = 0;
+	    done = false;
+	    store = list[n];
+
+	    for (int i=n-1; i>=0 && !done; i--) {
+		numC++;
+		if (store > list[i]) {
+		    index = i+1;
+		    done = true;
+		}
 	    }
-	    numRuns++;
+
+	    for (int j=n; j > index; j--)
+		list[j] = list[j-1];
+	    list[index] = store;
+	    numA++;
 	}
+
+	System.out.println("Number of comparisons: " + numC);
+	System.out.println("Number of assignments: " + numA);
+
+	return list;
+    }	
+
+    public static int[] selection(int[] l) {
+	int list[] = l.clone();
+	int min;
+	int index;
+	long numC = 0;
+	long numSwaps = 0; //of min value, going to be n-1 swaps overall
+
+	for (int n=1; n<list.length; n++) {
+	    min = list[n-1];
+	    index = n-1;
+	    for (int i=n; i<list.length; i++) {
+		numC++;
+		if (list[i] < min) {
+		    min = list[i];
+		    index = i;
+		    numSwaps++;
+		}
+	    }
+	    list[index] = list[n-1];
+	    list[n-1] = min;
+	}
+	System.out.println("Number of comparisons: " + numC);
+	System.out.println("Number of swaps: " + numSwaps);
+
+	return list;
+    }
+    
+    public static int[] bubble(int[] l) { //Optimizations noted with comments
+	int[] list = l.clone();
+	int store = 0;
+	long numSwaps = 0;
+	long numRuns = 0;
+
+	for (int n=list.length-1; n > 0; n--) { //Need only n-1 swaps
+	    //Last run puts lowest number in place for sure as well
+	    for (int i=0; i < n; i++) { //We know digits past n are in order
+		if (list[i] > list[i+1]) {
+		    store = list[i];
+		    list[i] = list[i+1];
+		    list[i+1] = store;
+		    numSwaps++;
+		}
+		numRuns++;
+	    }
+	}
+	System.out.println("Number of comparisons: " + numRuns);
+	System.out.println("Number of swaps: " + numSwaps);
+
 	return list;
     }
 	    
 
-    public static int[] radix(int numItems, int numDigits, int[] a) {
+    public static int[] radix(int numItems, int numDigits, int[] list) {
+	int[] a = list.clone();
 	ArrayList[] buckets = new ArrayList[10];
 
 	Random r = new Random();
