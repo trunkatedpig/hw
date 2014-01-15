@@ -4,6 +4,10 @@ public class Driver{
     public static void main(String[] args){
         Buckets b = new Buckets();
         int[] a = {1299,2133,2312,2313,2321,3143,3543,9458,8943,3459};
+	b.bubbleSort();
+	System.out.println(b);
+
+	/*
         long tiem = System.currentTimeMillis();
         Arrays.sort(a);
         System.out.print("10-4:" + (System.currentTimeMillis()-tiem));
@@ -35,7 +39,7 @@ public class Driver{
         tiem = System.currentTimeMillis();
         b.radixSort();
         System.out.println(" "+(System.currentTimeMillis()-tiem));
-
+	*/
 
     }
 }

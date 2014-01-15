@@ -55,6 +55,15 @@ public class Hero  extends Character{
 	ItemI = new Items(i);
 	inventory.add(ItemI);
     }
+    public void removeItems(String s){
+	for (int i =0 ; i < inventory.size(); i++){
+	    if (inventory.get(i).getName().equals(s)){
+		inventory.remove(i);
+		break;
+	    }
+	}
+
+    }
     public String getEW(){
 	return EquipW.getEquipName();
     }
@@ -66,7 +75,6 @@ public class Hero  extends Character{
 	    exp = 0;
 	    level = level + 1;
 	    System.out.println(f.listFence(50,levelStats));
-	    updateStats();
 	    statCount = 5;
 	    System.out.println("Your Stats before leveling up: Strength:" + str + " Dexterity" + dex + " Intelligence" + intell);
 	    System.out.println("You have 5 stats to distribute");
@@ -92,6 +100,7 @@ public class Hero  extends Character{
 	    }
 	    System.out.println("Your Stats after leveling up: Strength:" + str + " Dexterity" + dex + " Intelligence" + intell);
 	}
+	updateStats();
 	
     }
     
@@ -107,6 +116,7 @@ public class Hero  extends Character{
 	evasion = EquipA.getEvasion();
 	expThreshold = (Math.pow(level,5)) + 100;
     }
+
 		
 }
     
