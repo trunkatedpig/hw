@@ -4,6 +4,10 @@ import java.util.*;
 public class Radix{
     private long bubbleComps = 0;
     private long bubbleSwaps = 0;
+    private long selectionComps = 0;
+    private long selectionSwaps = 0;
+    private long insertionComps = 0;
+    private long insertionSwaps = 0;
 
     public int[] sort(int[] A){
         ArrayList[] buckets = new ArrayList[10];
@@ -44,10 +48,13 @@ public class Radix{
     }
 
     public int[] myBubble(int[] A){
-	for (int i =0; i<A.length-1; i++){
+	boolean done = false;
+	for (int i =0; i<A.length-1 && !done; i++){
+	    done = true;
 	    for (int n =0; n<A.length-1-i; n++){
 		bubbleComps ++;
 		if (A[n] > A[n+1]){
+		    done = false;
 		    bubbleSwaps ++;
 		    int tmp = A[n];
 		    A[n] = A[n+1];
@@ -55,8 +62,50 @@ public class Radix{
 		}
 	    }
 	}
+	System.out.println("-----------------\nBubble Sort");
 	System.out.println("Comparisons: " + bubbleComps);
 	System.out.println("Swaps: " + bubbleSwaps);
+	return A;
+    }
+
+    public int[] selection(int[] A){
+	int tmp;
+	for (int i = 0; i<A.length-1; i++){
+	    int minI = i;
+	    for (int j = i; j<A.length; j++){
+		selectionComps ++;
+		if (A[j]<A[minI]){
+		    minI = j;
+		}
+	    }
+	    selectionSwaps ++;
+	    tmp = A[i];
+	    A[i] = A[minI];
+	    A[minI] = tmp;
+	}
+	System.out.println("-------------------\nSelection Sort");
+	System.out.println("Comparisons: " + selectionComps);
+	System.out.println("Swaps: " + selectionSwaps);
+	return A;
+    }
+
+    public int[] insertion(int[] A){
+	int tmp;
+	for (int i=1; i<A.length; i++){
+	    tmp = A[i];
+	    int j;
+	    for (j = i; j>0 && tmp<A[j-1]; j--){
+		A[j] = A[j-1];
+		insertionComps ++;
+		insertionSwaps ++;
+	    }
+	    A[j] = tmp;
+	    insertionSwaps = insertionSwaps + 2;
+	}
+	insertionSwaps = insertionSwaps / 3;
+	System.out.println("-------------------\nInsertion Sort");
+	System.out.println("Comparisons: " + selectionComps);
+	System.out.println("Swaps: " + selectionSwaps);
 	return A;
     }
 
