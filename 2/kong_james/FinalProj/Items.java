@@ -7,7 +7,7 @@ public class Items {
     private int apbonus;
     private String Iname;
     private String[] description;
-    static String descriptions[][] =  {
+    private String descriptions[][] =  {
     	{"Minor Healing Potion","Heals 20 hit points"},
     	{"Healing Potion","Heals 50 hit points"},
     	{"Major Healing Potion","Heals 200 hit points"},
@@ -17,7 +17,6 @@ public class Items {
     	{"Stamina Potion","Recovers 40 ability Power"},
     	{"Elixir","Heals 300 HP, 200 MP, and 100 AP"}    	
     };
-
     public Items(String i){
 	Iname = i;
 	if (i.equals("Minor Healing Potion")){
@@ -75,6 +74,14 @@ public class Items {
     public String getName(){
 	return Iname;
     }
-
+    public int getHealthValue(){
+	return healthheal;
+    }
+    public int getManaValue(){
+	return manaheal;
+    }
+    public int getAPValue(){
+	return apheal;
+    }
  
 }
