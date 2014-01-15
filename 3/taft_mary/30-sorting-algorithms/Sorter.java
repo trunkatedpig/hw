@@ -58,8 +58,8 @@ public class Sorter {
 	    len--;
 	}
 	System.out.println("Bubble sort:");
-	System.out.println("Number of times the sorter went through the loop: "+comparisons);
-	System.out.println("Total number of swaps: "+swaps);
+	System.out.println("Number of comparisons: "+comparisons);
+	System.out.println("Number of swaps: "+swaps);
 	System.out.println();
     }
 
@@ -69,19 +69,20 @@ public class Sorter {
 	    int firstindex=a.length-len;
 	    int swapindex=a.length-1;
 	    for(int i=firstindex;i<a.length;i++) {
-		if (a[i]<a[swapindex])
+		if (a[i]<a[swapindex]) {
 		    swapindex=i;
-		swaps++;
+		    swaps++;
+		}
+		comparisons++;
 	    }
 	    int temp=a[firstindex];
 	    a[firstindex]=a[swapindex];
 	    a[swapindex]=temp;
-	    comparisons++;
 	    len--;
 	}
 	System.out.println("Selection sort:");
-	System.out.println("Number of times the sorter went through the loop: "+comparisons);
-	System.out.println("Total number of swaps: "+swaps);
+	System.out.println("Number of comparisons: "+comparisons);
+	System.out.println("Number of swaps: "+swaps);
 	System.out.println();
     }
 
@@ -93,14 +94,14 @@ public class Sorter {
 		int temp=a[insertindex];
 		a[insertindex]=a[insertindex-1];
 		a[insertindex-1]=temp;
+		comparisons++;
 		swaps++;
 		insertindex--;
 	    }
-	    comparisons++;
 	}
 	System.out.println("Insertion sort:");
-	System.out.println("Number of times the sorter went through the loop: "+comparisons);
-	System.out.println("Total number of swaps: "+swaps);
+	System.out.println("Number of comparisons: "+comparisons);
+	System.out.println("Number of swaps: "+swaps);
 	System.out.println();
     }
 

@@ -5,6 +5,29 @@ public class WordSearch {
 
     private char[][] board;
     private Random rand;
+<<<<<<< HEAD
+    private ArrayList<String> wordList;
+
+    private void readWords(String filename) {
+	wordList = new ArrayList<String>();
+	try {
+	    Scanner sc = new Scanner(new File(filename));
+	    while (sc.hasNext()) {
+		String s =sc.nextLine();
+		wordList.add(s);
+	    }
+	} catch (FileNotFoundException e) {
+	    // if we can't open the file we
+	    // exit the program
+	    System.out.println(e);
+	    System.exit(0);
+	}
+    }
+
+    public WordSearch(int rows, int cols) {
+	rand = new Random();
+	readWords("wordlist");
+=======
     private ArrayList<String> wordList = new ArrayList<String>();
     private ArrayList<String> finalWordList = new ArrayList<String>();
     private Random randGen = new Random();
@@ -12,6 +35,7 @@ public class WordSearch {
     public WordSearch(int rows, int cols) {
 	rand = new Random();
 	readIn("wordsearch.txt");
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
@@ -20,10 +44,13 @@ public class WordSearch {
 
     }
 
+<<<<<<< HEAD
+=======
     public ArrayList<String> getFinalWordList() {
 	return finalWordList;
     }
 
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
     public WordSearch() {
 	this(20,20);
     }
@@ -104,6 +131,29 @@ public class WordSearch {
 	return s;
     }
 
+<<<<<<< HEAD
+    public void readIn() {
+	WordSearch w = new WordSearch(15,30);
+	try { 
+	    sc = new Scanner(new File("wordList"));
+	}
+	catch { 
+	    System.out.println(e);
+	    System.exit(0);
+	}
+	while (sc.hasNext) { 
+	    String s = sc;
+	    wordList.add(s);
+	}
+    }
+
+    public void makePuzzle(int numWords) { 
+	
+    }
+
+
+}
+=======
     public void readIn(String filename) {
 	try { 
 	    Scanner sc = new Scanner(new File(filename));
@@ -137,3 +187,4 @@ public class WordSearch {
 
 }
 
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c

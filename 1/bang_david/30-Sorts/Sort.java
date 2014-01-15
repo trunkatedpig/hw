@@ -57,6 +57,49 @@ public class Sort {
 	
 	return a;
     }
+
+    public int[] selectionSort(){
+	long count = 0;
+	long swap = 0;
+	for (int i = 0; i<a.length-1; i++){
+	    int s = i;
+	    for (int m = i; m<a.length; m++){
+		count ++;
+		if (a[m]<a[s]){
+		    s = m;
+		}
+	    }
+	    int Tmp = a[i];
+	    a[i] = a[s];
+	    a[s] = Tmp;
+	    swap ++;
+	}
+
+	System.out.println("SelectionSwaps: " + swap);
+	System.out.println("SelectionComparisons: " + count);
+	return a;
+    }
+
+
+    public int[] insertionSort(){
+        long count = 0;
+	long swap = 0;
+        for (int i=0; i<a.length - 1; i++){ 
+            int Tmp = a[i];
+	    int m = i;
+            for (m = i; m < a.length -1; m++){
+                a[m] = a[m+1];
+                count ++;
+                swap ++;
+            }
+            a[m] = Tmp;
+            swap ++;
+        }
+	System.out.println("InsertionSwaps: " + swap);
+	System.out.println("InsertionComparisons: " + count);
+	return a;
+    }
+
     
     //  public String toString() {
     //	return Arrays.toString (a);
