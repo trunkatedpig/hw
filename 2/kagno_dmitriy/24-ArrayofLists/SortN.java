@@ -53,5 +53,11 @@ public class SortN{
 	}
 	return rando;
     }
+    
+    public int[] selection(){
+	int[] ta = new int[rando.length];
+	
+	
+    }
 }
 
