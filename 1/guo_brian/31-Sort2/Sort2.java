@@ -1,14 +1,14 @@
 import java.io.*;
 import java.util.*;
 
-public class Sort { 
+public class Sort2 { 
     
     private ArrayList[] buckets = new ArrayList[10];
     private Random r;
     private double[]Test;
     private int[]Test2;
     
-    public Sort(int n) {
+    public Sort2(int n) {
 	Test = new double[n];
 	Test2 = new int[n];
 	Random r = new Random();
@@ -80,7 +80,22 @@ public class Sort {
 	}
 	System.out.println(comparisons);
 	System.out.println(swaps);
-    }		
+    }
+    
+    public void selectionsort() {
+	for (int i = 0; i < Test.length -1; i++) {
+	    double smallest = Test[i];
+	    int placeholder = i;
+	    for (int n = i; n < Test.length; n++) {
+		if (Test[n] < smallest){
+		    smallest = Test[n];
+		    placeholder = n;
+		}
+	    }
+	    Test[placeholder] = Test[i];
+	    Test[i] = smallest;
+	}
+    }
 }
 
 	    
