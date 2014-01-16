@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,6 +8,21 @@ import java.io.*;
 
 public class Driver {
     public static void main(String[] args) {
+<<<<<<< HEAD
+	
+	WordSearch w = new WordSearch(20,40);
+	Random R = new Random();
+	w.RandWords(60);
+	//System.out.println(w);
+	w.FillIn();
+       	System.out.println(w);	
+	System.out.println("WORDS:");
+	for (int i = 0; i < w.length; i++){
+	    if (i != 0 && i%6 == 0) System.out.println("");
+	    System.out.print(w.usedWords.get(i) + " ");
+    	}
+	System.out.println("\n");
+=======
 
 	//////////////////////////
 	// BOARD HEIGHT & WIDTH // 
@@ -51,5 +67,6 @@ public class Driver {
     	}
 	System.out.println("\n");
 	//
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
     }
 }

@@ -98,7 +98,7 @@ public class Character {
 	    hP=hP-loss;
     }
     public void heal(int gain){
-	if (hP >= maxHP)
+	if (hP+gain >= maxHP)
 	    hP=maxHP;
 	else
 	    hP=hP+gain;
@@ -107,10 +107,22 @@ public class Character {
 	hP=maxHP;
     }
     public void setMP(int loss){
-	mP=mP-loss;
+	mP = mP - loss;
+    }
+    public void healMP(int gain){
+	if (mP+gain >= maxMP)
+	    mP=maxMP;
+	else
+	    mP=mP+gain;
     }
     public void setAP(int loss){
 	aP=aP-loss;
+    }
+    public void healAP(int gain){
+	if (aP+gain >= maxAP)
+	    aP=maxAP;
+	else
+	    aP=aP+gain;
     }
     public void setName(String newName){
 	name=newName;
