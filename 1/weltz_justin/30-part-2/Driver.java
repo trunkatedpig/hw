@@ -5,8 +5,8 @@ public class Driver{
     public static void main (String[] args){
 	Bucket Justin = new Bucket();
 	Bucket Maria = new Bucket(1000); 
-	Bucket Bob = new Bucket(1000);		 
-	Bucket Bobby = new Bucket(1000);
+	Bucket Bob = new Bucket(20);		 
+	Bucket Bobby = new Bucket(10);
 	//	System.out.println(Arrays.toString(Justin.getBuckets()));
 	Long one = System.currentTimeMillis();
 	Justin.sort();
@@ -23,16 +23,16 @@ public class Driver{
 	System.out.println(Maria.getComparisons());
 	System.out.println(two - one);
 	System.out.println("-----------------------------------");
-	//	System.out.println(Arrays.toString(Bob.getDoubleBuckets()));
+	System.out.println(Arrays.toString(Bob.getDoubleBuckets()));
 	one = System.currentTimeMillis();
 	Bob.selection();
 	two = System.currentTimeMillis();
-	//	System.out.println(Arrays.toString(Bob.getDoubleBuckets()));
+	System.out.println(Arrays.toString(Bob.getDoubleBuckets()));
 	System.out.println(Bob.getSwap());
 	System.out.println(Bob.getComparisons());
 	System.out.println(two - one);
 	System.out.println("-----------------------------------");
-	//	System.out.println(Arrays.toString(Bobby.getDoubleBuckets()));
+	// System.out.println(Arrays.toString(Bobby.getDoubleBuckets()));
 	one = System.currentTimeMillis();
 	Bobby.insertion();
 	two = System.currentTimeMillis();

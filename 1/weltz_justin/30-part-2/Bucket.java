@@ -13,9 +13,10 @@ public class Bucket{
 	}
     }
 
-    public Bucket(int len){
+    public Bucket(int length){
 	Random r = new Random();
-	doubleBuckets = new double[len];
+		len = length;
+	doubleBuckets = new double[length];
 	for (int i = 0; i < len; i ++){
 	    doubleBuckets[i] = r.nextInt(90)*1.0 + 10.0;
 	}
@@ -70,11 +71,11 @@ public void selection(){
 	for (int j = 0; j < len; j++){
 	   double min = doubleBuckets[j];
 	    for (int i = j; i < len; i++){
-		comparisons++;
-		if (doubleBuckets[i] < min){
+			comparisons++;
+			if (doubleBuckets[i] < min){
 		    min = doubleBuckets[i];
 		    index = i;
-		}
+			}
 	    }
 	    //System.out.println(Arrays.toString(doubleBuckets));
 	    swap++;
