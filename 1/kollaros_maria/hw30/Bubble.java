@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class Bubble{
-    private int len = 10000;
+    private int len = 100000;
     private int[] buckets = new int[len];
     private double[] doubleBuckets = new double[len];
     private int comparisons;

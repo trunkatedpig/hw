@@ -50,7 +50,7 @@ public class Driver{
 
 	one = System.currentTimeMillis();
 	//System.out.println(Harry);
-	Harry.selectionSort();
+	Harry.insertionSort();
 	two = System.currentTimeMillis();
 	//System.out.println(Harry);
 	System.out.println("using insertion sort:");
