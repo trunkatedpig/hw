@@ -49,30 +49,33 @@ public class Bubble{
 	System.out.println(swaps);
     }
 
-    public void insertion (int[a]){
-	int x = a[a.length()];
-	int temp = 0;
-	for (int i = a.length; i >= 0; i--){
-	    for (int j = 0; j < a.length; j++){
-		if (a[j] < x){
-		    x = a[j]
-		
-	    
-}
-    //Needs fix
-    public void selection (int[] a){
-	int temp = a[0];
-	int holder = 0;
-	for (int j = 0; j < a.length; j++){
-	    for (int i = 0; i < a.length; i++){
-		if (a[i] < temp){
-		    temp = a[i];
-		}
+    public void insertion(int[] a){
+	int insertion;
+	int x;  
+	for (int i = 0; i <= a.length - 1; i++){
+	    insertion = a[i];
+	    for(x = i - 1; (x >= 0) && (a[x] < insertion); x--){
+		a[x+1] = a[x];
 	    }
-	    holder = temp;
-	    temp = a[j];
-	    a[j] = holder;
+	    a[x+1]=insertion;
 	}
+	//Done in ascending order; easier to push numbers to the right.
     }
-
+     public void selection(int[] a){
+	 int temp;
+	 int holder;
+	 int[] fix = new int[a.length];
+	 for (int i = a.length - 1; i > 0; i-- ){
+	     temp = 0;
+	     for(int j = 1; j <= i; j ++)
+		 {
+		     if( a[j] < a[temp])         
+			 temp = j;
+		 }
+	     holder = a[temp];
+	     a[temp] = a[i];
+	     a[i] = holder;
+	 }           
+	 //Decided it is easier in descending order
+     }
 }
