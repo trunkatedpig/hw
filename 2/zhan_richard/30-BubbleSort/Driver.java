@@ -9,19 +9,31 @@ public class Driver{
 	//Radix d = new Radix(1000000,20);
 
 	Radix a = new Radix(100,3);
-	Radix b = new Radix(10000,3);
+	Radix b = new Radix(100000,3);
 	Radix c = new Radix(100,20);
-	Radix d = new Radix(10000,20);
+	Radix d = new Radix(100000,20);
+	System.out.println(Arrays.toString(a.insertSort(a.getData())));
+	System.out.println(b.insertSort(b.getData()));
+	System.out.println(c.insertSort(c.getData()));
+	System.out.println(d.insertSort(d.getData()));//no idea why runs so fast; gotta go fast
+	System.out.println(b.getSwaps());
+	System.out.println(b.getConds());
+	System.out.println(d.getSwaps());
+	System.out.println(d.getConds());
+	//System.out.println(Arrays.toString(a.selectSort(a.getData())));
+	//System.out.println(b.selectSort(b.getData()));
+	//System.out.println(c.selectSort(c.getData()));
+	//System.out.println(d.selectSort(d.getData()));
 	//System.out.println(Arrays.toString(a.bSort(a.getData())));
 	//System.out.println(b.bSort(b.getData()));
 	//System.out.println(c.bSort(c.getData())); //the 20 digits doesn't seem to work due to the long restriction if it were printed out
 	//System.out.println(d.bSort(d.getData()));
 
 
-	System.out.println(Arrays.toString(a.optBSort(a.getData())));
-	System.out.println(b.optBSort(b.getData()));
-	System.out.println(c.optBSort(c.getData()));
-	System.out.println(d.optBSort(d.getData()));
+	//System.out.println(Arrays.toString(a.optBSort(a.getData())));
+	//System.out.println(b.optBSort(b.getData()));
+	//System.out.println(c.optBSort(c.getData()));
+	//System.out.println(d.optBSort(d.getData()));
 	/*double t=System.currentTimeMillis();
 	a.sort();
 	System.out.print("10000 elements in with 3 digits: ");

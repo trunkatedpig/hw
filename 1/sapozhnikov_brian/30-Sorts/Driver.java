@@ -4,63 +4,43 @@ import java.util.*;
 public class Driver{
     public static void main(String[] args){
         int[] A = new int[100000];
-	int[] B = new int[1000000];
+	int[] B = new int[100000];
+	int[] C = new int[100000]; 
+	int[] D = new int[100000];
         Random r = new Random();
         for (int i = 0; i<A.length; i++){
-	    A[i] = r.nextInt(10000000);
-	    B[i] = r.nextInt(10000000);
+	    A[i] = r.nextInt(100000);
+	    B[i] = r.nextInt(100000);
+	    C[i] = r.nextInt(100000);
+	    D[i] = r.nextInt(100000);
         }
 
         Radix R = new Radix();
-
-	long start = System.currentTimeMillis();
-		
-	//A = R.sort(A);
-	//A = R.bubble(A);
+	/*
+	System.out.println(Arrays.toString(A));
 	A = R.myBubble(A);
-
+	System.out.println(Arrays.toString(A));*/
+	    
+	  
+	long start = System.currentTimeMillis();
+	A = R.sort(A);
 	long t = System.currentTimeMillis();
-	//System.out.println("Radix sort: " + (t - start));
-	//System.out.println("Bubble sort: " + (t - start));
-	System.out.println("New bubble sort: " + (t - start));
-	//System.out.println(Arrays.toString(A));	
-	// System.out.println(Arrays.toString(A));
+	System.out.println("Radix time: " + (t - start));
+	  
+	start = System.currentTimeMillis();
+	B = R.myBubble(B);
+	t = System.currentTimeMillis();
+	System.out.println("Bubble time:" + (t-start));
 	
-        // System.out.println(R.toString(R.sort(A)));
+	start = System.currentTimeMillis();
+	C = R.selection(C);
+	t = System.currentTimeMillis();
+	System.out.println("Selection time:" + (t-start));
 
 	start = System.currentTimeMillis();
-	
-	//Arrays.sort(B);
-
+	D = R.insertion(D);
 	t = System.currentTimeMillis();
-	//System.out.println("Built-in sort: " + (t - start));
-	// System.out.println(Arrays.toString(B));
-
-	/*
-	  Time Tests
-	  
-	    3-digit numbers
-	         list size: 10,000
-	                 Radix: 23
-		      Built-in: 3
-		 list size: 100,000
-		         Radix: 1254
-		      Built-in: 9
-	         list size: 1,000,000
-	                 Radix: 148,632
-		      Built-in: 55
-	    4-digit number
-	         list size: 10,000
-		         Radix: 16
-		      Built-in: 3
-		 list size: 100,000
-		          Radix: 405
-			  Built-in: 12
-		 list size: 1,000,000
-		          Radix: 40340
-			  Built-in: 77
-
-Rest in notebook
-	 */
+	System.out.println("Insertion time:" + (t-start));
+	
     }
 }

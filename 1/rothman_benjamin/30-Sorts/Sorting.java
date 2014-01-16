@@ -10,7 +10,7 @@ public class Sorting {
     private ArrayList [] buckets;
     private int compareNumber;
     private int swapNumber;
-
+    private int assignments;
 
     public Sorting (int n, int digitas) { //n is the amount of elements in the array, digitas in the digits of the units
 
@@ -130,6 +130,79 @@ public class Sorting {
 	}
 
     }
+
+    }
+
+  public void InsertionSort () {
+
+	int temp = 0;
+
+
+	for (int i = 1; i < numbers.length; i++) {
+	    temp = numbers [i];
+	   boolean counter = true;
+
+
+	    if (numbers [i] < numbers [i-1] ) {
+		compareNumber = compareNumber + 1;
+
+		for (int n = 0; n < i; n++) {
+		
+		    if (counter) {
+
+		    if (numbers [i] < numbers [n]) {
+
+			compareNumber = compareNumber + 1;
+
+			for (int m = i; m > n; m--) {
+
+			    numbers [m] = numbers [m-1];
+			    swapNumber = swapNumber + 1;
+			}
+
+			numbers [n] = temp;
+			swapNumber = swapNumber + 1;
+			counter = false;
+
+		    }
+
+		    }
+
+		}
+
+	    }
+
+	}
+
+  }
+
+   
+
+    public void SelectionSort () {
+
+	int index = 0;
+	int temp2 = 0;
+
+	for (int i = 0; i < numbers.length; i++) {
+
+	    temp2 = numbers [i];
+	    index = i;
+
+	    for (int p = i; p < numbers.length; p++) {
+
+		if (temp2 > numbers [p]) {
+		    compareNumber = compareNumber + 1;
+		    temp2 = numbers [p];
+		    index = p; 
+		}
+
+	    }
+
+	    numbers [index] = numbers [i];
+	    numbers [i] = temp2;
+	    swapNumber = swapNumber + 2;
+	   
+	}
 
     }
 	

@@ -22,4 +22,56 @@ public class Sort {
 	System.out.println("swaps: " + swaps);
 	return D;
     }
+
+    //_____________________________________________
+
+    public int[] selectionsort (int[] D) {
+	int min = 0;
+	int temp = 0;
+	int z = 0;
+
+	for (int index = 0; index < D.length-1; index++) {
+	    
+	    min = D[index];
+	    
+	    for (int i = index; i < D.length-1; i++) {
+		//finding the min
+		if (min > D[i+1]) {
+		    min = D[i+1];
+		    z = i + 1;
+		}
+		comparisons++;
+	    }
+	    //swapping the min with the element at index
+	    temp = D[index];
+	    D[index] = min;
+	    D[z] = temp;
+	    swaps++;
+	}
+	System.out.println("comparisons: " + comparisons);
+	System.out.println("swaps: " + swaps);
+	return D;
+    }
+
+    //_____________________________________________
+
+    public int[] insertionsort (int[] D) {
+	int current = 0;
+	int comparedto = 0;
+
+	for (int i = 0; i < D.length-1; i++) {
+	    current = D[i];
+	    comparedto = D[i+1];
+
+	    while (current > comparedto) {
+		D[i+1] = current;
+		D[i] = comparedto;
+		current = D[i-1];
+		comparedto = D[i];
+	    }
+	    
+	}
+	return D;
+    }
+
 }

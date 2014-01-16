@@ -85,5 +85,57 @@ public class Radix{
 	}
 	return i;
     }
+    public int[] insertSort(int[] i){
+	boolean nest = true;
+	int bucket;
+	for (int j = 1; j < i.length;j++){
+	    for (int k = j;nest && k >0; k--){
+		numCond++;
+		if (i[k] < i[k -1]){
+		    numSwap++;
+		    bucket = i[k-1];
+		    i[k-1] = i[k];
+		    i[k] = bucket;
+		}
+		else{
+		    nest = false;
+		}
+	    }
+	    nest = true;
+	}
+	return i;
+    }
+
+
+		
+		
+    public int[] selectSort(int[] i){
+	int start = 0;
+	int min = i[0];
+	int index = 0;
+	for (int j = 0; j < i.length-1;j++){
+	    for (int k = j; k < i.length; k++){
+		numCond++;
+		if (i[k] < min){
+		    min = i[k];
+		    index = k;
+		}
+	    }
+	    numSwap++;
+	    i[index]=i[start];
+	    i[start]=min;
+	    start++;
+	    index = start;
+	    min = i[start];
+	}
+
+	return i;
+    }
+    public int getConds(){
+	return numCond;
+    }
+    public int getSwaps(){
+	return numSwap;
+    }
 }
 

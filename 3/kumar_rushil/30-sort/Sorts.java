@@ -1,18 +1,18 @@
 import java.io.*;
 import java.util.*;
-public class RadixSort{
+public class Sorts{
 
     ArrayList[] buckets = new ArrayList[10];
     int placevalue = 0;
     int k = 1;
 
-    public RadixSort(){
+    public Sorts(){
 	for (int i = 0; i < buckets.length; i++){
 	    buckets[i]=new ArrayList();
 	}
     }
 
-    public int[] Sort(int[] nums, int digits){   //need to put in digit of the highest number
+    public int[] radixSort(int[] nums, int digits){   //need to put in digit of the highest number
 	int[] temp=nums;
 	for (int q = 0; q < digits; q ++){ 
 	for (int i = 0; i < nums.length; i ++){
@@ -38,9 +38,9 @@ public class RadixSort{
 	int[] temp = nums;
 	int swaps = 0;
 	int comparisons = 0;
-	boolean test = true;
 	for(int k = 0; k <= nums.length; k++){
-	    for(int i = 0; i < nums.length - 1; i++){
+	    boolean test = true;
+	    for(int i = 0; i < nums.length - 1 - k; i++){
 		if(temp[i] > temp[i+1]){
 		    int x = temp[i];
 		    temp[i] = temp[i+1];
@@ -59,6 +59,57 @@ public class RadixSort{
 	System.out.println("Number of swaps:" + swaps);
 	System.out.println("Number of comparisons:" + comparisons);
 	return temp;
+    }
+
+    public int[] insertionSort(int[] nums){
+	int[] result = nums;
+	int swaps = 0;
+	int comparisons = 0;
+	for(int i = 1; i < nums.length; i++){
+	    boolean test = false;
+	    int temp = result[i];
+	    for(int k = 0; k < nums.length && test == false; k++){
+		if(k == 0 && temp <= nums[k]){
+		    nums[i] = nums[k];
+		    nums[k] = temp;
+		    swaps = swaps + 1;
+		}
+	        if(k > 0 && temp > nums[k-1] && temp < nums[k]){
+		    nums[i] = nums[k];
+		    nums[k] = temp;
+		    swaps = swaps + 1;
+		}
+		comparisons = comparisons + 1;
+	    }
+	}
+	System.out.println("Number of swaps:" + swaps);
+	System.out.println("Number of comparisons:" + comparisons);
+	return result;
+    }
+
+    public int[] selectionSort(int[] nums){
+	int[] result = nums;
+	int swaps = 0;
+	int comparisons = 0;
+	int temp = 0;
+	int index = 0;
+	for(int i = 0; i < result.length; i ++){
+	    boolean begin = true;
+	    temp = result[i];
+	    for (int k = i; i < result.length; k++){
+		comparisons = comparisons + 1;
+		if(temp < result[k]){
+		temp = result[k];
+		index = k;
+		}
+	    }
+	    result[k] = result[i];
+	    result[i] = temp;
+	    swaps = swaps + 1;
+	}
+	System.out.println("Number of swaps:" + swaps);
+	System.out.println("Number of comparisons:" + comparisons);
+	return result;
     }
 
 }

@@ -43,4 +43,31 @@ public class Bubble{
 	}
     }
 
+    public void insertion (int[a]){
+	int x = a[a.length()];
+	int temp = 0;
+	for (int i = a.length; i >= 0; i--){
+	    for (int j = 0; j < a.length; j++){
+		if (a[j] < x){
+		    x = a[j]
+			}
+	    }
+	}
+    }
+
+    public void selection (int[] a){
+	int temp = a[0];
+	int holder = 0;
+	for (int j = 0; j < a.length; j++){
+	    for (int i = 0; i < a.length; i++){
+		if (a[i] < temp){
+		    temp = a[i];
+		}
+	    }
+	    holder = temp;
+	    temp = a[j];
+	    a[j] = holder;
+	}
+    }
+
 }

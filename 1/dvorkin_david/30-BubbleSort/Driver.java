@@ -6,6 +6,11 @@ public class Driver {
 	    array[i] = array.length-i;
 	    System.out.print(array[i] + " ");
 	}
-	bubble.bsort(array);
+	bubble.selection(array);
+	System.out.println ("\n=========");
+	for (int i = 0; i < array.length; i++){
+	    array[i] = array.length-i;
+	    System.out.print(array[i] + " ");
+	}
     }
 }

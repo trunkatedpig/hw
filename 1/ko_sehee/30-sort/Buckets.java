@@ -50,16 +50,19 @@ public class Buckets {
     }
 
     public void bubbleSort() {
+	int x = 0;
 	for (int i = 0; i < values.length; i ++){
 	    for (int j = 0; j < values.length -1; j ++){
 		if (values[j] > values[j+1]){
-			    int bigger = values[j];
-			    int smaller = values[j+1];
-			    values [j+1] = bigger;
-			    values [j] = smaller;
+		    int bigger = values[j];
+		    int smaller = values[j+1];
+		    values [j+1] = bigger;
+		    values [j] = smaller;
+		    x=x + 1;
 		}
 	    }
 	}
+	System.out.println(x);
     }
     public String toString(){
 	return Arrays.toString(values);
