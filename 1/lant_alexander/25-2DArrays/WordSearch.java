@@ -10,7 +10,11 @@ public class WordSearch {
     
     Random R = new Random();
     
+<<<<<<< HEAD
+    private ArrayList<String> wordList;
+=======
     public ArrayList<String> wordList;
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
     public ArrayList<String> usedWords = new ArrayList<String>();
     public int length = 0; //length of usedWords
     private char[][] board;
@@ -32,6 +36,20 @@ public class WordSearch {
 		    longest = s.length();
 	    }
 	    //System.out.println(longest);
+	}catch (Exception e) {
+	    System.out.println(e);
+	    System.exit(0);
+	}
+    }
+    
+    private void readWords(String filename){
+	wordList = new ArrayList<String>();
+	try{
+	    Scanner sc = new Scanner(new File(filename));
+	    while(sc.hasNext()){
+		String s = sc.nextLine();
+		wordList.add(s);
+	    }
 	}catch (Exception e) {
 	    System.out.println(e);
 	    System.exit(0);
@@ -66,6 +84,13 @@ public class WordSearch {
 	return "";
     }
     
+<<<<<<< HEAD
+    public String ReadList(){
+	return "";
+    }
+    
+=======
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
     public boolean RandWords(int reps){
 	// will fill board with with "reps" words.
 	// next: dictate length (/complexity!) of words.
@@ -79,19 +104,30 @@ public class WordSearch {
 	    int dy = R.nextInt(3)-1;
 	    int c = R.nextInt(columns);
 	    int r = R.nextInt(rows);
+<<<<<<< HEAD
+=======
 	    String spaces = "";
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
         // *Maybe add to a list  which has all the indexes of the used words?
         // OR: Just go through the words in order!
 	    String word = (wordList.get(i)); //(instruments[R.nextInt(wordList.length())]);
 	    if ((AddWord (r, c, dx, dy, word))){
+<<<<<<< HEAD
+		usedWords.add(word);
+=======
 		for (int s = 0; s < (14 - word.length()); s++)
 		    spaces = spaces + " ";
 		usedWords.add(word + spaces);
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 		length++;
 		stats++;
 	    }
 	}
+<<<<<<< HEAD
+	System.out.println(stats + " ----> " + (stats*10000)/(reps*100)+"%");
+=======
 	//System.out.println(stats + " ----> " + (stats*10000)/(reps*100)+"%");
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 	return true;
     }
     

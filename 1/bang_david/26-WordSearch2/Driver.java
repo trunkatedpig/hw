@@ -16,12 +16,16 @@ public class Driver {
 	//System.out.println(w);
 	//w.fillInBlanks();
 	//System.out.println(w);
+<<<<<<< HEAD
+	w.readFile(wordList);
+=======
 
 	w.ListWords (3);
 	System.out.println (w.getWord ());
 	System.out.println (w);
 	w.fillInBlanks ();
 	System.out.println (w);
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 
 
     }
