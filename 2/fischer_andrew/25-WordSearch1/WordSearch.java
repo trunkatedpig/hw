@@ -102,6 +102,8 @@ public class WordSearch {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     public String toString() {
 	String s="";
 	for (int i=0;i<board.length;i++) {
@@ -111,6 +113,7 @@ public class WordSearch {
 =======
 
 >>>>>>> c3bb70eaf8cc787b45db278904b82ad4774435e9
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
     public void fill(){
 	String allChar = "abcdefghijklmnopqrstuvwxyz";
 	Random x = new Random();
@@ -121,12 +124,26 @@ public class WordSearch {
 		    board[r][c] = allChar.charAt(x.nextInt(26));
 		}
 <<<<<<< HEAD
+=======
+    public String toString() {
+	String s="";
+	for (int i=0;i<board.length;i++) {
+	    for (int j=0;j<board[i].length;j++) {
+		s=s+board[i][j];
+>>>>>>> a16d4eaff2e40dd14fb647c7f97bb4cb1c51c158
+=======
+<<<<<<< HEAD
 >>>>>>> 102f62e2395367dd85aa22a5f72d106331ea491c
 =======
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 	    }
+	    s=s+"\n";
 	}
+	return s;
     }
 
+<<<<<<< HEAD
+=======
     public String toString() {
 	String s="";
 	for (int i=0;i<board.length;i++) {
@@ -139,4 +156,5 @@ public class WordSearch {
 	return s;
     }
 
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 }

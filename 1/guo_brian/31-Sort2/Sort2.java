@@ -94,7 +94,24 @@ public class Sort2 {
 	    }
 	    Test[placeholder] = Test[i];
 	    Test[i] = smallest;
-	}
+	}	
+    }
+    public void insertsort() {
+    	int i = 0;
+    	while (i < Test.length-1) {
+	    if (i == -1){
+		i = i+1;
+	    }
+    	    else if (Test[i] > Test[i+1]) {
+      	        double temp = Test[i];
+    	       	Test[i] = Test[i+1];
+       		Test[i+1] = temp;
+	       	i = i - 1;
+	    }
+	    else if (Test[i] <= Test[i+1]) {
+       		i = i+1;
+	    }
+    	}
     }
 }
 

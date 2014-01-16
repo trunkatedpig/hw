@@ -11,7 +11,8 @@ public class Driver {
 	System.out.println(Arrays.toString(d));
 
 	//s.bubblesort(d);
-	s.selectionsort(d);
+	//s.selectionsort(d);
+	s.insertionsort(d);
 
 	System.out.println(Arrays.toString(d));
     }
