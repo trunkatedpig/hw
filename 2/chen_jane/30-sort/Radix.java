@@ -32,11 +32,14 @@ public class Radix {
         }
     }
 
+    public int[] getArray() {
+	return values;
+    }
+
     public void radixSort(){
         for (int i=0; i<digits; i++){
             for (int j=0; j<numNum; j++){
-		double temp = values[j]/Math.pow(10,i);
-                buckets[(int)temp%10].add(values[j]);
+                buckets[(int)(values[j]/Math.pow(10,i))%10].add(values[j]);
             }
             int n=0;
             for (int m=0; m<numNum; m++){
@@ -51,26 +54,83 @@ public class Radix {
         }
     }
 
-    public String toString(){
-        return Arrays.toString(values);
+
+    public String toString(int[] a){
+        return Arrays.toString(a);
     }
 
     // BUBBLE SORT STUFF STARTS HERE
-    // uses same array (values) as radix
-    public void bSort() {
-	int count = 0;
-	int swaps = 0;
-	for (int i=0; i<values.length-1; i++) {
-	    for (int j=0; j<values.length-1; j++) {
+    protected int bubbleCompare = 0;
+    protected int bubbleSwap = 0;
+    public int[] bSort(int[] array) {
+	/*
+	for (int i=0; i<array.length-1; i++) {
+	    for (int j=0; j<array.length-2; j++) {
 		count++;
-		if (values[j] > values[j+1]) {
-		    int temp = values[j];
-		    values[j] = values[j+1];
+		if (array[j] > array[j+1]) {
+		    int temp = array[j];
+		    array[j] = array[j+1];
 		    values[j+1] = temp;
 		    swaps++;
 		}
 	    }
 	}
+	*/
+	//OPTIMZIED
+	for (int j=array.length-1; j>0; j--) {
+	    for (int i=0; i<j-1; i++) {
+		if (array[i]>array[i+1]) {
+		    int temp = array[i];
+		    array[i] = array[i+1];
+		    array[i+1] = temp;
+		    bubbleSwap = bubbleSwap + 3;
+		}
+		bubbleCompare++;
+	    }
+	}
+	return array;
     }
 
+    //SELECTION SORT
+    protected int selectCompare=0;
+    protected int selectSwap=0;
+    public int[] selection(int[] array) {
+	int smallest;
+	int index=0;
+	for (int j=0; j<array.length-1; j++) {
+	    smallest = array[j];
+	    for (int i=index; i<array.length-1; i++) {
+		if (smallest>array[i+1]) {
+		    smallest = array[i+1];
+		    index = i+1;
+		}
+		selectCompare++;
+	    }
+	    int temp = array[j];
+	    array[j] = smallest;
+	    array[index] = temp;
+	    selectSwap++;
+	}
+	return array;
+    }
+
+    //INSERTION SORT
+    protected int insertCompare = 0;
+    protected int insertSwap = 0;
+
+    public int[] insertion(int[] array) {
+	int temp;
+	for (int i=1; i<array.length; i++) {
+	    for (int j=i; j>0; j--) {
+		if (array[j]<array[j-1]) {
+		    temp = array[j-1];
+		    array[j-1] = array[j];
+		    array[j] = temp;
+		    insertSwap = insertSwap + 3;
+		}
+		insertCompare++;
+	    }
+	}
+	return array;
+    }
 }
