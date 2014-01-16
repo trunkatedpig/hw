@@ -3,8 +3,12 @@ import java.util.*;
 
 public class Radix{
     
-    private int BubbleComparisons = 0;
-    private int BubbleSwaps = 0;
+    private long BubbleComparisons = 0;
+    private long BubbleSwaps = 0;
+    private long selectionComps = 0;
+    private long selectionSwaps = 0;
+    private long insertionComps = 0;
+    private long insertionSwaps = 0;
     
     public int[] sort(int[] A){
         ArrayList[] buckets = new ArrayList[10];
@@ -29,18 +33,59 @@ public class Radix{
 
     public int[] bubble(int[] A) {
         for (int i = 0; i < A.length - 1; i ++) {
-	    for (int j = 0; j < A.length - 1; j ++) {
+            for (int j = 0; j < A.length - 1; j ++) {
                 BubbleComparisons ++;
                 if (A[j] > A[j + 1]) {
-		    int t = A[j];
-		    A[j] = A[j + 1];
-		    A[j + 1] = t;
-		    BubbleSwaps ++;
+                    int t = A[j];
+                    A[j] = A[j + 1];
+                    A[j + 1] = t;
+                    BubbleSwaps ++;
                 }
-	    }
+            }
         }
-	System.out.println("Comparisons: " + BubbleComparisons);
-	System.out.println("Swaps: " + BubbleSwaps);
+	System.out.println("Bubble Sort");
+        System.out.println("Comparisons: " + BubbleComparisons);
+        System.out.println("Swaps: " + BubbleSwaps);
+        return A;
+    }
+    
+    public int[] selection(int[] A){
+        int temp;
+        for (int i = 0; i < A.length - 1; i ++){
+	    int I = i;
+            for (int j = i; j < A.length; j ++){
+                selectionComps ++;
+                if (A[j]<A[I]){
+                    I = j;
+                }
+            }
+            selectionSwaps ++;
+            temp = A[i];
+            A[i] = A[I];
+            A[I] = temp;
+        }
+        System.out.println("Selection Sort");
+        System.out.println("Comparisons: " + selectionComps);
+        System.out.println("Swaps: " + selectionSwaps);
+        return A;
+    }
+
+    public int[] insertion(int[] A){
+        int temp;
+        for (int i = 1; i < A.length; i ++){
+            tmp = A[i];
+            for (int j = i; j > 0 && temp < A[j - 1]; j --){
+                A[j] = A[j - 1];
+                insertionComps ++;
+                insertionSwaps ++;
+            }
+            A[j] = temp;
+            insertionSwaps = insertionSwaps + 2;
+        }
+        insertionSwaps = insertionSwaps / 3;
+        System.out.println("Insertion Sort");
+        System.out.println("Comparisons: " + selectionComps);
+        System.out.println("Swaps: " + selectionSwaps);
         return A;
     }
 }
