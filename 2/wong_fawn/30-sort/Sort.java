@@ -92,7 +92,23 @@ public class Sort {
     }
 
     public int[] insertSort(int[] a) {
-    	return a;
+	int[] temp = new int[a.length];
+	temp[0] = a[0];
+    	for (int i = 1; i < a.length; i++) {
+	    int b = a[i];
+	    for(int x = i; x > 0; x--) {
+		int c = temp[x];
+		if (b < c) {
+		    temp[x] = temp[x-1];
+		    temp[]
+		}
+
+	    }
+	    }
+	}
+	a = temp;
+	printArray(a);
+	return a;
     }
 
     public void printArray(int[] a) {

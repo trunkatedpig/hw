@@ -5,7 +5,7 @@ public class Driver {
     public static void main (String[] args) {
 		ArrayList[] buckets = new ArrayList[10];
 		Sort sort = new Sort();
-		int n = 0, maxDigit = 4, numItems = 5000;
+		int n = 0, maxDigit = 4, numItems = 50;
 		String s = "";
 		long start, end;
 		
@@ -15,12 +15,14 @@ public class Driver {
 		}
 
 		// makes the array of ints to be sorted
-		int[] a = new int[numItems], b = new int[numItems], c = new int[numItems],d = new int[numItems],e = new int[numItems];
+		int[] a = new int[numItems], b = new int[numItems], c = new int[numItems],d = new int[numItems],e = new int[numItems], f = new int[numItems];
 		a = sort.createArray(maxDigit, numItems);
 		System.arraycopy(a, 0, b, 0, a.length);
 		System.arraycopy(a, 0, c, 0, a.length);
 		System.arraycopy(a, 0, d, 0, a.length);
 		System.arraycopy(a, 0, e, 0, a.length);
+		System.arraycopy(a, 0, f, 0, a.length);
+		sort.printArray(f);
 
 
 		//RADIX SORT
@@ -59,7 +61,7 @@ public class Driver {
 		sort.bubbleSort(c);
 		sort.bubbleSortOpt(d);
 		sort.selectSort(e);
-
+		sort.insertSort(f);
 
     }
 
