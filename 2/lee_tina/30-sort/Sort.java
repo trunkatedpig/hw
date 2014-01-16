@@ -8,6 +8,8 @@ public class Sort{
     //private int[] bb;
     private int totCompare;
     private int totSwaps;
+    private int totAssigns;
+    private int totShifts;
   
     public Sort(){
         //fills int array a with random ints
@@ -122,8 +124,8 @@ public class Sort{
     }
 
     public int[] insert(int[] d){
-	totCompare = 0;
-	totSwaps = 0;
+	totAssigns = 0;
+	totShifts = 0;
 	int[] tempd = d;
 	int temp, ind;
 	for (int i = 1; i < tempd.length; i++){
@@ -135,8 +137,8 @@ public class Sort{
 		tempd[ind - 1] = tempd[ind];
 		tempd[ind] = temp;
 		ind = ind - 1;
-		totCompare++;
-		totSwaps++;
+		totAssigns = totAssigns + 3;
+		totShifts = totShifts + 2;
 	    }
 	    
 	}
