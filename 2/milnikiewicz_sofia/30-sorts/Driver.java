@@ -5,42 +5,56 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        System.out.println("Bubble Sort: ");
-
-	Sorts s = new Sorts();
-	System.out.println("Array length 10: ");
-	int[] a = {5,3,67,2,11,787,3,6,1,13};
-	System.out.println(s.toString(a));
-	s.bSort(a);
-	System.out.println(s.toString(a));
-        System.out.println("Array length 100: ");
-	int[] a2 = {5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13,5,3,67,2,11,787,3,6,1,13};
-	System.out.println(s.toString(a2));
-	s.bSort(a2);
-	System.out.println(s.toString(a2));      
-	
-	
-
-	// PART TWO
-
-	long time1,time2;
-
-	System.out.println(Arrays.toString(a));
-	time1 = System.currentTimeMillis();
-	Arrays.sort(a);
-	time2 = System.currentTimeMillis();
-	System.out.println(time2-time1);
-	System.out.println(Arrays.toString(a));
-
-	System.out.println("-------------------------------");
-
-	int[] b = {5,3,67,2,11,787,3,6,1};
-	s.setArray(b);
-	time1 = System.currentTimeMillis();
+        //1000 3-digit numbers
+        //radix sort
+	System.out.println("\n1000 digit numbers: ");
+        Sorts s = new Sorts(3,1000);
+        long t1 = System.currentTimeMillis();
         s.radixSort();
-	time2 = System.currentTimeMillis();
-	System.out.println(time2-time1);
-	System.out.println(Arrays.toString(b));
-	
+        long t2 = System.currentTimeMillis();
+	System.out.print("Radix: ");
+        System.out.println(t2-t1);
+        //bubble sort
+        Sorts s2 = new Sorts(3,1000);
+        t1 = System.currentTimeMillis();
+        s2.bSort();
+        t2 = System.currentTimeMillis();
+	System.out.print("Bubble: ");
+        System.out.println(t2-t1);
+
+        //10000 3-digit numbers
+	System.out.println("\n10000 digit numbers: ");
+        Sorts s3 = new Sorts(3,10000);
+        long t3 = System.currentTimeMillis();
+        s3.radixSort();
+        long t4 = System.currentTimeMillis();
+	System.out.print("Radix: ");
+        System.out.println(t4-t3);
+        //bubble sort
+        Sorts s4 = new Sorts(3,10000);
+        t3 = System.currentTimeMillis();
+        s4.bSort();
+        t4 = System.currentTimeMillis();
+	System.out.print("Bubble: ");
+        System.out.println(t4-t3);
+
+        //100000 3-digit numbers
+        //radix sort
+	System.out.println("\n100000 digit numbers: ");
+        Sorts s5 = new Sorts(3,100000);
+        long t5 = System.currentTimeMillis();
+        s5.radixSort();
+        long t6 = System.currentTimeMillis();
+	System.out.print("Radix: ");
+        System.out.println(t6-t5);
+        //bubble sort
+        Sorts s6 = new Sorts(3,100000);
+        t5 = System.currentTimeMillis();
+        s6.bSort();
+        t6 = System.currentTimeMillis();
+	System.out.print("Bubble: ");
+        System.out.println(t6-t5);
+        
+        //CONCLUSION: radix sort is a lot faster than bubble sort
     }
 }
