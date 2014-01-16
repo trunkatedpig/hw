@@ -7,7 +7,6 @@ public class Driver {
 	Bubble b3 = new Bubble();
 	int[] a = {9,3,5,2,6,4,7,8,1,0};
 	System.out.println(Arrays.toString(b3.bubbleSort(a)));
-	*/
 	Buckets b = new Buckets(100000,3);
 	int[] orig = b.get();
 	System.out.println("Sorting 100,000 3 digit numbers.");
@@ -36,5 +35,32 @@ public class Driver {
 	time = System.currentTimeMillis();
 	b2.bubbleSort(orig2);
 	System.out.println("Bubble sort: " + (System.currentTimeMillis() - time));
+	*/
+	Buckets b = new Buckets(10000,3);
+	int[] a = b.get();
+	Sort s = new Sort();
+
+	double time = System.currentTimeMillis();
+	s.bubbleSort(a);
+	System.out.println("Bubble Sort: \nTime: " + (System.currentTimeMillis() - time));
+	System.out.println("Comparisons: " + s.getComparisons() + "\nAssignments: " + s.getAssignments());
+	//System.out.println(Arrays.toString(s.bubbleSort(a)));
+
+	b = new Buckets(10000,3);
+	a = b.get();
+	//System.out.println(Arrays.toString(a));
+	time = System.currentTimeMillis();
+	s.insertionSort(a);
+	System.out.println("\nInsertion Sort: \nTime: " + (System.currentTimeMillis() - time));
+	System.out.println("Comparisons: " + s.getComparisons() + "\nAssignments: " + s.getAssignments());
+	//System.out.println(Arrays.toString(s.insertionSort(a)));
+
+	b = new Buckets(10000,3);
+	a = b.get();
+	time = System.currentTimeMillis();
+	s.selectionSort(a);
+	System.out.println("\nSelection Sort: \nTime: " + (System.currentTimeMillis() - time));
+	System.out.println("Comparisons: " + s.getComparisons() + "\nAssignments: " + s.getAssignments());
+	//System.out.println(Arrays.toString(s.selectionSort(a)));
     }
 }

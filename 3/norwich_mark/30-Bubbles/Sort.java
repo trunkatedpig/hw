@@ -48,24 +48,32 @@ public class Sort {
 
 
     public void iSort(){
-	for (int i = 1; i < nums.length -1; i++){
-	    for (int j = i+ 1; j <= 0; j--){ 
-		if(nums[i] < nums[j]){
-		    int  temp = nums[i]; 
-		    nums[i] = nums[j]; 
-		    nums[j] = temp; 
-		} 
+	for (int i = 1; i < nums.length; i++){
+	    int j = i; 
+	    while (j-1 >= 0){
+		if(nums[j] < nums[j-1]){
+		    int  temp = nums[j]; 
+		    nums[j] = nums[j-1]; 
+		    nums[j-1] = temp; 
+		}
+		j--;
 	    }
 	}
     }
   	public void sSort(){ 
-	    int min = nums[0];
-	    for(int i = 0; i < nums.length -1; i++){
-		for(int j = i +1; j <nums.length -1; j++){
+	    int x = 0;
+	    int min = nums[x];
+	    int i = 0; 
+	    while(i < nums.length){
+		for(int j = 1; j <nums.length; j++){
 		    if(nums[j] < min){
 			min = nums[j];
+		     
 		    }
-		    nums[i] = min; 
+		    nums[i]=min;
+		    i++;
+		    x++;
+		       
 		}
 	    }
 	}
