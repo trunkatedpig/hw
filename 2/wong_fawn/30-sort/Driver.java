@@ -4,7 +4,8 @@ import java.util.*;
 public class Driver {
     public static void main (String[] args) {
 		ArrayList[] buckets = new ArrayList[10];
-		int n = 0, maxDigit = 3, numItems = 200000;
+		Sort sort = new Sort();
+		int n = 0, maxDigit = 4, numItems = 5000;
 		String s = "";
 		long start, end;
 		
@@ -14,14 +15,13 @@ public class Driver {
 		}
 
 		// makes the array of ints to be sorted
-		int[] a = new int[numItems], b = new int[numItems], c = new int[numItems], d = new int[numItems];
-		for (int i = 0; i < numItems; i++) {
-		    Random r = new Random();
-		    a[i] = r.nextInt((int)(Math.pow(10, maxDigit)));
-		}
-		b = a;
-		c = a;
-		d = a;
+		int[] a = new int[numItems], b = new int[numItems], c = new int[numItems],d = new int[numItems],e = new int[numItems];
+		a = sort.createArray(maxDigit, numItems);
+		System.arraycopy(a, 0, b, 0, a.length);
+		System.arraycopy(a, 0, c, 0, a.length);
+		System.arraycopy(a, 0, d, 0, a.length);
+		System.arraycopy(a, 0, e, 0, a.length);
+
 
 		//RADIX SORT
 	        start = System.currentTimeMillis();
@@ -56,55 +56,11 @@ public class Driver {
 		end = System.currentTimeMillis();
 		System.out.println(end - start);
 
-
-		//BUBBLE SORT
-		int len = c.length;
-		int comps = 0, swaps = 0;
-		start = System.currentTimeMillis();
-		for (int y = len; y > 0; y--) {
-		    for (int i = 1; i < y; i++) {
-			int x = c[i];
-			comps ++;
-			if (x < c[i-1]) {
-			    swaps ++;
-			    c[i] = c[i-1];
-			    c[i-1] = x;
-			}
-		    }
-		}
-		end = System.currentTimeMillis();
-		System.out.println(end- start);
-		System.out.println(comps);
-		System.out.println(swaps);
+		sort.bubbleSort(c);
+		sort.bubbleSortOpt(d);
+		sort.selectSort(e);
 
 
-		//BUBBLE SORT OPTIMIZED
-		comps = 0; swaps = 0;
-		Boolean swapped = false;
-		start = System.currentTimeMillis();
-		for (int y = len; y > 0; y--) {
-			swapped = false;
-		    for (int i = 1; i < y; i++) {
-			int x = d[i];
-			comps ++;
-				if (x < d[i-1]) {
-					swapped = true;
-				    swaps ++;
-				    d[i] = d[i-1];
-				    d[i-1] = x;
-				}
-		    }
-		    if (swapped == false) {
-		    	break;
-		    }
-		}
-		end = System.currentTimeMillis();
-		String str = "";
-		for (int i = 0; i < d.length; i ++ ) {
-			str = str + d[i] + ",";
-		}
-		System.out.println(str);
-		System.out.println(end - start);
     }
 
 }

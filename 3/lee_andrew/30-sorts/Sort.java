@@ -58,13 +58,56 @@ public class Sort {
 		    temp = a[i+1];
 		    a[i+1] = a[i];
 		    a[i] = temp;
-		    swaps = swaps + 1;
+		    swaps = swaps + 3;
 		}
 		else if (a[i] <= a[i+1]) {
 		    greatest = a[i+1];
 		    comparisons = comparisons + 1;
 		}
 	    }
+	}
+	return a;
+    }
+
+    private int comp = 0;
+    private int assignments = 0;
+
+    public int[] insertion(int[] a) {
+	int temp;
+	for (int i=1;i<a.length;i++){
+	    for (int j=i;j>0;j--){
+		if (a[j] < a[j-1]){
+		    comp = comp + 1;
+		    temp = a[j-1];
+		    a[j-1] = a[j];
+		    a[j] = temp;
+		    assignments = assignments + 3;
+		}
+	    }
+	}
+	return a;
+    }
+
+    private int compar = 0;
+    private int swap = 0;
+
+    public int[] selection(int[] a) {
+	int smallest;
+	int position = 0;
+	int temp;
+	for (int i=0;i<a.length;i++){
+	    smallest = a[i];
+	    for (int j=i;j<a.length;j++){
+		if (smallest>a[j]){
+		    smallest = a[j];
+		    position = j;
+		    compar = compar + 1;
+		}
+	    }
+	    temp = a[i];
+	    a[position] = temp;
+	    a[i] = smallest;
+	    swap = swap + 1;
 	}
 	return a;
     }
@@ -76,6 +119,7 @@ public class Sort {
 	for (int i=0;i<a.length;i++){
 	    a[i] = r.nextInt(100);
 	}
-	System.out.println(Arrays.toString(s.bsort(a)));
+	System.out.println(Arrays.toString(a));
+	System.out.println(Arrays.toString(s.selection(a)));
     }
 }

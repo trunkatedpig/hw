@@ -25,7 +25,11 @@ public class WordSearch {
 
     public WordSearch(int rows, int cols) {
 	rand = new Random();
+<<<<<<< HEAD
+	readWords("home/usr/share/dict/words");
+=======
 	readWords("./dictionary.txt");
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 	System.out.println(wordList);
 	board = new char[rows][cols];
 	for (int i=0;i<rows;i++) 
@@ -113,7 +117,11 @@ public class WordSearch {
 	}
 	return s;
     }
+<<<<<<< HEAD
+
+=======
     public String getRandomWord() {
 	return wordList.get(rand.nextInt(wordList.length()-1));
+>>>>>>> bf3a700447573c58e6a86a140ca8250ee965929c
 
 }

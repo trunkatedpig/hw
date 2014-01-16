@@ -5,19 +5,58 @@ public class Driver{
     public static void main(String[] args){
        
 	Sorts sorts  = new Sorts();
-        double[] test = {101,230,405,928,717,838,124,657,309,489};
+
+        double[] test = new double[10];
+        double[] test2 = new double[10];
+	double[] test3 = new double[10];
+	double[] test4 = new double[10];
+
+	for (int i=0;i<10;i++){
+	    test[i]=Math.random()*1000;
+	    test2[i]=Math.random()*1000;
+	    test3[i]=Math.random()*1000;
+	    test4[i]=Math.random()*1000;
+	}
+
+	System.out.println(" ");
 
 
-	long start = System.currentTimeMillis();
 	double[] ans = new double[10];
-	ans = sorts.bsort(test);
+
+	System.out.println("Test: ");
+	long start = System.currentTimeMillis();
+	ans = sorts.sort(test);
 	long end = System.currentTimeMillis();
 
-	System.out.println("Time elapsed: "+(end - start) + " milliseconds");
+	System.out.println("Sort Time elapsed: "+(end - start) + " milliseconds");
 
-	for (double i : ans){
-            System.out.print(i + " ");
-        }
+	
+	double[] ans2 =new double[10];
+
+	System.out.println("Test2: ");
+	start = System.currentTimeMillis();
+	ans2 = sorts.bsort(test2);
+        end = System.currentTimeMillis();
+	System.out.println("Bsort Time elapsed: "+(end - start) + " milliseconds");
+
+
+	double[] ans3 =new double[10];
+
+	System.out.println("Test3: ");
+	start = System.currentTimeMillis();
+	ans2 = sorts.bsort(test3);
+        end = System.currentTimeMillis();
+	System.out.println("Ssort Time elapsed: "+(end - start) + " milliseconds");
+
+
+	double[] ans4 =new double[10];
+
+	System.out.println("Test4: ");
+	start = System.currentTimeMillis();
+	ans2 = sorts.bsort(test4);
+        end = System.currentTimeMillis();
+	System.out.println("Isort Time elapsed: "+(end - start) + " milliseconds");
+
     }
 }                
        
