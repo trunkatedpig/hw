@@ -1,34 +1,35 @@
 import java.util.*;
+import java.math.*;
 
 public class Driver {
     public static void main(String[] args) {
-	System.out.println("Type\tobjects-digits:\t Time");
-	for (int objs=10000;objs<=10000000;objs*=10) {
-	    for (int decs=1;decs<32;decs+=2) {
-		if (objs<1000000||decs<10) {
-		    Radix r1 = new Radix(objs,decs);
-		    Radix r2 = new Radix(objs,decs);
-		    Radix r3 = new Radix(objs,decs);
-		    int t1 = 0;
-		    int t2 = 0;
-		    int t3 = 0;
-		    int start = (int) (System.currentTimeMillis());
-		    r1.sort(r1.getA());
-		    int end = (int) (System.currentTimeMillis());
-		    t1=end-start;
-		    System.out.print((String)"Radix\t "+objs+"-"+decs+": \t"+t1+"\t");
-		    start = (int) (System.currentTimeMillis());
-		    Arrays.sort(r2.getA());
-		    end = (int) (System.currentTimeMillis());
-		    t2=end-start;
-		    System.out.print((String)"Sort\t "+objs+"-"+decs+": \t"+t2+"\t");
-		    start = (int) (System.currentTimeMillis());
-		    r3.bsort(r3.getA());
-		    end = (int) (System.currentTimeMillis());
-		    t3=end-start;
-		    System.out.println((String)"Bubble\t "+objs+"-"+decs+": \t"+t3);
-		}
-	    }
+	System.out.println("Objects\t|Radix:t|Type:Compares\tAssignments\tTime");
+	for (int objs=1000;objs<=25000;objs+=1000) {
+	    Radix r1 = new Radix(objs,5);
+	    Radix r2 = new Radix(objs,5);
+	    Radix r3 = new Radix(objs,5);
+	    Radix r4 = new Radix(objs,5);
+	    int t = 0;
+	    int start = (int) (System.currentTimeMillis());
+	    r1.sort(r1.getA());
+	    int end = (int) (System.currentTimeMillis());
+	    t=end-start;
+	    System.out.print(""+objs+"\t|R:"+t+"\t|I:");
+	    start = (int) (System.currentTimeMillis());
+	    r2.isort(r2.getA());
+	    end = (int) (System.currentTimeMillis());
+	    t=end-start;
+	    System.out.print(""+t+"\t|B:");
+	    start = (int) (System.currentTimeMillis());
+	    r3.bsort(r3.getA());
+	    end = (int) (System.currentTimeMillis());
+	    t=end-start;
+	    System.out.print(""+t+"\t|S:");
+	    start = (int) (System.currentTimeMillis());
+	    r4.ssort(r4.getA());
+	    end = (int) (System.currentTimeMillis());
+	    t=end-start;
+	    System.out.println(t);
 	}
     }
 }
