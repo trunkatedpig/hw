@@ -28,17 +28,19 @@ public class Radix{
     }
 
     public int[] bubble(int[] A) {
-	for (int i = 0; i < A.length - 1; i ++) {
+        for (int i = 0; i < A.length - 1; i ++) {
 	    for (int j = 0; j < A.length - 1; j ++) {
-		BubbleComparisons ++;
-		if (A[i] > A[i + 1]) {
-		    int t = A[i];
-		    A[i] = A[i + 1];
-		    A[i + 1] = t;
+                BubbleComparisons ++;
+                if (A[j] > A[j + 1]) {
+		    int t = A[j];
+		    A[j] = A[j + 1];
+		    A[j + 1] = t;
 		    BubbleSwaps ++;
-		}
+                }
 	    }
-	}
-	return A;
+        }
+	System.out.println("Comparisons: " + BubbleComparisons);
+	System.out.println("Swaps: " + BubbleSwaps);
+        return A;
     }
 }

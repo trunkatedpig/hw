@@ -52,7 +52,7 @@ public class Sorts {
 	nums = temp;
     }
 
-    public void rsort() {
+    public void rSort(int[] nums) {
 	for (int n = 0; n < 4; n++) {
 	    sortIntoBuckets(n);
 	    copyIntoArray();
@@ -65,7 +65,7 @@ public class Sorts {
 	}
     }
 
-    public void bsort(int[] a) {
+    public void bSort(int[] a) {
 	int k = 1;
 	int swaps = 0;
         boolean swapped = false;
@@ -90,6 +90,47 @@ public class Sorts {
 	System.out.println("Swaps: " + swaps);
 	System.out.println("Comparisons: " + comparisons);
     }
+    /*
+    public void iSort() {
+	int num;
+	for (int i = 0; i < nums.length; i++) {
+	    minIndex = findMin(i,nums);
+	    for (int j = i;j < nums.length; j++) {
+
+	    }    
+	}
+    }
+    */
+    public void sSort(int[] nums) {
+	int first;
+	int tmp;
+	int comparisons = 0;
+	for (int i = nums.length - 1; i >= 0; i--) {
+	    first = 0;
+	    for (int j = 0; j <= i; j++) {
+		comparisons++;
+		if (nums[i]>nums[first]) {
+		    first = j;
+		}
+	    }
+	    tmp = nums[first];
+	    nums[first] = nums[i];
+	    nums[i] = tmp;
+	}
+	System.out.println("Comparisons: " + comparisons);
+    }
+		
+
+    public int findMin(int start, int[] a) {
+	int minIndex = 0;
+	for (int i = start; i < a.length; i++) {
+	    if (a[i] < a[minIndex]) {
+		minIndex = i;
+	    }
+	}
+	return minIndex;
+    }
+	
 
 
 	
