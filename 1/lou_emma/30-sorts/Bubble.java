@@ -53,4 +53,28 @@ public class Bubble{
     public String toString(double[]a){
 	return Arrays.toString(a);
     }
+	
+	public double[] selectionSort(double[]a){
+	    double min=0;
+	    int n = 0;
+	    double[]b=new double[a.length];
+	    for (int j=0; j=a.length-1; j++){
+		for (int i=0; i<a.length-1; i++){
+		    if (a[i+1]<a[i])
+			min=a[i+1];
+		}
+		b[n] = min;
+		n =  n + 1;
+
+	    }
+	}
+
+    public double[] insertionSort(double[]a){
+	for (int j==0; j=a.length-1; j++){
+	    for (int i = j; i<a.length-1; i++){
+		    
+	    }
+	}
+    }
 }
+
