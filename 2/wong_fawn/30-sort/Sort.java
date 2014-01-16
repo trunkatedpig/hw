@@ -92,23 +92,33 @@ public class Sort {
     }
 
     public int[] insertSort(int[] a) {
-	int[] temp = new int[a.length];
-	temp[0] = a[0];
-    	for (int i = 1; i < a.length; i++) {
-	    int b = a[i];
-	    for(int x = i; x > 0; x--) {
-		int c = temp[x];
-		if (b < c) {
-		    temp[x] = temp[x-1];
-		    temp[]
-		}
-
-	    }
-	    }
-	}
-	a = temp;
-	printArray(a);
-	return a;
+    	int comps = 0, assignments = 0;
+    	System.out.println("\nINSERT SORT");
+    	int len = a.length;		
+    	long start, end;
+		start = System.currentTimeMillis();
+		int[] tempArr = new int[len];
+		tempArr[0] = a[0];
+	    	for (int i = 1; i < len; i++) {
+			    int insert = a[i];
+			    for(int x = 0; x <= i; x++) {
+			    	comps ++;
+			    	if (insert < tempArr[x]) {
+			    		assignments = assignments + 3;
+			    		int b = tempArr[x];
+			    		tempArr[x] = insert;
+			    		insert = b;
+			    	}
+		   		}
+		   		assignments ++;
+		   		tempArr[i] = insert;
+		    }
+		end = System.currentTimeMillis();
+		System.out.println("time: " + (end - start));
+		System.out.println("comparisons: " + comps);
+		System.out.println("assignments: " + assignments);				    
+		a = tempArr;
+		return a;
     }
 
     public void printArray(int[] a) {
