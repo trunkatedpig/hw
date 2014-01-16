@@ -54,7 +54,7 @@ public class Driver {
         System.out.println();
 
         System.out.println("PART 2: Testing Speed of Sorters");
-        System.out.println("Each Sorter Sorts a 100,000 3-digit numbers");
+        System.out.println("Each Sorter Sorts 100,000 3-digit numbers");
         System.out.println();
 
         long start, timer;
