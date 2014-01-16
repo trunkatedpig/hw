@@ -73,9 +73,51 @@ public class Sort{
 	}
     }
 
+    public int findMin(int[]b, int start){
+	int min=start;
+	for (int i=start;i<b.length;i++){
+	    if (b[i]<b[min]){
+		min=i;
+	    }
+	}
+	return min;
+    }
+    
+    public void sSort(){
+	int n=0;
+	while (n<a.length){
+	    for (int i=n;i<a.length;i++){
+		int k= findMin(a,i);
+		if (a[i]>a[k]){
+		    int r=a[k];
+		    a[k]=a[i];
+		    a[i]=r;
+		}
+	    }
+	    n=n+1;
+	}
+    }
+
+    public void iSort(){
+	int temp=0;
+	for (int i=0;i<a.length;i++){
+	    temp=a[i];
+	    for (int j=0;j<a.length;j++){
+		if (a[j]>a[j+1]){
+		    a[j+1]=a[j];
+		    a[j+1]=temp
+		}
+	    }
+	}
+    }
+    
+
     public static void main(String[] args){
-	Sort s= new Sort(10000);
-	//	System.out.println(s);
+	Sort s= new Sort(10);
+	System.out.println(s);
+	s.sSort();
+	System.out.println(s);
+	/*	System.out.println(s);
 	System.out.println("-------------------------");
 
        	long start=System.currentTimeMillis();
@@ -90,6 +132,7 @@ public class Sort{
 	s.Radex();
 	end=System.currentTimeMillis();
 	System.out.println("Radex Sort: "+(end-start));
+	*/
 
     }
 
