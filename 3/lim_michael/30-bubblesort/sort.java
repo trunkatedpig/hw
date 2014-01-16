@@ -46,6 +46,8 @@ public class sort {
     }
 
     public void bsort(int[] a){
+	compare = 0;
+	swap = 0;
 	for(int i=0;i<a.length;i++){
 	    for(int j=0;j<a.length-1;j++){
 		compare++;
@@ -59,17 +61,61 @@ public class sort {
 	}
     }
 
+    public void insertionSort(int[] a){
+	compare = 0;
+	swap = 0;
+        for (int i=1;i<a.length;i++) {
+            int temp = a[i];
+	    compare++;
+            for(int j=i;j>0 && a[j]<a[j-1];j--) {
+                compare++;
+                a[j] = a[j-1];
+                a[j-1] = temp;
+		swap+=2;
+            }
+        }
+    }
+    
+    public void selectionSort(int[] a){
+	compare = 0;
+	swap = 0;
+	for (int i=0;i<a.length-1;i++) {
+            int min = i;
+            for (int j=i;j<a.length;j++) {
+                compare++;
+                if (a[j]<a[min]) {
+                    min=j;
+                }
+            }
+            for (int k=min;k>i;k--) {
+                a[k]=a[k-1];
+		swap++;
+	    }
+            a[i]=a[min];    
+        }
+    }
+
+    
     public static void main(String[] args) {
 	sort s = new sort();
 	s.generate();
 	System.out.println("Before " + s);
 	s.radixSort();
 	System.out.println("After " + s);
-
+	
 	s.generate();
 	System.out.println("Before " + s);
 	s.bsort(s.ran);
 	System.out.println("After " + s);
-
+	
+	s.generate();
+	System.out.println("Before " + s);
+	s.insertionSort(s.ran);
+	System.out.println("After " + s);
+	
+	s.generate();
+	System.out.println("Before " + s);
+	s.selectionSort(s.ran);
+	System.out.println("After " + s);
     }
 } 
