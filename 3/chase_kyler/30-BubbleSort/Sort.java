@@ -44,6 +44,60 @@ public class Sort {
 	System.out.println("Swaps: " + s);
 	//return nums;
 	}
+
+	public void sSort() {
+		int x, y;
+		int s = 0;
+		int c = 0;
+		for (int i = 0; i < nums.length; i++) {
+			x = nums[i]+1;
+			y = 0;
+			for (int j = i; j<nums.length; j++) {
+				c++;
+				if (nums[j] < x) {
+					x = nums[j];
+					y = j;
+				}
+			}
+			nums[y] = nums[i];
+			nums[i] = x;
+			s++;
+		}
+			System.out.println("Comparisons: " + c);
+			System.out.println("Swaps: " + s);
+	}
+
+	public void iSort() {
+		int x, j;
+		int c = 0;
+		int s = 0;
+		for (int i = 1; i < nums.length; i++) {
+			x = nums[i];
+			j = i;
+			while (j > 0 && x < nums[j-1]) {
+				c++;
+				s++;
+				nums[j] = nums[j-1];
+				nums[j-1] = x;
+				j--;
+			}
+			if (j > 0)
+				c++;
+		}
+		System.out.println("Comparisons: " + c);
+		System.out.println("Swaps: " + s);
+	}
+
+
+
+
+
+
+
+
+
+//this is not my code*****
+/*
  private int Min = 0;
     private int Max = 10;
 	private ArrayList[] buckets = new ArrayList[10];
@@ -84,6 +138,7 @@ public class Sort {
 		System.out.println("Sorted array: " + Arrays.toString(data));
         return Arrays.toString(data);
     }
+	*/
 }
 		
 	
