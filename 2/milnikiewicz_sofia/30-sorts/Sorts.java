@@ -72,5 +72,21 @@ public class Sorts {
             }
         }
     }
+
+    public void iSort(int[] a) {
+	int comps = 0;
+	int swaps = 0;
+	int[] tmp = a;
+	for (int i = 1; i < a.length; i++){
+	    for (int i2 = i; i2>tmp[i]&&tmp[i]<tmp[i-1]; i2--){
+		comps++;
+		swaps++;
+		int t = tmp[i2];
+		tmp[i2]=tmp[i2-1];
+		tmp[i2-1]=t;
+	    }
+	}
+    }
    
+    
 }
