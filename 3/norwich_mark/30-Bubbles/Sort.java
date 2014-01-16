@@ -61,13 +61,19 @@ public class Sort {
 	}
     }
   	public void sSort(){ 
-	    int min = nums[0];
-	    for(int i = 0; i < nums.length -1; i++){
-		for(int j = i +1; j <nums.length -1; j++){
+	    int x = 0;
+	    int min = nums[x];
+	    int i = 0; 
+	    while(i < nums.length){
+		for(int j = 1; j <nums.length; j++){
 		    if(nums[j] < min){
 			min = nums[j];
+		     
 		    }
-		    nums[i] = min; 
+		    nums[i]=min;
+		    i++;
+		    x++;
+		       
 		}
 	    }
 	}
