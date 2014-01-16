@@ -1,4 +1,4 @@
-cd// Worked with Eric Wong on this
+// Worked with Terrance Liang on this
 
 import java.util.*;
 
@@ -63,17 +63,20 @@ public class Sort {
 
     public double[] list() {
 
-        double[] numbers = new double[10];
+        double[] numbers = new double[100000];
         for (int i=0; i<numbers.length; i++) {
             numbers[i] = Math.random()*100;
         }
 
+	return numbers;
     }
 
     public void bubble() {
 	
-	numbers = list();
+	double[] numbers = list();
+	long start,end;
 
+	start = System.currentTimeMillis();
 	double[] sort = numbers;
 	int comp = 0;
 	int swap = 0;
@@ -89,32 +92,84 @@ public class Sort {
 		comp++;
 	    }
 	}
+	end = System.currentTimeMillis();
 
-	System.out.println(Arrays.toString(numbers));
-	System.out.println(Arrays.toString(sort));
+	System.out.println("BUBBLES");
+	System.out.println("Time: " + (end-start));
 	System.out.println("Ifs: " + comp);
 	System.out.println("Swaps: " + swap);
     }
 
     public void selection() {
 
-	numbers = list();
+	double[] numbers = list();
+	long start,end;
 
-	for (int i=1;i<numbers.length-1;i++) {
-	    for (int j=i;j>0;j--) {
+	start = System.currentTimeMillis();
+	int comp = 0;
+	int swap = 0;
+	double[] sort = numbers;
 
+	for (int i=0;i<numbers.length-1;i++) {
+	    int smallIndex = i;
+	    for (int j=i;j<sort.length;j++) {
+		if (sort[j] < sort[smallIndex]) {
+		    comp ++;
+		    smallIndex = j;
+		}
 	    }
-
-	    if (
-
+	    if (i != smallIndex) {
+		double temp = sort[i];
+		sort[i] = sort[smallIndex];
+		sort[smallIndex] = temp;
+		swap ++;
+	    }
 	}
+	end = System.currentTimeMillis();
 
+	System.out.println("SELECTION");
+	System.out.println("Time: " + (end-start));
+	System.out.println("Ifs: " + comp);
+	System.out.println("Swaps: " + swap);
+    }
+
+    public void insertion() {
+
+	double[] numbers = list();
+	long start,end;
+
+	start = System.currentTimeMillis();
+	int comp = 0;
+	int swap = 0;
+	double[] sort = numbers;
+
+	for (int i=1;i<numbers.length;i++) {
+	    for (int j=i;j>0;j--) {
+		if (sort[j] < sort[j-1]) {
+		    double temp = sort[j];
+		    sort[j] = sort[j-1];
+		    sort[j-1] = temp;
+		    swap ++;
+		}
+		comp ++;
+	    }
+	}
+	end = System.currentTimeMillis();
+
+	System.out.println("INSERTION");
+	System.out.println("Time: " + (end-start));
+	System.out.println("Ifs: " + comp);
+	System.out.println("Swaps: " + swap);
     }
 
     public static void main(String args[]) {
 
 	Sort s = new Sort();
 	s.bubble();
+	System.out.println("-----------------------------------------------");
+	s.selection();
+	System.out.println("-----------------------------------------------");
+	s.insertion();
 
     }
 
