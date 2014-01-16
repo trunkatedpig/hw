@@ -5,7 +5,7 @@ public class Bubble{
     private int swaps;
     private int comparisons;
 
-    public int[] radixsort(){
+    /* public int[] radixsort(){
         for (int n=0;n<numDigit;n++){
             for (int i=0;i<intList.length;i++){
                 int digit = 0;
@@ -27,7 +27,7 @@ public class Bubble{
         }
         return intList;
     }
-    
+    */
     public void bsort(int[] a){
 	for(int i = 0; i < a.length; i++) {
 	    for(int j = 0; j < a.length-1; j++) {
@@ -47,6 +47,32 @@ public class Bubble{
 	}
 	System.out.println("comp="+comparisons);
 	System.out.println(swaps);
+    }
+
+    public void insertion (int[a]){
+	int x = a[a.length()];
+	int temp = 0;
+	for (int i = a.length; i >= 0; i--){
+	    for (int j = 0; j < a.length; j++){
+		if (a[j] < x){
+		    x = a[j]
+		
+	    
+}
+    //Needs fix
+    public void selection (int[] a){
+	int temp = a[0];
+	int holder = 0;
+	for (int j = 0; j < a.length; j++){
+	    for (int i = 0; i < a.length; i++){
+		if (a[i] < temp){
+		    temp = a[i];
+		}
+	    }
+	    holder = temp;
+	    temp = a[j];
+	    a[j] = holder;
+	}
     }
 
 }

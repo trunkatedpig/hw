@@ -42,5 +42,39 @@ public class Sorts {
 	}   
 	return values;
     }
+    public double[] insertionSort(double[] list){
+	int assigns = 0;
+	for (int i=0; i<list.length-1; i++){
+	    int m = i;
+	    while (m>=0 && list[m] > list [m + 1]){
+		double temp = list[m];
+		list[m] = list [m+1];
+		list[m+1] = temp;
+		assigns = assigns + 1;
+		m = m -1;
+	    }
+	}
+	System.out.println ("assigns: " + assigns);
+	return list;
+    }
+    public double[] selectionSort(double[] list){
+	int swaps = 0;
+	int compares = 0;
+	for (int i = 0; i<list.length; i++){
+	    int curMin = i;
+	    for (int m= i; m <list.length; m++){
+		if (list[curMin] > list[m]){
+		    curMin = m;
+		}
+		compares = compares + 1;
+	    }
+	    double temp = list[i];
+	    list[i] = list[curMin];
+	    list[curMin] = temp;
+	    swaps = swaps + 1;
+	}
+	System.out.println ("swaps: " + swaps + " compares: " + compares);
+	return list;
+    }
 
 }

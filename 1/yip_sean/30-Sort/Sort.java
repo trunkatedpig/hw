@@ -1,13 +1,11 @@
 import static java.lang.Math.pow;
-import static java.lang.System.nanoTime;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Sort {
 	public static int[] bubbleSort(int[] array) {
-		int comparisons, swaps;
-		comparisons = swaps = 0;
+		int comparisons = 0, assignments = 0;
 		for (int i = 0; i < array.length - 1; i++) {
 			for (int j = 1; j < array.length - i; j++) {
 				comparisons++;
@@ -15,11 +13,29 @@ public class Sort {
 					int temp = array[j];
 					array[j] = array[j - 1];
 					array[j - 1] = temp;
-					swaps++;
+					assignments += 3;
 				}
 			}
 		}
-		System.out.println(Arrays.toString(array) + "\nComparisons: " + comparisons + "\nSwaps: " + swaps);
+		System.out.println(Arrays.toString(array) + "\nComparisons: " + comparisons + "\nAssignments: " + assignments);
+		return array;
+	}
+	
+	public static int[] insertionSort(int[] array) {
+		int comparisons = 0, assignments = 0;
+		for (int i = 1; i < array.length; i++) {
+			int temp = array[i], j = i;
+			assignments += 2;
+			while ((j > 0) && (array[j - 1] > temp)) {
+				comparisons++;
+				array[j] = array[j - 1];
+				assignments++;
+				j--;
+			}
+			array[j] = temp;
+			assignments++;
+		}
+		System.out.println(Arrays.toString(array) + "\nComparisons: " + comparisons + "\nAssignments: " + assignments);
 		return array;
 	}
 	
@@ -27,13 +43,11 @@ public class Sort {
 		//@SuppressWarnings(value = "unchecked")
 		ArrayList<Integer>[] buckets = new ArrayList[10];
 		for (int i = 0; i < 10; i++) {buckets[i] = new ArrayList<Integer>();} //Sort of generic array creation. This will still generate unchecked warnings but each ArrayList will be type Integer.
-		
 		int maximum = array[0];
 		for (int i = 1; i < array.length; i++) {if (array[i] > maximum) {maximum = array[i];}}
 		byte max = -1;
 		for (; maximum > 0; maximum /= 10) {max++;} //A while loop would work but one-line code FTW.
 		//   ^ Yes, that is valid.
-		
 		for (byte i = 0; i <= max; i++) {
 			for (int j = 0; j < array.length; j++) {
 				if (array[j] < (int) pow(10, i)) {buckets[0].add(array[j]);}
@@ -51,24 +65,31 @@ public class Sort {
 		return array;
 	}
 	
-	public static int[] randomIntArray(int length, int max) {
+	public static int[] randomIntArray(int length, int maximum) {
 		int[] array = new int[length];
 		Random random = new Random();
-		for (int i = 0; i < length; i++) {array[i] = random.nextInt(max);}
+		for (int i = 0; i < length; i++) {array[i] = random.nextInt(maximum);}
 		return array;
 	}
 	
-	public static void main(String[] args) {
-		int[] array = randomIntArray(100, 100);
-		long t1, t2;
-		t1 = nanoTime();
-		bubbleSort(array);
-		t2 = nanoTime();
-		System.out.println("Time: " + (t2 - t1) + " ns / " + ((double) (t2 - t1) / 1000000) + " ms / " + ((double) (t2 - t1) / 1000000000) + " s");
-		System.out.println();
-		t1 = nanoTime();
-		System.out.println(Arrays.toString(radixSort(array)));
-		t2 = nanoTime();
-		System.out.println("Time: " + (t2 - t1) + " ns / " + ((double) (t2 - t1) / 1000000) + " ms / " + ((double) (t2 - t1) / 1000000000) + " s");
+	public static int[] selectionSort(int[] array) {
+		int comparisons = 0, assignments = 0;
+		for (int i = 0; i < array.length - 1; i++) {
+			int indexOfMinimum = i;
+			assignments++;
+			for (int j = i + 1; j < array.length; j++) {
+				comparisons++;
+				if (array[j] < array[indexOfMinimum]) {
+					indexOfMinimum = j;
+					assignments++;
+				}
+			}
+			int temp = array[i];
+			array[i] = array[indexOfMinimum];
+			array[indexOfMinimum] = temp;
+			assignments += 3;
+		}
+		System.out.println(Arrays.toString(array) + "\nComparisons: " + comparisons + "\nAssignments: " + assignments);
+		return array;
 	}
 }

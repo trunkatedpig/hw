@@ -22,4 +22,31 @@ public class Sort {
 	System.out.println("swaps: " + swaps);
 	return D;
     }
+
+    //_____________________________________________
+
+    public int[] selectionsort (int[] D) {
+	int min = 0;
+	int temp = 0;
+
+	for (int index = 0; index < D.length-1; index++) {
+	    
+	    min = D[index];
+	    
+	    for (int i = index; i < D.length-1; i++) {
+		//finding the min and swapping
+		if (min > D[i+1]) {
+		    min = D[i+1];
+		    temp = D[i+1];
+		    D[i] = D[i+1];
+		    D[i+1] = temp;
+		}
+	    }
+	}
+	//System.out.println(min);
+	return D;
+    }
+
+    //_____________________________________________
+
 }

@@ -17,7 +17,7 @@ public class Driver{
 
 
 	//Bubblesort too 384, radix took 47. 25341768 swaps, 99980001 comparisons
-	Sort z = new Sort (100000);
+	/*	Sort z = new Sort (100000);
         e = System.currentTimeMillis();
         z.bSort ();
         f = System.currentTimeMillis();
@@ -30,7 +30,20 @@ public class Driver{
         y.bSort ();
         f = System.currentTimeMillis();
         System.out.println("Bubblesort:" + (f-e));
-	
+	*/
+	Sort m = new Sort(10000);
+        Sort n = new Sort(10000);
+        c = System.currentTimeMillis();
+        m.selectionSort();
+        d = System.currentTimeMillis();
+        System.out.println("Selection: " + (d-c));
+
+	// 120
+        e = System.currentTimeMillis();
+        n.insertionSort ();
+        f = System.currentTimeMillis();
+        System.out.println("Insertion:" + (f-e));
+	//10
 
     }
 }

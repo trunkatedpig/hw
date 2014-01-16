@@ -118,6 +118,48 @@ public class Sorts {
         }
         return a;
     }
+
+    public void insertSort(int[] a){
+	int assignCount = 0;
+	int j = 0;
+
+	while (j < a.length - 1) {
+	    int hold = j;
+
+	    if (a[j] > a[j+1]) {
+		temp = a[j+1];
+		a[j+1] = a[j];
+		a[j] = temp;
+		assignCount++;
+		j--;
+	    }
+	    else {
+		hold++;
+		j = hold;
+	    }
+	}
+    }
+
+    public void selectSort(int[] a) {
+	int j = 0;
+	int i = 0;
+	
+	while (j < a.length - 1) {
+
+	    while (i < a.length - 1) { 
+		int hold = j;
+		
+		if (a[i] > a[i+1]) {
+		    hold++;
+		}
+		else i++;
+	    }
+	    
+	    
+	}
+
+    }
+
     
     public static void main(String[] args) {
 	Sorts s = new Sorts();
@@ -139,7 +181,7 @@ public class Sorts {
         System.out.println(s.toString(k) + "\n");
 
 	System.out.println(s.toString(l));
-        s.bSortOpt(l);
+        s.insertSort(l);
         System.out.println(s.toString(l) + "\n");
     }	
     
