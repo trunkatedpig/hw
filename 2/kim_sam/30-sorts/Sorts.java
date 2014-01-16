@@ -127,9 +127,9 @@ public class Sorts {
 	    int hold = j;
 
 	    if (a[j] > a[j+1]) {
-		temp = a[j+1];
+		hold = a[j+1];
 		a[j+1] = a[j];
-		a[j] = temp;
+		a[j] = hold;
 		assignCount++;
 		j--;
 	    }
@@ -141,32 +141,35 @@ public class Sorts {
     }
 
     public void selectSort(int[] a) {
-	int j = 0;
 	int i = 0;
-	
-	while (j < a.length - 1) {
+	int j = 1;
+	int temp = 0;
+	int round = 0;
 
-	    while (i < a.length - 1) { 
-		int hold = j;
-		
-		if (a[i] > a[i+1]) {
-		    hold++;
-		}
-		else i++;
+	while (i < a.length - 1) { 
+	    
+	    if (a[i] > a[j]) {
+		i = j;
 	    }
+	    else j++;
 	    
-	    
+	    if (j == a.length - 1) {
+		temp = a[round];
+		a[round] = a[i];
+		a[i] = temp;
+		round++;
+		i = round;
+		j = round + 1;
+	    }
 	}
-
     }
-
     
     public static void main(String[] args) {
 	Sorts s = new Sorts();
 	int[] i = {3, 4, 6, 7, 9, 12, 16, 19, 21};
 	int[] j = {3, 4, 6, 7, 9, 12, 16, 19, 21};
-	int[] k = {1, 7, 4, 8, 11, 4, 17, 22, 14};
-	int[] l = {1, 7, 4, 8, 11, 4, 17, 22, 14};
+	int[] k = {1, 7, 4, 8, 11, 4, 17, 22, 14, 18};
+	int[] l = {1, 7, 4, 8, 11, 4, 17, 22, 14, 18};
 
 	System.out.println(s.toString(i));
         s.bSort(i);
@@ -177,11 +180,11 @@ public class Sorts {
         System.out.println(s.toString(j) + "\n");
 
 	System.out.println(s.toString(k));
-        s.bSort(k);
+        s.insertSort(k);
         System.out.println(s.toString(k) + "\n");
 
 	System.out.println(s.toString(l));
-        s.insertSort(l);
+        s.selectSort(l);
         System.out.println(s.toString(l) + "\n");
     }	
     

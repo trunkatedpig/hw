@@ -70,8 +70,52 @@ public class RadixSort {
 	return nums;
     }
 
+    public int[] ssort() {
+	int min;
+	int mindex = 0;
+	int numComps= 0;
+	int numSwaps=0;
+	
+	for (int p=0; p<nums.length-1; p++) {
+	    min=nums[p];
+	    for (int q= p+1; q<nums.length; q++) {
+		if (nums[q] < min) {
+		    min = nums[q];
+		    mindex= q;
+		}
+		numComps=numComps+1;
 
+	    }
+	    nums[mindex]=nums[p];
+	    numSwaps=numSwaps+1;
+	    nums[p]=min;
+	    numSwaps=numSwaps+1;
+	    
+	}
+	System.out.println(numSwaps +":"+numComps);
+	return nums;
+    }
 
-
-
+    public int[] isort() {
+	int numSwaps = 0;
+	int numComps = 0;
+	for ( int i = 0 ; i < nums.length ; i++ ) {
+	    //System.out.println(Arrays.toString(nums));
+	    for (int j=i; j>0;j--){
+		numComps=numComps+1;
+		if (nums[j] <nums[j-1]) {
+		    int temp =nums[j-1];
+		    nums[j-1]=nums[j];
+		    nums[j]=temp;
+		    numSwaps=numSwaps+2;
+		    //System.out.println(Arrays.toString(nums));
+		}
+		else {
+		    break;
+		}
+	    }
+	}
+	System.out.println(numSwaps +":"+numComps);
+	return nums;
+    }
 }

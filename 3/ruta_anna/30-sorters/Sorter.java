@@ -6,7 +6,7 @@ public class Sorter{
     private ArrayList[] buckets = new ArrayList[10];
     private int[] nums;
     private int digits, size;
-    private int compFreqs,swapperFreqs;
+    private int compFreqs,swapFreqs;
     Random r = new Random();
 
 //Default Constructor (ten 4-digit integers)
@@ -61,13 +61,15 @@ public class Sorter{
 
 //Bubble Sort Method
 	public int[] bubble(int[] a) {
+		swapFreqs = 0;
+		compFreqs = 0;
 		int[] tempArray = new int[a.length];
 	  	tempArray = a;
 	    for (int i = 0; i<a.length; i++){
 	    	for (int j = 0; j < a.length-1; j++){
 	        	compFreqs++;
 	            if (tempArray[j] > tempArray[j+1]){
-	            	swapperFreqs++;
+	            	swapFreqs++;
 	                int temp = tempArray[j];
 	                tempArray[j] = tempArray[j+1];
 	                tempArray[j+1] = temp;
@@ -77,12 +79,55 @@ public class Sorter{
 	    return tempArray;
     }
 
+//Selection Sort Method
+    public int[] selection(int[] a){
+		swapFreqs = 0;
+		compFreqs = 0;
+		int[] tempArray = new int[a.length];
+		tempArray = a;
+	    for (int i = 0; i<a.length; i++) {
+	    	int smallest = tempArray[i];
+	        int tracker = i;
+	        for (int j = i+1; j<a.length; j++) {
+	        	if (tempArray[j] <= smallest) {
+	            	smallest = tempArray[j];
+	                tracker = j;
+	            }
+	           	compFreqs++;
+			}
+	        tempArray[tracker] = tempArray[i];
+	        tempArray[i] = smallest;
+	        swapFreqs++;
+	    }
+        return tempArray;
+	}
+
+//Insertion Sort Method
+	public int[] insertion(int[] a) {
+    	swapFreqs = 0;
+        compFreqs = 0;
+        int[] tempArray = new int[a.length];
+        tempArray = a;
+        for (int i = 0; i<a.length; i++) {
+            for (int j = i; j>0; j--) {
+            	if (tempArray[j] <= tempArray[j-1]) {
+                	int smallest = tempArray[j];
+                    tempArray[j] = tempArray[j-1];
+                    tempArray[j-1] = smallest;
+                    swapFreqs++;
+                }
+           		compFreqs++;
+        	}
+        }
+        return tempArray;
+    }
+
 	public int getComp() {
 		return compFreqs;
 	}
 
 	public int getSwap() {
-		return swapperFreqs;
+		return swapFreqs;
 	}
 
 	public int[] getnums(){

@@ -109,6 +109,47 @@ public class Sorts {
         return longList;
     }
 
+    public long[] selectionSort() {
+        int comparisons = 0;
+        int swaps = 0;
+        /* // For random list generation
+        longList = new long[length];
+        for (int i=0; i<longList.length; i++) {
+            longList[i] = r.nextLong(Long.MAX_VALUE);
+        }
+        */
+        longList = new long[list.length];
+        for (int i=0; i<longList.length; i++) {
+            longList[i] = (long) list[i];
+        }
+        //System.out.println(Arrays.toString(longList));
+        long minTemp;
+        int minIndex;
+        
+        long start = System.currentTimeMillis();
+
+        for (int i=0; i<longList.length-1; i++) {
+            minTemp = longList[i];
+            minIndex = i;
+            for (int j=i+1; j<longList.length; j++) {
+                comparisons++;
+                if (longList[j] < minTemp) {
+                    minTemp = longList[j];
+                    minIndex = j;
+                }
+            }
+            swaps++;
+            longList[minIndex] = longList[i];
+            longList[i] = minTemp;
+        }
+
+        long end = System.currentTimeMillis();
+
+        //System.out.println(Arrays.toString(longList));
+        System.out.println("Comparisons: " + comparisons + " | Swaps: " + swaps + " | Time: " + (end - start));
+        return longList;
+    }
+
     public long[] radixSort() {
         /* // For random list generation
         long[] longList = new long[length];

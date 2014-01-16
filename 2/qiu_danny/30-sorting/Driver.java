@@ -17,6 +17,11 @@ public class Driver {
 
         System.out.println("\n--- Bubble Sort ---");
         s.bubbleSort();
+
+        System.out.println("\n--- Insertion Sort ---");
+        s.insertionSort();
+
+        System.out.println("\n--- Selection Sort ---");
+        s.selectionSort();
     }
 }
-
