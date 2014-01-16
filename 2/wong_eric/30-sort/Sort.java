@@ -1,4 +1,4 @@
-// Worked with Terrance Liang on this
+// Worked with Eric Wong on this
 
 import java.util.*;
 
