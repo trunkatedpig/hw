@@ -59,6 +59,48 @@ public class sort {
             }
         }
     }
+    public int[] isort(int[] a){
+            int pri = 0;
+            int sec = 0;
+        for (int i=1;i<a.length;i++) {
+            int j = i;
+            int temp = a[j];
+            pri++;
+            sec++;
+            while (j>0 && a[j]<a[j-1]) {
+                sec++;
+                pri+=2;
+                a[j] = a[j-1];
+                a[j-1] = temp;
+                j--;
+            }
+        }
+    System.out.print(""+sec+""+pri+"");
+    return a;
+    }
+
+      public int[] ssort(int[] a){
+            int pri = 0;
+            int sec = 0;
+        for (int i=0;i<a.length-1;i++) {
+            int min = i;
+            pri+=2;
+            for (int j=i;j<a.length;j++) {
+                sec++;
+                if (a[j]<a[min]) {
+                    min=j;
+                    pri++;
+                }
+            }
+            int min = a[min];
+            for (int k=min;k>i;k--) {
+                a[k]=a[k-1];
+                pri++;
+            }
+            a[i]=min;    
+        }
+    System.out.print(""+sec+""+pri+"");
+    return a;
 
     public static void main(String[] args) {
         sort s = new sort();
