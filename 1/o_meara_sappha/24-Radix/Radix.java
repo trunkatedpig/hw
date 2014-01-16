@@ -2,6 +2,10 @@ import java.io.*;
 import java.util.*;
 
 public class Radix{
+    
+    private int BubbleComparisons = 0;
+    private int BubbleSwaps = 0;
+    
     public int[] sort(int[] A){
         ArrayList[] buckets = new ArrayList[10];
         int n = 0;
@@ -20,6 +24,23 @@ public class Radix{
             }
             n = n + 1;
         }
+        return A;
+    }
+
+    public int[] bubble(int[] A) {
+        for (int i = 0; i < A.length - 1; i ++) {
+	    for (int j = 0; j < A.length - 1; j ++) {
+                BubbleComparisons ++;
+                if (A[j] > A[j + 1]) {
+		    int t = A[j];
+		    A[j] = A[j + 1];
+		    A[j + 1] = t;
+		    BubbleSwaps ++;
+                }
+	    }
+        }
+	System.out.println("Comparisons: " + BubbleComparisons);
+	System.out.println("Swaps: " + BubbleSwaps);
         return A;
     }
 }

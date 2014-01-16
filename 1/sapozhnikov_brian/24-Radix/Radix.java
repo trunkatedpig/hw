@@ -43,6 +43,23 @@ public class Radix{
 	return A;
     }
 
+    public int[] myBubble(int[] A){
+	for (int i =0; i<A.length-1; i++){
+	    for (int n =0; n<A.length-1-i; n++){
+		bubbleComps ++;
+		if (A[n] > A[n+1]){
+		    bubbleSwaps ++;
+		    int tmp = A[n];
+		    A[n] = A[n+1];
+		    A[n+1] = tmp;
+		}
+	    }
+	}
+	System.out.println("Comparisons: " + bubbleComps);
+	System.out.println("Swaps: " + bubbleSwaps);
+	return A;
+    }
+
      // public String toString(int[] A){
      // 	String Ans = "{";
      // 	for (int i = 0; i < A.length; i++)

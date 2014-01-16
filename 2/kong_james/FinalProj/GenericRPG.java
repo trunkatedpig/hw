@@ -11,9 +11,8 @@ public class GenericRPG {
     private String[][] magicStorePotions = {{"(1)Minor Healing Potion-$3","Heals 20 hit points"},{"(2)Healing Potion-$15","Heals 50 hit points"},{"(3)Major Healing Potion-$40","Heals 200 hit points"},{"(4)Minor Mana Potion-$2","Heals 10 mana"},{"(5)Mana Potion-$10","Heals 40 mana"},{"(6)Major Mana Potion-$25","Heals 100 mana"},{"(7)Stamina Potion-$20","Recovers 40 ability power"},{"(8)Elixir-$100","Heals 300 HP, 200 MP, 100 AP"}};
     private String[][] swordList = {{"(1)Short Sword-$15","3-6 Damage","2% Crit","85% Accuracy"},{"(2)Sabre-$50","4-9 Damage","%15 Crit","95% Accuracy"},{"(3)Long Sword-$60","11-18 Damage","10% Crit","75% Accuracy"},{"(4)Scimitar-$100","13-20 Damage","20% Crit","85% Accuracy"}};
     private String[][] armorList = {{"(1)Leather Armor-$15","5 Armor","10% Evasimon"},{"(2)Copper Cuirass-$40","12 Armor","2% Evasion"},{"(3)Iron Suit-$80","20 Armor","20% Evasion"},{"(4)Chainmail-$110","15 Armor","25% Evasion"}};
-    private String[] smethod = {"v.setHP(20)","h.heal(h.getIntell())","h.setStr(10)","v.setHP(h.getIntell()*3)","h.setCritStat(.05)","h.heal(h.getIntell() * 2)","v.setHP(h.getIntell()*4)","poision?myniggacan'tfight","h.fullheal()","h.setHP(10000000000)" };
-    private String[] cmethod = {"h.setMP(4)","h.setMP(10)","h.setMP(8)","h.setMP(15)","h.setMP(19)","h.setMP(24)","h.setMP(30)","h.setMP(35)","h.setMP(77)","h.setMP(100)"};
-    private String[] s2method= {"", "","","","","","","","",""};
+   
+    
 
     private String[] fightOptions = {"(1)Attack","(2)Abilties","(3)Spells","(4)Items"};
     private Enemy bounty;
@@ -198,7 +197,6 @@ public class GenericRPG {
 
 
     public void hospital(){
-	System.out.println("    _____ \n   ,\\_+_/,\n  ,((''')),\n  ,(|*_*|),\n   ·; = ;·\n   __) (__\n  /  \\_/  \\\n /_(_ : _)_\\\n | |)___( \\ \\\n | /     \\/ /\n");
 	System.out.println("Gold: " + h.getGold());
 	System.out.println("How can I help you?");
 	System.out.println(f.multiFence(2,1,20,2,hospitalOptions));
@@ -302,7 +300,7 @@ public class GenericRPG {
 	    h.levelUp();
 	}
 	Random generator = new Random();
-	bountyNumber = generator.nextInt(4) + 2;
+	//bountyNumber = generator.nextInt(4) + 2;
 	System.out.println("Total Gained Experience:" + totale + " " + "Total Gained Gold:" + totalg);
 	totale = 0;
 	totalg = 0;
@@ -322,42 +320,77 @@ public class GenericRPG {
 		      
     }
     public void train(){
-	    Enemy v = new Enemy(bounty.getName(),h);
+	Enemy v = new Enemy(bounty.getName(),h);
 	    
-	    while (h.getHP()>0 && v.getHP()>0){
-		System.out.println(f.singleFence(50,3,"Level:" + v.getLevel()+ " " + "Name:"+v.getName()+" "+v.getHP()+ "/" +v.getMaxHP()+"HP "+
-						 v.getMP()+"/"+v.getMaxMP()+"MP"));
-		System.out.println(bounty.getPortrait());
-		System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
-						 h.getMP()+"/"+h.getMaxMP()+"MP "+ h.getAP()+"/"+h.getMaxAP()+"AP "+
-						 "Level:" + h.getLevel()+" Gold:"+h.getGold()+" Exp:"+h.getXP()));
-		System.out.println(f.multiFence(2,2,20,2,fightOptions));
-		String fightInput = sc.nextLine();
+	while (h.getHP()>0 && v.getHP()>0){
+	    System.out.println(f.singleFence(50,3,"Level:" + v.getLevel()+ " " + "Name:"+v.getName()+" "+v.getHP()+ "/" +v.getMaxHP()+"HP "+
+					     v.getMP()+"/"+v.getMaxMP()+"MP"));
+	    System.out.println(bounty.getPortrait());
+	    System.out.println(f.singleFence(75,3,"Name:"+h.getName()+" "+h.getHP()+"/"+h.getMaxHP()+"HP "+
+					     h.getMP()+"/"+h.getMaxMP()+"MP "+ h.getAP()+"/"+h.getMaxAP()+"AP "+
+					     "Level:" + h.getLevel()+" Gold:"+h.getGold()+" Exp:"+h.getXP()));
+	    System.out.println(f.multiFence(2,2,20,2,fightOptions));
+	    String fightInput = sc.nextLine();
 	    if (fightInput.equals("1")){
 		if (h.getDex()>=v.getDex()){
 		    h.attack(v);
 		    v.attack(h);
-		    if (h.getHP() < 0){
-			die();
-		    }
 		}
 		else{
 		    v.attack(h);
 		    h.attack(v);
-		    if (h.getHP() < 0){
-			die();
-		    }
 		}
 	    }
+	    else if (fightInput.equals("4")){
+		if (h.getDex()>=v.getDex()){
+		    useItems();
+		    v.attack(h);
+		}
+		else{
+		    v.attack(h);
+		    useItems();
+		}
 	    }
-	    if (v.getHP() == 0){System.out.println("You have Gained Experience:" + v.getXP() + " " + "You have Gained Gold:" + v.getGold());
-		h.gainExp(v.getXP());
-		totalg = totalg + v.getGold();
-		h.gainGold(v.getGold());
-		totale= totale + v.getXP();
-	    }
+	    if (h.getHP() == 0)
+		die();
+		
+		
+	    
+	}
+	if (v.getHP() == 0){System.out.println("You have Gained Experience:" + v.getXP() + " " + "You have Gained Gold:" + v.getGold());
+	    h.gainExp(v.getXP());
+	    totalg = totalg + v.getGold();
+	    h.gainGold(v.getGold());
+	    totale= totale + v.getXP();
+	}
     }
-    
+    public void useItems(){
+
+	int hammerspaceItems = h.getInventory().size();
+	int hammerspace3 = 2;
+	String[][] InventoryA = new String[hammerspaceItems][hammerspace3];
+	String[] InventoryB = new String[hammerspaceItems];
+	for (int i = 0; i <hammerspaceItems;i++){
+	    InventoryA[i] = h.getInventory().get(i).getDescription();
+	    InventoryB[i] = h.getInventory().get(i).getName();
+	}
+	System.out.println(f.listFence(40,InventoryA));
+	System.out.println("Type in 'Back' to return to the battle screen");
+	System.out.println("Type in the name of the item:");
+	String input = sc.nextLine();
+	if (input.equals("Back") || input.equals("back")){
+	}
+	else if(Arrays.asList(InventoryB).contains(input)){
+	    Items i = new Items(input);
+	    h.heal(i.getHealthValue());
+	    h.healMP(i.getManaValue());
+	    h.healAP(i.getAPValue());
+	    h.removeItems(i.getName());
+	}
+	else{
+	    useItems();
+	}
+    }
        
     
 }
