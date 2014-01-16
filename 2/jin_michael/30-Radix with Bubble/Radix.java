@@ -45,7 +45,7 @@ public class Radix{
 	}
     }
     
-    public double[] bsort(){
+    public double[] bubblesort(){
 	int compare=0;
 	int swap=0;
 	for (int i=data2.length-1;i>=0;i--){
@@ -70,9 +70,52 @@ public class Radix{
 	return data2;
     }
     
+    public double[] selectsort(){
+	int compare=0;
+	int swap=0;
+	for (int i=0; i<data2.length-1;i++){
+	    for (int q=i+1;q<data2.length;q++){
+		compare++;
+		if (data2[i]>data2[q]){
+		    swap++;
+		    double a=data2[i];
+		    data2[i]=data2[q];
+		    data2[q]=a;
+		}
+	    }
+	}
+	System.out.println(compare);
+	System.out.println(swap);	
+	return data2;
+    }
+    
+    public double[] insertsort(){
+	int compare=0;
+	int swap=0;
+	for (int i=1;i<data2.length;i++){
+	    boolean keepgoing=true;
+	    for (int q=i;keepgoing && q>0;q--){
+		compare++;
+		keepgoing=false;
+		if(data2[q]<data2[q-1]){
+		    swap++;
+		    double a=data2[q];
+		    data2[q]=data2[q-1];
+		    data2[q-1]=a;
+		    keepgoing=true;
+		}
+	    }
+	}
+	System.out.println(compare);
+	System.out.println(swap);
+	return data2;    
+    }
+    
+    
+
     public static void main(String[] args){
 	Radix a = new Radix(10);
-	a.bsort();
 	System.out.println(Arrays.toString(a.data2));
+	System.out.println(Arrays.toString(a.bubblesort()));
     }
 }

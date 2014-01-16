@@ -10,6 +10,7 @@ public class Abilities {
     }
     public void activate(){
 	if (skillName == "Flee"){
+	    
 	}
     }
 }
