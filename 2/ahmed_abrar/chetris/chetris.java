@@ -18,7 +18,7 @@ class ChetrisGame implements Runnable {
     private JFrame f2;
     private ChessBoard chessBoard;
     private TetrisBoard p1t , p2t , pt;
-    private JButton start;
+    //    private JButton start;
     private int player , finishedTurn;
     private Thread t;
 
@@ -26,17 +26,17 @@ class ChetrisGame implements Runnable {
 	chessBoard = new ChessBoard();
 	p1t = new TetrisBoard();
 	p2t = new TetrisBoard();
-	start = new JButton ( "Start" );
+	//	start = new JButton ( "Start" );
 	t = new Thread ( this );
 	f = new JPanel();
-	f2 = new JFrame();
+	f2 = new JFrame("Chetris");
 	f.add ( p2t );
 	f.add ( chessBoard );
 	f.add ( p1t );
 	f2.setDefaultCloseOperation ( JFrame.EXIT_ON_CLOSE );
 	f2.getContentPane().setLayout ( new BorderLayout () );
 	f2.setVisible ( true );
-	f2.getContentPane().add ( start , BorderLayout.PAGE_START );
+	//	f2.getContentPane().add ( start , BorderLayout.PAGE_START );
 	f2.getContentPane().add ( f );
 	f2.show();
 	f2.pack();
@@ -229,7 +229,7 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
     }
 
     public Dimension getPreferredSize() {
-	return new Dimension ( 400 , 400 );
+	return new Dimension ( 300 , 300 );
     }
 
     public void actionPerformed ( ActionEvent e ) {
@@ -339,7 +339,71 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 		turn = 1;
 	    }
 	    moveOver = 1;
+	    checkCheck();
+	    //getKing ( turn );
 	}
+    }
+
+    public void checkCheck() {
+	int anotherNumber = 0;
+	//if ( turn == 0 )
+	//anotherNumber = 1;
+	String kings = getKing ( turn );
+	int[] kingcoors = { Integer.parseInt ( kings.substring ( 0 , 1 ) ) , Integer.parseInt ( kings.substring ( 2 , 3 ) ) };
+	for (int q=kingcoors[1] + 1 ; q<buttons.length-1; q++) {
+	    System.out.println ( "kingcoors: " + Arrays.toString ( kingcoors ) + "q:" + q );
+	    if (buttons[ kingcoors[0] ] [ q ].getIcon() != null){
+		System.out.println ( "success kind of"+Integer.parseInt(buttons [ kingcoors[0] ] [ q ].getText().substring(4,5)) );
+		if (Integer.parseInt(buttons [ kingcoors[0] ] [ q ].getText().substring(4,5))==turn) {
+		    System.out.println("SAME TEAM RIGHT");
+		    break;
+		}
+		System.out.println("piece" + q + "units right ="+ buttons[ kingcoors[0] ] [ q ].getText().substring( 6 ));
+		if (buttons[ kingcoors[0] ] [ q ].getText().substring( 6 ).equals( "rook") ) {
+		    System.out.println ( "check" );
+		    break;
+		}
+	    }
+	}
+	for (int q=kingcoors[1]- 1 ; q>0; q--) {
+	    System.out.println ( "kingcoors: " + Arrays.toString ( kingcoors ) + "q:" + q );
+	    if (buttons[ kingcoors[0] ] [ q ].getIcon() != null){
+		System.out.println ( "success kind of"+Integer.parseInt(buttons [ kingcoors[0] ] [ q ].getText().substring(4,5)) );
+		if (Integer.parseInt(buttons [ kingcoors[0] ] [ q ].getText().substring(4,5))==turn) {
+		    System.out.println("SAME TEAM LEFT");
+		    break;
+		}
+		System.out.println("piece" + q + "units right ="+ buttons[ kingcoors[0] ] [ q ].getText().substring( 6 ));
+		if (buttons[ kingcoors[0] ] [ q ].getText().substring( 6 ).equals( "rook") ) {
+		    System.out.println ( "check left" );
+		    break;
+		}
+	    }
+	}
+	System.out.println ( "here is the king" + Arrays.toString ( kingcoors ) );
+
+    }
+
+    public String getKing ( int turn ) {
+     	for ( JButton[] a : buttons ) {
+	    // int j = 0;
+	    for ( JButton i : a ) {
+	    // 	j = j + 1;
+	    // 	System.out.println ( "count: " + j );
+		if ( i.getText().length() > 3 ) {
+		    //System.out.println("more than 3");
+		    if ( Integer.parseInt ( i.getText().substring ( 4 , 5 ) ) == turn ) {
+			//System.out.println("correct player");
+			System.out.println(i.getText().substring ( 6 ));
+			if ( i.getText().substring ( 6 ).equals ( "king" ) ) {
+			    System.out.println ( "comparison:" + i.getText().substring ( 0 , 3 ) );
+			    return i.getText().substring ( 0 , 3 );
+			}
+		    }
+		}
+	    }
+	}
+	return "can't find king";
     }
 
     public void selectPiece ( ActionEvent e , int r , int c ) {
@@ -599,7 +663,7 @@ class ChessBoard extends JPanel implements ActionListener , KeyListener {
 		    else break;
 		}
 	    }
-	    if ( r > 0 && c < buttons [ r ].length ) {
+	    if ( r > 0 && c < buttons [ r ].length - 1 ) {
 		int j = c;
 		for ( int i = r - 1 ; i >= 0 ; i-- ) {
 		    j = j + 1;
@@ -1029,6 +1093,8 @@ class TetrisBoard extends JPanel implements KeyListener , Runnable {
 	    y = 1;
 	    piece = piece5;
 	}
+	//	y = 1;
+	//	piece = piece2;
     }
 
     public void go() {
